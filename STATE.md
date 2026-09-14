@@ -775,6 +775,62 @@ formalize the full `B-P002` (converse) plus the `setoid_le_iff` bridge.
 
 ---
 
+## Session 12 -- 2026-09-14 -- B-P002 correspondence, B-P003, facet bug
+
+**Goal.** Continue the pilot: blind correspondence for `B-P002`; formalize
+`B-P003` (`NablaSat`) with its definitions.
+
+**What was established (closed).**
+
+- **Correspondence `B-P002`** (two-stage blind): stage 2 returned
+  **`equivalent`** after checking refinement direction, saturation order,
+  quantifier domain, and the singleton-family converse. Transcript
+  `blocks/audits/B-P002-correspondence.md`; record **`E-000006`**.
+- `lean/Mslang/Pilot.lean` extended with:
+  - `nabla` -- `∇^A`, the universal sorted equivalence;
+  - `supp` -- `supp_S(A) = {s | A_s ≠ ∅}` (`B-D009`), and `suppSub` for the
+    `Sub(A)` presentation;
+  - `nabla_sat` -- Proposition **`B-P003`** (`NablaSat`): `IsSat (nabla A) X ↔
+    ∀ s, s ∈ suppSub X → X s = Set.univ`.
+- Clean build, 0 errors/0 warnings. `#print axioms Mslang.nabla_sat` =
+  `[propext, Quot.sound]` (permitted). `lean/declarations.json` maps
+  `B-P003 -> Mslang.nabla_sat` and `B-D009 -> Mslang.supp`.
+- **Correspondence `B-P003`** (two-stage blind): stage 2 returned
+  **`equivalent`**, verifying that `nabla` is the universal relation, that
+  `X_s = A_s` means the whole component, and the empty-`X`/empty-sort cases.
+  Transcript `blocks/audits/B-P003-correspondence.md`; record **`E-000008`**.
+  Verification record **`E-000007`** (`B-P003`, `build_ok`).
+
+**Finding (real tooling bug, caught by the validity rule).**
+
+- Adding an `@[instance_reducible]` attribute before `nabla` **silently
+  changed `B-P002`'s `formal_proof` hash**: the declaration extractor ran a
+  declaration's block to the *next* declaration's start, so a leading
+  attribute line leaked into the previous block. `status.py` correctly reported
+  `B-P002 verification stale`. Fixed `scripts/lean_facets.py` (`BOUNDARY_RE`
+  now cuts at a line-leading `@[`) and added a regression check to
+  `lean_facets_test.py` (`11` checks, all pass). After the fix the hash returned
+  to its recorded value and `E-000005` is current again. This is exactly the
+  kind of silent-desync the architecture (Section 13.3) warns about, and it was
+  detected mechanically, not by inspection.
+
+**Current pilot state.** `B-C001`, `B-P002`, `B-P003` each have review or
+correspondence/verification evidence; `B-C001` has all three layers `pass`.
+`check_all`: **13 passed, 0 failed**.
+
+**Prioritized next steps.**
+
+1. Formalize the definition blocks whose declarations are still unmapped:
+   `B-D002` (`SSorted`), `B-D014` (`SortedEqv`/`sat`/`IsSat`), `B-D006`
+   (`δ^t`), `B-D004` (`Subsingleton`); then the remaining bridges
+   (`sat_eq_preimage`, `card_le_one_iff`, `delta_support`).
+2. Reconstruct a Lean -> `Explanation` for a proven block (Section 11a.5) and
+   adversarial-read it; this is the outstanding Phase 0 deliverable.
+3. Seeded-mismatch calibration suite (Section 11.4); independent representation
+   audit; JSON vs YAML records.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
