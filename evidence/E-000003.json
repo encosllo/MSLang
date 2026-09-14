@@ -1,0 +1,28 @@
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000003",
+  "findings": [
+    "lake build: Mslang.sat_antitone compiled sorry-free against Mathlib v4.33.1.",
+    "#print axioms Mslang.sat_antitone = [propext, Quot.sound] (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only. The formal_proof facet is a source-level hash (scripts/lean_facets.py), not an elaborated proof term; the representation has not been independently audited (E-000002 is a self-audit).",
+  "inputs": [
+    {
+      "artifact": "B-C001/formal_proof",
+      "hash": "39d3a77deebc9c10d31f8cd9b5e13937e2e0ade1d883bb1e20fb410896ca1f16"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T11:26:20Z"
+}
