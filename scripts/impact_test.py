@@ -67,8 +67,21 @@ def main():
     # A representation (C6) change stales every record listing it.
     rep_change = impact.simulate("representation/encoding", registry, records, rep)
     check("representation change stales records listing it",
-          "E-000001" in ids(rep_change) and "E-000004" in ids(rep_change),
+          "E-000001" in ids(rep_change) and "E-000017" in ids(rep_change),
           str(ids(rep_change)))
+
+    # Formal (definition-closure) propagation: a definition's formal_statement
+    # change stales its formal dependents' correspondence records.
+    formal_edges = impact.load_formal_edges(ROOT / "blocks" / "formal_graph.json")
+    def_change = impact.simulate("B-D014/formal_statement", registry, records, rep,
+                                 formal_edges=formal_edges)
+    check("formal definition change reaches dependent correspondence",
+          any(r["block"] in {"B-C001", "B-P002", "B-P003", "B-C002"}
+              and r["layer"] == "correspondence" for r in def_change),
+          str([(r["block"], r["layer"]) for r in def_change]))
+    check("formal definition change does not stale verification",
+          all(r["layer"] != "verification" for r in def_change),
+          str([(r["block"], r["layer"]) for r in def_change]))
 
     print()
     if FAILURES:

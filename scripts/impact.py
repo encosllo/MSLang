@@ -58,14 +58,56 @@ def affected_blocks(block, edges):
     return sorted(seen)
 
 
-def simulate(artifact, registry, records, representation_hashes, new_hash=NEW_HASH):
-    """Return the currently-current records that the change would stale."""
+def load_formal_edges(path):
+    doc = json.loads(Path(path).read_text(encoding="utf-8"))
+    return doc.get("edges", [])
+
+
+def formal_dependents(block, formal_edges):
+    """Transitive formal users of ``block`` (via ``formal_uses``)."""
+    users = {}
+    for e in formal_edges:
+        users.setdefault(e["to"], set()).add(e["from"])
+    seen, stack = set(), list(users.get(block, ()))
+    while stack:
+        cur = stack.pop()
+        if cur in seen or cur == block:
+            continue
+        seen.add(cur)
+        stack.extend(users.get(cur, ()))
+    return sorted(seen)
+
+
+def changed_artifacts(artifact, registry, formal_edges):
+    """The set of facets whose hash a change to ``artifact`` would alter.
+
+    A definition change (Section 13.2 class C4) propagates: a change to a
+    block's ``formal_statement`` -- or to the ``formal_proof`` *body* of a
+    definition -- changes the ``formal_statement`` of every formal dependent,
+    because that facet includes its definition closure (Section 6). A theorem's
+    proof change (C1) does not propagate.
+    """
+    changed = {artifact}
     block, _, facet = artifact.partition("/")
+    if formal_edges and facet.startswith("formal_"):
+        is_definition = registry.get(block, {}).get("kind") == "definition"
+        if facet == "formal_statement" or (facet == "formal_proof" and is_definition):
+            for dep in formal_dependents(block, formal_edges):
+                changed.add(f"{dep}/formal_statement")
+    return changed
+
+
+def simulate(artifact, registry, records, representation_hashes, new_hash=NEW_HASH,
+             formal_edges=None):
+    """Return the currently-current records that the change would stale."""
+    changed = changed_artifacts(artifact, registry, formal_edges or [])
     reg2 = copy.deepcopy(registry)
     rep2 = dict(representation_hashes)
-    if block == "representation":
-        rep2[facet] = new_hash
-    else:
+    for art in changed:
+        block, _, facet = art.partition("/")
+        if block == "representation":
+            rep2[facet] = new_hash
+            continue
         entry = reg2.setdefault(block, {}).setdefault("facets", {})
         if isinstance(entry.get(facet), dict):
             entry[facet]["hash"] = new_hash
@@ -125,6 +167,7 @@ def main(argv):
     ap.add_argument("--artifact", default="B-D014/informal_statement")
     ap.add_argument("--registry", default=str(ROOT / "blocks" / "registry.json"))
     ap.add_argument("--graph", default=str(ROOT / "blocks" / "graph.json"))
+    ap.add_argument("--formal-graph", default=str(ROOT / "blocks" / "formal_graph.json"))
     ap.add_argument("--evidence-dir", default=str(ROOT / "evidence"))
     ap.add_argument("--representation", default=str(ROOT / "representation" / "pilot-encoding.md"))
     ap.add_argument("--representation-name", default="encoding")
@@ -135,12 +178,13 @@ def main(argv):
 
     registry = status.load_registry(Path(args.registry))
     edges = closure.load_edges(Path(args.graph), confirmed_only=True)
+    formal_edges = load_formal_edges(args.formal_graph) if Path(args.formal_graph).exists() else []
     records = status.load_evidence(args.evidence_dir)
     rep = {args.representation_name: status.hash_file(Path(args.representation))}
 
     block = args.artifact.split("/", 1)[0]
     blocks = affected_blocks(block, edges) if block != "representation" else []
-    staled = simulate(args.artifact, registry, records, rep)
+    staled = simulate(args.artifact, registry, records, rep, formal_edges=formal_edges)
 
     if args.json:
         print(json.dumps({
