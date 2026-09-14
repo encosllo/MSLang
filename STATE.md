@@ -713,6 +713,68 @@ record.
 
 ---
 
+## Session 11 -- 2026-09-14 -- correspondence audit and B-P002
+
+**Goal.** Run the two-stage blind correspondence audit for `B-C001`, and
+formalize the full `B-P002` (converse) plus the `setoid_le_iff` bridge.
+
+**What was established (closed).**
+
+- **Correspondence audit for `B-C001` (Section 11.2, two-stage blind).** Stage 1
+  (fresh agent, given only the Lean declaration + definitions) read the
+  statement back as an informal theorem about sorted sets and equivalences.
+  Stage 2 (fresh agent, given only that read-back + the contract) returned
+  **`equivalent`**, checking refinement direction, saturation semantics,
+  quantifier variance, and the empty-sort / empty-`X` degenerate cases. Full
+  transcript saved to `blocks/audits/B-C001-correspondence.md`; recorded as
+  **`evidence/E-000004.json`** (correspondence, `equivalent`). Independence
+  caveat: both stages share this session's model.
+- `lean/Mslang/Pilot.lean` now contains:
+  - `prop_incSat` -- the **full** Proposition `B-P002`: `sortedEqvLe Φ Ψ ↔
+    ∀ X, sat Φ (sat Ψ X) = sat Ψ X`. The converse uses a singleton test family
+    `X = Function.update (fun t => ∅) s {x}` (needs `classical` for
+    `DecidableEq S`); no dependent transport.
+  - `setoid_le_iff` -- the encoding bridge: `sortedEqvLe` is *definitionally*
+    inclusion of the underlying relations (`Iff.rfl`), so the paper's `Φ ⊆ Ψ`
+    is the Lean order.
+  - Clean build, 0 errors/warnings. `#print axioms Mslang.prop_incSat` =
+    `[propext, Classical.choice, Quot.sound]` (permitted); `setoid_le_iff` uses
+    no axioms; `sat_antitone` still `[propext, Quot.sound]`.
+- `lean/declarations.json` now maps `B-P002 -> Mslang.prop_incSat`; the
+  formal statement/proof hashes regenerated (`blocks/formal.json`).
+- **`evidence/E-000005.json`** (verification, `B-P002`, `build_ok`).
+  `status.py` now: `B-C001` review / correspondence / verification all `pass`;
+  `B-P002` verification `pass`; representation `pass`.
+- `scripts/check_all.sh`: **13 passed, 0 failed** (unchanged count).
+
+**Findings.**
+
+- The `B-P002` converse is where the encoding's fixed-ambient carrier model
+  actually matters: instantiating the hypothesis at the singleton family needs
+  `classical` (`Classical.choice`), because `S` has no decidable equality in
+  general. This is the first place `Classical.choice` enters a proof (the
+  encoding's D6 was declared harmless; it is, but it is now *used*).
+- The manuscript's route to `B-C001` (via `B-P002`) is now fully formalized, as
+  is the direct route (`sat_antitone`). Both establish the corollary.
+- Still unproved bridges: `sat_eq_preimage`, `card_le_one_iff`, `delta_support`.
+  The last two need the pilot definitions not yet formalized (`δ^t` `B-D006`,
+  `supp_S` `B-D009`, `card`/`Subsingleton` `B-D004`).
+- `B-P002` has no correspondence record yet (its blind audit is scheduled), and
+  `B-C001` has no *independent* (cross-model) audit: everything is same-model.
+
+**Prioritized next steps.**
+
+1. Blind correspondence for `B-P002`; then the definition blocks (`B-D002`,
+   `B-D014`) once their Lean declarations are mapped.
+2. Formalize `B-D006` (`δ`), `B-D009` (`supp`), `B-D004` (`card ≤ 1` /
+   `Subsingleton`), then the remaining bridges and `B-P003`.
+3. Reconstruct a Lean -> `Explanation` for a proven block (Section 11a.5) and
+   adversarial-read it.
+4. Seeded-mismatch calibration suite (Section 11.4); independent representation
+   audit; JSON vs YAML records.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
