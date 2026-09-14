@@ -1273,6 +1273,40 @@ Lean counterparts; evidence for 9 blocks.
 
 ---
 
+## Session 23 -- 2026-09-14 -- definition closure in formal_statement (gap closed)
+
+**Goal.** Close the formal C4 gap flagged in Session 17: a formal definition
+change must propagate to dependents.
+
+**What was established (closed).**
+
+- `scripts/lean_facets.py`: `formal_statement` now hashes the declaration's own
+  signature **together with its transitive definition closure** (the formal
+  dependency statements), exactly as Section 6 specifies; proofs are excluded,
+  so proof irrelevance is preserved. `blocks/formal.json` records each block's
+  `definition_closure` list.
+- **Consequence, and it is the correct behaviour:** recomputing the facets
+  staled exactly the **4 correspondence records** (their `formal_statement`
+  input changed) and nothing else. They were **superseded** by fresh records
+  `E-000017`..`E-000020`; the read-back bundles already included the definitions
+  (the definition closure), so the `equivalent` verdicts are unchanged -- noted
+  in each new record.
+- `scripts/impact.py` now propagates through `formal_graph.json`: a change to a
+  definition's `formal_statement` **or to a definition's body** (`formal_proof`
+  of a `kind: definition` block, class C4) stales the correspondence records of
+  all formal dependents; a **theorem's** proof change (C1) stays local to its own
+  verification. `impact_test.py` now 9 checks, all pass.
+- `check_all`: **23 passed, 0 failed**.
+
+**Prioritized next steps.**
+
+1. Blind correspondence for `B-D004`, `B-R006`, `B-R008`.
+2. Per-case / second-model calibration runs.
+3. Resolve remaining residual bridges (`R-delta` singleton model, `R-quotient`
+   element-level).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
