@@ -1,0 +1,42 @@
+# Regenerable build artifacts only (Architecture.md Section 10.5).
+# Never ignore the durable record: manuscript/, lean/ sources, blocks/,
+# evidence/, journal/, scripts/, reports/, STATE.md are always tracked.
+
+# Lean / Lake
+.lake/
+lean/.lake/
+*.olean
+*.ilean
+*.trace
+
+# Project-local toolchain / package cache (bootstrap item 2; never shared)
+.elan/
+lean/.elan/
+.toolchain-cache/
+
+# LaTeX byproducts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.synctex
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.toc
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.nav
+*.snm
+*.vrb
+*.xdv
+manuscript/*.pdf
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*~

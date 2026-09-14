@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# pre-commit hook: evidence immutability (Architecture.md Section 10.5).
+# Installed by scripts/install_hooks.sh (git config core.hooksPath scripts/hooks).
+set -uo pipefail
+exec "$(git rev-parse --show-toplevel)/scripts/check_evidence_immutability.sh"

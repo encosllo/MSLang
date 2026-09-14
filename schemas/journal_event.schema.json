@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mslang.local/schemas/journal_event.schema.json",
+  "title": "Journal event",
+  "description": "Architecture.md Sections 10.4, 10.5, 13.1. Append-only JSONL; every state change is one line. Git is the durable history behind this index.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "timestamp", "kind", "summary"],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "pattern": "^EV-[0-9]{6}$"
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "session_start",
+        "session_end",
+        "facet_revision",
+        "evidence_created",
+        "evidence_staled",
+        "status_change",
+        "change_classified",
+        "salvage_decision",
+        "block_minted",
+        "block_superseded",
+        "representation_revision",
+        "escalation_opened",
+        "escalation_resolved",
+        "freeze",
+        "commit"
+      ]
+    },
+    "block": { "type": "string" },
+    "evidence_id": { "type": "string", "pattern": "^E-[0-9]{6}$" },
+    "change_class": {
+      "type": "string",
+      "enum": ["C0", "C1", "C2", "C3", "C4", "C5", "C6", "F2"]
+    },
+    "actor": { "type": "string" },
+    "git_commit": { "type": "string" },
+    "summary": { "type": "string" },
+    "details": { "type": "object" }
+  }
+}

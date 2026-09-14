@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mslang.local/schemas/evidence.schema.json",
+  "title": "Evidence record",
+  "description": "Architecture.md Section 7.2. Immutable; supersede, never edit. Validity = every listed input hash equals the artifact's current hash.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "layer",
+    "block",
+    "inputs",
+    "environment",
+    "producer",
+    "outcome",
+    "timestamp"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^E-[0-9]{6}$"
+    },
+    "layer": {
+      "type": "string",
+      "enum": ["review", "correspondence", "verification", "representation"]
+    },
+    "block": {
+      "type": "string",
+      "pattern": "^(B-[0-9]{4}|representation/[A-Za-z0-9_.-]+)$"
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact", "hash"],
+        "properties": {
+          "artifact": {
+            "type": "string",
+            "description": "e.g. B-0142/formal_statement, D-0007/formal_statement"
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lean", "mathlib"],
+      "properties": {
+        "lean": { "type": "string" },
+        "mathlib": { "type": "string" }
+      }
+    },
+    "git_commit": {
+      "type": "string",
+      "description": "Optional provenance only; not part of the validity rule."
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "role"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["agent", "human", "build"] },
+        "role": {
+          "type": "string",
+          "enum": [
+            "author",
+            "mathematical_worker",
+            "reviewer",
+            "formalization_worker",
+            "read_back_auditor",
+            "comparator",
+            "adversarial_reader",
+            "encoding_auditor",
+            "coordinator"
+          ]
+        },
+        "model": { "type": "string" },
+        "prompt_rev": { "type": "string" }
+      }
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "equivalent",
+        "formal_stronger",
+        "formal_weaker",
+        "incomparable",
+        "ill_posed",
+        "faithful",
+        "faithful-with-caveat",
+        "unfaithful",
+        "pass",
+        "fail",
+        "build_ok",
+        "build_failed"
+      ]
+    },
+    "strength": {
+      "type": "string",
+      "enum": ["R0", "R1", "R2", "R3", "R4"],
+      "description": "Review layer only (Section 7.3)."
+    },
+    "independence_caveat": {
+      "type": "string",
+      "description": "Required in practice for agent producers; state plainly how independent the check was."
+    },
+    "findings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "timestamp": { "type": "string", "format": "date-time" }
+  }
+}
