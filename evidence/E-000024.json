@@ -1,0 +1,28 @@
+{
+  "block": "B-D015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000024",
+  "findings": [
+    "lake build: Mslang.SortedMap and Mslang.ker (B-D015, kernel of an S-sorted mapping) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.ker_iff does not depend on any axioms."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. SortedMap is the componentwise-function encoding of an S-sorted mapping (residual R-carrier for the morphism carrier).",
+  "inputs": [
+    {
+      "artifact": "B-D015/formal_proof",
+      "hash": "fdc5f113ee0cde86ee9406d1c93de5413439296027794be2dacf33405c0c9800"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T15:28:54Z"
+}

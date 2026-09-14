@@ -63,6 +63,13 @@
         "Mslang.nabla_sat_deltaUnion"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D015": {
+      "decls": [
+        "Mslang.SortedMap",
+        "Mslang.ker"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

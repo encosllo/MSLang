@@ -359,4 +359,18 @@ theorem eqvClass_eq_iff {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a b : A s)
     · intro hbc
       exact (Φ s).trans h hbc
 
+/-- An `S`-sorted mapping `f : A → B` (Definition `B-D002`): a componentwise
+function `f_s : A_s → B_s`. -/
+abbrev SortedMap (A B : SSorted S U) := ∀ s, A s → B s
+
+/-- Definition `B-D015`: the kernel `Ker(f)` of an `S`-sorted mapping,
+componentwise the kernel pair of `f_s` (`x ~ y` iff `f_s x = f_s y`). -/
+def ker {A B : SSorted S U} (f : SortedMap A B) : SortedEqv A :=
+  fun s =>
+    ⟨fun x y => f s x = f s y,
+     ⟨fun x => rfl, fun h => h.symm, fun h1 h2 => h1.trans h2⟩⟩
+
+theorem ker_iff {A B : SSorted S U} (f : SortedMap A B) (s : S) (x y : A s) :
+    (ker f s).r x y ↔ f s x = f s y := Iff.rfl
+
 end Mslang

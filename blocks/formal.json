@@ -125,6 +125,23 @@
         "hash": "a3ff1c71cae8d397b85d1451330cc1b5d55369c2efa93c4eb8e6e67c8b626be6"
       }
     },
+    "B-D015": {
+      "decls": [
+        "Mslang.SortedMap",
+        "Mslang.ker"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D014"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "fdc5f113ee0cde86ee9406d1c93de5413439296027794be2dacf33405c0c9800"
+      },
+      "formal_statement": {
+        "hash": "ab3efbb00afa443956acf7e917cef7b819507319326997f8a097f170a40e076f"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"

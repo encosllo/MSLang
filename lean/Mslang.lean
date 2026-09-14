@@ -30,3 +30,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.sanity_nonvacuous
 #print axioms Mslang.sanity_converse_counterexample
 #print axioms Mslang.eqvClass_eq_iff
+#print axioms Mslang.ker_iff
