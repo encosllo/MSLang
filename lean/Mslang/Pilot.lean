@@ -324,4 +324,14 @@ theorem nabla_sat_deltaUnion {A : SSorted S U} (T : Set S) :
   · simp [deltaUnion, hT]
   · simp [deltaUnion, suppSub, hT] at hs
 
+/-- Relative complement `∁_A X`, componentwise inside `A` -- addressing the
+`R-complement` residual: complement is taken in `A_s` (`Set.compl` on the
+subtype), never in the ambient `U`. -/
+def complA {A : SSorted S U} (X : ∀ s, Set (A s)) : ∀ s, Set (A s) :=
+  fun s => (X s)ᶜ
+
+theorem complA_bridge {A : SSorted S U} (X : ∀ s, Set (A s)) (s : S) (a : A s) :
+    a ∈ complA X s ↔ a ∉ X s := by
+  simp [complA]
+
 end Mslang
