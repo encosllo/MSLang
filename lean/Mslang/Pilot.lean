@@ -334,4 +334,29 @@ theorem complA_bridge {A : SSorted S U} (X : ∀ s, Set (A s)) (s : S) (a : A s)
     a ∈ complA X s ↔ a ∉ X s := by
   simp [complA]
 
+/-- The `Φ`-equivalence class of `a`, as a subset of `A s` -- the element-level
+counterpart of `Quotient (Φ s)` (addresses residual `R-quotient`). -/
+def eqvClass {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a : A s) : Set (A s) :=
+  {b | (Φ s).r a b}
+
+theorem mem_eqvClass {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a b : A s) :
+    b ∈ eqvClass Φ s a ↔ (Φ s).r a b := Iff.rfl
+
+/-- Bridge `quot_class_bridge` (element level): two equivalence classes are
+equal if and only if their representatives are related. -/
+theorem eqvClass_eq_iff {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a b : A s) :
+    eqvClass Φ s a = eqvClass Φ s b ↔ (Φ s).r a b := by
+  constructor
+  · intro h
+    have ha : a ∈ eqvClass Φ s a := (Φ s).refl a
+    rw [h] at ha
+    exact (Φ s).symm ha
+  · intro h
+    ext c
+    constructor
+    · intro hac
+      exact (Φ s).trans ((Φ s).symm h) hac
+    · intro hbc
+      exact (Φ s).trans h hbc
+
 end Mslang
