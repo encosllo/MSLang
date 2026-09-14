@@ -20,9 +20,12 @@
 #  14. impact report current            (reports/impact.md drift check)
 #  15. discrepancy tests                (informal vs formal graph, Section 12.2)
 #  16. discrepancy report current       (reports/discrepancy.md drift check)
-#  17. record schema validation         (journal + evidence)
-#  18. project views current            (reports/ drift check)
-#  19. exit-code-checked manuscript build
+#  17. decisions tests                  (decision queue, Sections 16.4/19)
+#  18. decisions report current         (reports/decisions.md drift check)
+#  19. evidence bundle current          (reports/bundle.md drift check)
+#  20. record schema validation         (journal + evidence)
+#  21. project views current            (reports/ drift check)
+#  22. exit-code-checked manuscript build
 #
 # Usage: scripts/check_all.sh
 set -uo pipefail
@@ -70,6 +73,9 @@ run "impact tests" python3 scripts/impact_test.py
 run "impact report current" python3 scripts/impact.py --artifact B-D014/informal_statement --check-report
 run "discrepancy tests" python3 scripts/discrepancy_test.py
 run "discrepancy report current" python3 scripts/discrepancy.py --check-report
+run "decisions tests" python3 scripts/decisions_test.py
+run "decisions report current" python3 scripts/decisions.py --check-report
+run "evidence bundle current" python3 scripts/bundle.py --check-report
 run "record schema validation" python3 scripts/validate_records.py
 run "project views current" python3 scripts/report.py --check
 run "manuscript build" scripts/build_manuscript.sh

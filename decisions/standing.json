@@ -1,0 +1,45 @@
+{
+  "note": "Standing decisions reserved for the author (Architecture.md Sections 16.4, 19). Rendered by scripts/decisions.py alongside open journal escalations.",
+  "decisions": [
+    {
+      "id": "D-explanation-c001",
+      "category": "contract",
+      "decision": "Accept or revise the proposed Explanation for B-C001 (blocks/explanations/B-C001.md) into the manuscript."
+    },
+    {
+      "id": "D-explanation-c002",
+      "category": "contract",
+      "decision": "Accept or revise the proposed Explanation for B-C002 (blocks/explanations/B-C002.md) into the manuscript."
+    },
+    {
+      "id": "D-representation",
+      "category": "representation",
+      "decision": "Accept the pilot encoding / carrier model (residual D2) and the independent encoding audit E-000013, or revise them."
+    },
+    {
+      "id": "D-record-format",
+      "category": "tooling",
+      "decision": "Choose JSON vs YAML for evidence records (currently JSON, which the dependency-free validator handles)."
+    },
+    {
+      "id": "D-pilot-scope",
+      "category": "scope",
+      "decision": "Confirm or revise the pilot cluster scope; freeze the B-D014 contract if stable."
+    },
+    {
+      "id": "D-bp002-simplification",
+      "category": "manuscript",
+      "decision": "Decide whether to adopt the formalization-produced simplification of B-P002's converse (drop the delta construction; EV-000022/EV-000019 finding)."
+    },
+    {
+      "id": "D-toolchain",
+      "category": "environment",
+      "decision": "Install a project-local Lean toolchain (bootstrap item 2, full isolation) or continue using the machine ~/.elan toolchain; disk headroom is the constraint."
+    },
+    {
+      "id": "D-calibration-models",
+      "category": "evaluation",
+      "decision": "Provide a second model for calibration / independent audits (all current audits share one model), or accept same-model detection rates."
+    }
+  ]
+}
