@@ -1,0 +1,26 @@
+{
+  "encoding": {
+    "file": "representation/pilot-encoding.md",
+    "note": "Pilot cluster = dependency closure of B-D014, as declared in representation/pilot-encoding.md. A block is covered by this representation when a review/correspondence record for it lists the representation hash.",
+    "blocks": [
+      "B-C001",
+      "B-C002",
+      "B-D002",
+      "B-D003",
+      "B-D005",
+      "B-D006",
+      "B-D009",
+      "B-D014",
+      "B-D015",
+      "B-P002",
+      "B-P003"
+    ],
+    "bridge_obligations": [
+      "sat_eq_preimage",
+      "setoid_le_iff",
+      "sat_antitone",
+      "card_le_one_iff",
+      "delta_support"
+    ]
+  }
+}

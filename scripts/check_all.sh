@@ -11,8 +11,10 @@
 #   5. hygiene tests                    (line shift / locality / re-ingest)
 #   6. propagation tests                (closures, proof irrelevance, fail-closed)
 #   7. status tests                     (validity rule, layer status)
-#   8. record schema validation         (journal + evidence)
-#   9. exit-code-checked manuscript build
+#   8. trust boundary tests             (representation residuals propagate)
+#   9. record schema validation         (journal + evidence)
+#  10. project views current            (reports/ drift check)
+#  11. exit-code-checked manuscript build
 #
 # Usage: scripts/check_all.sh
 set -uo pipefail
@@ -50,7 +52,9 @@ run "cross-reference audit" python3 scripts/check_crossrefs.py --audit manuscrip
 run "hygiene tests" python3 scripts/hygiene_test.py
 run "propagation tests" python3 scripts/propagation_test.py
 run "status tests" python3 scripts/status_test.py
+run "trust boundary tests" python3 scripts/trust_test.py
 run "record schema validation" python3 scripts/validate_records.py
+run "project views current" python3 scripts/report.py --check
 run "manuscript build" scripts/build_manuscript.sh
 
 echo
