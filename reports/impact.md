@@ -14,11 +14,11 @@ rework.
 | record | block | layer |
 |---|---|---|
 | E-000001 | `B-C001` | review |
-| E-000004 | `B-C001` | correspondence |
-| E-000006 | `B-P002` | correspondence |
-| E-000008 | `B-P003` | correspondence |
-| E-000011 | `B-C002` | correspondence |
 | E-000012 | `B-C002` | review |
+| E-000017 | `B-C001` | correspondence |
+| E-000018 | `B-P002` | correspondence |
+| E-000019 | `B-P003` | correspondence |
+| E-000020 | `B-C002` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

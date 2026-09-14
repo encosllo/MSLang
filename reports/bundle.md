@@ -9,7 +9,7 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `f7f01c5a0be32e08bc255ab8e7910fa2d65d79dc9b26242e984262909cbc50cf` |
+| `blocks/formal.json` | `6cd282147649a6378735e610d2c4624d3d64ed425a51a38eda002f23664eeb49` |
 | `blocks/formal_graph.json` | `24eea4b73b5d448802bf2aa00a4b4b88d3c0d8160c4e177b91519795c4e56e78` |
 | `blocks/graph.json` | `3b6dfa60e436daccd6c0598423c7b093b8181bf809a210530fa413f9276c1924` |
 | `blocks/hashes.json` | `0079d486e94e79540e74449630a9f217660a837d44d991786183448f123169e1` |
@@ -33,7 +33,11 @@ repository.
 | `evidence/E-000014.json` | `d33c6a951deecdcbc8e37a01fb3bc10edbe7f4080aa41e525cdefe2bf7103e21` |
 | `evidence/E-000015.json` | `adcb2b1ff758eac595d724975ac20fd780e1d8251b64e71ba8e612efec35cea3` |
 | `evidence/E-000016.json` | `291e3d90019c2ab9facb59baebfd9db2502dbb981320d6b38a762647f31f9854` |
-| `journal/events.jsonl` | `eae2ed3983255fe3f9343e5a297bc09a7e44d356f70ddb2d822e57519dfef8b3` |
+| `evidence/E-000017.json` | `02f4990c451f5b3f3a32b15aa43f3a6e619b1a9c8b2f77c3ab8b801a742bfd56` |
+| `evidence/E-000018.json` | `7f35b860707bbb03864adf782eea90dd3e95aa010768076e63d1d4ae975e12a4` |
+| `evidence/E-000019.json` | `dd8f9e4d831a9036b962b87c209622c493149397fa01f6c4f2b374b059af6e87` |
+| `evidence/E-000020.json` | `fe7b3536fe182f2676473ea31c3573b643c8fb60d1021c11a5d73119457941ff` |
+| `journal/events.jsonl` | `4d243e1bfe89ebb273e534d288e5be1b72357ff835c5feaac1b6ec46bddb8115` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `20315adb32d4ac06d6e2154edb71f0d9c66de5a58aa095183d676118c80446ca` |
@@ -44,17 +48,17 @@ repository.
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-C001` | correspondence | pass | 1 | 0 |
+| `B-C001` | correspondence | pass | 1 | 1 |
 | `B-C001` | review | pass | 1 | 0 |
 | `B-C001` | verification | pass | 1 | 0 |
-| `B-C002` | correspondence | pass | 1 | 0 |
+| `B-C002` | correspondence | pass | 1 | 1 |
 | `B-C002` | review | pass | 1 | 0 |
 | `B-C002` | verification | pass | 1 | 0 |
 | `B-D004` | verification | pass | 1 | 0 |
 | `B-D006` | verification | pass | 1 | 0 |
-| `B-P002` | correspondence | pass | 1 | 0 |
+| `B-P002` | correspondence | pass | 1 | 1 |
 | `B-P002` | verification | pass | 1 | 0 |
-| `B-P003` | correspondence | pass | 1 | 0 |
+| `B-P003` | correspondence | pass | 1 | 1 |
 | `B-P003` | verification | pass | 1 | 0 |
 | `B-R006` | verification | pass | 1 | 0 |
 | `B-R008` | verification | pass | 1 | 0 |
@@ -678,6 +682,190 @@ repository.
 }
 ```
 
+### E-000017
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000017",
+  "findings": [
+    "Re-issued after formal_statement was extended to include its definition closure (Section 6). The stage-1 read-back bundle already included the definitions, so the verdict is unchanged.",
+    "Transcript: blocks/audits/B-C001-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and its definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/formal_statement",
+      "hash": "e21690dcee6398cca10bb811d781b19c7e3a94324195f215834ec446e798eda6"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:02:23Z"
+}
+```
+
+### E-000018
+
+```json
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000018",
+  "findings": [
+    "Re-issued after formal_statement was extended to include its definition closure (Section 6). The stage-1 read-back bundle already included the definitions, so the verdict is unchanged.",
+    "Transcript: blocks/audits/B-P002-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and its definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/formal_statement",
+      "hash": "be02effb97bfd3d8cd89ebbf084d38dd6ea789d3eebfab5b06d900bdea67dc42"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:02:23Z"
+}
+```
+
+### E-000019
+
+```json
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000019",
+  "findings": [
+    "Re-issued after formal_statement was extended to include its definition closure (Section 6). The stage-1 read-back bundle already included the definitions, so the verdict is unchanged.",
+    "Transcript: blocks/audits/B-P003-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and its definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P003/formal_statement",
+      "hash": "ccdd6f4a14306caeeb625678153ddbdb5a7993ca54188de65407fa36dca093cc"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:02:23Z"
+}
+```
+
+### E-000020
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000020",
+  "findings": [
+    "Re-issued after formal_statement was extended to include its definition closure (Section 6). The stage-1 read-back bundle already included the definitions, so the verdict is unchanged.",
+    "Transcript: blocks/audits/B-C002-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and its definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C002/formal_statement",
+      "hash": "f37cc0f8977944a037f8c65c171f1c902396a89e70d315613493cfd85e7ad1d5"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:02:23Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -689,7 +877,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 9
-- Evidence records: 16
+- Evidence records: 20
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -870,11 +1058,11 @@ rework.
 | record | block | layer |
 |---|---|---|
 | E-000001 | `B-C001` | review |
-| E-000004 | `B-C001` | correspondence |
-| E-000006 | `B-P002` | correspondence |
-| E-000008 | `B-P003` | correspondence |
-| E-000011 | `B-C002` | correspondence |
 | E-000012 | `B-C002` | review |
+| E-000017 | `B-C001` | correspondence |
+| E-000018 | `B-P002` | correspondence |
+| E-000019 | `B-P003` | correspondence |
+| E-000020 | `B-C002` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
