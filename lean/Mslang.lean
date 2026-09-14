@@ -1,4 +1,5 @@
 import Mslang.Pilot
+import Mslang.Sanity
 
 /-!
 Environment smoke test and axiom audit for the MSLang pilot (Architecture.md
@@ -25,3 +26,6 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.isSat_iff_preimage
 #print axioms Mslang.nabla_sat_empty
 #print axioms Mslang.nabla_sat_deltaUnion
+#print axioms Mslang.sanity_not_subfinal
+#print axioms Mslang.sanity_nonvacuous
+#print axioms Mslang.sanity_converse_counterexample

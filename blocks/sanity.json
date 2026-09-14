@@ -1,0 +1,23 @@
+{
+  "note": "Formal sanity checks (Architecture.md Section 11.3) and the block each supports. The declarations live in lean/Mslang/Sanity.lean; scripts/sanity.py checks they are present and renders reports/sanity.md. These are verification-supporting checks (non-vacuity, examples, negation probes), not evidence records.",
+  "checks": [
+    {
+      "block": "B-D004",
+      "kind": "convention_check",
+      "decl": "sanity_not_subfinal",
+      "note": "exA is not subfinal: its false component has two distinct elements, so Subsingleton/card<=1 fails there."
+    },
+    {
+      "block": "B-C001",
+      "kind": "non_vacuity",
+      "decl": "sanity_nonvacuous",
+      "note": "An explicit model in which the hypotheses of sat_antitone are jointly satisfiable and the conclusion holds; the corollary is not vacuously true."
+    },
+    {
+      "block": "B-C001",
+      "kind": "negation_probe",
+      "decl": "sanity_converse_counterexample",
+      "note": "With Phi discrete and Psi universal, a family is Phi-saturated but not Psi-saturated; the converse inclusion Phi-Sat subseteq Psi-Sat is false, confirming the direction of B-C001 is essential."
+    }
+  ]
+}

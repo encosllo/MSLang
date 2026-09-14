@@ -22,10 +22,11 @@
 #  16. discrepancy report current       (reports/discrepancy.md drift check)
 #  17. decisions tests                  (decision queue, Sections 16.4/19)
 #  18. decisions report current         (reports/decisions.md drift check)
-#  19. evidence bundle current          (reports/bundle.md drift check)
-#  20. record schema validation         (journal + evidence)
-#  21. project views current            (reports/ drift check)
-#  22. exit-code-checked manuscript build
+#  19. sanity checks report current     (reports/sanity.md drift check)
+#  20. evidence bundle current          (reports/bundle.md drift check)
+#  21. record schema validation         (journal + evidence)
+#  22. project views current            (reports/ drift check)
+#  23. exit-code-checked manuscript build
 #
 # Usage: scripts/check_all.sh
 set -uo pipefail
@@ -75,6 +76,7 @@ run "discrepancy tests" python3 scripts/discrepancy_test.py
 run "discrepancy report current" python3 scripts/discrepancy.py --check-report
 run "decisions tests" python3 scripts/decisions_test.py
 run "decisions report current" python3 scripts/decisions.py --check-report
+run "sanity checks report current" python3 scripts/sanity.py --check-report
 run "evidence bundle current" python3 scripts/bundle.py --check-report
 run "record schema validation" python3 scripts/validate_records.py
 run "project views current" python3 scripts/report.py --check

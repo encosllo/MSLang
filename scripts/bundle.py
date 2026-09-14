@@ -51,6 +51,7 @@ MANIFEST_PATHS = [
 VIEWS = [
     "reports/coverage.md",
     "reports/trust_boundary.md",
+    "reports/sanity.md",
     "reports/calibration.md",
     "reports/discrepancy.md",
     "reports/impact.md",
