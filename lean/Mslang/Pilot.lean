@@ -86,4 +86,38 @@ theorem sat_sat_eq {A : SSorted S U} {Φ Ψ : SortedEqv A}
     rcases ha with ⟨x, hx, hxr⟩
     exact ⟨a, ⟨x, hx, hxr⟩, (Φ s).refl a⟩
 
+/-- Bridge `setoid_le_iff`: under this encoding, pointwise setoid refinement
+`sortedEqvLe` *is* inclusion of the underlying relations, so the paper's
+`Φ ⊆ Ψ` is the Lean order definitionally. -/
+theorem setoid_le_iff {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+    sortedEqvLe Φ Ψ ↔
+      ∀ s (x y : A s), (Φ s).r x y → (Ψ s).r x y :=
+  Iff.rfl
+
+/-- Proposition `B-P002` (`PropIncSat`), full statement:
+`Φ ⊆ Ψ` iff `[[X]^Ψ]^Φ = [X]^Ψ` for every `X`.
+
+The converse uses a singleton test family at the sort `s` in question:
+`sortedEqvLe Φ Ψ` follows by applying the hypothesis to `X` with
+`X s = {x}`, so that `sat Ψ X s` is the `Ψ s`-class of `x`. -/
+theorem prop_incSat {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+    sortedEqvLe Φ Ψ ↔
+      ∀ X : ∀ s, Set (A s), sat Φ (sat Ψ X) = sat Ψ X := by
+  classical
+  constructor
+  · intro h X
+    exact sat_sat_eq h X
+  · intro h s x y hxy
+    let X : ∀ t, Set (A t) :=
+      Function.update (fun t => (∅ : Set (A t))) s {x}
+    have hXs : X s = {x} := by simp [X]
+    have hx : x ∈ sat Ψ X s :=
+      ⟨x, by rw [hXs]; exact Set.mem_singleton_iff.mpr rfl, (Ψ s).refl x⟩
+    have hy : y ∈ sat Φ (sat Ψ X) s := ⟨x, hx, hxy⟩
+    rw [h X] at hy
+    rcases hy with ⟨z, hz, hzy⟩
+    rw [hXs, Set.mem_singleton_iff] at hz
+    subst hz
+    exact hzy
+
 end Mslang

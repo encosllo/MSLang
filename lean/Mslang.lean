@@ -15,3 +15,5 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms mslang_smoke
 #print axioms Mslang.sat_antitone
 #print axioms Mslang.sat_sat_eq
+#print axioms Mslang.prop_incSat
+#print axioms Mslang.setoid_le_iff

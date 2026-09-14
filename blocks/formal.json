@@ -11,13 +11,13 @@
       }
     },
     "B-P002": {
-      "decl": "Mslang.sat_sat_eq",
+      "decl": "Mslang.prop_incSat",
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
-        "hash": "ba5d60430f89551224db9dc93fc02ad5989b97b55fb60e1832750e7d56b09d3d"
+        "hash": "79f611aadc6d90449c727f64590a8390c8ef74cd6a98162b8cbbfb8d480dd9d2"
       },
       "formal_statement": {
-        "hash": "981f9773a71a80c28fc22a3b75f86d0336cc88e266ccc485c46353b398e9086e"
+        "hash": "408bc97938531588085c82268bb74a146e1a32bb7d7ca1c4f90fae774453e83b"
       }
     }
   },
