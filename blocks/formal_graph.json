@@ -1,0 +1,70 @@
+{
+  "edges": [
+    {
+      "from": "B-C001",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-C001",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    },
+    {
+      "from": "B-C002",
+      "kind": "formal_uses",
+      "to": "B-C001"
+    },
+    {
+      "from": "B-C002",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-C002",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    },
+    {
+      "from": "B-D005",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-D006",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-D009",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-D014",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P002",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P002",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    },
+    {
+      "from": "B-P003",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P003",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    }
+  ],
+  "note": "Declared (formal) dependencies among mapped blocks, extracted from source by whole-identifier occurrence (Architecture.md Section 12.1)."
+}

@@ -87,10 +87,10 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         declmap = {"B-X": {"decl": "Mslang.foo", "file": "a.lean"}}
         write(tmp, "a.lean", SRC)
-        base = lf.compute(declmap, root=Path(tmp))["blocks"]["B-X"]
+        base = lf.compute(declmap, root=Path(tmp))[0]["blocks"]["B-X"]
 
         write(tmp, "a.lean", SRC.replace(":= by rfl", ":= by simp"))
-        proof_edit = lf.compute(declmap, root=Path(tmp))["blocks"]["B-X"]
+        proof_edit = lf.compute(declmap, root=Path(tmp))[0]["blocks"]["B-X"]
         check(
             "proof rewrite keeps the statement hash",
             proof_edit["formal_statement"]["hash"]
@@ -102,7 +102,7 @@ def main():
         )
 
         write(tmp, "a.lean", SRC.replace("n = n", "n ≤ n"))
-        sig_edit = lf.compute(declmap, root=Path(tmp))["blocks"]["B-X"]
+        sig_edit = lf.compute(declmap, root=Path(tmp))[0]["blocks"]["B-X"]
         check(
             "signature rewrite changes the statement hash",
             sig_edit["formal_statement"]["hash"]
@@ -110,7 +110,7 @@ def main():
         )
 
         missing = {"B-Y": {"decl": "Mslang.nope", "file": "a.lean"}}
-        out = lf.compute(missing, root=Path(tmp))["blocks"]["B-Y"]
+        out = lf.compute(missing, root=Path(tmp))[0]["blocks"]["B-Y"]
         check("missing declaration flagged", "error" in out, str(out))
 
     print()

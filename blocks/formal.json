@@ -1,7 +1,9 @@
 {
   "blocks": {
     "B-C001": {
-      "decl": "Mslang.sat_antitone",
+      "decls": [
+        "Mslang.sat_antitone"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "39d3a77deebc9c10d31f8cd9b5e13937e2e0ade1d883bb1e20fb410896ca1f16"
@@ -11,7 +13,9 @@
       }
     },
     "B-C002": {
-      "decl": "Mslang.sat_inf",
+      "decls": [
+        "Mslang.sat_inf"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "a999e0ac47409a53da65d08372f7b7bd1f159717b14a46117b21047740616c56"
@@ -21,7 +25,9 @@
       }
     },
     "B-D002": {
-      "decl": "Mslang.SSorted",
+      "decls": [
+        "Mslang.SSorted"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "aae3b05778012be4ea7539ac8097c02dc7248b8ac6410e6a82856c5f6e7fc438"
@@ -31,7 +37,9 @@
       }
     },
     "B-D005": {
-      "decl": "Mslang.le",
+      "decls": [
+        "Mslang.le"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "269eae9ac17c117657439d94006847cf42d937af132ec737146022a52c5b687e"
@@ -41,7 +49,9 @@
       }
     },
     "B-D006": {
-      "decl": "Mslang.delta",
+      "decls": [
+        "Mslang.delta"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "d026edec3130c05542d49e9ecc81e19c78efb45a075e6d6a786c96c842fd551c"
@@ -51,7 +61,9 @@
       }
     },
     "B-D009": {
-      "decl": "Mslang.supp",
+      "decls": [
+        "Mslang.supp"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "91120bbe1d796e15146ae2050e1aef1227a96220bf41a5c2fb116cf9df48fb02"
@@ -60,8 +72,24 @@
         "hash": "bfa47d29d1aaba72f0aa85e859ccd63a9764b571b33b94e9b1bb4f9ea9facf16"
       }
     },
+    "B-D014": {
+      "decls": [
+        "Mslang.SortedEqv",
+        "Mslang.sat",
+        "Mslang.IsSat"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "5eebfe771f511420811854921af3148131aae85a1099ca5c70369086a1d1ebd7"
+      },
+      "formal_statement": {
+        "hash": "791e0562bc8b1ad2f977d4cd7ce81d2fd95edca523467b5410f1d35c589cd7c7"
+      }
+    },
     "B-P002": {
-      "decl": "Mslang.prop_incSat",
+      "decls": [
+        "Mslang.prop_incSat"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "79f611aadc6d90449c727f64590a8390c8ef74cd6a98162b8cbbfb8d480dd9d2"
@@ -71,7 +99,9 @@
       }
     },
     "B-P003": {
-      "decl": "Mslang.nabla_sat",
+      "decls": [
+        "Mslang.nabla_sat"
+      ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "9f03d15577f7f223c8554ae9c1179ab77ea8a9d1ac211e021b0faf14ff24dac7"

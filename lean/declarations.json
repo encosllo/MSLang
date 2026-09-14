@@ -32,6 +32,14 @@
     "B-D009": {
       "decl": "Mslang.supp",
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D014": {
+      "decls": [
+        "Mslang.SortedEqv",
+        "Mslang.sat",
+        "Mslang.IsSat"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

@@ -123,10 +123,31 @@ def load_map(path: Path):
     return json.loads(Path(path).read_text(encoding="utf-8")).get("blocks", {})
 
 
+def declaration_names(spec):
+    """The full declaration names for a block (``decl`` or ``decls``)."""
+    if "decls" in spec:
+        return list(spec["decls"])
+    return [spec["decl"]]
+
+
+def word_present(name: str, text: str) -> bool:
+    """Whole-identifier occurrence of ``name`` in Lean ``text``."""
+    return (
+        re.search(r"(?<![A-Za-z0-9_'])" + re.escape(name) + r"(?![A-Za-z0-9_'])", text)
+        is not None
+    )
+
+
 def compute(decl_map, root: Path = ROOT):
-    """Return blocks/formal.json content for ``decl_map``."""
+    """Return (blocks/formal.json content, blocks/formal_graph.json content).
+
+    A block may map to several declarations (``decls``); their statements and
+    proofs are concatenated before hashing.  ``formal_uses`` edges record which
+    mapped declaration a block's statement/proof text references (Section 12.1).
+    """
     cache = {}
     blocks = {}
+    texts = {}
     for bid in sorted(decl_map):
         spec = decl_map[bid]
         path = root / spec["file"]
@@ -136,24 +157,49 @@ def compute(decl_map, root: Path = ROOT):
                 if path.exists()
                 else {}
             )
-        short = spec["decl"].split(".")[-1]
-        decl = cache[path].get(short)
-        if decl is None:
+        names = declaration_names(spec)
+        shorts = [n.split(".")[-1] for n in names]
+        missing = [n for n, s in zip(names, shorts) if s not in cache[path]]
+        if missing:
             blocks[bid] = {
-                "decl": spec["decl"],
+                "decls": names,
                 "file": spec["file"],
-                "error": f"declaration {spec['decl']!r} not found in {spec['file']}",
+                "error": f"declaration(s) {missing} not found in {spec['file']}",
             }
             continue
+        stmts, proofs, pieces = [], [], []
+        for s in shorts:
+            d = cache[path][s]
+            stmts.append(d["statement"])
+            proofs.append(d["proof"])
+            pieces.append(d["statement"] + "\n" + d["proof"])
+        texts[bid] = "\n".join(pieces)
         blocks[bid] = {
-            "decl": spec["decl"],
+            "decls": names,
             "file": spec["file"],
-            "formal_statement": {"hash": hash_text(decl["statement"])},
+            "formal_statement": {"hash": hash_text("\n".join(stmts))},
             "formal_proof": (
-                {"hash": hash_text(decl["proof"])} if decl["proof"] else None
+                {"hash": hash_text("\n".join(proofs))} if any(proofs) else None
             ),
         }
-    return {"source": "lean/declarations.json", "blocks": blocks}
+
+    shorts_by_block = {
+        bid: [n.split(".")[-1] for n in declaration_names(decl_map[bid])]
+        for bid in texts
+    }
+    edges = []
+    for bid in sorted(texts):
+        for other in sorted(texts):
+            if other == bid:
+                continue
+            if any(word_present(n, texts[bid]) for n in shorts_by_block[other]):
+                edges.append({"from": bid, "to": other, "kind": "formal_uses"})
+    graph = {
+        "note": "Declared (formal) dependencies among mapped blocks, extracted from "
+        "source by whole-identifier occurrence (Architecture.md Section 12.1).",
+        "edges": edges,
+    }
+    return {"source": "lean/declarations.json", "blocks": blocks}, graph
 
 
 def render(formal) -> str:
@@ -164,11 +210,13 @@ def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     ap.add_argument("--declarations", default=str(ROOT / "lean" / "declarations.json"))
     ap.add_argument("--out", default=str(ROOT / "blocks" / "formal.json"))
+    ap.add_argument("--graph-out", default=str(ROOT / "blocks" / "formal_graph.json"))
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args(argv)
 
-    formal = compute(load_map(Path(args.declarations)))
+    formal, graph = compute(load_map(Path(args.declarations)))
     payload = render(formal)
+    gpayload = render(graph)
 
     errors = [
         f"{bid}: {entry['error']}"
@@ -180,17 +228,22 @@ def main(argv):
             print(f"lean_facets: ERROR {e}", file=sys.stderr)
         return 1
 
+    outputs = [(Path(args.out), payload), (Path(args.graph_out), gpayload)]
     if args.check:
-        out = Path(args.out)
-        existing = out.read_text(encoding="utf-8") if out.exists() else None
-        if existing != payload:
-            print(f"lean_facets: drift in {args.out}", file=sys.stderr)
-            return 1
-        print(f"lean_facets: {len(formal['blocks'])} declaration(s) current")
+        for out, text in outputs:
+            existing = out.read_text(encoding="utf-8") if out.exists() else None
+            if existing != text:
+                print(f"lean_facets: drift in {out}", file=sys.stderr)
+                return 1
+        print(
+            f"lean_facets: {len(formal['blocks'])} declaration(s), "
+            f"{len(graph['edges'])} formal edge(s) current"
+        )
         return 0
 
-    Path(args.out).write_text(payload, encoding="utf-8")
-    print(f"lean_facets: wrote {args.out} ({len(formal['blocks'])} declaration(s))")
+    for out, text in outputs:
+        out.write_text(text, encoding="utf-8")
+        print(f"lean_facets: wrote {out}")
     return 0
 
 
