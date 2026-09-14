@@ -583,7 +583,10 @@
       "body_hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955",
       "body_length": 183,
       "facets": {
-        "explanation": null,
+        "explanation": {
+          "hash": "75df0cf61a860b5b26ba46d4bc6b29382d6fb55c114a127f7d3abc96c162f196",
+          "path": "blocks/explanations/B-C002.md"
+        },
         "informal_proof": null,
         "informal_statement": {
           "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"

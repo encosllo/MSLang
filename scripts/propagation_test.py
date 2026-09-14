@@ -136,8 +136,10 @@ def run():
     )
 
     # Fail closed: own missing proof (omitted-proof block with no explanation).
+    # B-P001 is a proposition the manuscript states without proof and with no
+    # Explanation facet.
     no_proof = closure.compute_closure(
-        "B-C002", "review", REGISTRY, EDGES, representation_hash=REP
+        "B-P001", "review", REGISTRY, EDGES, representation_hash=REP
     )
     check("missing own proof blocks", no_proof.get("blocked") is True)
 

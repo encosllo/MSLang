@@ -1,0 +1,42 @@
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000012",
+  "findings": [
+    "Adversarial reader reconstructed the proof and returned VALID, no gap; confirmed the meet direction (Phi inf Psi subset Phi), reflexivity lower bound, and the use of X = [X]^Phi.",
+    "Confirmed the Psi-saturation hypothesis is genuinely unused and dispensable; the stronger Phi-Sat(A) subseteq (Phi inf Psi)-Sat(A) holds. Converse is false and was neither used nor asserted.",
+    "Explanation reconstructed from the Lean proof Mslang.sat_inf (Section 11a.5): blocks/explanations/B-C002.md."
+  ],
+  "independence_caveat": "Fresh isolated subagent (no project history, definitions and proof supplied inline) reconstructed the argument from the definitions and probed edge cases; shares this session's underlying model, so common blind spots are not excluded (Architecture.md Sections 11a.2, 9).",
+  "inputs": [
+    {
+      "artifact": "B-C002/explanation",
+      "hash": "75df0cf61a860b5b26ba46d4bc6b29382d6fb55c114a127f7d3abc96c162f196"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-14T12:16:50Z"
+}
