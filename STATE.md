@@ -1338,6 +1338,44 @@ change must propagate to dependents.
 
 ---
 
+## Sessions 25-26 -- 2026-09-14 -- correspondence for B-R006 and B-R008
+
+**Goal.** Blind correspondence for the two remaining pilot remarks.
+
+**What was established (closed).**
+
+- **`B-R006`** (`sat_eq_preimage`, `isSat_iff_preimage`): stage 2 returned
+  **`equivalent`** (contract sentence 2, `X ⊇ [X]^Φ`, is a one-line consequence
+  of `IsSat` plus reflexivity). Transcript
+  `blocks/audits/B-R006-correspondence.md`; record **`E-000022`**.
+- **`B-R008`** (`nabla_sat_empty`, `nabla_sat_univ`, `nabla_sat_deltaUnion`):
+  stage 2 returned **`equivalent`** (`nabla` = `∇^A`; the all-`A` family is `A`
+  as a subset; `deltaUnion T A` = `⋃_{t∈T} δ^{t,A_t}`; boundary cases `T = ∅`
+  and `T = S` agree). Transcript `blocks/audits/B-R008-correspondence.md`;
+  record **`E-000023`**.
+- `check_all`: **23 passed, 0 failed**. **9 blocks** with evidence; 23 evidence
+  records.
+
+**Pilot status.** Every in-scope pilot block (`B-D002`, `B-D004`, `B-D005`,
+`B-D006`, `B-D009`, `B-D014`, `B-R006`, `B-R008`, `B-C001`, `B-C002`, `B-P002`,
+`B-P003`) has a Lean counterpart and at least a verification record.
+Correspondence is `equivalent` for `B-C001`, `B-C002`, `B-P002`, `B-P003`,
+`B-R006`, `B-R008`; **`incomparable` for `B-D004`** (the `finalSorted`/`1^S`
+representation finding, `E-000021`, author decision `D-finalSorted`).
+
+**Open author decisions (queue).** `D-finalSorted` (representation fix),
+`D-explanation-c001`, `D-explanation-c002`, `D-representation`, `D-record-format`,
+`D-pilot-scope`, `D-bp002-simplification`, `D-toolchain`, `D-calibration-models`;
+journal escalation `EV-000027` (and `EV-000019`).
+
+**Prioritized next steps.**
+
+1. Author: work the decision queue (`reports/decisions.md`).
+2. Per-case / second-model calibration runs.
+3. `R-quotient` element-level bridge; `R-delta` model (per `D-finalSorted`).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
