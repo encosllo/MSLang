@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DECL_RE = re.compile(
     r"(?m)^(theorem|lemma|def|abbrev|opaque)\s+([A-Za-z_][A-Za-z0-9_'.]*)"
 )
-BOUNDARY_RE = re.compile(r"(?m)^(end|namespace|section|variable|open)\b")
+BOUNDARY_RE = re.compile(r"(?m)^(?:end|namespace|section|variable|open)\b|^@\[")
 
 
 def strip_lean_comments(text: str) -> str:

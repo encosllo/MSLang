@@ -10,6 +10,16 @@
         "hash": "0e94f69997949e8d039ddb019967cdad9dbd40ebc7be411cd29172f83b1fc410"
       }
     },
+    "B-D009": {
+      "decl": "Mslang.supp",
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "91120bbe1d796e15146ae2050e1aef1227a96220bf41a5c2fb116cf9df48fb02"
+      },
+      "formal_statement": {
+        "hash": "bfa47d29d1aaba72f0aa85e859ccd63a9764b571b33b94e9b1bb4f9ea9facf16"
+      }
+    },
     "B-P002": {
       "decl": "Mslang.prop_incSat",
       "file": "lean/Mslang/Pilot.lean",
@@ -18,6 +28,16 @@
       },
       "formal_statement": {
         "hash": "408bc97938531588085c82268bb74a146e1a32bb7d7ca1c4f90fae774453e83b"
+      }
+    },
+    "B-P003": {
+      "decl": "Mslang.nabla_sat",
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "9f03d15577f7f223c8554ae9c1179ab77ea8a9d1ac211e021b0faf14ff24dac7"
+      },
+      "formal_statement": {
+        "hash": "6a300ad97aca443aba24ba2a9f7d2c0e552843aff3e8906b5410edc003360fd2"
       }
     }
   },

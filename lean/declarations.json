@@ -8,6 +8,14 @@
     "B-P002": {
       "decl": "Mslang.prop_incSat",
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-P003": {
+      "decl": "Mslang.nabla_sat",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D009": {
+      "decl": "Mslang.supp",
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

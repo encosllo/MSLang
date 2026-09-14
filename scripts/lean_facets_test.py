@@ -31,6 +31,8 @@ lemma bar : True := by trivial
 def baz (n : Nat) : Nat := n + 1
 abbrev qux := Nat
 theorem incomplete : True
+@[simp]
+theorem attributed : True := by trivial
 end Mslang
 """
 
@@ -49,7 +51,7 @@ def write(tmp, name, text):
 
 def main():
     d = lf.extract_declarations(SRC)
-    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete"}, str(set(d)))
+    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed"}, str(set(d)))
     check(
         "theorem statement split at :=",
         d["foo"]["statement"] == "theorem foo (n : Nat) : n = n"
@@ -68,6 +70,12 @@ def main():
     )
     check("abbrev body is the proof facet", d["qux"]["proof"] == ":= Nat", str(d["qux"]))
     check("declaration without := has no proof facet", d["incomplete"]["proof"] == "", str(d["incomplete"]))
+    check(
+        "an attribute does not leak into the preceding proof",
+        "@[" not in d["incomplete"]["proof"]
+        and d["attributed"]["proof"] == ":= by trivial",
+        repr(d["incomplete"]["proof"]),
+    )
 
     with tempfile.TemporaryDirectory() as tmp:
         declmap = {"B-X": {"decl": "Mslang.foo", "file": "a.lean"}}

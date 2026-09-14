@@ -17,3 +17,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.sat_sat_eq
 #print axioms Mslang.prop_incSat
 #print axioms Mslang.setoid_le_iff
+#print axioms Mslang.nabla_sat

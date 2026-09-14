@@ -120,4 +120,50 @@ theorem prop_incSat {A : SSorted S U} (Φ Ψ : SortedEqv A) :
     subst hz
     exact hzy
 
+/-- `∇^A`: the greatest sorted equivalence on `A` (the universal relation). -/
+@[instance_reducible]
+def nabla (A : SSorted S U) : SortedEqv A :=
+  fun _ =>
+    ⟨fun _ _ => True,
+     ⟨fun _ => trivial, fun _ => trivial, fun _ _ => trivial⟩⟩
+
+/-- Support of an `S`-sorted set (Definition `B-D009`):
+`supp_S(A) = {s ∈ S | A_s ≠ ∅}`. -/
+def supp (A : SSorted S U) : Set S := {s | (A s).Nonempty}
+
+/-- Support of a componentwise `X ⊆ A` (the `Sub(A)` presentation of `B-D009`). -/
+def suppSub {A : SSorted S U} (X : ∀ s, Set (A s)) : Set S :=
+  {s | (X s).Nonempty}
+
+/-- Proposition `B-P003` (`NablaSat`): `X ∈ ∇^A-Sat(A)` if and only if every
+sort in the support of `X` carries all of `A`. Under the universal relation the
+saturation of `X_s` is `A_s` when `X_s ≠ ∅` and `∅` otherwise, so `X` is
+`∇`-saturated exactly when each nonempty component is full. -/
+theorem nabla_sat {A : SSorted S U} (X : ∀ s, Set (A s)) :
+    IsSat (nabla A) X ↔ ∀ s, s ∈ suppSub X → X s = Set.univ := by
+  unfold IsSat
+  constructor
+  · intro h s hs
+    have hsat : (sat (nabla A) X) s = X s :=
+      congrArg (fun Y : ∀ s, Set (A s) => Y s) h
+    ext a
+    constructor
+    · intro _
+      exact Set.mem_univ a
+    · intro _
+      rcases hs with ⟨x, hx⟩
+      rw [← hsat]
+      exact ⟨x, hx, trivial⟩
+  · intro h
+    funext s
+    ext a
+    constructor
+    · intro ha
+      rcases ha with ⟨x, hx, _⟩
+      have hXs : X s = Set.univ := h s ⟨x, hx⟩
+      rw [hXs]
+      exact Set.mem_univ a
+    · intro ha
+      exact ⟨a, ha, trivial⟩
+
 end Mslang
