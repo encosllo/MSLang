@@ -232,6 +232,62 @@ and bootstrap Lean/Mathlib. Outcome:
 
 ---
 
+## Session 2 -- 2026-09-14 -- evidence engine (computed closures)
+
+**Goal.** Implement the Phase 2 evidence-engine core that is unblocked by
+Lean/disk: computed input closures, schema validation, and seeded propagation
+tests (P13, Sections 12.3, 13.1, 18, 22).
+
+**What was established (closed).**
+
+- `blocks/registry.json` now carries a `facets` object per block:
+  `informal_statement` (hash) and `informal_proof` (hash + anchor when a proof
+  follows). `ingest.py` computes the proof hash with the same normalization as
+  `hash_blocks.py`.
+- `scripts/closure.py` -- computed, fail-closed, deterministic input closures
+  (Section 12.3). `--layer review|correspondence|verification`,
+  `--representation FILE`, confirmed edges only by default. A review closure
+  contains the block's statement and proof, the **statements** of every block in
+  its transitive dependency closure, and the representation hash. Proof facets
+  of dependencies are never pulled in (proof irrelevance).
+- `scripts/propagation_test.py` -- 11 seeded checks, **all pass**:
+  determinism; dependency-statement change alters the closure; dependency-proof
+  change does **not**; own-proof change does; representation change (C6) alters;
+  missing representation / unresolved edge / missing own proof all **fail
+  closed**; transitive dependency statement present.
+- `scripts/validate_records.py` -- dependency-free JSON-Schema-subset validator
+  (no `jsonschema`/`PyYAML` in this environment) for `evidence/*.json` and
+  `journal/events.jsonl`; `--self-test` confirms it rejects the old numeric ID,
+  unknown keys, and missing required keys. Validates the 3 journal events;
+  0 evidence records exist yet.
+
+**Findings.**
+
+- The evidence engine is honest but currently **all closures fail closed**,
+  which is the correct behaviour at this stage: no representation record exists
+  (Section 11.5 must be audited first), no Lean/formal facets exist, and 21
+  proof-expected blocks have no informal proof (candidate `M-gap`; they need an
+  `Explanation` under Section 11a.5 before any review evidence can be current).
+- Record storage format is unresolved: the architecture's example is YAML, but
+  no YAML parser is installed and the schemas are JSON. The validator handles
+  JSON directly and would validate YAML if `PyYAML` is installed. Before the
+  first evidence record is written, pick JSON vs YAML (a small author choice)
+  and install the parser if YAML is chosen.
+
+**Prioritized next steps.**
+
+1. Author: free disk, then run the Lean/Mathlib fetch and record the clean-build
+   time (Session 1 blocker).
+2. Author: draft/accept a **representation record** (`representation/` is still
+   empty); it is the precondition for every review/correspondence closure.
+3. Author: choose JSON vs YAML for evidence records.
+4. Reconstruct one omitted proof as an `Explanation` for a pilot block
+   (`B-C001`/`B-C002`/`B-P002`) and adversarial-read it (Section 11a.5).
+5. Complete symbol/prose extraction and backfill `\blockscope`/`\label` for the
+   pilot blocks.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -253,5 +309,8 @@ and bootstrap Lean/Mathlib. Outcome:
    and inspect `reports/gap_report.md`; `blocks/hashes.json` anchors and
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
-7. Do not edit or delete existing files under `evidence/` (the pre-commit
+7. Run the evidence-engine checks after any change to the importer, graph, or
+   schemas: `python3 scripts/propagation_test.py` (all checks must pass) and
+   `python3 scripts/validate_records.py --self-test`.
+8. Do not edit or delete existing files under `evidence/` (the pre-commit
    hook enforces this); supersede with a new record instead.

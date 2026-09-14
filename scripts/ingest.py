@@ -158,6 +158,13 @@ def collect_blocks(clean: str, sections):
         term_m = TERM_RE.search(b["body"])
         body_norm = hb.normalize(b["body"])
         digest = hashlib.sha256(body_norm.encode("utf-8")).hexdigest()
+        proof_hash = None
+        proof_anchor = None
+        if b["proof"] is not None:
+            proof_norm = hb.normalize(b["proof"]["body"])
+            proof_hash = hashlib.sha256(proof_norm.encode("utf-8")).hexdigest()
+            plabel = LABEL_RE.search(b["proof"]["body"])
+            proof_anchor = plabel.group(1) if plabel else f"proof@{line_of(clean, b['proof']['start'])}"
 
         if bid:
             if bid in used_ids:
@@ -178,6 +185,14 @@ def collect_blocks(clean: str, sections):
                 "proof_line": line_of(clean, b["proof"]["start"]) if b["proof"] else None,
                 "body_hash": digest,
                 "body_length": len(body_norm),
+                "facets": {
+                    "informal_statement": {"hash": digest},
+                    "informal_proof": (
+                        {"hash": proof_hash, "anchor": proof_anchor}
+                        if proof_hash
+                        else None
+                    ),
+                },
             }
         )
     return registry

@@ -3,6 +3,12 @@
     {
       "body_hash": "897f50c290de64597a0e6d1dc67875f3a6be771f24c95d5fa2745518d9b859a0",
       "body_length": 832,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "897f50c290de64597a0e6d1dc67875f3a6be771f24c95d5fa2745518d9b859a0"
+        }
+      },
       "has_proof": false,
       "id": "B-D001",
       "kind": "definition",
@@ -17,6 +23,12 @@
     {
       "body_hash": "5124c9867712a4275a724869a47b9df6b9142d91a0aa9c9d77097629557ee981",
       "body_length": 723,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5124c9867712a4275a724869a47b9df6b9142d91a0aa9c9d77097629557ee981"
+        }
+      },
       "has_proof": false,
       "id": "B-D002",
       "kind": "definition",
@@ -31,6 +43,12 @@
     {
       "body_hash": "a20272a06436ba4c027ff29c600e1421662dc67bb1a8b7fe7c88aad67a597cf5",
       "body_length": 1398,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "a20272a06436ba4c027ff29c600e1421662dc67bb1a8b7fe7c88aad67a597cf5"
+        }
+      },
       "has_proof": false,
       "id": "B-D003",
       "kind": "definition",
@@ -45,6 +63,12 @@
     {
       "body_hash": "5b4c278e6f02c3b826ad448bea84526c8544ce98b846c98f6c68c1352431d9a8",
       "body_length": 339,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5b4c278e6f02c3b826ad448bea84526c8544ce98b846c98f6c68c1352431d9a8"
+        }
+      },
       "has_proof": false,
       "id": "B-D004",
       "kind": "definition",
@@ -59,6 +83,12 @@
     {
       "body_hash": "2a9c8ea676abc88ac2c8730b8c933c4df4ccb8fa19fd17d83290a4a4e485824e",
       "body_length": 255,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "2a9c8ea676abc88ac2c8730b8c933c4df4ccb8fa19fd17d83290a4a4e485824e"
+        }
+      },
       "has_proof": false,
       "id": "B-D005",
       "kind": "definition",
@@ -73,6 +103,12 @@
     {
       "body_hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe",
       "body_length": 813,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+        }
+      },
       "has_proof": false,
       "id": "B-D006",
       "kind": "definition",
@@ -87,6 +123,12 @@
     {
       "body_hash": "f484f8cbd19e657f544001ce88b2737b274c9ff8e4e31cc0f049e5ecffed4110",
       "body_length": 1135,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f484f8cbd19e657f544001ce88b2737b274c9ff8e4e31cc0f049e5ecffed4110"
+        }
+      },
       "has_proof": false,
       "id": "B-R001",
       "kind": "remark",
@@ -101,6 +143,12 @@
     {
       "body_hash": "e9a3ca94593d975724ccc116907aee4313077a866123fc8bdd95d6d697c000a9",
       "body_length": 451,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e9a3ca94593d975724ccc116907aee4313077a866123fc8bdd95d6d697c000a9"
+        }
+      },
       "has_proof": false,
       "id": "B-D007",
       "kind": "definition",
@@ -115,6 +163,12 @@
     {
       "body_hash": "1b858d0482e4c2b2d1bb6727acc5e43e8f649204ed69213f8dfbb46aa89f5c77",
       "body_length": 306,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1b858d0482e4c2b2d1bb6727acc5e43e8f649204ed69213f8dfbb46aa89f5c77"
+        }
+      },
       "has_proof": false,
       "id": "B-D008",
       "kind": "definition",
@@ -129,6 +183,12 @@
     {
       "body_hash": "12375e8545e0cc97e42eb8e25a7378c09c0f9f94b37f498f0696a591ec6aca49",
       "body_length": 202,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "12375e8545e0cc97e42eb8e25a7378c09c0f9f94b37f498f0696a591ec6aca49"
+        }
+      },
       "has_proof": false,
       "id": "B-R002",
       "kind": "remark",
@@ -143,6 +203,12 @@
     {
       "body_hash": "cb8b1359872c87284dad91ffbe2781b08f4928455d66e0c23ceaad0ce01b855c",
       "body_length": 151,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cb8b1359872c87284dad91ffbe2781b08f4928455d66e0c23ceaad0ce01b855c"
+        }
+      },
       "has_proof": false,
       "id": "B-D009",
       "kind": "definition",
@@ -157,6 +223,12 @@
     {
       "body_hash": "858c0c60716a9dac229645cf0644a81fbdfd844a7205962d9f5fbdf95e658e84",
       "body_length": 144,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "858c0c60716a9dac229645cf0644a81fbdfd844a7205962d9f5fbdf95e658e84"
+        }
+      },
       "has_proof": false,
       "id": "B-R003",
       "kind": "remark",
@@ -171,6 +243,12 @@
     {
       "body_hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f",
       "body_length": 1387,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+        }
+      },
       "has_proof": false,
       "id": "B-P001",
       "kind": "proposition",
@@ -185,6 +263,12 @@
     {
       "body_hash": "4aa94ff519d1168c6f790135709a05c95c65f0f5a0f12188374b3ff695ab302f",
       "body_length": 1102,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4aa94ff519d1168c6f790135709a05c95c65f0f5a0f12188374b3ff695ab302f"
+        }
+      },
       "has_proof": false,
       "id": "B-D010",
       "kind": "definition",
@@ -199,6 +283,12 @@
     {
       "body_hash": "30d228598020120c0c831b418031fa1f9bfdb86c96da36265c6cfcd3b1705c89",
       "body_length": 468,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "30d228598020120c0c831b418031fa1f9bfdb86c96da36265c6cfcd3b1705c89"
+        }
+      },
       "has_proof": false,
       "id": "B-D011",
       "kind": "definition",
@@ -213,6 +303,12 @@
     {
       "body_hash": "1d8bd415de133cd98fc3d603807795030d3cc28f1a2e77ce142de488fb1491cd",
       "body_length": 991,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1d8bd415de133cd98fc3d603807795030d3cc28f1a2e77ce142de488fb1491cd"
+        }
+      },
       "has_proof": false,
       "id": "B-D012",
       "kind": "definition",
@@ -227,6 +323,12 @@
     {
       "body_hash": "45701656711b518e0e3164295ac7770602c8015c835ff462aac124c522ac4f9b",
       "body_length": 387,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "45701656711b518e0e3164295ac7770602c8015c835ff462aac124c522ac4f9b"
+        }
+      },
       "has_proof": false,
       "id": "B-D013",
       "kind": "definition",
@@ -241,6 +343,12 @@
     {
       "body_hash": "96a062f974f7780765ef29b72291e7b10cdcc4be05215c80f37a3c70502bb382",
       "body_length": 200,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "96a062f974f7780765ef29b72291e7b10cdcc4be05215c80f37a3c70502bb382"
+        }
+      },
       "has_proof": false,
       "id": "B-R004",
       "kind": "remark",
@@ -255,6 +363,12 @@
     {
       "body_hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70",
       "body_length": 1964,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+        }
+      },
       "has_proof": false,
       "id": "B-D014",
       "kind": "definition",
@@ -269,6 +383,12 @@
     {
       "body_hash": "820f452e01eadd59d00d2fc94a1218c49c45c30a59ba05ca9941ced72e54858d",
       "body_length": 151,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "820f452e01eadd59d00d2fc94a1218c49c45c30a59ba05ca9941ced72e54858d"
+        }
+      },
       "has_proof": false,
       "id": "B-R005",
       "kind": "remark",
@@ -283,6 +403,12 @@
     {
       "body_hash": "1e3f64cb9f99390f83bd6aac3caac45d2fac51692f7b023adcaea9cc570c278e",
       "body_length": 427,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1e3f64cb9f99390f83bd6aac3caac45d2fac51692f7b023adcaea9cc570c278e"
+        }
+      },
       "has_proof": false,
       "id": "B-R006",
       "kind": "remark",
@@ -297,6 +423,15 @@
     {
       "body_hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4",
       "body_length": 200,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@524",
+          "hash": "dda07413349a7081ce0b5e4921c0337b970702d7376d9e096ae88ff48d49c4a6"
+        },
+        "informal_statement": {
+          "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+        }
+      },
       "has_proof": true,
       "id": "B-P002",
       "kind": "proposition",
@@ -311,6 +446,12 @@
     {
       "body_hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b",
       "body_length": 172,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+        }
+      },
       "has_proof": false,
       "id": "B-C001",
       "kind": "corollary",
@@ -325,6 +466,12 @@
     {
       "body_hash": "b168aac9c69c08a1d21e3a38bebd3b62a54071374bcb019de22ad5e5642a0ad8",
       "body_length": 424,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b168aac9c69c08a1d21e3a38bebd3b62a54071374bcb019de22ad5e5642a0ad8"
+        }
+      },
       "has_proof": false,
       "id": "B-R007",
       "kind": "remark",
@@ -339,6 +486,15 @@
     {
       "body_hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef",
       "body_length": 199,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@545",
+          "hash": "bcec216ebb8dcefaec58a1ae0f5f3aee518b9a92454546c47917bb9086da3789"
+        },
+        "informal_statement": {
+          "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+        }
+      },
       "has_proof": true,
       "id": "B-P003",
       "kind": "proposition",
@@ -353,6 +509,12 @@
     {
       "body_hash": "454d794d1386dd4b539909cbbca700ca6312f640dacba3a029d4fe85f85b3508",
       "body_length": 278,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "454d794d1386dd4b539909cbbca700ca6312f640dacba3a029d4fe85f85b3508"
+        }
+      },
       "has_proof": false,
       "id": "B-R008",
       "kind": "remark",
@@ -367,6 +529,15 @@
     {
       "body_hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47",
       "body_length": 143,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@562",
+          "hash": "29eea9211a335ca7c60f4b2658a7f8fb5eff4a2a4ec858279ae69b8f6a0e93c9"
+        },
+        "informal_statement": {
+          "hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47"
+        }
+      },
       "has_proof": true,
       "id": "B-P004",
       "kind": "proposition",
@@ -381,6 +552,12 @@
     {
       "body_hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955",
       "body_length": 183,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+        }
+      },
       "has_proof": false,
       "id": "B-C002",
       "kind": "corollary",
@@ -395,6 +572,12 @@
     {
       "body_hash": "3539061a9c80562edadafb63d85cc37964072e1fffd0a51d0ba11c7ff63964e2",
       "body_length": 1126,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3539061a9c80562edadafb63d85cc37964072e1fffd0a51d0ba11c7ff63964e2"
+        }
+      },
       "has_proof": false,
       "id": "B-P005",
       "kind": "proposition",
@@ -409,6 +592,15 @@
     {
       "body_hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc",
       "body_length": 207,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@597",
+          "hash": "1f9279983874d7b6aa78c3e5dcb463bfd06849fe90e96e720aeb946c9b501dfa"
+        },
+        "informal_statement": {
+          "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+        }
+      },
       "has_proof": true,
       "id": "B-P006",
       "kind": "proposition",
@@ -423,6 +615,12 @@
     {
       "body_hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4",
       "body_length": 250,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+        }
+      },
       "has_proof": false,
       "id": "B-D015",
       "kind": "definition",
@@ -437,6 +635,12 @@
     {
       "body_hash": "94a73f9f3674e6d1d4f456c654a55e9a2d651aa0af22008a0ed028116e55032b",
       "body_length": 583,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "94a73f9f3674e6d1d4f456c654a55e9a2d651aa0af22008a0ed028116e55032b"
+        }
+      },
       "has_proof": false,
       "id": "B-P007",
       "kind": "proposition",
@@ -451,6 +655,12 @@
     {
       "body_hash": "8b280c6fb0c13af1b2f240dfa4e1cb03074f642acdf23213b5f2a66d84e34b21",
       "body_length": 480,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8b280c6fb0c13af1b2f240dfa4e1cb03074f642acdf23213b5f2a66d84e34b21"
+        }
+      },
       "has_proof": false,
       "id": "B-D016",
       "kind": "definition",
@@ -465,6 +675,12 @@
     {
       "body_hash": "c0dbd935cb4aa927c86b04ebaecb786c2dcfb9ae0d8a41475fd66bae35986d95",
       "body_length": 1878,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c0dbd935cb4aa927c86b04ebaecb786c2dcfb9ae0d8a41475fd66bae35986d95"
+        }
+      },
       "has_proof": false,
       "id": "B-D017",
       "kind": "definition",
@@ -479,6 +695,12 @@
     {
       "body_hash": "f6da7ec03105d50fd4ab2ebe96472d792b8720007242fff8d6eee6e094fedfa3",
       "body_length": 223,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f6da7ec03105d50fd4ab2ebe96472d792b8720007242fff8d6eee6e094fedfa3"
+        }
+      },
       "has_proof": false,
       "id": "B-D018",
       "kind": "definition",
@@ -493,6 +715,12 @@
     {
       "body_hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3",
       "body_length": 110,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3"
+        }
+      },
       "has_proof": false,
       "id": "B-R009",
       "kind": "remark",
@@ -507,6 +735,12 @@
     {
       "body_hash": "8dcbd7e7cd296dde8fb280529f410241873a2dc2eb66a0894ba0b027b52aa009",
       "body_length": 147,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8dcbd7e7cd296dde8fb280529f410241873a2dc2eb66a0894ba0b027b52aa009"
+        }
+      },
       "has_proof": false,
       "id": "B-D019",
       "kind": "definition",
@@ -521,6 +755,12 @@
     {
       "body_hash": "10d4b1617b083f37c8f9d6cc2b18747da3948cb5449f94e7d295869da3284666",
       "body_length": 868,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "10d4b1617b083f37c8f9d6cc2b18747da3948cb5449f94e7d295869da3284666"
+        }
+      },
       "has_proof": false,
       "id": "B-D020",
       "kind": "definition",
@@ -535,6 +775,12 @@
     {
       "body_hash": "e3b0786071e33c9ea20dcee0ff63565c9b41db242066e9efdd8080b34f71db12",
       "body_length": 645,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e3b0786071e33c9ea20dcee0ff63565c9b41db242066e9efdd8080b34f71db12"
+        }
+      },
       "has_proof": false,
       "id": "B-D021",
       "kind": "definition",
@@ -549,6 +795,12 @@
     {
       "body_hash": "d07855916e37e5e20a76fe1ef6867d23fcbd1b0a107019f241f0d0d2d192a83d",
       "body_length": 1279,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d07855916e37e5e20a76fe1ef6867d23fcbd1b0a107019f241f0d0d2d192a83d"
+        }
+      },
       "has_proof": false,
       "id": "B-R010",
       "kind": "remark",
@@ -563,6 +815,12 @@
     {
       "body_hash": "67e6e28b617dc7ab981d909367436fe75fb242878074eb2d997b756f93eaa380",
       "body_length": 1291,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "67e6e28b617dc7ab981d909367436fe75fb242878074eb2d997b756f93eaa380"
+        }
+      },
       "has_proof": false,
       "id": "B-D022",
       "kind": "definition",
@@ -577,6 +835,12 @@
     {
       "body_hash": "2b5f1c2dcc1918a867d4748a54648615e27ff9af876bba478b06c665383a9548",
       "body_length": 265,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "2b5f1c2dcc1918a867d4748a54648615e27ff9af876bba478b06c665383a9548"
+        }
+      },
       "has_proof": false,
       "id": "B-D023",
       "kind": "definition",
@@ -591,6 +855,15 @@
     {
       "body_hash": "85ae063cc36e3fcb2374cead7f07ba35ac85bbc04b7ac719d331690333e2a0c3",
       "body_length": 127,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@748",
+          "hash": "fceba493d05c492fe00b425c5ff6daf974c1f762ba035331d2101ca42e0e7479"
+        },
+        "informal_statement": {
+          "hash": "85ae063cc36e3fcb2374cead7f07ba35ac85bbc04b7ac719d331690333e2a0c3"
+        }
+      },
       "has_proof": true,
       "id": "B-P008",
       "kind": "proposition",
@@ -605,6 +878,12 @@
     {
       "body_hash": "8d584d392661534accca3990aa7c68bfbcd06fe233328d3136cf373878e67a77",
       "body_length": 146,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8d584d392661534accca3990aa7c68bfbcd06fe233328d3136cf373878e67a77"
+        }
+      },
       "has_proof": false,
       "id": "B-R011",
       "kind": "remark",
@@ -619,6 +898,12 @@
     {
       "body_hash": "3998573186134411b3b9e27a39fd078db150cc290b798c44c78b192fa979bf31",
       "body_length": 828,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3998573186134411b3b9e27a39fd078db150cc290b798c44c78b192fa979bf31"
+        }
+      },
       "has_proof": false,
       "id": "B-D024",
       "kind": "definition",
@@ -633,6 +918,12 @@
     {
       "body_hash": "6551f03fb891b6850b725f7fa1c8f020afb0d195c24a1e6a65b5f0d18861a0ee",
       "body_length": 792,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6551f03fb891b6850b725f7fa1c8f020afb0d195c24a1e6a65b5f0d18861a0ee"
+        }
+      },
       "has_proof": false,
       "id": "B-D025",
       "kind": "definition",
@@ -647,6 +938,12 @@
     {
       "body_hash": "980c6a9ffa63681c1be82677d3ebe921676f9458773507480e4886c574aefaf6",
       "body_length": 628,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "980c6a9ffa63681c1be82677d3ebe921676f9458773507480e4886c574aefaf6"
+        }
+      },
       "has_proof": false,
       "id": "B-P009",
       "kind": "proposition",
@@ -661,6 +958,12 @@
     {
       "body_hash": "edd6debca60a7279a56d663461f450418cc26afccc6a129ffe9b7510039d3ca0",
       "body_length": 1279,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "edd6debca60a7279a56d663461f450418cc26afccc6a129ffe9b7510039d3ca0"
+        }
+      },
       "has_proof": false,
       "id": "B-R012",
       "kind": "remark",
@@ -675,6 +978,12 @@
     {
       "body_hash": "56dbb1d6ceea0926296926f7d6a019a63f34ff7334517f205004b881745a9be4",
       "body_length": 1429,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "56dbb1d6ceea0926296926f7d6a019a63f34ff7334517f205004b881745a9be4"
+        }
+      },
       "has_proof": false,
       "id": "B-D026",
       "kind": "definition",
@@ -689,6 +998,12 @@
     {
       "body_hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e",
       "body_length": 758,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+        }
+      },
       "has_proof": false,
       "id": "B-D027",
       "kind": "definition",
@@ -703,6 +1018,12 @@
     {
       "body_hash": "b1e1a8c47711bb1dbc78ca419447a468e3699a50bd810692cc3a5a4b069c5618",
       "body_length": 780,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b1e1a8c47711bb1dbc78ca419447a468e3699a50bd810692cc3a5a4b069c5618"
+        }
+      },
       "has_proof": false,
       "id": "B-P010",
       "kind": "proposition",
@@ -717,6 +1038,15 @@
     {
       "body_hash": "a69a87db239e7f9b2dc80c6ad48070e994f97e56f9d4b2d7d42dac661a62f9f4",
       "body_length": 551,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@902",
+          "hash": "71a716d9c7ef20de81a7eaff4bbf03c0f63639a74d99f0540f1433aeb9482197"
+        },
+        "informal_statement": {
+          "hash": "a69a87db239e7f9b2dc80c6ad48070e994f97e56f9d4b2d7d42dac661a62f9f4"
+        }
+      },
       "has_proof": true,
       "id": "B-P011",
       "kind": "proposition",
@@ -731,6 +1061,12 @@
     {
       "body_hash": "8935284b63621cca12fff2be9688ab916a857362668c3f2a9d4cc1f965437be9",
       "body_length": 364,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8935284b63621cca12fff2be9688ab916a857362668c3f2a9d4cc1f965437be9"
+        }
+      },
       "has_proof": false,
       "id": "B-C003",
       "kind": "corollary",
@@ -745,6 +1081,12 @@
     {
       "body_hash": "fc0f1078cd4de13656d6f2c6e18bdc94751019418528ee92e49eb9a9023145d4",
       "body_length": 192,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "fc0f1078cd4de13656d6f2c6e18bdc94751019418528ee92e49eb9a9023145d4"
+        }
+      },
       "has_proof": false,
       "id": "B-L001",
       "kind": "lemma",
@@ -759,6 +1101,12 @@
     {
       "body_hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd",
       "body_length": 329,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd"
+        }
+      },
       "has_proof": false,
       "id": "B-P012",
       "kind": "proposition",
@@ -773,6 +1121,12 @@
     {
       "body_hash": "081db99883818eb31f60d358ebf66dfd15187b01259997eb736a37a2343e9d39",
       "body_length": 157,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "081db99883818eb31f60d358ebf66dfd15187b01259997eb736a37a2343e9d39"
+        }
+      },
       "has_proof": false,
       "id": "B-P013",
       "kind": "proposition",
@@ -787,6 +1141,12 @@
     {
       "body_hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446",
       "body_length": 1894,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+        }
+      },
       "has_proof": false,
       "id": "B-D028",
       "kind": "definition",
@@ -801,6 +1161,12 @@
     {
       "body_hash": "d94459f966336ff3a5f0cad89c75cc9ae134d1d4ed1c743fb9a65ae2c712adde",
       "body_length": 423,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d94459f966336ff3a5f0cad89c75cc9ae134d1d4ed1c743fb9a65ae2c712adde"
+        }
+      },
       "has_proof": false,
       "id": "B-D029",
       "kind": "definition",
@@ -815,6 +1181,12 @@
     {
       "body_hash": "7aab2b0211062133cf7c343d1f33ffc6c30453159b4d7d6d7b20e33f0bdd3cdf",
       "body_length": 1740,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7aab2b0211062133cf7c343d1f33ffc6c30453159b4d7d6d7b20e33f0bdd3cdf"
+        }
+      },
       "has_proof": false,
       "id": "B-D030",
       "kind": "definition",
@@ -829,6 +1201,15 @@
     {
       "body_hash": "e33de47fafecfaef6440691ff8ec1542a9772edd92c71b4217594df01ba66dc4",
       "body_length": 61,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1021",
+          "hash": "82ba76e44886ba34ade63ba48b5fa3b2248e6943f337119db9fa02c29d49402b"
+        },
+        "informal_statement": {
+          "hash": "e33de47fafecfaef6440691ff8ec1542a9772edd92c71b4217594df01ba66dc4"
+        }
+      },
       "has_proof": true,
       "id": "B-P014",
       "kind": "proposition",
@@ -843,6 +1224,12 @@
     {
       "body_hash": "62aec010f87270ccbd4e9f3ecf7a722bf95f39a3717fdfbb812543ca35f4ec50",
       "body_length": 160,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "62aec010f87270ccbd4e9f3ecf7a722bf95f39a3717fdfbb812543ca35f4ec50"
+        }
+      },
       "has_proof": false,
       "id": "B-R013",
       "kind": "remark",
@@ -857,6 +1244,12 @@
     {
       "body_hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394",
       "body_length": 944,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+        }
+      },
       "has_proof": false,
       "id": "B-D031",
       "kind": "definition",
@@ -871,6 +1264,15 @@
     {
       "body_hash": "ffc11c4898e2fe38d2b33daf244f2bfc44c120dcb33f8e779e63315d27bc4721",
       "body_length": 1412,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1085",
+          "hash": "384bf0cdaab47fc8cd767f177af14f4fe36aef29eba07eeecd82cc2ab7764926"
+        },
+        "informal_statement": {
+          "hash": "ffc11c4898e2fe38d2b33daf244f2bfc44c120dcb33f8e779e63315d27bc4721"
+        }
+      },
       "has_proof": true,
       "id": "B-P015",
       "kind": "proposition",
@@ -885,6 +1287,12 @@
     {
       "body_hash": "13989db2084380124bafd2c68452df7a98dc7d1535c2dbc80a9d3b0c84b3d96d",
       "body_length": 791,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "13989db2084380124bafd2c68452df7a98dc7d1535c2dbc80a9d3b0c84b3d96d"
+        }
+      },
       "has_proof": false,
       "id": "B-D032",
       "kind": "definition",
@@ -899,6 +1307,12 @@
     {
       "body_hash": "6194b234d17a2a61968b4a192085fa7ca9bb9dcbe05ac8b3c358afb4cb477bf6",
       "body_length": 443,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6194b234d17a2a61968b4a192085fa7ca9bb9dcbe05ac8b3c358afb4cb477bf6"
+        }
+      },
       "has_proof": false,
       "id": "B-R014",
       "kind": "remark",
@@ -913,6 +1327,12 @@
     {
       "body_hash": "d473c2ca19403a057b87e2628e551ae5916dd350cb5b34f756d7277dcf4e2dc3",
       "body_length": 535,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d473c2ca19403a057b87e2628e551ae5916dd350cb5b34f756d7277dcf4e2dc3"
+        }
+      },
       "has_proof": false,
       "id": "B-R015",
       "kind": "remark",
@@ -927,6 +1347,12 @@
     {
       "body_hash": "074f1213e31cd5ea2f6fd207602989a78ade51fef276664afd7fae8699da93e4",
       "body_length": 1494,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "074f1213e31cd5ea2f6fd207602989a78ade51fef276664afd7fae8699da93e4"
+        }
+      },
       "has_proof": false,
       "id": "B-R016",
       "kind": "remark",
@@ -941,6 +1367,12 @@
     {
       "body_hash": "1cbc15be08e5cec0bd390ae15228f9f1f385fa66d3eba9a0e41d6104be83df31",
       "body_length": 4546,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1cbc15be08e5cec0bd390ae15228f9f1f385fa66d3eba9a0e41d6104be83df31"
+        }
+      },
       "has_proof": false,
       "id": "B-X001",
       "kind": "examples",
@@ -955,6 +1387,12 @@
     {
       "body_hash": "08780bc0d7ec674793398d34271fd67d36faffba2630db15c1789a8a14ceac19",
       "body_length": 322,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "08780bc0d7ec674793398d34271fd67d36faffba2630db15c1789a8a14ceac19"
+        }
+      },
       "has_proof": false,
       "id": "B-R017",
       "kind": "remark",
@@ -969,6 +1407,12 @@
     {
       "body_hash": "b5c4a0e21910248a22455132128c0ba2c1484b94afe9c1135c912c57f78711f6",
       "body_length": 598,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b5c4a0e21910248a22455132128c0ba2c1484b94afe9c1135c912c57f78711f6"
+        }
+      },
       "has_proof": false,
       "id": "B-D033",
       "kind": "definition",
@@ -983,6 +1427,15 @@
     {
       "body_hash": "7f242a782cda7d9267328a798e6254b19f62b58caf0fbc6d05e9861e85107d86",
       "body_length": 288,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1236",
+          "hash": "2954cab98dfad79c985a519963b4be31dd241e0f38cb0439a837702e728abc53"
+        },
+        "informal_statement": {
+          "hash": "7f242a782cda7d9267328a798e6254b19f62b58caf0fbc6d05e9861e85107d86"
+        }
+      },
       "has_proof": true,
       "id": "B-P016",
       "kind": "proposition",
@@ -997,6 +1450,15 @@
     {
       "body_hash": "42498e3efd831bf80ebd6c1f5c9bfeae7067b7c8d3495f52c7a3782f66b2d694",
       "body_length": 282,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1250",
+          "hash": "3a08cd85400ad8f19d96f487330c2e64ee8dd91ebc04bef56205c99fc1d6e253"
+        },
+        "informal_statement": {
+          "hash": "42498e3efd831bf80ebd6c1f5c9bfeae7067b7c8d3495f52c7a3782f66b2d694"
+        }
+      },
       "has_proof": true,
       "id": "B-P017",
       "kind": "proposition",
@@ -1011,6 +1473,12 @@
     {
       "body_hash": "fa2574178629800ed9b56f3f09881f5e2e3da178ab304961efdc05938eab39db",
       "body_length": 66,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "fa2574178629800ed9b56f3f09881f5e2e3da178ab304961efdc05938eab39db"
+        }
+      },
       "has_proof": false,
       "id": "B-C004",
       "kind": "corollary",
@@ -1025,6 +1493,15 @@
     {
       "body_hash": "7399956c92391a8fccc1edaf0639d0bfa62849158a81d889d554f78555e03350",
       "body_length": 143,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1268",
+          "hash": "a8320c9ca6de314ae3586fdb71067133657b9ad4e76ecf8781dd804b38314be9"
+        },
+        "informal_statement": {
+          "hash": "7399956c92391a8fccc1edaf0639d0bfa62849158a81d889d554f78555e03350"
+        }
+      },
       "has_proof": true,
       "id": "B-P018",
       "kind": "proposition",
@@ -1039,6 +1516,12 @@
     {
       "body_hash": "8e9ff35783ee6af727d2007b9635410194a814a948b7bc9b5283ab718619ac35",
       "body_length": 271,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8e9ff35783ee6af727d2007b9635410194a814a948b7bc9b5283ab718619ac35"
+        }
+      },
       "has_proof": false,
       "id": "B-D034",
       "kind": "definition",
@@ -1053,6 +1536,12 @@
     {
       "body_hash": "de1da0349ac97a0b390b27c221cf7f0e513096b2be62b58f073a6f018f0f9401",
       "body_length": 311,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "de1da0349ac97a0b390b27c221cf7f0e513096b2be62b58f073a6f018f0f9401"
+        }
+      },
       "has_proof": false,
       "id": "B-C005",
       "kind": "corollary",
@@ -1067,6 +1556,15 @@
     {
       "body_hash": "ac82952aac8ba6caee30fc36859095699426353a484f26c8df3db41723b2b64e",
       "body_length": 458,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1312",
+          "hash": "f6fa7261fa096bd9566fa0a346d33f91d4258d61ab18ce85263ef8cb171de58b"
+        },
+        "informal_statement": {
+          "hash": "ac82952aac8ba6caee30fc36859095699426353a484f26c8df3db41723b2b64e"
+        }
+      },
       "has_proof": true,
       "id": "B-P019",
       "kind": "proposition",
@@ -1081,6 +1579,15 @@
     {
       "body_hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4",
       "body_length": 145,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1325",
+          "hash": "e1cd495c4c702d290e7f20e8aafa1b16e0bd62351e237ca7fc08bb1b59bc8247"
+        },
+        "informal_statement": {
+          "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+        }
+      },
       "has_proof": true,
       "id": "B-P020",
       "kind": "proposition",
@@ -1095,6 +1602,12 @@
     {
       "body_hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025",
       "body_length": 63,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025"
+        }
+      },
       "has_proof": false,
       "id": "B-C006",
       "kind": "corollary",
@@ -1109,6 +1622,12 @@
     {
       "body_hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758",
       "body_length": 974,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+        }
+      },
       "has_proof": false,
       "id": "B-D035",
       "kind": "definition",
@@ -1123,6 +1642,12 @@
     {
       "body_hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6",
       "body_length": 937,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+        }
+      },
       "has_proof": false,
       "id": "B-D036",
       "kind": "definition",
@@ -1137,6 +1662,12 @@
     {
       "body_hash": "85c508459788ef01c8a7de14706c7eb14e99f9bb017f5e213c53ba7398d60f2f",
       "body_length": 443,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "85c508459788ef01c8a7de14706c7eb14e99f9bb017f5e213c53ba7398d60f2f"
+        }
+      },
       "has_proof": false,
       "id": "B-R018",
       "kind": "remark",
@@ -1151,6 +1682,12 @@
     {
       "body_hash": "2a7c293f55806e4f1171f351897208baae1eb58cf7f8ab996ef93e2dcae46345",
       "body_length": 664,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "2a7c293f55806e4f1171f351897208baae1eb58cf7f8ab996ef93e2dcae46345"
+        }
+      },
       "has_proof": false,
       "id": "B-D037",
       "kind": "definition",
@@ -1165,6 +1702,15 @@
     {
       "body_hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2",
       "body_length": 706,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1458",
+          "hash": "ebbc9e9018b9dd7367b2df38216f2f3f2d0dd71e75368a9eb2a1d39f5d2b9bb4"
+        },
+        "informal_statement": {
+          "hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2"
+        }
+      },
       "has_proof": true,
       "id": "B-P021",
       "kind": "proposition",
@@ -1179,6 +1725,12 @@
     {
       "body_hash": "e379bbd37581b43b62f090514f80fac20335c10183695ade42c750cb5266bc44",
       "body_length": 404,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e379bbd37581b43b62f090514f80fac20335c10183695ade42c750cb5266bc44"
+        }
+      },
       "has_proof": false,
       "id": "B-D038",
       "kind": "definition",
@@ -1193,6 +1745,15 @@
     {
       "body_hash": "8a4642103c383d7eab19e6a9bce07c11f491a7cc28771aae732a97e45dd769dc",
       "body_length": 507,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1548",
+          "hash": "e58875294e47e1937250342d8600ee4657219e05c23ae5e0c5eccc32df36ceda"
+        },
+        "informal_statement": {
+          "hash": "8a4642103c383d7eab19e6a9bce07c11f491a7cc28771aae732a97e45dd769dc"
+        }
+      },
       "has_proof": true,
       "id": "B-P022",
       "kind": "proposition",
@@ -1207,6 +1768,12 @@
     {
       "body_hash": "70c66aa040be0119d99e51800774ea7046ff6df076a261777b35caf32a24246e",
       "body_length": 225,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "70c66aa040be0119d99e51800774ea7046ff6df076a261777b35caf32a24246e"
+        }
+      },
       "has_proof": false,
       "id": "B-D039",
       "kind": "definition",
@@ -1221,6 +1788,12 @@
     {
       "body_hash": "4232d6c398f749b44d5b673d8a880cfb9d6e0d710b85ad9d98ebac81380fc2d0",
       "body_length": 212,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4232d6c398f749b44d5b673d8a880cfb9d6e0d710b85ad9d98ebac81380fc2d0"
+        }
+      },
       "has_proof": false,
       "id": "B-R019",
       "kind": "remark",
@@ -1235,6 +1808,15 @@
     {
       "body_hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed",
       "body_length": 239,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1589",
+          "hash": "25b5021024bea356b6579f86a745852911d647f1030a8467d1d49496355b623a"
+        },
+        "informal_statement": {
+          "hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed"
+        }
+      },
       "has_proof": true,
       "id": "B-P023",
       "kind": "proposition",
@@ -1249,6 +1831,15 @@
     {
       "body_hash": "9362eb3721fbbe559cdac4f6b3cdb815d827ec58c181f224c52ca3b8c76b4a57",
       "body_length": 244,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1608",
+          "hash": "ba6111f7679fe0696007f931f496962f90a9b95d74e1b745b114d6732caca656"
+        },
+        "informal_statement": {
+          "hash": "9362eb3721fbbe559cdac4f6b3cdb815d827ec58c181f224c52ca3b8c76b4a57"
+        }
+      },
       "has_proof": true,
       "id": "B-P024",
       "kind": "proposition",
@@ -1263,6 +1854,12 @@
     {
       "body_hash": "d57fad93f6634aba4d75d8dbe6774721b77d9a090f39abfd91a1348b239e849b",
       "body_length": 173,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d57fad93f6634aba4d75d8dbe6774721b77d9a090f39abfd91a1348b239e849b"
+        }
+      },
       "has_proof": false,
       "id": "B-R020",
       "kind": "remark",
@@ -1277,6 +1874,12 @@
     {
       "body_hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714",
       "body_length": 164,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714"
+        }
+      },
       "has_proof": false,
       "id": "B-P025",
       "kind": "proposition",
@@ -1291,6 +1894,15 @@
     {
       "body_hash": "6dcfe895d8ad96290cce776bab759d6904ad9eb967b8814f38677967a328c3f2",
       "body_length": 300,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1633",
+          "hash": "165d8154599440cb9e24351348c66bd347bca248ff5e37bb00184115714ffe4a"
+        },
+        "informal_statement": {
+          "hash": "6dcfe895d8ad96290cce776bab759d6904ad9eb967b8814f38677967a328c3f2"
+        }
+      },
       "has_proof": true,
       "id": "B-P026",
       "kind": "proposition",
@@ -1305,6 +1917,12 @@
     {
       "body_hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad",
       "body_length": 208,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+        }
+      },
       "has_proof": false,
       "id": "B-P027",
       "kind": "proposition",
@@ -1319,6 +1937,12 @@
     {
       "body_hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7",
       "body_length": 312,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+        }
+      },
       "has_proof": false,
       "id": "B-P028",
       "kind": "proposition",
@@ -1333,6 +1957,12 @@
     {
       "body_hash": "1155ca40e15c2b9bea59bb21e7670bc5b486735587a6ec664bb4b4fce1e5c5a6",
       "body_length": 1916,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1155ca40e15c2b9bea59bb21e7670bc5b486735587a6ec664bb4b4fce1e5c5a6"
+        }
+      },
       "has_proof": false,
       "id": "B-R021",
       "kind": "remark",
@@ -1347,6 +1977,15 @@
     {
       "body_hash": "252933542d27431d303f68b1008214d1a7ce0895a56cb16f01b45249b177079a",
       "body_length": 863,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1752",
+          "hash": "15d619d3fc9ea934e4464ae3abfd6e8826ebfc824cc5e5b2a33022b2263504ca"
+        },
+        "informal_statement": {
+          "hash": "252933542d27431d303f68b1008214d1a7ce0895a56cb16f01b45249b177079a"
+        }
+      },
       "has_proof": true,
       "id": "B-P029",
       "kind": "proposition",
@@ -1361,6 +2000,15 @@
     {
       "body_hash": "76d3b9e5e6cc1a979318f93011faa66e496d3ff10b4025fc5982d7afe7bf1179",
       "body_length": 1670,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1887",
+          "hash": "0e93a4e7a7c6705a2a7b8fff2d03ba92e9571d07070a206085ee6ea30b56e474"
+        },
+        "informal_statement": {
+          "hash": "76d3b9e5e6cc1a979318f93011faa66e496d3ff10b4025fc5982d7afe7bf1179"
+        }
+      },
       "has_proof": true,
       "id": "B-P030",
       "kind": "proposition",
@@ -1375,6 +2023,12 @@
     {
       "body_hash": "13080020ad9fd67616a4c692736f1fb302783918bc16dc19a340b95bb5a1f8dc",
       "body_length": 330,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "13080020ad9fd67616a4c692736f1fb302783918bc16dc19a340b95bb5a1f8dc"
+        }
+      },
       "has_proof": false,
       "id": "B-R022",
       "kind": "remark",
@@ -1389,6 +2043,12 @@
     {
       "body_hash": "19f59c8e1092f498f316cc914c55256ebcd0a58cd2251a79fc3a4d380a70b90e",
       "body_length": 684,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "19f59c8e1092f498f316cc914c55256ebcd0a58cd2251a79fc3a4d380a70b90e"
+        }
+      },
       "has_proof": false,
       "id": "B-R023",
       "kind": "remark",
@@ -1403,6 +2063,15 @@
     {
       "body_hash": "eb98b1c4bc73f498267ee3b0ed439fe2e95affb96524f482f1bc11c8a735a5ca",
       "body_length": 441,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1917",
+          "hash": "d5455463cbcc7d08b9bab7aa8a2eed0cd586ebe4bab48391373ac6ff0f5aeda5"
+        },
+        "informal_statement": {
+          "hash": "eb98b1c4bc73f498267ee3b0ed439fe2e95affb96524f482f1bc11c8a735a5ca"
+        }
+      },
       "has_proof": true,
       "id": "B-C007",
       "kind": "corollary",
@@ -1417,6 +2086,15 @@
     {
       "body_hash": "7138798478a58ef49a378b7654937a4b9313d4db126668d1fb29531726346014",
       "body_length": 422,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1927",
+          "hash": "2093647fe42c49ab415e596d299a44e4899b1c595526c65d812cf0fc99d0b8d5"
+        },
+        "informal_statement": {
+          "hash": "7138798478a58ef49a378b7654937a4b9313d4db126668d1fb29531726346014"
+        }
+      },
       "has_proof": true,
       "id": "B-C008",
       "kind": "corollary",
@@ -1431,6 +2109,15 @@
     {
       "body_hash": "bc37a6a073a0da240cdd44bab212b14ac1c1b4377c8c4a71ad581ee7a2417689",
       "body_length": 326,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1936",
+          "hash": "85bbb9896bff7ad5def54b3b7538cc8c9ddf5aa9708698b825d28c9b820586bc"
+        },
+        "informal_statement": {
+          "hash": "bc37a6a073a0da240cdd44bab212b14ac1c1b4377c8c4a71ad581ee7a2417689"
+        }
+      },
       "has_proof": true,
       "id": "B-C009",
       "kind": "corollary",
@@ -1445,6 +2132,15 @@
     {
       "body_hash": "974dba1ed0e33d7225ae286c6d1a5a560bc095dbf090e27539869f06cb9f03ad",
       "body_length": 272,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1950",
+          "hash": "3a606acd36e3cdda28e48c89ea51062a91031e3f943eeeb532b5a02e4e282716"
+        },
+        "informal_statement": {
+          "hash": "974dba1ed0e33d7225ae286c6d1a5a560bc095dbf090e27539869f06cb9f03ad"
+        }
+      },
       "has_proof": true,
       "id": "B-C010",
       "kind": "corollary",
@@ -1459,6 +2155,12 @@
     {
       "body_hash": "4b44a6919c2dc1f3c9347cc83d3e2986ee059a96d0f759c63432534bb696e6b8",
       "body_length": 279,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4b44a6919c2dc1f3c9347cc83d3e2986ee059a96d0f759c63432534bb696e6b8"
+        }
+      },
       "has_proof": false,
       "id": "B-D040",
       "kind": "definition",
@@ -1473,6 +2175,12 @@
     {
       "body_hash": "79921edf0932f6e16f9ff04db896700559a7a3665c42e2b248bd31aa5834673f",
       "body_length": 1597,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "79921edf0932f6e16f9ff04db896700559a7a3665c42e2b248bd31aa5834673f"
+        }
+      },
       "has_proof": false,
       "id": "B-X002",
       "kind": "examples",
@@ -1487,6 +2195,15 @@
     {
       "body_hash": "61cac439b3b903541c6ca29b6c52c1fa4d5d09c77e218523f5147257fbb66a0f",
       "body_length": 202,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@1968",
+          "hash": "83e1ce37666b81d85486825b268ff7fc139e854a360b82f13e9d91028d36fb03"
+        },
+        "informal_statement": {
+          "hash": "61cac439b3b903541c6ca29b6c52c1fa4d5d09c77e218523f5147257fbb66a0f"
+        }
+      },
       "has_proof": true,
       "id": "B-P031",
       "kind": "proposition",
@@ -1501,6 +2218,12 @@
     {
       "body_hash": "038601a3c9071365c37a27dfc7ef7d3ffd50a2d34f15e7145615910e14779256",
       "body_length": 803,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "038601a3c9071365c37a27dfc7ef7d3ffd50a2d34f15e7145615910e14779256"
+        }
+      },
       "has_proof": false,
       "id": "B-R024",
       "kind": "remark",
@@ -1515,6 +2238,12 @@
     {
       "body_hash": "4d44e5f2ebc8491ef706a807e92d0cb5d013fdc54996c336fa5526ddfde1a314",
       "body_length": 61,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4d44e5f2ebc8491ef706a807e92d0cb5d013fdc54996c336fa5526ddfde1a314"
+        }
+      },
       "has_proof": false,
       "id": "B-A001",
       "kind": "assumption",
@@ -1529,6 +2258,12 @@
     {
       "body_hash": "578f85be259950bc69669028f59c986125639a16346af3698fc522ed10182628",
       "body_length": 499,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "578f85be259950bc69669028f59c986125639a16346af3698fc522ed10182628"
+        }
+      },
       "has_proof": false,
       "id": "B-D041",
       "kind": "definition",
@@ -1543,6 +2278,15 @@
     {
       "body_hash": "82a7a9e2cd8a3a752404f966eca8ff9f6dcdeef0436cb05888a2f95675b98bed",
       "body_length": 75,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@2002",
+          "hash": "889c5e603413eb0d40a680c359a2949a6ab97ba1edf1d1a4fc28c7332f48779a"
+        },
+        "informal_statement": {
+          "hash": "82a7a9e2cd8a3a752404f966eca8ff9f6dcdeef0436cb05888a2f95675b98bed"
+        }
+      },
       "has_proof": true,
       "id": "B-P032",
       "kind": "proposition",
@@ -1557,6 +2301,12 @@
     {
       "body_hash": "1886c283f373ec792a3719887a3b9f00b36fd61d7c6b478fa8807b0fce65a93c",
       "body_length": 264,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1886c283f373ec792a3719887a3b9f00b36fd61d7c6b478fa8807b0fce65a93c"
+        }
+      },
       "has_proof": false,
       "id": "B-R025",
       "kind": "remark",
@@ -1571,6 +2321,12 @@
     {
       "body_hash": "d795fe2a722e0d109587e5fbe160afe37b53ae73c32f1c0a5752b3c845224a14",
       "body_length": 89,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d795fe2a722e0d109587e5fbe160afe37b53ae73c32f1c0a5752b3c845224a14"
+        }
+      },
       "has_proof": false,
       "id": "B-D042",
       "kind": "definition",
@@ -1585,6 +2341,12 @@
     {
       "body_hash": "7d254eedcc4d1f9c9c948b587a72c2d6fdead6bf949c685c6f791c5b1615b75f",
       "body_length": 352,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7d254eedcc4d1f9c9c948b587a72c2d6fdead6bf949c685c6f791c5b1615b75f"
+        }
+      },
       "has_proof": false,
       "id": "B-D043",
       "kind": "definition",
@@ -1599,6 +2361,15 @@
     {
       "body_hash": "f7f15ca75450ec235c0c556b4ae9586f5363ba84ebba3fc8b312bb436e7b3db0",
       "body_length": 147,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@2053",
+          "hash": "9e4d4dfa40c871e6617115e15541ba9401ab67747e55127590374fa517cdf279"
+        },
+        "informal_statement": {
+          "hash": "f7f15ca75450ec235c0c556b4ae9586f5363ba84ebba3fc8b312bb436e7b3db0"
+        }
+      },
       "has_proof": true,
       "id": "B-P033",
       "kind": "proposition",
@@ -1613,6 +2384,12 @@
     {
       "body_hash": "1a7e1aa779b3f7303bc547fb7e642b607e1d1a26a309c8130b98f48bd27cf9e0",
       "body_length": 76,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1a7e1aa779b3f7303bc547fb7e642b607e1d1a26a309c8130b98f48bd27cf9e0"
+        }
+      },
       "has_proof": false,
       "id": "B-C011",
       "kind": "corollary",
@@ -1627,6 +2404,15 @@
     {
       "body_hash": "552cbc5a40cc06eb4393d3a4e957d140b93219075fe163a75a5f7e8b2d468d36",
       "body_length": 146,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@2067",
+          "hash": "1c8abaf569dce0fa276c0be8575fb874f8681002e013b7899d7720d4c608257c"
+        },
+        "informal_statement": {
+          "hash": "552cbc5a40cc06eb4393d3a4e957d140b93219075fe163a75a5f7e8b2d468d36"
+        }
+      },
       "has_proof": true,
       "id": "B-P034",
       "kind": "proposition",
@@ -1641,6 +2427,12 @@
     {
       "body_hash": "9764124f72bb25c0a3f980e3f79468c748f2caae3cda35e8686846dbde4fc072",
       "body_length": 98,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9764124f72bb25c0a3f980e3f79468c748f2caae3cda35e8686846dbde4fc072"
+        }
+      },
       "has_proof": false,
       "id": "B-C012",
       "kind": "corollary",
@@ -1655,6 +2447,12 @@
     {
       "body_hash": "8de056e323032e557108458fb9901e8a55ca085f6b3ada8fe25c0c58994cc3c0",
       "body_length": 328,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8de056e323032e557108458fb9901e8a55ca085f6b3ada8fe25c0c58994cc3c0"
+        }
+      },
       "has_proof": false,
       "id": "B-D044",
       "kind": "definition",
@@ -1669,6 +2467,12 @@
     {
       "body_hash": "90a5fbcd492f0fb0b1ea5df236c737c725f0541ff39d7f8fa47cea501458f428",
       "body_length": 151,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "90a5fbcd492f0fb0b1ea5df236c737c725f0541ff39d7f8fa47cea501458f428"
+        }
+      },
       "has_proof": false,
       "id": "B-R026",
       "kind": "remark",
@@ -1683,6 +2487,12 @@
     {
       "body_hash": "d3e9eec0eb46ca33b71222ecfb86d63b57343d1bf441247972887c489ca3d839",
       "body_length": 1710,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d3e9eec0eb46ca33b71222ecfb86d63b57343d1bf441247972887c489ca3d839"
+        }
+      },
       "has_proof": false,
       "id": "B-D045",
       "kind": "definition",
@@ -1697,6 +2507,12 @@
     {
       "body_hash": "11b3962c31606fb3d359f158ccb94dff50bc0344f8da0ba9c773bf1e3f1c40ae",
       "body_length": 2041,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "11b3962c31606fb3d359f158ccb94dff50bc0344f8da0ba9c773bf1e3f1c40ae"
+        }
+      },
       "has_proof": false,
       "id": "B-D046",
       "kind": "definition",
@@ -1711,6 +2527,12 @@
     {
       "body_hash": "37b3a65747ca46b60ec4d0efedd120300c1688f0cbe8f6f5b017c9ce7cacb8ea",
       "body_length": 244,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "37b3a65747ca46b60ec4d0efedd120300c1688f0cbe8f6f5b017c9ce7cacb8ea"
+        }
+      },
       "has_proof": false,
       "id": "B-R027",
       "kind": "remark",
@@ -1725,6 +2547,15 @@
     {
       "body_hash": "4d8937d25627231abbf4d9d91148538c378be4bf8d395013b089f59604416579",
       "body_length": 59,
+      "facets": {
+        "informal_proof": {
+          "anchor": "Eq1",
+          "hash": "6f2f08236c51f217288b62994978958eeec673e973f99a087124ed04bac0784b"
+        },
+        "informal_statement": {
+          "hash": "4d8937d25627231abbf4d9d91148538c378be4bf8d395013b089f59604416579"
+        }
+      },
       "has_proof": true,
       "id": "B-P035",
       "kind": "proposition",
@@ -1739,6 +2570,12 @@
     {
       "body_hash": "1d421719f7b83fd600224b60201e3df15390dbe1698351f82adf2ddf4805885c",
       "body_length": 66,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1d421719f7b83fd600224b60201e3df15390dbe1698351f82adf2ddf4805885c"
+        }
+      },
       "has_proof": false,
       "id": "B-P036",
       "kind": "proposition",
@@ -1753,6 +2590,15 @@
     {
       "body_hash": "6d93dc747a1c244534ad3c6d8b52c51a8530852ae9cb8a217f2d605e00bde802",
       "body_length": 268,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@2273",
+          "hash": "c4649bcb6b1b7d06b86bec73573ee9551e98fbe002e512890fb34ad214040f2e"
+        },
+        "informal_statement": {
+          "hash": "6d93dc747a1c244534ad3c6d8b52c51a8530852ae9cb8a217f2d605e00bde802"
+        }
+      },
       "has_proof": true,
       "id": "B-P037",
       "kind": "proposition",
@@ -1767,6 +2613,15 @@
     {
       "body_hash": "36bad3a3e3ca49f6c7a8d002a78c7c440217ce7bdaa6649cd3ea56e5c693cec5",
       "body_length": 576,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@2286",
+          "hash": "12e3bb8ed8ef5c70679a752be29c51abd0e3dee751587e199ef483cab2125ae9"
+        },
+        "informal_statement": {
+          "hash": "36bad3a3e3ca49f6c7a8d002a78c7c440217ce7bdaa6649cd3ea56e5c693cec5"
+        }
+      },
       "has_proof": true,
       "id": "B-P038",
       "kind": "proposition",
@@ -1781,6 +2636,15 @@
     {
       "body_hash": "64968ffc9b11d27291f5ecdafd9d94a21884bc21d3d046589181b587db6b9eab",
       "body_length": 138,
+      "facets": {
+        "informal_proof": {
+          "anchor": "proof@2317",
+          "hash": "a73d85ebc5edd2b5e839796bec935c39bda089b2ca4b64eb25faad71bdafd7db"
+        },
+        "informal_statement": {
+          "hash": "64968ffc9b11d27291f5ecdafd9d94a21884bc21d3d046589181b587db6b9eab"
+        }
+      },
       "has_proof": true,
       "id": "B-P039",
       "kind": "proposition",
@@ -1795,6 +2659,12 @@
     {
       "body_hash": "155bdf5d39e42e941e775135e47829a7753e4b2823f646bd5c4c5c606c5fb672",
       "body_length": 68,
+      "facets": {
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "155bdf5d39e42e941e775135e47829a7753e4b2823f646bd5c4c5c606c5fb672"
+        }
+      },
       "has_proof": false,
       "id": "B-C013",
       "kind": "corollary",
