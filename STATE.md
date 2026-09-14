@@ -1222,6 +1222,57 @@ finding, not edited.
 
 ---
 
+## Session 21 -- 2026-09-14 -- decision queue and evidence bundle
+
+**Goal.** Build the two remaining Section 19/23 project views: the author
+decision queue and the third-party evidence bundle.
+
+**What was established (closed).**
+
+- `decisions/standing.json` + `scripts/decisions.py` -- the **decision queue**:
+  8 standing reserved decisions (Explanations, representation, record format,
+  scope, the `B-P002` simplification, toolchain, calibration models) merged with
+  open journal `escalation_opened` events (currently `EV-000019`, the `B-D014`
+  change). Rendered to `reports/decisions.md`; `decisions_test.py` checks it.
+- `scripts/bundle.py` -- a deterministic, self-contained
+  `reports/bundle.md` (Section 23 / Phase 5 exit): a sha256 **manifest** of the
+  durable artifacts, the per-block status vector, the full evidence records, and
+  the current views (trust boundary, calibration, discrepancy, impact,
+  decisions). `--check-report` detects drift.
+- `scripts/check_all.sh` extended to **23 checks**. Current: **23 passed, 0
+  failed**.
+
+---
+
+## Session 22 -- 2026-09-14 -- B-R008
+
+**Goal.** Formalize the last pilot remark in scope: `B-R008`.
+
+**What was established (closed).**
+
+- `lean/Mslang/Pilot.lean`: `deltaUnion` (`⋃_{t∈T} δ^{t,A_t}`), and
+  `nabla_sat_empty` (`∅^S ∈ ∇^A-Sat(A)`), `nabla_sat_univ` (`A ∈ ∇^A-Sat(A)`),
+  `nabla_sat_deltaUnion` (`⋃_{t∈T} δ^{t,A_t} ∈ ∇^A-Sat(A)`) -- the last by
+  `nabla_sat`.
+- Clean build, 0 warnings; axioms within the permitted set.
+  `B-R008` mapped; **12 declarations, 19 formal edges**; verification record
+  **`E-000016`**.
+- `check_all`: **23 passed, 0 failed**.
+
+**Pilot coverage now.** `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D009`,
+`B-D014`, `B-R006`, `B-R008`, `B-C001`, `B-C002`, `B-P002`, `B-P003` all have
+Lean counterparts; evidence for 9 blocks.
+
+**Prioritized next steps (continuing autonomously).**
+
+1. Fold `formal_uses` into `formal_statement` (definition closure), re-baselining
+   the correspondence records deliberately; or extend `impact.py` to traverse
+   formal edges.
+2. Correspondence audits (blind) for `B-D004`/`B-R006`/`B-R008`.
+3. Per-case / second-model calibration runs.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -1248,11 +1299,11 @@ finding, not edited.
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (20 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (23 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
    hygiene/propagation/status/trust/Lean-facet/calibration/impact/discrepancy
-   tests, record validation, formal-facet/report/calibration/impact/discrepancy
-   drift, and the build.
+   tests, decisions and bundle drift, record validation, view drift, and the
+   build.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
