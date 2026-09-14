@@ -1,0 +1,25 @@
+{
+  "blocks": {
+    "B-C001": {
+      "decl": "Mslang.sat_antitone",
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "39d3a77deebc9c10d31f8cd9b5e13937e2e0ade1d883bb1e20fb410896ca1f16"
+      },
+      "formal_statement": {
+        "hash": "0e94f69997949e8d039ddb019967cdad9dbd40ebc7be411cd29172f83b1fc410"
+      }
+    },
+    "B-P002": {
+      "decl": "Mslang.sat_sat_eq",
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "ba5d60430f89551224db9dc93fc02ad5989b97b55fb60e1832750e7d56b09d3d"
+      },
+      "formal_statement": {
+        "hash": "981f9773a71a80c28fc22a3b75f86d0336cc88e266ccc485c46353b398e9086e"
+      }
+    }
+  },
+  "source": "lean/declarations.json"
+}

@@ -29,6 +29,11 @@ import json
 import sys
 from pathlib import Path
 
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+import closure  # noqa: E402
+
 POSITIVE = {
     "equivalent",
     "formal_stronger",
@@ -48,8 +53,7 @@ NEGATIVE = {
 
 
 def load_registry(path):
-    doc = json.loads(Path(path).read_text(encoding="utf-8"))
-    return {b["id"]: b for b in doc["blocks"] if b.get("id")}
+    return closure.load_registry(Path(path))
 
 
 def load_evidence(directory):

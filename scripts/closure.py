@@ -54,7 +54,32 @@ def sha256_file(path: Path) -> str:
 
 def load_registry(path: Path):
     doc = json.loads(Path(path).read_text(encoding="utf-8"))
-    return {b["id"]: b for b in doc["blocks"] if b.get("id")}
+    blocks = {b["id"]: b for b in doc["blocks"] if b.get("id")}
+    _merge_formal(path, blocks)
+    return blocks
+
+
+def _merge_formal(registry_path, blocks):
+    """Merge Lean formal facets from ``blocks/formal.json`` (if present).
+
+    Kept out of the registry file so ``ingest.py --check`` still reproduces the
+    TeX-derived registry alone (Architecture.md Sections 6, 12.3).
+    """
+    formal = Path(registry_path).parent / "formal.json"
+    if not formal.exists():
+        return
+    try:
+        doc = json.loads(formal.read_text(encoding="utf-8"))
+    except Exception:
+        return
+    for bid, entry in doc.get("blocks", {}).items():
+        block = blocks.get(bid)
+        if not block or entry.get("error"):
+            continue
+        facets = block.setdefault("facets", {})
+        for facet in ("formal_statement", "formal_proof"):
+            if entry.get(facet):
+                facets[facet] = entry[facet]
 
 
 def load_edges(path: Path, confirmed_only: bool = True):
