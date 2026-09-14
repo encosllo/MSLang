@@ -50,7 +50,7 @@ deferred.
 | Component | Value |
 |---|---|
 | Lean | `leanprover/lean4:v4.33.1` (native arm64; machine has several elan toolchains) |
-| Mathlib | `TBD` -- fixed at bootstrap item 4 |
+| Mathlib | `0df444a360eaa60ab8c11dca51a86af692955474` (tag `v4.33.1`; fixed at bootstrap item 4, Session 9) |
 | TeX | TeX Live 2024, `pdflatex` via `latexmk` |
 | Manuscript engine | `pdflatex` (declares `\usepackage[latin1]{inputenc}`) |
 
@@ -582,14 +582,77 @@ decision was taken; the Lean/Mathlib fetch remains blocked on disk.
 
 ---
 
+## Session 9 -- 2026-09-14 -- Lean/Mathlib fetch and clean build (bootstrap item 4)
+
+**Goal.** Execute the long-blocked fetch: bring the pinned Mathlib into
+`lean/` and record the clean-build baseline. Author-directed ("fetch now").
+
+**What was established (closed).**
+
+- `scripts/env.sh` now exports **`MATHLIB_CACHE_DIR="$MSLANG_ROOT/.cache/mathlib"`**
+  so `lake exe cache get` writes the download cache inside the repo, not the
+  machine-wide `~/.cache/mathlib` (Section 15.3 isolation; `.cache/` added to
+  `.gitignore`). The machine-wide cache was **not** touched.
+- `lean/lake update` fetched the pinned Mathlib (commit
+  `0df444a360eaa60ab8c11dca51a86af692955474`, tag `v4.33.1`) plus its
+  dependencies (`plausible`, `LeanSearchClient`, `importGraph`, `proofwidgets`,
+  `aesop`, `Qq`, `batteries`, `Cli`). Mathlib's `post-update` hook fetched the
+  precompiled **8,690-file** olean cache. `lake update` wall time **1m55s**.
+- `lean/lake-manifest.json` written and now tracked (the pinned lockfile;
+  manifest revisions recorded). `lean/lakefile.toml`'s exact rev was honoured.
+- **Clean build baseline (bootstrap item 4):** `lake build` completed
+  successfully, **8,707 jobs**, **0 errors, 0 warnings**, wall time **4m13s**
+  (the single `Mslang` module elaborates `import Mathlib`, ~235s of that).
+  `lake env lean Mslang.lean` re-run: **3m03s**, `#print axioms mslang_smoke`
+  reports **"does not depend on any axioms"** -- a subset of the permitted set
+  (the `rfl` smoke theorem uses none; add a `Classical.choice`-using probe if a
+  positive axiom check is wanted).
+- Chosen isolation tactic: the fetch ran with `ELAN_HOME` **unset**, so `elan`
+  used the machine `~/.elan` toolchain (v4.33.1 is already installed there),
+  avoiding a duplicate 2.7 GiB project-local toolchain copy. Project-local
+  toolchain isolation (bootstrap item 2) therefore remains **partial**: the
+  package cache (`.lake/`) and download cache (`.cache/`) are project-local;
+  the toolchain is not.
+
+**Findings / gotchas.**
+
+- The `~/.cache/mathlib` that exists on this machine (2.4 GiB) belongs to other
+  projects (MathForm's Mathlib v4.32.0) and was deliberately not used; the
+  project-local cache filled to 440 MiB of ltars, deleted after extraction.
+- **Disk is now the binding constraint.** The extracted Mathlib oleans in
+  `lean/.lake/packages/mathlib/.lake/build/lib` are **5.9 GiB** (plus 448 MiB
+  IR; total `lean/.lake` 7.5 GiB). Free space went from ~9.7 GiB to ~1.3 GiB.
+  Do not run further large fetches without freeing space.
+- Pre-existing installs found while surveying the machine: full Mathlib
+  **v4.32.0** build at `~/Desktop/MathForm/.lake/packages/mathlib` (6.9 GiB,
+  incompatible with our rev), source-only v4.13.0-rc3 at `~/Lean4`, and elan
+  toolchains v4.13.0-rc3/v4.23.0/v4.31.0/v4.32.0/v4.33.1.
+
+**Prioritized next steps.**
+
+1. Free disk (e.g. retire the unused `~/Desktop/MathForm` v4.32.0 build, or the
+   machine-wide `~/.cache/mathlib`) before any further fetch/rebuild, and decide
+   whether to install the project-local toolchain (bootstrap item 2 full).
+2. Prove the encoding bridge obligations (`setoid_le_iff` first) and
+   `sat_antitone` (`B-C001`); then produce the first correspondence and
+   verification evidence records via `scripts/evidence.py`.
+3. Stand up the seeded-mismatch calibration suite (Section 11.4).
+4. Author: independent representation audit; JSON vs YAML records.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
    trusting this file (Section 10.5).
 2. `. scripts/env.sh`; expect the "project-local toolchain not installed"
-   warning until bootstrap item 4 lands.
-3. Verify the baseline still holds: `./scripts/build_manuscript.sh` should
-   exit 0 with a 49-page PDF.
+   warning: `ELAN_HOME` points at the (empty) `./.elan`, so `elan` falls back
+   to the machine toolchain. Export `MATHLIB_CACHE_DIR` is project-local. For
+   Lean work run `lake` with `ELAN_HOME` unset (the v4.33.1 machine toolchain).
+2b. Check disk before Lean work: `df -h /`. The extracted Mathlib oleans are
+   5.9 GiB; free space was ~1.3 GiB after the Session 9 fetch.
+3. Verify the manuscript baseline still holds: `./scripts/build_manuscript.sh`
+   should exit 0 with a 49-page PDF.
 4. Before editing the manuscript, run
    `python3 scripts/nonascii_scan.py manuscript/MSEilenberg.tex`.
 5. After *every* manuscript edit, re-run
