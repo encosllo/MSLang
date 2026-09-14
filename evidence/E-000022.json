@@ -1,0 +1,41 @@
+{
+  "block": "B-R006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000022",
+  "findings": [
+    "Stage 1 read-back rendered sat_eq_preimage and isSat_iff_preimage as: saturation equals the quotient preimage of the image, and a subset is saturated iff it is a quotient preimage.",
+    "Stage 2 comparator returned equivalent; contract sentence 2 (X superset of [X]^Phi) is a one-line consequence of IsSat plus reflexivity; edge cases agree.",
+    "Transcript: blocks/audits/B-R006-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R006/formal_statement",
+      "hash": "72af4697f692da6a7def210d095c7e3fda55b772814a0b542809b1662b194a59"
+    },
+    {
+      "artifact": "B-R006/informal_statement",
+      "hash": "1e3f64cb9f99390f83bd6aac3caac45d2fac51692f7b023adcaea9cc570c278e"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:17:42Z"
+}
