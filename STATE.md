@@ -1307,6 +1307,37 @@ change must propagate to dependents.
 
 ---
 
+## Session 24 -- 2026-09-14 -- correspondence catches an encoding mismatch (B-D004)
+
+**Goal.** Blind correspondence for `B-D004`.
+
+**Finding (the audit pipeline working as intended).**
+
+- Stage 2 returned **`incomparable`** for `B-D004`. `Subfinal` (`card ≤ 1`) and
+  `initialSorted` (`∅^S`) match the contract, but **`finalSorted` is `Set.univ`
+  (the whole ambient), not the paper's constant-singleton terminal `1^S`**.
+  With `|U| ≥ 2` it is strictly larger; with `U = ∅` it degenerates to
+  `initialSorted`. Recorded as **`E-000021`** (correspondence, `incomparable`);
+  `B-D004` correspondence status is now **`fail`** (its verification remains
+  `pass`). Transcript `blocks/audits/B-D004-correspondence.md`.
+- Classification **`F-representation`** (Section 10.2), the concrete form of
+  encoding residual **`R-delta`**. Proposed remedy: encode `1^S` as a chosen
+  singleton (`fun _ => ({x₀} : Set U)`, needing `Nonempty U`) and re-prove
+  `supp_finalSorted`; blast radius `B-D004` + `supp_finalSorted` only (the pilot
+  theorems use `A` itself, not `finalSorted`).
+- This is a **representation change (class C6)**, reserved to the author
+  (Sections 11.5, 16.4). Opened **escalation `EV-000027`** and added standing
+  decision **`D-finalSorted`**; the change was **not** applied.
+- `check_all`: **23 passed, 0 failed**.
+
+**Prioritized next steps.**
+
+1. Author: decide `D-finalSorted` (re-encode `1^S` or accept the caveat).
+2. Blind correspondence for `B-R006`, `B-R008`.
+3. Per-case / second-model calibration runs.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
