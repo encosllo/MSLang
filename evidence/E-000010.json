@@ -1,0 +1,28 @@
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000010",
+  "findings": [
+    "lake build: Mslang.delta (B-D006) and the supp_delta bridge compiled sorry-free against Mathlib v4.33.1.",
+    "#print axioms Mslang.supp_delta = [propext, Classical.choice, Quot.sound] (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only. The formal_proof facet is a source-level hash (scripts/lean_facets.py); supp_delta requires Nonempty U (the paper's universe is nonempty) and delta's component is the whole ambient, not a chosen singleton (residual D2).",
+  "inputs": [
+    {
+      "artifact": "B-D006/formal_proof",
+      "hash": "d026edec3130c05542d49e9ecc81e19c78efb45a075e6d6a786c96c842fd551c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T12:14:20Z"
+}
