@@ -1,0 +1,28 @@
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000034",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-P002 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-P002.",
+  "inputs": [
+    {
+      "artifact": "B-P002/formal_proof",
+      "hash": "05db635866a339b1512a6c25b270e031b1b46a01c3dd54dca0aeee87213c65d1"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:54Z"
+}

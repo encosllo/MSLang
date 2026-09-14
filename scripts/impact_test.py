@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Tests for change blast-radius analysis (Sections 13.1, 13.2, 19).
 
-Runs the non-destructive impact simulation against the *real* committed
-registry, graph, and evidence, and checks that a definition-statement change
-propagates to review/correspondence but not to verification (statement/proof
-separation), while a proof change propagates to the block's own verification.
+Uses synthetic records built from computed closures (never authored evidence),
+so the checks are independent of the current committed evidence set, plus the
+real graph/registry/formal-graph.
 
 Run:
     python3 scripts/impact_test.py
@@ -34,54 +33,54 @@ def check(name, condition, detail=""):
 def main():
     registry = status.load_registry(ROOT / "blocks" / "registry.json")
     edges = closure.load_edges(ROOT / "blocks" / "graph.json", confirmed_only=True)
-    records = status.load_evidence(ROOT / "evidence")
     rep = {"encoding": status.hash_file(ROOT / "representation" / "pilot-encoding.md")}
+    formal_edges = impact.load_formal_edges(ROOT / "blocks" / "formal_graph.json")
+    env = {"lean": "leanprover/lean4:v4.33.1", "mathlib": "0df444a"}
 
-    def ids(staled):
-        return {r["evidence_id"] for r in staled}
+    def synth(block, layer):
+        cl = closure.compute_closure(
+            block, layer, registry, edges, representation_hash=rep["encoding"],
+            environment=env if layer == "verification" else None,
+        )
+        assert not cl.get("blocked"), cl
+        return {"evidence_id": f"E-synth-{block}-{layer}", "layer": layer,
+                "block": block, "inputs": cl["inputs"]}
 
-    def layers(staled):
-        return {r["layer"] for r in staled}
+    def pairs(staled):
+        return {(r["block"], r["layer"]) for r in staled}
 
-    # Downstream closure: B-D014 is used by the pilot corollaries/propositions.
+    records = [synth("B-C001", "review"), synth("B-C001", "verification"),
+               synth("B-C002", "correspondence"), synth("B-P002", "correspondence")]
+
     blocks = impact.affected_blocks("B-D014", edges)
     check("downstream closure reaches the pilot corollaries",
-          {"B-C001", "B-C002", "B-P002", "B-P003"} <= set(blocks),
-          str(blocks))
+          {"B-C001", "B-C002", "B-P002", "B-P003"} <= set(blocks), str(blocks))
 
-    # A definition *statement* change stales review/correspondence, not verification.
     staled = impact.simulate("B-D014/informal_statement", registry, records, rep)
-    check("definition statement change stales some records", bool(staled), str(ids(staled)))
-    check("staled layers are review/correspondence only",
-          layers(staled) <= {"review", "correspondence"}, str(layers(staled)))
-    check("the pilot's B-C001 review is among the staled", "E-000001" in ids(staled),
-          str(ids(staled)))
+    check("definition statement change stales review/correspondence",
+          ("B-C001", "review") in pairs(staled) and ("B-C002", "correspondence") in pairs(staled),
+          str(pairs(staled)))
+    check("definition statement change does not stale verification",
+          ("B-C001", "verification") not in pairs(staled), str(pairs(staled)))
 
-    # A block's own *proof* change stales its verification, not its review.
-    own_proof = impact.simulate("B-C001/formal_proof", registry, records, rep)
-    check("own proof change stales the verification record",
-          "E-000003" in ids(own_proof), str(ids(own_proof)))
-    check("own proof change does not stale the review record",
-          "E-000001" not in ids(own_proof), str(ids(own_proof)))
+    own = impact.simulate("B-C001/formal_proof", registry, records, rep)
+    check("own proof change stales own verification",
+          ("B-C001", "verification") in pairs(own), str(pairs(own)))
+    check("own proof change does not stale own review",
+          ("B-C001", "review") not in pairs(own), str(pairs(own)))
 
-    # A representation (C6) change stales every record listing it.
     rep_change = impact.simulate("representation/encoding", registry, records, rep)
     check("representation change stales records listing it",
-          "E-000001" in ids(rep_change) and "E-000017" in ids(rep_change),
-          str(ids(rep_change)))
+          ("B-C001", "review") in pairs(rep_change)
+          and ("B-P002", "correspondence") in pairs(rep_change),
+          str(pairs(rep_change)))
 
-    # Formal (definition-closure) propagation: a definition's formal_statement
-    # change stales its formal dependents' correspondence records.
-    formal_edges = impact.load_formal_edges(ROOT / "blocks" / "formal_graph.json")
     def_change = impact.simulate("B-D014/formal_statement", registry, records, rep,
                                  formal_edges=formal_edges)
     check("formal definition change reaches dependent correspondence",
-          any(r["block"] in {"B-C001", "B-P002", "B-P003", "B-C002"}
-              and r["layer"] == "correspondence" for r in def_change),
-          str([(r["block"], r["layer"]) for r in def_change]))
+          ("B-C002", "correspondence") in pairs(def_change), str(pairs(def_change)))
     check("formal definition change does not stale verification",
-          all(r["layer"] != "verification" for r in def_change),
-          str([(r["block"], r["layer"]) for r in def_change]))
+          ("B-C001", "verification") not in pairs(def_change), str(pairs(def_change)))
 
     print()
     if FAILURES:

@@ -1,0 +1,29 @@
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000040",
+  "findings": [
+    "Independent-context encoding audit of the dependent-type carrier model (SSet := S -> Type u). The auditor confirmed the componentwise development (subset, Setoid, saturation, quotient object class, delta/terminal, support, complement) is representable, and that A/Phi stays in the object class and delta uses PUnit/PEmpty.",
+    "Three bounded residuals remain, all meta-model level: carrier-model (families of types vs small sets in a Grothendieck universe), small-large (smallness is not tracked; SSet sits one universe up), univalence-missing (carrier identity is finer than set extensionality without univalence). Locally bridgeable items (delta, complement, support, Setoid, quotient) are closed.",
+    "Verdict: faithful-with-caveat with residuals carrier-model, small-large, univalence-missing."
+  ],
+  "independence_caveat": "Isolated fresh subagent, no project history, reasoning from the foundation and encoding table alone; shares this session's underlying model (deepseek-v4.1-flash).",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-14T16:04:44Z"
+}
