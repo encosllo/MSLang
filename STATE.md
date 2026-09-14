@@ -288,6 +288,62 @@ tests (P13, Sections 12.3, 13.1, 18, 22).
 
 ---
 
+## Session 3 -- 2026-09-14 -- pilot representation draft
+
+**Goal.** Address the Session 2 critical-path blocker: with no representation
+record, every closure fails closed. Draft the encoding record for the pilot
+cluster so the closure engine and the author's encoding audit have something
+concrete to work on (Section 11.5, roadmap Phase 0).
+
+**What was established (closed).**
+
+- `representation/pilot-encoding.md` written: a **DRAFT, unaudited** encoding
+  record for the pilot cluster `{B-D002, B-D003, B-D005, B-D006, B-D009,
+  B-D014, B-D015, B-P002, B-P003, B-C001, B-C002}`. It states the paper's
+  foundation (ZFSK + Grothendieck universe, S-sorted sets as `S → 𝒰`, subset,
+  componentwise operations, `Eqv(A)`, saturation, `Φ-Sat(A)`), a proposed Lean
+  encoding (`S : Type u`; `A : S → Set U`; `Setoid` for sorted equivalences;
+  `Quotient`; pointwise `Set` operations), the bridge obligations, and seven
+  enumerated divergences.
+- With that file supplied as the representation, `scripts/closure.py` now emits
+  a real review closure for the pilot, e.g.
+  `--block B-P002 --layer review --representation representation/pilot-encoding.md`
+  (inputs: `B-P002` statement + proof, `B-D014` statement, representation hash).
+  Before the record existed the same call failed closed.
+
+**Findings.**
+
+- The anticipated audit outcome is **`faithful-with-caveat`, not `faithful`**:
+  the fixed-ambient carrier model (D2) cannot express componentwise operations
+  on unrelated carriers, and `Setoid` vs relation (D4) and `Quotient` vs
+  equivalence classes (D5) need bridge lemmas. This is honest, not a defect.
+- Extraction gap confirmed again: the closure engine reports the pilot closure
+  as `{B-P002, B-D014}` because `δ` and `supp` appear as `\delta^{...}` /
+  `\mathrm{supp}`, which the current extractor does not catch as symbol edges;
+  the paper's proof of `B-P002` really uses `B-D006` (delta) and `B-D009`/
+  `B-P001` (support). Real closures are larger than the graph says.
+- `B-D004` (`card(A_s) ≤ 1`) is outside the pilot cluster but the encoding table
+  records its bridge (`Subsingleton`) for reuse.
+
+**Honestly deferred / reserved.**
+
+- The encoding audit itself (Section 11.5) and author acceptance of the carrier
+  model are reserved; the draft is not evidence and must not be treated as
+  authoritative.
+- No content hash is pinned in any evidence record yet (no records exist).
+
+**Prioritized next steps.**
+
+1. Author: audit `representation/pilot-encoding.md` (Section 11.5) and accept or
+   revise the carrier model (D2).
+2. Expand symbol extraction to catch non-`\mathrm` operators (`\delta`,
+   `\supp`, `\Omega`, superscripted operators) so closures match the paper.
+3. Free disk and run the Lean/Mathlib fetch; then prove the bridge obligations
+   and the first formal target `sat_antitone` (`B-C001`).
+4. Author: choose JSON vs YAML for evidence records.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
