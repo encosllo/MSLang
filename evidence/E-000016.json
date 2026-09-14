@@ -1,0 +1,28 @@
+{
+  "block": "B-R008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000016",
+  "findings": [
+    "lake build: Mslang.nabla_sat_empty / nabla_sat_univ / nabla_sat_deltaUnion (B-R008) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.nabla_sat_empty = [propext, Quot.sound]; nabla_sat_deltaUnion = [propext, Classical.choice, Quot.sound] (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash.",
+  "inputs": [
+    {
+      "artifact": "B-R008/formal_proof",
+      "hash": "c9027bd59d2690040d6ac97f845b1d568f9b67a9ed0e7ee3af2fd66ee51dd564"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T13:57:09Z"
+}

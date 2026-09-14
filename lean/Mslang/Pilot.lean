@@ -291,4 +291,37 @@ theorem isSat_iff_preimage {A : SSorted S U} (Φ : SortedEqv A)
         ((Set.mem_image _ _ _).mpr
           ⟨a, Set.mem_preimage.mpr (Set.mem_preimage.mp ha), rfl⟩)
 
+/-- The family `⋃_{t∈T} δ^{t,A_t}`: at sort `s` it is all of `A_s` when `s ∈ T`,
+and empty otherwise. -/
+noncomputable def deltaUnion (T : Set S) (A : SSorted S U) : ∀ s, Set (A s) :=
+  by classical exact fun s => if s ∈ T then (Set.univ : Set (A s)) else ∅
+
+/-- Remark `B-R008`: `∅^S`, `A ∈ ∇^A-Sat(A)`, and `⋃_{t∈T} δ^{t,A_t} ∈
+∇^A-Sat(A)` for every `T ⊆ S`. -/
+theorem nabla_sat_empty {A : SSorted S U} :
+    IsSat (nabla A) (fun s => (∅ : Set (A s))) := by
+  unfold IsSat
+  funext s
+  ext a
+  simp [sat]
+
+theorem nabla_sat_univ {A : SSorted S U} :
+    IsSat (nabla A) (fun s => (Set.univ : Set (A s))) := by
+  unfold IsSat
+  funext s
+  ext a
+  simp only [sat]
+  constructor
+  · intro _; exact Set.mem_univ a
+  · intro _
+    exact ⟨a, Set.mem_univ a, trivial⟩
+
+theorem nabla_sat_deltaUnion {A : SSorted S U} (T : Set S) :
+    IsSat (nabla A) (deltaUnion T A) := by
+  rw [nabla_sat]
+  intro s hs
+  by_cases hT : s ∈ T
+  · simp [deltaUnion, hT]
+  · simp [deltaUnion, suppSub, hT] at hs
+
 end Mslang

@@ -5,4 +5,4 @@ hash equals the artifact's current hash; otherwise it is stale. Stale
 evidence is not false: it remains a true statement about the recorded
 inputs, but it is no longer evidence about the current block.
 
-No stale records: all 15 record(s) are current.
+No stale records: all 16 record(s) are current.

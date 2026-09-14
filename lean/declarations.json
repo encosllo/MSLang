@@ -55,6 +55,14 @@
         "Mslang.isSat_iff_preimage"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R008": {
+      "decls": [
+        "Mslang.nabla_sat_empty",
+        "Mslang.nabla_sat_univ",
+        "Mslang.nabla_sat_deltaUnion"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

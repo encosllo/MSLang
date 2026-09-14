@@ -136,6 +136,20 @@
       "formal_statement": {
         "hash": "1fbe5c9c5fda2c55fd67df8d2e66973ada76e96a5333cd7850485b2f820029cb"
       }
+    },
+    "B-R008": {
+      "decls": [
+        "Mslang.nabla_sat_empty",
+        "Mslang.nabla_sat_univ",
+        "Mslang.nabla_sat_deltaUnion"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "c9027bd59d2690040d6ac97f845b1d568f9b67a9ed0e7ee3af2fd66ee51dd564"
+      },
+      "formal_statement": {
+        "hash": "9d22d12b14802b2707f362a4b837fcb03ebd81f631883c7b8c3b5e326d17b80f"
+      }
     }
   },
   "source": "lean/declarations.json"

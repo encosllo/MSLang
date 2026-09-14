@@ -23,3 +23,5 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.card_le_one_iff
 #print axioms Mslang.sat_eq_preimage
 #print axioms Mslang.isSat_iff_preimage
+#print axioms Mslang.nabla_sat_empty
+#print axioms Mslang.nabla_sat_deltaUnion
