@@ -5,6 +5,22 @@
       "decl": "Mslang.sat_antitone",
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-C002": {
+      "decl": "Mslang.sat_inf",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D002": {
+      "decl": "Mslang.SSorted",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D005": {
+      "decl": "Mslang.le",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D006": {
+      "decl": "Mslang.delta",
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-P002": {
       "decl": "Mslang.prop_incSat",
       "file": "lean/Mslang/Pilot.lean"

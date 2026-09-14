@@ -166,4 +166,57 @@ theorem nabla_sat {A : SSorted S U} (X : ∀ s, Set (A s)) :
     · intro ha
       exact ⟨a, ha, trivial⟩
 
+/-- Pointwise meet of two sorted equivalences (the paper's `Φ ∩ Ψ`). -/
+@[instance_reducible]
+def sortedEqvInf {A : SSorted S U} (Φ Ψ : SortedEqv A) : SortedEqv A :=
+  fun s =>
+    ⟨fun x y => (Φ s).r x y ∧ (Ψ s).r x y,
+     ⟨fun x => ⟨(Φ s).refl x, (Ψ s).refl x⟩,
+      fun h => ⟨(Φ s).symm h.1, (Ψ s).symm h.2⟩,
+      fun hab hbc => ⟨(Φ s).trans hab.1 hbc.1, (Ψ s).trans hab.2 hbc.2⟩⟩⟩
+
+theorem sortedEqvInf_le_left {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+    sortedEqvLe (sortedEqvInf Φ Ψ) Φ := fun _ _ _ h => h.1
+
+theorem sortedEqvInf_le_right {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+    sortedEqvLe (sortedEqvInf Φ Ψ) Ψ := fun _ _ _ h => h.2
+
+/-- Corollary `B-C002`: `Φ-Sat(A) ∩ Ψ-Sat(A) ⊆ (Φ ∩ Ψ)-Sat(A)`.
+
+Since `Φ ∩ Ψ` refines `Φ`, a `Φ`-saturated set is `(Φ ∩ Ψ)`-saturated by
+`sat_antitone`. -/
+theorem sat_inf {A : SSorted S U} {Φ Ψ : SortedEqv A} {X : ∀ s, Set (A s)}
+    (hΦ : IsSat Φ X) (_hΨ : IsSat Ψ X) :
+    IsSat (sortedEqvInf Φ Ψ) X :=
+  sat_antitone (sortedEqvInf_le_left Φ Ψ) hΦ
+
+/-- Delta of Kronecker (Definition `B-D006`): `δ^t_s = 1` if `s = t`, `∅`
+otherwise. Following the encoding, `1` is the whole ambient `U`, so this is
+faithful for the support (with `U` nonempty) but the component is the whole
+ambient, not a chosen singleton (residual D2). -/
+noncomputable def delta (t : S) : SSorted S U :=
+  by classical exact fun s => if s = t then Set.univ else ∅
+
+/-- Bridge `delta_support`: `supp_S(δ^t) = {t}` (requires the ambient `U` to be
+nonempty, as the paper's universe is). -/
+theorem supp_delta {U' : Type u} [Nonempty U'] (t : S) :
+    supp (delta (U := U') t) = {t} := by
+  classical
+  ext s
+  constructor
+  · intro hs
+    change (delta (U := U') t s).Nonempty at hs
+    by_contra h
+    have hne : ¬ (s = t) := by simpa using h
+    have hz : delta (U := U') t s = ∅ := by simp [delta, hne]
+    rw [hz] at hs
+    exact Set.not_nonempty_empty hs
+  · intro hs
+    have hst : s = t := by simpa using hs
+    rw [hst]
+    change (delta (U := U') t t).Nonempty
+    have hd : delta (U := U') t t = (Set.univ : Set U') := by simp [delta]
+    rw [hd]
+    exact ⟨Classical.choice (inferInstance : Nonempty U'), Set.mem_univ _⟩
+
 end Mslang

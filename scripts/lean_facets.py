@@ -39,7 +39,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 DECL_RE = re.compile(
-    r"(?m)^(theorem|lemma|def|abbrev|opaque)\s+([A-Za-z_][A-Za-z0-9_'.]*)"
+    r"(?m)^(?:(?:noncomputable|private|protected|unsafe)\s+)*"
+    r"(theorem|lemma|def|abbrev|opaque)\s+([A-Za-z_][A-Za-z0-9_'.]*)"
 )
 BOUNDARY_RE = re.compile(r"(?m)^(?:end|namespace|section|variable|open)\b|^@\[")
 

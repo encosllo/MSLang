@@ -33,6 +33,7 @@ abbrev qux := Nat
 theorem incomplete : True
 @[simp]
 theorem attributed : True := by trivial
+noncomputable def ncd : Nat := 0
 end Mslang
 """
 
@@ -51,7 +52,7 @@ def write(tmp, name, text):
 
 def main():
     d = lf.extract_declarations(SRC)
-    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed"}, str(set(d)))
+    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed", "ncd"}, str(set(d)))
     check(
         "theorem statement split at :=",
         d["foo"]["statement"] == "theorem foo (n : Nat) : n = n"
@@ -75,6 +76,12 @@ def main():
         "@[" not in d["incomplete"]["proof"]
         and d["attributed"]["proof"] == ":= by trivial",
         repr(d["incomplete"]["proof"]),
+    )
+    check(
+        "a modifier is part of its declaration",
+        d["ncd"]["statement"] == "noncomputable def ncd : Nat"
+        and d["ncd"]["proof"] == ":= 0",
+        str(d["ncd"]),
     )
 
     with tempfile.TemporaryDirectory() as tmp:
