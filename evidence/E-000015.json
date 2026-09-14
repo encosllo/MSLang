@@ -1,0 +1,28 @@
+{
+  "block": "B-R006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000015",
+  "findings": [
+    "lake build: Mslang.sat_eq_preimage and Mslang.isSat_iff_preimage (B-R006) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.sat_eq_preimage = [propext, Quot.sound]; Mslang.isSat_iff_preimage = [propext, Quot.sound] (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Uses Quotient (residual R-quotient).",
+  "inputs": [
+    {
+      "artifact": "B-R006/formal_proof",
+      "hash": "095c20f5ac354b2492a39e9c1e02b95a4ed9842c82c3380d6a12b9743a98f2ce"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T13:46:34Z"
+}

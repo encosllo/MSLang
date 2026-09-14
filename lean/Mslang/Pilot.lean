@@ -219,4 +219,76 @@ theorem supp_delta {U' : Type u} [Nonempty U'] (t : S) :
     rw [hd]
     exact ⟨Classical.choice (inferInstance : Nonempty U'), Set.mem_univ _⟩
 
+/-- Definition `B-D004`: an `S`-sorted set is *subfinal* when every component
+has at most one element; `1^S` and `∅^S` are the final and initial `S`-sorted
+sets. -/
+def Subfinal (A : SSorted S U) : Prop := ∀ s, (A s).Subsingleton
+
+def finalSorted : SSorted S U := fun _ => Set.univ
+
+def initialSorted : SSorted S U := fun _ => ∅
+
+/-- Bridge `card_le_one_iff`: subfinality coincides with every component having
+cardinality at most one (`encard` covers the infinite case). -/
+theorem card_le_one_iff (A : SSorted S U) :
+    Subfinal A ↔ ∀ s, (A s).encard ≤ 1 := by
+  simp [Subfinal, Set.encard_le_one_iff_subsingleton]
+
+theorem supp_finalSorted [Nonempty U] :
+    supp (finalSorted (S := S) (U := U)) = Set.univ := by
+  ext s
+  constructor
+  · intro _; exact Set.mem_univ s
+  · intro _
+    exact ⟨Classical.choice (inferInstance : Nonempty U), Set.mem_univ _⟩
+
+theorem supp_initialSorted :
+    supp (initialSorted (S := S) (U := U)) = ∅ := by
+  ext s
+  simp [supp, initialSorted]
+
+/-- Projection `pr^Φ` to the quotient, sortwise. -/
+def pr {A : SSorted S U} (Φ : SortedEqv A) (s : S) : A s → Quotient (Φ s) :=
+  fun x => Quotient.mk (Φ s) x
+
+/-- Bridge `sat_eq_preimage` (Remark `B-R006`): the `Φ`-saturation of `X` is
+`(pr^Φ)⁻¹[pr^Φ[X]]`. -/
+theorem sat_eq_preimage {A : SSorted S U} (Φ : SortedEqv A) (X : ∀ s, Set (A s)) :
+    sat Φ X = fun s => (pr Φ s) ⁻¹' ((pr Φ s) '' X s) := by
+  funext s
+  ext a
+  simp only [sat, pr, Set.mem_preimage, Set.mem_image, Set.mem_ofPred_eq]
+  constructor
+  · rintro ⟨x, hx, hxa⟩
+    exact ⟨x, hx, Quotient.eq.mpr hxa⟩
+  · rintro ⟨x, hx, h⟩
+    exact ⟨x, hx, Quotient.eq.mp h⟩
+
+/-- Bridge `sat_eq_preimage`, second part (Remark `B-R006`): `X` is
+`Φ`-saturated if and only if it is the preimage under `pr^Φ` of some family
+`Y ⊆ A/Φ`. -/
+theorem isSat_iff_preimage {A : SSorted S U} (Φ : SortedEqv A)
+    (X : ∀ s, Set (A s)) :
+    IsSat Φ X ↔
+      ∃ Y : ∀ s, Set (Quotient (Φ s)), X = fun s => (pr Φ s) ⁻¹' (Y s) := by
+  constructor
+  · intro h
+    refine ⟨fun s => (pr Φ s) '' X s, ?_⟩
+    unfold IsSat at h
+    rw [← sat_eq_preimage Φ X]
+    exact h.symm
+  · rintro ⟨Y, hX⟩
+    unfold IsSat
+    rw [sat_eq_preimage, hX]
+    funext s
+    ext a
+    constructor
+    · intro ha
+      rcases (Set.mem_image _ _ _).mp (Set.mem_preimage.mp ha) with ⟨x, hx, hxeq⟩
+      exact Set.mem_preimage.mpr (hxeq ▸ Set.mem_preimage.mp hx)
+    · intro ha
+      exact Set.mem_preimage.mpr
+        ((Set.mem_image _ _ _).mpr
+          ⟨a, Set.mem_preimage.mpr (Set.mem_preimage.mp ha), rfl⟩)
+
 end Mslang

@@ -40,6 +40,21 @@
         "Mslang.IsSat"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D004": {
+      "decls": [
+        "Mslang.Subfinal",
+        "Mslang.finalSorted",
+        "Mslang.initialSorted"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R006": {
+      "decls": [
+        "Mslang.sat_eq_preimage",
+        "Mslang.isSat_iff_preimage"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

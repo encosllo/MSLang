@@ -1,0 +1,28 @@
+{
+  "block": "B-D004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000014",
+  "findings": [
+    "lake build: Mslang.Subfinal/finalSorted/initialSorted and the card_le_one_iff bridge compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.card_le_one_iff = [propext, Classical.choice, Quot.sound] (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. card_le_one_iff is stated with e-cardinality (encard <= 1), which coincides with the paper's card <= 1 for all sets.",
+  "inputs": [
+    {
+      "artifact": "B-D004/formal_proof",
+      "hash": "4314c2284cf449d06307900ba4048d25eff9645fa0545e67bec9eb6cc88e5346"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T13:46:34Z"
+}

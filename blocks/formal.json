@@ -36,6 +36,20 @@
         "hash": "71d4106a05ee4c431d55768ad0a68821c7a56f973eb883f74097b90a8e89968e"
       }
     },
+    "B-D004": {
+      "decls": [
+        "Mslang.Subfinal",
+        "Mslang.finalSorted",
+        "Mslang.initialSorted"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "4314c2284cf449d06307900ba4048d25eff9645fa0545e67bec9eb6cc88e5346"
+      },
+      "formal_statement": {
+        "hash": "0c9a8276525abe1b27ce7ee383e0fb26acc1fbd6fbe7dae4a57e0896958d73c7"
+      }
+    },
     "B-D005": {
       "decls": [
         "Mslang.le"
@@ -108,6 +122,19 @@
       },
       "formal_statement": {
         "hash": "6a300ad97aca443aba24ba2a9f7d2c0e552843aff3e8906b5410edc003360fd2"
+      }
+    },
+    "B-R006": {
+      "decls": [
+        "Mslang.sat_eq_preimage",
+        "Mslang.isSat_iff_preimage"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "095c20f5ac354b2492a39e9c1e02b95a4ed9842c82c3380d6a12b9743a98f2ce"
+      },
+      "formal_statement": {
+        "hash": "1fbe5c9c5fda2c55fd67df8d2e66973ada76e96a5333cd7850485b2f820029cb"
       }
     }
   },
