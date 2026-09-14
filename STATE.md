@@ -1376,6 +1376,43 @@ journal escalation `EV-000027` (and `EV-000019`).
 
 ---
 
+## Session 27 -- 2026-09-14 -- sanity checks, frontier, quotient classes
+
+**Goal.** Author-input-free work: the Section 11.3 formal sanity checks, the
+Section 19 frontier view, and the element-level quotient bridge.
+
+**What was established (closed).**
+
+- **Formal sanity checks (Section 11.3).** `lean/Mslang/Sanity.lean`: a concrete
+  two-sort/two-element model (`exA`, `discrete`), with
+  - `sanity_not_subfinal` (convention check: a two-element component is not
+    subfinal);
+  - `sanity_nonvacuous` (non-vacuity: an instance where `sat_antitone`'s
+    hypotheses are jointly satisfiable and its conclusion holds);
+  - `sanity_converse_counterexample` (negation probe: with `Φ` discrete and `Ψ`
+    universal a family is `Φ`-saturated but not `Ψ`-saturated, so the converse
+    of `B-C001` is false -- its direction is essential).
+  All compile with permitted axioms. `blocks/sanity.json` + `scripts/sanity.py`
+  -> `reports/sanity.md`.
+- **Frontier view (Section 19).** `scripts/frontier.py` + `blocks/bridges.json`
+  -> `reports/frontier.md`: layers not passing (currently `B-D004`
+  correspondence `fail`), open representation bridges (**none** -- all five
+  pilot bridges are now discharged), the 117 blocks with no Lean counterpart,
+  and the open author decisions.
+- **Element-level quotient bridge (`R-quotient`).** `eqvClass` and
+  `eqvClass_eq_iff` (`eqvClass Φ s a = eqvClass Φ s b ↔ Φ s a b`) in
+  `lean/Mslang/Pilot.lean`; the full quotient-classes bijection is deferred.
+- `scripts/check_all.sh` extended to **25 checks**. Current: **25 passed, 0
+  failed**.
+
+**Prioritized next steps.**
+
+1. Per-case / second-model calibration runs.
+2. Author: work `reports/decisions.md` (esp. `D-finalSorted`).
+3. Full `Quotient (Φ s) ≃ {classes}` bijection; `R-delta` model.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -1402,7 +1439,7 @@ journal escalation `EV-000027` (and `EV-000019`).
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (23 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (25 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
    hygiene/propagation/status/trust/Lean-facet/calibration/impact/discrepancy
    tests, decisions and bundle drift, record validation, view drift, and the
