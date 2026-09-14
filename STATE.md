@@ -1094,6 +1094,57 @@ is now demonstrable end to end. The remaining Phase 0 item is author acceptance.
 
 ---
 
+## Session 18 -- 2026-09-14 -- formal dependencies and the discrepancy report
+
+**Goal.** Close the formal-side dependency gap (`formal_uses`, Section 12.1) by
+supporting multi-declaration blocks, then build the Section 12.2 discrepancy
+view.
+
+**What was established (closed).**
+
+- `lean/declarations.json` now accepts `decls` (a list) as well as `decl`.
+  `B-D014` is mapped to its three declarations `SortedEqv`, `sat`, `IsSat`
+  (the previous one-declaration-per-block limitation); **9 blocks** are now
+  mapped.
+- `scripts/lean_facets.py` computes a block's statement/proof facets from all
+  its declarations and extracts **`formal_uses`** edges by whole-identifier
+  occurrence, writing `blocks/formal_graph.json` (**13 edges**). `--check`
+  covers both files. This is the missing formal dependency graph.
+- `scripts/discrepancy.py` + `discrepancy_test.py` + `reports/discrepancy.md`
+  compare the informal confirmed graph with the formal graph over the mapped
+  universe.
+- `scripts/check_all.sh` extended to **20 checks**. Current: **20 passed, 0
+  failed**.
+
+**Findings from the discrepancy report (a review queue, not verdicts).**
+
+- **9 formal-only edges**, mostly `X -> B-D002`: the Lean signatures use the
+  `SSorted` type, but the informal prose says "`S`-sorted set" by name and the
+  prose-name extractor did not record an edge. Expected, but it shows the
+  informal graph under-approximates the type dependency.
+- **1 informal-only edge, `B-P002 -> B-D006`**: the informal graph says `B-P002`
+  depends on `delta` (`B-D006`), but the formal proof `Mslang.prop_incSat`
+  **does not use `delta`**. This is a concrete Section 12.2 signal -- a possibly
+  spurious symbol edge (recall the `\delta` edges were symbol-extracted) or a
+  simplification opportunity. Flagged for review; not resolved.
+- No `B-C002 -> B-C001` informal edge, yet the formal `sat_inf` uses
+  `sat_antitone`: a formal-only edge (the manuscript proof of `B-C002` is
+  omitted; our Explanation cites `B-C001`).
+
+**Note.** Mapping `B-D014` adds formal facets for a block no evidence record
+lists, so nothing went stale; the formal graph is new information.
+
+**Prioritized next steps.**
+
+1. Resolve the `B-P002 -> B-D006` discrepancy (author/reviewer): spurious edge
+   or real omitted step.
+2. Fold `formal_uses` into `formal_statement` (definition closure) so a formal
+   definition change propagates to dependents (Session 17's documented gap).
+3. Remaining pilot bridges `sat_eq_preimage`, `card_le_one_iff` (`B-D004`).
+4. Decision-queue and evidence-bundle views.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -1120,10 +1171,11 @@ is now demonstrable end to end. The remaining Phase 0 item is author acceptance.
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (18 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (20 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status/trust/Lean-facet/calibration/impact tests, record
-   validation, formal-facet/report/calibration/impact drift, and the build.
+   hygiene/propagation/status/trust/Lean-facet/calibration/impact/discrepancy
+   tests, record validation, formal-facet/report/calibration/impact/discrepancy
+   drift, and the build.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
