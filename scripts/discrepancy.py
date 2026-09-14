@@ -58,7 +58,8 @@ def compare(informal, formal):
     }
 
 
-def render_report(d):
+def render_report(d, notes=None):
+    notes = notes or {}
     lines = [
         "# Dependency-graph discrepancy report (Sections 12.2, 19)",
         "",
@@ -88,6 +89,15 @@ def render_report(d):
         lines.append(f"| `{a}` | `{b}` |")
     if not d["agree"]:
         lines.append("| _none_ | |")
+    lines += ["", "## Reviewer notes", ""]
+    used = False
+    for a, b in d["formal_only"] + d["informal_only"]:
+        key = f"{a}->{b}"
+        if key in notes:
+            used = True
+            lines.append(f"- `{a} -> {b}`: {notes[key]}")
+    if not used:
+        lines.append("- none recorded")
     lines += [
         "",
         "## Not yet mapped (informal edges with no formal counterpart)",
@@ -103,6 +113,7 @@ def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     ap.add_argument("--informal", default=str(ROOT / "blocks" / "graph.json"))
     ap.add_argument("--formal", default=str(ROOT / "blocks" / "formal_graph.json"))
+    ap.add_argument("--notes", default=str(ROOT / "blocks" / "discrepancy_notes.json"))
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--check-report", action="store_true")
@@ -111,6 +122,9 @@ def main(argv):
     informal = load_edges(args.informal, DEPENDENCY_KINDS)
     formal = load_edges(args.formal)
     d = compare(informal, formal)
+    notes = {}
+    if Path(args.notes).exists():
+        notes = json.loads(Path(args.notes).read_text(encoding="utf-8")).get("notes", {})
 
     if args.json:
         print(json.dumps(d, indent=2))
@@ -125,7 +139,7 @@ def main(argv):
         print(f"    informal-only: {a} -> {b}")
 
     if args.report or args.check_report:
-        text = render_report(d)
+        text = render_report(d, notes)
         if args.check_report:
             actual = REPORT.read_text(encoding="utf-8") if REPORT.exists() else None
             if actual != text:

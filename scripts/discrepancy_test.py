@@ -7,6 +7,7 @@ Run:
 from __future__ import annotations
 
 import sys
+import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -43,6 +44,10 @@ def main():
           {"B-D002", "B-D014"} <= set(rd["universe"]), str(rd["universe"]))
     check("real B-C001 uses B-D014 formally",
           ("B-C001", "B-D014") in set(real_formal))
+
+    notes = json.loads((ROOT / "blocks" / "discrepancy_notes.json").read_text(encoding="utf-8"))["notes"]
+    check("the informal-only edge is annotated",
+          "B-P002->B-D006" in notes, str(sorted(notes)))
 
     print()
     if FAILURES:

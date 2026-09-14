@@ -36,6 +36,12 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D005`, `B-D006`, `B-D009`, `B-D0
 | `B-P002` | `B-D014` |
 | `B-P003` | `B-D014` |
 
+## Reviewer notes
+
+- `B-C001 -> B-D002`: Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
+- `B-C002 -> B-C001`: Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
+- `B-P002 -> B-D006`: Real informal edge, and a formal simplification. The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. The Lean proof Mslang.prop_incSat instead uses a plain singleton family (Function.update (fun _ => empty) s {x}), so it does not use delta. Verdict: the paper's delta use is unnecessary for B-P002's converse; not a defect. (Contrast: supp_delta does use delta.)
+
 ## Not yet mapped (informal edges with no formal counterpart)
 
 118 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
