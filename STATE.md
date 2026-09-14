@@ -1413,6 +1413,33 @@ Section 19 frontier view, and the element-level quotient bridge.
 
 ---
 
+## Session 28 -- 2026-09-14 -- B-D015 (kernel)
+
+**Goal.** Extend the pilot with the last cleanly-encodable definition, `B-D015`.
+
+**What was established (closed).**
+
+- `lean/Mslang/Pilot.lean`: `SortedMap A B := ∀ s, A s → B s` (the
+  componentwise-function encoding of an `S`-sorted mapping, `B-D002`) and
+  `ker f` (`B-D015`), the componentwise kernel pair of `f`, with
+  `ker_iff : (ker f s).r x y ↔ f s x = f s y`. Clean build; `ker_iff` uses **no
+  axioms**.
+- `B-D015` mapped; **13 declarations, 21 formal edges**; verification record
+  **`E-000024`**. **10 blocks** with evidence.
+- `check_all`: **25 passed, 0 failed**.
+
+**Note.** `B-D003` (product) is deliberately not formalized: the product's
+component `∏_i A^i_s` is a set of functions, not a subset of the fixed ambient
+`U`, so it leaves the encoded object class -- a concrete instance of residual
+`R-product`/`R-carrier`, not a mere omission.
+
+**Prioritized next steps.**
+
+1. Author: decision queue (`reports/decisions.md`; `D-finalSorted`).
+2. Full `Quotient (Φ s) ≃ {classes}` bijection; per-case calibration runs.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
