@@ -333,22 +333,31 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
     # Notation tokens introduced in definitions (heuristic). A definition
     # *introduces* a token only if its occurrence sits near a definition cue
     # ("denote by", "we call", ...); this filters bound variables and ambient
-    # notation (\mathcal{D}, \mathrm{card}, \mathrm{id}, ...).  A token
-    # introduced by more than one definition is ambiguous and yields no edge.
-    token_re = re.compile(r"\\mathrm\{([A-Za-z]{1,24})\}")
+    # notation (\mathcal{D}, \mathrm{card}, \mathrm{id}, ...).  Several
+    # operators are bare macros rather than \mathrm names (\delta), so both
+    # forms are scanned.  A token introduced by more than one definition is
+    # disambiguated by matching it against the definition's stated term; if
+    # that is not unique it is ambiguous and yields no edge.
+    token_res = (
+        re.compile(r"\\mathrm\{([A-Za-z]{1,24})\}"),
+        re.compile(r"\\(delta|Omega|nabla|Delta|Theta|Lambda)"),
+    )
     cue_re = re.compile(r"(denote[d]?|call(?:ed)?|defined|stand(?:s)? for|we write)", re.I)
+    by_id = {b["id"]: b for b in registry if b["id"]}
     def_tokens = {}
     for b in registry:
         if b["kind"] != "definition" or not b["id"] or b["id"] not in bodies:
             continue
         body = bodies[b["id"]][0]
-        for m in token_re.finditer(body):
-            window = body[max(0, m.start() - 100) : m.start()]
-            if not cue_re.search(window):
-                continue
-            def_tokens.setdefault(m.group(1), [])
-            if b["id"] not in def_tokens[m.group(1)]:
-                def_tokens[m.group(1)].append(b["id"])
+        for token_re in token_res:
+            for m in token_re.finditer(body):
+                window = body[max(0, m.start() - 100) : m.start()]
+                if not cue_re.search(window):
+                    continue
+                tok = m.group(1)
+                def_tokens.setdefault(tok, [])
+                if b["id"] not in def_tokens[tok]:
+                    def_tokens[tok].append(b["id"])
 
     edges = []
     seen = set()
@@ -403,14 +412,28 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
                     f"prose {m.group(1)} {number}",
                 )
         # symbol usage
-        used = sorted({m.group(1) for m in token_re.finditer(text)})
-        used = [t for t in used if t in def_tokens]
+        used = set()
+        for token_re in token_res:
+            used.update(m.group(1) for m in token_re.finditer(text))
+        used = sorted(t for t in used if t in def_tokens)
         symbol_uses[bid] = used
         for tok in used:
             owners = def_tokens[tok]
             if len(owners) != 1:
-                ambiguous.setdefault(tok, sorted(owners))
-                continue
+                # Disambiguate by the definition's stated term (see
+                # _term_matches). Short substring matches are rejected.
+                matches = [
+                    o
+                    for o in owners
+                    if _term_matches(
+                        tok.lower(), (by_id.get(o, {}).get("term") or "")
+                    )
+                ]
+                if len(matches) == 1:
+                    owners = matches
+                else:
+                    ambiguous.setdefault(tok, sorted(owners))
+                    continue
             add_edge(bid, owners[0], "uses_definition", "symbol", f"\\{tok}")
 
     # Confirmed edges the extractor did not propose (recorded manually).
@@ -441,6 +464,21 @@ def registry_kind(registry, bid):
         if b["id"] == bid:
             return b["kind"]
     return None
+
+
+def _term_matches(token, term):
+    """True if a notation token matches a definition's stated term.
+
+    The token must equal a term word (ignoring a trailing plural ``s``) or be a
+    prefix of one of length >= 4, so short substring coincidences such as
+    ``alg`` inside ``algebras`` do not count.
+    """
+    token = token.lower()
+    for word in re.findall(r"[A-Za-z]+", term or ""):
+        word = word.lower().rstrip("s")
+        if token == word or (len(token) >= 4 and word.startswith(token)):
+            return True
+    return False
 
 
 # --- Reports ----------------------------------------------------------------

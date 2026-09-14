@@ -1,6 +1,6 @@
 {
   "counts": {
-    "confirmed": 111,
+    "confirmed": 123,
     "rejected": 0
   },
   "decisions": {
@@ -69,6 +69,11 @@
       "rationale": "author-written citation (\\ref{CorolariAlgebraBooleana})",
       "source": "explicit"
     },
+    "B-C009|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
+    },
     "B-C009|B-D027|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
@@ -112,6 +117,11 @@
     "B-D036|B-D035|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\Etl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D037|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
       "source": "symbol"
     },
     "B-D037|B-D036|uses_definition": {
@@ -164,6 +174,11 @@
       "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
       "source": "symbol"
     },
+    "B-P002|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
+    },
     "B-P002|B-D014|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
@@ -182,6 +197,11 @@
     "B-P005|B-D014|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P006|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
       "source": "symbol"
     },
     "B-P006|B-D014|uses_definition": {
@@ -314,6 +334,11 @@
       "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
       "source": "symbol"
     },
+    "B-P024|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
+    },
     "B-P024|B-D015|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
@@ -363,6 +388,11 @@
       "confirmed": true,
       "rationale": "author-written citation (\\ref{IncSat})",
       "source": "explicit"
+    },
+    "B-P035|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
     },
     "B-P035|B-D015|uses_definition": {
       "confirmed": true,
@@ -444,6 +474,11 @@
       "rationale": "author-written citation (\\ref{CorolariAtoms})",
       "source": "explicit"
     },
+    "B-P038|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
+    },
     "B-P038|B-D014|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
@@ -457,6 +492,11 @@
     "B-P038|B-D027|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P039|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
       "source": "symbol"
     },
     "B-P039|B-D014|uses_definition": {
@@ -473,6 +513,11 @@
       "confirmed": true,
       "rationale": "author-written citation (\\ref{RepCongInterCCogKroneckerDelta})",
       "source": "explicit"
+    },
+    "B-R001|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
     },
     "B-R005|B-D014|uses_definition": {
       "confirmed": true,
@@ -492,6 +537,11 @@
     "B-R007|B-D014|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R008|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
       "source": "symbol"
     },
     "B-R008|B-D014|uses_definition": {
@@ -524,6 +574,11 @@
       "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
       "source": "symbol"
     },
+    "B-R020|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
+    },
     "B-R021|B-D031|uses_definition": {
       "confirmed": true,
       "rationale": "notation \\P is introduced by the target definition (denote-by cue)",
@@ -548,6 +603,11 @@
       "confirmed": true,
       "rationale": "author-written citation (\\ref{Def2FRL})",
       "source": "explicit"
+    },
+    "B-X001|B-D006|uses_definition": {
+      "confirmed": true,
+      "rationale": "Kronecker delta \\delta is introduced by B-D006 (term 'delta of Kronecker in')",
+      "source": "symbol"
     },
     "B-X001|B-D031|uses_definition": {
       "confirmed": true,

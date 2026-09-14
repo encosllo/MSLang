@@ -31,17 +31,17 @@ A target plus its transitive upstream closure (its dependencies). Pick one to ha
 - definitions in closure: none
 - members: `B-C010`, `B-P028`
 
-### `B-P002` — proposition (closure size 2)
-
-- Preliminaries. (line 517)
-- definitions in closure: `B-D014`
-- members: `B-P002`, `B-D014`
-
 ### `B-P003` — proposition (closure size 2)
 
 - Preliminaries. (line 541)
 - definitions in closure: `B-D014`
 - members: `B-P003`, `B-D014`
+
+### `B-P004` — proposition (closure size 2)
+
+- Preliminaries. (line 557)
+- definitions in closure: `B-D014`
+- members: `B-P004`, `B-D014`
 
 ## B. Most-referenced definitions (encoding-sensitive core)
 
@@ -51,6 +51,7 @@ In-degree counts candidate incoming edges; high in-degree means a change here ha
 |---|---|---|
 | B-D014 | sorted equivalence relation on | 20 |
 | B-D015 | kernel | 14 |
+| B-D006 | delta of Kronecker in | 12 |
 | B-D027 | free | 12 |
 | B-D036 | translations of sort | 10 |
 | B-D031 |  | 7 |
@@ -58,7 +59,6 @@ In-degree counts candidate incoming edges; high in-degree means a change here ha
 | B-D028 | subdirect product | 3 |
 | B-D029 | filter | 2 |
 | B-D032 | formation of $\Sigma$-algebras | 2 |
-| B-D035 | elementary translations of sort | 2 |
 
 ---
 

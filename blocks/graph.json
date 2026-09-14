@@ -27,6 +27,10 @@
       "B-D035",
       "B-D036"
     ],
+    "Omega": [
+      "B-D038",
+      "B-D039"
+    ],
     "Sg": [
       "B-D021",
       "B-D027"
@@ -54,6 +58,14 @@
   },
   "decisions_source": "/Users/enriccosme/Desktop/MSLang/blocks/edge_decisions.json",
   "edges": [
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-R001",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
     {
       "confirmed": true,
       "detail": "\\ref{propssupport}",
@@ -85,6 +97,14 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-P002",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
     },
     {
       "confirmed": true,
@@ -120,6 +140,14 @@
     },
     {
       "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-R008",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
+    {
+      "confirmed": true,
       "detail": "\\Eqv",
       "from": "B-P004",
       "kind": "uses_definition",
@@ -149,6 +177,14 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-P006",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
     },
     {
       "confirmed": true,
@@ -328,6 +364,14 @@
     },
     {
       "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-X001",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
+    {
+      "confirmed": true,
       "detail": "\\Sf",
       "from": "B-R017",
       "kind": "uses_definition",
@@ -440,6 +484,14 @@
     },
     {
       "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-D037",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
+    {
+      "confirmed": true,
       "detail": "\\Etl",
       "from": "B-P021",
       "kind": "uses_definition",
@@ -509,6 +561,22 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-P024",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-R020",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
     },
     {
       "confirmed": true,
@@ -661,6 +729,14 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-C009",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
     },
     {
       "confirmed": true,
@@ -864,6 +940,14 @@
     },
     {
       "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
+    {
+      "confirmed": true,
       "detail": "\\ref{Cong2LangBasic}",
       "from": "B-P037",
       "kind": "uses_statement",
@@ -920,6 +1004,14 @@
     },
     {
       "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-P038",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
+    },
+    {
+      "confirmed": true,
       "detail": "\\ref{RepCongInterCCogKroneckerDelta}",
       "from": "B-P039",
       "kind": "uses_statement",
@@ -941,6 +1033,14 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\delta",
+      "from": "B-P039",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D006"
     }
   ],
   "labels": {
@@ -1049,6 +1149,7 @@
       "Cgr"
     ],
     "B-C007": [
+      "Omega",
       "Sat",
       "T",
       "Tl"
@@ -1057,9 +1158,12 @@
       "T"
     ],
     "B-C009": [
-      "T"
+      "T",
+      "delta"
     ],
-    "B-C010": [],
+    "B-C010": [
+      "Omega"
+    ],
     "B-C011": [
       "Alg",
       "f"
@@ -1080,7 +1184,9 @@
     "B-D005": [
       "Sub"
     ],
-    "B-D006": [],
+    "B-D006": [
+      "delta"
+    ],
     "B-D007": [
       "Sub"
     ],
@@ -1195,12 +1301,16 @@
       "Tl"
     ],
     "B-D037": [
-      "Tl"
+      "Tl",
+      "delta"
     ],
     "B-D038": [
+      "Omega",
       "Tl"
     ],
-    "B-D039": [],
+    "B-D039": [
+      "Omega"
+    ],
     "B-D040": [
       "Cgr",
       "fi"
@@ -1221,12 +1331,14 @@
     ],
     "B-D044": [
       "Cgr",
+      "Omega",
       "fi",
       "supp"
     ],
     "B-D045": [
       "Form",
       "Ker",
+      "Omega",
       "Sat",
       "Sub",
       "T"
@@ -1234,6 +1346,7 @@
     "B-D046": [
       "BPS",
       "Form",
+      "Omega",
       "Sat",
       "Sub",
       "T",
@@ -1245,7 +1358,8 @@
       "supp"
     ],
     "B-P002": [
-      "Eqv"
+      "Eqv",
+      "delta"
     ],
     "B-P003": [
       "Sat",
@@ -1262,7 +1376,8 @@
     ],
     "B-P006": [
       "Eqv",
-      "Sat"
+      "Sat",
+      "delta"
     ],
     "B-P007": [
       "Eqv",
@@ -1326,30 +1441,42 @@
     ],
     "B-P022": [
       "Ker",
+      "Omega",
       "Tl"
     ],
     "B-P023": [
       "Cgr",
+      "Omega",
       "Sat"
     ],
     "B-P024": [
       "Cgr",
-      "Ker"
+      "Ker",
+      "Omega",
+      "delta"
     ],
-    "B-P025": [],
+    "B-P025": [
+      "Omega"
+    ],
     "B-P026": [
-      "Ker"
+      "Ker",
+      "Omega"
     ],
     "B-P027": [
+      "Omega",
       "Tl"
     ],
-    "B-P028": [],
+    "B-P028": [
+      "Omega"
+    ],
     "B-P029": [
+      "Omega",
       "Sub",
       "Tl"
     ],
     "B-P030": [
       "Ker",
+      "Omega",
       "Sat",
       "Sub",
       "T"
@@ -1379,30 +1506,40 @@
     "B-P035": [
       "BPS",
       "Ker",
+      "Omega",
       "Sub",
       "T",
       "Tl",
+      "delta",
       "supp"
     ],
     "B-P036": [],
-    "B-P037": [],
+    "B-P037": [
+      "Omega"
+    ],
     "B-P038": [
       "Cgr",
       "Ker",
+      "Omega",
       "Sat",
       "T",
+      "delta",
       "fi",
       "supp"
     ],
     "B-P039": [
       "Cgr",
       "Form",
+      "Omega",
       "Sat",
       "Sub",
       "T",
+      "delta",
       "fi"
     ],
-    "B-R001": [],
+    "B-R001": [
+      "delta"
+    ],
     "B-R002": [],
     "B-R003": [
       "supp"
@@ -1421,7 +1558,8 @@
       "Sub"
     ],
     "B-R008": [
-      "Sat"
+      "Sat",
+      "delta"
     ],
     "B-R009": [
       "Alg",
@@ -1461,10 +1599,14 @@
       "Tl"
     ],
     "B-R019": [],
-    "B-R020": [],
+    "B-R020": [
+      "Omega",
+      "delta"
+    ],
     "B-R021": [
       "Alg",
       "Cgr",
+      "Omega",
       "P",
       "Sub"
     ],
@@ -1473,7 +1615,8 @@
       "T"
     ],
     "B-R023": [
-      "Cgr"
+      "Cgr",
+      "Omega"
     ],
     "B-R024": [
       "supp"
@@ -1494,6 +1637,7 @@
       "P",
       "Sg",
       "Sub",
+      "delta",
       "f"
     ],
     "B-X002": [

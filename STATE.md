@@ -344,6 +344,55 @@ concrete to work on (Section 11.5, roadmap Phase 0).
 
 ---
 
+## Session 4 -- 2026-09-14 -- hygiene tests and extraction recall
+
+**Goal.** Close Phase 1's remaining exit criteria that are testable without
+Lean (Section 21): seeded line-shift stability, re-ingestion identity, and
+better closure-extraction recall (Section 12.1).
+
+**What was established (closed).**
+
+- `scripts/hygiene_test.py` -- 10 seeded checks, **all pass**: inserted
+  comments/paragraphs shift no hash; editing one block changes exactly that
+  block's hash; block IDs/order/labels survive re-ingestion; editing a proof
+  leaves the statement hash unchanged. Runs on in-memory copies only.
+- Extraction recall improved (`scripts/ingest.py`):
+  - bare operator macros are now scanned as notation tokens (`\delta`,
+    `\Omega`, `\nabla`, `\Delta`, `\Theta`, `\Lambda`), not only
+    `\mathrm{...}`;
+  - a token introduced by several definitions is disambiguated by the
+    definition's stated term with a strict rule (exact word ignoring trailing
+    `s`, or prefix of length >= 4), which kills the false `\Alg` -> `B-D032`
+    match inside "algebras" while keeping `delta` -> `B-D006`.
+  - 12 new `\delta` edges to `B-D006` ("delta of Kronecker") were reviewed and
+    confirmed in `blocks/edge_decisions.json`; graph 111 -> 123 confirmed edges.
+  - **The pilot `B-P002` review closure now includes `B-D006`**, matching the
+    paper's proof (it previously read `{B-P002, B-D014}`).
+
+**Findings / remaining gaps.**
+
+- `\supp` remains ambiguous and is **not** auto-resolved: two different
+  definitions state the term "support of" -- `B-D009` (support of an `S`-sorted
+  set) and `B-D018` (support of a `Σ`-algebra). The extractor refuses to guess;
+  the paper uses `\mathrm{supp}_S` vs `\mathrm{supp}`. Author confirmation
+  needed, or a finer disambiguator on the subscript.
+- 10 tokens remain ambiguous: `Alg, Cgr, Form, Hom, Omega, Sg, Sub, f, fi,
+  supp`. All 12 `\delta` edges are confirmed; 0 others unconfirmed.
+- Extraction is still name/notation-based; semantic dependencies with no
+  shared operator (e.g. "by a standard compactness argument") remain the
+  reviewer's job, as Section 12.1 anticipates.
+
+**Prioritized next steps.**
+
+1. Author: disambiguate `\supp` (`B-D009` vs `B-D018`) and the other ambiguous
+   tokens; audit the representation record; choose JSON vs YAML.
+2. Free disk and run the Lean/Mathlib fetch; prove the bridge obligations and
+   the first formal target `sat_antitone` (`B-C001`).
+3. Reconstruct one omitted proof as an `Explanation` for a pilot block and
+   adversarial-read it (Section 11a.5).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -368,5 +417,8 @@ concrete to work on (Section 11.5, roadmap Phase 0).
 7. Run the evidence-engine checks after any change to the importer, graph, or
    schemas: `python3 scripts/propagation_test.py` (all checks must pass) and
    `python3 scripts/validate_records.py --self-test`.
-8. Do not edit or delete existing files under `evidence/` (the pre-commit
+8. Run `python3 scripts/hygiene_test.py` after any change to `hash_blocks.py`
+   or `ingest.py`; it seeds line shifts, single-block edits, and a proof edit,
+   and asserts anchor/ID stability.
+9. Do not edit or delete existing files under `evidence/` (the pre-commit
    hook enforces this); supersede with a new record instead.
