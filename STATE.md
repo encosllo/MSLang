@@ -1189,6 +1189,39 @@ finding, not edited.
 
 ---
 
+## Session 20 -- 2026-09-14 -- B-D004 and B-R006 bridges
+
+**Goal.** Discharge two more encoding bridges: `card_le_one_iff` (`B-D004`) and
+`sat_eq_preimage` (`B-R006`).
+
+**What was established (closed).**
+
+- `B-D004` formalized (`lean/Mslang/Pilot.lean`): `Subfinal`, `finalSorted`
+  (`1^S`), `initialSorted` (`∅^S`); bridge `card_le_one_iff`
+  (`Subfinal A ↔ ∀ s, (A s).encard ≤ 1`, using e-cardinality so the infinite
+  case is covered); `supp_finalSorted` (`= univ`, needs `Nonempty U`) and
+  `supp_initialSorted` (`= ∅`).
+- `B-R006` formalized: `pr` (`Quotient.mk`); `sat_eq_preimage`
+  (`[X]^Φ = (pr^Φ)⁻¹[pr^Φ[X]]`); and the second half `isSat_iff_preimage`
+  (`X` is `Φ`-saturated iff `X = pr⁻¹[Y]` for some family `Y`).
+- Clean build, 0 warnings. Axioms: `card_le_one_iff`
+  `[propext, Classical.choice, Quot.sound]`; `sat_eq_preimage` /
+  `isSat_iff_preimage` `[propext, Quot.sound]` -- all permitted.
+- `lean/declarations.json` maps `B-D004` and `B-R006` (**11 declarations**;
+  formal graph now **16 edges**). Verification records **`E-000014`**
+  (`B-D004`) and **`E-000015`** (`B-R006`).
+- `check_all`: **20 passed, 0 failed**. 8 blocks now have evidence.
+
+**Prioritized next steps (continuing autonomously).**
+
+1. Fold `formal_uses` into `formal_statement` (definition closure) so a formal
+   definition change propagates to dependents.
+2. Decision-queue view (Section 19) consolidating the open author decisions.
+3. `B-R008` (`∅^S, A ∈ ∇^A-Sat(A)` and unions of deltas) + correspondence for
+   the new blocks.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
