@@ -9,8 +9,8 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `923b3e892e0fad6f2b96931e6ac9223b30d307a2b627458902b8722d79f07b74` |
-| `blocks/formal_graph.json` | `6ff70615813eb298ae4dc6762a0262e83d92833b235864644aaf7efd43ed06dc` |
+| `blocks/formal.json` | `b9b24002f9985c341c2972d910a0e6af552214744234e2de0459f8723b7ccac7` |
+| `blocks/formal_graph.json` | `48ea8eb031cbc02d9fb111944672d52f1988505f2163ef84ea427e1303629873` |
 | `blocks/graph.json` | `3b6dfa60e436daccd6c0598423c7b093b8181bf809a210530fa413f9276c1924` |
 | `blocks/hashes.json` | `0079d486e94e79540e74449630a9f217660a837d44d991786183448f123169e1` |
 | `blocks/registry.json` | `473d76031e916821f4bf478a8f490e0993a909610d414c2d8634704bdcc6c73a` |
@@ -41,36 +41,56 @@ repository.
 | `evidence/E-000022.json` | `b462ec3c177b7b309284ec6e9b90b559b047beffb382e0f03b68274133738f5e` |
 | `evidence/E-000023.json` | `c77996a874879cc34c1e67ea0522ae5324ccab59db410d500be3175fab3201e0` |
 | `evidence/E-000024.json` | `10429640fdf5cb18bcd0a6a42e8bc3c4768fda8e94a9f3e26984f1d12a0e0fad` |
+| `evidence/E-000025.json` | `eef22e7f9c1db67223cf7b3df9c7e26d744fe6d4b18d864051876ffdabfb9eb7` |
+| `evidence/E-000026.json` | `2f12bafabeea1974db8605d057e3d2193bd9ede8d524b94628a2da7650fc6846` |
+| `evidence/E-000027.json` | `b365d4bb3bf9011ed079d36897e1327c9c92108af5fed7f8850b077176464f81` |
+| `evidence/E-000028.json` | `02bb00d8a3adb4d153736393e93399029e6c1398caf8c95f3193f04d7aae6096` |
+| `evidence/E-000029.json` | `6e5101deb956c81fd254af61c226d203731ca0f0ef635d8ef851c0e72df52a71` |
+| `evidence/E-000030.json` | `2f0f4ef2e9adb606e76ef1a1ba351e1967e797f4086890259857d585c010f063` |
+| `evidence/E-000031.json` | `08fa44c8d241702cd60489d6dbc8062d8868c081bb45e55f2f11622de33c4372` |
+| `evidence/E-000032.json` | `2ef248146501764bad202a466d716d75b532be406546dfa5d570347dd27d0eb1` |
+| `evidence/E-000033.json` | `d79b3a007fdef50768e5507671f9e1f8f357b22f5cc565abea4328af49f9a507` |
+| `evidence/E-000034.json` | `87eebc5199fa0a139a778c55fb9d22aa51e75c75d0a58174941a7f9411b3dddc` |
+| `evidence/E-000035.json` | `367ca2d1767f3f3755e860d073b1eb5bfe89ae6093a16698d33e41c952dea50f` |
+| `evidence/E-000036.json` | `e6a0f1545de7fd8a1b4c95eaeac1930e5ceebdbb2bda986560cbce77dfccef90` |
+| `evidence/E-000037.json` | `869155886bd349da4b0e3a60bd5f4dbe2a7c74d01b87f13e3bd8330cf44492c6` |
+| `evidence/E-000038.json` | `3253ac2b35f07b40ad89e03f174c9e35078c79b6b41a14b438dc60101766fc19` |
+| `evidence/E-000039.json` | `90c3dd991854fc1d170359bf97e9802d5fa5aea05c52482cd17dbb702126974b` |
+| `evidence/E-000040.json` | `f3910562f68efd074e50f4a1fdd2e6b33a28f5be0658f2d83e2006f7388d3e8d` |
 | `journal/events.jsonl` | `dbe5866122b5a5a2ce7beed08f65df8c9c07af4016b22ba001ff6d81fd6777af` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `20315adb32d4ac06d6e2154edb71f0d9c66de5a58aa095183d676118c80446ca` |
-| `representation/pilot-encoding.md` | `8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657` |
+| `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
 | `schemas/evidence.schema.json` | `4235ce098e41e968cd2854a2086d687ea32e4b9dcee07d8dd387701e36412609` |
 
 ## Status (validity rule applied to current evidence)
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-C001` | correspondence | pass | 1 | 1 |
-| `B-C001` | review | pass | 1 | 0 |
-| `B-C001` | verification | pass | 1 | 0 |
-| `B-C002` | correspondence | pass | 1 | 1 |
-| `B-C002` | review | pass | 1 | 0 |
-| `B-C002` | verification | pass | 1 | 0 |
-| `B-D004` | correspondence | fail | 1 | 0 |
-| `B-D004` | verification | pass | 1 | 0 |
-| `B-D006` | verification | pass | 1 | 0 |
-| `B-D015` | verification | pass | 1 | 0 |
-| `B-P002` | correspondence | pass | 1 | 1 |
-| `B-P002` | verification | pass | 1 | 0 |
-| `B-P003` | correspondence | pass | 1 | 1 |
-| `B-P003` | verification | pass | 1 | 0 |
-| `B-R006` | correspondence | pass | 1 | 0 |
-| `B-R006` | verification | pass | 1 | 0 |
-| `B-R008` | correspondence | pass | 1 | 0 |
-| `B-R008` | verification | pass | 1 | 0 |
-| `representation/encoding` | representation | pass | 2 | 0 |
+| `B-C001` | correspondence | stale | 0 | 2 |
+| `B-C001` | review | pass | 1 | 1 |
+| `B-C001` | verification | pass | 2 | 0 |
+| `B-C002` | correspondence | stale | 0 | 2 |
+| `B-C002` | review | pass | 1 | 1 |
+| `B-C002` | verification | pass | 2 | 0 |
+| `B-D002` | verification | pass | 1 | 0 |
+| `B-D004` | correspondence | stale | 0 | 1 |
+| `B-D004` | verification | pass | 1 | 1 |
+| `B-D005` | verification | pass | 1 | 0 |
+| `B-D006` | verification | pass | 1 | 1 |
+| `B-D009` | verification | pass | 1 | 0 |
+| `B-D014` | verification | pass | 1 | 0 |
+| `B-D015` | verification | pass | 1 | 1 |
+| `B-P002` | correspondence | stale | 0 | 2 |
+| `B-P002` | verification | pass | 1 | 1 |
+| `B-P003` | correspondence | stale | 0 | 2 |
+| `B-P003` | verification | pass | 1 | 1 |
+| `B-R006` | correspondence | stale | 0 | 1 |
+| `B-R006` | verification | pass | 2 | 0 |
+| `B-R008` | correspondence | stale | 0 | 1 |
+| `B-R008` | verification | pass | 2 | 0 |
+| `representation/encoding` | representation | pass | 1 | 2 |
 
 ## Evidence records
 
@@ -1045,6 +1065,561 @@ repository.
 }
 ```
 
+### E-000025
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000025",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-C001 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-C001.",
+  "inputs": [
+    {
+      "artifact": "B-C001/formal_proof",
+      "hash": "39d3a77deebc9c10d31f8cd9b5e13937e2e0ade1d883bb1e20fb410896ca1f16"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000026
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000026",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-C002 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-C002.",
+  "inputs": [
+    {
+      "artifact": "B-C002/formal_proof",
+      "hash": "a999e0ac47409a53da65d08372f7b7bd1f159717b14a46117b21047740616c56"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000027
+
+```json
+{
+  "block": "B-D002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000027",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D002 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D002.",
+  "inputs": [
+    {
+      "artifact": "B-D002/formal_proof",
+      "hash": "03e3eb0844d19dcd6f466fe06ba1586215edc4df703ae931a11a6b6ce0dbc619"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000028
+
+```json
+{
+  "block": "B-D004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000028",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D004 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D004.",
+  "inputs": [
+    {
+      "artifact": "B-D004/formal_proof",
+      "hash": "43b7c64774a40a231ad0fcd901960a1235e0fc8e107169f89f4bc31788d4da8c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000029
+
+```json
+{
+  "block": "B-D005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000029",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D005 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D005.",
+  "inputs": [
+    {
+      "artifact": "B-D005/formal_proof",
+      "hash": "54937fa6bb60f43a623548b22589e0fa908f062a6983926dbd1ff942480d684e"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000030
+
+```json
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000030",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D006 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D006.",
+  "inputs": [
+    {
+      "artifact": "B-D006/formal_proof",
+      "hash": "3293dabf6a398518d051f74143a33f580fab3a623e101c6401cf4742fffbde89"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000031
+
+```json
+{
+  "block": "B-D009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000031",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D009 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D009.",
+  "inputs": [
+    {
+      "artifact": "B-D009/formal_proof",
+      "hash": "9ea2f99a92a2e35bc75a2497e04b25e94d6463e714bae63576365a7d216a597d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000032
+
+```json
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000032",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D014 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D014.",
+  "inputs": [
+    {
+      "artifact": "B-D014/formal_proof",
+      "hash": "5eebfe771f511420811854921af3148131aae85a1099ca5c70369086a1d1ebd7"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:53Z"
+}
+```
+
+### E-000033
+
+```json
+{
+  "block": "B-D015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000033",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D015 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-D015.",
+  "inputs": [
+    {
+      "artifact": "B-D015/formal_proof",
+      "hash": "221317b2a6f5f800b4c7fbdee39b78c3766954dd27da9a55791f8581be535422"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:54Z"
+}
+```
+
+### E-000034
+
+```json
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000034",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-P002 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-P002.",
+  "inputs": [
+    {
+      "artifact": "B-P002/formal_proof",
+      "hash": "05db635866a339b1512a6c25b270e031b1b46a01c3dd54dca0aeee87213c65d1"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:54Z"
+}
+```
+
+### E-000035
+
+```json
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000035",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-P003 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-P003.",
+  "inputs": [
+    {
+      "artifact": "B-P003/formal_proof",
+      "hash": "905cbe54cd9ba58a72890c2e577c5ec3fb0603f8e21069768ca382e95c777128"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:54Z"
+}
+```
+
+### E-000036
+
+```json
+{
+  "block": "B-R006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000036",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-R006 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-R006.",
+  "inputs": [
+    {
+      "artifact": "B-R006/formal_proof",
+      "hash": "095c20f5ac354b2492a39e9c1e02b95a4ed9842c82c3380d6a12b9743a98f2ce"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:54Z"
+}
+```
+
+### E-000037
+
+```json
+{
+  "block": "B-R008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000037",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-R008 compiled against Mathlib v4.33.1.",
+    "Axioms within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Representation changed (C6): this supersedes the fixed-ambient record for B-R008.",
+  "inputs": [
+    {
+      "artifact": "B-R008/formal_proof",
+      "hash": "c9027bd59d2690040d6ac97f845b1d568f9b67a9ed0e7ee3af2fd66ee51dd564"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T16:02:54Z"
+}
+```
+
+### E-000038
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000038",
+  "findings": [
+    "Re-issued after the C6 representation change (dependent-type carrier). The Explanation text is unchanged and its verdict (VALID, no gap) stands; the representation input hash is new.",
+    "Explanation: blocks/explanations/B-C001.md."
+  ],
+  "independence_caveat": "Fresh isolated subagent (no project history, definitions and proof supplied inline) reconstructed the argument and probed edge cases; shares this session's underlying model (Architecture.md Sections 11a.2, 9).",
+  "inputs": [
+    {
+      "artifact": "B-C001/explanation",
+      "hash": "43e2e5992a61b9ff12f223774f80a1a62c7b3a51d1c1f9346e97c1ec84eccc3e"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-14T16:03:00Z"
+}
+```
+
+### E-000039
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000039",
+  "findings": [
+    "Re-issued after the C6 representation change (dependent-type carrier). The Explanation text is unchanged and its verdict (VALID, no gap) stands; the representation input hash is new.",
+    "Explanation: blocks/explanations/B-C002.md."
+  ],
+  "independence_caveat": "Fresh isolated subagent (no project history, definitions and proof supplied inline) reconstructed the argument and probed edge cases; shares this session's underlying model (Architecture.md Sections 11a.2, 9).",
+  "inputs": [
+    {
+      "artifact": "B-C002/explanation",
+      "hash": "75df0cf61a860b5b26ba46d4bc6b29382d6fb55c114a127f7d3abc96c162f196"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-14T16:03:00Z"
+}
+```
+
+### E-000040
+
+```json
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000040",
+  "findings": [
+    "Independent-context encoding audit of the dependent-type carrier model (SSet := S -> Type u). The auditor confirmed the componentwise development (subset, Setoid, saturation, quotient object class, delta/terminal, support, complement) is representable, and that A/Phi stays in the object class and delta uses PUnit/PEmpty.",
+    "Three bounded residuals remain, all meta-model level: carrier-model (families of types vs small sets in a Grothendieck universe), small-large (smallness is not tracked; SSet sits one universe up), univalence-missing (carrier identity is finer than set extensionality without univalence). Locally bridgeable items (delta, complement, support, Setoid, quotient) are closed.",
+    "Verdict: faithful-with-caveat with residuals carrier-model, small-large, univalence-missing."
+  ],
+  "independence_caveat": "Isolated fresh subagent, no project history, reasoning from the foundation and encoding table alone; shares this session's underlying model (deepseek-v4.1-flash).",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-14T16:04:44Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -1055,8 +1630,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 10
-- Evidence records: 24
+- Blocks with any evidence: 14
+- Evidence records: 40
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -1069,18 +1644,22 @@ assertion).
 
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
-| `B-C001` | corollary | Preliminaries. | pass | pass | pass | none | R-carrier; R-category; R-classical; R-complement; R-coproduct; R-delta; R-empty; R-ext; R-index; R-membership; R-morphism; R-order; R-product; R-quotient; R-setoid; R-universe |
-| `B-C002` | corollary | Preliminaries. | pass | pass | pass | none | R-carrier; R-category; R-classical; R-complement; R-coproduct; R-delta; R-empty; R-ext; R-index; R-membership; R-morphism; R-order; R-product; R-quotient; R-setoid; R-universe |
-| `B-D004` | definition | Preliminaries. | none | fail | pass | none | - |
-| `B-D006` | definition | Preliminaries. | none | none | pass | none | R-carrier; R-category; R-classical; R-complement; R-coproduct; R-delta; R-empty; R-ext; R-index; R-membership; R-morphism; R-order; R-product; R-quotient; R-setoid; R-universe |
-| `B-D015` | definition | Preliminaries. | none | none | pass | none | R-carrier; R-category; R-classical; R-complement; R-coproduct; R-delta; R-empty; R-ext; R-index; R-membership; R-morphism; R-order; R-product; R-quotient; R-setoid; R-universe |
-| `B-P002` | proposition | Preliminaries. | none | pass | pass | none | R-carrier; R-category; R-classical; R-complement; R-coproduct; R-delta; R-empty; R-ext; R-index; R-membership; R-morphism; R-order; R-product; R-quotient; R-setoid; R-universe |
-| `B-P003` | proposition | Preliminaries. | none | pass | pass | none | R-carrier; R-category; R-classical; R-complement; R-coproduct; R-delta; R-empty; R-ext; R-index; R-membership; R-morphism; R-order; R-product; R-quotient; R-setoid; R-universe |
-| `B-R006` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | pass | pass | none | - |
+| `B-C001` | corollary | Preliminaries. | pass | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C002` | corollary | Preliminaries. | pass | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D004` | definition | Preliminaries. | none | stale | pass | none | - |
+| `B-D005` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D006` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D009` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D014` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P002` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P003` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | stale | pass | none | - |
+| `B-R008` | remark | Preliminaries. | none | stale | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
-119 block(s) have no evidence.
+115 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -1096,7 +1675,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/pilot-encoding.md` | E-000013 | faithful-with-caveat | yes | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe | 11 |
+| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 11 |
 
 ## Residuals propagated to blocks
 
@@ -1106,17 +1685,17 @@ boundary (Section 11.5).
 
 | block | representation | outcome | residuals |
 |---|---|---|---|
-| `B-C001` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-C002` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D002` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D003` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D005` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D006` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D009` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D014` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-D015` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-P002` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
-| `B-P003` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-C001` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-C002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D005` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D009` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D014` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D015` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-P002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-P003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 
 ## Unproved bridge obligations
 
@@ -1194,18 +1773,24 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D0
 | from | to |
 |---|---|
 | `B-C001` | `B-D002` |
+| `B-C001` | `B-D005` |
 | `B-C002` | `B-C001` |
 | `B-C002` | `B-D002` |
+| `B-C002` | `B-D005` |
 | `B-D004` | `B-D002` |
 | `B-D005` | `B-D002` |
 | `B-D006` | `B-D002` |
 | `B-D009` | `B-D002` |
 | `B-D014` | `B-D002` |
+| `B-D014` | `B-D005` |
 | `B-D015` | `B-D002` |
 | `B-D015` | `B-D014` |
 | `B-P002` | `B-D002` |
+| `B-P002` | `B-D005` |
 | `B-P003` | `B-D002` |
+| `B-P003` | `B-D005` |
 | `B-R006` | `B-D002` |
+| `B-R006` | `B-D005` |
 | `B-R008` | `B-D002` |
 | `B-R008` | `B-P003` |
 
@@ -1250,18 +1835,12 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 8
+- evidence records that would go stale: 2
 
 | record | block | layer |
 |---|---|---|
-| E-000001 | `B-C001` | review |
-| E-000012 | `B-C002` | review |
-| E-000017 | `B-C001` | correspondence |
-| E-000018 | `B-P002` | correspondence |
-| E-000019 | `B-P003` | correspondence |
-| E-000020 | `B-C002` | correspondence |
-| E-000022 | `B-R006` | correspondence |
-| E-000023 | `B-R008` | correspondence |
+| E-000038 | `B-C001` | review |
+| E-000039 | `B-C002` | review |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -1280,7 +1859,13 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-D004` | correspondence | fail | 1 | 0 |
+| `B-C001` | correspondence | stale | 0 | 2 |
+| `B-C002` | correspondence | stale | 0 | 2 |
+| `B-D004` | correspondence | stale | 0 | 1 |
+| `B-P002` | correspondence | stale | 0 | 2 |
+| `B-P003` | correspondence | stale | 0 | 2 |
+| `B-R006` | correspondence | stale | 0 | 1 |
+| `B-R008` | correspondence | stale | 0 | 1 |
 
 ## Representation bridges still open
 

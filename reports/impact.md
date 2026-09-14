@@ -9,18 +9,12 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 8
+- evidence records that would go stale: 2
 
 | record | block | layer |
 |---|---|---|
-| E-000001 | `B-C001` | review |
-| E-000012 | `B-C002` | review |
-| E-000017 | `B-C001` | correspondence |
-| E-000018 | `B-P002` | correspondence |
-| E-000019 | `B-P003` | correspondence |
-| E-000020 | `B-C002` | correspondence |
-| E-000022 | `B-R006` | correspondence |
-| E-000023 | `B-R008` | correspondence |
+| E-000038 | `B-C001` | review |
+| E-000039 | `B-C002` | review |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

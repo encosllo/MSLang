@@ -5,11 +5,27 @@ hash equals the artifact's current hash; otherwise it is stale. Stale
 evidence is not false: it remains a true statement about the recorded
 inputs, but it is no longer evidence about the current block.
 
-4 of 24 record(s) are stale:
+20 of 40 record(s) are stale:
 
 | record | block | layer | stale inputs |
 |---|---|---|---|
-| E-000004 | `B-C001` | correspondence | B-C001/formal_statement: recorded 0e94f6999794... now e21690dcee63... |
-| E-000006 | `B-P002` | correspondence | B-P002/formal_statement: recorded 408bc9793853... now be02effb97bf... |
-| E-000008 | `B-P003` | correspondence | B-P003/formal_statement: recorded 6a300ad97aca... now ccdd6f4a1430... |
-| E-000011 | `B-C002` | correspondence | B-C002/formal_statement: recorded 4e765eb8a907... now f37cc0f89779... |
+| E-000001 | `B-C001` | review | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000002 | `representation/encoding` | representation | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000004 | `B-C001` | correspondence | B-C001/formal_statement: recorded 0e94f6999794... now 172973026cd3...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000005 | `B-P002` | verification | B-P002/formal_proof: recorded 79f611aadc6d... now 05db635866a3... |
+| E-000006 | `B-P002` | correspondence | B-P002/formal_statement: recorded 408bc9793853... now 3ed3c3bf232e...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000007 | `B-P003` | verification | B-P003/formal_proof: recorded 9f03d15577f7... now 905cbe54cd9b... |
+| E-000008 | `B-P003` | correspondence | B-P003/formal_statement: recorded 6a300ad97aca... now 594985f84c8b...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000010 | `B-D006` | verification | B-D006/formal_proof: recorded d026edec3130... now 3293dabf6a39... |
+| E-000011 | `B-C002` | correspondence | B-C002/formal_statement: recorded 4e765eb8a907... now 13e01ed764e6...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000012 | `B-C002` | review | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000013 | `representation/encoding` | representation | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000014 | `B-D004` | verification | B-D004/formal_proof: recorded 4314c2284cf4... now 43b7c64774a4... |
+| E-000017 | `B-C001` | correspondence | B-C001/formal_statement: recorded e21690dcee63... now 172973026cd3...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000018 | `B-P002` | correspondence | B-P002/formal_statement: recorded be02effb97bf... now 3ed3c3bf232e...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000019 | `B-P003` | correspondence | B-P003/formal_statement: recorded ccdd6f4a1430... now 594985f84c8b...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000020 | `B-C002` | correspondence | B-C002/formal_statement: recorded f37cc0f89779... now 13e01ed764e6...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000021 | `B-D004` | correspondence | B-D004/formal_statement: recorded bdd31ea933b0... now 68027e5562e6...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000022 | `B-R006` | correspondence | B-R006/formal_statement: recorded 72af4697f692... now 4997c05a3812...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000023 | `B-R008` | correspondence | B-R008/formal_statement: recorded b58cd9848795... now 349c2d391ada...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000024 | `B-D015` | verification | B-D015/formal_proof: recorded fdc5f113ee0c... now 221317b2a6f5... |
