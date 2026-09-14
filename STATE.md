@@ -517,6 +517,71 @@ this produces the first real evidence records.
 
 ---
 
+## Session 8 -- 2026-09-14 -- trust boundary and project views
+
+**Goal.** Execute the unblocked half of Session 7's step 3: propagate the
+representation's residual caveats into dependent blocks' trust boundaries
+(Section 11.5) and stand up the Section 19 project views. No author-reserved
+decision was taken; the Lean/Mathlib fetch remains blocked on disk.
+
+**What was established (closed).**
+
+- `representation/coverage.json` -- declares which blocks the pilot
+  representation covers (`encoding` -> the 11-block pilot cluster) and its five
+  unproved bridge obligations. This is the machine-readable form of the
+  cluster already stated in `representation/pilot-encoding.md`; it is the
+  coverage input to trust-boundary propagation.
+- `scripts/trust.py` -- derives, per representation, `outcome`, `current`, and
+  the residual set from the representation-layer evidence records, then
+  propagates the residuals to every covered block. Residuals are parsed from
+  the encoding auditor's authoritative `Verdict: ... with residuals D1, D2,
+  D4.` finding; the bounded labels D3/D5/D6/D7 are **not** leaked in. Currency
+  reuses `status.record_is_current`, so a representation change (C6) fails the
+  boundary closed (a stale audit asserts no residual).
+- `scripts/report.py` -- renders three deterministic, tracked views from the
+  registry, evidence, and coverage: `reports/coverage.md` (per-layer status
+  vectors; derived status is deliberately **not** asserted because contract
+  acceptance and treatment tiers are not recorded), `reports/trust_boundary.md`
+  (representations, residuals propagated per block, unproved bridge
+  obligations, statement-only note), and `reports/staleness.md`. `--check`
+  detects drift.
+- `scripts/trust_test.py` -- 12 seeded checks, **all pass**: residual parsing
+  ignores bounded labels; a `faithful-with-caveat` current audit propagates
+  exactly D1/D2/D4 to exactly the covered blocks; `faithful` imposes none; a
+  stale audit is not current and asserts no residual; an uncovered block gets
+  none; and the real records give `B-C001`/`B-D014` the D1/D2/D4 caveat while
+  `B-D001` gets none.
+- `scripts/check_all.sh` extended to **11 checks** (adds trust-boundary tests
+  and a project-views drift check). Current result: **11 passed, 0 failed**.
+
+**Findings.**
+
+- The D2 caveat named in Session 3/7 is now visible where Section 11.5 requires
+  it: `reports/trust_boundary.md` lists it for all 11 covered blocks, including
+  `B-C001` (which already had a review record) and the definitions nothing has
+  reviewed yet. The representation is still **not accepted**: the audit is a
+  same-session self-audit (`E-000002`, independence caveat), and D4's bridge
+  `setoid_le_iff` is unproved.
+- Coverage is declared, not inferred: `coverage.json` restates the cluster from
+  `pilot-encoding.md`. If the cluster should grow, that file (an author-visible
+  artifact) is the place to say so.
+
+**Prioritized next steps.**
+
+1. Author: audit `representation/pilot-encoding.md` independently; accept the
+   carrier model (D2) or revise it; decide JSON vs YAML for records.
+2. Free disk, then run the Lean/Mathlib fetch and record the clean-build time;
+   prove the bridge obligations and `sat_antitone` (`B-C001`); produce the first
+   correspondence/verification records.
+3. Stand up the seeded-mismatch calibration suite (Section 11.4; Phase 1 exit,
+   explicitly "early"), which is now the largest missing mechanical piece. It
+   needs a corpus of statements, mutation operators, and a recorded detection
+   rate per mutation type; it does not need Lean.
+4. Extend the views with the decision queue, frontier, and discrepancy reports
+   once there is more than one evidence record to display.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -539,9 +604,10 @@ this produces the first real evidence records.
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (9 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (11 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status tests, record validation, and the build.
+   hygiene/propagation/status/trust tests, record validation, project-view
+   drift, and the build.
 8. `scripts/validate_records.py --self-test` exercises the schema validator's
    rejection paths (old numeric IDs, unknown keys, missing required keys).
 9. Do not edit or delete existing files under `evidence/` (the pre-commit
