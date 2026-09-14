@@ -1,0 +1,37 @@
+{
+  "block": "B-D004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000021",
+  "findings": [
+    "Stage 1 read-back flagged that finalSorted's component is the whole ambient U, not a fixed singleton.",
+    "Stage 2 comparator returned incomparable: Subfinal and initialSorted match the contract, but finalSorted encodes the top of the ambient subobject lattice, not the paper's constant-singleton terminal 1^S (mismatch for |U|>=2; degenerate for U empty).",
+    "F-representation finding; proposed remedy in blocks/audits/B-D004-correspondence.md; author decision (class C6)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D004/formal_statement",
+      "hash": "bdd31ea933b0b925c1bed914cf154a79b9765dcdcde0a97a730dea56bf0a89d8"
+    },
+    {
+      "artifact": "B-D004/informal_statement",
+      "hash": "5b4c278e6f02c3b826ad448bea84526c8544ce98b846c98f6c68c1352431d9a8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "incomparable",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:15:39Z"
+}

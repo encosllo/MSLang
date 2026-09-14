@@ -10,6 +10,7 @@ agents present options and stop.
 | `D-explanation-c001` | contract | Accept or revise the proposed Explanation for B-C001 (blocks/explanations/B-C001.md) into the manuscript. |
 | `D-explanation-c002` | contract | Accept or revise the proposed Explanation for B-C002 (blocks/explanations/B-C002.md) into the manuscript. |
 | `D-representation` | representation | Accept the pilot encoding / carrier model (residual D2) and the independent encoding audit E-000013, or revise them. |
+| `D-finalSorted` | representation | B-D004 correspondence is incomparable (E-000021): finalSorted encodes Set.univ, not the paper's constant-singleton terminal 1^S. Decide whether to re-encode 1^S as a chosen singleton (fun _ => {x0}, needs Nonempty U) and re-prove supp_finalSorted, or accept the caveat. |
 | `D-record-format` | tooling | Choose JSON vs YAML for evidence records (currently JSON, which the dependency-free validator handles). |
 | `D-pilot-scope` | scope | Confirm or revise the pilot cluster scope; freeze the B-D014 contract if stable. |
 | `D-bp002-simplification` | manuscript | Decide whether to adopt the formalization-produced simplification of B-P002's converse (drop the delta construction; EV-000022/EV-000019 finding). |
@@ -21,3 +22,4 @@ agents present options and stop.
 | event | block | class | summary |
 |---|---|---|---|
 | EV-000019 | `B-D014` | C4 | Proposed change to pilot definition B-D014 (its informal statement): blast radius computed non-destructively. Would stale 6 current evidence records across 5 blocks (E-000001, E-000004 B-C001; E-000006 B-P002; E-000008 B-P003; E-000011, E-000012 B-C002), no verification records, and reach 26 downstream blocks. This is a definition/contract change reserved to the author (Sections 13.2 C4, 16.4); presenting the impact report and stopping. |
+| EV-000027 | `B-D004` | C6 | Correspondence audit for B-D004 returned incomparable (E-000021): Subfinal and initialSorted match the contract, but finalSorted encodes Set.univ (whole ambient), not the paper constant-singleton terminal 1^S. F-representation finding (residual R-delta); proposed remedy: re-encode 1^S as a chosen singleton fun _ => {x0} (needs Nonempty U) and re-prove supp_finalSorted. Blast radius B-D004 + supp_finalSorted. Representation change reserved to the author. |
