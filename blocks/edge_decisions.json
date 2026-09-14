@@ -1,0 +1,566 @@
+{
+  "counts": {
+    "confirmed": 111,
+    "rejected": 0
+  },
+  "decisions": {
+    "B-C001|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C002|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C004|B-D032|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{DefFormAlg})",
+      "source": "explicit"
+    },
+    "B-C004|B-D033|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{ShSkFormAlg})",
+      "source": "explicit"
+    },
+    "B-C005|B-D034|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Fmg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C007|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C007|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C007|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C007|B-P027|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{TAntiTrans})",
+      "source": "explicit"
+    },
+    "B-C008|B-C001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{IncSat})",
+      "source": "explicit"
+    },
+    "B-C008|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C008|B-P006|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CABA Saturades})",
+      "source": "explicit"
+    },
+    "B-C009|B-C008|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CorolariAlgebraBooleana})",
+      "source": "explicit"
+    },
+    "B-C009|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C010|B-P028|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{TAntiHom})",
+      "source": "explicit"
+    },
+    "B-D030|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D030|B-D029|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Filt is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D031|B-D028|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Em is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D032|B-D028|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Em is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D032|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\H is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D033|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\H is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D036|B-D035|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Etl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D037|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D038|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D041|B-D030|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{DefFormCgr})",
+      "source": "explicit"
+    },
+    "B-D043|B-D032|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{DefFormAlg})",
+      "source": "explicit"
+    },
+    "B-D045|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D045|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D045|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D046|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D046|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D046|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P002|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P003|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P004|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P005|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P006|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P007|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P007|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P008|B-P001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{propssupport})",
+      "source": "explicit"
+    },
+    "B-P009|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P010|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P011|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P014|B-D029|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Filt is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P015|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P015|B-D028|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Sdprod})",
+      "source": "explicit"
+    },
+    "B-P015|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\H is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P015|B-P012|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{FreeProj})",
+      "source": "explicit"
+    },
+    "B-P015|B-P013|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{AlgIsoQuotFree})",
+      "source": "explicit"
+    },
+    "B-P017|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P018|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\H is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P019|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P019|B-D023|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sf is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P019|B-P016|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{FormAlgentailsShSk})",
+      "source": "explicit"
+    },
+    "B-P020|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P021|B-D035|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Etl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P021|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P022|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P022|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P022|B-P021|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CharacCong})",
+      "source": "explicit"
+    },
+    "B-P023|B-C001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{IncSat})",
+      "source": "explicit"
+    },
+    "B-P023|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P024|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P026|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P027|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P029|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P030|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P030|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P030|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P033|B-P018|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{FormAlgAlgLat})",
+      "source": "explicit"
+    },
+    "B-P034|B-P020|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{FormAlgFormCgrIso})",
+      "source": "explicit"
+    },
+    "B-P035|B-C001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{IncSat})",
+      "source": "explicit"
+    },
+    "B-P035|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P035|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P035|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P035|B-D037|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{DAntiTrans})",
+      "source": "explicit"
+    },
+    "B-P035|B-D045|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Def1FRL})",
+      "source": "explicit"
+    },
+    "B-P035|B-D046|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Def2FRL})",
+      "source": "explicit"
+    },
+    "B-P035|B-P003|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{NablaSat})",
+      "source": "explicit"
+    },
+    "B-P035|B-P006|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CABA Saturades})",
+      "source": "explicit"
+    },
+    "B-P035|B-P023|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CharacSatCCog})",
+      "source": "explicit"
+    },
+    "B-P035|B-P027|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{TAntiTrans})",
+      "source": "explicit"
+    },
+    "B-P035|B-P028|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{TAntiHom})",
+      "source": "explicit"
+    },
+    "B-P035|B-P029|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{DesClasCog})",
+      "source": "explicit"
+    },
+    "B-P037|B-P030|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Cong2LangBasic})",
+      "source": "explicit"
+    },
+    "B-P038|B-C001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{IncSat})",
+      "source": "explicit"
+    },
+    "B-P038|B-C008|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CorolariAlgebraBooleana})",
+      "source": "explicit"
+    },
+    "B-P038|B-C009|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CorolariAtoms})",
+      "source": "explicit"
+    },
+    "B-P038|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P038|B-D015|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P038|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P039|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P039|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P039|B-P024|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{RepCongInterCCogKroneckerDelta})",
+      "source": "explicit"
+    },
+    "B-R005|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R005|B-P001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{propssupport})",
+      "source": "explicit"
+    },
+    "B-R006|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R007|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R008|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R014|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\H is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R016|B-D023|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sf is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R016|B-P001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{propssupport})",
+      "source": "explicit"
+    },
+    "B-R017|B-D023|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sf is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R018|B-D036|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R021|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\P is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R022|B-D014|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R022|B-D027|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R023|B-P002|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PropIncSat})",
+      "source": "explicit"
+    },
+    "B-R027|B-D046|uses_definition": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Def2FRL})",
+      "source": "explicit"
+    },
+    "B-X001|B-D031|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\H is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-X001|B-P001|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{propssupport})",
+      "source": "explicit"
+    }
+  },
+  "reviewed_at": "2026-09-14T08:58:00Z",
+  "reviewed_by": "agent:opencode",
+  "schema_note": "edge decisions for blocks/graph.json; key = from|to|kind. confirmed=true enters closure computation; confirmed=false is a remembered rejection. Reviewed by agent:opencode pending author spot-check (Architecture.md Section 12.1)."
+}

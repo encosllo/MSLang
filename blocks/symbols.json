@@ -1,0 +1,381 @@
+{
+  "source": "manuscript/MSEilenberg.tex",
+  "symbols": [
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": " +"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": " = "
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": " >"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "+>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "-.->"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "-o"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": ".-"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": ".->"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "< "
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "<= "
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "<==>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "<~~>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "==>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "=>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "=~>"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "blockid"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "blockscope"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xycel}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\text{\\Large $\\curlywedge$}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "concat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xydmor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dmor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyemor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "emor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyepi}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "epi"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "providecommand",
+      "lean": null,
+      "name": "lean"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "providecommand",
+      "lean": null,
+      "name": "leanok"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "providecommand",
+      "lean": null,
+      "name": "mathlibok"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xymdf}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mdf"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xymon}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xymor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyomor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "omor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyrel}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xytn}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyumor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "umor"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "providecommand",
+      "lean": null,
+      "name": "uses"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xycel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xydmor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyemor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyepi"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xymdf"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xymon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xymor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\makebox[0ex]{}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "xynode"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyomor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyrel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xytn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyumor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "~>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "~~>"
+    }
+  ]
+}

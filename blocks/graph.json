@@ -1,0 +1,1505 @@
+{
+  "ambiguous_symbols": {
+    "Alg": [
+      "B-D031",
+      "B-D032",
+      "B-D034",
+      "B-D042",
+      "B-D043"
+    ],
+    "Cgr": [
+      "B-D024",
+      "B-D030",
+      "B-D040",
+      "B-D041"
+    ],
+    "Form": [
+      "B-D030",
+      "B-D032",
+      "B-D034",
+      "B-D041",
+      "B-D043",
+      "B-D045",
+      "B-D046"
+    ],
+    "Hom": [
+      "B-D002",
+      "B-D035",
+      "B-D036"
+    ],
+    "Sg": [
+      "B-D021",
+      "B-D027"
+    ],
+    "Sub": [
+      "B-D005",
+      "B-D008",
+      "B-D014",
+      "B-D020",
+      "B-D021"
+    ],
+    "f": [
+      "B-D008",
+      "B-D042",
+      "B-D043"
+    ],
+    "fi": [
+      "B-D040",
+      "B-D041"
+    ],
+    "supp": [
+      "B-D009",
+      "B-D018"
+    ]
+  },
+  "decisions_source": "/Users/enriccosme/Desktop/MSLang/blocks/edge_decisions.json",
+  "edges": [
+    {
+      "confirmed": true,
+      "detail": "\\ref{propssupport}",
+      "from": "B-R005",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-R005",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-R006",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-P002",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-C001",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-R007",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-P003",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-R008",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-P004",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-C002",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-P005",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-P006",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Eqv",
+      "from": "B-P007",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P007",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{propssupport}",
+      "from": "B-P008",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P009",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-P010",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-P011",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Filt",
+      "from": "B-D030",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D029"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-D030",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Filt",
+      "from": "B-P014",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D029"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Em",
+      "from": "B-D031",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D028"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{Sdprod}",
+      "from": "B-P015",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D028"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{AlgIsoQuotFree}",
+      "from": "B-P015",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P013"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{FreeProj}",
+      "from": "B-P015",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P012"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\H",
+      "from": "B-P015",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P015",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Em",
+      "from": "B-D032",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D028"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\H",
+      "from": "B-D032",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\H",
+      "from": "B-R014",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{propssupport}",
+      "from": "B-R016",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sf",
+      "from": "B-R016",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D023"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{propssupport}",
+      "from": "B-X001",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\H",
+      "from": "B-X001",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sf",
+      "from": "B-R017",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D023"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\H",
+      "from": "B-D033",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P017",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{DefFormAlg}",
+      "from": "B-C004",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D032"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{ShSkFormAlg}",
+      "from": "B-C004",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D033"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\H",
+      "from": "B-P018",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Fmg",
+      "from": "B-C005",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D034"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{FormAlgentailsShSk}",
+      "from": "B-P019",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P016"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P019",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sf",
+      "from": "B-P019",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D023"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P020",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Etl",
+      "from": "B-D036",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D035"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-R018",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-D037",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Etl",
+      "from": "B-P021",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D035"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-P021",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-D038",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CharacCong}",
+      "from": "B-P022",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P021"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P022",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-P022",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{IncSat}",
+      "from": "B-P023",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-P023",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P024",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P026",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-P027",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\P",
+      "from": "B-R021",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D031"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-P029",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P030",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-P030",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-P030",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-R022",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-R022",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{PropIncSat}",
+      "from": "B-R023",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P002"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{TAntiTrans}",
+      "from": "B-C007",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-C007",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-C007",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-C007",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{IncSat}",
+      "from": "B-C008",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CABA Saturades}",
+      "from": "B-C008",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P006"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-C008",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CorolariAlgebraBooleana}",
+      "from": "B-C009",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C008"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-C009",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{TAntiHom}",
+      "from": "B-C010",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P028"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{DefFormCgr}",
+      "from": "B-D041",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D030"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{DefFormAlg}",
+      "from": "B-D043",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D032"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{FormAlgAlgLat}",
+      "from": "B-P033",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P018"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{FormAlgFormCgrIso}",
+      "from": "B-P034",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P020"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-D045",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-D045",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-D045",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-D046",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-D046",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-D046",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{Def2FRL}",
+      "from": "B-R027",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D046"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{Def1FRL}",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D045"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{Def2FRL}",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D046"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{TAntiTrans}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{IncSat}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CABA Saturades}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P006"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{TAntiHom}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P028"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{DesClasCog}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P029"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{DAntiTrans}",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "explicit",
+      "to": "B-D037"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{NablaSat}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P003"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CharacSatCCog}",
+      "from": "B-P035",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P023"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Tl",
+      "from": "B-P035",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D036"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{Cong2LangBasic}",
+      "from": "B-P037",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P030"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{IncSat}",
+      "from": "B-P038",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C001"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CorolariAtoms}",
+      "from": "B-P038",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C009"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{CorolariAlgebraBooleana}",
+      "from": "B-P038",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C008"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Ker",
+      "from": "B-P038",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D015"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-P038",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-P038",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\ref{RepCongInterCCogKroneckerDelta}",
+      "from": "B-P039",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P024"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\Sat",
+      "from": "B-P039",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D014"
+    },
+    {
+      "confirmed": true,
+      "detail": "\\T",
+      "from": "B-P039",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D027"
+    }
+  ],
+  "labels": {
+    "$S$-sorted signature": "B-D016",
+    "AlgIsoQuotFree": "B-P013",
+    "CABA Saturades": "B-P006",
+    "CharSubfinAlg": "B-P008",
+    "CharacCogenCong": "B-P022",
+    "CharacCong": "B-P021",
+    "CharacSatCCog": "B-P023",
+    "Compl": "B-P025",
+    "Cong2LangBasic": "B-P030",
+    "Cong2LangEnFinit": "B-P037",
+    "CorolariAlgebraBooleana": "B-C008",
+    "CorolariAntiimatge": "B-C010",
+    "CorolariAtoms": "B-C009",
+    "DAntiTrans": "B-D037",
+    "Def1FRL": "B-D045",
+    "Def2FRL": "B-D046",
+    "DefFormAlg": "B-D032",
+    "DefFormCgr": "B-D030",
+    "DesClasCog": "B-P029",
+    "FladjG": "B-C003",
+    "FormAlgAlgLat": "B-P018",
+    "FormAlgFormCgrIso": "B-P020",
+    "FormAlgentailsShSk": "B-P016",
+    "FormCgrfiAlg": "B-C012",
+    "FreeProj": "B-P012",
+    "IncSat": "B-C001",
+    "InterCCog and CCogInter": "B-P026",
+    "Lang2CongEnFinit": "B-P038",
+    "NablaSat": "B-P003",
+    "PropIncSat": "B-P002",
+    "RepCongInterCCogKroneckerDelta": "B-P024",
+    "SatOperator": "B-P005",
+    "Sdprod": "B-D028",
+    "ShSkFormAlg": "B-D033",
+    "Subalg": "B-D020",
+    "TAntiHom": "B-P028",
+    "TAntiTrans": "B-P027",
+    "UAClSp = AClSp": "B-R004",
+    "propssupport": "B-P001",
+    "rut": "B-P010"
+  },
+  "note": "candidate edges; confirmed=false means awaiting author confirmation",
+  "numbers": {
+    "2": "B-R004",
+    "2.10": "B-P001",
+    "2.16": "B-P002",
+    "2.17": "B-C001",
+    "2.18": "B-P003",
+    "2.21": "B-P005",
+    "2.22": "B-P006",
+    "2.25": "B-D016",
+    "2.29": "B-D020",
+    "2.33": "B-P008",
+    "2.39": "B-P010",
+    "2.41": "B-C003",
+    "2.43": "B-P012",
+    "2.44": "B-P013",
+    "2.45": "B-D028",
+    "3.11": "B-P018",
+    "3.15": "B-P020",
+    "3.2": "B-D030",
+    "3.6": "B-D032",
+    "3.7": "B-D033",
+    "3.8": "B-P016",
+    "4.3": "B-D037",
+    "4.4": "B-P021",
+    "5.10": "B-P029",
+    "5.2": "B-P022",
+    "5.4": "B-P023",
+    "5.5": "B-P024",
+    "5.6": "B-P025",
+    "5.7": "B-P026",
+    "5.8": "B-P027",
+    "5.9": "B-P028",
+    "6.1": "B-P030",
+    "6.15": "B-C012",
+    "6.17": "B-D045",
+    "6.18": "B-D046",
+    "6.21": "B-P037",
+    "6.22": "B-P038",
+    "6.3": "B-C008",
+    "6.4": "B-C009",
+    "6.5": "B-C010"
+  },
+  "source": "manuscript/MSEilenberg.tex",
+  "symbols_used": {
+    "B-A001": [],
+    "B-C001": [
+      "Eqv",
+      "Sat"
+    ],
+    "B-C002": [
+      "Eqv",
+      "Sat"
+    ],
+    "B-C003": [],
+    "B-C004": [],
+    "B-C005": [
+      "Alg",
+      "Fmg"
+    ],
+    "B-C006": [
+      "Cgr"
+    ],
+    "B-C007": [
+      "Sat",
+      "T",
+      "Tl"
+    ],
+    "B-C008": [
+      "T"
+    ],
+    "B-C009": [
+      "T"
+    ],
+    "B-C010": [],
+    "B-C011": [
+      "Alg",
+      "f"
+    ],
+    "B-C012": [
+      "Cgr",
+      "fi"
+    ],
+    "B-C013": [],
+    "B-D001": [
+      "Hom"
+    ],
+    "B-D002": [
+      "Hom"
+    ],
+    "B-D003": [],
+    "B-D004": [],
+    "B-D005": [
+      "Sub"
+    ],
+    "B-D006": [],
+    "B-D007": [
+      "Sub"
+    ],
+    "B-D008": [
+      "Sub",
+      "f"
+    ],
+    "B-D009": [
+      "supp"
+    ],
+    "B-D010": [
+      "ClOp",
+      "ClSy",
+      "Sub"
+    ],
+    "B-D011": [
+      "K"
+    ],
+    "B-D012": [
+      "AClOp",
+      "AClSy",
+      "Sub",
+      "f"
+    ],
+    "B-D013": [
+      "Sub",
+      "supp"
+    ],
+    "B-D014": [
+      "Eqv",
+      "Sat",
+      "Sub"
+    ],
+    "B-D015": [
+      "Ker"
+    ],
+    "B-D016": [],
+    "B-D017": [
+      "Alg",
+      "Hom"
+    ],
+    "B-D018": [
+      "supp"
+    ],
+    "B-D019": [],
+    "B-D020": [
+      "Sub"
+    ],
+    "B-D021": [
+      "Sg",
+      "Sub"
+    ],
+    "B-D022": [],
+    "B-D023": [
+      "Sf"
+    ],
+    "B-D024": [
+      "Cgr"
+    ],
+    "B-D025": [
+      "Cgr"
+    ],
+    "B-D026": [],
+    "B-D027": [
+      "Sg",
+      "T"
+    ],
+    "B-D028": [
+      "Em",
+      "sd"
+    ],
+    "B-D029": [
+      "Filt"
+    ],
+    "B-D030": [
+      "Cgr",
+      "Filt",
+      "Form",
+      "Ker"
+    ],
+    "B-D031": [
+      "Alg",
+      "Em",
+      "H",
+      "P",
+      "sd"
+    ],
+    "B-D032": [
+      "Alg",
+      "Em",
+      "Form",
+      "H",
+      "P",
+      "sd"
+    ],
+    "B-D033": [
+      "Cgr",
+      "H"
+    ],
+    "B-D034": [
+      "Alg",
+      "Fmg",
+      "Form"
+    ],
+    "B-D035": [
+      "Etl",
+      "Hom"
+    ],
+    "B-D036": [
+      "Etl",
+      "Hom",
+      "Tl"
+    ],
+    "B-D037": [
+      "Tl"
+    ],
+    "B-D038": [
+      "Tl"
+    ],
+    "B-D039": [],
+    "B-D040": [
+      "Cgr",
+      "fi"
+    ],
+    "B-D041": [
+      "Cgr",
+      "Form",
+      "fi"
+    ],
+    "B-D042": [
+      "Alg",
+      "f"
+    ],
+    "B-D043": [
+      "Alg",
+      "Form",
+      "f"
+    ],
+    "B-D044": [
+      "Cgr",
+      "fi",
+      "supp"
+    ],
+    "B-D045": [
+      "Form",
+      "Ker",
+      "Sat",
+      "Sub",
+      "T"
+    ],
+    "B-D046": [
+      "BPS",
+      "Form",
+      "Sat",
+      "Sub",
+      "T",
+      "Tl"
+    ],
+    "B-L001": [],
+    "B-P001": [
+      "Hom",
+      "supp"
+    ],
+    "B-P002": [
+      "Eqv"
+    ],
+    "B-P003": [
+      "Sat",
+      "supp"
+    ],
+    "B-P004": [
+      "Eqv"
+    ],
+    "B-P005": [
+      "Eqv",
+      "Sat",
+      "Sub",
+      "supp"
+    ],
+    "B-P006": [
+      "Eqv",
+      "Sat"
+    ],
+    "B-P007": [
+      "Eqv",
+      "Ker"
+    ],
+    "B-P008": [
+      "supp"
+    ],
+    "B-P009": [
+      "Cgr",
+      "Ker"
+    ],
+    "B-P010": [
+      "T"
+    ],
+    "B-P011": [
+      "T"
+    ],
+    "B-P012": [],
+    "B-P013": [],
+    "B-P014": [
+      "Cgr",
+      "Filt",
+      "Form"
+    ],
+    "B-P015": [
+      "Alg",
+      "Em",
+      "H",
+      "Ker",
+      "P",
+      "sd"
+    ],
+    "B-P016": [
+      "Cgr"
+    ],
+    "B-P017": [
+      "Ker"
+    ],
+    "B-P018": [
+      "Alg",
+      "Form",
+      "H",
+      "P",
+      "Sub"
+    ],
+    "B-P019": [
+      "Cgr",
+      "Ker",
+      "Sf"
+    ],
+    "B-P020": [
+      "Alg",
+      "Cgr",
+      "Form",
+      "Ker"
+    ],
+    "B-P021": [
+      "Etl",
+      "Tl"
+    ],
+    "B-P022": [
+      "Ker",
+      "Tl"
+    ],
+    "B-P023": [
+      "Cgr",
+      "Sat"
+    ],
+    "B-P024": [
+      "Cgr",
+      "Ker"
+    ],
+    "B-P025": [],
+    "B-P026": [
+      "Ker"
+    ],
+    "B-P027": [
+      "Tl"
+    ],
+    "B-P028": [],
+    "B-P029": [
+      "Sub",
+      "Tl"
+    ],
+    "B-P030": [
+      "Ker",
+      "Sat",
+      "Sub",
+      "T"
+    ],
+    "B-P031": [
+      "Cgr",
+      "fi",
+      "supp"
+    ],
+    "B-P032": [
+      "Cgr",
+      "Form",
+      "fi"
+    ],
+    "B-P033": [
+      "Alg",
+      "Form",
+      "Sub",
+      "f"
+    ],
+    "B-P034": [
+      "Alg",
+      "Cgr",
+      "f",
+      "fi"
+    ],
+    "B-P035": [
+      "BPS",
+      "Ker",
+      "Sub",
+      "T",
+      "Tl",
+      "supp"
+    ],
+    "B-P036": [],
+    "B-P037": [],
+    "B-P038": [
+      "Cgr",
+      "Ker",
+      "Sat",
+      "T",
+      "fi",
+      "supp"
+    ],
+    "B-P039": [
+      "Cgr",
+      "Form",
+      "Sat",
+      "Sub",
+      "T",
+      "fi"
+    ],
+    "B-R001": [],
+    "B-R002": [],
+    "B-R003": [
+      "supp"
+    ],
+    "B-R004": [],
+    "B-R005": [
+      "Eqv",
+      "supp"
+    ],
+    "B-R006": [
+      "Eqv"
+    ],
+    "B-R007": [
+      "Eqv",
+      "Sat",
+      "Sub"
+    ],
+    "B-R008": [
+      "Sat"
+    ],
+    "B-R009": [
+      "Alg",
+      "supp"
+    ],
+    "B-R010": [
+      "Sg",
+      "supp"
+    ],
+    "B-R011": [],
+    "B-R012": [
+      "Sub",
+      "supp"
+    ],
+    "B-R013": [
+      "Cgr"
+    ],
+    "B-R014": [
+      "Alg",
+      "H",
+      "P"
+    ],
+    "B-R015": [
+      "Alg",
+      "Form",
+      "Sub"
+    ],
+    "B-R016": [
+      "Sf",
+      "supp"
+    ],
+    "B-R017": [
+      "Sf"
+    ],
+    "B-R018": [
+      "Hom",
+      "Tl"
+    ],
+    "B-R019": [],
+    "B-R020": [],
+    "B-R021": [
+      "Alg",
+      "Cgr",
+      "P",
+      "Sub"
+    ],
+    "B-R022": [
+      "Sat",
+      "T"
+    ],
+    "B-R023": [
+      "Cgr"
+    ],
+    "B-R024": [
+      "supp"
+    ],
+    "B-R025": [
+      "Cgr",
+      "Form",
+      "fi"
+    ],
+    "B-R026": [
+      "supp"
+    ],
+    "B-R027": [
+      "BPS"
+    ],
+    "B-X001": [
+      "H",
+      "P",
+      "Sg",
+      "Sub",
+      "f"
+    ],
+    "B-X002": [
+      "Cgr",
+      "fi",
+      "supp"
+    ]
+  }
+}
