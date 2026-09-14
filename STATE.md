@@ -641,6 +641,78 @@ decision was taken; the Lean/Mathlib fetch remains blocked on disk.
 
 ---
 
+## Session 10 -- 2026-09-14 -- first formal target and verification evidence
+
+**Goal.** With Lean/Mathlib fetched (Session 9), formalize the pilot's first
+target, hash Lean statement/proof facets, and produce the first verification
+record.
+
+**What was established (closed).**
+
+- `lean/Mslang/Pilot.lean` -- the pilot encoding from
+  `representation/pilot-encoding.md`: `SSorted` (`S → Set U`), pointwise `le`,
+  `SortedEqv` (`∀ s, Setoid (A s)`), pointwise refinement `sortedEqvLe`,
+  saturation `sat`, and `IsSat`. Theorems:
+  - `sat_antitone` (`B-C001`, `IncSat`): `Φ ⊆ Ψ → Ψ-Sat(A) ⊆ Φ-Sat(A)`, the
+    first formal target;
+  - `sat_sat_eq`, the forward direction of `B-P002` (`PropIncSat`).
+- `lean/Mslang.lean` now imports `Mslang.Pilot` and prints the axioms of each
+  theorem. **Clean build: 8,708 jobs, 0 errors, 0 warnings**;
+  `#print axioms Mslang.sat_antitone` = `[propext, Quot.sound]`, within the
+  permitted set (Section 15.5). `sat_antitone` is `sorry`-free.
+- `lean/declarations.json` maps pilot blocks to Lean declarations.
+  `scripts/lean_facets.py` extracts each declaration, splits it at the first
+  top-level `:=`, normalizes (Lean comments stripped, whitespace collapsed),
+  and writes the `formal_statement` / `formal_proof` hashes to
+  `blocks/formal.json`; `--check` detects drift.
+- `scripts/closure.py` and `scripts/status.py` merge `blocks/formal.json` into
+  the registry facets at load time, so closures/status see the formal facets
+  while `ingest.py --check` still covers the TeX-derived registry alone (no
+  drift introduced).
+- `scripts/lean_facets_test.py` -- 10 seeded checks, **all pass**: statement
+  split, comment stripping, proof rewrite leaves the statement hash unchanged
+  and changes the proof hash, signature rewrite changes the statement hash,
+  missing declaration flagged.
+- **`evidence/E-000003.json`** (verification, `B-C001`, `build_ok`): inputs
+  computed by `closure.py` (`B-C001/formal_proof`), environment pinned to lean
+  v4.33.1 / mathlib `0df444a`, findings the axiom set. `status.py` now reports
+  `B-C001`: review `pass`, verification `pass`; representation `pass`.
+- `scripts/check_all.sh` extended to **13 checks** (Lean facet tests + formal
+  facet drift). Current result: **13 passed, 0 failed**.
+
+**Findings.**
+
+- The direct proof of `sat_antitone` is simpler than the manuscript's route
+  through `B-P002`: `[X]^Φ ⊆ [X]^Ψ = X` and `X ⊆ [X]^Φ` by reflexivity
+  suffice. This is a genuine (small) simplification; if the `B-C001`
+  Explanation is adopted it should cite this direct argument, or the Lean proof
+  should be re-derived from `B-P002` to match the prose (Section 11a.5).
+- Only the **forward** direction of `B-P002` is formalized. The converse needs a
+  chosen test family `X` and a transport over the dependent sort, not yet done.
+  Remaining bridges: `sat_eq_preimage`, `card_le_one_iff`, `delta_support`,
+  `setoid_le_iff` (the last is definitional under this encoding).
+- **Honest limitation:** `formal_*` facets are a *source-level* hash, not the
+  elaborated signature/proof term the architecture specifies. Stable under the
+  statement/proof edits that matter here, but not yet a canonical
+  representation. Recorded in `E-000003`'s `independence_caveat`.
+- Disk recovered to ~8.9 GiB free after the build (the earlier ~1 GiB reading
+  was transient during writes).
+
+**Prioritized next steps.**
+
+1. Correspondence for `B-C001`: run the two-stage blind read-back/comparator
+   (Section 11.2) and produce a correspondence record; the closure now
+   resolves (`formal_statement` + `informal_statement` + representation +
+   `B-D014/informal_statement`).
+2. Formalize the `B-P002` converse and the remaining bridge obligations, then
+   the definition blocks (`B-D002`, `B-D014`).
+3. Produce a Lean -> Explanation reconstruction for a proven block
+   (Section 11a.5) and adversarial-read it.
+4. Seeded-mismatch calibration suite (Section 11.4); independent representation
+   audit; JSON vs YAML records.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -667,11 +739,15 @@ decision was taken; the Lean/Mathlib fetch remains blocked on disk.
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (11 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (13 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status/trust tests, record validation, project-view
-   drift, and the build.
-8. `scripts/validate_records.py --self-test` exercises the schema validator's
+   hygiene/propagation/status/trust/Lean-facet tests, record validation,
+   formal-facet and project-view drift, and the build.
+8. After editing Lean, rebuild and re-hash:
+   `(unset ELAN_HOME; cd lean && lake build)` then
+   `python3 scripts/lean_facets.py` (or `--check`). Confirm
+   `#print axioms` on the new theorems stays within the permitted set.
+9. `scripts/validate_records.py --self-test` exercises the schema validator's
    rejection paths (old numeric IDs, unknown keys, missing required keys).
-9. Do not edit or delete existing files under `evidence/` (the pre-commit
-   hook enforces this); supersede with a new record instead.
+10. Do not edit or delete existing files under `evidence/` (the pre-commit
+    hook enforces this); supersede with a new record instead.
