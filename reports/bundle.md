@@ -16,7 +16,7 @@ repository.
 | `blocks/registry.json` | `473d76031e916821f4bf478a8f490e0993a909610d414c2d8634704bdcc6c73a` |
 | `calibration/seeded.json` | `e97f70151bc369734650c30a19e51c4bb5152b97cf0605e13bf49b5cb4ae37d4` |
 | `calibration/verdicts.json` | `8996a813e113acf674e2abf033df27f5c6790976051f6389ed375bb79b98eeec` |
-| `decisions/standing.json` | `8bc577e90edbb3ea9820561a986d473fda9bee013f22e3669aabef1523e6dc9b` |
+| `decisions/standing.json` | `6eed51eaf8ac584e32e2b33b76e54a4d94c2e20a2ac7080e6e2e92a4e1ac325b` |
 | `evidence/E-000001.json` | `3d3e19bd6a117f75c0167f8d16f6abdeebd47c5ea3a1b702b44e419eb031f1cf` |
 | `evidence/E-000002.json` | `34a2aaf9b9522512d51f2305bd32a4399f6ea46b6b827b69d855c854edb26ef5` |
 | `evidence/E-000003.json` | `ac6d8a783e432655f5e1a32b8fa95ca1e5378fa96b075e1257e5a48131911f23` |
@@ -57,7 +57,7 @@ repository.
 | `evidence/E-000038.json` | `3253ac2b35f07b40ad89e03f174c9e35078c79b6b41a14b438dc60101766fc19` |
 | `evidence/E-000039.json` | `90c3dd991854fc1d170359bf97e9802d5fa5aea05c52482cd17dbb702126974b` |
 | `evidence/E-000040.json` | `f3910562f68efd074e50f4a1fdd2e6b33a28f5be0658f2d83e2006f7388d3e8d` |
-| `journal/events.jsonl` | `dbe5866122b5a5a2ce7beed08f65df8c9c07af4016b22ba001ff6d81fd6777af` |
+| `journal/events.jsonl` | `ea5aa368734a5ea264b224b7b0dfcf03cc1059e9b76bb4bd07e87eee75c13458` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `20315adb32d4ac06d6e2154edb71f0d9c66de5a58aa095183d676118c80446ca` |
@@ -1886,14 +1886,12 @@ These confirmed blocks are outside the current formalization frontier.
 | `D-explanation-c001` | contract |
 | `D-explanation-c002` | contract |
 | `D-representation` | representation |
-| `D-finalSorted` | representation |
 | `D-record-format` | tooling |
 | `D-pilot-scope` | scope |
 | `D-bp002-simplification` | manuscript |
 | `D-toolchain` | environment |
 | `D-calibration-models` | evaluation |
 | `EV-000019` | escalation |
-| `EV-000027` | escalation |
 
 ## reports/decisions.md
 
@@ -1909,7 +1907,6 @@ agents present options and stop.
 | `D-explanation-c001` | contract | Accept or revise the proposed Explanation for B-C001 (blocks/explanations/B-C001.md) into the manuscript. |
 | `D-explanation-c002` | contract | Accept or revise the proposed Explanation for B-C002 (blocks/explanations/B-C002.md) into the manuscript. |
 | `D-representation` | representation | Accept the pilot encoding / carrier model (residual D2) and the independent encoding audit E-000013, or revise them. |
-| `D-finalSorted` | representation | B-D004 correspondence is incomparable (E-000021): finalSorted encodes Set.univ, not the paper's constant-singleton terminal 1^S. Decide whether to re-encode 1^S as a chosen singleton (fun _ => {x0}, needs Nonempty U) and re-prove supp_finalSorted, or accept the caveat. |
 | `D-record-format` | tooling | Choose JSON vs YAML for evidence records (currently JSON, which the dependency-free validator handles). |
 | `D-pilot-scope` | scope | Confirm or revise the pilot cluster scope; freeze the B-D014 contract if stable. |
 | `D-bp002-simplification` | manuscript | Decide whether to adopt the formalization-produced simplification of B-P002's converse (drop the delta construction; EV-000022/EV-000019 finding). |
@@ -1921,4 +1918,3 @@ agents present options and stop.
 | event | block | class | summary |
 |---|---|---|---|
 | EV-000019 | `B-D014` | C4 | Proposed change to pilot definition B-D014 (its informal statement): blast radius computed non-destructively. Would stale 6 current evidence records across 5 blocks (E-000001, E-000004 B-C001; E-000006 B-P002; E-000008 B-P003; E-000011, E-000012 B-C002), no verification records, and reach 26 downstream blocks. This is a definition/contract change reserved to the author (Sections 13.2 C4, 16.4); presenting the impact report and stopping. |
-| EV-000027 | `B-D004` | C6 | Correspondence audit for B-D004 returned incomparable (E-000021): Subfinal and initialSorted match the contract, but finalSorted encodes Set.univ (whole ambient), not the paper constant-singleton terminal 1^S. F-representation finding (residual R-delta); proposed remedy: re-encode 1^S as a chosen singleton fun _ => {x0} (needs Nonempty U) and re-prove supp_finalSorted. Blast radius B-D004 + supp_finalSorted. Representation change reserved to the author. |

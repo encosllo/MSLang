@@ -1440,6 +1440,46 @@ component `∏_i A^i_s` is a set of functions, not a subset of the fixed ambient
 
 ---
 
+## Session 29 -- 2026-09-14 -- C6 representation change (dependent-type carrier)
+
+**Goal.** Implement the author's chosen representation: `SSet S := S → Type u`
+(a family of types, not subsets of a fixed ambient `U`).
+
+**What was established (closed).**
+
+- `lean/Mslang/Pilot.lean` and `lean/Mslang/Sanity.lean` **rewritten** for the
+  new carrier; `SortedMap`, `ker`, `delta` (`PUnit`/`PEmpty`), `finalSorted`,
+  `initialSorted`, `supp` (`Nonempty`), `Sub`/`Subset`, `complA`, `eqvClass`,
+  quotient definitions all adapted. Clean build, **0 warnings**, all axioms
+  within the permitted set.
+- `representation/pilot-encoding.md` rewritten (Section 2 = dependent-type
+  encoding; resolved residuals `R-delta`, `R-quotient`, `R-product`,
+  `R-complement`). `lean/declarations.json` remapped (`B-D002 → SSet`,
+  `B-D005 → Sub/Subset`); **13 declarations, 27 formal edges**.
+- **C6 invalidation and re-baseline.** Every facet hash changed. Re-issued all
+  13 **verification** records (`E-000025`..`E-000037`) and the 2 **review**
+  records (`E-000038`/`E-000039`). Fresh independent **encoding audit**:
+  **`faithful-with-caveat`** with just **3 residuals**
+  (`carrier-model`, `small-large`, `univalence-missing`), down from 16;
+  recorded `E-000040`.
+- `scripts/impact_test.py` made re-baseline-robust (synthetic records from
+  closures, block/layer-based) rather than hard-coding superseded IDs.
+- `D-finalSorted` closed (the new encoding makes `1^S` a genuine `PUnit`
+  family); escalation `EV-000027` resolved.
+- `check_all`: **25 passed, 0 failed**.
+
+**Pending (documented, not done).** The 6 **correspondence** records are now
+**stale** (`B-C001`, `B-C002`, `B-P002`, `B-P003`, `B-R006`, `B-R008`): the Lean
+statements changed, so each needs a fresh blind read-back/comparison
+(Section 11.2). Listed in `reports/frontier.md`.
+
+**Prioritized next steps.**
+
+1. Re-run the 6 correspondence audits under the new encoding.
+2. Per-case / second-model calibration runs.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

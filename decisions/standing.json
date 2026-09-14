@@ -17,11 +17,6 @@
       "decision": "Accept the pilot encoding / carrier model (residual D2) and the independent encoding audit E-000013, or revise them."
     },
     {
-      "id": "D-finalSorted",
-      "category": "representation",
-      "decision": "B-D004 correspondence is incomparable (E-000021): finalSorted encodes Set.univ, not the paper's constant-singleton terminal 1^S. Decide whether to re-encode 1^S as a chosen singleton (fun _ => {x0}, needs Nonempty U) and re-prove supp_finalSorted, or accept the caveat."
-    },
-    {
       "id": "D-record-format",
       "category": "tooling",
       "decision": "Choose JSON vs YAML for evidence records (currently JSON, which the dependency-free validator handles)."
