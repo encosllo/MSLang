@@ -883,6 +883,56 @@ and map the definition blocks.
 
 ---
 
+## Session 14 -- 2026-09-14 -- Explanation from a formal proof (Section 11a.5)
+
+**Goal.** Reconstruct the omitted `B-C002` proof from its Lean counterpart and
+adversarial-read it -- the outstanding Phase 0 deliverable.
+
+**What was established (closed).**
+
+- `blocks/explanations/B-C002.md` -- a proposed `Explanation` for the omitted
+  corollary `B-C002`, reconstructed from the **Lean proof** `Mslang.sat_inf`
+  (the paper's direct argument: `Φ ∩ Ψ ⊆ Φ` gives `[X]^{Φ∩Ψ} ⊆ [X]^Φ = X`, and
+  reflexivity gives `X ⊆ [X]^{Φ∩Ψ}`). This is the first Explanation derived
+  from a formal proof rather than from another informal one (Section 11a.5).
+- `ingest.py` regenerated the registry with the new `explanation` facet.
+- **Independent adversarial read** (fresh agent, definitions + proof only, no
+  project history): returned **VALID, no gap**. It reconstructed the argument,
+  confirmed the meet direction and the reflexivity bound, probed `X = ∅`,
+  empty sorts, `X = A`, `Φ = Ψ`, meet = bottom/top, and confirmed the
+  `Ψ`-saturation hypothesis is genuinely unused (the stronger
+  `Φ-Sat(A) ⊆ (Φ ∩ Ψ)-Sat(A)` holds). Recorded as **`E-000012`** (review,
+  `pass`, R1, `adversarial_reader`).
+- `B-C002` now has review, correspondence, and verification all `pass`.
+- Manuscript `check_all`: **13 passed, 0 failed**.
+
+**Finding (stale test premise, not a regression).**
+
+- `propagation_test.py` used `B-C002` as its "missing own proof, no
+  explanation" fail-closed example. Adding the Explanation made that premise
+  false, so the check failed. Updated it to `B-P001` (a proposition the
+  manuscript still states without proof and with no Explanation). This is the
+  intended behaviour of an explanation substituting for an absent proof; the
+  test now uses a genuinely unproofed block.
+
+**Phase 0 status.** The exit deliverable "one omitted manuscript proof
+reconstructed from its formal counterpart and adversarial-read" is now met at
+the **proposal** level (`B-C001` and `B-C002`); **author acceptance** of either
+Explanation into the manuscript remains a reserved decision (Section 16.4).
+`B-C001` is reconstructed from the informal `B-P002`; `B-C002` from Lean.
+
+**Prioritized next steps.**
+
+1. Remaining bridges `sat_eq_preimage`, `card_le_one_iff` (`B-D004`); extend the
+   declaration map to multi-declaration blocks (`B-D014`).
+2. Seeded-mismatch calibration suite (Section 11.4) -- still the largest
+   missing mechanical piece; the audit pipeline now exists and can be exercised
+   with mutated statements.
+3. Independent representation audit (Section 11.5) and JSON-vs-YAML decision
+   (author).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
