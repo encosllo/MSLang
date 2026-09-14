@@ -1,0 +1,19 @@
+# Lake project for MSLang (Architecture.md Sections 10.4, 15).
+#
+# Isolation (Section 15.3): this project owns its toolchain and package cache;
+# never point it at another project's Mathlib cache. lean/lean-toolchain pins
+# the toolchain and scripts/env.sh exports the matching LEAN_VERSION.
+#
+# Mathlib is pinned to an exact commit, not a moving tag or branch
+# (bootstrap item 3). v4.33.1 == 0df444a360eaa60ab8c11dca51a86af692955474.
+
+name = "mslang"
+defaultTargets = ["Mslang"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "Mslang"

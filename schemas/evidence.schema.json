@@ -26,7 +26,7 @@
     },
     "block": {
       "type": "string",
-      "pattern": "^(B-[0-9]{4}|representation/[A-Za-z0-9_.-]+)$"
+      "pattern": "^(B-[A-Z][0-9]{3}|representation/[A-Za-z0-9_.-]+)$"
     },
     "inputs": {
       "type": "array",
@@ -38,7 +38,7 @@
         "properties": {
           "artifact": {
             "type": "string",
-            "description": "e.g. B-0142/formal_statement, D-0007/formal_statement"
+            "description": "e.g. B-D001/formal_statement, B-C004/informal_proof"
           },
           "hash": {
             "type": "string",

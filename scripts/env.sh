@@ -14,9 +14,10 @@ export MSLANG_ROOT
 # --- Pinned versions (bootstrap item 3) -------------------------------------
 # Native arm64 toolchain; see STATE.md for the clean-build baseline.
 export LEAN_VERSION="leanprover/lean4:v4.33.1"
-# Fixed when lean/ is bootstrapped (bootstrap item 4); record it here and in
+# Pinned when lean/ is bootstrapped (bootstrap item 4); record it here and in
 # STATE.md, then update the Lake manifest to match.
-export MATHLIB_REV="TBD"
+# Mathlib v4.33.1 (tag) == the commit pinned in lean/lakefile.toml.
+export MATHLIB_REV="0df444a360eaa60ab8c11dca51a86af692955474"
 
 # --- Isolated toolchain home (bootstrap items 1-2) --------------------------
 export ELAN_HOME="$MSLANG_ROOT/.elan"

@@ -106,6 +106,132 @@ deferred.
 to remove or repoint `Bibliothek.bib`; git hosting and visibility; minting
 the first tracked block IDs; anything that would freeze a contract.
 
+---
+
+## Session 1 -- 2026-09-14 -- Section 14 importer
+
+**Goal.** Continue Phase 1: stand up the Section 14 TeX importer and reconcile
+it against the actual records. No author-reserved decision was taken: no block
+IDs were minted, no contract frozen, no pilot chosen.
+
+**What was established (closed).**
+
+- `scripts/ingest.py` built and run against `manuscript/MSEilenberg.tex`
+  (latin1). It produces:
+  - `reports/inventory.md` -- source inventory (6 sections, theorem-like env
+    counts, `\newtheorem` table, symbol count);
+  - `reports/gap_report.md` -- seven gap classes;
+  - `reports/pilot_candidates.md` -- dependency-closed pilot candidates plus the
+    most-referenced definitions;
+  - `blocks/registry.json` -- **129 confirmed blocks** (46 definitions, 39
+    propositions, 27 remarks, 13 corollaries, 2 examples, 1 lemma, 1
+    assumption), **0 proposed** (every uncommented theorem-like env already
+    carries a `\blockid`);
+  - `blocks/symbols.json` -- **47** preamble macros/notations;
+  - `blocks/graph.json` -- **74 candidate edges** (38 explicit, 36
+    symbol-usage), and 31 ambiguous notation tokens whose symbol edges were
+    suppressed.
+- `scripts/hash_blocks.py` **fixed** (see gotchas): anchors are now keyed to the
+  `\blockid` preceding an environment, and `example`/`examples`/`assumption`
+  are scanned. `blocks/hashes.json` regenerated: **161 anchors** (129 block IDs,
+  31 proofs, 1 stray equation label `Eq1`), up from 158. All 129 registry
+  hashes now equal their `hashes.json` anchor by direct check.
+- Manuscript build re-verified unchanged: exit 0, 49 pages.
+
+**Findings that change the picture.**
+
+- Session 0 said "no block registry with confirmed IDs" and that the importer
+  did not exist. **Both were stale**: the source already carried 129
+  author-minted `\blockid`s, and the tex preamble already named
+  `scripts/ingest.py`. The bootstrap "158 anchors" was also wrong in a
+  load-bearing way -- `hash_blocks.py` searched for `\blockid` *inside* the
+  body, but the manuscript writes it *before* `\begin{...}`, so none of the 129
+  IDs was ever an anchor; 86 blocks were hashed to positional `env:*` fallbacks
+  (exactly the anchor drift of Section 13.3 item 1), and 3 blocks were not
+  hashed at all.
+- `schemas/evidence.schema.json` constrains `block` to `^B-[0-9]{4}$`, but the
+  manuscript IDs are `B-<letter><NNN>` (e.g. `B-D001`, `B-P039`). No evidence
+  record for an existing block can validate until this is reconciled. **Left
+  unchanged and flagged** -- the ID pattern is registry arithmetic
+  (Section 16.4).
+
+**Gaps measured (candidate; extraction incomplete).**
+
+- 129/129 blocks declare no `\blockscope`.
+- 89/129 blocks have no `\label`, so they are not citable by `\ref` (why a
+  `\ref`-only closure is tiny).
+- 21/53 proof-expected blocks have no following proof (candidate `M-gap` /
+  omitted-proof blocks for Section 11a.5).
+- 58 blocks have no candidate edge; 31 notation tokens are ambiguous.
+- 0 undefined `\ref` targets.
+
+**Suggested pilot (for author confirmation).** Most-referenced definition:
+`B-D014` (sorted equivalence relation, candidate in-degree 10). Smallest
+nonempty closures: `B-C001`, `B-C002`, `B-P002`, each with `B-D014`. See
+`reports/pilot_candidates.md`; edges are unconfirmed.
+
+**Honestly deferred.** Edge confirmation; symbol/prose extractor completeness
+(only a heuristic `\mathrm`-token extractor plus number-cited prose); evidence
+schema validation and computed closures (Phase 2); Lean project (items 1, 4);
+the dangling `Bibliothek.bib`.
+
+**Engineering gotchas.**
+
+- `hash_blocks.py`'s comment claimed it read `\blockid`, but its regex searched
+  only the env body. Source placement is *before* the env; the tool now accepts
+  both.
+- `THEOREM_ENVS` omitted `example`/`examples`/`assumption`; those IDs were
+  invisible to the hasher. Extended.
+- System `ls`/`date` render in Catalan (`14 set.`); harmless to the tooling.
+
+**Prioritized next steps.**
+
+1. Author: reconcile `evidence.schema.json`'s `block` pattern with the actual
+   `B-<letter><NNN>` IDs, and confirm or reject the candidate edges.
+2. Author: choose the pilot milestone from `reports/pilot_candidates.md`.
+3. Confirm `\blockscope` for the pilot blocks and backfill `\label` where a
+   `\ref` is wanted.
+4. Complete symbol/prose extraction and add an edge-confirmation store
+   (Phase 1 exit criteria).
+5. Evidence schema validation and computed closures (Phase 2).
+
+**Session 1 (continued) -- author-directed follow-ups.**
+
+Author directed: fix the schema, choose the pilot, review the edges, commit,
+and bootstrap Lean/Mathlib. Outcome:
+
+- **Schema reconciled.** `schemas/evidence.schema.json` `block` pattern is now
+  `^(B-[A-Z][0-9]{3}|representation/...)$`; the artifact example was updated to
+  `B-D001/formal_statement`. Evidence records for existing blocks can validate.
+- **Edge review + decision store.** `blocks/edge_decisions.json` added (111
+  entries, all `confirmed: true`, `reviewed_by: agent:opencode`); `ingest.py`
+  reads it so confirmations/rejections survive re-ingestion (a rejected edge is
+  remembered and not re-proposed). The extractor was tightened before review:
+  symbol tokens are now `\mathrm{...}` only (bold/caligraphic single letters are
+  variable names, not notation), a *definition cue* ("denote by", "we call",
+  ...) is required within 100 chars, and a token introduced by more than one
+  definition is suppressed as ambiguous (9 ambiguous tokens: `Alg, Cgr, Form,
+  Hom, Sg, Sub, f, fi, supp`). After tightening, all 73 symbol edges point at a
+  token genuinely introduced by the target definition; all 38 explicit edges are
+  author-written `\ref`/`\uses`. **Author spot-check of the confirmations is
+  still wanted** -- they were reviewed by the agent, not the author.
+- **Pilot chosen (B-D014-centred).** Most-referenced definition is `B-D014`
+  (sorted equivalence relation, in-degree 20). The pilot scope is the
+  dependency-closed set `{B-D014, B-P002, B-P003, B-C001, B-C002}` (definition
+  plus its smallest dependents; changing `B-D014` is exactly the C4 propagation
+  exercise Phase 0 wants). Adjust if a different milestone is preferred.
+- **Lean skeleton created, cache fetch deferred on disk.** `lean/lean-toolchain`
+  pins `leanprover/lean4:v4.33.1`; `lean/lakefile.toml` pins Mathlib at the
+  exact commit `0df444a360eaa60ab8c11dca51a86af692955474` (tag `v4.33.1`);
+  `lean/Mslang.lean` is the smoke/axiom test; `scripts/env.sh` `MATHLIB_REV` set
+  to the same commit. `lake --version` in `lean/` resolves to Lean 4.33.1.
+  **Blocker:** the disk is at 95%, ~10 GiB free; the Mathlib source + `.lake`
+  olean cache is ~6-8 GiB, so `lake update && lake exe cache get && lake build`
+  was **not** run (bootstrap item 10). Free space first, then run those three
+  commands and record the clean-build time.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -119,5 +245,13 @@ the first tracked block IDs; anything that would freeze a contract.
 5. After *every* manuscript edit, re-run
    `python3 scripts/hash_blocks.py --out blocks/hashes.json manuscript/MSEilenberg.tex`
    and check `blocks/hashes.json` by direct search, not just exit status.
-6. Do not edit or delete existing files under `evidence/` (the pre-commit
+   `blocks/hashes.json` currently holds **161** anchors (129 block IDs keyed to
+   the `\blockid` preceding each environment, 31 proofs, 1 equation label
+   `Eq1`).
+6. After manuscript edits, also re-run
+   `python3 scripts/ingest.py --aux manuscript/MSEilenberg.aux manuscript/MSEilenberg.tex`
+   and inspect `reports/gap_report.md`; `blocks/hashes.json` anchors and
+   `blocks/registry.json` body hashes must agree (both use
+   `hash_blocks.normalize`).
+7. Do not edit or delete existing files under `evidence/` (the pre-commit
    hook enforces this); supersede with a new record instead.
