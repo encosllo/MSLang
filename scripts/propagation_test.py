@@ -135,11 +135,22 @@ def run():
         unresolved.get("blocked") is True and "unresolved" in unresolved.get("reason", ""),
     )
 
-    # Fail closed: own missing proof (omitted-proof block).
+    # Fail closed: own missing proof (omitted-proof block with no explanation).
     no_proof = closure.compute_closure(
-        "B-C001", "review", REGISTRY, EDGES, representation_hash=REP
+        "B-C002", "review", REGISTRY, EDGES, representation_hash=REP
     )
     check("missing own proof blocks", no_proof.get("blocked") is True)
+
+    # An explanation substitutes for an absent informal proof (Section 11a.5).
+    explained = closure.compute_closure(
+        "B-C001", "review", REGISTRY, EDGES, representation_hash=REP
+    )
+    check(
+        "explanation substitutes for missing proof",
+        not explained.get("blocked")
+        and "B-C001/explanation" in inputs(explained),
+        explained.get("reason", ""),
+    )
 
     # Fail closed: unconfirmed edges excluded by default.
     unconfirmed = closure.load_edges(ROOT / "blocks" / "graph.json", confirmed_only=False)

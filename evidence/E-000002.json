@@ -1,0 +1,32 @@
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000002",
+  "findings": [
+    "D1 (universe/smallness): ZFSK smallness is not tracked; Lean universe levels are a rough analogue. Bounded: none of the pilot-cluster statements depend on U-large objects.",
+    "D2 (carrier model): fixed ambient U rather than arbitrary small carriers; componentwise operations coincide on subobjects but cross-family unions of unrelated carriers are not directly expressible. Residual caveat; must be propagated into dependent trust boundaries.",
+    "D4 (Setoid vs relation): the paper's order Phi subseteq Psi is inclusion of relations; Lean uses setoid refinement. This is a bridge obligation (setoid_le_iff) that is NOT yet proved, so the record is not 'faithful' yet.",
+    "D3/D5 bounded: the pilot cluster uses no absolute complement and no quotient construction, so those divergences do not affect it.",
+    "D6: classical logic uses only the permitted axioms (propext, Classical.choice, Quot.sound). D7: empty sorts/components are permitted.",
+    "Verdict: faithful-with-caveat with residuals D1, D2, D4."
+  ],
+  "independence_caveat": "Same-session self-audit by the same agent that drafted the record; NOT independent (Architecture.md Sections 9, 11.5). An independent encoding auditor must re-run this before the representation is treated as accepted.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-14T09:26:01Z"
+}

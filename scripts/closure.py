@@ -42,6 +42,7 @@ LAYER_SELF_FACETS = {
     "review": ["informal_statement", "informal_proof", "explanation"],
     "correspondence": ["informal_statement", "formal_statement"],
     "verification": ["formal_proof"],
+    "representation": [],
 }
 STATEMENT_LAYERS = {"review", "correspondence"}  # need representation hash
 DEPENDENCY_EDGE_KINDS = {"uses_statement", "uses_definition"}
@@ -95,6 +96,29 @@ def compute_closure(
     """
     if layer not in LAYER_SELF_FACETS:
         return {"blocked": True, "reason": f"unknown layer {layer!r}"}
+
+    # The representation layer audits the representation artifact itself
+    # (Section 11.5); it is not a registry block and has a single input.
+    if layer == "representation":
+        if not representation_hash:
+            return {
+                "blocked": True,
+                "reason": "representation layer requires the representation hash",
+                "block": block_id,
+                "layer": layer,
+            }
+        return {
+            "block": block_id,
+            "layer": layer,
+            "inputs": [
+                {
+                    "artifact": f"representation/{representation_name}",
+                    "hash": representation_hash,
+                }
+            ],
+            "environment": None,
+        }
+
     if block_id not in registry:
         return {"blocked": True, "reason": f"block {block_id!r} not in registry"}
 
@@ -124,7 +148,9 @@ def compute_closure(
         inputs[f"{bid}/{facet}"] = h
         return None
 
-    # Own facets (explanation is optional; its absence is not a blocker).
+    # Own facets. For review, an `explanation` (Section 11a.5) substitutes for
+    # an absent informal proof: a reconstructed proof is a legitimate object of
+    # review. Its absence is otherwise not a blocker.
     for facet in LAYER_SELF_FACETS[layer]:
         if facet == "explanation":
             h = facet_hash(block_id, facet, registry, overrides)
@@ -133,6 +159,11 @@ def compute_closure(
             continue
         missing = add(block_id, facet)
         if missing:
+            if layer == "review" and facet == "informal_proof":
+                exp = facet_hash(block_id, "explanation", registry, overrides)
+                if exp:
+                    inputs[f"{block_id}/explanation"] = exp
+                    continue
             return {
                 "blocked": True,
                 "reason": f"missing facet {missing[1]!r} on {missing[0]}",

@@ -465,6 +465,58 @@ reproducible/path-independent so drift is detectable.
 
 ---
 
+## Session 7 -- 2026-09-14 -- first evidence: Explanation + representation audit
+
+**Goal.** Execute the two author-directed items: reconstruct the omitted
+`B-C001` proof and adversarial-read it, and self-audit the representation draft;
+this produces the first real evidence records.
+
+**What was established (closed).**
+
+- `blocks/explanations/B-C001.md` -- a proposed `Explanation` for the omitted
+  corollary `B-C001` (`IncSat`), derived from `B-P002` (`PropIncSat`). It is a
+  proposal, not manuscript prose.
+- Engines extended: `ingest.py` now records an `explanation` facet from
+  `blocks/explanations/<id>.md`; `closure.py` treats an explanation as a
+  substitute for an absent informal proof in the review layer (Section 11a.5)
+  and supports a `representation` layer; `scripts/evidence.py` writes records
+  whose inputs are **computed** from the closure (P13), schema-validated,
+  refusing to write when the closure is blocked.
+- **`evidence/E-000001.json`** (review, `B-C001`, `pass`, strength R1): result
+  of an independent-context adversarial read. A fresh subagent, given only the
+  definitions and the proposed proof with no project history, reconstructed the
+  argument, probed edge cases (`X=∅`, `Φ=Ψ`, top/bottom), and returned **VALID,
+  no gap**. Caveat: it shares this session's model.
+- **`evidence/E-000002.json`** (representation, `representation/encoding`,
+  `faithful-with-caveat`): the encoding self-audit. Residuals propagated:
+  D1 (universe/smallness), D2 (fixed-ambient carrier model), D4 (`Setoid` vs
+  relation; bridge `setoid_le_iff` unproved). D3/D5 bounded for the pilot; D6/D7
+  fine. Caveat: same-session self-audit, **not independent**.
+- `status.py` now reports `B-C001/review = pass (current)` and
+  `representation/encoding = pass (current)`; 128 blocks still have no evidence.
+- `check_all.sh`: still 9/9.
+
+**Decisions/notes.**
+
+- Evidence records are stored as **JSON** (`E-XXXXXX.json`); the architecture's
+  example is YAML but no YAML parser is installed and the validator handles
+  JSON. This is a small format choice still open for the author, but JSON is
+  what the tooling currently validates.
+- The Phase 0 deliverable "one omitted manuscript proof reconstructed and
+  adversarial-read" is met at the *proposal* level; **author acceptance** of the
+  Explanation into the manuscript is still required (reserved).
+
+**Prioritized next steps.**
+
+1. Author: accept or revise the `B-C001` Explanation; audit
+   `representation/pilot-encoding.md` independently; choose JSON vs YAML.
+2. Free disk, run the Lean/Mathlib fetch, prove the bridge obligations and
+   `sat_antitone` (`B-C001`); then produce correspondence/verification records.
+3. Propagate the D2 caveat into the trust boundary of dependent blocks; build
+   the project views (Section 19).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

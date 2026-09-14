@@ -145,8 +145,13 @@ def collect_env_instances(clean: str):
     return blocks
 
 
-def collect_blocks(clean: str, sections):
-    """Return the block registry for every theorem-like environment."""
+def collect_blocks(clean: str, sections, explanations_dir=None):
+    """Return the block registry for every theorem-like environment.
+
+    ``explanations_dir`` (conventionally ``blocks/explanations``) may hold one
+    ``<block-id>.md`` per reconstructed proof; its hash is recorded as the
+    block's ``explanation`` facet (Architecture.md Sections 6, 11a.5).
+    """
     blocks = collect_env_instances(clean)
     registry = []
     used_ids = set()
@@ -165,6 +170,15 @@ def collect_blocks(clean: str, sections):
             proof_hash = hashlib.sha256(proof_norm.encode("utf-8")).hexdigest()
             plabel = LABEL_RE.search(b["proof"]["body"])
             proof_anchor = plabel.group(1) if plabel else f"proof@{line_of(clean, b['proof']['start'])}"
+
+        explanation = None
+        if bid and explanations_dir:
+            exp_path = Path(explanations_dir) / f"{bid}.md"
+            if exp_path.exists():
+                explanation = {
+                    "hash": hashlib.sha256(exp_path.read_bytes()).hexdigest(),
+                    "path": f"blocks/explanations/{bid}.md",
+                }
 
         if bid:
             if bid in used_ids:
@@ -192,6 +206,7 @@ def collect_blocks(clean: str, sections):
                         if proof_hash
                         else None
                     ),
+                    "explanation": explanation,
                 },
             }
         )
@@ -724,7 +739,7 @@ def main(argv):
     preamble = clean.split("\\begin{document}", 1)[0]
     sections = [(m.start(), m.group(1).strip()) for m in SECTION_RE.finditer(clean)]
 
-    registry = collect_blocks(clean, sections)
+    registry = collect_blocks(clean, sections, explanations_dir=root / "blocks" / "explanations")
     symbols = collect_symbols(preamble)
     theorems = collect_theorems(preamble)
     aux_numbers = parse_aux(args.aux)
