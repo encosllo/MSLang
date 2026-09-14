@@ -1,0 +1,40 @@
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000019",
+  "findings": [
+    "Re-issued after formal_statement was extended to include its definition closure (Section 6). The stage-1 read-back bundle already included the definitions, so the verdict is unchanged.",
+    "Transcript: blocks/audits/B-P003-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and its definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P003/formal_statement",
+      "hash": "ccdd6f4a14306caeeb625678153ddbdb5a7993ca54188de65407fa36dca093cc"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T14:02:23Z"
+}

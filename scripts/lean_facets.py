@@ -142,12 +142,15 @@ def compute(decl_map, root: Path = ROOT):
     """Return (blocks/formal.json content, blocks/formal_graph.json content).
 
     A block may map to several declarations (``decls``); their statements and
-    proofs are concatenated before hashing.  ``formal_uses`` edges record which
-    mapped declaration a block's statement/proof text references (Section 12.1).
+    proofs are concatenated before hashing.  Per Section 6, ``formal_statement``
+    is the declaration's own signature **together with its definition closure**
+    (the transitive ``formal_uses`` dependencies' statements), so a definition
+    change propagates to its dependents; proofs are excluded from the closure,
+    so proof irrelevance is preserved.
     """
     cache = {}
+    raw = {}
     blocks = {}
-    texts = {}
     for bid in sorted(decl_map):
         spec = decl_map[bid]
         path = root / spec["file"]
@@ -173,27 +176,50 @@ def compute(decl_map, root: Path = ROOT):
             stmts.append(d["statement"])
             proofs.append(d["proof"])
             pieces.append(d["statement"] + "\n" + d["proof"])
-        texts[bid] = "\n".join(pieces)
-        blocks[bid] = {
-            "decls": names,
-            "file": spec["file"],
-            "formal_statement": {"hash": hash_text("\n".join(stmts))},
-            "formal_proof": (
-                {"hash": hash_text("\n".join(proofs))} if any(proofs) else None
-            ),
+        raw[bid] = {
+            "decls": names, "file": spec["file"],
+            "stmts": stmts, "proofs": proofs, "text": "\n".join(pieces),
         }
 
     shorts_by_block = {
-        bid: [n.split(".")[-1] for n in declaration_names(decl_map[bid])]
-        for bid in texts
+        bid: [n.split(".")[-1] for n in raw[bid]["decls"]] for bid in raw
     }
     edges = []
-    for bid in sorted(texts):
-        for other in sorted(texts):
+    adjacency = {}
+    for bid in sorted(raw):
+        for other in sorted(raw):
             if other == bid:
                 continue
-            if any(word_present(n, texts[bid]) for n in shorts_by_block[other]):
+            if any(word_present(n, raw[bid]["text"]) for n in shorts_by_block[other]):
                 edges.append({"from": bid, "to": other, "kind": "formal_uses"})
+                adjacency.setdefault(bid, set()).add(other)
+
+    def closure(bid):
+        seen, stack = set(), list(adjacency.get(bid, ()))
+        while stack:
+            cur = stack.pop()
+            if cur in seen:
+                continue
+            seen.add(cur)
+            stack.extend(adjacency.get(cur, ()))
+        return sorted(seen)
+
+    for bid, r in raw.items():
+        deps = closure(bid)
+        dep_stmts = "\n".join("\n".join(raw[o]["stmts"]) for o in deps)
+        blocks[bid] = {
+            "decls": r["decls"],
+            "file": r["file"],
+            "definition_closure": deps,
+            "formal_statement": {
+                "hash": hash_text("\n".join(r["stmts"]) + "\n" + dep_stmts)
+            },
+            "formal_proof": (
+                {"hash": hash_text("\n".join(r["proofs"]))}
+                if any(r["proofs"])
+                else None
+            ),
+        }
     graph = {
         "note": "Declared (formal) dependencies among mapped blocks, extracted from "
         "source by whole-identifier occurrence (Architecture.md Section 12.1).",
