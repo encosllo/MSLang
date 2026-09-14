@@ -831,6 +831,58 @@ correspondence/verification evidence; `B-C001` has all three layers `pass`.
 
 ---
 
+## Session 13 -- 2026-09-14 -- B-C002, delta/support bridge, third facet bug
+
+**Goal.** Continue the pilot: `B-C002`, `B-D006` (`δ`) and its support bridge,
+and map the definition blocks.
+
+**What was established (closed).**
+
+- `lean/Mslang/Pilot.lean` extended with:
+  - `sortedEqvInf` -- pointwise meet (the paper's `Φ ∩ Ψ`), with
+    `sortedEqvInf_le_left/right`;
+  - `sat_inf` -- Corollary **`B-C002`**: `Φ-Sat(A) ∩ Ψ-Sat(A) ⊆ (Φ ∩ Ψ)-Sat(A)`,
+    a one-line consequence of `sat_antitone` (the meet refines `Φ`);
+  - `delta` -- Definition **`B-D006`** (`δ^t`);
+  - `supp_delta` -- bridge `supp_S(δ^t) = {t}` (needs `[Nonempty U]`, as the
+    paper's universe is nonempty).
+- Clean build, 0 errors/0 warnings. Axioms: `sat_inf` `[propext, Quot.sound]`;
+  `supp_delta` `[propext, Classical.choice, Quot.sound]` (permitted).
+- `lean/declarations.json` now maps `B-C002`, `B-D002` (`SSorted`), `B-D005`
+  (`le`), `B-D006` (`delta`) as well -- **8 declarations** hashed.
+- Blind correspondence for **`B-C002`** returned **`equivalent`** (transcript
+  `blocks/audits/B-C002-correspondence.md`, record **`E-000011`**); the
+  comparator noted the second hypothesis is proof-redundant but the statement
+  keeps both, so it is not `formal_stronger`.
+- Verification records **`E-000009`** (`B-C002`) and **`E-000010`** (`B-D006`).
+
+**Finding (third extraction gap, caught immediately).**
+
+- `Mslang.delta` is a `noncomputable def`; `lean_facets.py`'s declaration regex
+  required the keyword at line start and so **did not see it** (`ERROR ...
+  not found`). Fixed `DECL_RE` to allow `noncomputable|private|protected|unsafe`
+  modifiers and added a regression check (`lean_facets_test.py`, now `12`
+  checks). Combined with Session 12's attribute bug, the extractor has now been
+  hardened at both ends of a declaration (leading modifiers/attributes,
+  trailing next-declaration boundary).
+
+**Current pilot state (6 blocks with evidence).** `B-C001` all three layers
+`pass`; `B-C002`, `B-P002`, `B-P003` correspondence + verification `pass`;
+`B-D006` verification `pass`. `check_all`: **13 passed, 0 failed**.
+
+**Prioritized next steps.**
+
+1. Remaining bridges: `sat_eq_preimage` (needs quotient/projection),
+   `card_le_one_iff` (`B-D004`, `Subsingleton`); and `B-D014` mapping (it has
+   several declarations -- `SortedEqv`, `sat`, `IsSat` -- so the one-declaration
+   -per-block map needs extending to a declaration list).
+2. Reconstruct a Lean -> `Explanation` for a proven block (Section 11a.5) and
+   adversarial-read it -- outstanding Phase 0 deliverable.
+3. Seeded-mismatch calibration suite (Section 11.4); independent representation
+   audit.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
