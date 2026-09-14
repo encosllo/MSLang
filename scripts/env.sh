@@ -28,8 +28,13 @@ if [ -x "$ELAN_HOME/bin/elan" ]; then
   esac
 else
   echo "[env.sh] project-local toolchain not installed at $ELAN_HOME" >&2
-  echo "[env.sh] bootstrap item 4 pending; using fallback elan on PATH" >&2
+  echo "[env.sh] bootstrap item 2 pending; using fallback elan on PATH" >&2
 fi
+
+# --- Isolated Mathlib download cache (bootstrap item 2; Section 15.3) --------
+# `lake exe cache get` otherwise writes to the machine-wide ~/.cache/mathlib,
+# which is shared with other projects; never point it there.
+export MATHLIB_CACHE_DIR="$MSLANG_ROOT/.cache/mathlib"
 
 # --- Manuscript toolchain ---------------------------------------------------
 export TEXINPUTS="$MSLANG_ROOT/manuscript:${TEXINPUTS:-}"

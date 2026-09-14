@@ -13,6 +13,7 @@ lean/.lake/
 .elan/
 lean/.elan/
 .toolchain-cache/
+.cache/
 
 # LaTeX byproducts
 *.aux
