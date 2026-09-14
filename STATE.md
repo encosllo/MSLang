@@ -393,6 +393,49 @@ better closure-extraction recall (Section 12.1).
 
 ---
 
+## Session 5 -- 2026-09-14 -- validity rule and layer status
+
+**Goal.** Complete the Phase 2 evidence engine: the validity rule (Section 7.2)
+and the per-layer status model (Section 8), consuming the computed closures.
+
+**What was established (closed).**
+
+- `scripts/status.py` -- derives, per block and layer, `none | in_progress |
+  pass | fail | stale` from evidence records by comparing each record's input
+  hashes against current facet hashes (facet resolution mirrors
+  `closure.py`; `representation/<name>` resolves from `--representation`).
+  A record is current iff **every** input hash matches; an unresolvable input
+  fails closed. It never authors evidence -- it only reads records an audit
+  produced. CLI: `python3 scripts/status.py --representation FILE [--block ID]`.
+- `scripts/status_test.py` -- 11 synthetic-record checks, **all pass**:
+  dependency-statement change stales; dependency-proof change does **not**;
+  representation change stales; missing representation fails closed; layer
+  `pass`/`stale`/`fail`/`none`; a current record beats a stale one; layers are
+  grouped independently.
+- On the current repository (0 evidence records) the CLI reports all 129 blocks
+  as having no evidence, which is correct.
+
+**Findings.**
+
+- The evidence engine is now feature-complete for the mechanical part of
+  Phase 2: inputs are computed (`closure.py`), records are schema-validated
+  (`validate_records.py`), and validity/status are derived (`status.py`). The
+  only missing ingredient is real audit output, which is gated on the
+  representation audit and on Lean.
+- No evidence records are fabricated anywhere: the tests build records in
+  memory from computed closures and never write to `evidence/`.
+
+**Prioritized next steps.**
+
+1. Author: audit `representation/pilot-encoding.md`; disambiguate `\supp`; pick
+   JSON vs YAML for records.
+2. Free disk, run the Lean/Mathlib fetch, prove the bridge obligations and
+   `sat_antitone` (`B-C001`); then produce the first real evidence records.
+3. Project views (Section 19) once there is evidence to display; a record-writer
+   that enforces computed inputs and immutability.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -415,7 +458,8 @@ better closure-extraction recall (Section 12.1).
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the evidence-engine checks after any change to the importer, graph, or
-   schemas: `python3 scripts/propagation_test.py` (all checks must pass) and
+   schemas: `python3 scripts/propagation_test.py` and
+   `python3 scripts/status_test.py` (all checks must pass), and
    `python3 scripts/validate_records.py --self-test`.
 8. Run `python3 scripts/hygiene_test.py` after any change to `hash_blocks.py`
    or `ingest.py`; it seeds line shifts, single-block edits, and a proof edit,
