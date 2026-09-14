@@ -700,11 +700,25 @@ def main(argv):
         help="edge decisions JSON (default blocks/edge_decisions.json if present)",
     )
     ap.add_argument("--dry-run", action="store_true", help="do not write artifacts")
+    ap.add_argument(
+        "--check",
+        action="store_true",
+        help="verify committed artifacts are up to date; do not write; exit 1 on drift",
+    )
     args = ap.parse_args(argv)
 
     path = Path(args.file)
     root = path.resolve().parent.parent
     decisions_path = args.decisions or str(root / "blocks" / "edge_decisions.json")
+
+    def rel(p):
+        try:
+            return str(Path(p).resolve().relative_to(root))
+        except ValueError:
+            return str(p)
+
+    src_rel = rel(path)
+    decisions_rel = rel(decisions_path)
     text = path.read_text(encoding="latin1")
     clean = hb.strip_comments(text)
     preamble = clean.split("\\begin{document}", 1)[0]
@@ -726,7 +740,7 @@ def main(argv):
     }
 
     registry_doc = {
-        "source": str(path),
+        "source": src_rel,
         "blocks": registry,
         "counts": {
             "confirmed": sum(1 for b in registry if b["status"] == "confirmed"),
@@ -734,16 +748,16 @@ def main(argv):
         },
     }
     graph_doc = {
-        "source": str(path),
+        "source": src_rel,
         "note": "candidate edges; confirmed=false means awaiting author confirmation",
-        "decisions_source": decisions_path,
+        "decisions_source": decisions_rel,
         "labels": label_to_block,
         "numbers": number_to_block,
         "symbols_used": symbol_uses,
         "ambiguous_symbols": ambiguous,
         "edges": edges,
     }
-    symbols_doc = {"source": str(path), "symbols": symbols}
+    symbols_doc = {"source": src_rel, "symbols": symbols}
 
     if args.dry_run:
         nconf = sum(1 for e in edges if e["confirmed"])
@@ -753,6 +767,23 @@ def main(argv):
             f"{len(symbols)} symbols; {len(edges)} edges "
             f"({nconf} confirmed); {len(undefined_refs)} undefined refs (dry run)"
         )
+        return 0
+
+    if args.check:
+        drift = 0
+        for target, doc in (
+            (root / "blocks" / "registry.json", registry_doc),
+            (root / "blocks" / "symbols.json", symbols_doc),
+            (root / "blocks" / "graph.json", graph_doc),
+        ):
+            expected = json.dumps(doc, indent=2, sort_keys=True) + "\n"
+            existing = target.read_text(encoding="utf-8") if target.exists() else None
+            if existing != expected:
+                print(f"ingest --check: DRIFT in {target.relative_to(root)}", file=sys.stderr)
+                drift += 1
+        if drift:
+            return 1
+        print("ingest --check: registry, symbols, graph are up to date", file=sys.stderr)
         return 0
 
     (root / "blocks").mkdir(exist_ok=True)

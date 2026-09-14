@@ -436,6 +436,35 @@ and the per-layer status model (Section 8), consuming the computed closures.
 
 ---
 
+## Session 6 -- 2026-09-14 -- one-command hygiene gate
+
+**Goal.** Satisfy Phase 4's exit ("every edit triggers all four checks
+automatically") with a single entry point, and make the importer artifacts
+reproducible/path-independent so drift is detectable.
+
+**What was established (closed).**
+
+- `scripts/ingest.py` gained `--check`: recomputes the registry, symbols, and
+  graph and compares byte-for-byte against the committed files, exiting 1 on
+  drift without writing. `source`/`decisions_source` are now stored as
+  **relative** paths (they were absolute, machine-specific), so the committed
+  artifacts are path-independent and `--check` is meaningful.
+- `scripts/check_all.sh` runs, in order: non-ASCII scan, anchor-hash check,
+  importer drift check, cross-reference audit, hygiene tests, propagation
+  tests, status tests, record validation, and the exit-code-checked manuscript
+  build. It prints PASS/FAIL per check (detail only on failure) and exits
+  non-zero if any fail. Current result: **9 passed, 0 failed**.
+
+**Prioritized next steps.**
+
+1. Author: audit `representation/pilot-encoding.md`; disambiguate `\supp`; pick
+   JSON vs YAML for records.
+2. Free disk, run the Lean/Mathlib fetch, prove the bridge obligations and
+   `sat_antitone` (`B-C001`); then produce the first real evidence records.
+3. Project views (Section 19) and a record-writer, once real evidence exists.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -457,12 +486,11 @@ and the per-layer status model (Section 8), consuming the computed closures.
    and inspect `reports/gap_report.md`; `blocks/hashes.json` anchors and
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
-7. Run the evidence-engine checks after any change to the importer, graph, or
-   schemas: `python3 scripts/propagation_test.py` and
-   `python3 scripts/status_test.py` (all checks must pass), and
-   `python3 scripts/validate_records.py --self-test`.
-8. Run `python3 scripts/hygiene_test.py` after any change to `hash_blocks.py`
-   or `ingest.py`; it seeds line shifts, single-block edits, and a proof edit,
-   and asserts anchor/ID stability.
+7. Run the whole mechanical gate after any change:
+   `scripts/check_all.sh` (9 checks; exits non-zero on any failure). It covers
+   the non-ASCII scan, anchor hashes, importer drift, cross-references, the
+   hygiene/propagation/status tests, record validation, and the build.
+8. `scripts/validate_records.py --self-test` exercises the schema validator's
+   rejection paths (old numeric IDs, unknown keys, missing required keys).
 9. Do not edit or delete existing files under `evidence/` (the pre-commit
    hook enforces this); supersede with a new record instead.

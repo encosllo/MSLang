@@ -56,7 +56,7 @@
       "B-D018"
     ]
   },
-  "decisions_source": "/Users/enriccosme/Desktop/MSLang/blocks/edge_decisions.json",
+  "decisions_source": "blocks/edge_decisions.json",
   "edges": [
     {
       "confirmed": true,
