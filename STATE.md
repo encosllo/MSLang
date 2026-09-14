@@ -979,6 +979,66 @@ Explanation into the manuscript remains a reserved decision (Section 16.4).
 
 ---
 
+## Session 16 -- 2026-09-14 -- independent encoding audit (Section 11.5)
+
+**Goal.** Replace the same-session representation self-audit (`E-000002`) with
+an isolated-context encoding audit -- the highest-leverage audit in the system
+(Section 11.5).
+
+**What was established (closed).**
+
+- A fresh, isolated subagent was given the **paper's ZFSK foundation** and the
+  **proposed Lean encoding table**, but **not** the project's residual list,
+  and asked to enumerate divergences and type the outcome. It returned
+  **`faithful-with-caveat`**, judging the membership/order core (pointwise
+  subset, `Sub`, `Eqv`, saturation, support) faithful under the set-as-predicate
+  translation, and enumerated **16 residuals**.
+- **`evidence/E-000013.json`** records it (representation layer,
+  `encoding_auditor`, isolated-context caveat). It supersedes `E-000002` for
+  residual propagation (higher id, current), so the trust boundary now carries
+  the independent audit's residuals.
+- Three residuals are flagged **blocking-until-bridged**; none is a defect in
+  the current Lean:
+  - `R-delta`: `δ^t` uses `Set.univ`, not a singleton, so set/cardinality-level
+    facts (`A × 1 ≅ A`) fail -- the support level is recovered by `supp_delta`
+    (with `Nonempty U`).
+  - `R-quotient`: `Quotient` is a type, not of the form `S → Set U`, so `A/Φ`
+    leaves the encoded object class.
+  - `R-complement`: relative complement must be `sdiff`, **as encoded**, never
+    ambient `compl`.
+- `scripts/trust.py`'s residual parser generalised from `D<digit>` to arbitrary
+  short tags (`D1` *and* `R-carrier`, ...); `trust_test.py` now 13 checks.
+  `reports/trust_boundary.md` propagates the 16 residuals to all 11 covered
+  blocks.
+
+**Residual cross-walk (for readers of the representation file).** The
+representation's original `D1`-`D7` appear in the independent set as
+`R-universe` (D1), `R-carrier`/`R-membership` (D2), `R-complement` (D3),
+`R-setoid`/`R-order` (D4), `R-quotient` (D5), `R-classical` (D6), `R-empty`
+(D7). The rest (`R-index`, `R-product`, `R-morphism`, `R-coproduct`,
+`R-category`, `R-ext`) are bridgeable-obligation or out-of-pilot-scope
+categorical omissions, not pilot defects.
+
+**Honest caveat.** The audit is isolated-context but still shares this session's
+model; the reported residuals are a same-model judgment, stronger than the
+self-audit it supersedes, weaker than external review.
+
+**Current state.** `check_all`: **16 passed, 0 failed**. `B-C001` has all
+three layers current; `B-C002`/`B-P002`/`B-P003` correspondence + verification;
+`B-D006` verification.
+
+**Prioritized next steps.**
+
+1. Address the blocking residuals where the pilot touches them: prove the
+   `R-complement` bridge (`sdiff` vs `compl`), decide the `R-delta` singleton
+   model, and prove the `R-quotient`/`R-setoid` bridges (`setoid_le_iff` done;
+   add `quot_class_bridge`).
+2. Remaining pilot bridges `sat_eq_preimage`, `card_le_one_iff` (`B-D004`);
+   multi-declaration mapping for `B-D014`.
+3. Per-case / second-model calibration runs.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
