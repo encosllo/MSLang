@@ -1039,6 +1039,61 @@ three layers current; `B-C002`/`B-P002`/`B-P003` correspondence + verification;
 
 ---
 
+## Session 17 -- 2026-09-14 -- C4 propagation cycle (blast-radius view)
+
+**Goal.** Close Phase 0's "one definition change propagates end to end" by
+building the missing Section 19 blast-radius view and running it on the real
+records.
+
+**What was established (closed).**
+
+- `scripts/impact.py` -- non-destructive change-impact analysis: simulate a
+  facet change in memory, apply the validity rule to the **committed evidence**,
+  and report (a) the currently-current records that would go stale and (b) the
+  transitive downstream users of the changed block. `--report`/`--check-report`
+  produce `reports/impact.md`.
+- `scripts/impact_test.py` -- 7 checks on the real repo, all pass.
+- **Phase 0 C4 demonstration.** A proposed change to the pilot definition's
+  statement `B-D014/informal_statement` would:
+  - stale **6** current records (5 blocks): `E-000001`/`E-000004` (B-C001),
+    `E-000006` (B-P002), `E-000008` (B-P003), `E-000011`/`E-000012` (B-C002);
+  - stale **no verification record** -- confirming the statement/proof
+    separation (Section 13.1): review/correspondence bind to the dependency
+    statement, verification binds only to a block's own `formal_proof`;
+  - reach **26 downstream blocks** (transitive `uses_statement`/`uses_definition`
+    users).
+- `scripts/check_all.sh` extended to **18 checks** (impact tests + impact report
+  drift). Current: **18 passed, 0 failed**.
+
+**Reserved decision (escalation opened).** The actual `B-D014` change is a
+**definition/contract change**, which only the author can accept (Sections 13.2
+class C4, 16.4). Logged as `EV-000019` (`escalation_opened`) with the blast
+radius above; the impact report is the decision-queue artifact.
+
+**Known gap (documented, not fixed).** On the formal side, a definition change
+should propagate through each dependent's `formal_statement`, whose Section 6
+definition includes its **definition closure**. Our `formal_statement` hashes
+only the declaration's own signature text, and verification binds only to
+`formal_proof`, so a formal definition change does **not** currently stale a
+dependent's verification. Closing this needs Lean dependency extraction
+(`formal_uses`, Section 12.1) folded into `formal_statement`; deferred, and
+recorded as the next structural item.
+
+**Phase 0 status.** `B-C001`/`B-C002` Explanations exist and were adversarial-
+read (proposals, author acceptance reserved); the definition-change blast radius
+is now demonstrable end to end. The remaining Phase 0 item is author acceptance.
+
+**Prioritized next steps.**
+
+1. Formal dependency extraction (`formal_uses`) -> definition-closure hashing,
+   so C4 propagates on the formal side too.
+2. Remaining pilot bridges `sat_eq_preimage`, `card_le_one_iff` (`B-D004`);
+   multi-declaration mapping for `B-D014`.
+3. Views: discrepancy report (informal vs formal graph), decision queue,
+   evidence bundle.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -1065,10 +1120,10 @@ three layers current; `B-C002`/`B-P002`/`B-P003` correspondence + verification;
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (16 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (18 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status/trust/Lean-facet/calibration tests, record
-   validation, formal-facet/report/calibration drift, and the build.
+   hygiene/propagation/status/trust/Lean-facet/calibration/impact tests, record
+   validation, formal-facet/report/calibration/impact drift, and the build.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
