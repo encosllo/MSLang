@@ -933,6 +933,52 @@ Explanation into the manuscript remains a reserved decision (Section 16.4).
 
 ---
 
+## Session 15 -- 2026-09-14 -- seeded-mismatch calibration suite (Section 11.4)
+
+**Goal.** Stand up the calibration suite the roadmap has repeatedly deferred
+("stood up early"), and take a first measurement.
+
+**What was established (closed).**
+
+- `calibration/seeded.json` -- a corpus of **11 cases** over the audited pilot
+  blocks (`B-C001`, `B-P002`, `B-C002`, `B-P003`): 4 **controls** (the audited
+  read-backs) and 7 **mutations**, one per named type: `direction_flip`,
+  `conclusion_reverse`, `saturation_order`, `quantifier_change`,
+  `dropped_hypothesis`, `weakened_conclusion`, `encoding` (the last is the
+  highest-value seeded encoding mismatch of Section 11.5).
+- `scripts/calibration.py` -- corpus self-check (controls equal their base
+  read-back, mutations differ, ids unique), blind verdict ingestion,
+  per-mutation-type detection rates and control false-positive count, plus a
+  deterministic `reports/calibration.md` with `--check-report` drift detection.
+- `scripts/calibration_test.py` -- 10 seeded checks, all pass (corpus
+  integrity; detection counting; control false positives; `formal_stronger`
+  counts as a detection).
+- **First measurement** (`calibration/verdicts.json`, run by a blind comparator
+  pass): **7/7 mutations detected, 0/4 control false positives**
+  (`reports/calibration.md`). Outcomes were typed, not just pass/fail: e.g.
+  dropped hypothesis -> `formal_stronger`, quantifier `∀`->`∃` ->
+  `formal_weaker`, tautologised conclusion -> `ill_posed`.
+- `scripts/check_all.sh` extended to **16 checks** (calibration corpus,
+  statistics tests, report drift). Current result: **16 passed, 0 failed**.
+
+**Honest caveats (recorded in the corpus and the report).**
+
+- The first run is a **single batched comparator pass on this session's model**;
+  each mutation type has **n = 1**. The 7/7 is an initial point estimate, not a
+  stable per-type detection rate, and does not demonstrate cross-model value.
+  The suite is built to make the next runs (per-case, second model) cheap and
+  comparable; a drop after any model/prompt change is meant to gate the change.
+
+**Prioritized next steps.**
+
+1. Run the calibration per-case and, where a second model is available, by
+   model pair; grow each mutation type to n >= a few so the rates are stable.
+2. Remaining bridges `sat_eq_preimage`, `card_le_one_iff` (`B-D004`); extend the
+   declaration map to multi-declaration blocks (`B-D014`).
+3. Independent representation audit (Section 11.5); JSON-vs-YAML decision.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -959,10 +1005,10 @@ Explanation into the manuscript remains a reserved decision (Section 16.4).
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (13 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (16 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status/trust/Lean-facet tests, record validation,
-   formal-facet and project-view drift, and the build.
+   hygiene/propagation/status/trust/Lean-facet/calibration tests, record
+   validation, formal-facet/report/calibration drift, and the build.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
