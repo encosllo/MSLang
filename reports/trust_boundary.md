@@ -10,7 +10,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/pilot-encoding.md` | E-000002 | faithful-with-caveat | yes | D1, D2, D4 | 11 |
+| `encoding` | `representation/pilot-encoding.md` | E-000013 | faithful-with-caveat | yes | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe | 11 |
 
 ## Residuals propagated to blocks
 
@@ -20,17 +20,17 @@ boundary (Section 11.5).
 
 | block | representation | outcome | residuals |
 |---|---|---|---|
-| `B-C001` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-C002` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D002` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D003` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D005` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D006` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D009` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D014` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-D015` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-P002` | `encoding` | faithful-with-caveat | D1, D2, D4 |
-| `B-P003` | `encoding` | faithful-with-caveat | D1, D2, D4 |
+| `B-C001` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-C002` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D002` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D003` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D005` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D006` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D009` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D014` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-D015` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-P002` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
+| `B-P003` | `encoding` | faithful-with-caveat | R-carrier, R-category, R-classical, R-complement, R-coproduct, R-delta, R-empty, R-ext, R-index, R-membership, R-morphism, R-order, R-product, R-quotient, R-setoid, R-universe |
 
 ## Unproved bridge obligations
 

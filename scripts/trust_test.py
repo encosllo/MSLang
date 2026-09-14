@@ -97,6 +97,10 @@ def run_synthetic():
           trust.residuals_from_record(
               {"findings": ["D3/D5 bounded.", "Verdict: faithful."]}
           ) == [])
+    check("alphanumeric residual labels parse",
+          trust.residuals_from_record(
+              {"findings": ["Verdict: faithful-with-caveat with residuals R-universe, R-carrier."]}
+          ) == ["R-carrier", "R-universe"])
 
 
 def run_real():
@@ -107,12 +111,13 @@ def run_real():
     reps, boundary = trust.compute(registry, coverage, records, rep)
     check("real encoding audit parsed",
           reps["encoding"]["outcome"] == "faithful-with-caveat"
-          and reps["encoding"]["residuals"] == ["D1", "D2", "D4"],
+          and bool(reps["encoding"]["residuals"]),
           str(reps["encoding"]))
     check("real B-C001 trust boundary carries the caveat",
-          trust.block_residuals(boundary["B-C001"]) == ["D1", "D2", "D4"])
+          trust.block_residuals(boundary["B-C001"]) == reps["encoding"]["residuals"]
+          and bool(reps["encoding"]["residuals"]))
     check("real covered definition carries the caveat",
-          trust.block_residuals(boundary["B-D014"]) == ["D1", "D2", "D4"])
+          trust.block_residuals(boundary["B-D014"]) == reps["encoding"]["residuals"])
     check("real uncovered block carries none",
           trust.block_residuals(boundary["B-D001"]) == [])
 

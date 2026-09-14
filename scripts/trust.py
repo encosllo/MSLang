@@ -35,7 +35,9 @@ if str(HERE) not in sys.path:
 import status  # noqa: E402
 
 RESIDUAL_WORD_RE = re.compile(r"residual", re.IGNORECASE)
-D_LABEL_RE = re.compile(r"D[0-9]+")
+RESIDUAL_LIST_RE = re.compile(r"residuals?\s*:?\s*([^.]+)", re.IGNORECASE)
+SPLIT_RE = re.compile(r"\s*(?:,|\band\b)\s*")
+LABEL_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]*")
 OUTCOMES_WITH_RESIDUALS = {"faithful-with-caveat"}
 
 
@@ -46,6 +48,19 @@ def load_coverage(path: Path):
 
 def hash_file(path: Path) -> str:
     return status.hash_file(path)
+
+
+def _labels(text):
+    """Residual tags following ``residual(s)``, accepting D1, R-carrier, ..."""
+    m = RESIDUAL_LIST_RE.search(text)
+    if not m:
+        return []
+    out = []
+    for tok in SPLIT_RE.split(m.group(1)):
+        tok = tok.strip().strip(".").strip()
+        if tok and LABEL_RE.fullmatch(tok):
+            out.append(tok)
+    return out
 
 
 def residuals_from_record(record):
@@ -60,11 +75,11 @@ def residuals_from_record(record):
         if RESIDUAL_WORD_RE.search(f) and f.strip().lower().startswith("verdict")
     ]
     if verdicts:
-        return sorted(set(D_LABEL_RE.findall(verdicts[-1])))
+        return sorted(set(_labels(verdicts[-1])))
     labels = set()
     for f in findings:
         if RESIDUAL_WORD_RE.search(f):
-            labels.update(D_LABEL_RE.findall(f))
+            labels.update(_labels(f))
     return sorted(labels)
 
 

@@ -1,0 +1,29 @@
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000013",
+  "findings": [
+    "Independent-context encoding audit: a fresh isolated subagent was given the paper's ZFSK foundation and the proposed Lean encoding table, but NOT the project's residual list. It found the membership/order core (pointwise subset, Sub, Eqv, saturation, support) faithful under the set-as-predicate translation.",
+    "Blocking-until-bridged items (not defects in the current Lean): R-delta (delta is Set.univ, not a singleton, so set/cardinality-level facts like A x 1 = A fail; the support level is recovered by supp_delta with Nonempty U); R-quotient (Quotient is a type, not of the form S -> Set U, so A/Phi leaves the encoded object class); R-complement (relative complement must be sdiff, as encoded, never ambient compl).",
+    "Verdict: faithful-with-caveat with residuals R-universe, R-carrier, R-membership, R-delta, R-setoid, R-order, R-quotient, R-complement, R-empty, R-classical, R-ext, R-index, R-product, R-morphism, R-coproduct, R-category."
+  ],
+  "independence_caveat": "Isolated fresh subagent, no project history, reasoning about the encoding from the foundation and encoding table alone; it shares this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Stronger than the earlier self-audit (E-000002), weaker than external review.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-14T12:48:00Z"
+}
