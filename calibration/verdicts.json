@@ -1,0 +1,16 @@
+{
+  "audit_note": "Produced by one batched blind comparator pass (same model); see calibration/seeded.json `audit_note` for the independence caveat.",
+  "verdicts": {
+    "CAL-001": "equivalent",
+    "CAL-002": "incomparable",
+    "CAL-003": "incomparable",
+    "CAL-004": "equivalent",
+    "CAL-005": "incomparable",
+    "CAL-006": "formal_weaker",
+    "CAL-007": "formal_stronger",
+    "CAL-008": "ill_posed",
+    "CAL-009": "equivalent",
+    "CAL-010": "formal_stronger",
+    "CAL-011": "equivalent"
+  }
+}
