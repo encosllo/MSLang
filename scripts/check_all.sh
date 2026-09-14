@@ -25,8 +25,9 @@
 #  19. sanity checks report current     (reports/sanity.md drift check)
 #  20. evidence bundle current          (reports/bundle.md drift check)
 #  21. record schema validation         (journal + evidence)
-#  22. project views current            (reports/ drift check)
-#  23. exit-code-checked manuscript build
+#  22. frontier report current           (reports/frontier.md drift check)
+#  23. project views current            (reports/ drift check)
+#  24. exit-code-checked manuscript build
 #
 # Usage: scripts/check_all.sh
 set -uo pipefail
@@ -78,6 +79,7 @@ run "decisions tests" python3 scripts/decisions_test.py
 run "decisions report current" python3 scripts/decisions.py --check-report
 run "sanity checks report current" python3 scripts/sanity.py --check-report
 run "evidence bundle current" python3 scripts/bundle.py --check-report
+run "frontier report current" python3 scripts/frontier.py --check-report
 run "record schema validation" python3 scripts/validate_records.py
 run "project views current" python3 scripts/report.py --check
 run "manuscript build" scripts/build_manuscript.sh

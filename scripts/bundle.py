@@ -55,6 +55,7 @@ VIEWS = [
     "reports/calibration.md",
     "reports/discrepancy.md",
     "reports/impact.md",
+    "reports/frontier.md",
     "reports/decisions.md",
 ]
 

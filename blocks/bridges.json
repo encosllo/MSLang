@@ -1,0 +1,10 @@
+{
+  "note": "Representation bridge obligations and the Lean declaration that discharges each (Architecture.md Section 7.4). scripts/frontier.py reports obligations with no entry here as still open.",
+  "proved": {
+    "setoid_le_iff": "Mslang.setoid_le_iff",
+    "sat_antitone": "Mslang.sat_antitone",
+    "card_le_one_iff": "Mslang.card_le_one_iff",
+    "delta_support": "Mslang.supp_delta",
+    "sat_eq_preimage": "Mslang.sat_eq_preimage"
+  }
+}
