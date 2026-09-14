@@ -10,11 +10,14 @@
       "file": "lean/Mslang/Pilot.lean"
     },
     "B-D002": {
-      "decl": "Mslang.SSorted",
+      "decl": "Mslang.SSet",
       "file": "lean/Mslang/Pilot.lean"
     },
     "B-D005": {
-      "decl": "Mslang.le",
+      "decls": [
+        "Mslang.Sub",
+        "Mslang.Subset"
+      ],
       "file": "lean/Mslang/Pilot.lean"
     },
     "B-D006": {

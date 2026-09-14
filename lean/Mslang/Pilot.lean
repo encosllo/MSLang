@@ -1,64 +1,49 @@
 import Mathlib
 
 /-!
-Pilot encoding for `MSEilenberg.tex`, following
-`representation/pilot-encoding.md` (Architecture.md Sections 6, 11.5).
+Pilot encoding for `MSEilenberg.tex` under the **dependent-type carrier model**
+(see `representation/pilot-encoding.md`): an `S`-sorted set is a family of
+types `S → Type u`, not a family of subsets of a fixed ambient `U`.  This makes
+`δ^t` a genuine one-element/empty family (residual `R-delta`) and keeps `A/Φ` in
+the object class (residual `R-quotient`).
 
-The paper's foundation (ZFSK + a Grothendieck universe) is encoded against a
-**fixed ambient** `U`: an `S`-sorted set is a family of subsets of `U`, and a
-sorted equivalence is a componentwise `Setoid`.  This is the `faithful-with-caveat`
-carrier model (residual D2 of the encoding audit `E-000002`).
-
-What is here:
-
-* the pilot definitions (`SSorted`, `SortedEqv`, pointwise inclusion, saturated
-  sets `Sat`);
-* the first formal target, Corollary `B-C001` / `sat_antitone`:
-  `Φ ⊆ Ψ → Ψ-Sat(A) ⊆ Φ-Sat(A)`;
-* the forward direction of Proposition `B-P002` (`sat_sat_eq`), used by the
-  manuscript's own proof of `B-C001`.
-
-The converse of `B-P002` and the remaining bridge obligations
-(`sat_eq_preimage`, `card_le_one_iff`, `delta_support`) are not yet proved.
+Object class: `SSet S := S → Type u`; componentwise subsets (`Sub`) are
+families of predicates `∀ s, Set (A s)`.
 -/
 
 universe u
 
 namespace Mslang
 
-variable {S : Type u} {U : Type u}
+variable {S : Type u}
 
-/-- An `S`-sorted set as a family of subsets of a fixed ambient `U`
-(encoding caveat D2: components are not arbitrary small carriers). -/
-abbrev SSorted (S : Type u) (U : Type u) := S → Set U
+/-- An `S`-sorted set is a family of types indexed by the sorts. -/
+abbrev SSet (S : Type u) : Type (u + 1) := S → Type u
 
-/-- Pointwise (componentwise) inclusion of `S`-sorted sets. -/
-def le (A B : SSorted S U) : Prop := ∀ s, A s ⊆ B s
+/-- The componentwise subsets `Sub(A)` (`B-D005`): a family of predicates. -/
+abbrev Sub {S : Type u} (A : SSet S) : Type u := ∀ s, Set (A s)
 
-/-- A sorted equivalence on `A`: a componentwise `Setoid` on each `A s`. -/
-abbrev SortedEqv (A : SSorted S U) := ∀ s, Setoid (A s)
+/-- Pointwise inclusion of componentwise subsets. -/
+def Subset {S : Type u} {A : SSet S} (X Y : Sub A) : Prop := ∀ s, X s ⊆ Y s
+
+/-- A sorted equivalence on `A`: a componentwise `Setoid`. -/
+abbrev SortedEqv {S : Type u} (A : SSet S) : Type u := ∀ s, Setoid (A s)
 
 /-- Pointwise refinement of sorted equivalences: the paper's `Φ ⊆ Ψ`. -/
-def sortedEqvLe {A : SSorted S U} (Φ Ψ : SortedEqv A) : Prop :=
+def sortedEqvLe {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) : Prop :=
   ∀ s (x y : A s), (Φ s).r x y → (Ψ s).r x y
 
-/-- Saturation `[X]^Φ` of a componentwise `X ⊆ A`, as a componentwise set. -/
-def sat {A : SSorted S U} (Φ : SortedEqv A) (X : ∀ s, Set (A s)) :
-    ∀ s, Set (A s) :=
+/-- Saturation `[X]^Φ` of a componentwise `X ⊆ A`. -/
+def sat {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) : Sub A :=
   fun s => {a | ∃ x ∈ X s, (Φ s).r x a}
 
-/-- `X` is `Φ`-saturated, i.e. `X = [X]^Φ`. -/
-def IsSat {A : SSorted S U} (Φ : SortedEqv A) (X : ∀ s, Set (A s)) : Prop :=
+/-- `X` is `Φ`-saturated. -/
+def IsSat {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) : Prop :=
   sat Φ X = X
 
-/-- Corollary `B-C001` (`IncSat`): `Φ ⊆ Ψ` implies `Ψ-Sat(A) ⊆ Φ-Sat(A)`.
-
-Paper proof (via `B-P002`) and direct proof both work; this is the direct one.
-If `X` is `Ψ`-saturated then `[X]^Φ ⊆ [X]^Ψ = X`, and `X ⊆ [X]^Φ` by
-reflexivity, so `X` is `Φ`-saturated. -/
-theorem sat_antitone {A : SSorted S U} {Φ Ψ : SortedEqv A}
-    (h : sortedEqvLe Φ Ψ) {X : ∀ s, Set (A s)} (hX : IsSat Ψ X) :
-    IsSat Φ X := by
+/-- Corollary `B-C001` (`IncSat`). -/
+theorem sat_antitone {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
+    (h : sortedEqvLe Φ Ψ) {X : Sub A} (hX : IsSat Ψ X) : IsSat Φ X := by
   unfold IsSat at *
   funext s
   ext a
@@ -70,11 +55,9 @@ theorem sat_antitone {A : SSorted S U} {Φ Ψ : SortedEqv A}
   · intro ha
     exact ⟨a, ha, (Φ s).refl a⟩
 
-/-- Proposition `B-P002` (`PropIncSat`), forward direction:
-if `Φ ⊆ Ψ` then `[[X]^Ψ]^Φ = [X]^Ψ` for every `X`. -/
-theorem sat_sat_eq {A : SSorted S U} {Φ Ψ : SortedEqv A}
-    (h : sortedEqvLe Φ Ψ) (X : ∀ s, Set (A s)) :
-    sat Φ (sat Ψ X) = sat Ψ X := by
+/-- Proposition `B-P002` (`PropIncSat`), forward direction. -/
+theorem sat_sat_eq {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
+    (h : sortedEqvLe Φ Ψ) (X : Sub A) : sat Φ (sat Ψ X) = sat Ψ X := by
   funext s
   ext a
   constructor
@@ -86,29 +69,22 @@ theorem sat_sat_eq {A : SSorted S U} {Φ Ψ : SortedEqv A}
     rcases ha with ⟨x, hx, hxr⟩
     exact ⟨a, ⟨x, hx, hxr⟩, (Φ s).refl a⟩
 
-/-- Bridge `setoid_le_iff`: under this encoding, pointwise setoid refinement
-`sortedEqvLe` *is* inclusion of the underlying relations, so the paper's
-`Φ ⊆ Ψ` is the Lean order definitionally. -/
-theorem setoid_le_iff {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+/-- Bridge `setoid_le_iff`. -/
+theorem setoid_le_iff {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
     sortedEqvLe Φ Ψ ↔
       ∀ s (x y : A s), (Φ s).r x y → (Ψ s).r x y :=
   Iff.rfl
 
-/-- Proposition `B-P002` (`PropIncSat`), full statement:
-`Φ ⊆ Ψ` iff `[[X]^Ψ]^Φ = [X]^Ψ` for every `X`.
-
-The converse uses a singleton test family at the sort `s` in question:
-`sortedEqvLe Φ Ψ` follows by applying the hypothesis to `X` with
-`X s = {x}`, so that `sat Ψ X s` is the `Ψ s`-class of `x`. -/
-theorem prop_incSat {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+/-- Proposition `B-P002` (`PropIncSat`), full statement. -/
+theorem prop_incSat {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
     sortedEqvLe Φ Ψ ↔
-      ∀ X : ∀ s, Set (A s), sat Φ (sat Ψ X) = sat Ψ X := by
+      ∀ X : Sub A, sat Φ (sat Ψ X) = sat Ψ X := by
   classical
   constructor
   · intro h X
     exact sat_sat_eq h X
   · intro h s x y hxy
-    let X : ∀ t, Set (A t) :=
+    let X : Sub A :=
       Function.update (fun t => (∅ : Set (A t))) s {x}
     have hXs : X s = {x} := by simp [X]
     have hx : x ∈ sat Ψ X s :=
@@ -120,32 +96,28 @@ theorem prop_incSat {A : SSorted S U} (Φ Ψ : SortedEqv A) :
     subst hz
     exact hzy
 
-/-- `∇^A`: the greatest sorted equivalence on `A` (the universal relation). -/
+/-- `∇^A`: the greatest sorted equivalence (the universal relation). -/
 @[instance_reducible]
-def nabla (A : SSorted S U) : SortedEqv A :=
+def nabla {S : Type u} (A : SSet S) : SortedEqv A :=
   fun _ =>
     ⟨fun _ _ => True,
      ⟨fun _ => trivial, fun _ => trivial, fun _ _ => trivial⟩⟩
 
-/-- Support of an `S`-sorted set (Definition `B-D009`):
-`supp_S(A) = {s ∈ S | A_s ≠ ∅}`. -/
-def supp (A : SSorted S U) : Set S := {s | (A s).Nonempty}
+/-- Support of an `S`-sorted set (Definition `B-D009`). -/
+def supp {S : Type u} (A : SSet S) : Set S := {s | Nonempty (A s)}
 
-/-- Support of a componentwise `X ⊆ A` (the `Sub(A)` presentation of `B-D009`). -/
-def suppSub {A : SSorted S U} (X : ∀ s, Set (A s)) : Set S :=
+/-- Support of a componentwise subset `X : Sub A`. -/
+def suppSub {S : Type u} {A : SSet S} (X : Sub A) : Set S :=
   {s | (X s).Nonempty}
 
-/-- Proposition `B-P003` (`NablaSat`): `X ∈ ∇^A-Sat(A)` if and only if every
-sort in the support of `X` carries all of `A`. Under the universal relation the
-saturation of `X_s` is `A_s` when `X_s ≠ ∅` and `∅` otherwise, so `X` is
-`∇`-saturated exactly when each nonempty component is full. -/
-theorem nabla_sat {A : SSorted S U} (X : ∀ s, Set (A s)) :
+/-- Proposition `B-P003` (`NablaSat`). -/
+theorem nabla_sat {S : Type u} {A : SSet S} (X : Sub A) :
     IsSat (nabla A) X ↔ ∀ s, s ∈ suppSub X → X s = Set.univ := by
   unfold IsSat
   constructor
   · intro h s hs
     have hsat : (sat (nabla A) X) s = X s :=
-      congrArg (fun Y : ∀ s, Set (A s) => Y s) h
+      congrArg (fun Y : Sub A => Y s) h
     ext a
     constructor
     · intro _
@@ -168,92 +140,103 @@ theorem nabla_sat {A : SSorted S U} (X : ∀ s, Set (A s)) :
 
 /-- Pointwise meet of two sorted equivalences (the paper's `Φ ∩ Ψ`). -/
 @[instance_reducible]
-def sortedEqvInf {A : SSorted S U} (Φ Ψ : SortedEqv A) : SortedEqv A :=
+def sortedEqvInf {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) : SortedEqv A :=
   fun s =>
     ⟨fun x y => (Φ s).r x y ∧ (Ψ s).r x y,
      ⟨fun x => ⟨(Φ s).refl x, (Ψ s).refl x⟩,
       fun h => ⟨(Φ s).symm h.1, (Ψ s).symm h.2⟩,
       fun hab hbc => ⟨(Φ s).trans hab.1 hbc.1, (Ψ s).trans hab.2 hbc.2⟩⟩⟩
 
-theorem sortedEqvInf_le_left {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+theorem sortedEqvInf_le_left {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
     sortedEqvLe (sortedEqvInf Φ Ψ) Φ := fun _ _ _ h => h.1
 
-theorem sortedEqvInf_le_right {A : SSorted S U} (Φ Ψ : SortedEqv A) :
+theorem sortedEqvInf_le_right {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
     sortedEqvLe (sortedEqvInf Φ Ψ) Ψ := fun _ _ _ h => h.2
 
-/-- Corollary `B-C002`: `Φ-Sat(A) ∩ Ψ-Sat(A) ⊆ (Φ ∩ Ψ)-Sat(A)`.
-
-Since `Φ ∩ Ψ` refines `Φ`, a `Φ`-saturated set is `(Φ ∩ Ψ)`-saturated by
-`sat_antitone`. -/
-theorem sat_inf {A : SSorted S U} {Φ Ψ : SortedEqv A} {X : ∀ s, Set (A s)}
+/-- Corollary `B-C002`. -/
+theorem sat_inf {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A} {X : Sub A}
     (hΦ : IsSat Φ X) (_hΨ : IsSat Ψ X) :
     IsSat (sortedEqvInf Φ Ψ) X :=
   sat_antitone (sortedEqvInf_le_left Φ Ψ) hΦ
 
-/-- Delta of Kronecker (Definition `B-D006`): `δ^t_s = 1` if `s = t`, `∅`
-otherwise. Following the encoding, `1` is the whole ambient `U`, so this is
-faithful for the support (with `U` nonempty) but the component is the whole
-ambient, not a chosen singleton (residual D2). -/
-noncomputable def delta (t : S) : SSorted S U :=
-  by classical exact fun s => if s = t then Set.univ else ∅
+/-- Delta of Kronecker (Definition `B-D006`): one element at `t`, empty
+elsewhere -- a faithful encoding of the terminal/initial components. -/
+noncomputable def delta {S : Type u} (t : S) : SSet S :=
+  by classical exact fun s => if s = t then PUnit.{u+1} else PEmpty.{u+1}
 
-/-- Bridge `delta_support`: `supp_S(δ^t) = {t}` (requires the ambient `U` to be
-nonempty, as the paper's universe is). -/
-theorem supp_delta {U' : Type u} [Nonempty U'] (t : S) :
-    supp (delta (U := U') t) = {t} := by
+/-- Bridge `delta_support`: `supp_S(δ^t) = {t}`. -/
+theorem supp_delta {S : Type u} (t : S) : supp (delta (S := S) t) = {t} := by
   classical
   ext s
   constructor
   · intro hs
-    change (delta (U := U') t s).Nonempty at hs
+    change Nonempty (delta (S := S) t s) at hs
     by_contra h
     have hne : ¬ (s = t) := by simpa using h
-    have hz : delta (U := U') t s = ∅ := by simp [delta, hne]
+    have hz : delta (S := S) t s = PEmpty.{u+1} := by simp [delta, hne]
     rw [hz] at hs
-    exact Set.not_nonempty_empty hs
+    rcases hs with ⟨x⟩
+    exact x.elim
   · intro hs
     have hst : s = t := by simpa using hs
     rw [hst]
-    change (delta (U := U') t t).Nonempty
-    have hd : delta (U := U') t t = (Set.univ : Set U') := by simp [delta]
+    change Nonempty (delta (S := S) t t)
+    have hd : delta (S := S) t t = PUnit.{u+1} := by simp [delta]
     rw [hd]
-    exact ⟨Classical.choice (inferInstance : Nonempty U'), Set.mem_univ _⟩
+    exact ⟨PUnit.unit⟩
 
-/-- Definition `B-D004`: an `S`-sorted set is *subfinal* when every component
-has at most one element; `1^S` and `∅^S` are the final and initial `S`-sorted
-sets. -/
-def Subfinal (A : SSorted S U) : Prop := ∀ s, (A s).Subsingleton
+/-- Definition `B-D004`: subfinal (`card ≤ 1`), and the terminal/initial
+`S`-sorted sets. -/
+def Subfinal {S : Type u} (A : SSet S) : Prop := ∀ s, Subsingleton (A s)
 
-def finalSorted : SSorted S U := fun _ => Set.univ
+def finalSorted (S : Type u) : SSet S := fun _ => PUnit.{u+1}
 
-def initialSorted : SSorted S U := fun _ => ∅
+def initialSorted (S : Type u) : SSet S := fun _ => PEmpty.{u+1}
 
-/-- Bridge `card_le_one_iff`: subfinality coincides with every component having
-cardinality at most one (`encard` covers the infinite case). -/
-theorem card_le_one_iff (A : SSorted S U) :
-    Subfinal A ↔ ∀ s, (A s).encard ≤ 1 := by
-  simp [Subfinal, Set.encard_le_one_iff_subsingleton]
+/-- Bridge `card_le_one_iff`. -/
+theorem card_le_one_iff {S : Type u} (A : SSet S) :
+    Subfinal A ↔ ∀ s, (Set.univ : Set (A s)).encard ≤ 1 := by
+  simp only [Subfinal]
+  constructor
+  · intro h s
+    rw [Set.encard_le_one_iff_subsingleton]
+    exact @Set.subsingleton_univ (A s) (h s)
+  · intro h s
+    have hs := (Set.encard_le_one_iff_subsingleton).mp (h s)
+    exact ⟨fun a b => hs (Set.mem_univ a) (Set.mem_univ b)⟩
 
-theorem supp_finalSorted [Nonempty U] :
-    supp (finalSorted (S := S) (U := U)) = Set.univ := by
+theorem supp_finalSorted {S : Type u} :
+    supp (finalSorted S) = Set.univ := by
   ext s
   constructor
   · intro _; exact Set.mem_univ s
-  · intro _
-    exact ⟨Classical.choice (inferInstance : Nonempty U), Set.mem_univ _⟩
+  · intro _; exact ⟨PUnit.unit⟩
 
-theorem supp_initialSorted :
-    supp (initialSorted (S := S) (U := U)) = ∅ := by
+theorem supp_initialSorted {S : Type u} :
+    supp (initialSorted S) = ∅ := by
   ext s
-  simp [supp, initialSorted]
+  constructor
+  · intro hs
+    change Nonempty (initialSorted S s) at hs
+    rcases hs with ⟨x⟩
+    exact x.elim
+  · intro hs
+    simp at hs
 
-/-- Projection `pr^Φ` to the quotient, sortwise. -/
-def pr {A : SSorted S U} (Φ : SortedEqv A) (s : S) : A s → Quotient (Φ s) :=
+/-- Relative complement `∁_A X`, componentwise inside `A`. -/
+def complA {S : Type u} {A : SSet S} (X : Sub A) : Sub A := fun s => (X s)ᶜ
+
+theorem complA_bridge {S : Type u} {A : SSet S} (X : Sub A) (s : S) (a : A s) :
+    a ∈ complA X s ↔ a ∉ X s := by
+  simp [complA]
+
+/-- Projection `pr^Φ`, sortwise. -/
+def pr {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) :
+    A s → Quotient (Φ s) :=
   fun x => Quotient.mk (Φ s) x
 
-/-- Bridge `sat_eq_preimage` (Remark `B-R006`): the `Φ`-saturation of `X` is
-`(pr^Φ)⁻¹[pr^Φ[X]]`. -/
-theorem sat_eq_preimage {A : SSorted S U} (Φ : SortedEqv A) (X : ∀ s, Set (A s)) :
+/-- Bridge `sat_eq_preimage` (`B-R006`). -/
+theorem sat_eq_preimage {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) :
     sat Φ X = fun s => (pr Φ s) ⁻¹' ((pr Φ s) '' X s) := by
   funext s
   ext a
@@ -264,11 +247,9 @@ theorem sat_eq_preimage {A : SSorted S U} (Φ : SortedEqv A) (X : ∀ s, Set (A 
   · rintro ⟨x, hx, h⟩
     exact ⟨x, hx, Quotient.eq.mp h⟩
 
-/-- Bridge `sat_eq_preimage`, second part (Remark `B-R006`): `X` is
-`Φ`-saturated if and only if it is the preimage under `pr^Φ` of some family
-`Y ⊆ A/Φ`. -/
-theorem isSat_iff_preimage {A : SSorted S U} (Φ : SortedEqv A)
-    (X : ∀ s, Set (A s)) :
+/-- Bridge `sat_eq_preimage`, second part (`B-R006`). -/
+theorem isSat_iff_preimage {S : Type u} {A : SSet S} (Φ : SortedEqv A)
+    (X : Sub A) :
     IsSat Φ X ↔
       ∃ Y : ∀ s, Set (Quotient (Φ s)), X = fun s => (pr Φ s) ⁻¹' (Y s) := by
   constructor
@@ -291,60 +272,20 @@ theorem isSat_iff_preimage {A : SSorted S U} (Φ : SortedEqv A)
         ((Set.mem_image _ _ _).mpr
           ⟨a, Set.mem_preimage.mpr (Set.mem_preimage.mp ha), rfl⟩)
 
-/-- The family `⋃_{t∈T} δ^{t,A_t}`: at sort `s` it is all of `A_s` when `s ∈ T`,
-and empty otherwise. -/
-noncomputable def deltaUnion (T : Set S) (A : SSorted S U) : ∀ s, Set (A s) :=
-  by classical exact fun s => if s ∈ T then (Set.univ : Set (A s)) else ∅
-
-/-- Remark `B-R008`: `∅^S`, `A ∈ ∇^A-Sat(A)`, and `⋃_{t∈T} δ^{t,A_t} ∈
-∇^A-Sat(A)` for every `T ⊆ S`. -/
-theorem nabla_sat_empty {A : SSorted S U} :
-    IsSat (nabla A) (fun s => (∅ : Set (A s))) := by
-  unfold IsSat
-  funext s
-  ext a
-  simp [sat]
-
-theorem nabla_sat_univ {A : SSorted S U} :
-    IsSat (nabla A) (fun s => (Set.univ : Set (A s))) := by
-  unfold IsSat
-  funext s
-  ext a
-  simp only [sat]
-  constructor
-  · intro _; exact Set.mem_univ a
-  · intro _
-    exact ⟨a, Set.mem_univ a, trivial⟩
-
-theorem nabla_sat_deltaUnion {A : SSorted S U} (T : Set S) :
-    IsSat (nabla A) (deltaUnion T A) := by
-  rw [nabla_sat]
-  intro s hs
-  by_cases hT : s ∈ T
-  · simp [deltaUnion, hT]
-  · simp [deltaUnion, suppSub, hT] at hs
-
-/-- Relative complement `∁_A X`, componentwise inside `A` -- addressing the
-`R-complement` residual: complement is taken in `A_s` (`Set.compl` on the
-subtype), never in the ambient `U`. -/
-def complA {A : SSorted S U} (X : ∀ s, Set (A s)) : ∀ s, Set (A s) :=
-  fun s => (X s)ᶜ
-
-theorem complA_bridge {A : SSorted S U} (X : ∀ s, Set (A s)) (s : S) (a : A s) :
-    a ∈ complA X s ↔ a ∉ X s := by
-  simp [complA]
-
-/-- The `Φ`-equivalence class of `a`, as a subset of `A s` -- the element-level
-counterpart of `Quotient (Φ s)` (addresses residual `R-quotient`). -/
-def eqvClass {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a : A s) : Set (A s) :=
+/-- The `Φ`-equivalence class of `a` (element-level counterpart of
+`Quotient (Φ s)`). -/
+def eqvClass {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) (a : A s) :
+    Set (A s) :=
   {b | (Φ s).r a b}
 
-theorem mem_eqvClass {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a b : A s) :
+theorem mem_eqvClass {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S)
+    (a b : A s) :
     b ∈ eqvClass Φ s a ↔ (Φ s).r a b := Iff.rfl
 
-/-- Bridge `quot_class_bridge` (element level): two equivalence classes are
-equal if and only if their representatives are related. -/
-theorem eqvClass_eq_iff {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a b : A s) :
+/-- Bridge `quot_class_bridge` (element level): classes are equal iff their
+representatives are related. -/
+theorem eqvClass_eq_iff {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S)
+    (a b : A s) :
     eqvClass Φ s a = eqvClass Φ s b ↔ (Φ s).r a b := by
   constructor
   · intro h
@@ -359,18 +300,49 @@ theorem eqvClass_eq_iff {A : SSorted S U} (Φ : SortedEqv A) (s : S) (a b : A s)
     · intro hbc
       exact (Φ s).trans h hbc
 
-/-- An `S`-sorted mapping `f : A → B` (Definition `B-D002`): a componentwise
-function `f_s : A_s → B_s`. -/
-abbrev SortedMap (A B : SSorted S U) := ∀ s, A s → B s
+/-- An `S`-sorted mapping `f : A → B` (Definition `B-D002`). -/
+abbrev SortedMap {S : Type u} (A B : SSet S) := ∀ s, A s → B s
 
-/-- Definition `B-D015`: the kernel `Ker(f)` of an `S`-sorted mapping,
-componentwise the kernel pair of `f_s` (`x ~ y` iff `f_s x = f_s y`). -/
-def ker {A B : SSorted S U} (f : SortedMap A B) : SortedEqv A :=
+/-- Definition `B-D015`: the kernel of an `S`-sorted mapping. -/
+@[instance_reducible]
+def ker {S : Type u} {A B : SSet S} (f : SortedMap A B) : SortedEqv A :=
   fun s =>
     ⟨fun x y => f s x = f s y,
-     ⟨fun x => rfl, fun h => h.symm, fun h1 h2 => h1.trans h2⟩⟩
+     ⟨fun _ => rfl, fun h => h.symm, fun h1 h2 => h1.trans h2⟩⟩
 
-theorem ker_iff {A B : SSorted S U} (f : SortedMap A B) (s : S) (x y : A s) :
+theorem ker_iff {S : Type u} {A B : SSet S} (f : SortedMap A B) (s : S)
+    (x y : A s) :
     (ker f s).r x y ↔ f s x = f s y := Iff.rfl
+
+/-- The family `⋃_{t∈T} δ^{t,A_t}`. -/
+noncomputable def deltaUnion {S : Type u} (T : Set S) (A : SSet S) : Sub A :=
+  by classical exact fun s => if s ∈ T then (Set.univ : Set (A s)) else ∅
+
+/-- Remark `B-R008`. -/
+theorem nabla_sat_empty {S : Type u} {A : SSet S} :
+    IsSat (nabla A) (fun s => (∅ : Set (A s))) := by
+  unfold IsSat
+  funext s
+  ext a
+  simp [sat]
+
+theorem nabla_sat_univ {S : Type u} {A : SSet S} :
+    IsSat (nabla A) (fun s => (Set.univ : Set (A s))) := by
+  unfold IsSat
+  funext s
+  ext a
+  simp only [sat]
+  constructor
+  · intro _; exact Set.mem_univ a
+  · intro _
+    exact ⟨a, Set.mem_univ a, trivial⟩
+
+theorem nabla_sat_deltaUnion {S : Type u} {A : SSet S} (T : Set S) :
+    IsSat (nabla A) (deltaUnion T A) := by
+  rw [nabla_sat]
+  intro s hs
+  by_cases hT : s ∈ T
+  · simp [deltaUnion, hT]
+  · simp [deltaUnion, suppSub, hT] at hs
 
 end Mslang
