@@ -1,0 +1,28 @@
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000005",
+  "findings": [
+    "lake build: Mslang.prop_incSat (full iff, B-P002) compiled sorry-free against Mathlib v4.33.1.",
+    "#print axioms Mslang.prop_incSat = [propext, Classical.choice, Quot.sound] (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only. The formal_proof facet is a source-level hash (scripts/lean_facets.py), not an elaborated proof term; the representation has not been independently audited (E-000002 is a self-audit).",
+  "inputs": [
+    {
+      "artifact": "B-P002/formal_proof",
+      "hash": "79f611aadc6d90449c727f64590a8390c8ef74cd6a98162b8cbbfb8d480dd9d2"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-14T11:44:55Z"
+}

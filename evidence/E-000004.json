@@ -1,0 +1,41 @@
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000004",
+  "findings": [
+    "Stage 1 read-back rendered Mslang.sat_antitone as: for every sorted set A and sorted equivalences Phi, Psi on A with Phi refining Psi, every family X of componentwise subsets that is Psi-saturated is Phi-saturated.",
+    "Stage 2 comparator returned equivalent, checking refinement direction, saturation semantics, quantifier variance, and empty-sorts/empty-X degenerate cases; found no difference.",
+    "Full transcript: blocks/audits/B-C001-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded; materially stronger than a self-check, weaker than external review.",
+  "inputs": [
+    {
+      "artifact": "B-C001/formal_statement",
+      "hash": "0e94f69997949e8d039ddb019967cdad9dbd40ebc7be411cd29172f83b1fc410"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T11:35:13Z"
+}
