@@ -1,0 +1,45 @@
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000006",
+  "findings": [
+    "Stage 1 read-back rendered Mslang.prop_incSat as: Phi finer than Psi iff for every componentwise X, saturating by Psi then by Phi equals the Psi-saturation (sat Phi . sat Psi = sat Psi); refinement direction and inner/outer order unambiguous.",
+    "Stage 2 comparator returned equivalent, verifying refinement direction, saturation order, quantifier domain, and the converse via the singleton family; degenerate cases hold; non-vacuous.",
+    "Full transcript: blocks/audits/B-P002-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/formal_statement",
+      "hash": "408bc97938531588085c82268bb74a146e1a32bb7d7ca1c4f90fae774453e83b"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "8a1880e1f10dc560193d4a98b870faed739b3ede4a08da9e8cf41de84787a657"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-14T11:49:39Z"
+}
