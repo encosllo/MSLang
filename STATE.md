@@ -1145,6 +1145,50 @@ lists, so nothing went stale; the formal graph is new information.
 
 ---
 
+## Session 19 -- 2026-09-14 -- discrepancy findings resolved
+
+**Goal.** Resolve the Session 18 discrepancy signals by inspecting the source.
+
+**Findings (concrete, from the manuscript).**
+
+- **`B-P002 -> B-D006` is a real informal edge and a formal simplification.**
+  The manuscript's converse proof of `B-P002` constructs its test family via
+  `\delta^{s,[a]_{\Psi_s}}` (so the paper genuinely uses `delta`, `B-D006`).
+  The Lean proof `Mslang.prop_incSat` instead uses a plain singleton family
+  (`Function.update (fun _ => ∅) s {x}`), which is *simpler* and does not need
+  `delta`. Verdict: the paper's `\delta` use in `B-P002`'s converse is
+  **unnecessary** -- a formalization-produced simplification (the Section 12.2
+  payoff), not a defect. (`supp_delta` does use `delta`, so `B-D006` is still
+  genuinely used.)
+- **`B-C002 -> B-C001`** is formal-only and expected: `sat_inf` applies
+  `sat_antitone`; the manuscript omits `B-C002`'s proof, and our Explanation
+  cites `B-C001`.
+- **`X -> B-D002`** (the majority of formal-only edges) is expected: Lean
+  signatures mention the `SSorted` type; the informal prose says "`S`-sorted
+  set" by name, which the prose-name extractor did not record.
+
+**What was established (closed).**
+
+- `blocks/discrepancy_notes.json` + `discrepancy.py` support: the
+  discrepancy report now carries a **Reviewer notes** section, turning the raw
+  diff into a review queue with recorded verdicts. `reports/discrepancy.md`
+  regenerated; `discrepancy_test.py` checks the annotation.
+- Gate: **20 passed, 0 failed**.
+
+**Author-facing finding.** The manuscript's `B-P002` converse can be simplified
+by dropping the `\delta` construction in favour of a singleton test family.
+This is a manuscript-prose change (Section 16.5), so it is presented as a
+finding, not edited.
+
+**Prioritized next steps.**
+
+1. Fold `formal_uses` into `formal_statement` (definition closure) so a formal
+   definition change propagates to dependents (Session 17's gap).
+2. Remaining pilot bridges `sat_eq_preimage`, `card_le_one_iff` (`B-D004`).
+3. Decision-queue and evidence-bundle views; per-case/second-model calibration.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
