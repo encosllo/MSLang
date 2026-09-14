@@ -42,6 +42,9 @@ THEOREM_ENVS = (
     "corollary",
     "definition",
     "remark",
+    "example",
+    "examples",
+    "assumption",
 )
 ENV_ALT = "|".join(THEOREM_ENVS)
 
@@ -62,10 +65,11 @@ def normalize(text: str) -> str:
 
 
 def find_env_spans(text: str, name: str):
-    """Yield (start_content, end_content, body) for each env ``name``.
+    """Yield (begin_start, content_start, content_end, body) for each env ``name``.
 
-    Handles nesting of *different* environment names (e.g. enumerate inside a
-    theorem) by tracking depth of this same name.
+    ``begin_start`` is the offset of ``\\begin{name}``; ``content_start`` is
+    just after it. Handles nesting of the *same* environment name by tracking
+    depth.
     """
     begin = re.compile(r"\\begin\{" + re.escape(name) + r"\}")
     end = re.compile(r"\\end\{" + re.escape(name) + r"\}")
@@ -87,10 +91,24 @@ def find_env_spans(text: str, name: str):
             else:
                 depth -= 1
                 if depth == 0:
-                    yield m.end(), ne.start(), text[m.end() : ne.start()]
+                    yield m.start(), m.end(), ne.start(), text[m.end() : ne.start()]
                     pos = ne.end()
                 else:
                     scan = ne.end()
+
+
+def preceding_blockid(text: str, begin_start: int):
+    """``\\blockid{...}`` placed immediately before ``\\begin{...}``, if any.
+
+    The manuscript annotates blocks as ``\\blockid{B-...}`` on the line *before*
+    the environment (Architecture.md Section 14); an in-body ``\\blockid`` is
+    also accepted by ``extract`` for robustness.
+    """
+    m = re.search(
+        r"\\blockid\{([^}]*)\}\s*$",
+        text[:begin_start],
+    )
+    return m.group(1) if m else None
 
 
 def extract(text: str):
@@ -98,17 +116,20 @@ def extract(text: str):
     text = strip_comments(text)
     found = []
     for name in THEOREM_ENVS:
-        for start, _end, body in find_env_spans(text, name):
+        for begin_start, start, _end, body in find_env_spans(text, name):
             bid = BLOCKID_RE.search(body)
             lab = LABEL_RE.search(body)
-            if bid:
+            pre = preceding_blockid(text, begin_start)
+            if pre:
+                anchor = pre
+            elif bid:
                 anchor = bid.group(1)
             elif lab:
                 anchor = lab.group(1)
             else:
                 anchor = f"env:{name}:{len(found)}"
             found.append((start, name, anchor, body))
-    for start, _end, body in find_env_spans(text, "proof"):
+    for begin_start, start, _end, body in find_env_spans(text, "proof"):
         lab = LABEL_RE.search(body)
         anchor = lab.group(1) if lab else f"proof:{len(found)}"
         found.append((start, "proof", anchor, body))
