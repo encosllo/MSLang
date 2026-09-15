@@ -1,0 +1,45 @@
+{
+  "block": "B-R005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000056",
+  "findings": [
+    "Stage 1 read-back: quot \u03a6 is the componentwise quotient A/\u03a6, and supp_quot states supp(A/\u03a6) = supp(A).",
+    "Stage 2 comparator returned equivalent; domain, A/\u03a6 interpretation, and both directions match the contract (the cited propssupport is not used).",
+    "Transcript: blocks/audits/B-R005-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "B-R005/formal_statement",
+      "hash": "0b66340f658bf41794c2bc0d6d36d295a2685d9c83ddab780a3af1f866a6d61e"
+    },
+    {
+      "artifact": "B-R005/informal_statement",
+      "hash": "820f452e01eadd59d00d2fc94a1218c49c45c30a59ba05ca9941ced72e54858d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T15:39:23Z"
+}
