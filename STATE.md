@@ -1569,6 +1569,53 @@ stable rates. The per-case run increases context independence, not sample size.
 
 ---
 
+## Session 32 -- 2026-09-15 -- frontier extension: B-P004
+
+**Goal.** Execute Session 31's step 3: extend the formalization frontier to a
+block with no Lean counterpart. Took the smallest remaining dependency-closed
+target from `reports/pilot_candidates.md` whose only definition dependency
+(`B-D014`) is already formalized: `B-P004`. Also reconciled the working tree.
+
+**What was established (closed).**
+
+- **Committed the pending Sessions 30-31** in two session commits (Session 30:
+  correspondence re-baseline, `E-000041`..`E-000047`; Session 31: per-case
+  calibration). `git status` is clean.
+- **`B-P004` formalized.** New theorem `Mslang.sat_inf_subset`: saturation by a
+  pointwise meet is contained in the meet of the saturations,
+  `[X]^{Φ∩Ψ} ⊆ [X]^Φ ∩ [X]^Ψ`. Mapped in `lean/declarations.json`;
+  `blocks/formal.json`/`blocks/formal_graph.json` regenerated (14 mapped blocks,
+  11 formal edges).
+- Build clean; `#print axioms Mslang.sat_inf_subset` reports **no axioms**.
+- Evidence **`E-000048`** (verification, `build_ok`), **`E-000049`**
+  (correspondence, `equivalent`; two-stage blind, transcript
+  `blocks/audits/B-P004-correspondence.md`), **`E-000050`** (review, `pass`;
+  adversarial read returned `VALID, no gap`, and observed that the equivalence
+  axioms are never used -- the inclusion holds for arbitrary componentwise
+  relations).
+- `reports/frontier.md`: unmapped blocks **116 -> 115**; no layer failing and no
+  open representation bridge. `reports/{coverage,trust_boundary,staleness,
+  impact,discrepancy,bundle,decisions}.md` regenerated. Journal `EV-000034`.
+  `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** All three layers share this session's model
+(`deepseek-v4.1-flash`); the correspondence verdict is independent-context but
+same-model, and inherits the pilot-encoding residuals (`carrier-model`,
+`small-large`, `univalence-missing`).
+
+**Prioritized next steps.**
+
+1. Continue the frontier. Next dependency-closed targets: `B-R007` (the
+   saturation map is antitone -- a near-immediate corollary of `sat_antitone`),
+   `B-P005` (`SatOperator`, the saturation map as a completely additive closure
+   operator), and `B-R005` (`supp_S(A) = supp_S(A/Φ)`, needs the quotient).
+2. Grow each calibration mutation type to n >= a few and add a second model
+   (author-gated; Section 11.4).
+3. Author: work `reports/decisions.md` (now 8 standing items plus the
+   `EV-000019` escalation).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

@@ -5,7 +5,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D009`, `B-D014`, `B-D015`, `B-P002`, `B-P003`, `B-R006`, `B-R008`
+Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D009`, `B-D014`, `B-D015`, `B-P002`, `B-P003`, `B-P004`, `B-R006`, `B-R008`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -28,6 +28,8 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D0
 | `B-P002` | `B-D005` |
 | `B-P003` | `B-D002` |
 | `B-P003` | `B-D005` |
+| `B-P004` | `B-D002` |
+| `B-P004` | `B-D005` |
 | `B-R006` | `B-D002` |
 | `B-R006` | `B-D005` |
 | `B-R008` | `B-D002` |
@@ -48,6 +50,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D0
 | `B-C002` | `B-D014` |
 | `B-P002` | `B-D014` |
 | `B-P003` | `B-D014` |
+| `B-P004` | `B-D014` |
 | `B-R006` | `B-D014` |
 | `B-R008` | `B-D014` |
 
@@ -59,4 +62,4 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D0
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-115 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+114 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
