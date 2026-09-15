@@ -1,0 +1,42 @@
+{
+  "block": "B-P004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000050",
+  "findings": [
+    "Adversarial reader reconstructed the proof and returned VALID, no gap; the only ingredients are the definition of saturation and the componentwise inclusions \u03a6\u2229\u03a8 \u2286 \u03a6 and \u03a6\u2229\u03a8 \u2286 \u03a8.",
+    "Confirmed the equivalence axioms are never used: the inclusion holds for arbitrary componentwise relations (an assumption weakening, not a silent strengthening). The converse inclusion is false and was neither used nor asserted.",
+    "Independently corroborated by the Lean counterpart Mslang.sat_inf_subset (E-000048)."
+  ],
+  "independence_caveat": "Fresh isolated subagent (no project history, definitions and proof supplied inline) reconstructed the argument and probed edge cases; shares this session's underlying model, so common blind spots are not excluded (Architecture.md Sections 11a.2, 9).",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P004/informal_proof",
+      "hash": "29eea9211a335ca7c60f4b2658a7f8fb5eff4a2a4ec858279ae69b8f6a0e93c9"
+    },
+    {
+      "artifact": "B-P004/informal_statement",
+      "hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-15T13:28:52Z"
+}
