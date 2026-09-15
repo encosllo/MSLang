@@ -1,0 +1,27 @@
+{
+  "block": "B-D001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000061",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D001 (Mslang.Word = List S, Mslang.concat, Mslang.emptyWord) compiled against Mathlib v4.33.1."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 39).",
+  "inputs": [
+    {
+      "artifact": "B-D001/formal_proof",
+      "hash": "1e2ff3d386b64ad64c90c3020d2742636998e4d40740d33f9bb04d455eaca5b5"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T16:57:33Z"
+}

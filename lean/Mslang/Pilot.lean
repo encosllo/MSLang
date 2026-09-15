@@ -572,4 +572,28 @@ def iPair {S : Type u} {ι : Type u} {B : SSet S} (A : ι → SSet S)
     (f : ∀ i, SortedMap B (A i)) : SortedMap B (iProd A) :=
   fun s b i => f i s b
 
+/-! ### `B-D008`: finite sorted sets. -/
+
+/-- `B-D008`: an `S`-sorted set is finite when its disjoint union
+`∐A = Σ s, A s` is finite. -/
+def FiniteSSet {S : Type u} (A : SSet S) : Prop := Finite (Sigma A)
+
+/-- A componentwise subset is finite when its disjoint union is finite. -/
+def FiniteSub {S : Type u} {B : SSet S} (X : Sub B) : Prop :=
+  Finite (Sigma fun s => {b : B s // b ∈ X s})
+
+/-- `Sub_f(B)`: the finite componentwise subsets of `B`. -/
+def finiteSubsets {S : Type u} (B : SSet S) : Set (Sub B) := {X | FiniteSub X}
+
+/-! ### `B-D001`: the free monoid on `S` (words). -/
+
+/-- `B-D001`: the set of words `S*` on `S`, encoded as `List S`. -/
+abbrev Word (S : Type u) : Type u := List S
+
+/-- Concatenation of words (`B-D001`). -/
+def concat {S : Type u} (w v : Word S) : Word S := w ++ v
+
+/-- The empty word (`B-D001`). -/
+def emptyWord (S : Type u) : Word S := []
+
 end Mslang

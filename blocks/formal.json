@@ -35,6 +35,21 @@
         "hash": "13e01ed764e6f62db137a891d8432b911149f476312b99944093fb0bb2229bc8"
       }
     },
+    "B-D001": {
+      "decls": [
+        "Mslang.Word",
+        "Mslang.concat",
+        "Mslang.emptyWord"
+      ],
+      "definition_closure": [],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "1e2ff3d386b64ad64c90c3020d2742636998e4d40740d33f9bb04d455eaca5b5"
+      },
+      "formal_statement": {
+        "hash": "2d104f64bf0ef2a460671a01b7247dece206f4643b4d81229906c3081457b0c8"
+      }
+    },
     "B-D002": {
       "decls": [
         "Mslang.SSet"
@@ -133,6 +148,24 @@
       },
       "formal_statement": {
         "hash": "b8ed4c821003826f3aac8ec8f1ae714f1ed8bc0b15cf86de450d986e7a41b3d8"
+      }
+    },
+    "B-D008": {
+      "decls": [
+        "Mslang.FiniteSSet",
+        "Mslang.FiniteSub",
+        "Mslang.finiteSubsets"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "4d5b9139bb9de339da2cee7593430364b4a8bb43f94c07016a7ad7a742a6f166"
+      },
+      "formal_statement": {
+        "hash": "c1897f81664239dce5ce34bad8f1ffe6db027ea6f42802cb2476318dd14dfb6c"
       }
     },
     "B-D009": {

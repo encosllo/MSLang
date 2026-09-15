@@ -28,6 +28,22 @@
       ],
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-D001": {
+      "decls": [
+        "Mslang.Word",
+        "Mslang.concat",
+        "Mslang.emptyWord"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D008": {
+      "decls": [
+        "Mslang.FiniteSSet",
+        "Mslang.FiniteSub",
+        "Mslang.finiteSubsets"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D007": {
       "decls": [
         "Mslang.directImage",
