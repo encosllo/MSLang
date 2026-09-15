@@ -1,14 +1,14 @@
 {
-  "audit_note": "Produced by one batched blind comparator pass (same model); see calibration/seeded.json `audit_note` for the independence caveat.",
+  "audit_note": "Run 2 (per-case, primary measurement): each of the 11 cases was judged in its own isolated comparator context, blind to the case type and to the expected outcome; same model as the project (deepseek-v4.1-flash). Detection is identical to the batched run (7/7 mutations detected, 0/4 control false positives); the typed outcome differs on CAL-006 (batched formal_weaker -> per-case formal_stronger) and CAL-008 (batched ill_posed -> per-case formal_weaker). The batched run is retained at calibration/verdicts.batched.json.",
   "verdicts": {
     "CAL-001": "equivalent",
     "CAL-002": "incomparable",
     "CAL-003": "incomparable",
     "CAL-004": "equivalent",
     "CAL-005": "incomparable",
-    "CAL-006": "formal_weaker",
+    "CAL-006": "formal_stronger",
     "CAL-007": "formal_stronger",
-    "CAL-008": "ill_posed",
+    "CAL-008": "formal_weaker",
     "CAL-009": "equivalent",
     "CAL-010": "formal_stronger",
     "CAL-011": "equivalent"

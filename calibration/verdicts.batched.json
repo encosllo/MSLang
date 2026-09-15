@@ -1,0 +1,16 @@
+{
+  "audit_note": "Run 1 (batched, superseded as the primary measurement): a single blind comparator context processed all 11 cases in one pass, treating each independently. Same model as the project (deepseek-v4.1-flash). Retention note: kept for comparison with the per-case run (calibration/verdicts.json); the two runs agree on detection (7/7 mutations, 0/4 controls) and differ on the typed outcome for CAL-006 and CAL-008.",
+  "verdicts": {
+    "CAL-001": "equivalent",
+    "CAL-002": "incomparable",
+    "CAL-003": "incomparable",
+    "CAL-004": "equivalent",
+    "CAL-005": "incomparable",
+    "CAL-006": "formal_weaker",
+    "CAL-007": "formal_stronger",
+    "CAL-008": "ill_posed",
+    "CAL-009": "equivalent",
+    "CAL-010": "formal_stronger",
+    "CAL-011": "equivalent"
+  }
+}

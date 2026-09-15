@@ -1480,6 +1480,95 @@ statements changed, so each needs a fresh blind read-back/comparison
 
 ---
 
+## Session 30 -- 2026-09-15 -- correspondence re-baseline under the new encoding
+
+**Goal.** Execute Session 29's pending item: re-run the 7 correspondence audits
+that the C6 representation change staled (`B-C001`, `B-C002`, `B-D004`,
+`B-P002`, `B-P003`, `B-R006`, `B-R008`).
+
+**What was established (closed).**
+
+- All 7 blocks re-audited with the **two-stage blind protocol** (Section 11.2):
+  a fresh stage-1 read-back from the Lean declarations only, then a fresh
+  stage-2 comparator given only the read-back and the manuscript contract.
+  **Every stage-2 comparator returned `equivalent`.** Transcripts rewritten in
+  `blocks/audits/<id>-correspondence.md`.
+- **`B-D004` flipped `incomparable` -> `equivalent`.** The pre-C6
+  `finalSorted = Set.univ` was not the paper's constant-singleton `1^S`; the
+  dependent-type carrier makes it a genuine constant `PUnit` family, so the
+  correspondence now matches. This closes the last residue of the `D-finalSorted`
+  finding (already resolved as a contract in Session 29).
+- Records **`E-000041`..`E-000047`** (correspondence, `equivalent`; inputs
+  computed by `closure.py`). They supersede the stale pre-C6 correspondence
+  records (`E-000004`, `E-000006`, `E-000008`, `E-000011`, `E-000018`,
+  `E-000019`, `E-000020`, `E-000021`, `E-000022`, `E-000023`), which remain in
+  `evidence/` as the historical record.
+- `reports/frontier.md` now shows **no layer failing and no open representation
+  bridge**; `reports/{coverage,staleness,impact,bundle,frontier}.md` regenerated.
+  `check_all`: **25 passed, 0 failed**.
+
+**Pilot status (all current).** Every in-scope pilot block has a Lean
+counterpart; review + correspondence + verification are `pass` where each layer
+was run. 12 blocks carry evidence (47 records total). The representation audit is
+`faithful-with-caveat` with 3 residuals (`carrier-model`, `small-large`,
+`univalence-missing`, `E-000040`), all bridgeable-or-out-of-scope, none blocking.
+
+**Honest caveat.** Both audit stages (and the encoding audit before them) still
+share this session's underlying model (`deepseek-v4.1-flash`); the verdicts are
+independent-context but same-model, weaker than external review.
+
+**Prioritized next steps.**
+
+1. Per-case / second-model calibration runs (Section 11.4); the batched 7/7 is
+   still n = 1 per mutation type.
+2. Author: work `reports/decisions.md` (Explanations, representation, record
+   format, scope).
+3. Extend the formalization frontier to the 116 blocks with no Lean counterpart.
+
+---
+
+## Session 31 -- 2026-09-15 -- per-case calibration run (Section 11.4)
+
+**Goal.** Execute Session 30's step 1: run the calibration corpus per-case rather
+than batched, so the eleven judgments are independent contexts. No second model
+is available on this machine, so the model-pair run remains open.
+
+**What was established (closed).**
+
+- **Run 2 (per-case).** Each of the eleven cases was judged in its own isolated
+  comparator context, blind to the case type and to the expected outcome:
+  **7/7 mutations detected, 0/4 control false positives** -- identical to the
+  batched run. Results are the primary measurement in
+  `calibration/verdicts.json`; the batched run is retained at
+  `calibration/verdicts.batched.json`.
+- **Finding: the detection rate is robust, the typed outcome is not.** The
+  category returned is identical for 9/11 cases. It differs for two mutations:
+  `CAL-006` (`quantifier_change`) was `formal_weaker` batched vs
+  `formal_stronger` per-case; `CAL-008` (`weakened_conclusion`) was `ill_posed`
+  batched vs `formal_weaker` per-case. So batching did not change what is
+  detected, but it did change how the mismatch is classified in 2/7 mutations --
+  a reason to treat the per-type *labels* as less stable than the detection
+  *rate*.
+- `calibration/seeded.json`'s `audit_note` now describes both runs and the
+  comparison; `reports/calibration.md` regenerated; the bundle refreshed.
+  `check_all`: **25 passed, 0 failed**.
+
+**Honest caveats (recorded in the note).** Both runs share this session's model
+(`deepseek-v4.1-flash`); there is still **no cross-model** measurement. Each
+mutation type still has **n = 1**, so the per-type rates are point estimates, not
+stable rates. The per-case run increases context independence, not sample size.
+
+**Prioritized next steps.**
+
+1. Grow each mutation type to n >= a few (author corpus work) and, when a second
+   model is available, run the model-pair comparison; a detection drop after any
+   model/prompt change is the intended gate.
+2. Author: work `reports/decisions.md` (Explanations, representation, record
+   format, scope).
+3. Extend the formalization frontier to the 116 blocks with no Lean counterpart.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

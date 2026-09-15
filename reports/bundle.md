@@ -14,8 +14,8 @@ repository.
 | `blocks/graph.json` | `3b6dfa60e436daccd6c0598423c7b093b8181bf809a210530fa413f9276c1924` |
 | `blocks/hashes.json` | `0079d486e94e79540e74449630a9f217660a837d44d991786183448f123169e1` |
 | `blocks/registry.json` | `473d76031e916821f4bf478a8f490e0993a909610d414c2d8634704bdcc6c73a` |
-| `calibration/seeded.json` | `e97f70151bc369734650c30a19e51c4bb5152b97cf0605e13bf49b5cb4ae37d4` |
-| `calibration/verdicts.json` | `8996a813e113acf674e2abf033df27f5c6790976051f6389ed375bb79b98eeec` |
+| `calibration/seeded.json` | `49f548dec238c446c1c9cf2d74c253b784aa2d009f80d8b69a2ac1b6b8c3d690` |
+| `calibration/verdicts.json` | `ee62f8bd57f5353e880bc6400b293c2646dc27637b739ac49518f124bd2719ca` |
 | `decisions/standing.json` | `6eed51eaf8ac584e32e2b33b76e54a4d94c2e20a2ac7080e6e2e92a4e1ac325b` |
 | `evidence/E-000001.json` | `3d3e19bd6a117f75c0167f8d16f6abdeebd47c5ea3a1b702b44e419eb031f1cf` |
 | `evidence/E-000002.json` | `34a2aaf9b9522512d51f2305bd32a4399f6ea46b6b827b69d855c854edb26ef5` |
@@ -57,6 +57,13 @@ repository.
 | `evidence/E-000038.json` | `3253ac2b35f07b40ad89e03f174c9e35078c79b6b41a14b438dc60101766fc19` |
 | `evidence/E-000039.json` | `90c3dd991854fc1d170359bf97e9802d5fa5aea05c52482cd17dbb702126974b` |
 | `evidence/E-000040.json` | `f3910562f68efd074e50f4a1fdd2e6b33a28f5be0658f2d83e2006f7388d3e8d` |
+| `evidence/E-000041.json` | `2e746922a334a500242fd43e3cfe187faf3eb5960f2776ecde8c6cd2fa88fe02` |
+| `evidence/E-000042.json` | `fa446acd8b30376d018fde5b3f790571a3ddb0cf1520dcbca2ae1a219af20376` |
+| `evidence/E-000043.json` | `3f4753ece37ae3593dad9b2e054b47e413418c9fc65c62cd74ae2464f02d7e5a` |
+| `evidence/E-000044.json` | `28d5e6ccd35602ee17a9765f2f68790b9dc4affe66b8e4881ce6e8b55b5d87bb` |
+| `evidence/E-000045.json` | `afae3c2e9091c959f88ba3ffb2ef5541874efcc9583625086124d0fffa8ce717` |
+| `evidence/E-000046.json` | `fee7e6270064626f439c568a8eea103dd923c8cbf7f28fd3e1e5c7b45b365a69` |
+| `evidence/E-000047.json` | `8d8b0e7fa151e18415e21945a789a3aa7851cf706a30520b582884b8f7d8307c` |
 | `journal/events.jsonl` | `ea5aa368734a5ea264b224b7b0dfcf03cc1059e9b76bb4bd07e87eee75c13458` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
@@ -68,27 +75,27 @@ repository.
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-C001` | correspondence | stale | 0 | 2 |
+| `B-C001` | correspondence | pass | 1 | 2 |
 | `B-C001` | review | pass | 1 | 1 |
 | `B-C001` | verification | pass | 2 | 0 |
-| `B-C002` | correspondence | stale | 0 | 2 |
+| `B-C002` | correspondence | pass | 1 | 2 |
 | `B-C002` | review | pass | 1 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
 | `B-D002` | verification | pass | 1 | 0 |
-| `B-D004` | correspondence | stale | 0 | 1 |
+| `B-D004` | correspondence | pass | 1 | 1 |
 | `B-D004` | verification | pass | 1 | 1 |
 | `B-D005` | verification | pass | 1 | 0 |
 | `B-D006` | verification | pass | 1 | 1 |
 | `B-D009` | verification | pass | 1 | 0 |
 | `B-D014` | verification | pass | 1 | 0 |
 | `B-D015` | verification | pass | 1 | 1 |
-| `B-P002` | correspondence | stale | 0 | 2 |
+| `B-P002` | correspondence | pass | 1 | 2 |
 | `B-P002` | verification | pass | 1 | 1 |
-| `B-P003` | correspondence | stale | 0 | 2 |
+| `B-P003` | correspondence | pass | 1 | 2 |
 | `B-P003` | verification | pass | 1 | 1 |
-| `B-R006` | correspondence | stale | 0 | 1 |
+| `B-R006` | correspondence | pass | 1 | 1 |
 | `B-R006` | verification | pass | 2 | 0 |
-| `B-R008` | correspondence | stale | 0 | 1 |
+| `B-R008` | correspondence | pass | 1 | 1 |
 | `B-R008` | verification | pass | 2 | 0 |
 | `representation/encoding` | representation | pass | 1 | 2 |
 
@@ -1620,6 +1627,332 @@ repository.
 }
 ```
 
+### E-000041
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000041",
+  "findings": [
+    "Stage 1 read-back restates the theorem as antitonicity of saturation: a coarser relation's saturated sets are saturated for every finer relation.",
+    "Stage 2 comparator returned equivalent; direction, quantifier domain, and degenerate cases all match the contract.",
+    "Transcript: blocks/audits/B-C001-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000004/E-000017)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C001/formal_statement",
+      "hash": "172973026cd357c3602a88e95cb013551a93bfcce017fd2d164ddb929e074530"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:29Z"
+}
+```
+
+### E-000042
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000042",
+  "findings": [
+    "Stage 1 read-back: if X is both Phi-saturated and Psi-saturated then it is saturated under the componentwise meet of Phi and Psi (one-directional).",
+    "Stage 2 comparator returned equivalent; the unused second hypothesis is a proof-level observation, not a change in statement strength.",
+    "Transcript: blocks/audits/B-C002-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000011/E-000018)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C002/formal_statement",
+      "hash": "13e01ed764e6f62db137a891d8432b911149f476312b99944093fb0bb2229bc8"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}
+```
+
+### E-000043
+
+```json
+{
+  "block": "B-D004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000043",
+  "findings": [
+    "Stage 1 read-back: Subfinal = every component Subsingleton; finalSorted is the constant PUnit family; initialSorted the constant PEmpty family; support as Nonempty.",
+    "Stage 2 comparator returned equivalent: card_le_one_iff matches card <= 1, and the dependent-type carrier makes 1^S a genuine constant singleton (previously incomparable under the fixed-ambient carrier).",
+    "Transcript: blocks/audits/B-D004-correspondence.md. Supersedes the incomparable E-000021; D-finalSorted closed in Session 29."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D004/formal_statement",
+      "hash": "68027e5562e6fe7ac0f015f857c625c3828267bac714bdd27c469b006d35e317"
+    },
+    {
+      "artifact": "B-D004/informal_statement",
+      "hash": "5b4c278e6f02c3b826ad448bea84526c8544ce98b846c98f6c68c1352431d9a8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}
+```
+
+### E-000044
+
+```json
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000044",
+  "findings": [
+    "Stage 1 read-back: Phi refines Psi iff for every X, sat Phi (sat Psi X) = sat Psi X; both directions reconstructed (forward uses Psi-closure; reverse instantiates at a singleton family).",
+    "Stage 2 comparator returned equivalent; both directions and quantifier domain match the contract.",
+    "Transcript: blocks/audits/B-P002-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000006/E-000019)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/formal_statement",
+      "hash": "3ed3c3bf232e3ffdca5981e1914a9e1000b39c3570e85547de103c1126141829"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}
+```
+
+### E-000045
+
+```json
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000045",
+  "findings": [
+    "Stage 1 read-back: X is nabla-saturated iff every sort in the support of X has X_s equal to the whole component A_s.",
+    "Stage 2 comparator returned equivalent; IsSat (nabla A) X unfolds to (X s nonempty -> X s = univ), matching the contract, with matching degenerate cases.",
+    "Transcript: blocks/audits/B-P003-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000008/E-000020)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P003/formal_statement",
+      "hash": "594985f84c8bcb8c64770ab511a15119da66f631be5a2f31730e8ba601758ff2"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}
+```
+
+### E-000046
+
+```json
+{
+  "block": "B-R006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000046",
+  "findings": [
+    "Stage 1 read-back: saturation equals the inverse image under the quotient projection of its direct image; X is saturated iff X is the preimage of some family Y of subsets of the quotient types.",
+    "Stage 2 comparator returned equivalent; the X superset-of [X]^Phi criterion is equivalent to equality by reflexivity, and quantifier domains agree.",
+    "Transcript: blocks/audits/B-R006-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000022)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R006/formal_statement",
+      "hash": "4997c05a3812d42bef142317c4f1596d0738129aa2fbc9bf7303aacd21ebe96c"
+    },
+    {
+      "artifact": "B-R006/informal_statement",
+      "hash": "1e3f64cb9f99390f83bd6aac3caac45d2fac51692f7b023adcaea9cc570c278e"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}
+```
+
+### E-000047
+
+```json
+{
+  "block": "B-R008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000047",
+  "findings": [
+    "Stage 1 read-back: the empty, full, and deltaUnion T families are all nabla-saturated; deltaUnion T A selects whole sorts.",
+    "Stage 2 comparator returned equivalent; deltaUnion T A matches the componentwise union of deltas, and the T = empty / T = S specializations agree.",
+    "Transcript: blocks/audits/B-R008-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000023)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R008/formal_statement",
+      "hash": "349c2d391adae5f19c3b03241c3a4504c0dbe6d42a4678190bf41b8fb5bff894"
+    },
+    {
+      "artifact": "B-R008/informal_statement",
+      "hash": "454d794d1386dd4b539909cbbca700ca6312f640dacba3a029d4fe85f85b3508"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -1631,7 +1964,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 14
-- Evidence records: 40
+- Evidence records: 47
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -1644,19 +1977,19 @@ assertion).
 
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
-| `B-C001` | corollary | Preliminaries. | pass | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C002` | corollary | Preliminaries. | pass | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C001` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C002` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D004` | definition | Preliminaries. | none | stale | pass | none | - |
+| `B-D004` | definition | Preliminaries. | none | pass | pass | none | - |
 | `B-D005` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D006` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D009` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D014` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P002` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P003` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-R006` | remark | Preliminaries. | none | stale | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | stale | pass | none | - |
+| `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | pass | pass | none | - |
+| `B-R008` | remark | Preliminaries. | none | pass | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
 115 block(s) have no evidence.
@@ -1732,7 +2065,7 @@ Generated by `scripts/calibration.py` from `calibration/seeded.json` and
 comparator returns an outcome other than `equivalent`. Controls are the
 audited read-backs; a control judged non-equivalent is a false positive.
 
-Audit run: a single blind comparator context (the project's same model, deepseek-v4.1-flash) processed all cases in one pass, treating each independently. Independence caveat: batched, same-model, and each mutation type has n=1, so the rates below are initial point estimates, not stable per-type detection rates. Per-case independent runs, ideally on a second model, are the next step.
+Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 cases in a single pass. Run 2 (per-case; calibration/verdicts.json, rendered below): each case was judged in its own isolated context, blind to case type and expectation. Both use the project's same model (deepseek-v4.1-flash). Detection is identical: 7/7 mutations detected, 0/4 control false positives. The typed outcome is stable for 9/11 cases; CAL-006 (quantifier_change) was formal_weaker batched vs formal_stronger per-case, and CAL-008 (weakened_conclusion) was ill_posed batched vs formal_weaker per-case. So the detection rate is robust to batched-vs-per-case context, while the category assignment is not fully stable. Remaining caveats: same-model only (no second model available), and each mutation type still has n=1, so the per-type rates are point estimates, not stable detection rates.
 
 ## Detection by mutation type
 
@@ -1835,12 +2168,18 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 2
+- evidence records that would go stale: 8
 
 | record | block | layer |
 |---|---|---|
 | E-000038 | `B-C001` | review |
 | E-000039 | `B-C002` | review |
+| E-000041 | `B-C001` | correspondence |
+| E-000042 | `B-C002` | correspondence |
+| E-000044 | `B-P002` | correspondence |
+| E-000045 | `B-P003` | correspondence |
+| E-000046 | `B-R006` | correspondence |
+| E-000047 | `B-R008` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -1859,13 +2198,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-C001` | correspondence | stale | 0 | 2 |
-| `B-C002` | correspondence | stale | 0 | 2 |
-| `B-D004` | correspondence | stale | 0 | 1 |
-| `B-P002` | correspondence | stale | 0 | 2 |
-| `B-P003` | correspondence | stale | 0 | 2 |
-| `B-R006` | correspondence | stale | 0 | 1 |
-| `B-R008` | correspondence | stale | 0 | 1 |
+| _none_ | | | | |
 
 ## Representation bridges still open
 
