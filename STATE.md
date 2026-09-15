@@ -1896,6 +1896,40 @@ follows the paper's `∐A` definition rather than a componentwise `Finite`.
 
 ---
 
+## Session 40 -- 2026-09-15 -- frontier extension: B-D016, B-D017
+
+**Goal.** Continue the frontier into the `Σ`-algebra layer.
+
+**What was established (closed).**
+
+- **`B-D016` formalized**: `Mslang.Signature S := List S × S → Type u` (an
+  `S`-sorted signature `Σ : S* × S → 𝒰`, words as `List S`).
+- **`B-D017` formalized**: `Mslang.wordProd` (`A_w = ∏_{i<|w|} A_{w_i}`),
+  `Mslang.finOp` (`Hom(A_w, A_s)`), `Mslang.AlgStruct` (a structure of
+  `Σ`-algebra), and `Mslang.IsAlgHom` (the homomorphism equation
+  `f_s(F_σ(a)) = G_σ(f_w(a))`).
+- Mapped in `lean/declarations.json`; facets regenerated (24 mapped blocks).
+- Evidence **`E-000063`** (B-D016) and **`E-000064`** (B-D017), verification
+  `build_ok`. Definitions carry the verification layer only.
+- `reports/frontier.md`: unmapped blocks **107 -> 105**. Views and bundle
+  regenerated. Journal `EV-000045`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Definitions only; no correspondence audit (project
+convention for definitions). The homomorphism carrier is the componentwise
+`SortedMap`; `AlgStruct` records the operations but does not bundle an algebra
+object (that would need a `structure`, which the facet extractor does not map).
+
+**Prioritized next steps.**
+
+1. `B-D018` (support of a `Σ`-algebra) and `B-R009` (supports of `Alg(Σ)` form
+   a closure system) — now reachable from `B-D017`.
+2. `B-D019` (finite `Σ`-algebra), using `B-D008`.
+3. `B-R003` (finite iff finite support with finite components); `B-P001`
+   (`propssupport`); `B-P006` (`CABA`, likely scope reduction).
+4. Batch the cosmetic docs into one C0 edit; calibration growth (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
