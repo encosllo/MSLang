@@ -216,6 +216,25 @@
         "hash": "4997c05a3812d42bef142317c4f1596d0738129aa2fbc9bf7303aacd21ebe96c"
       }
     },
+    "B-R007": {
+      "decls": [
+        "Mslang.satSets",
+        "Mslang.satSets_antitone"
+      ],
+      "definition_closure": [
+        "B-C001",
+        "B-D002",
+        "B-D005",
+        "B-D014"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "c91952d5bf1bdb771884d699c921610088158256da200ba351b87b8851e3eaf8"
+      },
+      "formal_statement": {
+        "hash": "e31c9728cf854d8e7d0b853a36956e8ca845fe7410a32f5c14ff1961268ab0b2"
+      }
+    },
     "B-R008": {
       "decls": [
         "Mslang.nabla_sat_empty",

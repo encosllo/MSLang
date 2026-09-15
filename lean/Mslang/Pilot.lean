@@ -55,6 +55,15 @@ theorem sat_antitone {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
   · intro ha
     exact ⟨a, ha, (Φ s).refl a⟩
 
+/-- `Φ-Sat(A)`, the set of `Φ`-saturated subsets. -/
+def satSets {S : Type u} {A : SSet S} (Φ : SortedEqv A) : Set (Sub A) :=
+  {X | IsSat Φ X}
+
+/-- Remark `B-R007`: the map `Φ ↦ Φ-Sat(A)` is antitone (order-reversing). -/
+theorem satSets_antitone {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
+    (h : sortedEqvLe Φ Ψ) : satSets Ψ ⊆ satSets Φ :=
+  fun _X hX => sat_antitone h hX
+
 /-- Proposition `B-P002` (`PropIncSat`), forward direction. -/
 theorem sat_sat_eq {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
     (h : sortedEqvLe Φ Ψ) (X : Sub A) : sat Φ (sat Ψ X) = sat Ψ X := by

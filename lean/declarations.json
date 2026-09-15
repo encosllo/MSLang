@@ -9,6 +9,13 @@
       "decl": "Mslang.sat_inf",
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-R007": {
+      "decls": [
+        "Mslang.satSets",
+        "Mslang.satSets_antitone"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D002": {
       "decl": "Mslang.SSet",
       "file": "lean/Mslang/Pilot.lean"

@@ -1,0 +1,28 @@
+{
+  "block": "B-R007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000051",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-R007 (Mslang.satSets, Mslang.satSets_antitone) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.satSets_antitone depends on propext and Quot.sound (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 34).",
+  "inputs": [
+    {
+      "artifact": "B-R007/formal_proof",
+      "hash": "c91952d5bf1bdb771884d699c921610088158256da200ba351b87b8851e3eaf8"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T14:25:23Z"
+}
