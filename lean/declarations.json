@@ -20,6 +20,21 @@
       "decl": "Mslang.SSet",
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-D003": {
+      "decls": [
+        "Mslang.iProd",
+        "Mslang.iProj",
+        "Mslang.iPair"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D007": {
+      "decls": [
+        "Mslang.directImage",
+        "Mslang.inverseImage"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D005": {
       "decls": [
         "Mslang.Sub",

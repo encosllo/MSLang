@@ -1,0 +1,27 @@
+{
+  "block": "B-D007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000060",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-D007 (Mslang.directImage, Mslang.inverseImage) compiled against Mathlib v4.33.1."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 38).",
+  "inputs": [
+    {
+      "artifact": "B-D007/formal_proof",
+      "hash": "0f0ee17f72b04c86d5c9a043fee84714c6b04bcf29ddae5faaa0e7419bd8e2a8"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T16:31:20Z"
+}

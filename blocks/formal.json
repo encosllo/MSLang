@@ -48,6 +48,26 @@
         "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
       }
     },
+    "B-D003": {
+      "decls": [
+        "Mslang.iProd",
+        "Mslang.iProj",
+        "Mslang.iPair"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "ac85adb433e2ea20f9362f1560ab0638ffe80c229fa0d76c8dbadfa40c42feca"
+      },
+      "formal_statement": {
+        "hash": "517f79fce0076e7c6f3ce0cbdfafb563070b56af67aac544e89994000e3fa450"
+      }
+    },
     "B-D004": {
       "decls": [
         "Mslang.Subfinal",
@@ -94,6 +114,25 @@
       },
       "formal_statement": {
         "hash": "0789fbd8ea5a20de81d85e08010a2e0feddd49270215cac653e5652058e29ff8"
+      }
+    },
+    "B-D007": {
+      "decls": [
+        "Mslang.directImage",
+        "Mslang.inverseImage"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "0f0ee17f72b04c86d5c9a043fee84714c6b04bcf29ddae5faaa0e7419bd8e2a8"
+      },
+      "formal_statement": {
+        "hash": "b8ed4c821003826f3aac8ec8f1ae714f1ed8bc0b15cf86de450d986e7a41b3d8"
       }
     },
     "B-D009": {

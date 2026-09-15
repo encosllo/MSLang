@@ -546,4 +546,30 @@ theorem quotLift_unique {S : Type u} {A B : SSet S} (Φ : SortedEqv A)
     rw [hx]
     exact (Quotient.lift_mk (f s) (fun a b hab => h s a b hab) x).symm
 
+/-! ### `B-D007`: direct and inverse image formation. -/
+
+/-- Direct image formation `f[X]` (`B-D007`). -/
+def directImage {S : Type u} {A B : SSet S} (f : SortedMap A B) (X : Sub A) : Sub B :=
+  fun s => f s '' X s
+
+/-- Inverse image formation `f⁻¹[Y]` (`B-D007`). -/
+def inverseImage {S : Type u} {A B : SSet S} (f : SortedMap A B) (Y : Sub B) : Sub A :=
+  fun s => f s ⁻¹' Y s
+
+/-! ### `B-D003`: products of sorted sets. -/
+
+/-- The product `∏_{i∈I} A^i` of an `I`-indexed family of sorted sets. -/
+def iProd {S : Type u} {ι : Type u} (A : ι → SSet S) : SSet S :=
+  fun s => ∀ i, A i s
+
+/-- The `i`-th canonical projection `pr^i` (`B-D003`). -/
+def iProj {S : Type u} {ι : Type u} (A : ι → SSet S) (i : ι) :
+    SortedMap (iProd A) (A i) :=
+  fun _ a => a i
+
+/-- The pairing `<f^i> : B → ∏_i A^i` (`B-D003`). -/
+def iPair {S : Type u} {ι : Type u} {B : SSet S} (A : ι → SSet S)
+    (f : ∀ i, SortedMap B (A i)) : SortedMap B (iProd A) :=
+  fun s b i => f i s b
+
 end Mslang
