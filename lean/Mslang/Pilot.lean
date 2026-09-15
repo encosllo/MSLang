@@ -596,4 +596,32 @@ def concat {S : Type u} (w v : Word S) : Word S := w ++ v
 /-- The empty word (`B-D001`). -/
 def emptyWord (S : Type u) : Word S := []
 
+/-! ### `B-D016`: `S`-sorted signatures. -/
+
+/-- `B-D016`: an `S`-sorted signature `Σ : S* × S → 𝒰`, with `Σ_{w,s}` the set of
+formal operations of arity `w` and coarity `s`. -/
+abbrev Signature (S : Type u) := List S × S → Type u
+
+/-! ### `B-D017`: `Σ`-algebras and `Σ`-homomorphisms. -/
+
+/-- The word product `A_w = ∏_{i<|w|} A_{w_i}` (`B-D017`). -/
+def wordProd {S : Type u} (A : SSet S) (w : List S) : Type u :=
+  (i : Fin w.length) → A (w.get i)
+
+/-- The finitary operations `Hom(A_w, A_s)` (`B-D017`). -/
+def finOp {S : Type u} (A : SSet S) (w : List S) (s : S) : Type u :=
+  wordProd A w → A s
+
+/-- A structure of `Σ`-algebra on `A`: `F_{w,s} : Σ_{w,s} → Hom(A_w, A_s)`
+(`B-D017`). -/
+def AlgStruct {S : Type u} (Sig : Signature S) (A : SSet S) :=
+  (p : List S × S) → Sig p → finOp A p.1 p.2
+
+/-- The `Σ`-homomorphism condition (`B-D017`): `f ∘ F_σ = G_σ ∘ f_w`, i.e.
+`f_s(F_σ(a)) = G_σ(f_w(a))`. -/
+def IsAlgHom {S : Type u} (Sig : Signature S) {A B : SSet S}
+    (FA : AlgStruct Sig A) (FB : AlgStruct Sig B) (f : SortedMap A B) : Prop :=
+  ∀ (p : List S × S) (σ : Sig p) (a : wordProd A p.1),
+    f p.2 (FA p σ a) = FB p σ (fun i => f (p.1.get i) (a i))
+
 end Mslang

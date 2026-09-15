@@ -44,6 +44,19 @@
       ],
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-D016": {
+      "decl": "Mslang.Signature",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D017": {
+      "decls": [
+        "Mslang.wordProd",
+        "Mslang.finOp",
+        "Mslang.AlgStruct",
+        "Mslang.IsAlgHom"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D007": {
       "decls": [
         "Mslang.directImage",

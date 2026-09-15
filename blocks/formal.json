@@ -219,6 +219,41 @@
         "hash": "64b8853b0b52408977ee92bba3fedc3abfc42c72b80683d41ece7a55dab4ae38"
       }
     },
+    "B-D016": {
+      "decls": [
+        "Mslang.Signature"
+      ],
+      "definition_closure": [],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "06b2f345c53a672c48eaef7d015706c971f3ae2303f12fc9bb70cdda6ace2dce"
+      },
+      "formal_statement": {
+        "hash": "cba32c8cc893f2d3184b74ec96c8a82b795929144c06739340b5e3cb0bcadf71"
+      }
+    },
+    "B-D017": {
+      "decls": [
+        "Mslang.wordProd",
+        "Mslang.finOp",
+        "Mslang.AlgStruct",
+        "Mslang.IsAlgHom"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015",
+        "B-D016"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "617871bb9d804cc902494801424a74fbd5fb1c2bfd4df8c17e0ad9a6850d49b9"
+      },
+      "formal_statement": {
+        "hash": "2ab99e423cea03872ceb62309a1ee2895b01c16ae3bc840ce5b7986a5071183a"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"
