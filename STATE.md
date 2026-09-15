@@ -1718,6 +1718,48 @@ pilot-encoding residuals.
 
 ---
 
+## Session 35 -- 2026-09-15 -- frontier extension: B-P005 (SatOperator)
+
+**Goal.** Continue the frontier: formalize `B-P005`, the saturation map as a
+completely additive (uniform, algebraic) closure operator.
+
+**What was established (closed).**
+
+- **`B-P005` formalized** as three predicates plus 13 operator lemmas
+  (`lean/Mslang/Pilot.lean`): `IsClosureOperator` (extensive/monotone/idempotent),
+  `IsCompletelyAdditive` (preserves arbitrary unions), `IsAlgebraic`
+  (componentwise-finite witness); `sat_extensive`, `sat_monotone`, `sat_idem`,
+  `sat_isClosureOperator`, `sat_iUnion`, `sat_isCompletelyAdditive`,
+  `sat_isAlgebraic`, `sat_iInter_subset`, `sat_univ`, `sat_compl`,
+  `suppSub_sat`, `sat_uniform`, `satSets_fix`. Axioms within the permitted set.
+  Mapped in `lean/declarations.json` (16 declarations); facets regenerated
+  (16 mapped blocks).
+- Evidence **`E-000053`** (verification, `build_ok`) and **`E-000054`**
+  (correspondence, **`formal_stronger`**; transcript
+  `blocks/audits/B-P005-correspondence.md`). The only divergence: the formal
+  meet-inclusion holds for every index type, dropping the contract's "nonempty
+  `I`" (the empty case is `[A]^Φ ⊆ A`). No review layer (no informal proof).
+- `reports/frontier.md`: unmapped blocks **114 -> 113**. Views and bundle
+  regenerated. Journal `EV-000040`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Same-model audit: the correspondence verdict is
+independent-context but shares `deepseek-v4.1-flash`, and inherits the
+pilot-encoding residuals. The `formal_stronger` verdict is a *positive* result
+(the formalization proves more), but it is a typed divergence, so it is recorded
+rather than silently folded into `equivalent`.
+
+**Prioritized next steps.**
+
+1. Frontier: `B-R005` (`supp_S(A) = supp_S(A/Φ)`, needs the quotient) and
+   `B-P006` (`CABA Saturades`, the ordered pair on `Φ-Sat(A)`); `B-P005` now
+   supplies the operator machinery.
+2. Batch the cosmetic docs (`explanations/*` PROPOSED headers, the
+   `pilot-encoding.md` prose cluster list) into one C0 edit with a
+   carried-forward evidence decision.
+3. Calibration corpus growth and a second model (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

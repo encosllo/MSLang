@@ -5,7 +5,7 @@ hash equals the artifact's current hash; otherwise it is stale. Stale
 evidence is not false: it remains a true statement about the recorded
 inputs, but it is no longer evidence about the current block.
 
-20 of 52 record(s) are stale:
+21 of 54 record(s) are stale:
 
 | record | block | layer | stale inputs |
 |---|---|---|---|
@@ -29,3 +29,4 @@ inputs, but it is no longer evidence about the current block.
 | E-000022 | `B-R006` | correspondence | B-R006/formal_statement: recorded 72af4697f692... now 4997c05a3812...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000023 | `B-R008` | correspondence | B-R008/formal_statement: recorded b58cd9848795... now 349c2d391ada...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000024 | `B-D015` | verification | B-D015/formal_proof: recorded fdc5f113ee0c... now 221317b2a6f5... |
+| E-000053 | `B-P005` | verification | B-P005/formal_proof: recorded 841bacddba81... now 56a4d8c765d4... |
