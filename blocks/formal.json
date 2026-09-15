@@ -232,6 +232,25 @@
         "hash": "8a722d7da63022bba4d8d77b222a1c39d3ffe89ef944b6b1fdef59f3155528ed"
       }
     },
+    "B-R005": {
+      "decls": [
+        "Mslang.quot",
+        "Mslang.supp_quot"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D009",
+        "B-D014"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "d690f29a5f86cfc5f3f6ace4a6aa4c331baaa7117e9ba139ffd3070aeeb32d88"
+      },
+      "formal_statement": {
+        "hash": "0b66340f658bf41794c2bc0d6d36d295a2685d9c83ddab780a3af1f866a6d61e"
+      }
+    },
     "B-R006": {
       "decls": [
         "Mslang.sat_eq_preimage",

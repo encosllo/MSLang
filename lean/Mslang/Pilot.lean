@@ -252,6 +252,21 @@ def pr {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) :
     A s → Quotient (Φ s) :=
   fun x => Quotient.mk (Φ s) x
 
+/-- The quotient `A/Φ` as an `S`-sorted set. -/
+def quot {S : Type u} {A : SSet S} (Φ : SortedEqv A) : SSet S :=
+  fun s => Quotient (Φ s)
+
+/-- Remark `B-R005`: `supp_S(A) = supp_S(A/Φ)`. -/
+theorem supp_quot {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    supp (quot Φ) = supp A := by
+  ext s
+  constructor
+  · rintro ⟨q⟩
+    obtain ⟨x, _⟩ := Quotient.exists_rep q
+    exact ⟨x⟩
+  · rintro ⟨x⟩
+    exact ⟨Quotient.mk (Φ s) x⟩
+
 /-- Bridge `sat_eq_preimage` (`B-R006`). -/
 theorem sat_eq_preimage {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) :
     sat Φ X = fun s => (pr Φ s) ⁻¹' ((pr Φ s) '' X s) := by

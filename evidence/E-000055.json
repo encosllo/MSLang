@@ -1,0 +1,28 @@
+{
+  "block": "B-R005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000055",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-R005 (Mslang.quot, Mslang.supp_quot) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.supp_quot depends on propext and Quot.sound (within the permitted set)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 36).",
+  "inputs": [
+    {
+      "artifact": "B-R005/formal_proof",
+      "hash": "d690f29a5f86cfc5f3f6ace4a6aa4c331baaa7117e9ba139ffd3070aeeb32d88"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T15:38:50Z"
+}

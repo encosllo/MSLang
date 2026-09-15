@@ -91,6 +91,13 @@
       ],
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-R005": {
+      "decls": [
+        "Mslang.quot",
+        "Mslang.supp_quot"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-R008": {
       "decls": [
         "Mslang.nabla_sat_empty",

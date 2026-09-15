@@ -38,3 +38,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.sat_isAlgebraic
 #print axioms Mslang.sat_compl
 #print axioms Mslang.satSets_fix
+#print axioms Mslang.supp_quot
