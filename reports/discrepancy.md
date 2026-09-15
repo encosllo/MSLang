@@ -5,7 +5,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-R005`, `B-R006`, `B-R007`, `B-R008`
+Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -49,6 +49,9 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-P005` | `B-R007` |
 | `B-P007` | `B-D002` |
 | `B-P007` | `B-R005` |
+| `B-R003` | `B-D002` |
+| `B-R003` | `B-D008` |
+| `B-R003` | `B-D009` |
 | `B-R005` | `B-D002` |
 | `B-R005` | `B-D009` |
 | `B-R006` | `B-D002` |

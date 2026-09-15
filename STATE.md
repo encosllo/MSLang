@@ -1962,6 +1962,40 @@ bundled category (registering a category would be a representation decision).
 
 ---
 
+## Session 42 -- 2026-09-15 -- frontier extension: B-R003
+
+**Goal.** Formalize `B-R003`, the finiteness characterization (first proposition
+on the finite layer after `B-D008`).
+
+**What was established (closed).**
+
+- **`B-R003` formalized** as `Mslang.finiteSSet_iff`:
+  `FiniteSSet A ↔ (supp A).Finite ∧ ∀ s, s ∈ supp A → Finite (A s)`. Proved from
+  `B-D008` by a disjoint-union argument: forward uses `Finite.of_injective` on
+  the fibers and on the support (`Classical.choice` of the nonemptiness
+  witness); backward surjects the finite type `Σ s : ↥(supp A), A s` onto
+  `Sigma A`. Mapped in `lean/declarations.json`; facets regenerated (27 mapped
+  blocks). Axioms: `propext`, `Classical.choice`, `Quot.sound`.
+- Evidence **`E-000067`** (verification, `build_ok`) and **`E-000068`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R003-correspondence.md`). No review layer (no informal proof).
+- `reports/frontier.md`: unmapped blocks **103 -> 102**. Views and bundle
+  regenerated. Journal `EV-000047`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+`↥(supp A)` subtype appears only inside the proof, not in the statement.
+
+**Prioritized next steps.**
+
+1. `B-R009` (supports of `Alg(Σ)` form a closure system on `S`): needs an
+   `IsClosureSystem` predicate and closure of supports under nonempty
+   intersection (product of `Σ`-algebras); a genuine but reachable target.
+2. `B-P001` (`propssupport`): needs coproduct/union/difference encodings.
+3. `B-P006` (`CABA`); the `B-D010`-`B-D013` closure-system vocabulary (entangled
+   with `B-P005`'s predicates); batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
