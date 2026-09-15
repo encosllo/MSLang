@@ -1930,6 +1930,38 @@ object (that would need a `structure`, which the facet extractor does not map).
 
 ---
 
+## Session 41 -- 2026-09-15 -- frontier extension: B-D018, B-D019
+
+**Goal.** Finish the `Σ`-algebra layer's support/finiteness definitions.
+
+**What was established (closed).**
+
+- **`B-D018` formalized**: `Mslang.Alg Sig := Σ A : SSet S, AlgStruct Sig A` (a
+  `Σ`-algebra as carrier + structure) and `Mslang.suppAlg` (the support of a
+  `Σ`-algebra is the support of its underlying `S`-sorted set).
+- **`B-D019` formalized**: `Mslang.FiniteAlg` (a `Σ`-algebra is finite when its
+  carrier is finite, `B-D008`).
+- Mapped in `lean/declarations.json`; facets regenerated (26 mapped blocks).
+- Evidence **`E-000065`** (B-D018) and **`E-000066`** (B-D019), verification
+  `build_ok`. Definitions carry the verification layer only.
+- `reports/frontier.md`: unmapped blocks **105 -> 103**. Views and bundle
+  regenerated. Journal `EV-000046`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Definitions only. The `Σ`-algebra carrier is the raw
+`SSet`/`AlgStruct` pair; `Σ`-homomorphisms are the predicate `IsAlgHom`, not a
+bundled category (registering a category would be a representation decision).
+
+**Prioritized next steps.**
+
+1. `B-R009` (the supports of `Alg(Σ)` form a closure system on `S`) — a real
+   proposition reachable now from `B-D016`-`B-D018`; needs an `IsClosureSystem`
+   predicate on `Sub(S)`.
+2. `B-R003` (finite iff finite support with finite components); `B-P001`
+   (`propssupport`); `B-P006` (`CABA`, likely scope reduction).
+3. Batch the cosmetic docs into one C0 edit; calibration growth (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
