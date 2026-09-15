@@ -1,0 +1,28 @@
+{
+  "block": "B-P005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000053",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-P005 (IsClosureOperator, IsCompletelyAdditive, sat_extensive/monotone/idem/isClosureOperator, sat_iUnion/isCompletelyAdditive, sat_iInter_subset, sat_univ, sat_compl, suppSub_sat, sat_uniform, satSets_fix) compiled against Mathlib v4.33.1.",
+    "#print axioms: sat_isClosureOperator, sat_isCompletelyAdditive, sat_compl depend on propext and Quot.sound; satSets_fix depends on no axioms -- all within the permitted set."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 35).",
+  "inputs": [
+    {
+      "artifact": "B-P005/formal_proof",
+      "hash": "841bacddba8162c5daa3b5b5f89568aa70c6eec3fdd1f9fbd43ea659886ed804"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T14:47:55Z"
+}

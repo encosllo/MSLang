@@ -43,6 +43,27 @@
       "decl": "Mslang.sat_inf_subset",
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-P005": {
+      "decls": [
+        "Mslang.IsClosureOperator",
+        "Mslang.IsCompletelyAdditive",
+        "Mslang.IsAlgebraic",
+        "Mslang.sat_extensive",
+        "Mslang.sat_monotone",
+        "Mslang.sat_idem",
+        "Mslang.sat_isClosureOperator",
+        "Mslang.sat_iUnion",
+        "Mslang.sat_isCompletelyAdditive",
+        "Mslang.sat_isAlgebraic",
+        "Mslang.sat_iInter_subset",
+        "Mslang.sat_univ",
+        "Mslang.sat_compl",
+        "Mslang.suppSub_sat",
+        "Mslang.sat_uniform",
+        "Mslang.satSets_fix"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D009": {
       "decl": "Mslang.supp",
       "file": "lean/Mslang/Pilot.lean"

@@ -198,6 +198,40 @@
         "hash": "124b9c04cf128635b8c7f652275877a4c30c9328fbf3a33927d18d742f438471"
       }
     },
+    "B-P005": {
+      "decls": [
+        "Mslang.IsClosureOperator",
+        "Mslang.IsCompletelyAdditive",
+        "Mslang.IsAlgebraic",
+        "Mslang.sat_extensive",
+        "Mslang.sat_monotone",
+        "Mslang.sat_idem",
+        "Mslang.sat_isClosureOperator",
+        "Mslang.sat_iUnion",
+        "Mslang.sat_isCompletelyAdditive",
+        "Mslang.sat_isAlgebraic",
+        "Mslang.sat_iInter_subset",
+        "Mslang.sat_univ",
+        "Mslang.sat_compl",
+        "Mslang.suppSub_sat",
+        "Mslang.sat_uniform",
+        "Mslang.satSets_fix"
+      ],
+      "definition_closure": [
+        "B-C001",
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-R007"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "56a4d8c765d44d2c0951bb04b8c0355323f05cfe38cf672059cf26948b6ebc0d"
+      },
+      "formal_statement": {
+        "hash": "8a722d7da63022bba4d8d77b222a1c39d3ffe89ef944b6b1fdef59f3155528ed"
+      }
+    },
     "B-R006": {
       "decls": [
         "Mslang.sat_eq_preimage",

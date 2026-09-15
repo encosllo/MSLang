@@ -362,4 +362,140 @@ theorem nabla_sat_deltaUnion {S : Type u} {A : SSet S} (T : Set S) :
   · simp [deltaUnion, hT]
   · simp [deltaUnion, suppSub, hT] at hs
 
+/-! ### `B-P005` (`SatOperator`): `[·]^Φ` is a completely additive closure
+operator. -/
+
+/-- A closure operator on `Sub(A)`: extensive, monotone, and idempotent. -/
+def IsClosureOperator {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
+  (∀ X, Subset X (c X)) ∧
+    (∀ X Y, Subset X Y → Subset (c X) (c Y)) ∧
+    (∀ X, c (c X) = c X)
+
+/-- Completely additive: preservation of arbitrary unions. -/
+def IsCompletelyAdditive {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
+  ∀ {ι : Type u} (X : ι → Sub A),
+    c (fun s => ⋃ i, X i s) = fun s => ⋃ i, c (X i) s
+
+/-- Algebraic (finitary): every element of `c X` already lies in `c F` for some
+componentwise-finite `F ⊆ X`. -/
+def IsAlgebraic {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
+  ∀ (X : Sub A) (s : S) (a : A s), a ∈ c X s →
+    ∃ F : Sub A, Subset F X ∧ (∀ t, (F t).Finite) ∧ a ∈ c F s
+
+theorem sat_extensive {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) :
+    Subset X (sat Φ X) :=
+  fun s x hx => ⟨x, hx, (Φ s).refl x⟩
+
+theorem sat_monotone {S : Type u} {A : SSet S} (Φ : SortedEqv A) {X Y : Sub A}
+    (h : Subset X Y) : Subset (sat Φ X) (sat Φ Y) := by
+  intro s a ha
+  rcases ha with ⟨x, hx, hxa⟩
+  exact ⟨x, h s hx, hxa⟩
+
+theorem sat_idem {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) :
+    sat Φ (sat Φ X) = sat Φ X := by
+  funext s
+  ext a
+  constructor
+  · rintro ⟨y, ⟨x, hx, hxy⟩, hya⟩
+    exact ⟨x, hx, (Φ s).trans hxy hya⟩
+  · intro ha
+    exact ⟨a, ha, (Φ s).refl a⟩
+
+theorem sat_isClosureOperator {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    IsClosureOperator (sat Φ) :=
+  ⟨sat_extensive Φ, (fun _ _ h => sat_monotone Φ h), sat_idem Φ⟩
+
+theorem sat_iUnion {S : Type u} {A : SSet S} (Φ : SortedEqv A) {ι : Type u}
+    (X : ι → Sub A) :
+    sat Φ (fun s => ⋃ i, X i s) = fun s => ⋃ i, sat Φ (X i) s := by
+  funext s
+  ext a
+  simp only [sat, Set.mem_ofPred_eq, Set.mem_iUnion]
+  constructor
+  · rintro ⟨x, ⟨i, hxi⟩, hxa⟩
+    exact ⟨i, x, hxi, hxa⟩
+  · rintro ⟨i, x, hxi, hxa⟩
+    exact ⟨x, ⟨i, hxi⟩, hxa⟩
+
+theorem sat_isCompletelyAdditive {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    IsCompletelyAdditive (sat Φ) :=
+  fun X => sat_iUnion Φ X
+
+theorem sat_isAlgebraic {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    IsAlgebraic (sat Φ) := by
+  classical
+  intro X s a ha
+  rcases ha with ⟨x, hx, hxa⟩
+  let F : Sub A := Function.update (fun t => (∅ : Set (A t))) s {x}
+  have hFs : F s = ({x} : Set (A s)) := by simp [F]
+  have hFt : ∀ t, t ≠ s → F t = (∅ : Set (A t)) := by
+    intro t ht
+    simp [F, Function.update_of_ne ht]
+  refine ⟨F, ?_, ?_, ?_⟩
+  · intro t y hy
+    by_cases ht : t = s
+    · subst t
+      rw [hFs] at hy
+      rw [Set.mem_singleton_iff] at hy
+      subst hy
+      exact hx
+    · rw [hFt t ht] at hy
+      simp at hy
+  · intro t
+    by_cases ht : t = s
+    · subst t
+      rw [hFs]
+      exact Set.finite_singleton x
+    · rw [hFt t ht]
+      exact Set.finite_empty
+  · exact ⟨x, by rw [hFs]; exact Set.mem_singleton x, hxa⟩
+
+theorem sat_iInter_subset {S : Type u} {A : SSet S} (Φ : SortedEqv A) {ι : Type u}
+    (X : ι → Sub A) :
+    Subset (sat Φ (fun s => ⋂ i, X i s)) (fun s => ⋂ i, sat Φ (X i) s) := by
+  intro s a ha
+  rcases ha with ⟨x, hx, hxa⟩
+  simp only [Set.mem_iInter] at hx ⊢
+  exact fun i => ⟨x, hx i, hxa⟩
+
+theorem sat_univ {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    sat Φ (fun _ => (Set.univ : Set (A _))) = fun _ => Set.univ := by
+  funext s
+  ext a
+  simp only [sat, Set.mem_ofPred_eq, Set.mem_univ, true_and]
+  exact ⟨fun _ => trivial, fun _ => ⟨a, (Φ s).refl a⟩⟩
+
+theorem sat_compl {S : Type u} {A : SSet S} (Φ : SortedEqv A) {X : Sub A}
+    (hX : IsSat Φ X) : IsSat Φ (complA X) := by
+  unfold IsSat at *
+  funext s
+  ext a
+  constructor
+  · rintro ⟨x, hx, hxa⟩
+    simp only [complA, Set.mem_compl_iff] at hx ⊢
+    intro haX
+    exact hx (by rw [← hX]; exact ⟨a, haX, (Φ s).symm hxa⟩)
+  · intro ha
+    simp only [complA, Set.mem_compl_iff] at ha ⊢
+    exact ⟨a, ha, (Φ s).refl a⟩
+
+theorem suppSub_sat {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) :
+    suppSub (sat Φ X) = suppSub X := by
+  ext s
+  constructor
+  · rintro ⟨a, x, hx, _⟩
+    exact ⟨x, hx⟩
+  · rintro ⟨x, hx⟩
+    exact ⟨x, x, hx, (Φ s).refl x⟩
+
+theorem sat_uniform {S : Type u} {A : SSet S} (Φ : SortedEqv A) {X Y : Sub A}
+    (h : suppSub X = suppSub Y) : suppSub (sat Φ X) = suppSub (sat Φ Y) := by
+  rw [suppSub_sat Φ X, suppSub_sat Φ Y, h]
+
+/-- `B-P005` (`Fix` clause): the `Φ`-saturated subsets are exactly the fixed
+points of `[·]^Φ`. -/
+theorem satSets_fix {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    satSets Φ = {X : Sub A | sat Φ X = X} := rfl
+
 end Mslang

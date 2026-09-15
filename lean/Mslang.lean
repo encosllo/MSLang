@@ -33,3 +33,8 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.sanity_converse_counterexample
 #print axioms Mslang.eqvClass_eq_iff
 #print axioms Mslang.ker_iff
+#print axioms Mslang.sat_isClosureOperator
+#print axioms Mslang.sat_isCompletelyAdditive
+#print axioms Mslang.sat_isAlgebraic
+#print axioms Mslang.sat_compl
+#print axioms Mslang.satSets_fix
