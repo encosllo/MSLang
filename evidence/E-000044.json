@@ -1,0 +1,45 @@
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000044",
+  "findings": [
+    "Stage 1 read-back: Phi refines Psi iff for every X, sat Phi (sat Psi X) = sat Psi X; both directions reconstructed (forward uses Psi-closure; reverse instantiates at a singleton family).",
+    "Stage 2 comparator returned equivalent; both directions and quantifier domain match the contract.",
+    "Transcript: blocks/audits/B-P002-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000006/E-000019)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/formal_statement",
+      "hash": "3ed3c3bf232e3ffdca5981e1914a9e1000b39c3570e85547de103c1126141829"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}

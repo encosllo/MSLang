@@ -8,46 +8,58 @@ project history). Stage 2 saw only the stage 1 read-back and the contract.
 - **Lean declaration:** `Mslang.prop_incSat` (`lean/Mslang/Pilot.lean`)
 - **Contract:** Proposition `B-P002`, `\label{PropIncSat}`
 - **Outcome:** `equivalent`
-- **Recorded as:** `E-000006`
+- **Recorded as:** `E-000044`
+- **Encoding:** dependent-type carrier model (`representation/pilot-encoding.md`);
+  re-run after the Session 29 representation change.
 - **Independence:** both stages share this session's underlying model
   (`deepseek-v4.1-flash`); shared blind spots are not excluded.
 
 ## Stage 1 -- read-back (fresh agent, Lean only)
 
-> Fix a type `S` of sorts and a fixed ambient type `U`. A sorted set `A` is a
-> family `(A_s)_{s∈S}` with `A_s ⊆ U`; a sorted equivalence `Φ` assigns to each
-> sort `s` an equivalence relation `(Φ_s).r` on `A_s`. `sortedEqvLe Φ Ψ` means
-> `∀ s x y, (Φ_s).r x y → (Ψ_s).r x y` (`Φ` finer than `Ψ`). `sat Φ X` has
-> `s`-th component `{ a : ∃ x ∈ X_s, (Φ_s).r x a }`.
+> The theorem concerns two `S`-sorted equivalence relations `Φ` and `Ψ` on an
+> `S`-sorted carrier `A`, and says that `Φ` refines `Ψ` -- pointwise, every pair
+> related by `Φ` is related by `Ψ` (`sortedEqvLe Φ Ψ`) -- if and only if, for
+> every componentwise subset `X` of `A`, closing `X` under `Ψ` and then closing
+> the result under `Φ` gives back exactly the `Ψ`-closure of `X`:
+> `sat Φ (sat Ψ X) = sat Ψ X`.
 >
-> The statement: `Φ` is finer than `Ψ` **iff** for every family `X` of subsets
-> `X_s ⊆ A_s`, the inner saturation by `Ψ` followed by the outer saturation by
-> `Φ` equals the `Ψ`-saturation alone, i.e. `sat Φ ∘ sat Ψ = sat Ψ`. The
-> refinement direction and the composition order are both unambiguous from the
-> text.
+> Objects: `S` the type of sorts; `A : S → Type u`; `Sub A` a per-sort subset;
+> `SortedEqv A` a per-sort setoid; `sat Φ X s = {a | ∃ x ∈ X s, (Φ s).r x a}`.
+> Forward direction: if `Φ` refines `Ψ`, then `sat Ψ X` is `Ψ`-closed and
+> `Φ ⊆ Ψ`, so `Φ`-closing adds nothing. Reverse direction: if
+> `sat Φ (sat Ψ X) = sat Ψ X` for all `X`, taking `X` a singleton `{x}` in a
+> component, `sat Ψ X` is the `Ψ`-class of `x` and its `Φ`-closure equalling
+> itself forces every `Φ`-successor of `x` to be `Ψ`-related to `x`. Degenerate
+> cases: empty `S` vacuous; an empty carrier component imposes no constraint; an
+> empty `X s` gives empty on both sides.
 
 ## Stage 2 -- comparison (fresh agent, read-back + contract only)
 
 > **Outcome: equivalent.**
 >
-> - Refinement direction: `sortedEqvLe Φ Ψ` is `Φ_s.r ⊆ Ψ_s.r`, matching the
->   contract's `Φ ⊆ Ψ`.
-> - Saturation order: `sat Φ (sat Ψ X)` is `Ψ` first (inner), `Φ` second
->   (outer), matching `[[X]^Ψ]^Φ`.
-> - Quantifier domain and sortwise equality match `∀ X ⊆ A`.
-> - Converse: taking `X_s = {x}`, any `Φ_s x y` lies in `sat Φ (sat Ψ X)_s`,
->   hence in `sat Ψ X_s`, so `Φ ⊆ Ψ`; uses reflexivity.
-> - Forward: `sat Φ (sat Ψ X) ⊆ sat Ψ X` by transitivity of `Ψ`, reverse
->   inclusion by reflexivity; non-vacuous.
-> - Degenerate cases (`X_s = ∅`, empty sorts) hold on both sides.
+> Both directions and the quantifier domain match the contract exactly. The
+> read-back's `sortedEqvLe Φ Ψ` is precisely the componentwise inclusion
+> `Φ ⊆ Ψ`, and its condition `sat Φ (sat Ψ X) = sat Ψ X` for every `X` is
+> precisely `[[X]^Ψ]^Φ = [X]^Ψ` (same order). The biconditional is stated in the
+> same direction, and the `sat` definition matches the componentwise union of
+> `Φ`-classes meeting `X`.
 >
-> The Lean statement is the standard closure-operator characterization of
-> relation inclusion for equivalence relations, coinciding with `PropIncSat`.
+> Direction check: forward (`Φ ⊆ Ψ` implies the condition) uses that `sat Ψ X`
+> is `Ψ`-closed; reverse instantiates at the componentwise singleton `X` (valid
+> in the contract's "for all `X`" domain). No stronger hypothesis is smuggled
+> in, and no case is dropped. Degenerate cases agree: empty `S` vacuous, empty
+> carrier component imposes no constraint, empty `X s` yields `∅` on both sides.
+
+## Note on the manuscript route
+
+The manuscript's converse proof constructs its test family via
+`\delta^{s,[a]_{\Psi_s}}`; the Lean proof instead uses a plain singleton family
+(`Function.update (fun _ => ∅) s {x}`), which is simpler and does not need
+`delta`. Whether the paper's proof is simplified accordingly is the author
+decision `D-bp002-simplification`; it does not affect this correspondence
+verdict, which is about the statement, not the proof.
 
 ## Residual note
 
-The verdict is relative to the pilot encoding
-(`representation/pilot-encoding.md`, `faithful-with-caveat`, `E-000002`,
-residuals D1/D2/D4). The converse of `B-P002` is where the encoding's
-fixed-ambient model and the arbitrary sort set force `Classical.choice`
-(`DecidableEq S` for the singleton test family); the Lean proof uses it.
+Inherits the pilot encoding's residuals (see `E-000040`); a representation change
+(class C6) stales this verdict.

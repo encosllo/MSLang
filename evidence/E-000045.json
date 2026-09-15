@@ -1,0 +1,41 @@
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000045",
+  "findings": [
+    "Stage 1 read-back: X is nabla-saturated iff every sort in the support of X has X_s equal to the whole component A_s.",
+    "Stage 2 comparator returned equivalent; IsSat (nabla A) X unfolds to (X s nonempty -> X s = univ), matching the contract, with matching degenerate cases.",
+    "Transcript: blocks/audits/B-P003-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000008/E-000020)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P003/formal_statement",
+      "hash": "594985f84c8bcb8c64770ab511a15119da66f631be5a2f31730e8ba601758ff2"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-15T07:37:46Z"
+}

@@ -8,54 +8,54 @@ project history). Stage 2 saw only the stage 1 read-back and the contract.
 - **Lean declaration:** `Mslang.sat_antitone` (`lean/Mslang/Pilot.lean`)
 - **Contract:** Corollary `B-C001`, `\label{IncSat}`
 - **Outcome:** `equivalent`
-- **Recorded as:** `E-000004`
+- **Recorded as:** `E-000041`
+- **Encoding:** dependent-type carrier model, `representation/pilot-encoding.md`
+  (supersedes the pre-C6 audit; re-run after the Session 29 representation
+  change).
 - **Independence:** both stages share this session's underlying model
   (`deepseek-v4.1-flash`); shared blind spots are not excluded.
 
 ## Stage 1 -- read-back (fresh agent, Lean only)
 
-> The statement reads: let `S` and `U` be fixed types, `A : S → Set U` a fixed
-> sorted family of subsets of `U`; let `Φ` and `Ψ` be sorted equivalences on
-> `A` (each assigning to every sort `s` an equivalence relation on `A s`).
-> Hypothesis `h : sortedEqvLe Φ Ψ` means: for every sort `s` and all
-> `x, y ∈ A s`, `(Φ s).r x y` implies `(Ψ s).r x y`; i.e. at each sort
-> `Φ s ⊆ Ψ s` as relations.
+> Fix a type `S` of sorts and an `S`-sorted family of carriers `A : S → Type u`.
+> `Sub A` is the family of subsets (one per sort); `SortedEqv A` is the family
+> of equivalence relations (setoids), one on each `A s`. The theorem says: given
+> two such sorted equivalences `Φ` and `Ψ` with `Φ` pointwise refining `Ψ` --
+> every pair identified by `Φ` at every sort is also identified by `Ψ` (this is
+> `sortedEqvLe Φ Ψ`) -- any subset `X` that is saturated (closed) with respect
+> to `Ψ` is also saturated with respect to `Φ`. Saturation of `X` by `Φ` is the
+> componentwise set of all `a` that are `Φ`-equivalent to some `x` in `X`;
+> because `Φ` is an equivalence, this is the union of the `Φ`-classes that meet
+> `X`. `X` is saturated by `Φ` (`IsSat Φ X`) when this saturation equals `X`,
+> i.e. `X` is a union of full `Φ`-classes. So the theorem is the antitonicity of
+> "being saturated" in the equivalence relation: a coarser relation's saturated
+> sets are saturated for every finer relation.
 >
-> `sat Φ X` is defined sortwise by
-> `(sat Φ X) s = { a ∈ A s : ∃ x ∈ X s, (Φ s).r x a }`, the closure of `X s`
-> under `Φ s`. `IsSat Φ X` means `sat Φ X = X`; by reflexivity this is
-> equivalent to: any `a ∈ A s` equivalent under `Φ s` to a member of `X s` lies
-> in `X s`.
->
-> Conclusion: for every `A`, `Φ`, `Ψ` with `Φ` refining `Ψ`, and every family
-> `X` of subsets `X s ⊆ A s`, if `X` is `Ψ`-saturated then `X` is
-> `Φ`-saturated. All quantifiers universal; the only existential is the
-> witness `∃ x ∈ X s` inside `sat`. The name `sat_antitone` matches: since
-> `Φ s ⊆ Ψ s`, finer relations give smaller closures.
+> Quantified objects: an arbitrary sort type `S`; an arbitrary `S`-sorted
+> carrier `A`; two sorted equivalences `Φ, Ψ`; a subset `X`; and a proof that
+> `Φ` refines `Ψ`. No nonemptiness or inhabitedness assumptions. Direction: from
+> `sortedEqvLe Φ Ψ` and `IsSat Ψ X` to `IsSat Φ X`. Degenerate cases: empty `S`
+> makes everything vacuous; an empty carrier component has only the empty
+> subset; empty and full `X` are trivially saturated.
 
 ## Stage 2 -- comparison (fresh agent, read-back + contract only)
 
 > **Outcome: equivalent.**
 >
-> - Direction of refinement: `sortedEqvLe Φ Ψ` is `Φ_s ⊆ Ψ_s`, matching the
->   contract's `Φ ⊆ Ψ`; conclusion `IsSat Ψ X → IsSat Φ X` matches
->   `Ψ-Sat(A) ⊆ Φ-Sat(A)`.
-> - Saturation: `sat Φ X s = { a : ∃ x ∈ X_s, (Φ_s).r x a }` is exactly the
->   sortwise union `⋃_{x∈X_s} [x]_{Φ_s}`; `IsSat Φ X := sat Φ X = X` matches
->   `X = [X]^Φ` extensionally.
-> - Quantification and objects: both universally quantify over `A`, `Φ`, `Ψ`,
->   and `X`; no hidden quantifier or extra hypothesis.
-> - Degenerate cases: empty sorts, empty `X`, and empty `S` all make both
->   `IsSat`s vacuously true; no case breaks the equivalence.
-> - No vacuity or added/dropped strength.
->
-> Justification: the Lean statement is a pointwise, definitional restatement of
-> `Φ ⊆ Ψ ⟹ (X = [X]^Ψ ⟹ X = [X]^Φ)`, literally `Ψ-Sat(A) ⊆ Φ-Sat(A)`.
+> The read-back matches the contract exactly in direction and domain.
+> Contract: `Φ ⊆ Ψ ⇒ Ψ−Sat(A) ⊆ Φ−Sat(A)`, i.e. from `X = [X]^Ψ` infer
+> `X = [X]^Φ`. Read-back: `sortedEqvLe Φ Ψ` is pointwise `Φ ⊆ Ψ`, and the
+> conclusion is `IsSat Ψ X → IsSat Φ X`. Same implication direction, same
+> quantifier domain (arbitrary `S`, `A`, `Φ`, `Ψ`, `X`, with the refinement
+> hypothesis; no extra nonemptiness hypotheses). Saturation is the componentwise
+> union of classes meeting `X`, and `IsSat` is equality with that saturation,
+> matching `X = [X]^Φ`. Degenerate cases (empty `S` vacuous, empty carrier
+> component yielding only `∅`, empty/full `X` saturated) are consistent and
+> introduce no strengthening or weakening.
 
 ## Residual note
 
 The correspondence is `equivalent` **relative to the pilot encoding**
-(`representation/pilot-encoding.md`, audited `faithful-with-caveat` in
-`E-000002`, residuals D1/D2/D4). In particular the fixed-ambient carrier model
-(D2) and the `Setoid`-vs-relation choice (D4) are inherited by this verdict; a
-representation change (class C6) stales it.
+(`representation/pilot-encoding.md`, independently audited in `E-000040`,
+residuals `carrier-model`, `small-large`, `univalence-missing`). Those residuals
+are inherited by this verdict; a representation change (class C6) stales it.

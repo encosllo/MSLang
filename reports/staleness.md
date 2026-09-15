@@ -5,7 +5,7 @@ hash equals the artifact's current hash; otherwise it is stale. Stale
 evidence is not false: it remains a true statement about the recorded
 inputs, but it is no longer evidence about the current block.
 
-20 of 40 record(s) are stale:
+20 of 47 record(s) are stale:
 
 | record | block | layer | stale inputs |
 |---|---|---|---|
