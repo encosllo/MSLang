@@ -1865,6 +1865,37 @@ tracks.
 
 ---
 
+## Session 39 -- 2026-09-15 -- frontier extension: B-D001, B-D008
+
+**Goal.** Continue the frontier into the foundational Preliminaries definitions.
+
+**What was established (closed).**
+
+- **`B-D008` formalized**: finiteness of sorted sets — `Mslang.FiniteSSet`
+  (`Finite (Σ s, A s)`, the disjoint union `∐A`), `Mslang.FiniteSub`
+  (finite componentwise subsets) and `Mslang.finiteSubsets` (`Sub_f(B)`).
+- **`B-D001` formalized**: the free monoid `S*` on `S` — `Mslang.Word`
+  (`= List S`), `Mslang.concat` (`++`) and `Mslang.emptyWord` (`[]`).
+- Mapped in `lean/declarations.json`; facets regenerated (22 mapped blocks).
+- Evidence **`E-000061`** (B-D001) and **`E-000062`** (B-D008), verification
+  `build_ok`. Definitions carry the verification layer only.
+- `reports/frontier.md`: unmapped blocks **109 -> 107**. Views and bundle
+  regenerated. Journal `EV-000044`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Definitions only; the `formal_statement` closure
+over-approximates. `B-D008`'s finiteness encoding (`Sigma A` finite) deliberately
+follows the paper's `∐A` definition rather than a componentwise `Finite`.
+
+**Prioritized next steps.**
+
+1. `B-R003` (finite iff finite support with finite components) — now that
+   `B-D008` exists; needs a sigma-finiteness argument over `supp`.
+2. `B-P001` (`propssupport`): needs coproduct/union/difference encodings.
+3. `B-P006` (`CABA`) remains the hard target; likely scope reduction.
+4. Batch the cosmetic docs into one C0 edit; calibration growth (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
