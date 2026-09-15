@@ -1996,6 +1996,35 @@ on the finite layer after `B-D008`).
 
 ---
 
+## Session 43 -- 2026-09-15 -- staleness fix: re-issued B-P005 verification
+
+**Goal.** Act on a frontier flag: `B-P005/verification` had gone **stale**.
+
+**Root cause.** In Session 35 the verification `E-000053` was recorded, and then
+`IsAlgebraic`/`sat_isAlgebraic` were added to `B-P005` a few steps later (to cover
+the contract's "algebraic" clause). That changed the block's `formal_proof` hash,
+so the earlier record no longer matched. Session 35's own reports regenerated the
+frontier, but the stale row was not inspected at the time.
+
+**Fix.** Re-issued `B-P005/verification` as **`E-000069`** (supersedes
+`E-000053`, which remains as the historical record). `B-P005/verification` is
+pass again; `reports/frontier.md` "Layers not passing" is empty; bundle
+regenerated; `check_all`: **25 passed, 0 failed**. Journal `EV-000048`.
+
+**Lesson (recorded in the journal).** After adding any declaration to a block
+that already has verification evidence, re-issue that block's verification in
+the same session, before committing.
+
+**Prioritized next steps.**
+
+1. `B-R009` (supports of `Alg(Σ)` form a closure system on `S`): needs an
+   `IsClosureSystem` predicate and closure of supports under nonempty
+   intersection (product of `Σ`-algebras).
+2. `B-P001` (`propssupport`); `B-P006` (`CABA`); `B-D010`-`B-D013`; batch
+   cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

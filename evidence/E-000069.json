@@ -1,0 +1,28 @@
+{
+  "block": "B-P005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000069",
+  "findings": [
+    "Re-issued verification for the current B-P005 declaration set (16 declarations) under the dependent-type carrier model; compiled against Mathlib v4.33.1.",
+    "#print axioms stays within the permitted set (propext / Classical.choice / Quot.sound)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Supersedes E-000053, which was recorded before IsAlgebraic/sat_isAlgebraic were added to the block (the added declarations changed the block's formal_proof hash, staling it).",
+  "inputs": [
+    {
+      "artifact": "B-P005/formal_proof",
+      "hash": "56a4d8c765d44d2c0951bb04b8c0355323f05cfe38cf672059cf26948b6ebc0d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T19:07:52Z"
+}
