@@ -98,6 +98,15 @@
       ],
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-P007": {
+      "decls": [
+        "Mslang.quotLift",
+        "Mslang.ker_pr",
+        "Mslang.quotLift_comp",
+        "Mslang.quotLift_unique"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-R008": {
       "decls": [
         "Mslang.nabla_sat_empty",

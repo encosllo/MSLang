@@ -513,4 +513,37 @@ points of `[·]^Φ`. -/
 theorem satSets_fix {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
     satSets Φ = {X : Sub A | sat Φ X = X} := rfl
 
+/-! ### `B-P007`: kernel and universal property of the quotient. -/
+
+/-- The map `p^{Φ,Ker(f)} : A/Φ → B` induced by `f` when `Φ ⊆ Ker(f)`. -/
+def quotLift {S : Type u} {A B : SSet S} (Φ : SortedEqv A) (f : SortedMap A B)
+    (h : sortedEqvLe Φ (ker f)) : SortedMap (quot Φ) B :=
+  fun s => Quotient.lift (f s) (fun a b hab => h s a b hab)
+
+/-- `B-P007`(1): `Ker(pr^Φ) = Φ`. -/
+theorem ker_pr {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    ker (pr Φ) = Φ := by
+  funext s
+  exact Setoid.ext (fun x y => Quotient.eq)
+
+/-- `B-P007`(2): the induced map factors the projection: `f = p^{Φ,Ker(f)} ∘ pr^Φ`. -/
+theorem quotLift_comp {S : Type u} {A B : SSet S} (Φ : SortedEqv A)
+    (f : SortedMap A B) (h : sortedEqvLe Φ (ker f)) :
+    (fun s => (quotLift Φ f h s) ∘ (pr Φ s)) = f := by
+  funext s x
+  exact Quotient.lift_mk (f s) (fun a b hab => h s a b hab) x
+
+/-- `B-P007`(2): uniqueness of the induced map. -/
+theorem quotLift_unique {S : Type u} {A B : SSet S} (Φ : SortedEqv A)
+    (f : SortedMap A B) (h : sortedEqvLe Φ (ker f)) (p : SortedMap (quot Φ) B)
+    (hp : (fun s => p s ∘ pr Φ s) = f) : p = quotLift Φ f h := by
+  funext s q
+  induction q using Quotient.inductionOn with
+  | _ x =>
+    have hx : p s (Quotient.mk (Φ s) x) = f s x := by
+      have h' := congrFun (congrFun hp s) x
+      exact h'
+    rw [hx]
+    exact (Quotient.lift_mk (f s) (fun a b hab => h s a b hab) x).symm
+
 end Mslang

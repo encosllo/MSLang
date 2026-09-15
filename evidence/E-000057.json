@@ -1,0 +1,28 @@
+{
+  "block": "B-P007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000057",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-P007 (Mslang.quotLift, Mslang.ker_pr, Mslang.quotLift_comp, Mslang.quotLift_unique) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.ker_pr depends on propext and Quot.sound; quotLift_comp and quotLift_unique depend on Quot.sound -- within the permitted set."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 37).",
+  "inputs": [
+    {
+      "artifact": "B-P007/formal_proof",
+      "hash": "ef3b51062ea9b56e78b4d9775d482eb483ed26e6f9676ce175fef48618c1a8cb"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T16:14:49Z"
+}
