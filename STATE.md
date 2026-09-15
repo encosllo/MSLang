@@ -1826,6 +1826,45 @@ universal property of the quotient.
 
 ---
 
+## Session 38 -- 2026-09-15 -- frontier extension: B-D003, B-D007
+
+**Goal.** Continue the frontier into the foundational Preliminaries definitions
+that the pilot cluster had skipped.
+
+**What was established (closed).**
+
+- **`B-D003` formalized**: products of sorted sets — `Mslang.iProd`
+  (`∏_{i∈I} A^i := fun s => ∀ i, A i s`), `Mslang.iProj` (`pr^i`) and
+  `Mslang.iPair` (`<f^i>`).
+- **`B-D007` formalized**: image formation — `Mslang.directImage` (`f[X]`) and
+  `Mslang.inverseImage` (`f⁻¹[Y]`).
+- Mapped in `lean/declarations.json`; facets regenerated (20 mapped blocks).
+- Evidence **`E-000059`** (B-D003) and **`E-000060`** (B-D007), both verification
+  `build_ok`. Definitions carry the verification layer only, per the pilot
+  convention (as with `B-D002`, `B-D005`, `B-D006`, `B-D009`, `B-D014`,
+  `B-D015`); no correspondence audit, no review layer.
+- `reports/frontier.md`: unmapped blocks **111 -> 109**. Views and bundle
+  regenerated. Journal `EV-000043`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Definitions only; the source-level `formal_statement` closure
+over-approximates (whole-identifier occurrence), which the discrepancy report
+tracks.
+
+**Prioritized next steps.**
+
+1. `B-P001` (`propssupport`): the support-mapping properties. Now that `B-D003`
+   (products) and `B-D007` (images) exist, the main missing encoding is
+   coproducts/unions/differences of sorted sets; several clauses are
+   formalizable directly.
+2. `B-D008` (finite sorted set) and `B-R003` (finite iff finite support with
+   finite components).
+3. `B-D010`-`B-D013` (closure system / compact / algebraic / uniform) connect
+   to the `IsClosureOperator`/`IsAlgebraic` predicates already used in `B-P005`.
+4. `B-P006` (`CABA`) remains the hard target; likely scope reduction.
+5. Batch the cosmetic docs into one C0 edit; calibration growth (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
