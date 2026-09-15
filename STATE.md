@@ -1791,6 +1791,41 @@ rather than silently folded into `equivalent`.
 
 ---
 
+## Session 37 -- 2026-09-15 -- frontier extension: B-P007
+
+**Goal.** Continue the frontier: formalize `B-P007`, the kernel and the
+universal property of the quotient.
+
+**What was established (closed).**
+
+- **`B-P007` formalized** as `Mslang.quotLift` (the descent `A/Φ → B`),
+  `Mslang.ker_pr` (`Ker(pr^Φ) = Φ`), `Mslang.quotLift_comp`
+  (`f = p^{Φ,Ker(f)} ∘ pr^Φ`) and `Mslang.quotLift_unique` (uniqueness). The
+  `Ker(f) ∈ Eqv(A)` clause is satisfied by the type of `ker`. Mapped in
+  `lean/declarations.json`; facets regenerated (18 mapped blocks). Axioms:
+  `propext`/`Quot.sound`.
+- Evidence **`E-000057`** (verification, `build_ok`) and **`E-000058`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-P007-correspondence.md`). No review layer (no informal
+  proof).
+- `reports/frontier.md`: unmapped blocks **112 -> 111**. Views and bundle
+  regenerated. Journal `EV-000042`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals.
+
+**Prioritized next steps.**
+
+1. Frontier: `B-P006` (`CABA Saturades`, `Φ-Sat(A)` is a complete atomic
+   Boolean algebra) is a genuinely large target whose proof the manuscript
+   leaves "to the reader"; likely a reduced/statement-only scope decision. Also
+   open: the `Σ`-algebra layer (`B-D016` signatures, `B-D017` algebras,
+   `B-D018` support, `B-D019` finite) needs word/`S⋆` product encodings.
+2. Batch the cosmetic docs (`explanations/*`, `pilot-encoding.md` cluster list)
+   into one C0 edit with a carried-forward evidence decision.
+3. Calibration corpus growth and a second model (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
