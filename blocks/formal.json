@@ -397,6 +397,24 @@
         "hash": "032edc48586c73e1595f88af6be937923fbb4567fd9ec4a06dd3b16b284ae949"
       }
     },
+    "B-R003": {
+      "decls": [
+        "Mslang.finiteSSet_iff"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D008",
+        "B-D009"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "d78d1879d64603c3c82c93ef6def66e4c2429d4b91d4f5f0bdd3b295fd0a4473"
+      },
+      "formal_statement": {
+        "hash": "82ed401ee40026c36e37a0058441318ee353b81fbb9b850451f2a5ac39db208b"
+      }
+    },
     "B-R005": {
       "decls": [
         "Mslang.quot",

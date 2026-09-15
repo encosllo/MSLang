@@ -65,6 +65,10 @@
       "decl": "Mslang.FiniteAlg",
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-R003": {
+      "decl": "Mslang.finiteSSet_iff",
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D007": {
       "decls": [
         "Mslang.directImage",

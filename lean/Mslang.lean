@@ -42,3 +42,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.ker_pr
 #print axioms Mslang.quotLift_comp
 #print axioms Mslang.quotLift_unique
+#print axioms Mslang.finiteSSet_iff

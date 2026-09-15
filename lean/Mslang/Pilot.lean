@@ -638,4 +638,28 @@ finite (`B-D008`). -/
 def FiniteAlg {S : Type u} {Sig : Signature S} (X : Alg Sig) : Prop :=
   FiniteSSet X.1
 
+/-- Remark `B-R003`: an `S`-sorted set is finite if and only if its support is
+finite and every component over the support is finite. -/
+theorem finiteSSet_iff {S : Type u} (A : SSet S) :
+    FiniteSSet A ↔ (supp A).Finite ∧ ∀ s, s ∈ supp A → Finite (A s) := by
+  constructor
+  · intro h
+    haveI : Finite (Sigma A) := h
+    have hfib : ∀ s, Finite (A s) := fun s =>
+      Finite.of_injective (fun a : A s => (⟨s, a⟩ : Sigma A))
+        (fun a b hab => eq_of_heq (Sigma.mk.inj_iff.mp hab).2)
+    refine ⟨?_, fun s _ => hfib s⟩
+    rw [← Set.finite_coe_iff]
+    exact Finite.of_injective
+      (fun x : ↥(supp A) => (⟨x.1, Classical.choice x.2⟩ : Sigma A))
+      (fun x y hxy => Subtype.ext (Sigma.mk.inj_iff.mp hxy).1)
+  · rintro ⟨hsupp, hfib⟩
+    haveI : Fintype ↥(supp A) := hsupp.fintype
+    haveI : ∀ s : ↥(supp A), Fintype (A s.1) :=
+      fun s => @Fintype.ofFinite (A s.1) (hfib s.1 s.2)
+    haveI : Finite (Σ s : ↥(supp A), A s.1) := Finite.of_fintype _
+    exact Finite.of_surjective
+      (fun y : (Σ s : ↥(supp A), A s.1) => (⟨y.1.1, y.2⟩ : Sigma A))
+      (fun x => ⟨⟨⟨x.1, ⟨x.2⟩⟩, x.2⟩, rfl⟩)
+
 end Mslang
