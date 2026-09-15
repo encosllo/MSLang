@@ -1682,6 +1682,42 @@ for the same reason; `coverage.json` is the live list.
 
 ---
 
+## Session 34 -- 2026-09-15 -- frontier extension: B-R007
+
+**Goal.** Continue the frontier (Session 33 step 1): formalize `B-R007`, the
+order-theoretic restatement of `B-C001`.
+
+**What was established (closed).**
+
+- **`B-R007` formalized.** New `Mslang.satSets` (`Φ-Sat(A) := {X | IsSat Φ X}`)
+  and `Mslang.satSets_antitone`
+  (`sortedEqvLe Φ Ψ → satSets Ψ ⊆ satSets Φ`), the map `Φ ↦ Φ-Sat(A)` being
+  antitone. Mapped in `lean/declarations.json`; `blocks/formal.json` /
+  `formal_graph.json` regenerated (15 mapped blocks). Axioms: `propext`,
+  `Quot.sound` (permitted).
+- Evidence **`E-000051`** (verification, `build_ok`) and **`E-000052`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R007-correspondence.md`). No review layer: a remark has no
+  informal proof or explanation (as with `B-D004`).
+- `reports/frontier.md`: unmapped blocks **115 -> 114**. Views and bundle
+  regenerated. Journal `EV-000039`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Same-model audit as always: the correspondence verdict is
+independent-context but shares `deepseek-v4.1-flash`, and inherits the
+pilot-encoding residuals.
+
+**Prioritized next steps.**
+
+1. Frontier: `B-P005` (`SatOperator`, the saturation map as a completely
+   additive closure operator) is the substantial next target; `B-R005`
+   (`supp_S(A) = supp_S(A/Φ)`) needs the quotient.
+2. Batch the cosmetic docs (`explanations/*` PROPOSED headers, the
+   `pilot-encoding.md` prose cluster list) into one C0 edit with a
+   carried-forward evidence decision.
+3. Calibration corpus growth and a second model (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
