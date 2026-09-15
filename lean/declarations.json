@@ -57,6 +57,14 @@
       ],
       "file": "lean/Mslang/Pilot.lean"
     },
+    "B-D018": {
+      "decl": "Mslang.suppAlg",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D019": {
+      "decl": "Mslang.FiniteAlg",
+      "file": "lean/Mslang/Pilot.lean"
+    },
     "B-D007": {
       "decls": [
         "Mslang.directImage",

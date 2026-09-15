@@ -126,6 +126,26 @@
       "to": "B-D016"
     },
     {
+      "from": "B-D018",
+      "kind": "formal_uses",
+      "to": "B-D009"
+    },
+    {
+      "from": "B-D018",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-D019",
+      "kind": "formal_uses",
+      "to": "B-D008"
+    },
+    {
+      "from": "B-D019",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
       "from": "B-P002",
       "kind": "formal_uses",
       "to": "B-D002"

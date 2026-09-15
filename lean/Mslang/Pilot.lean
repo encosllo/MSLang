@@ -624,4 +624,18 @@ def IsAlgHom {S : Type u} (Sig : Signature S) {A B : SSet S}
   ∀ (p : List S × S) (σ : Sig p) (a : wordProd A p.1),
     f p.2 (FA p σ a) = FB p σ (fun i => f (p.1.get i) (a i))
 
+/-! ### `B-D018`/`B-D019`: support and finiteness of `Σ`-algebras. -/
+
+/-- A `Σ`-algebra is a pair `(A, F)`: underlying sorted set plus structure. -/
+abbrev Alg {S : Type u} (Sig : Signature S) := Σ A : SSet S, AlgStruct Sig A
+
+/-- `B-D018`: the support of a `Σ`-algebra is the support of its underlying
+`S`-sorted set. -/
+def suppAlg {S : Type u} {Sig : Signature S} (X : Alg Sig) : Set S := supp X.1
+
+/-- `B-D019`: a `Σ`-algebra is finite when its underlying sorted set is
+finite (`B-D008`). -/
+def FiniteAlg {S : Type u} {Sig : Signature S} (X : Alg Sig) : Prop :=
+  FiniteSSet X.1
+
 end Mslang

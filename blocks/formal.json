@@ -254,6 +254,41 @@
         "hash": "2ab99e423cea03872ceb62309a1ee2895b01c16ae3bc840ce5b7986a5071183a"
       }
     },
+    "B-D018": {
+      "decls": [
+        "Mslang.suppAlg"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D009",
+        "B-D016"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "6841f957cd14ea5562677ec2d12ee76125c19b277124eaa545ef791a8f6902d5"
+      },
+      "formal_statement": {
+        "hash": "65fb28eecd26f63728dc685d96707c6dd3e957d180861e209676629314fa6b41"
+      }
+    },
+    "B-D019": {
+      "decls": [
+        "Mslang.FiniteAlg"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D008",
+        "B-D016"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "2705ccf17d4895c095df8e2c0ffdaf9fbcf88fda96efa68d2d6c86e958399dbf"
+      },
+      "formal_statement": {
+        "hash": "2174faa65ff7cd9a2aa20d76a4bac129d564107864fb863dc60e26fc79b681d4"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"
