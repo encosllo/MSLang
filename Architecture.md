@@ -1357,6 +1357,24 @@ decisions has downstream cost (new invalidation surface, new scope to
 maintain) that only the author can weigh against the actual goal of the
 work.
 
+**How to present a reserved decision (the decision brief).** When reserved
+decisions are due, the coordinator does not dump the raw queue. It presents
+them one at a time, each as a short brief:
+
+1. a *keynote* paragraph: what the situation is, in plain language, why it is
+   reserved, and what turns on it;
+2. the concrete artifact to audit -- the actual statement text, table, or
+   numbers, not a bare path;
+3. the consequences of each option: blast radius, what evidence goes stale, and
+   downstream work;
+4. a short numbered set of options, with a recommendation where one is clear.
+
+The author answers item by item; each decision is recorded immediately
+(journal + queue) and the next is presented. Decisions the code can make on its
+own -- the mechanical ones above -- are never presented this way. This format
+was adopted by the author in Session 33 and applies to every future session and
+project.
+
 ### 16.5 Manuscript-Editing Sessions Specifically
 
 When the working session's deliverable is the manuscript prose itself

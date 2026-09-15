@@ -1649,7 +1649,11 @@ it, then implement the accepted changes.
 mechanical decisions (format, layout, toolchain, calibration-model
 availability, reconciling declared vs. actual pilot membership) are coordinator
 decisions, reported but not escalated; only contracts, manuscript prose, the
-representation, scope changes, freezes, and escalations are author-reserved.
+representation, scope changes, freezes, and escalations are author-reserved. It
+also fixes the **decision-brief format** this session used (author request):
+reserved decisions are presented one at a time, each with a plain-language
+keynote, the concrete artifact to audit, the consequences, and numbered
+options. The safe-restart checklist gained item 11 to match.
 
 **What was established (closed).**
 
@@ -1717,3 +1721,7 @@ for the same reason; `coverage.json` is the live list.
    rejection paths (old numeric IDs, unknown keys, missing required keys).
 10. Do not edit or delete existing files under `evidence/` (the pre-commit
     hook enforces this); supersede with a new record instead.
+11. Present reserved author decisions as **decision briefs**, one at a time
+    (Architecture.md Section 16.4): a plain-language keynote, the concrete
+    artifact to audit, the consequences, and numbered options. Mechanical
+    decisions are the coordinator's to take and report, never to escalate.
