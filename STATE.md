@@ -1760,6 +1760,37 @@ rather than silently folded into `equivalent`.
 
 ---
 
+## Session 36 -- 2026-09-15 -- frontier extension: B-R005
+
+**Goal.** Continue the frontier: formalize `B-R005`, the support of the quotient.
+
+**What was established (closed).**
+
+- **`B-R005` formalized** as `Mslang.quot` (`A/Φ := fun s => Quotient (Φ s)`, an
+  `SSet`) and `Mslang.supp_quot` (`supp (quot Φ) = supp A`). Mapped in
+  `lean/declarations.json`; facets regenerated (17 mapped blocks). Axioms:
+  `propext`, `Quot.sound`.
+- Evidence **`E-000055`** (verification, `build_ok`) and **`E-000056`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R005-correspondence.md`). The contract cites `propssupport`,
+  but the Lean proof derives the equality directly from the quotient
+  construction. No review layer (no informal proof).
+- `reports/frontier.md`: unmapped blocks **113 -> 112**. Views and bundle
+  regenerated. Journal `EV-000041`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals.
+
+**Prioritized next steps.**
+
+1. Frontier: `B-P006` (`CABA Saturades`): `Φ-Sat(A)` under `⊆` is a complete
+   atomic Boolean algebra (atoms = the Kronecker deltas `δ^{t,[x]_{Φ_t}}`). This
+   is a substantially larger target; may need a reduced scope.
+2. Batch the cosmetic docs (`explanations/*`, `pilot-encoding.md` cluster list)
+   into one C0 edit with a carried-forward evidence decision.
+3. Calibration corpus growth and a second model (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
