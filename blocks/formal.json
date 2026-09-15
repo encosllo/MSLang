@@ -181,6 +181,23 @@
         "hash": "594985f84c8bcb8c64770ab511a15119da66f631be5a2f31730e8ba601758ff2"
       }
     },
+    "B-P004": {
+      "decls": [
+        "Mslang.sat_inf_subset"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "dfd869529bdedc80db937999682e3b586f8067e91d3fd68ad4b83e9dc585871c"
+      },
+      "formal_statement": {
+        "hash": "124b9c04cf128635b8c7f652275877a4c30c9328fbf3a33927d18d742f438471"
+      }
+    },
     "B-R006": {
       "decls": [
         "Mslang.sat_eq_preimage",

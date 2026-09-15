@@ -1,0 +1,28 @@
+{
+  "block": "B-P004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000048",
+  "findings": [
+    "lake build under the dependent-type carrier model (SSet := S -> Type u): block B-P004 (Mslang.sat_inf_subset) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.sat_inf_subset reports no axioms."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. New block entering the formalization frontier (Session 32).",
+  "inputs": [
+    {
+      "artifact": "B-P004/formal_proof",
+      "hash": "dfd869529bdedc80db937999682e3b586f8067e91d3fd68ad4b83e9dc585871c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-15T13:27:29Z"
+}

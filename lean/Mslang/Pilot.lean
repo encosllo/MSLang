@@ -153,6 +153,14 @@ theorem sortedEqvInf_le_left {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
 theorem sortedEqvInf_le_right {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
     sortedEqvLe (sortedEqvInf Φ Ψ) Ψ := fun _ _ _ h => h.2
 
+/-- Proposition `B-P004`: saturation by a meet is contained in the meet of the
+saturations. -/
+theorem sat_inf_subset {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) (X : Sub A) :
+    Subset (sat (sortedEqvInf Φ Ψ) X) (fun s => sat Φ X s ∩ sat Ψ X s) := by
+  intro s b hb
+  rcases hb with ⟨a, ha, hab⟩
+  exact ⟨⟨a, ha, hab.1⟩, ⟨a, ha, hab.2⟩⟩
+
 /-- Corollary `B-C002`. -/
 theorem sat_inf {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A} {X : Sub A}
     (hΦ : IsSat Φ X) (_hΨ : IsSat Ψ X) :
