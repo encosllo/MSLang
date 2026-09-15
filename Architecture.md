@@ -265,29 +265,35 @@ encoding it is stated against has itself been audited (Section 11.5).
 
 ### 7.2 Evidence Records
 
-Every piece of evidence is stored as a record of the form:
+Every piece of evidence is stored as a record of the form. Records are **JSON**
+(one file per record, `evidence/E-XXXXXX.json`); the format is fixed to JSON so
+that schema validation needs no third-party parser and can never be skipped:
 
-```yaml
-evidence_id: E-000731
-layer: correspondence            # review | correspondence | verification
-block: B-0142
-inputs:                          # exact artifacts examined, by content hash
-  - {artifact: B-0142/formal_statement, hash: 9c1e...}
-  - {artifact: B-0142/informal_statement, hash: 44ab...}
-  - {artifact: D-0007/formal_statement, hash: e02f...}   # definition closure
-environment: {lean: "<pinned>", mathlib: "<pinned rev>"}
-git_commit: 4f21a9c              # optional: exact commit the check ran against
-producer: {kind: agent, role: comparator, model: "<id>", prompt_rev: "<hash>"}
-outcome: formal_stronger         # see 7.4
-strength: R2                     # see 7.3 (review layer only)
-independence_caveat: >
-  Two-stage blind protocol (Section 11.2): a fresh subagent read back the
-  Lean without seeing the manuscript, a second fresh subagent compared that
-  reading to the contract. Both subagents still share this session's
-  underlying model, so shared blind spots are not ruled out.
-findings: ["Lean version drops finiteness hypothesis; still implies contract"]
-timestamp: 2026-09-11T10:42:00Z
+```json
+{
+  "evidence_id": "E-000731",
+  "layer": "correspondence",
+  "block": "B-0142",
+  "inputs": [
+    {"artifact": "B-0142/formal_statement", "hash": "9c1e..."},
+    {"artifact": "B-0142/informal_statement", "hash": "44ab..."},
+    {"artifact": "D-0007/formal_statement", "hash": "e02f..."}
+  ],
+  "environment": {"lean": "<pinned>", "mathlib": "<pinned rev>"},
+  "git_commit": "4f21a9c",
+  "producer": {"kind": "agent", "role": "comparator", "model": "<id>", "prompt_rev": "<hash>"},
+  "outcome": "formal_stronger",
+  "strength": "R2",
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): a fresh subagent read back the Lean without seeing the manuscript, a second fresh subagent compared that reading to the contract. Both subagents still share this session's underlying model, so shared blind spots are not ruled out.",
+  "findings": ["Lean version drops finiteness hypothesis; still implies contract"],
+  "timestamp": "2026-09-11T10:42:00Z"
+}
 ```
+
+(`layer` is one of `review` / `correspondence` / `verification`; `inputs` are
+the exact artifacts examined, by content hash, including the definition
+closure; `outcome` is from Section 7.4; `strength` from Section 7.3, review
+layer only; `git_commit` is optional.)
 
 **Validity rule.** An evidence record is *current* if and only if every
 input hash equals the current hash of that artifact. Otherwise it is
@@ -555,7 +561,7 @@ project/
 |-- manuscript/          # TeX sources with block annotations
 |-- lean/                # Lake project, own pinned toolchain and Mathlib
 |-- representation/       # encoding records and foundation bridges (Section 11.5)
-|-- blocks/              # one record per block (YAML)
+|-- blocks/              # one record per block (JSON)
 |-- evidence/            # immutable evidence records
 |-- schemas/             # machine-readable schemas for records and the journal
 |-- journal/events.jsonl # append-only event log
@@ -617,7 +623,7 @@ evidence records being "immutable."
   commit: one commit per closed case or lemma, one per manuscript
   edit-and-resync (Section 13.3), one per evidence record produced. This
   matches the project's own block/evidence granularity, so
-  `git log -p -- blocks/B-0142.yaml` becomes a direct, sufficient answer to
+  `git log -p -- blocks/B-0142.json` becomes a direct, sufficient answer to
   "what happened to this block," rather than something only reconstructible
   from `STATE.md` prose.
 - Commit messages name the block ID and/or evidence ID they touch - for
@@ -1284,8 +1290,8 @@ the *next* session real effort rediscovering what happened - the entry is
 the last step in the normal order, but should be moved earlier the moment
 budget looks tight.
 
-Because this file is a narrative aid, not the ground truth (`blocks/*.yaml`
-and `evidence/*.yaml` are), a new session should spot-check its top
+Because this file is a narrative aid, not the ground truth (`blocks/*.json`
+and `evidence/*.json` are), a new session should spot-check its top
 suggested item against the actual current records before trusting it,
 especially if there is any reason to suspect it went stale.
 
@@ -1336,8 +1342,17 @@ initiative:
 - treat a contract as frozen, or register/publish a result externally;
 - resolve an ambiguity in the author's own manuscript TODOs by guessing.
 
-Present the decision, with the concrete options and their consequences, and
-stop there. This is not extra caution for its own sake - every one of these
+**Mechanical decisions are not reserved.** Record format, file layout, the
+toolchain choice, calibration-model availability, and reconciling the declared
+pilot membership with what has actually been built are *coordinator* decisions:
+the coordinator takes the low-cost option, records it in the journal, and
+reports it. They are not escalated as author audits. Only the items above -
+contracts, manuscript prose, the representation, scope *changes*, freezes, and
+escalations - require the author's attention. (Confirming that an existing
+pilot list matches reality is bookkeeping, not a scope change.)
+
+Present a reserved decision, with the concrete options and their consequences,
+and stop there. This is not extra caution for its own sake - every one of these
 decisions has downstream cost (new invalidation surface, new scope to
 maintain) that only the author can weigh against the actual goal of the
 work.

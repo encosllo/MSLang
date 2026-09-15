@@ -7,17 +7,10 @@ agents present options and stop.
 
 | id | category | decision |
 |---|---|---|
-| `D-explanation-c001` | contract | Accept or revise the proposed Explanation for B-C001 (blocks/explanations/B-C001.md) into the manuscript. |
-| `D-explanation-c002` | contract | Accept or revise the proposed Explanation for B-C002 (blocks/explanations/B-C002.md) into the manuscript. |
-| `D-representation` | representation | Accept the pilot encoding / carrier model (residual D2) and the independent encoding audit E-000013, or revise them. |
-| `D-record-format` | tooling | Choose JSON vs YAML for evidence records (currently JSON, which the dependency-free validator handles). |
-| `D-pilot-scope` | scope | Confirm or revise the pilot cluster scope; freeze the B-D014 contract if stable. |
-| `D-bp002-simplification` | manuscript | Decide whether to adopt the formalization-produced simplification of B-P002's converse (drop the delta construction; EV-000022/EV-000019 finding). |
-| `D-toolchain` | environment | Install a project-local Lean toolchain (bootstrap item 2, full isolation) or continue using the machine ~/.elan toolchain; disk headroom is the constraint. |
-| `D-calibration-models` | evaluation | Provide a second model for calibration / independent audits (all current audits share one model), or accept same-model detection rates. |
+| _none_ | | |
 
 ## Open escalations (journal)
 
 | event | block | class | summary |
 |---|---|---|---|
-| EV-000019 | `B-D014` | C4 | Proposed change to pilot definition B-D014 (its informal statement): blast radius computed non-destructively. Would stale 6 current evidence records across 5 blocks (E-000001, E-000004 B-C001; E-000006 B-P002; E-000008 B-P003; E-000011, E-000012 B-C002), no verification records, and reach 26 downstream blocks. This is a definition/contract change reserved to the author (Sections 13.2 C4, 16.4); presenting the impact report and stopping. |
+| _none_ | | | |
