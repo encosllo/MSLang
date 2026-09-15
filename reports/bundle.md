@@ -11,12 +11,12 @@ repository.
 |---|---|
 | `blocks/formal.json` | `afff76dd9316319815ac889f30e46cecda2841404dab43182785737fa190d5a6` |
 | `blocks/formal_graph.json` | `bd6130ce438b3ee8522bdde85e621b98a6be0e856621cae957dd82556ed6f0f4` |
-| `blocks/graph.json` | `3b6dfa60e436daccd6c0598423c7b093b8181bf809a210530fa413f9276c1924` |
-| `blocks/hashes.json` | `0079d486e94e79540e74449630a9f217660a837d44d991786183448f123169e1` |
-| `blocks/registry.json` | `473d76031e916821f4bf478a8f490e0993a909610d414c2d8634704bdcc6c73a` |
+| `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
+| `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
+| `blocks/registry.json` | `4aa5522852f1a6697fdbcdf8bd757f317e83371dac9b027d326c98ecab63d982` |
 | `calibration/seeded.json` | `49f548dec238c446c1c9cf2d74c253b784aa2d009f80d8b69a2ac1b6b8c3d690` |
 | `calibration/verdicts.json` | `ee62f8bd57f5353e880bc6400b293c2646dc27637b739ac49518f124bd2719ca` |
-| `decisions/standing.json` | `6eed51eaf8ac584e32e2b33b76e54a4d94c2e20a2ac7080e6e2e92a4e1ac325b` |
+| `decisions/standing.json` | `03b61b27a750f6e99c78be0ba46cf46a9ad3b2c139b81b93fa5624ec4177adb8` |
 | `evidence/E-000001.json` | `3d3e19bd6a117f75c0167f8d16f6abdeebd47c5ea3a1b702b44e419eb031f1cf` |
 | `evidence/E-000002.json` | `34a2aaf9b9522512d51f2305bd32a4399f6ea46b6b827b69d855c854edb26ef5` |
 | `evidence/E-000003.json` | `ac6d8a783e432655f5e1a32b8fa95ca1e5378fa96b075e1257e5a48131911f23` |
@@ -67,10 +67,10 @@ repository.
 | `evidence/E-000048.json` | `e3192afa11d8a31732a7e1c0e8d23b7e7a1ed3b573eff186091b4464c76fedb5` |
 | `evidence/E-000049.json` | `536f45a6da87dc818fe635f322be921751e2804f4d94c644b58ee4abed18fd2e` |
 | `evidence/E-000050.json` | `107ebae000d057a6324555399c28f839889bf0e6533957d9e7829ba1b157249b` |
-| `journal/events.jsonl` | `5a5b63a0859f03f83ce7d7f02bc03712f43eeae1d328861ab9668270f10b5c82` |
+| `journal/events.jsonl` | `bb4e072e4129fdbcf71239306e819f6b81cb3f6aaf32f76f0e6ebe24b4b863e8` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
-| `manuscript/MSEilenberg.tex` | `20315adb32d4ac06d6e2154edb71f0d9c66de5a58aa095183d676118c80446ca` |
+| `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
 | `schemas/evidence.schema.json` | `4235ce098e41e968cd2854a2086d687ea32e4b9dcee07d8dd387701e36412609` |
 
@@ -2112,7 +2112,7 @@ assertion).
 | `B-C001` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-C002` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D004` | definition | Preliminaries. | none | pass | pass | none | - |
+| `B-D004` | definition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D005` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D006` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D009` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
@@ -2120,9 +2120,9 @@ assertion).
 | `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | - |
-| `B-R006` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | pass | pass | none | - |
+| `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R008` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
 114 block(s) have no evidence.
@@ -2141,7 +2141,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 11 |
+| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 15 |
 
 ## Residuals propagated to blocks
 
@@ -2155,6 +2155,7 @@ boundary (Section 11.5).
 | `B-C002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D005` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D009` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
@@ -2162,6 +2163,9 @@ boundary (Section 11.5).
 | `B-D015` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-P002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-P003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-P004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-R006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-R008` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 
 ## Unproved bridge obligations
 
@@ -2285,7 +2289,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D0
 
 - `B-C001 -> B-D002`: Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
 - `B-C002 -> B-C001`: Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
-- `B-P002 -> B-D006`: Real informal edge, and a formal simplification. The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. The Lean proof Mslang.prop_incSat instead uses a plain singleton family (Function.update (fun _ => empty) s {x}), so it does not use delta. Verdict: the paper's delta use is unnecessary for B-P002's converse; not a defect. (Contrast: supp_delta does use delta.)
+- `B-P002 -> B-D006`: Real informal edge; author-reviewed and retained (Session 33, D-bp002-simplification). The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. A formalization-produced simplification was proposed (use the singleton family Function.update (fun _ => empty) s {x}) but rejected: that family is exactly delta^{s,{x}}, so the delta machinery is not eliminated, only instantiated with {x} instead of the class [a]_{Psi_s}. Verdict: the paper's delta use is retained; the discrepancy is expected and intentional.
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
@@ -2354,15 +2358,6 @@ These confirmed blocks are outside the current formalization frontier.
 
 | id | category |
 |---|---|
-| `D-explanation-c001` | contract |
-| `D-explanation-c002` | contract |
-| `D-representation` | representation |
-| `D-record-format` | tooling |
-| `D-pilot-scope` | scope |
-| `D-bp002-simplification` | manuscript |
-| `D-toolchain` | environment |
-| `D-calibration-models` | evaluation |
-| `EV-000019` | escalation |
 
 ## reports/decisions.md
 
@@ -2375,17 +2370,10 @@ agents present options and stop.
 
 | id | category | decision |
 |---|---|---|
-| `D-explanation-c001` | contract | Accept or revise the proposed Explanation for B-C001 (blocks/explanations/B-C001.md) into the manuscript. |
-| `D-explanation-c002` | contract | Accept or revise the proposed Explanation for B-C002 (blocks/explanations/B-C002.md) into the manuscript. |
-| `D-representation` | representation | Accept the pilot encoding / carrier model (residual D2) and the independent encoding audit E-000013, or revise them. |
-| `D-record-format` | tooling | Choose JSON vs YAML for evidence records (currently JSON, which the dependency-free validator handles). |
-| `D-pilot-scope` | scope | Confirm or revise the pilot cluster scope; freeze the B-D014 contract if stable. |
-| `D-bp002-simplification` | manuscript | Decide whether to adopt the formalization-produced simplification of B-P002's converse (drop the delta construction; EV-000022/EV-000019 finding). |
-| `D-toolchain` | environment | Install a project-local Lean toolchain (bootstrap item 2, full isolation) or continue using the machine ~/.elan toolchain; disk headroom is the constraint. |
-| `D-calibration-models` | evaluation | Provide a second model for calibration / independent audits (all current audits share one model), or accept same-model detection rates. |
+| _none_ | | |
 
 ## Open escalations (journal)
 
 | event | block | class | summary |
 |---|---|---|---|
-| EV-000019 | `B-D014` | C4 | Proposed change to pilot definition B-D014 (its informal statement): blast radius computed non-destructively. Would stale 6 current evidence records across 5 blocks (E-000001, E-000004 B-C001; E-000006 B-P002; E-000008 B-P003; E-000011, E-000012 B-C002), no verification records, and reach 26 downstream blocks. This is a definition/contract change reserved to the author (Sections 13.2 C4, 16.4); presenting the impact report and stopping. |
+| _none_ | | | |

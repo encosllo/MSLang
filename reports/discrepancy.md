@@ -58,7 +58,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D004`, `B-D005`, `B-D006`, `B-D0
 
 - `B-C001 -> B-D002`: Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
 - `B-C002 -> B-C001`: Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
-- `B-P002 -> B-D006`: Real informal edge, and a formal simplification. The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. The Lean proof Mslang.prop_incSat instead uses a plain singleton family (Function.update (fun _ => empty) s {x}), so it does not use delta. Verdict: the paper's delta use is unnecessary for B-P002's converse; not a defect. (Contrast: supp_delta does use delta.)
+- `B-P002 -> B-D006`: Real informal edge; author-reviewed and retained (Session 33, D-bp002-simplification). The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. A formalization-produced simplification was proposed (use the singleton family Function.update (fun _ => empty) s {x}) but rejected: that family is exactly delta^{s,{x}}, so the delta machinery is not eliminated, only instantiated with {x} instead of the class [a]_{Psi_s}. Verdict: the paper's delta use is retained; the discrepancy is expected and intentional.
 
 ## Not yet mapped (informal edges with no formal counterpart)
 

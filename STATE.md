@@ -1616,6 +1616,68 @@ same-model, and inherits the pilot-encoding residuals (`carrier-model`,
 
 ---
 
+## Session 33 -- 2026-09-15 -- author decision pass; queue emptied
+
+**Goal.** Walk the author through the decision queue item by item and resolve
+it, then implement the accepted changes.
+
+**Author decisions (all recorded; `journal/events.jsonl` `EV-000035`..`EV-000037`).**
+
+- `D-explanation-c001`, `D-explanation-c002` -- **accepted**; the reconstructed
+  proofs for `B-C001` and `B-C002` were inserted into the manuscript as
+  `\begin{proof}` bodies (Session 30's two-stage-blind correspondence already
+  covers the statements; the proofs were adversarially read in `E-000001`/
+  `E-000038` and `E-000012`/`E-000039`).
+- `D-representation` -- **accepted**: the dependent-type encoding and audit
+  `E-000040` (`faithful-with-caveat`; residuals `carrier-model`, `small-large`,
+  `univalence-missing`). The stale `E-000013` reference is retired.
+- `D-record-format` -- **keep JSON**. Blueprint (`Architecture.md` §7.2) now
+  specifies JSON records and states why (dependency-free validation).
+- `D-pilot-scope` -- **confirmed** the pilot = the 15 formalized blocks; added
+  `B-P004`, `B-D004`, `B-R006`, `B-R008` to `representation/coverage.json`;
+  **froze `B-D014`** (`EV-000036`).
+- `D-bp002-simplification` -- **rejected**: keep the paper's
+  `δ^{s,[a]_{Ψ_s}}` construction. The proposed "simplification" used `{a}` at
+  `s`, which *is* `δ^{s,{a}}`, so `δ` is not eliminated; the discrepancy note is
+  corrected accordingly.
+- Delegated mechanical items: `D-toolchain` -- keep the machine toolchain;
+  `D-calibration-models` -- accept same-model rates with the caveat.
+- `EV-000019` -- **closed** as a completed blast-radius drill (no concrete
+  `B-D014` edit was ever proposed).
+
+**Process change (blueprint).** `Architecture.md` §16.4 now states that
+mechanical decisions (format, layout, toolchain, calibration-model
+availability, reconciling declared vs. actual pilot membership) are coordinator
+decisions, reported but not escalated; only contracts, manuscript prose, the
+representation, scope changes, freezes, and escalations are author-reserved.
+
+**What was established (closed).**
+
+- `decisions/standing.json` emptied; `decisions_test.py` rewritten to be
+  state-independent (synthetic journal fixtures); `reports/decisions.md` now
+  empty.
+- Manuscript: `B-C001` and `B-C002` proofs added (the accents were preserved
+  byte-for-byte; `blocks/hashes.json` 163 anchors, 33 proofs). Registry,
+  graph, views, and bundle regenerated. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveats.** (1) The `blocks/explanations/B-C001.md` and `B-C002.md`
+files are retained as provenance and still carry their "PROPOSED" header -- a
+cosmetic staleness left for a batched C0 edit, since editing them (or the
+representation record) stales representation-dependent evidence. (2)
+`representation/pilot-encoding.md`'s prose cluster list still omits `B-P004`
+for the same reason; `coverage.json` is the live list.
+
+**Prioritized next steps.**
+
+1. Continue the frontier: `B-R007` (antitone saturation map), then `B-P005`
+   (`SatOperator`) and `B-R005`.
+2. Batch the cosmetic docs (`explanations/*`, pilot-encoding cluster list) into
+   one C0 edit with a carried-forward evidence decision.
+3. Grow each calibration mutation type to n >= a few; add a second model when
+   available.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -1633,8 +1695,8 @@ same-model, and inherits the pilot-encoding residuals (`carrier-model`,
 5. After *every* manuscript edit, re-run
    `python3 scripts/hash_blocks.py --out blocks/hashes.json manuscript/MSEilenberg.tex`
    and check `blocks/hashes.json` by direct search, not just exit status.
-   `blocks/hashes.json` currently holds **161** anchors (129 block IDs keyed to
-   the `\blockid` preceding each environment, 31 proofs, 1 equation label
+   `blocks/hashes.json` currently holds **163** anchors (129 block IDs keyed to
+   the `\blockid` preceding each environment, 33 proofs, 1 equation label
    `Eq1`).
 6. After manuscript edits, also re-run
    `python3 scripts/ingest.py --aux manuscript/MSEilenberg.aux manuscript/MSEilenberg.tex`

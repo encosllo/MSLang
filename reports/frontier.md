@@ -24,12 +24,3 @@ These confirmed blocks are outside the current formalization frontier.
 
 | id | category |
 |---|---|
-| `D-explanation-c001` | contract |
-| `D-explanation-c002` | contract |
-| `D-representation` | representation |
-| `D-record-format` | tooling |
-| `D-pilot-scope` | scope |
-| `D-bp002-simplification` | manuscript |
-| `D-toolchain` | environment |
-| `D-calibration-models` | evaluation |
-| `EV-000019` | escalation |
