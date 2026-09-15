@@ -107,6 +107,14 @@
       "to": "B-D006"
     },
     {
+      "confirmed": false,
+      "detail": "\\ref{PropIncSat}",
+      "from": "B-C001",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P002"
+    },
+    {
       "confirmed": true,
       "detail": "\\Eqv",
       "from": "B-C001",
@@ -153,6 +161,14 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D014"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{IncSat}",
+      "from": "B-C002",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C001"
     },
     {
       "confirmed": true,

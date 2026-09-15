@@ -7,13 +7,17 @@
       "B-C002",
       "B-D002",
       "B-D003",
+      "B-D004",
       "B-D005",
       "B-D006",
       "B-D009",
       "B-D014",
       "B-D015",
       "B-P002",
-      "B-P003"
+      "B-P003",
+      "B-P004",
+      "B-R006",
+      "B-R008"
     ],
     "bridge_obligations": [
       "sat_eq_preimage",

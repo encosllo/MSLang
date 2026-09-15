@@ -10,7 +10,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 11 |
+| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 15 |
 
 ## Residuals propagated to blocks
 
@@ -24,6 +24,7 @@ boundary (Section 11.5).
 | `B-C002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-D004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D005` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-D009` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
@@ -31,6 +32,9 @@ boundary (Section 11.5).
 | `B-D015` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-P002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 | `B-P003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-P004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-R006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-R008` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
 
 ## Unproved bridge obligations
 

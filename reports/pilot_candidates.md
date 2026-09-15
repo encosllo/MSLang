@@ -7,41 +7,41 @@ Generated from the dependency edges in `blocks/graph.json`; confirmations/reject
 A target plus its transitive upstream closure (its dependencies). Pick one to hand-build the Phase-0 vertical slice.
 
 
-### `B-C001` — corollary (closure size 2)
-
-- Preliminaries. (line 531)
-- definitions in closure: `B-D014`
-- members: `B-C001`, `B-D014`
-
-### `B-C002` — corollary (closure size 2)
-
-- Preliminaries. (line 567)
-- definitions in closure: `B-D014`
-- members: `B-C002`, `B-D014`
-
 ### `B-C005` — corollary (closure size 2)
 
-- $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. (line 1295)
+- $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. (line 1332)
 - definitions in closure: `B-D034`
 - members: `B-C005`, `B-D034`
 
 ### `B-C010` — corollary (closure size 2)
 
-- $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. (line 1944)
+- $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. (line 1981)
 - definitions in closure: none
 - members: `B-C010`, `B-P028`
 
 ### `B-P003` — proposition (closure size 2)
 
-- Preliminaries. (line 541)
+- Preliminaries. (line 555)
 - definitions in closure: `B-D014`
 - members: `B-P003`, `B-D014`
 
 ### `B-P004` — proposition (closure size 2)
 
-- Preliminaries. (line 557)
+- Preliminaries. (line 571)
 - definitions in closure: `B-D014`
 - members: `B-P004`, `B-D014`
+
+### `B-P005` — proposition (closure size 2)
+
+- Preliminaries. (line 611)
+- definitions in closure: `B-D014`
+- members: `B-P005`, `B-D014`
+
+### `B-P008` — proposition (closure size 2)
+
+- Preliminaries. (line 781)
+- definitions in closure: none
+- members: `B-P008`, `B-P001`
 
 ## B. Most-referenced definitions (encoding-sensitive core)
 

@@ -23,7 +23,7 @@ assertion).
 | `B-C001` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-C002` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D004` | definition | Preliminaries. | none | pass | pass | none | - |
+| `B-D004` | definition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D005` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D006` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D009` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
@@ -31,9 +31,9 @@ assertion).
 | `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | - |
-| `B-R006` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | pass | pass | none | - |
+| `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R008` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
 114 block(s) have no evidence.

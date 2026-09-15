@@ -532,6 +532,20 @@ To prove the converse, let us assume that $\Phi\not\subseteq \Psi$. Then there e
 Let $A$ be an $S$-sorted set and $\Phi$, $\Psi\in\mathrm{Eqv}(A)$. If $\Phi\subseteq \Psi$, then  $\Psi\!-\!\mathrm{Sat}(A)\subseteq\Phi\!-\!\mathrm{Sat}(A)$.
 \end{corollary}
 
+\begin{proof}
+Let us assume that $\Phi\subseteq\Psi$ and let $X\in\Psi\!-\!\mathrm{Sat}(A)$.
+Then $X\subseteq A$ and $X = [X]^{\Psi}$. Applying
+Proposition~\ref{PropIncSat} in the forward direction gives
+$[[X]^{\Psi}]^{\Phi} = [X]^{\Psi}$. Substituting $X = [X]^{\Psi}$ on the right
+and in the subscript yields
+$$
+[X]^{\Phi} = [[X]^{\Psi}]^{\Phi} = [X]^{\Psi} = X.
+$$
+Hence $X\in\Phi\!-\!\mathrm{Sat}(A)$. Since $X$ was an arbitrary element of
+$\Psi\!-\!\mathrm{Sat}(A)$, we conclude
+$\Psi\!-\!\mathrm{Sat}(A)\subseteq\Phi\!-\!\mathrm{Sat}(A)$.
+\end{proof}
+
 \blockid{B-R007}
 \begin{remark}
 If, for an $S$-sorted set $A$, we denote by $(\cdot)\!-\!\mathrm{Sat}(A)$ the mapping from $\mathrm{Eqv}(A)$ to $\mathrm{Sub}(\mathrm{Sub}(A))$ which sends $\Phi$ to $\Phi\!-\!\mathrm{Sat}(A)$, then the above corollary means that $(\cdot)\!-\!\mathrm{Sat}(A)$ is an antitone ($\equiv$ order-reversing) mapping from the ordered set $(\mathrm{Eqv}(A),\subseteq)$ to the ordered set $(\mathrm{Sub}(\mathrm{Sub}(A)),\subseteq)$.
@@ -567,6 +581,29 @@ Let $s$ be a sort in $S$ and $b\in[X]^{\Phi\cap \Psi}_{s}$. Then, by definition,
 \begin{corollary}
 Let $A$ be an $S$-sorted set and $\Phi$, $\Psi\in\mathrm{Eqv}(A)$. Then we have that  $\Phi\!-\!\mathrm{Sat}(A)\cap\Psi\!-\!\mathrm{Sat}(A)\subseteq(\Phi\cap\Psi)\!-\!\mathrm{Sat}(A)$.
 \end{corollary}
+
+\begin{proof}
+Let $X\in\Phi\!-\!\mathrm{Sat}(A)\cap\Psi\!-\!\mathrm{Sat}(A)$; in particular
+$X\subseteq A$ and $X = [X]^{\Phi}$. The meet $\Phi\cap\Psi$ is the
+$S$-sorted equivalence whose $s$-component is the intersection of the relations
+$\Phi_{s}$ and $\Psi_{s}$; hence $\Phi\cap\Psi\subseteq\Phi$ as $S$-sorted
+relations. We show that $X = [X]^{\Phi\cap\Psi}$.
+
+By reflexivity of $\Phi\cap\Psi$, every $x\in X_{s}$ is
+$(\Phi\cap\Psi)_{s}$-equivalent to itself, so
+$X_{s}\subseteq [X]^{\Phi\cap\Psi}_{s}$ for every $s\in S$; that is,
+$X\subseteq [X]^{\Phi\cap\Psi}$. Conversely, since
+$\Phi\cap\Psi\subseteq\Phi$, every $(\Phi\cap\Psi)_{s}$-class is contained in
+the corresponding $\Phi_{s}$-class, so
+$[X]^{\Phi\cap\Psi}_{s}\subseteq [X]^{\Phi}_{s}$ for every $s\in S$; that is,
+$[X]^{\Phi\cap\Psi}\subseteq [X]^{\Phi} = X$. Therefore
+$X = [X]^{\Phi\cap\Psi}$, and so
+$X\in(\Phi\cap\Psi)\!-\!\mathrm{Sat}(A)$. Since $X$ was an arbitrary element of
+$\Phi\!-\!\mathrm{Sat}(A)\cap\Psi\!-\!\mathrm{Sat}(A)$, we conclude
+$\Phi\!-\!\mathrm{Sat}(A)\cap\Psi\!-\!\mathrm{Sat}(A)\subseteq(\Phi\cap\Psi)\!-\!\mathrm{Sat}(A)$.
+This is exactly Corollary~\ref{IncSat} with $\Theta = \Phi\cap\Psi$ (which
+refines $\Phi$) and the $\Phi$-saturation hypothesis.
+\end{proof}
 
 We next state that, for a set of sorts $S$, an $S$-sorted set $A$, and an $S$\nobreakdash-sorted equivalence $\Phi$ on $A$, the set $\Phi\!-\!\mathrm{Sat}(A)$ is the set of all fixed points of a suitable operator on $A$, i.e., of a mapping of $\mathrm{Sub}(A)$ into itself.
 
