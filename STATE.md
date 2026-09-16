@@ -2372,6 +2372,41 @@ report cannot name their successors.
 
 ---
 
+## Session 52 -- 2026-09-16 -- frontier extension: B-D010..B-D013
+
+**Goal.** Resume formalization with the many-sorted closure-system vocabulary.
+
+**What was established (closed).**
+
+- **`B-D010`**: `Mslang.Sub_iInter`, `Mslang.IsClosureSystem` (S-closure system
+  on `A`). The operator half is the existing `IsClosureOperator` (`B-P005`).
+- **`B-D011`**: `Mslang.IsCompact`, `Mslang.IsAlgebraicLattice` (over Mathlib's
+  `CompleteLattice`).
+- **`B-D012`**: `Mslang.Sub_iUnion`, `Mslang.IsAlgebraicClosureSystem`. The
+  algebraic-operator half is the existing `IsAlgebraic` (`B-P005`).
+- **`B-D013`**: `Mslang.IsUniform`, `Mslang.IsUniformAlgebraicClosureOperator`.
+- Mapped in `lean/declarations.json`; facets regenerated (**39 mapped blocks**).
+- Evidence **`E-000099`..`E-000102`**, verification `build_ok`. Definitions
+  carry the verification layer only.
+- `reports/frontier.md`: unmapped blocks **94 -> 90**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000057`.
+
+**Honest caveat.** Definitions only. `IsClosureOperator`/`IsAlgebraic`
+(`B-P005`) already covered the operator halves of `B-D010`/`B-D012`, so this
+session adds only the system-level predicates and the lattice vocabulary.
+
+**Prioritized next steps.**
+
+1. `B-R012` (the quotient by `∇` is subfinal) — needs algebra-local vocabulary:
+   the final algebra `1`, algebra isomorphism, and the subalgebra-as-algebra
+   construction; then the `B-D023`/`B-P008`/`B-R011` subfinal cluster.
+2. `B-P001` (`propssupport`) — clauses (1) and (2) are reachable now
+   (`SortedMap`, `supp`, direct/inverse image); clause (3) needs coproduct /
+   intersection / difference encodings and may be partial.
+3. `B-P006` (`CABA`); batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

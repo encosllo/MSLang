@@ -9,10 +9,11 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `72458f9ad79c097c18053f68f6cdf5934466d58e0baba0fa6904a3ccee5ab73d` |
-| `blocks/formal_graph.json` | `c5ca1bc1cc686a60348bf1c638a1f95be5946ec0a44e92ab21bd8171a830505f` |
+| `blocks/formal.json` | `deed78c798b3354b95910c0984adc6ae2988845f94dfc38ad8cea63d953ffec0` |
+| `blocks/formal_graph.json` | `13baa9d9261ab0f19961175e0c93c0b8db82b7995568fedd10f5f6ad0c253612` |
 | `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
 | `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
+| `blocks/lean_audit.json` | `8d103e9feabe16a0683946f802ccdc340b3dab0693948650befc07c83f943d1b` |
 | `blocks/registry.json` | `4aa5522852f1a6697fdbcdf8bd757f317e83371dac9b027d326c98ecab63d982` |
 | `calibration/seeded.json` | `49f548dec238c446c1c9cf2d74c253b784aa2d009f80d8b69a2ac1b6b8c3d690` |
 | `calibration/verdicts.json` | `ee62f8bd57f5353e880bc6400b293c2646dc27637b739ac49518f124bd2719ca` |
@@ -115,7 +116,11 @@ repository.
 | `evidence/E-000096.json` | `dcba2446b6557d33924cd6cc03420717a6043ca2d513da6842d346f5cb101ad8` |
 | `evidence/E-000097.json` | `6cee18d961d93403bc75a6e206057609b733ecb4709a652dc7821f958ea4fbd3` |
 | `evidence/E-000098.json` | `2dff3d985efeaeabf9c6f3a421bebf68c277d26d9d87deb8d48f6f106d0bc585` |
-| `journal/events.jsonl` | `332b6422c5400f43bd67533676664bd605cc7e44c97aafaa556ae2fd39aca730` |
+| `evidence/E-000099.json` | `5412f114915011a5234e0060aeb7e5413c09b3c4f9813d5efa7793d7d94ca0a7` |
+| `evidence/E-000100.json` | `9eab16fa420884ea66e5a41a0d94766b472a2d8ab3a08f52f502b337b77b66d7` |
+| `evidence/E-000101.json` | `8b0aded3bb5d76664caf8142908de988c93dfe13eedfcee2315c7019596793fa` |
+| `evidence/E-000102.json` | `d97e3c218a9d62c8d626cad9e98fce7311206a9f90b0b06daadf8b76c4ba9af0` |
+| `journal/events.jsonl` | `e521df38577cb5638a054475d9dc87d63a882bf8e5ff0c56f7c34814fac6471d` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
@@ -142,6 +147,10 @@ repository.
 | `B-D007` | verification | pass | 1 | 0 |
 | `B-D008` | verification | pass | 1 | 0 |
 | `B-D009` | verification | pass | 1 | 0 |
+| `B-D010` | verification | pass | 1 | 0 |
+| `B-D011` | verification | pass | 1 | 0 |
+| `B-D012` | verification | pass | 1 | 0 |
+| `B-D013` | verification | pass | 1 | 0 |
 | `B-D014` | verification | pass | 1 | 0 |
 | `B-D015` | verification | pass | 1 | 1 |
 | `B-D016` | verification | pass | 1 | 0 |
@@ -4156,6 +4165,131 @@ repository.
 }
 ```
 
+### E-000099
+
+```json
+{
+  "block": "B-D010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000099",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D010 (Mslang.Sub_iInter, IsClosureSystem) compiled against Mathlib v4.33.1.",
+    "The closure-operator half of B-D010 is already formalized as Mslang.IsClosureOperator (mapped to B-P005)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D010/formal_proof",
+      "hash": "0576f62e8df2cda9734f971318564ad0e82c006e7c3adffd0493827adccb1edb"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:02Z"
+}
+```
+
+### E-000100
+
+```json
+{
+  "block": "B-D011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000100",
+  "findings": [
+    "lake build: B-D011 (Mslang.IsCompact, IsAlgebraicLattice) compiled; complete-lattice vocabulary from Mathlib."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D011/formal_proof",
+      "hash": "74a443bf7a7c67a909c9abe3d0cd117d34335c423dbb0ef0f7aaf40f09d0ab06"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:02Z"
+}
+```
+
+### E-000101
+
+```json
+{
+  "block": "B-D012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000101",
+  "findings": [
+    "lake build: B-D012 (Mslang.Sub_iUnion, IsAlgebraicClosureSystem) compiled; the algebraic-operator half is Mslang.IsAlgebraic (B-P005)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D012/formal_proof",
+      "hash": "c871f892eb88666ffe6e449491bd16cb29c5fbb8c84d6d5c0a41d721ecc69e3f"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:03Z"
+}
+```
+
+### E-000102
+
+```json
+{
+  "block": "B-D013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000102",
+  "findings": [
+    "lake build: B-D013 (Mslang.IsUniform, IsUniformAlgebraicClosureOperator) compiled; reuses Mslang.IsAlgebraic (B-P005)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D013/formal_proof",
+      "hash": "c36fb38311e863270341ffd7831e659e0c5187b6fddd29e89f466b3ab10e917f"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:03Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -4166,8 +4300,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 36
-- Evidence records: 98
+- Blocks with any evidence: 40
+- Evidence records: 102
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -4191,6 +4325,10 @@ assertion).
 | `B-D007` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D008` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D009` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D010` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-D011` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-D012` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-D013` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D014` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D016` | definition | Preliminaries. | none | none | pass | none | - |
@@ -4217,7 +4355,7 @@ assertion).
 | `B-R010` | remark | Preliminaries. | none | pass | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
-93 block(s) have no evidence.
+89 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -4328,7 +4466,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D024`, `B-D025`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P009`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`
+Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D024`, `B-D025`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P009`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -4350,6 +4488,14 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-D008` | `B-D002` |
 | `B-D008` | `B-D005` |
 | `B-D009` | `B-D002` |
+| `B-D010` | `B-D002` |
+| `B-D010` | `B-D005` |
+| `B-D012` | `B-D002` |
+| `B-D012` | `B-D005` |
+| `B-D012` | `B-D010` |
+| `B-D013` | `B-D002` |
+| `B-D013` | `B-D005` |
+| `B-D013` | `B-P005` |
 | `B-D014` | `B-D002` |
 | `B-D014` | `B-D005` |
 | `B-D015` | `B-D002` |
@@ -4518,11 +4664,11 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Blocks with no Lean counterpart (94)
+## Blocks with no Lean counterpart (90)
 
 These confirmed blocks are outside the current formalization frontier.
 
-`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D023`, `B-D026`, `B-D027`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P006`, `B-P008`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R002`, `B-R004`, `B-R011`, `B-R012`, `B-R013`, `B-R014`, `B-R015`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D023`, `B-D026`, `B-D027`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P006`, `B-P008`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R002`, `B-R004`, `B-R011`, `B-R012`, `B-R013`, `B-R014`, `B-R015`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 
