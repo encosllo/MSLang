@@ -2934,6 +2934,40 @@ index lives in `Type u` while `Bool` is `Type 0`; `simpa` did not fold
 
 ---
 
+## Session 69 -- 2026-09-16 -- frontier: B-R017
+
+**Goal.** Every subfinal `Σ`-algebra lies in every formation.
+
+**What was established (closed).**
+
+- **`B-R017`** as `Mslang.subfinalAlg_mem_of_formation`: for a formation `F`,
+  `SubfinalAlg Sig A → A ∈ F`. Proof: the empty finite product is terminal; a
+  subfinal `A` (componentwise subsingleton via `B-P008`) maps into it by the
+  unique map, which is injective and homomorphic (vacuous on the empty index)
+  with vacuous projection-surjectivity, hence a subdirect embedding; `P_fsd`-
+  closure gives `A ∈ F`.
+- Mapped in `lean/declarations.json`; facets regenerated (**62 mapped blocks**).
+- Evidence **`E-000126`** (verification, `build_ok`) and **`E-000127`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R017-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **74 -> 73**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000075`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+`haveI` style-linter fired on `Subsingleton (A.1 s)`; replaced by an explicit
+`@Subsingleton.elim (A.1 s) (hSub s)` to keep the file warning-free without a
+further linter suppression.
+
+**Prioritized next steps.**
+
+1. `B-P017`/`B-C004`: equivalence of the two formation definitions; then
+   `B-P018`+ and the section's Eilenberg theorem.
+2. `B-D035`/`B-D036`: elementary translations / translations (heavy dependent
+   indexing).
+3. `B-P010` (term characterization; the unique-parsing proof).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
