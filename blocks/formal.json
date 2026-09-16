@@ -613,6 +613,45 @@
         "hash": "3363a12c4ec98737bc347247accf6dfeb0745be6cb035464be7e8ce6b01ba8bc"
       }
     },
+    "B-D027": {
+      "decls": [
+        "Mslang.genSet",
+        "Mslang.TAlg",
+        "Mslang.TSet",
+        "Mslang.etaX"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsSubalgebra",
+          "Mslang.MemSg",
+          "Mslang.RowAlpha",
+          "Mslang.SSet",
+          "Mslang.Sg",
+          "Mslang.Sg_isSubalgebra",
+          "Mslang.SigElem",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subset",
+          "Mslang.WAlg",
+          "Mslang.WSet",
+          "Mslang.XElem",
+          "Mslang.finOp",
+          "Mslang.subAlg",
+          "Mslang.subset_Sg",
+          "Mslang.wordProd"
+        ],
+        "hash": "3286aa0b3d8422285a6ec5eb3f9109ec652463ac1f2bbab3d8c5776d419672a1"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "e52f4b6ef16e6b7a9b8141b0523613c68e25d98064a6085c53cd6e9f9158de60"
+      },
+      "formal_statement": {
+        "hash": "e42c311e5c741bdc14386f5df54c50e7a446fb90396ef93ca21daa0a07d700aa"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"

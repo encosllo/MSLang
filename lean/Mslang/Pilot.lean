@@ -1124,4 +1124,26 @@ def WAlg {S : Type u} (Sig : Signature S) (X : SSet S) : Alg Sig :=
   ⟨WSet Sig X,
    fun p σ a => Sum.inl (⟨p, σ⟩ : SigElem Sig) :: (List.ofFn a).flatten⟩
 
+/-- `B-D027`: the generators of `T_Σ(X)` inside `W_Σ(X)`: the one-letter words
+`(x) = [(x)]`, at sort `s` for `x : X s`. -/
+def genSet {S : Type u} (Sig : Signature S) (X : SSet S) : Sub (WSet Sig X) :=
+  fun s P => ∃ x : X s, P = [Sum.inr (⟨s, x⟩ : XElem X)]
+
+/-- `B-D027`: the free `Σ`-algebra `T_Σ(X)`, the subalgebra of `W_Σ(X)` generated
+by the generators `(x)`. -/
+def TAlg {S : Type u} (Sig : Signature S) (X : SSet S) : Alg Sig :=
+  subAlg Sig (WAlg Sig X).2 (Sg Sig (WAlg Sig X).2 (genSet Sig X))
+    (Sg_isSubalgebra Sig (WAlg Sig X).2 (genSet Sig X))
+
+/-- `B-D027`: the underlying `S`-sorted set `T_Σ(X)`; its elements are the terms
+of `X` with variables in `X`. -/
+abbrev TSet {S : Type u} (Sig : Signature S) (X : SSet S) : SSet S :=
+  (TAlg Sig X).1
+
+/-- `B-D027`: the insertion of the generators `η^X : X → T_Σ(X)`, `x ↦ (x)`. -/
+def etaX {S : Type u} (Sig : Signature S) (X : SSet S) : SortedMap X (TSet Sig X) :=
+  fun s x =>
+    ⟨[Sum.inr (⟨s, x⟩ : XElem X)],
+     subset_Sg Sig (WAlg Sig X).2 (genSet Sig X) s ⟨x, rfl⟩⟩
+
 end Mslang

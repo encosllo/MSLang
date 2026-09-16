@@ -50,6 +50,8 @@
     "Mslang.SubfinalAlg": [],
     "Mslang.Subset": [],
     "Mslang.SuppClosure": [],
+    "Mslang.TAlg": [],
+    "Mslang.TSet": [],
     "Mslang.WAlg": [],
     "Mslang.WSet": [],
     "Mslang.Word": [],
@@ -62,6 +64,7 @@
     ],
     "Mslang.directImage": [],
     "Mslang.emptyWord": [],
+    "Mslang.etaX": [],
     "Mslang.finOp": [],
     "Mslang.finalAlg": [],
     "Mslang.finalSorted": [],
@@ -71,6 +74,7 @@
       "propext"
     ],
     "Mslang.finiteSubsets": [],
+    "Mslang.genSet": [],
     "Mslang.hom_unique_of_subfinalAlg": [
       "Classical.choice",
       "Quot.sound",
@@ -280,7 +284,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 121,
+  "declarations_audited": 125,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

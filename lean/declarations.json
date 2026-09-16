@@ -309,6 +309,15 @@
         "Mslang.WAlg"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D027": {
+      "decls": [
+        "Mslang.genSet",
+        "Mslang.TAlg",
+        "Mslang.TSet",
+        "Mslang.etaX"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }
