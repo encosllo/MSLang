@@ -2168,6 +2168,51 @@ closure-operator laws are.
 
 ---
 
+## Session 47 -- 2026-09-16 -- frontier extension: B-D022 (products)
+
+**Goal.** Formalize `B-D022`, the product of a family of `Σ`-algebras, and
+correct the earlier mis-mapping of `Mslang.iAlg` (it had been attached to
+`B-R009`, whose proof introduced it).
+
+**What was established (closed).**
+
+- **`B-D022` formalized**: `Mslang.iAlg` (the product),
+  `Mslang.iProjAlg` (the canonical projections `pr^i`),
+  `Mslang.isAlgHom_iProjAlg` (they are homomorphisms), `Mslang.iPairAlg`
+  (`<f^i>`), `Mslang.isAlgHom_iPairAlg` (the pairing of homomorphisms is a
+  homomorphism), `Mslang.iProjAlg_iPairAlg` (`pr^i ∘ <f^i> = f^i`) and
+  `Mslang.iPairAlg_unique` (uniqueness).
+- **Re-mapping.** `Mslang.iAlg` moved from `B-R009` to `B-D022` (its true
+  contract). This changed `B-R009`'s definition closure (now includes `B-D022`),
+  staling its verification/correspondence, **re-issued** as `E-000081`
+  (supersedes `E-000074`) and `E-000082` (supersedes `E-000075`; verdict
+  unchanged). `B-R009` passes again.
+- Evidence **`E-000080`** (B-D022 verification, `build_ok`). `iAlg` is
+  noncomputable; `isAlgHom_iProjAlg` uses no axioms, the `funext`-based
+  statements use `Quot.sound` (permitted).
+- Mapped in `lean/declarations.json`; facets regenerated (**34 mapped blocks**).
+- `reports/frontier.md`: unmapped blocks **95 -> 94**. Views and bundle
+  regenerated. Journal `EV-000052`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Definitions only (project convention: verification layer
+only, no correspondence audit). The projection/pairing are the `Σ`-algebra
+counterparts of the sorted-set-level `B-D003` `iProd`/`iProj`/`iPair`; the
+pairing's uniqueness is stated for all sorted maps (a fortiori homomorphisms).
+
+**Prioritized next steps.**
+
+1. `B-R012` (the quotient by `∇` is subfinal) and the congruence-lattice clauses
+   of `B-D024` (`∇`/`Δ`, `Cgr(A)` an algebraic closure system).
+2. `B-D023` (subfinal `Σ`-algebra) with `B-P008` (`A` subfinal iff `A` is
+   subfinal) and `B-R011` (at most one homomorphism into a subfinal algebra);
+   these connect to the already-formalized `B-D004` (`Subfinal`/`finalSorted`).
+3. The many-sorted closure-system vocabulary `B-D010`-`B-D013`
+   (`ClSy`/`ClOp`, algebraic, uniform); `B-P001` (`propssupport`); `B-P006`
+   (`CABA`, likely scope reduction); batch cosmetic docs; calibration
+   (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
