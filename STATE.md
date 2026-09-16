@@ -2555,11 +2555,14 @@ not formalized; the comparator agreed it is not part of the assertion.
     artifact to audit, the consequences, and numbered options. Mechanical
     decisions are the coordinator's to take and report, never to escalate.
 12. `Architecture.md` is at **Revision 3 (frontier-hardened)** (Session 48,
-    `EV-000053`). Implemented in Session 49: the `§15.6` mechanical Lean gate
-    (`scripts/lean_audit.py` + `blocks/lean_audit.json`, wired into
-    `check_all`). **Still not implemented**: the `definition_closure` facet
-    split (`§6`/`§12.3`; `lean_facets.py` still folds the closure into
-    `formal_statement`) and the `supersedes`/`reissue_reason` evidence fields
-    (`§7.2`; the schema is unchanged, re-issues are noted in `findings` prose).
-    Until those land, treat those sections as target state; keep re-issuing per
-    the Session 43 rule and the `independence_caveat` convention.
+    `EV-000053`). Implemented since: the `§15.6` mechanical Lean gate
+    (`scripts/lean_audit.py` + `blocks/lean_audit.json`, in `check_all`), the
+    `§7.2`/`§8.1` supersession vocabulary, and the `§6`/`§12.3`
+    `definition_closure` facet split. All Revision 3 gaps are now built; keep
+    the sections as normative spec.
+13. **Narrate the session as it runs** (`Architecture.md` §16.1, adopter
+    request after Session 55): open with a banner (number, goal, numbered plan),
+    emit a `step k/n: <action> -> <result>` line after each meaningful action or
+    small batch, and surface decisions where they are made - not only in the
+    final summary. The `STATE.md` entry is the post-hoc record; the live work
+    log is what lets a human follow along without reading diffs.

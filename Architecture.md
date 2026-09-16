@@ -1448,6 +1448,30 @@ entry recording:
   regenerates them in dependency order and then runs `check_all`, so a session
   cannot end on a drifted view.
 
+**Narrate the session while it runs (the live work log).** The continuity file
+records what happened *after* the fact, and commits record the end state. Neither
+lets a human follow a session *during* it: a long batch of tool calls with no
+intervening explanation leaves the reasoning chain reconstructible only from
+file diffs, which is exactly the "hard to follow your chain of work" failure.
+A session therefore narrates itself in the response stream as it proceeds:
+
+- **Open with a banner** - session number, the goal in one sentence, and the
+  plan as a short numbered list of intended steps, so the reader knows the shape
+  of the session before it starts.
+- **Emit a step line after each meaningful action or small batch** -
+  `step k/n: <what I did> -> <what it showed>` - so cause and effect are
+  visible without reading the diffs.
+- **Surface decisions where they are made** - when a result forces a choice
+  (for example, layer-based versus field-based supersession after seeing the
+  legacy records), state the options and the chosen one *before* acting on it,
+  not only in the close-out. A decision that only appears in the final summary
+  was, for the reader, not made until then.
+- **Close with the durable summary** - file and evidence-ID inventory, the gate
+  result, and what the continuity entry records.
+
+The `STATE.md` entry remains the post-hoc record and the evidence records remain
+ground truth; the live work log is the view a human follows in real time.
+
 **Write this entry before spending remaining budget on more proof or
 writing work, not after**, whenever the remaining budget is uncertain. A
 session that finishes real, correctly recorded work in the block/evidence
@@ -1828,6 +1852,11 @@ concrete observation that motivated it.
   derived views in dependency order and then runs the gate, instead of relying
   on the session to rediscover the ordering. Motivated by a bundle that drifted
   because the journal was appended after the bundle had been regenerated.
+- **Live work log** (Section 16.1): a session narrates itself as it runs - a
+  banner with the plan, a step line per action, decisions surfaced where they
+  are made - rather than being reconstructible only from diffs. Motivated by the
+  author's report that the chain of work was hard to follow once a session
+  started.
 - **Auditor model recorded** (Sections 11.4, 24.4): correspondence and review
   records name the model, so the trust view can report a same-model share
   rather than repeating the caveat as prose.
