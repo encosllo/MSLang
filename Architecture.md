@@ -195,10 +195,29 @@ persistent identifier independent of theorem numbering and file location.
 |---|---|
 | Informal statement | The claim as written in the manuscript, including hypotheses |
 | Informal proof | The argument as written in the manuscript |
-| Formal statement | The declared type (elaborated signature) of the Lean declaration, together with its definition closure |
+| Formal statement | The declared type (elaborated signature) of the Lean declaration |
+| Definition closure | The statements of the declarations the block's formal statement transitively uses (Section 12.3), keyed on declaration identity rather than on block membership |
 | Formal proof | The Lean proof term or tactic script, hashed separately from the statement so that a proof rewrite is irrelevant to statement-dependent evidence |
 | Explanation | A prose reconstruction of a proof from its formal counterpart, produced when the manuscript omits or under-specifies the argument (Section 11a.5); semantically load-bearing, unlike exposition |
 | Exposition | Surrounding prose, remarks, and motivation (no semantic weight) |
+
+**Statement versus definition closure.** The formal statement and its definition
+closure are hashed as separate facets, and the closure is keyed on the identity
+of the declarations it uses, not on the blocks that own them. An earlier design
+folded the closure into the statement hash; in practice that made a purely
+bookkeeping edit - moving a helper declaration from the block whose proof first
+introduced it to the block whose contract it actually formalizes - look exactly
+like a change of claim, and forced re-issues whose audit content was unchanged
+(Section 13.2). Keeping the two apart lets definition *content* propagate to
+dependents (a definition change is still a change to their closure) while
+bookkeeping - which block owns a declaration - does not.
+
+**Declaration ownership.** A declaration belongs to the block whose contract it
+formalizes, even when it was first written to support some other block's proof.
+Helpers that are introduced inside a proof but formalize a later block (a
+product, a generated subalgebra, a quotient) are therefore registered against
+that later block, and the earlier proof depends on them only through the
+definition closure. Section 13.2 (class C5) governs the remap.
 
 **Representation (encoding).** The mapping from the paper's notions to Lean
 ones: the carrier model (types versus sets), the meaning of subset and of
@@ -215,7 +234,11 @@ than rediscovered block by block.
 computed from the dependency graph (Section 12.3): a block's own relevant
 facets plus the *statements* (not the proofs) of the blocks in its transitive
 dependency closure. Closures are derived, never hand-listed (P13), so an
-under-specified record is unrepresentable rather than merely discouraged.
+under-specified record is unrepresentable rather than merely discouraged. On
+the formal side, the content of that closure over Lean declarations is captured
+by the `definition_closure` facet (Section 7.2); the two are related but not
+identical - the input closure also carries informal statements, the
+representation hash, and the environment where the layer needs them.
 
 **Treatment tier.** Whether a block takes the light or the full path
 (Section 17.2). The default is light; full adversarial treatment is reserved
@@ -276,6 +299,7 @@ that schema validation needs no third-party parser and can never be skipped:
   "block": "B-0142",
   "inputs": [
     {"artifact": "B-0142/formal_statement", "hash": "9c1e..."},
+    {"artifact": "B-0142/definition_closure", "hash": "7b31..."},
     {"artifact": "B-0142/informal_statement", "hash": "44ab..."},
     {"artifact": "D-0007/formal_statement", "hash": "e02f..."}
   ],
@@ -291,9 +315,18 @@ that schema validation needs no third-party parser and can never be skipped:
 ```
 
 (`layer` is one of `review` / `correspondence` / `verification`; `inputs` are
-the exact artifacts examined, by content hash, including the definition
-closure; `outcome` is from Section 7.4; `strength` from Section 7.3, review
-layer only; `git_commit` is optional.)
+the exact artifacts examined, by content hash, including the definition-closure
+facet wherever the layer depends on it (Section 12.3); `outcome` is from
+Section 7.4; `strength` from Section 7.3, review layer only; `git_commit` is
+optional.)
+
+Two optional fields support supersession: `supersedes` (the `evidence_id` this
+record replaces) and `reissue_reason` (`hash-move`, `env-bump`, `remap`, or
+`other`). They are recorded whenever a check is re-run on inputs that moved
+without the audited content changing. The status model (Section 8.1) uses them
+to distinguish *stale, awaiting re-audit* from *stale, superseded by a
+content-preserving re-issue*, so that a series of mechanical re-issues surfaces
+as bookkeeping rather than as a backlog of unverified claims.
 
 **Validity rule.** An evidence record is *current* if and only if every
 input hash equals the current hash of that artifact. Otherwise it is
@@ -317,12 +350,29 @@ evidence record that looks complete but omits a dependency, so that a real
 change fails to invalidate it.
 
 **Statement/proof separation on the formal side.** A Lean declaration
-contributes two independently hashed facets, `formal_statement` (its
-elaborated type) and `formal_proof` (its term or script). Correspondence and
-every statement-dependent record bind to `formal_statement`; only the block's
-own verification record lists `formal_proof`. A proof rewrite therefore stales
-only that block's verification, not the correspondence of everything that uses
-its statement - the formal-side counterpart of the informal rule above.
+contributes three independently hashed facets: `formal_statement` (its
+elaborated type), `definition_closure` (the statements of the declarations it
+transitively uses, Section 12.3), and `formal_proof` (its term or script).
+Correspondence and every statement-dependent record bind to
+`formal_statement` together with `definition_closure`; only the block's own
+verification record lists `formal_proof`. A proof rewrite therefore stales only
+that block's verification, not the correspondence of everything that uses its
+statement - the formal-side counterpart of the informal rule above - while a
+definition change propagates through `definition_closure` and a remap of a
+declaration between blocks does not, because the closure names declarations, not
+blocks (Section 6).
+
+**Which layers a block owes depends on its kind.** A definition or a bundled
+structure carries *verification only*: it makes no assertion to correspond to,
+and its faithfulness is the job of the central encoding audit (Section 11.5),
+not of per-block counterparts. A proposition, theorem, lemma, or corollary
+carries correspondence and verification, plus review when the manuscript
+supplies an informal proof (or an Explanation, Section 11a.5); one the
+manuscript states without proof carries correspondence and verification only. A
+remark or example carries whatever layers its content actually supports -
+typically correspondence and verification, with review only if the author
+asserts a proof. This convention is normative: it is why the frontier report
+does not list a definition as missing a correspondence layer.
 
 **Schema validation.** Records are machine-validated against a checked-in
 schema. An unknown key (for example a misspelled `independence_caveat`) or a
@@ -441,6 +491,14 @@ Each of the three layers is in exactly one of these states:
 A `stale` layer returns to `in_progress` when rework is scheduled, or
 directly to `pass` when an author decision record carries the evidence
 forward (for example after a purely editorial change; see Section 13.2).
+
+A `stale` layer is *awaiting re-audit* unless it has been superseded. When a
+record names a successor through `supersedes`/`reissue_reason` (Section 7.2)
+and that successor is current, the layer is `pass`; the superseded record
+remains in the store as history, but the views report it distinctly from a
+layer genuinely awaiting re-audit, so a run of mechanical re-issues (an
+environment bump, a hash move, a declaration remap) does not read as a backlog
+of unverified claims.
 
 ### 8.2 Derived Block Status
 
@@ -1021,6 +1079,22 @@ dependencies no extractor finds (for example "by a standard compactness
 argument") remain the reviewer's job, which is why the discrepancy report
 (Section 12.2) rather than extraction is the completeness backstop.
 
+**The formal extractor must fail closed.** Extraction of `formal_uses` (and of
+the formal facets themselves, Section 7.2) can be done either by scanning Lean
+source or from the elaborated environment. A source-level scanner is the
+cheap option, but it has one recurring, silent failure mode: a declaration
+written with a keyword the scanner does not recognize is simply *absent* from
+the map, so the block it should belong to silently loses its formalization and
+its dependents silently lose a closure edge. This has happened more than once
+(on attributes, on `noncomputable def`, on `inductive`), each time discovered
+only because a mapping visibly failed. The rule is therefore: the scanner must
+recognize every top-level declaration form used in mapped files, must fail
+*closed* - an unrecognized declaration in a mapped file is an error, not a
+skipped line - and must carry a regression test per supported form. The honest
+target state is to derive facets from the elaborated Lean environment, where
+the declaration list is whatever the compiler actually accepted; until then,
+source-level presence is a checked precondition, not an assumption.
+
 One dependency class deserves special mention because it is easy to miss
 mechanically: a block can reference another **by name in prose** (for
 example, citing "the root formula of Remark X") rather than by `\ref{}`.
@@ -1056,11 +1130,18 @@ Rules:
 
 - **Layer selects facets.** Verification takes `formal_proof` and the
   environment; correspondence takes `informal_statement`, `formal_statement`,
-  and the representation; review takes `informal_statement`, `informal_proof`
-  (plus `Explanation` where present), and dependency statements.
+  `definition_closure`, and the representation; review takes
+  `informal_statement`, `informal_proof` (plus `Explanation` where present), and
+  dependency statements.
 - **Transitive, statement-only.** Dependencies contribute their statements,
   recursively. This is what makes a definition change propagate (Section 13.1)
   while a proof change does not.
+- **Keyed on declarations, not blocks.** The closure is a set of declarations
+  and their statement hashes. Which block owns a declaration is bookkeeping and
+  does not enter the closure, so moving a helper between blocks leaves every
+  dependent's `definition_closure` hash unchanged (Section 13.2, class C5). An
+  earlier implementation keyed the closure on block membership, which turned
+  such a remap into a phantom statement change for every dependent.
 - **Fail closed.** If any edge is unresolved or ambiguous, closure generation
   fails and the check does not run; the block's `blocked` status names the
   unresolved edge. A partial closure is never emitted.
@@ -1086,10 +1167,14 @@ When any facet changes, the system:
 Because evidence records list statements, not proofs, of their
 dependencies, this rule already implements proof irrelevance on the informal
 side: a proof change stales only that block's own review and verification.
-The formal side matches it because `formal_statement` and `formal_proof` are
-hashed separately (Section 7.2): rewriting a Lean proof stales that block's
-verification record, and nothing else, while a change to the elaborated type
-propagates exactly like a statement change.
+The formal side matches it because `formal_statement`, `definition_closure`,
+and `formal_proof` are hashed separately (Sections 6, 7.2): rewriting a Lean
+proof stales that block's verification record and nothing else; a change to
+the elaborated type propagates exactly like a statement change; and a change
+to a definition's content moves the `definition_closure` of every dependent,
+which is precisely how a definition edit (class C4) reaches its downstream
+closure. Because the closure names declarations rather than blocks, moving a
+declaration between blocks moves none of these hashes (class C5).
 
 Informal text is normalized (whitespace, comments, macro expansion to a
 canonical form) before hashing, so trivial edits do not trigger
@@ -1107,7 +1192,7 @@ justification.
 | C2 Strengthening | Weaker hypotheses or stronger conclusion | Stales dependents' reviews and formal builds | Dependents' reviews may be carried forward if the comparator confirms strengthening; builds are simply re-run |
 | C3 Weakening / incomparable | Stronger hypotheses, weaker or different conclusion | Stales dependents | None; dependents are re-reviewed and rebuilt |
 | C4 Definition change | Any change to a definition | Stales everything in its downstream closure | None |
-| C5 Identity operation | Split, merge, rename, move | None if mapped correctly | Evidence carried forward via an explicit identity map |
+| C5 Identity operation | Split, merge, rename, move, declaration remap | None if facet hashes are keyed on content and declaration identity | Evidence carried forward via an explicit identity map |
 | C6 Representation change | Any change to the project representation: carrier model, subset/coercion conventions, ambient universe, definition of a componentwise operation | Stales every correspondence and review record listing that representation hash - the whole dependent surface | None; the representation is re-audited (Section 11.5) and every dependent statement re-audited |
 | F2 Environment change | Lean or Mathlib version bump | Stales all verification evidence | None; full rebuild |
 
@@ -1119,12 +1204,26 @@ C4, because it can silently reconfigure many definitions at once - and a
 representation change is never routine: it is always an author decision,
 followed by a fresh encoding audit (P12).
 
+**The declaration-remap sub-case of C5.** A *declaration remap* moves a
+declaration from one owning block to another - in practice, a helper
+introduced inside a proof being promoted to the block whose contract it
+actually formalizes (Section 6). How much it costs depends entirely on what
+the definition closure is keyed on. With a declaration-keyed closure
+(Section 12.3) it is a genuine no-op: no facet hash moves, no record stales.
+With the earlier block-keyed closure it was not: the dependents' closure sets
+changed, so their `definition_closure` and every statement-dependent record
+moved, and those records had to be re-issued although nothing about the
+mathematics had changed. When a remap does force re-issues, record them with
+`reissue_reason: remap` (Section 7.2) and keep the existing transcripts; the
+audits' content is unchanged and re-running them wastes the independence they
+already have. A remap never needs an author decision: it changes no contract.
+
 ### 13.3 Mechanical Hygiene (Automate, Do Not Track by Hand)
 
-Practical experience across many editing sessions produced three recurring,
-purely mechanical failure modes. All three are cheap to prevent with
-tooling and expensive to discover by hand, so treat automation here as
-required, not optional:
+Practical experience across many editing sessions produced four recurring,
+purely mechanical failure modes. All four are cheap to prevent with tooling
+and expensive to discover by hand, so treat automation here as required, not
+optional:
 
 1. **Anchor drift.** If block hashing is keyed to raw line ranges in the
    source file, every edit that shifts line numbers desyncs every hash
@@ -1151,6 +1250,18 @@ required, not optional:
    still nonzero. Never trust the printed log alone: check the numeric exit
    code after every compile, and run a small non-ASCII scanner over any
    file that was just edited before even attempting to compile it.
+4. **Post-hoc declaration addition.** Adding any declaration to a block that
+   already has verification evidence changes that block's `formal_proof` hash,
+   so the block's verification silently goes stale even though nothing it
+   previously claimed was retracted. This is not a defect to be fixed; it is a
+   consequence of hashing facets per block. The rule is a same-session rule:
+   whenever a declaration is added to an already-verified block, re-issue that
+   block's verification before the session's commit, and never let a session
+   end with a block whose own facet has moved since its last verification. The
+   same applies to re-maps and to any edit that adds a declaration rather than
+   changing one (Section 13.2, class C5). A gate that re-derives every block's
+   verification currency from the facets - rather than trusting that "no
+   theorem statement changed" - is what makes this mechanical (Section 15.6).
 
 ## 14. TeX Ingestion and Project Initialization
 
@@ -1220,7 +1331,7 @@ without weakening any guarantee this workspace actually relies on.
 |---|---|
 | Immutable statement registration | A frozen block's statement facet, with edits requiring a decision record (Section 13.2) |
 | Open reduction (proof-sketch with open children) | A block with `formalization_scope: statement-only`, its open proof recorded explicitly in the trust boundary |
-| Mission-wide axiom whitelist | Local `#print axioms` check against a fixed permitted set, run as part of the build |
+| Mission-wide axiom whitelist | Local `#print axioms` check against a fixed permitted set, run by the mechanical Lean gate (Section 15.6) |
 | Externally citable, publicly verified result | Not needed locally; if a result must later be shared as independently verifiable, publish the Lean source and evidence bundle alongside the paper - no platform required |
 
 ### 15.3 Environment Isolation
@@ -1252,8 +1363,43 @@ build of this workspace.
 `sorry` is never permitted in a block's own formal proof once that block is
 reported as formalized. Unproved inputs appear only as imported open lemmas
 (statement-only blocks) or explicit trust-boundary entries, all of which
-appear in the trust boundary report. A project-wide `sorry`-free check is
-part of the standard build.
+appear in the trust boundary report. A project-wide `sorry`-free check is run
+by the mechanical Lean gate (Section 15.6).
+
+### 15.6 The Mechanical Lean Gate
+
+The formal side of the workspace has its own mechanical gate, and it is part of
+`check_all`, not a manual step. It exists because the three facts the
+verification layer depends on - that the project builds, that it builds
+cleanly, and that every reported theorem's axioms lie inside the permitted set
+- were, in early practice, asserted from a truncated console log rather than
+checked. That produced a real drift: a build reported for several sessions as
+"0 warnings" in fact emitted a style-linter warning the whole time, and no
+check noticed, because nothing in the gate ever invoked the compiler.
+
+The gate must, on every run:
+
+1. **Build the pinned project** and capture the full diagnostic stream, not a
+   tail. Zero warnings is the default; a warning may be allowed only through an
+   explicit, commented allowlist entry naming the declaration and the reason
+   (typically a known false positive in a linter). An unexplained warning is a
+   failure, so that "clean build" is a fact the tool establishes rather than a
+   claim a session repeats.
+2. **Audit axioms.** For every declaration named in the block-to-declaration
+   map, run `#print axioms` and fail if any axiom lies outside the permitted
+   set (`propext`, `Classical.choice`, `Quot.sound`). This is the concrete
+   local replacement for a mission-wide whitelist (Section 15.2).
+3. **Check `sorry`-freeness** across the project (Section 15.5).
+4. **Record the outcome** in a derived artifact (`blocks/lean_audit.json`,
+   containing the warning set, the axiom sets per declaration, and the
+   toolchain/Mathlib revisions), and refuse to issue a `build_ok` verification
+   record that does not match it. The verification record thereby records a
+   measured fact, and a version bump (class F2) stales it through the
+   environment facet as before.
+
+The same discipline that makes the informal checks reproducible - derive, do
+not assert - applies here. A session may state "clean build, axioms within the
+permitted set" only because the gate computed it this run.
 
 ## 16. Session Continuity and the Agentic Writing Loop
 
@@ -1280,7 +1426,15 @@ entry recording:
 - an updated, prioritized list of suggested next steps;
 - a "safe restart checklist" of anything a new session must do or check
   before touching the project (environment variables, known-fragile
-  commands, files not to touch without reading a specific caveat first).
+  commands, files not to touch without reading a specific caveat first);
+- the exact command sequence that regenerates every derived view and runs the
+  mechanical gate, exposed as a single orchestrator entry point. Derived views
+  have dependencies among themselves (a bundle embeds the journal, which the
+  session updates; a discrepancy report consumes the formal graph, which the
+  facet extractor rewrites), so regenerating them "in the right order" is a
+  real, repeatedly-hit failure mode when it is left to memory. The orchestrator
+  regenerates them in dependency order and then runs `check_all`, so a session
+  cannot end on a drifted view.
 
 **Write this entry before spending remaining budget on more proof or
 writing work, not after**, whenever the remaining budget is uncertain. A
@@ -1581,7 +1735,10 @@ tooling, with no dependency on any external platform.
    under macro changes and name-only cross-references?
 4. How strongly do errors of formalizer and auditor agents correlate when
    they share a model, and does model diversity measurably reduce this? (Now
-   measurable: report calibration detection rate by model pair, Section 11.4.)
+   measurable: report calibration detection rate by model pair, Section 11.4,
+   and record the auditor model on every correspondence/review record so the
+   trust view can surface a same-model share, rather than repeating the caveat
+   as prose.)
 5. Should evidence bundles, including the adversarial-read reports, be
    offered to journal referees, and in what form?
 6. Is there ever a concrete case for the optional external-registration
@@ -1598,8 +1755,73 @@ tooling, with no dependency on any external platform.
 10. How much of a paper's dependency graph must be human-confirmed before
     closure generation can be trusted, and can the false-negative rate be
     driven low enough to make computed closures the default?
+11. Can the formal facets be derived from the elaborated Lean environment
+    cheaply enough to replace source-level scanning altogether, removing the
+    whole class of "unrecognized declaration" gaps at the source (Section
+    12.1)?
+12. Does keying the definition closure on declaration identity fully eliminate
+    remap fallout, or do other bookkeeping edits (renaming a declaration,
+    splitting or merging a block) still leak into content hashes (Section
+    13.2)?
 
 ## 25. Change Log
+
+### Revision 3 - frontier-hardened
+
+The following were added after carrying the pilot through a long run of
+formalization-frontier sessions (roughly sessions 40-47); each names the
+concrete observation that motivated it.
+
+- **Statement/closure separation** (Sections 6, 7.2, 12.3, 13.1, 13.2 class
+  C5): `definition_closure` is now its own hashed facet, keyed on declaration
+  identity rather than block membership, so definition *content* still
+  propagates to dependents while block-ownership bookkeeping does not.
+  Motivated by a declaration remap - a helper introduced inside one block's
+  proof, then registered against the block whose contract it actually
+  formalizes - that changed a dependent's statement hash and forced a re-issue
+  of records whose audit content was unchanged.
+- **Declaration-ownership rule** (Section 6): a declaration belongs to the
+  block whose contract it formalizes, even if first written to support another
+  block's proof. Codifies the decision the remap above was making implicitly.
+- **The mechanical Lean gate** (Section 15.6; Sections 13.3 item 4, 15.2,
+  15.5): build with the full diagnostic stream captured (zero warnings, with a
+  commented allowlist for justified false positives), `#print axioms` on every
+  mapped declaration against the permitted set, a project-wide `sorry` check,
+  and a derived `lean_audit` artifact a `build_ok` record must match. Motivated
+  by a build reported as "0 warnings" across sessions while it in fact emitted
+  a linter warning - no check noticed because the mechanical gate never invoked
+  the compiler.
+- **Re-issue vocabulary** (Sections 7.2, 8.1): evidence records gained
+  `supersedes` and `reissue_reason`, and the status model separates *stale,
+  awaiting re-audit* from *stale, superseded by a content-preserving re-issue*.
+  Motivated by a run of mechanical re-issues (environment and hash moves) that
+  otherwise read as a backlog of unverified claims.
+- **Layer assignment by block kind** (Section 7.2): definitions and bundled
+  structures carry verification only; propositions, lemmas, and corollaries
+  carry correspondence and verification, plus review when a proof exists (or an
+  Explanation, Section 11a.5). Promotes a convention that had been folklore to
+  a normative rule.
+- **Extractor fail-closed policy** (Section 12.1): an unrecognized declaration
+  in a mapped file is an error, every supported declaration form carries a
+  regression test, and deriving facets from the elaborated Lean environment
+  (rather than source text) is the named target state. Motivated by repeated
+  silent extractor gaps found one at a time (an attribute line, `noncomputable
+  def`, `inductive`), each surfacing only because a mapping visibly failed.
+- **Post-hoc declaration addition** (Section 13.3, item 4): adding a
+  declaration to an already-verified block moves that block's own proof hash;
+  re-issue its verification in the same session. Motivated by a block that went
+  stale after a declaration was added a few steps after its verification was
+  recorded, with the staleness missed until the next report was inspected.
+- **Session orchestrator** (Section 16.1): one entry point regenerates the
+  derived views in dependency order and then runs the gate, instead of relying
+  on the session to rediscover the ordering. Motivated by a bundle that drifted
+  because the journal was appended after the bundle had been regenerated.
+- **Auditor model recorded** (Sections 11.4, 24.4): correspondence and review
+  records name the model, so the trust view can report a same-model share
+  rather than repeating the caveat as prose.
+- **Open questions extended** (Section 24, items 11-12): elaborated facets as
+  a replacement for source-level scanning, and whether declaration-keyed
+  closures fully eliminate bookkeeping fallout.
 
 ### Revision 2 - pilot-hardened
 
