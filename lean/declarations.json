@@ -3,22 +3,22 @@
   "blocks": {
     "B-C001": {
       "decl": "Mslang.sat_antitone",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-C002": {
       "decl": "Mslang.sat_inf",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-R007": {
       "decls": [
         "Mslang.satSets",
         "Mslang.satSets_antitone"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D002": {
       "decl": "Mslang.SSet",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D003": {
       "decls": [
@@ -26,7 +26,7 @@
         "Mslang.iProj",
         "Mslang.iPair"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D001": {
       "decls": [
@@ -34,7 +34,7 @@
         "Mslang.concat",
         "Mslang.emptyWord"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D008": {
       "decls": [
@@ -42,11 +42,11 @@
         "Mslang.FiniteSub",
         "Mslang.finiteSubsets"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D016": {
       "decl": "Mslang.Signature",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D017": {
       "decls": [
@@ -55,49 +55,49 @@
         "Mslang.AlgStruct",
         "Mslang.IsAlgHom"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D018": {
       "decl": "Mslang.suppAlg",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D019": {
       "decl": "Mslang.FiniteAlg",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-R003": {
       "decl": "Mslang.finiteSSet_iff",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D007": {
       "decls": [
         "Mslang.directImage",
         "Mslang.inverseImage"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D005": {
       "decls": [
         "Mslang.Sub",
         "Mslang.Subset"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D006": {
       "decl": "Mslang.delta",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-P002": {
       "decl": "Mslang.prop_incSat",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-P003": {
       "decl": "Mslang.nabla_sat",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-P004": {
       "decl": "Mslang.sat_inf_subset",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-P005": {
       "decls": [
@@ -118,11 +118,11 @@
         "Mslang.sat_uniform",
         "Mslang.satSets_fix"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D009": {
       "decl": "Mslang.supp",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D014": {
       "decls": [
@@ -130,7 +130,7 @@
         "Mslang.sat",
         "Mslang.IsSat"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D004": {
       "decls": [
@@ -138,21 +138,21 @@
         "Mslang.finalSorted",
         "Mslang.initialSorted"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-R006": {
       "decls": [
         "Mslang.sat_eq_preimage",
         "Mslang.isSat_iff_preimage"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-R005": {
       "decls": [
         "Mslang.quot",
         "Mslang.supp_quot"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-P007": {
       "decls": [
@@ -161,7 +161,7 @@
         "Mslang.quotLift_comp",
         "Mslang.quotLift_unique"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-R008": {
       "decls": [
@@ -169,18 +169,18 @@
         "Mslang.nabla_sat_univ",
         "Mslang.nabla_sat_deltaUnion"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D015": {
       "decls": [
         "Mslang.SortedMap",
         "Mslang.ker"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     },
     "B-D024": {
       "decl": "Mslang.IsCongruence",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Congruence.lean"
     },
     "B-D025": {
       "decls": [
@@ -190,7 +190,7 @@
         "Mslang.quotOp_mk",
         "Mslang.isAlgHom_prAlg"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Congruence.lean"
     },
     "B-P009": {
       "decls": [
@@ -200,7 +200,7 @@
         "Mslang.quotAlgLift_comp",
         "Mslang.quotAlgLift_unique"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Congruence.lean"
     },
     "B-R009": {
       "decls": [
@@ -208,7 +208,7 @@
         "Mslang.suppAlg_iAlg",
         "Mslang.supports_isClosureSystem"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D022": {
       "decls": [
@@ -220,11 +220,11 @@
         "Mslang.iProjAlg_iPairAlg",
         "Mslang.iPairAlg_unique"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D020": {
       "decl": "Mslang.IsSubalgebra",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D021": {
       "decls": [
@@ -238,7 +238,7 @@
         "Mslang.Sg_idem",
         "Mslang.Sg_isClosureOperator"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-R010": {
       "decls": [
@@ -246,35 +246,35 @@
         "Mslang.suppSub_Sg",
         "Mslang.suppSub_Sg_uniform"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D010": {
       "decls": [
         "Mslang.Sub_iInter",
         "Mslang.IsClosureSystem"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D011": {
       "decls": [
         "Mslang.IsCompact",
         "Mslang.IsAlgebraicLattice"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D012": {
       "decls": [
         "Mslang.Sub_iUnion",
         "Mslang.IsAlgebraicClosureSystem"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D013": {
       "decls": [
         "Mslang.IsUniform",
         "Mslang.IsUniformAlgebraicClosureOperator"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Algebra.lean"
     },
     "B-D023": {
       "decls": [
@@ -283,22 +283,22 @@
         "Mslang.subAlg",
         "Mslang.SubfinalAlg"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Subfinal.lean"
     },
     "B-P008": {
       "decl": "Mslang.subfinalAlg_iff",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Subfinal.lean"
     },
     "B-R012": {
       "decls": [
         "Mslang.nabla_isCongruence",
         "Mslang.quot_nabla_subfinal"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Subfinal.lean"
     },
     "B-R011": {
       "decl": "Mslang.hom_unique_of_subfinalAlg",
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Subfinal.lean"
     },
     "B-D026": {
       "decls": [
@@ -308,7 +308,7 @@
         "Mslang.WSet",
         "Mslang.WAlg"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Free.lean"
     },
     "B-D027": {
       "decls": [
@@ -317,7 +317,7 @@
         "Mslang.TSet",
         "Mslang.etaX"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Free.lean"
     },
     "B-R001": {
       "decls": [
@@ -328,7 +328,7 @@
         "Mslang.deltaEquiv",
         "Mslang.delta_iso_coprod"
       ],
-      "file": "lean/Mslang/Pilot.lean"
+      "file": "lean/Mslang/Prelim.lean"
     }
   }
 }

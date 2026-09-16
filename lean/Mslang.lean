@@ -1,10 +1,11 @@
-import Mslang.Pilot
+import Mslang.Free
 import Mslang.Sanity
 
 /-!
 Environment smoke test and axiom audit for the MSLang pilot (Architecture.md
-Sections 10.6 item 4 and 15.5). The pilot definitions and the first formal
-target live in `Mslang/Pilot.lean`.
+Sections 10.6 item 4 and 15.5). The pilot theory is split by dependency layer
+across `Mslang/Prelim.lean`, `Mslang/Algebra.lean`, `Mslang/Congruence.lean`,
+`Mslang/Subfinal.lean`, and `Mslang/Free.lean` (Section 10.2).
 
 `#print axioms` must report only `propext`, `Classical.choice`, and
 `Quot.sound` (the three Mathlib axioms); anything else is a trust-boundary

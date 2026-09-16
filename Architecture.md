@@ -598,6 +598,21 @@ Responsibilities:
 - extracting formal dependencies;
 - producing machine-checkable evidence.
 
+**Module structure.** The Lean development is split into modules that mirror the
+dependency lattice, not kept in one file. This is not cosmetic: Lake recompiles
+only an edited module and its importers, independent modules build in parallel,
+the editor re-checks one file rather than the whole project, and imports cannot
+cycle, so the module layout *is* the dependency graph made explicit. The pilot's
+split is `Mslang/Prelim.lean` (sorted-set layer), `Mslang/Algebra.lean`
+(signatures, algebras, homomorphisms, subalgebras, closure systems),
+`Mslang/Congruence.lean` (congruences and quotients), `Mslang/Subfinal.lean`
+(the final algebra and the subfinal results), and `Mslang/Free.lean` (rows and
+the free algebra), with `Mslang.lean` the umbrella that imports the leaves and
+holds the axiom audit. Splitting is a refactor, never a contract change: because
+formal facets are hashed from declaration text (Section 6), moving a declaration
+between modules preserves its facet hashes and stales no evidence - only the
+extractor's per-block `file` bookkeeping in `lean/declarations.json` changes.
+
 Formal feedback is classified before it reaches the mathematical layer, so
 that the author sees mathematics, not Lean noise.
 
@@ -1859,6 +1874,12 @@ concrete observation that motivated it.
   are made - rather than being reconstructible only from diffs. Motivated by the
   author's report that the chain of work was hard to follow once a session
   started.
+- **Dependency-ordered Lean modules** (Section 10.2): the single-file pilot was
+  split into `Mslang/Prelim`, `Algebra`, `Congruence`, `Subfinal`, and `Free`,
+  so that a change recompiles only the edited module and its importers.
+  Motivated by a pilot file that had grown to ~1200 lines and recompiled in full
+  on every edit; because facets are hashed by declaration text, the split
+  preserved every facet hash and staled no evidence.
 - **Auditor model recorded** (Sections 11.4, 24.4): correspondence and review
   records name the model, so the trust view can report a same-model share
   rather than repeating the caveat as prose.

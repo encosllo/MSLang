@@ -1,4 +1,4 @@
-import Mslang.Pilot
+import Mslang.Prelim
 
 /-!
 Formal sanity checks (Architecture.md Section 11.3) under the dependent-type
