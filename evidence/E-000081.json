@@ -1,0 +1,26 @@
+{
+  "block": "B-R009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000081",
+  "findings": [
+    "Re-issued: after re-mapping Mslang.iAlg to B-D022, the B-R009 definition closure changed, so this verification supersedes E-000074. lake build under the dependent-type carrier model: B-R009 (Mslang.IsClosureSystemOn, suppAlg_iAlg, supports_isClosureSystem) compiles against Mathlib v4.33.1; axioms within the permitted set. The statement and proof are unchanged."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R009/formal_proof",
+      "hash": "5e441a44341c60a1e4e34c8bf45ca27928f78bee91183290b99a6a34f3fa8385"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T10:41:52Z"
+}

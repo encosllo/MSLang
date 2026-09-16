@@ -341,6 +341,32 @@
         "hash": "34c00107d106e6064a39c05122935445a5ef036aada36744ec39cda24c92866c"
       }
     },
+    "B-D022": {
+      "decls": [
+        "Mslang.iAlg",
+        "Mslang.iProjAlg",
+        "Mslang.isAlgHom_iProjAlg",
+        "Mslang.iPairAlg",
+        "Mslang.isAlgHom_iPairAlg",
+        "Mslang.iProjAlg_iPairAlg",
+        "Mslang.iPairAlg_unique"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "387e4cdf15d01d08d25c568b7ffd4dc901f9085b37a78dbe32e216837524c3a4"
+      },
+      "formal_statement": {
+        "hash": "0165a8b659aa83505782a5b6d68c1a501994463ad4ee513584a66e7906b6eab5"
+      }
+    },
     "B-D024": {
       "decls": [
         "Mslang.IsCongruence"
@@ -622,22 +648,26 @@
     "B-R009": {
       "decls": [
         "Mslang.IsClosureSystemOn",
-        "Mslang.iAlg",
         "Mslang.suppAlg_iAlg",
         "Mslang.supports_isClosureSystem"
       ],
       "definition_closure": [
         "B-D002",
+        "B-D005",
         "B-D009",
+        "B-D014",
+        "B-D015",
         "B-D016",
-        "B-D018"
+        "B-D017",
+        "B-D018",
+        "B-D022"
       ],
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
-        "hash": "bd3158d63a6db51db1d826d0cc1c2f5f0e875ab3fb1c7ce74fface3daa0f8455"
+        "hash": "5e441a44341c60a1e4e34c8bf45ca27928f78bee91183290b99a6a34f3fa8385"
       },
       "formal_statement": {
-        "hash": "03cdb4115f9233fe360f83b422a07a7e17082325f380e47aee312c4ef2d0c056"
+        "hash": "3010c2715f81cbd0e6eb50662d5a66901e7375e422a72c3fa640d074dcc81807"
       }
     },
     "B-R010": {

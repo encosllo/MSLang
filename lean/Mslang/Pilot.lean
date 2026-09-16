@@ -771,6 +771,59 @@ theorem finiteSSet_iff {S : Type u} (A : SSet S) :
       (fun y : (Σ s : ↥(supp A), A s.1) => (⟨y.1.1, y.2⟩ : Sigma A))
       (fun x => ⟨⟨⟨x.1, ⟨x.2⟩⟩, x.2⟩, rfl⟩)
 
+/-! ### `B-D022`: products of `Σ`-algebras. -/
+
+/-- `B-D022`: the product `∏_i A_i` of a family of `Σ`-algebras, componentwise
+on carriers and operations. -/
+noncomputable def iAlg {S : Type u} (Sig : Signature S) {ι : Type u}
+    (A : ι → Alg Sig) : Alg Sig :=
+  ⟨fun s => ∀ i, (A i).1 s,
+   fun p σ b => fun i => (A i).2 p σ (fun j => b j i)⟩
+
+/-- `B-D022`: the `i`-th canonical projection `pr^i : ∏_i A_i → A_i`. -/
+def iProjAlg {S : Type u} (Sig : Signature S) {ι : Type u} (A : ι → Alg Sig)
+    (i : ι) : SortedMap (iAlg Sig A).1 (A i).1 :=
+  fun _ a => a i
+
+/-- `B-D022`: the canonical projections are homomorphisms. -/
+theorem isAlgHom_iProjAlg {S : Type u} (Sig : Signature S) {ι : Type u}
+    (A : ι → Alg Sig) (i : ι) :
+    IsAlgHom Sig (iAlg Sig A).2 (A i).2 (iProjAlg Sig A i) := by
+  intro p σ a
+  rfl
+
+/-- `B-D022`: the pairing `<f^i> : B → ∏_i A_i`. -/
+def iPairAlg {S : Type u} (Sig : Signature S) {ι : Type u} {B : SSet S}
+    (A : ι → Alg Sig) (f : ∀ i, SortedMap B (A i).1) :
+    SortedMap B (iAlg Sig A).1 :=
+  fun s b i => f i s b
+
+/-- `B-D022`: the pairing of homomorphisms is a homomorphism. -/
+theorem isAlgHom_iPairAlg {S : Type u} (Sig : Signature S) {ι : Type u}
+    {B : SSet S} (FB : AlgStruct Sig B) {A : ι → Alg Sig}
+    (f : ∀ i, SortedMap B (A i).1)
+    (hf : ∀ i, IsAlgHom Sig FB (A i).2 (f i)) :
+    IsAlgHom Sig FB (iAlg Sig A).2 (iPairAlg Sig A f) := by
+  intro p σ a
+  funext i
+  exact hf i p σ a
+
+/-- `B-D022`: `pr^i ∘ <f^i> = f^i`. -/
+theorem iProjAlg_iPairAlg {S : Type u} (Sig : Signature S) {ι : Type u}
+    {B : SSet S} (A : ι → Alg Sig) (f : ∀ i, SortedMap B (A i).1) (i : ι) :
+    (fun s => (iProjAlg Sig A i s) ∘ (iPairAlg Sig A f s)) = f i := by
+  funext s b
+  rfl
+
+/-- `B-D022`: `<f^i>` is the unique map with `pr^i ∘ f = f^i` for all `i`. -/
+theorem iPairAlg_unique {S : Type u} (Sig : Signature S) {ι : Type u}
+    {B : SSet S} (A : ι → Alg Sig) (f : ∀ i, SortedMap B (A i).1)
+    (p : SortedMap B (iAlg Sig A).1)
+    (hp : ∀ i, (fun s => (iProjAlg Sig A i s) ∘ (p s)) = f i) :
+    p = iPairAlg Sig A f := by
+  funext s b i
+  exact congrFun (congrFun (hp i) s) b
+
 /-! ### `B-R009`: the supports of `Σ`-algebras form a closure system on `S`. -/
 
 /-- An ordinary closure system on a set `S` (the paper's `B-D010` in the
@@ -778,13 +831,6 @@ one-sorted case, applied to the set of sorts `S`): a family of subsets of `S`
 containing `S` and closed under nonempty intersections. -/
 def IsClosureSystemOn (S : Type u) (C : Set (Set S)) : Prop :=
   Set.univ ∈ C ∧ ∀ D : Set (Set S), D ⊆ C → D.Nonempty → ⋂₀ D ∈ C
-
-/-- The product `∏_i A_i` of a family of `Σ`-algebras, componentwise on carriers
-and operations. -/
-noncomputable def iAlg {S : Type u} (Sig : Signature S) {ι : Type u}
-    (A : ι → Alg Sig) : Alg Sig :=
-  ⟨fun s => ∀ i, (A i).1 s,
-   fun p σ b => fun i => (A i).2 p σ (fun j => b j i)⟩
 
 /-- The support of a product of `Σ`-algebras is the intersection of the
 supports. -/

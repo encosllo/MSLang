@@ -1,0 +1,28 @@
+{
+  "block": "B-D022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000080",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D022 (Mslang.iAlg, iProjAlg, isAlgHom_iProjAlg, iPairAlg, isAlgHom_iPairAlg, iProjAlg_iPairAlg, iPairAlg_unique) compiled against Mathlib v4.33.1.",
+    "#print axioms isAlgHom_iProjAlg = none; isAlgHom_iPairAlg/iProjAlg_iPairAlg/iPairAlg_unique depend on Quot.sound (via funext), within the permitted set.",
+    "iAlg was re-mapped from B-R009 to B-D022 (its true contract); this staled B-R009's verification/correspondence, now re-issued as E-000081/E-000082."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D022/formal_proof",
+      "hash": "387e4cdf15d01d08d25c568b7ffd4dc901f9085b37a78dbe32e216837524c3a4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T10:41:47Z"
+}

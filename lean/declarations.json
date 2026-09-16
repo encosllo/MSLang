@@ -205,9 +205,20 @@
     "B-R009": {
       "decls": [
         "Mslang.IsClosureSystemOn",
-        "Mslang.iAlg",
         "Mslang.suppAlg_iAlg",
         "Mslang.supports_isClosureSystem"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D022": {
+      "decls": [
+        "Mslang.iAlg",
+        "Mslang.iProjAlg",
+        "Mslang.isAlgHom_iProjAlg",
+        "Mslang.iPairAlg",
+        "Mslang.isAlgHom_iPairAlg",
+        "Mslang.iProjAlg_iPairAlg",
+        "Mslang.iPairAlg_unique"
       ],
       "file": "lean/Mslang/Pilot.lean"
     },

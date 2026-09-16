@@ -55,3 +55,7 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.Sg_isClosureOperator
 #print axioms Mslang.suppSub_Sg
 #print axioms Mslang.suppSub_Sg_uniform
+#print axioms Mslang.isAlgHom_iProjAlg
+#print axioms Mslang.isAlgHom_iPairAlg
+#print axioms Mslang.iProjAlg_iPairAlg
+#print axioms Mslang.iPairAlg_unique
