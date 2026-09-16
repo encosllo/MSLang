@@ -5,7 +5,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`
+Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -93,6 +93,13 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-D028` | `B-D017` |
 | `B-D028` | `B-D022` |
 | `B-D028` | `B-D023` |
+| `B-D030` | `B-D002` |
+| `B-D030` | `B-D014` |
+| `B-D030` | `B-D016` |
+| `B-D030` | `B-D017` |
+| `B-D030` | `B-D024` |
+| `B-D030` | `B-D025` |
+| `B-D030` | `B-D027` |
 | `B-L001` | `B-D002` |
 | `B-L001` | `B-D015` |
 | `B-L001` | `B-D016` |
@@ -173,6 +180,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 |---|---|
 | `B-C001` | `B-D014` |
 | `B-C002` | `B-D014` |
+| `B-D030` | `B-D015` |
 | `B-P002` | `B-D014` |
 | `B-P003` | `B-D014` |
 | `B-P004` | `B-D014` |
@@ -194,4 +202,4 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-107 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+106 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.

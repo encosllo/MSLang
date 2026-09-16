@@ -2758,6 +2758,43 @@ audit.
 
 ---
 
+## Session 64 -- 2026-09-16 -- frontier: B-D029, B-D030
+
+**Goal.** Continue the formation layer: filters of a lattice, then formations of
+congruences.
+
+**What was established (closed).**
+
+- **`B-D029`** as `Mslang.IsLatticeFilter` (nonempty up-set closed under meets)
+  and `Mslang.latticeFilters` (`Filt(L)`).
+- **`B-D030`** as `Mslang.IsCongruenceFormation`: a dependent choice function
+  `F : (A : SSet S) → Set (SortedEqv (T_Σ(A)))` with each `F A` a filter of
+  `Cgr(T_Σ(A))` (nonempty, consisting of congruences, meet-closed, up-closed
+  under refinement) and closed under `Ker(pr^Θ ∘ f) ∈ F(A)` along
+  `Θ`-epimorphisms.
+- Both in `Mslang/Formation.lean` (now imports `Free` for `T_Σ`). Mapped in
+  `lean/declarations.json`; facets regenerated (**50 mapped blocks**).
+- Evidence **`E-000117`** (B-D029) and **`E-000118`** (B-D030), verification
+  `build_ok`. Definitions carry the verification layer only.
+- `reports/frontier.md`: unmapped blocks **81 -> 79**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000070`.
+
+**Honest caveat.** Definitions only. The "filter of `Cgr(T_Σ(A))`" condition is
+*inlined* (the encoding uses predicates, not a bundled congruence lattice), and
+the congruence-ness of `Θ` is a named hypothesis rather than derived from
+filter membership. `‹_›`/`assumption` does not work in a `def`'s type, so the
+congruence hypothesis is named `hΘ` explicitly.
+
+**Prioritized next steps.**
+
+1. `B-D031`+ (`H` and `P_fsd` operators, formation of algebras) — reaches the
+   Eilenberg-theorem statement of the section.
+2. `B-P010` (term characterization; the unique-parsing proof) — still the gate
+   to `B-P011` existence and `B-P012`/`B-P013`.
+3. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level — a scope decision).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
