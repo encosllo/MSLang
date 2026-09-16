@@ -2721,6 +2721,43 @@ proofs in `MemSg`/`Sg` needed `convert` to bridge by proof irrelevance.
 
 ---
 
+## Session 63 -- 2026-09-16 -- frontier: B-D028 (subdirect products)
+
+**Goal.** Open the formation-theoretic layer with the definition of subdirect
+product / subdirect embedding.
+
+**What was established (closed).**
+
+- **`B-D028`** in a new module `Mslang/Formation.lean` (importing `Subfinal`):
+  `Mslang.IsMonoAlg`, `Mslang.IsEpiAlg` (injective/surjective homomorphisms),
+  `Mslang.IsSubdirectEmbedding` (injective hom whose composites with the
+  canonical projections are surjective), `Mslang.IsSubdirectProduct`, and
+  `Mslang.IsomorphicSubdirectEmbeddings`.
+- Encoding note: the subdirect product is *existence of a subdirect embedding*
+  into `∏ A^i` (the paper's second formulation), since the type encoding has no
+  literal "`A` is a subalgebra of the product".
+- Mapped in `lean/declarations.json`; facets regenerated (**48 mapped blocks**).
+- Evidence **`E-000116`**, verification `build_ok`. Definition carries the
+  verification layer only.
+- `reports/frontier.md`: unmapped blocks **82 -> 81**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000069`. `Architecture.md` §10.2 module table
+  and the safe-restart layout updated.
+
+**Honest caveat.** Definitions only; no correspondence audit (project
+convention). The encoding of "subalgebra of the product" as an embedding is a
+representation choice governed by the central encoding audit, not a per-block
+audit.
+
+**Prioritized next steps.**
+
+1. `B-P010` (term characterization; the unique-parsing proof) — still the gate
+   to `B-P011` existence and the projective/free results (`B-P012`, `B-P013`).
+2. The formation-theoretic definitions following `B-D028` (`B-D029` filters,
+   `B-D030` formations).
+3. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level — a scope decision).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
@@ -2771,8 +2808,8 @@ not by re-issuing.
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
    `#print axioms` on the new theorems stays within the permitted set. The Lean
    sources are split by dependency layer under `lean/Mslang/`:
-   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, and `Algebra` -> `Free`
-   (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
+   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, with `Algebra` -> `Free`
+   and `Subfinal` -> `Formation` (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
    block and update its `file` in `lean/declarations.json` if a declaration
    moves (the facet hashes are text-based, so a pure move stales no evidence).
 9. `scripts/validate_records.py --self-test` exercises the schema validator's
