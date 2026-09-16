@@ -2573,6 +2573,39 @@ characterization), `B-P011` (universal property), `B-C003` (adjunction).
 
 ---
 
+## Session 59 -- 2026-09-16 -- frontier extension: B-D027 (free algebra `T_Σ`)
+
+**Goal.** Define the free `Σ`-algebra `T_Σ(X)` and the insertion `η^X`.
+
+**What was established (closed).**
+
+- **`B-D027`** as `Mslang.genSet` (the generators `(x)` at sort `s`),
+  `Mslang.TAlg` (= `subAlg` over `Sg_{W_Σ(X)}(genSet)`), `Mslang.TSet` (its
+  carrier), and `Mslang.etaX` (the insertion `x ↦ (x)`). Reuses `Sg` (`B-D021`)
+  and `subAlg` (`B-D023`).
+- Mapped in `lean/declarations.json`; facets regenerated (**45 mapped blocks**).
+- Evidence **`E-000111`**, verification `build_ok`. Definition carries the
+  verification layer only.
+- `reports/frontier.md`: unmapped blocks **85 -> 84**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000064`.
+
+**Honest caveat.** Definitions only. Two encoding notes hit while building:
+`TAlg` must pass the *generated* subalgebra `Sg …` to `subAlg` (not the
+generator set), and `etaX` builds membership via `subset_Sg` to avoid an
+unresolved carrier metavariable. The paper's `T_Σ(X)_s` elements ("terms") are
+now the subtype `{P // P ∈ Sg … s}`; the next session characterizes them.
+
+**Prioritized next steps.**
+
+1. `B-P010`: term characterization (`x`, `σ`, or `σ(P₀,…)`), i.e. the
+  generated elements are exactly those rows; likely an induction over `MemSg`.
+2. `B-P011`: the universal property `f^♯ ∘ η^X = f`, by recursion over the
+  generated subalgebra.
+3. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level encoding — a scope decision).
+  Batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
