@@ -1,0 +1,41 @@
+{
+  "block": "B-R012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000107",
+  "findings": [
+    "Stage 1 read-back: nabla is compatible with every operation; A/nabla is subfinal, shown as componentwise subsingletons by double quotient induction.",
+    "Stage 2 comparator returned equivalent; nabla is the greatest congruence, the quotient and subfinal notions match, no extra or missing hypothesis.",
+    "Transcript: blocks/audits/B-R012-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-R012/definition_closure",
+      "hash": "6c13238ca73020ca6f85ee01fc297e682cce914dec0940baa81775d01cba4d1d"
+    },
+    {
+      "artifact": "B-R012/formal_statement",
+      "hash": "9bddc1c02c1acc6132bfc901a965efffaec67faf5df6311f1df5ca7cfe084e36"
+    },
+    {
+      "artifact": "B-R012/informal_statement",
+      "hash": "edd6debca60a7279a56d663461f450418cc26afccc6a129ffe9b7510039d3ca0"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T12:34:00Z"
+}

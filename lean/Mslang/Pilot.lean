@@ -1069,4 +1069,24 @@ theorem subfinalAlg_iff {S : Type u} (Sig : Signature S) (X : Alg Sig) :
       exact ⟨Classical.choice (show Nonempty (X.1 s) from y.2),
              Subtype.ext (Subsingleton.elim _ _)⟩
 
+/-- `∇^A` (the greatest sorted equivalence) is a congruence on any
+`Σ`-algebra. -/
+theorem nabla_isCongruence {S : Type u} (Sig : Signature S) {A : SSet S}
+    (F : AlgStruct Sig A) : IsCongruence Sig F (nabla A) := by
+  intro _p _σ _a _b _
+  trivial
+
+/-- Remark `B-R012`: the quotient of `A` by the greatest congruence `∇^A` is
+subfinal (`A/∇^A` is isomorphic to a subalgebra of `1`). -/
+theorem quot_nabla_subfinal {S : Type u} (Sig : Signature S) {A : SSet S}
+    (F : AlgStruct Sig A) :
+    SubfinalAlg Sig (quotAlg Sig F (nabla A) (nabla_isCongruence Sig F)) := by
+  rw [subfinalAlg_iff]
+  intro s
+  refine ⟨fun x y => ?_⟩
+  induction x using Quotient.inductionOn with
+  | _ a =>
+    induction y using Quotient.inductionOn with
+    | _ b => exact Quotient.sound trivial
+
 end Mslang

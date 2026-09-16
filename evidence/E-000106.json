@@ -1,0 +1,27 @@
+{
+  "block": "B-R012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000106",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R012 (Mslang.nabla_isCongruence, Mslang.quot_nabla_subfinal) compiled against Mathlib v4.33.1.",
+    "#print axioms: nabla_isCongruence none; quot_nabla_subfinal depends on propext, Classical.choice, Quot.sound (permitted)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R012/formal_proof",
+      "hash": "0f650d7bb0e692d0ef0a0af768b84048f244756840273872e4ce9c48505bdbde"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T12:32:29Z"
+}

@@ -953,6 +953,45 @@
       "formal_statement": {
         "hash": "ff699e4002eb90cc9effb5038d10397f6cca3b76f9543463b4a08c775ae7673c"
       }
+    },
+    "B-R012": {
+      "decls": [
+        "Mslang.nabla_isCongruence",
+        "Mslang.quot_nabla_subfinal"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsCongruence",
+          "Mslang.IsSubalgebra",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subfinal",
+          "Mslang.SubfinalAlg",
+          "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.subAlg",
+          "Mslang.subfinalAlg_iff",
+          "Mslang.wordProd"
+        ],
+        "hash": "6c13238ca73020ca6f85ee01fc297e682cce914dec0940baa81775d01cba4d1d"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "0f650d7bb0e692d0ef0a0af768b84048f244756840273872e4ce9c48505bdbde"
+      },
+      "formal_statement": {
+        "hash": "9bddc1c02c1acc6132bfc901a965efffaec67faf5df6311f1df5ca7cfe084e36"
+      }
     }
   },
   "source": "lean/declarations.json"

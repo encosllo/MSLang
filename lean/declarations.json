@@ -288,6 +288,13 @@
     "B-P008": {
       "decl": "Mslang.subfinalAlg_iff",
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R012": {
+      "decls": [
+        "Mslang.nabla_isCongruence",
+        "Mslang.quot_nabla_subfinal"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

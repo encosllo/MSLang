@@ -106,6 +106,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.nabla_isCongruence": [],
     "Mslang.nabla_sat": [
       "Quot.sound",
       "propext"
@@ -158,6 +159,11 @@
       "Classical.choice"
     ],
     "Mslang.quotOp_mk": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.quot_nabla_subfinal": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -264,7 +270,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 113,
+  "declarations_audited": 115,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",
