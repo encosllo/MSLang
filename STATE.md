@@ -2864,6 +2864,39 @@ with the block that needs it). The intersection in `B-D033` is the pointwise
 
 ---
 
+## Session 67 -- 2026-09-16 -- frontier: B-R014
+
+**Goal.** Consequences of the formation axioms: abstractness and non-emptiness.
+
+**What was established (closed).**
+
+- **`B-R014`** as `Mslang.formation_abstract` (`H`-closure implies abstractness:
+  a bijective hom is an epimorphism) and `Mslang.formation_nonempty`
+  (`P_fsd`-closure implies non-emptiness, witnessed by the empty product).
+- Mapped in `lean/declarations.json`; facets regenerated (**58 mapped blocks**).
+- Evidence **`E-000122`** (verification; `formation_abstract` axiom-free) and
+  **`E-000123`** (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R014-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **76 -> 75**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000073`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+abstractness lemma takes the isomorphism in the `A → B` direction (harmless —
+isomorphism is symmetric; the comparator agreed). The empty product requires
+`PEmpty.{u+1}` as the index (a `Sort u`-level empty type does not fit the
+`Type u` index; the same `u+1` convention as `initialSorted`), and the identity
+subdirect embedding of the product into itself.
+
+**Prioritized next steps.**
+
+1. `B-P016` (formation of algebras satisfies `B-D033` intersection closure;
+   needs the `p^{Φ,Ψ}` maps and the subdirect embedding into `A/Φ × A/Ψ`).
+2. `B-P017`/`B-C004`: equivalence of the two formation definitions; then
+   `B-P018`+ and the section's Eilenberg theorem.
+3. `B-P010` (term characterization; the unique-parsing proof).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
