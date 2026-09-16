@@ -2683,6 +2683,15 @@ mathematics and no evidence.
 2. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level — a scope decision).
 3. Batch cosmetic docs; calibration (author-gated).
 
+**Addendum (author-directed).** The splitting insight is now normative spec, not
+just this session's practice: `Architecture.md` §10.2 treats the module layout
+as the compile-time dependency graph (with the rationale and the layout table),
+§12.1 calls the import DAG "the compile-time backbone" (authoritative for build
+order; the extracted graph authoritative for closures), and §13.2 adds
+"module move" as an explicit C5 identity sub-case. Journal `EV-000067`. Rule to
+remember: a module move *must* stale no evidence; if it does, fix the hashing,
+not by re-issuing.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**
