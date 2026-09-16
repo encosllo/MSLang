@@ -177,6 +177,30 @@
         "Mslang.ker"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D024": {
+      "decl": "Mslang.IsCongruence",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D025": {
+      "decls": [
+        "Mslang.quotOp",
+        "Mslang.quotAlg",
+        "Mslang.prAlg",
+        "Mslang.quotOp_mk",
+        "Mslang.isAlgHom_prAlg"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-P009": {
+      "decls": [
+        "Mslang.ker_isCongruence",
+        "Mslang.ker_prAlg",
+        "Mslang.quotAlgLift_isAlgHom",
+        "Mslang.quotAlgLift_comp",
+        "Mslang.quotAlgLift_unique"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

@@ -1,0 +1,27 @@
+{
+  "block": "B-D025",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000071",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D025 (Mslang.quotOp, quotAlg, prAlg, quotOp_mk, isAlgHom_prAlg) compiled against Mathlib v4.33.1.",
+    "#print axioms quotOp_mk/isAlgHom_prAlg depend on propext, Classical.choice and Quot.sound (within the permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D025/formal_proof",
+      "hash": "2c825b110c5497ebc41e61158710920a71259ad77dabe223460b13da3d425fc7"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T09:11:48Z"
+}

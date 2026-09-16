@@ -289,6 +289,53 @@
         "hash": "2174faa65ff7cd9a2aa20d76a4bac129d564107864fb863dc60e26fc79b681d4"
       }
     },
+    "B-D024": {
+      "decls": [
+        "Mslang.IsCongruence"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "6923bc666cde1a21b7bda4e18cbb96bc230e14428dbdb6486c42cb48ad7e559e"
+      },
+      "formal_statement": {
+        "hash": "3162abb4d795be5cbd9da5d4498e0fcb433fa11568d31013b2ba6ce3af8493ce"
+      }
+    },
+    "B-D025": {
+      "decls": [
+        "Mslang.quotOp",
+        "Mslang.quotAlg",
+        "Mslang.prAlg",
+        "Mslang.quotOp_mk",
+        "Mslang.isAlgHom_prAlg"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D009",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017",
+        "B-D024",
+        "B-R005"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "2c825b110c5497ebc41e61158710920a71259ad77dabe223460b13da3d425fc7"
+      },
+      "formal_statement": {
+        "hash": "7211b79e8cf52bbe5fe2f8d210990adf8fdf4e5896687e86c69e91ed2db1f29c"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"
@@ -395,6 +442,35 @@
       },
       "formal_statement": {
         "hash": "032edc48586c73e1595f88af6be937923fbb4567fd9ec4a06dd3b16b284ae949"
+      }
+    },
+    "B-P009": {
+      "decls": [
+        "Mslang.ker_isCongruence",
+        "Mslang.ker_prAlg",
+        "Mslang.quotAlgLift_isAlgHom",
+        "Mslang.quotAlgLift_comp",
+        "Mslang.quotAlgLift_unique"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D009",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017",
+        "B-D024",
+        "B-D025",
+        "B-P007",
+        "B-R005"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "772de9e6ba10098dab19ec035f6a5f51f47777565b53e06cef75e9d0afb471d4"
+      },
+      "formal_statement": {
+        "hash": "99355605055790faf265c76be3be8bbb4c906064028d97a81cbe7c2cdd42fe1f"
       }
     },
     "B-R003": {

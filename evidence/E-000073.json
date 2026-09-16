@@ -1,0 +1,41 @@
+{
+  "block": "B-P009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000073",
+  "findings": [
+    "Stage 1 read-back: quotient algebra A/Phi with induced operations, pr is a homomorphism, Ker(f) is a congruence, Ker(pr)=Phi, and the induced lift is a homomorphism factoring f uniquely.",
+    "Stage 2 comparator returned equivalent; the only divergence is that uniqueness holds for all sorted maps (a fortiori homomorphisms), a strengthening the contract already entails.",
+    "Transcript: blocks/audits/B-P009-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P009/formal_statement",
+      "hash": "99355605055790faf265c76be3be8bbb4c906064028d97a81cbe7c2cdd42fe1f"
+    },
+    {
+      "artifact": "B-P009/informal_statement",
+      "hash": "980c6a9ffa63681c1be82677d3ebe921676f9458773507480e4886c574aefaf6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T09:13:20Z"
+}

@@ -1,0 +1,26 @@
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000070",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D024 (Mslang.IsCongruence) compiled against Mathlib v4.33.1."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D024/formal_proof",
+      "hash": "6923bc666cde1a21b7bda4e18cbb96bc230e14428dbdb6486c42cb48ad7e559e"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T09:11:48Z"
+}
