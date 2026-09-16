@@ -386,6 +386,10 @@
     "B-P016": {
       "decl": "Mslang.formation_congInf",
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-R017": {
+      "decl": "Mslang.subfinalAlg_mem_of_formation",
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }

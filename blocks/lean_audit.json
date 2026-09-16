@@ -306,6 +306,11 @@
     "Mslang.subfinalAlg_iff": [
       "Classical.choice"
     ],
+    "Mslang.subfinalAlg_mem_of_formation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.subset_Sg": [],
     "Mslang.supp": [],
     "Mslang.suppAlg": [],
@@ -346,7 +351,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 149,
+  "declarations_audited": 150,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -1416,6 +1416,46 @@
       "formal_statement": {
         "hash": "221fc0740820921f1c2e6d770b17b4c411fe528338a1cbdf507a0e2ec7a344d8"
       }
+    },
+    "B-R017": {
+      "decls": [
+        "Mslang.subfinalAlg_mem_of_formation"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubalgebra",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subfinal",
+          "Mslang.SubfinalAlg",
+          "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
+          "Mslang.iAlg",
+          "Mslang.subAlg",
+          "Mslang.subfinalAlg_iff",
+          "Mslang.wordProd"
+        ],
+        "hash": "2ae93deae7da92b027c8ed27e720c4226acb0b6397da91efbc4157973a765a1a"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "7110019e9c85fa2d95acd073df7ca2f8f203fc04ea705c2e0f3b2e4b5e1e73c0"
+      },
+      "formal_statement": {
+        "hash": "6276e10ac40a6be7b74208f5684d79ba8231eeee04398f872afca39e45647cff"
+      }
     }
   },
   "source": "lean/declarations.json"

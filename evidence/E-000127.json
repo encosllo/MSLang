@@ -1,0 +1,45 @@
+{
+  "block": "B-R017",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000127",
+  "findings": [
+    "Stage 1 read-back: the empty product is the terminal algebra; a subfinal A maps into it by an injective hom with vacuous projection-surjectivity, so A is in P_fsd(F) and hence F.",
+    "Stage 2 comparator returned equivalent; the statement is Sf(1) subseteq F, and the empty-product observation is a proof device not a separate claim.",
+    "Transcript: blocks/audits/B-R017-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D023/informal_statement",
+      "hash": "2b5f1c2dcc1918a867d4748a54648615e27ff9af876bba478b06c665383a9548"
+    },
+    {
+      "artifact": "B-R017/definition_closure",
+      "hash": "2ae93deae7da92b027c8ed27e720c4226acb0b6397da91efbc4157973a765a1a"
+    },
+    {
+      "artifact": "B-R017/formal_statement",
+      "hash": "6276e10ac40a6be7b74208f5684d79ba8231eeee04398f872afca39e45647cff"
+    },
+    {
+      "artifact": "B-R017/informal_statement",
+      "hash": "08780bc0d7ec674793398d34271fd67d36faffba2630db15c1789a8a14ceac19"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T18:22:41Z"
+}

@@ -71,3 +71,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.formation_abstract
 #print axioms Mslang.formation_nonempty
 #print axioms Mslang.formation_congInf
+#print axioms Mslang.subfinalAlg_mem_of_formation

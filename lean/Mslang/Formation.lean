@@ -246,4 +246,27 @@ theorem formation_congInf {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
           change pΨ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Ψ s) a
           exact hcompΨ s a
 
+/-! ### `B-R017`: subfinal algebras lie in every formation. -/
+
+/-- `B-R017`: for the empty family (`n = 0`) the product is the final algebra
+`1`, so every subfinal `Σ`-algebra — being isomorphic to a subalgebra of `1` —
+admits a subdirect embedding into an empty product, hence lies in every
+formation (`P_fsd`-closure). -/
+theorem subfinalAlg_mem_of_formation {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
+    (hF : IsAlgebraFormation Sig F) {A : Alg Sig} (hA : SubfinalAlg Sig A) : A ∈ F := by
+  apply hF.2
+  let C : PEmpty.{u+1} → Alg Sig := fun i => i.elim
+  refine ⟨PEmpty.{u+1}, inferInstance, C, ?_, ?_⟩
+  · intro i; exact i.elim
+  · refine ⟨(fun _s _a i => i.elim), ?_⟩
+    have hSub : Subfinal A.1 := (subfinalAlg_iff Sig A).1 hA
+    refine ⟨⟨?_, ?_⟩, ?_⟩
+    · intro p σ a
+      funext i
+      exact i.elim
+    · intro s x y _
+      exact @Subsingleton.elim (A.1 s) (hSub s) x y
+    · intro i
+      exact i.elim
+
 end Mslang

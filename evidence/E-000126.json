@@ -1,0 +1,28 @@
+{
+  "block": "B-R017",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000126",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R017 (Mslang.subfinalAlg_mem_of_formation) compiled against Mathlib v4.33.1.",
+    "#print axioms subfinalAlg_mem_of_formation depends on propext, Classical.choice, Quot.sound (within the permitted set).",
+    "Proof: the empty product (PEmpty index) is the terminal algebra; a subfinal A (componentwise subsingleton by B-P008) maps into it by the unique map, which is injective and homomorphic, hence a subdirect embedding; P_fsd-closure gives A in F."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R017/formal_proof",
+      "hash": "7110019e9c85fa2d95acd073df7ca2f8f203fc04ea705c2e0f3b2e4b5e1e73c0"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T18:21:52Z"
+}
