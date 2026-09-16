@@ -2477,6 +2477,37 @@ review layer (the informal proof is not separately audited, consistent with
 
 ---
 
+## Session 55 -- 2026-09-16 -- frontier extension: B-R012
+
+**Goal.** `A/∇^A` is subfinal — the first application of the subfinal cluster.
+
+**What was established (closed).**
+
+- **`B-R012`** as `Mslang.nabla_isCongruence` (the greatest sorted equivalence
+  is a congruence for any structure) and `Mslang.quot_nabla_subfinal`
+  (`SubfinalAlg Sig (quotAlg Sig F (nabla A) ...)`), proved from `B-P008` plus
+  double quotient induction.
+- Mapped in `lean/declarations.json`; facets regenerated (**42 mapped blocks**).
+- Evidence **`E-000106`** (verification, `build_ok`; `propext`, `Classical.choice`,
+  `Quot.sound`) and **`E-000107`** (correspondence, `equivalent`; two-stage
+  blind; transcript `blocks/audits/B-R012-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **88 -> 87**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000060`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+remark's further discussion (the single-sorted case, `∅^S`) is commentary and
+not formalized; the comparator agreed it is not part of the assertion.
+
+**Prioritized next steps.**
+
+1. `B-R011` (if `A` is subfinal, every `B` has at most one homomorphism
+  `B → A`) — the remaining member of the subfinal cluster; needs an
+  equation/homomorphism-extensionality argument.
+2. `B-P001` (`propssupport`) clauses (1)-(2) via `SortedMap`/`supp`/images.
+3. `B-P006` (`CABA`); batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
