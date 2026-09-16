@@ -9,7 +9,7 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `044c65f635e7efa83341fa37c50bce8b1b373fee19005ae2c5d576f63f2b6d69` |
+| `blocks/formal.json` | `f17190f87360005bf642a6a2d4edb9d7b518e75e1730bd9fdfaf8f7dfde8fa11` |
 | `blocks/formal_graph.json` | `af2e46ace1e5007de2c258353b80916c3eda40d1cabd05c8676999ad201e2a4a` |
 | `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
 | `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
@@ -131,7 +131,7 @@ repository.
 | `evidence/E-000111.json` | `3f81b98991dfea47dc45fdd0922c386d3468898eafedf2eb7276262cfae3287f` |
 | `evidence/E-000112.json` | `a9906e9930bde4b8d922ce5536dd53602929606f57bb2deb056ac51fb29132c8` |
 | `evidence/E-000113.json` | `676f3a4281d964ba6a130db5f3454d7fc51a486de1565e30e280ffd438550873` |
-| `journal/events.jsonl` | `ea6d0fd49b56aca90415b96232472173f87f0fdde416c67593b9f4a8faa760eb` |
+| `journal/events.jsonl` | `de035fb012decd39be3c844b55501bf5af0ff48dc1b8eb4d08c3b371fc5c9e21` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |

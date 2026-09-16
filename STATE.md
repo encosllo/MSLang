@@ -2640,6 +2640,51 @@ cold rebuild, not a tactic loop. `SortedIso` and `iCoprod` are reused later.
 
 ---
 
+## Session 61 -- 2026-09-16 -- refactor: split `Pilot.lean` into modules
+
+**Goal.** Break the single ~1200-line `lean/Mslang/Pilot.lean` into
+dependency-ordered modules so a change recompiles only the edited module and its
+importers (author-raised: module splitting for rebuild speed, parallel builds,
+editor responsiveness, and an explicit dependency graph).
+
+**What was established (closed).**
+
+- Split by **declaration boundary** (not line range) into:
+  `Mslang/Prelim.lean` (sorted-set layer: supports, deltas, saturation,
+  quotients of sorted sets, finiteness, free monoid, images, products,
+  `SortedIso`/`iCoprod`/`B-R001`), `Mslang/Algebra.lean` (signatures, algebras,
+  homomorphisms, products of algebras, `Sg`, closure-system vocabulary),
+  `Mslang/Congruence.lean` (`B-D024`/`B-D025`/`B-P009`),
+  `Mslang/Subfinal.lean` (`B-D023`/`B-P008`/`B-R011`/`B-R012`), and
+  `Mslang/Free.lean` (`B-D026`/`B-D027`). `Mslang.lean` is the umbrella
+  (`import Mslang.Free` + `Mslang.Sanity`) holding the axiom audit.
+- **No evidence staled.** Facets are hashed from declaration text, so the move
+  left every `formal_statement`/`formal_proof`/`definition_closure` hash
+  unchanged; only the per-block `file` field in `blocks/formal.json` changed.
+  Verified: `lean_facets --check` flagged only that `file` field, and a full
+  `status` run reports **0 non-pass layers**.
+- `lean/declarations.json` `file` fields repointed (46 blocks: 24 Prelim, 13
+  Algebra, 4 Subfinal, 3 Congruence, 2 Free). `Mslang/Sanity.lean` now imports
+  `Mslang.Prelim`.
+- The `haveI` style-linter suppression moved to the module that needs it
+  (`Subfinal.lean` for `subfinalAlg_iff`; `Prelim.lean` for `finiteSSet_iff`).
+- Build: **0 warnings**, 8713 jobs. `check_all`: **27 passed, 0 failed**.
+  Frontier unchanged (**83 unmapped**). `Architecture.md` §10.2 gained a
+  "Module structure" paragraph; Revision 3 change log gained a bullet.
+
+**Honest caveat.** `Pilot` remains in a few *historical* STATE entries and in
+`scripts/lean_audit_test.py` synthetic fixture strings; those describe past
+sessions or synthetic data and were intentionally left. The refactor changes no
+mathematics and no evidence.
+
+**Prioritized next steps.**
+
+1. `B-P010` (term characterization; unique-parsing proof), then `B-P011`.
+2. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level — a scope decision).
+3. Batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -2677,7 +2722,12 @@ cold rebuild, not a tactic loop. `SortedIso` and `iCoprod` are reused later.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
-   `#print axioms` on the new theorems stays within the permitted set.
+   `#print axioms` on the new theorems stays within the permitted set. The Lean
+   sources are split by dependency layer under `lean/Mslang/`:
+   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, and `Algebra` -> `Free`
+   (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
+   block and update its `file` in `lean/declarations.json` if a declaration
+   moves (the facet hashes are text-based, so a pure move stales no evidence).
 9. `scripts/validate_records.py --self-test` exercises the schema validator's
    rejection paths (old numeric IDs, unknown keys, missing required keys).
 10. Do not edit or delete existing files under `evidence/` (the pre-commit
