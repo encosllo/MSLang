@@ -289,6 +289,58 @@
         "hash": "2174faa65ff7cd9a2aa20d76a4bac129d564107864fb863dc60e26fc79b681d4"
       }
     },
+    "B-D020": {
+      "decls": [
+        "Mslang.IsSubalgebra"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "4f57abbacaf9266f16d222f06062fd87c20bc88ec0b2e02961676a4498d0c44c"
+      },
+      "formal_statement": {
+        "hash": "7144f1f9bb04a33bdabe94fc6db8df2dd266c10cfe9266d62562767e3b7261d9"
+      }
+    },
+    "B-D021": {
+      "decls": [
+        "Mslang.MemSg",
+        "Mslang.Sg",
+        "Mslang.IsGenerating",
+        "Mslang.subset_Sg",
+        "Mslang.Sg_isSubalgebra",
+        "Mslang.Sg_least",
+        "Mslang.Sg_monotone",
+        "Mslang.Sg_idem",
+        "Mslang.Sg_isClosureOperator"
+      ],
+      "definition_closure": [
+        "B-C001",
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017",
+        "B-D020",
+        "B-P005",
+        "B-R007"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "fc566de69d743024b717f43b019966f447f38620adf9bce7939dde17ef78fa67"
+      },
+      "formal_statement": {
+        "hash": "34c00107d106e6064a39c05122935445a5ef036aada36744ec39cda24c92866c"
+      }
+    },
     "B-D024": {
       "decls": [
         "Mslang.IsCongruence"
@@ -586,6 +638,33 @@
       },
       "formal_statement": {
         "hash": "03cdb4115f9233fe360f83b422a07a7e17082325f380e47aee312c4ef2d0c056"
+      }
+    },
+    "B-R010": {
+      "decls": [
+        "Mslang.SuppClosure",
+        "Mslang.suppSub_Sg",
+        "Mslang.suppSub_Sg_uniform"
+      ],
+      "definition_closure": [
+        "B-C001",
+        "B-D002",
+        "B-D005",
+        "B-D014",
+        "B-D015",
+        "B-D016",
+        "B-D017",
+        "B-D020",
+        "B-D021",
+        "B-P005",
+        "B-R007"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "5b9da39045a24dfd97dfde9fd70746e038237002d9b12460a0193d3f538c67ba"
+      },
+      "formal_statement": {
+        "hash": "27d451dd10128538b82d2cfcccf95ada3294c03a82e181a943e403c73fb7fc5f"
       }
     }
   },

@@ -1,0 +1,26 @@
+{
+  "block": "B-D020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000076",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D020 (Mslang.IsSubalgebra) compiled against Mathlib v4.33.1."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D020/formal_proof",
+      "hash": "4f57abbacaf9266f16d222f06062fd87c20bc88ec0b2e02961676a4498d0c44c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T10:28:04Z"
+}

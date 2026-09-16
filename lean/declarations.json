@@ -210,6 +210,32 @@
         "Mslang.supports_isClosureSystem"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D020": {
+      "decl": "Mslang.IsSubalgebra",
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D021": {
+      "decls": [
+        "Mslang.MemSg",
+        "Mslang.Sg",
+        "Mslang.IsGenerating",
+        "Mslang.subset_Sg",
+        "Mslang.Sg_isSubalgebra",
+        "Mslang.Sg_least",
+        "Mslang.Sg_monotone",
+        "Mslang.Sg_idem",
+        "Mslang.Sg_isClosureOperator"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R010": {
+      "decls": [
+        "Mslang.SuppClosure",
+        "Mslang.suppSub_Sg",
+        "Mslang.suppSub_Sg_uniform"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

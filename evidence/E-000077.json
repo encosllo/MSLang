@@ -1,0 +1,27 @@
+{
+  "block": "B-D021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000077",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D021 (Mslang.MemSg, Sg, IsGenerating, subset_Sg, Sg_isSubalgebra, Sg_least, Sg_monotone, Sg_idem, Sg_isClosureOperator) compiled against Mathlib v4.33.1.",
+    "#print axioms Sg_idem/Sg_isClosureOperator depend on propext and Quot.sound (within the permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D021/formal_proof",
+      "hash": "fc566de69d743024b717f43b019966f447f38620adf9bce7939dde17ef78fa67"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T10:28:04Z"
+}

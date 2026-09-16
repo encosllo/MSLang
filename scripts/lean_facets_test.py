@@ -34,6 +34,9 @@ theorem incomplete : True
 @[simp]
 theorem attributed : True := by trivial
 noncomputable def ncd : Nat := 0
+inductive Leaf : Nat → Prop
+  | base : Leaf 0
+  | step : ∀ n, Leaf n → Leaf (n + 1)
 end Mslang
 """
 
@@ -52,7 +55,14 @@ def write(tmp, name, text):
 
 def main():
     d = lf.extract_declarations(SRC)
-    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed", "ncd"}, str(set(d)))
+    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed", "ncd", "Leaf"}, str(set(d)))
+    check(
+        "inductive constructors are part of its statement, with no proof facet",
+        d["Leaf"]["proof"] == ""
+        and d["Leaf"]["statement"].startswith("inductive Leaf")
+        and "| step" in d["Leaf"]["statement"],
+        str(d["Leaf"]),
+    )
     check(
         "theorem statement split at :=",
         d["foo"]["statement"] == "theorem foo (n : Nat) : n = n"

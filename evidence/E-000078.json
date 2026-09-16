@@ -1,0 +1,28 @@
+{
+  "block": "B-R010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000078",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-R010 (Mslang.SuppClosure, suppSub_Sg, suppSub_Sg_uniform) compiled against Mathlib v4.33.1.",
+    "#print axioms suppSub_Sg/suppSub_Sg_uniform depend on propext, Classical.choice and Quot.sound (within the permitted set).",
+    "lean_facets extended to recognize inductive declarations (previously invisible); regression added to lean_facets_test."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R010/formal_proof",
+      "hash": "5b9da39045a24dfd97dfde9fd70746e038237002d9b12460a0193d3f538c67ba"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T10:28:04Z"
+}
