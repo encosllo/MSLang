@@ -954,6 +954,39 @@
         "hash": "ff699e4002eb90cc9effb5038d10397f6cca3b76f9543463b4a08c775ae7673c"
       }
     },
+    "B-R011": {
+      "decls": [
+        "Mslang.hom_unique_of_subfinalAlg"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsSubalgebra",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subfinal",
+          "Mslang.SubfinalAlg",
+          "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
+          "Mslang.subAlg",
+          "Mslang.subfinalAlg_iff",
+          "Mslang.wordProd"
+        ],
+        "hash": "8764b62b6a5baced099770e9229fa77978f3891bf1d756517784ea6b19a73e63"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "88158eb29d8397daa8be9373d35cd6f861f6d6cbf3121251fa9f152da12de907"
+      },
+      "formal_statement": {
+        "hash": "2b63c6a8eca11c0b73cc318a06cac11887c5e4e5ffcba4f076a3342c747e1131"
+      }
+    },
     "B-R012": {
       "decls": [
         "Mslang.nabla_isCongruence",

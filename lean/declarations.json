@@ -295,6 +295,10 @@
         "Mslang.quot_nabla_subfinal"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R011": {
+      "decl": "Mslang.hom_unique_of_subfinalAlg",
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

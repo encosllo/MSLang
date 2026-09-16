@@ -1,0 +1,41 @@
+{
+  "block": "B-R011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000109",
+  "findings": [
+    "Stage 1 read-back: A subfinal (componentwise subsingleton) forces any two sorted maps B->A to be equal; the homomorphism hypotheses are unused.",
+    "Stage 2 comparator returned equivalent; 'at most one homomorphism' is faithfully captured, B arbitrary, unused hom hypotheses are a proof property not a statement change.",
+    "Transcript: blocks/audits/B-R011-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-R011/definition_closure",
+      "hash": "8764b62b6a5baced099770e9229fa77978f3891bf1d756517784ea6b19a73e63"
+    },
+    {
+      "artifact": "B-R011/formal_statement",
+      "hash": "2b63c6a8eca11c0b73cc318a06cac11887c5e4e5ffcba4f076a3342c747e1131"
+    },
+    {
+      "artifact": "B-R011/informal_statement",
+      "hash": "8d584d392661534accca3990aa7c68bfbcd06fe233328d3136cf373878e67a77"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T12:56:32Z"
+}

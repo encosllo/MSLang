@@ -1,0 +1,27 @@
+{
+  "block": "B-R011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000108",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R011 (Mslang.hom_unique_of_subfinalAlg) compiled against Mathlib v4.33.1.",
+    "#print axioms hom_unique_of_subfinalAlg depends on propext, Classical.choice, Quot.sound (within the permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R011/formal_proof",
+      "hash": "88158eb29d8397daa8be9373d35cd6f861f6d6cbf3121251fa9f152da12de907"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T12:55:51Z"
+}

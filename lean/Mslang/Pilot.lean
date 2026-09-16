@@ -1089,4 +1089,17 @@ theorem quot_nabla_subfinal {S : Type u} (Sig : Signature S) {A : SSet S}
     induction y using Quotient.inductionOn with
     | _ b => exact Quotient.sound trivial
 
+/-- Remark `B-R011`: if `A` is subfinal, then for every `Σ`-algebra `B` there is
+at most one homomorphism from `B` to `A`. (Any two sort-preserving maps already
+agree, since every component of `A` is a subsingleton; the homomorphism
+hypotheses make the statement the contract's.) -/
+theorem hom_unique_of_subfinalAlg {S : Type u} (Sig : Signature S) {A B : SSet S}
+    (FA : AlgStruct Sig A) (FB : AlgStruct Sig B)
+    (hA : SubfinalAlg Sig ⟨A, FA⟩) (f g : SortedMap B A)
+    (_hf : IsAlgHom Sig FB FA f) (_hg : IsAlgHom Sig FB FA g) : f = g := by
+  rw [subfinalAlg_iff] at hA
+  funext s x
+  haveI : Subsingleton (A s) := hA s
+  exact Subsingleton.elim (f s x) (g s x)
+
 end Mslang
