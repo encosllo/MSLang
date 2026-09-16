@@ -598,20 +598,52 @@ Responsibilities:
 - extracting formal dependencies;
 - producing machine-checkable evidence.
 
-**Module structure.** The Lean development is split into modules that mirror the
-dependency lattice, not kept in one file. This is not cosmetic: Lake recompiles
-only an edited module and its importers, independent modules build in parallel,
-the editor re-checks one file rather than the whole project, and imports cannot
-cycle, so the module layout *is* the dependency graph made explicit. The pilot's
-split is `Mslang/Prelim.lean` (sorted-set layer), `Mslang/Algebra.lean`
-(signatures, algebras, homomorphisms, subalgebras, closure systems),
-`Mslang/Congruence.lean` (congruences and quotients), `Mslang/Subfinal.lean`
-(the final algebra and the subfinal results), and `Mslang/Free.lean` (rows and
-the free algebra), with `Mslang.lean` the umbrella that imports the leaves and
-holds the axiom audit. Splitting is a refactor, never a contract change: because
-formal facets are hashed from declaration text (Section 6), moving a declaration
-between modules preserves its facet hashes and stales no evidence - only the
-extractor's per-block `file` bookkeeping in `lean/declarations.json` changes.
+**Module structure (the compile-time dependency graph).** A Lean file *is* a
+module and modules compile separately, so the Lean development is split into
+modules that mirror the dependency lattice and is never kept in one file.
+Because imports cannot cycle, the module graph is a compiler-enforced dependency
+DAG: a module can use only what its imports provide, and a cycle is a compile
+error rather than a review finding. This is load-bearing, not cosmetic:
+
+- **Rebuild isolation.** Lake recompiles only an edited module and its
+  importers, so frontier work touches one leaf module instead of the whole
+  theory. (Measured on this pilot: editing only the free-algebra leaf rebuilds
+  in seconds, against minutes for the fully-monolithic file it replaced.)
+- **Parallelism.** Modules with no import relation build concurrently.
+- **Editor latency.** A failed tactic re-checks one module, not the project.
+- **Small imports.** An auditor's isolated context, or a reader, can import one
+  layer rather than the whole theory.
+- **Explicit structure.** The layout *is* the dependency graph made checkable;
+  the ordering that a reviewer would otherwise reconstruct by hand is enforced
+  by the compiler.
+- **Layer-local diffs.** A change stays in one module, which keeps diffs small
+  and merge conflicts rare across concurrent sessions.
+
+The pilot's layout, coarse to fine along the dependency chain, with the umbrella
+`Mslang.lean` importing the leaves and holding the axiom audit (Section 15.6):
+
+| Module | Layer |
+|---|---|
+| `Mslang/Prelim.lean` | sorted-set layer: supports, Kronecker deltas, saturation, quotients of sorted sets, finiteness, images, products, coproducts |
+| `Mslang/Algebra.lean` | signatures, `Σ`-algebras, homomorphisms, products of algebras, subalgebras and `Sg`, closure-system vocabulary |
+| `Mslang/Congruence.lean` | congruences and the quotient `Σ`-algebra (`B-D024`, `B-D025`, `B-P009`) |
+| `Mslang/Subfinal.lean` | the final algebra `1`, algebra isomorphisms, the subfinal results (`B-D023`, `B-P008`, `B-R011`, `B-R012`) |
+| `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` and the free `Σ`-algebra `T_Σ(X)` (`B-D026`, `B-D027`) |
+
+Modules are per *dependency layer*, not per block: coarse enough to avoid import
+churn, fine enough that frontier edits stay local. Splitting a module is itself
+a refactor governed by Section 13.2 class C5.
+
+**Module moves stale no evidence.** Because formal facets are hashed from
+declaration text (Section 6), moving a declaration between modules preserves its
+`formal_statement`, `definition_closure`, and `formal_proof` hashes. A module
+refactor therefore changes only bookkeeping, never evidence: the block-to-module
+map in `lean/declarations.json` (and the resolved `file` field in
+`blocks/formal.json`) is repointed, and a full status run must still report zero
+non-pass layers. This was verified on the split that created the layout above,
+which staled no evidence record. The rule is: a change of module membership is a
+C5 identity operation; if it ever stales a record, the facet hashing has been
+coupled to file location, which is a design defect to fix, not a fact to accept.
 
 Formal feedback is classified before it reaches the mathematical layer, so
 that the author sees mathematics, not Lean noise.
@@ -1081,6 +1113,19 @@ Nodes are facets, not whole blocks. Edges are typed:
 | `proves` | proof facet -> statement facet of the same block | Structural |
 | `corresponds` | formal statement <-> informal statement | Correspondence evidence |
 
+**The compile-time backbone.** Independently of any extraction, the Lean module
+graph (Section 10.2) is a compiler-enforced dependency DAG over the formal
+development. It is coarser than `formal_uses` (modules rather than
+declarations) but strictly more trustworthy on direction: imports cannot cycle,
+so the layout fixes a valid compile order and every extracted edge must be
+compatible with some layering of it. That makes the module graph a conservative
+cross-check on the extracted formal graph: if a proposed `formal_uses` edge
+would force an import cycle, either the extraction is spurious or the modules
+are mis-layered, and the discrepancy should be surfaced rather than the edge
+silently trusted. The two are separated deliberately - the module DAG is
+authoritative for *build order*, the extracted graph is authoritative for
+*facet closures* (Section 12.3) - and neither is a substitute for the other.
+
 Dependency information comes from explicit annotations, extraction from
 Lean, and reviewer validation. In practice, for expository mathematics,
 `\ref`/`\uses` alone is nearly useless: papers cite by symbol and by name far
@@ -1242,6 +1287,14 @@ mathematics had changed. When a remap does force re-issues, record them with
 `reissue_reason: remap` (Section 7.2) and keep the existing transcripts; the
 audits' content is unchanged and re-running them wastes the independence they
 already have. A remap never needs an author decision: it changes no contract.
+
+A **module move** - relocating a declaration to a different Lean module
+(Section 10.2) - is the same kind of identity operation and, for the same
+reason, *must* be free: facets are hashed from declaration text, so only
+`lean/declarations.json` and the resolved `file` field change. If a module move
+stales a record, hashing has been coupled to file location; fix the coupling
+rather than re-issuing the record. Splitting or merging whole modules is just a
+batch of module moves.
 
 ### 13.3 Mechanical Hygiene (Automate, Do Not Track by Hand)
 
@@ -1874,12 +1927,16 @@ concrete observation that motivated it.
   are made - rather than being reconstructible only from diffs. Motivated by the
   author's report that the chain of work was hard to follow once a session
   started.
-- **Dependency-ordered Lean modules** (Section 10.2): the single-file pilot was
-  split into `Mslang/Prelim`, `Algebra`, `Congruence`, `Subfinal`, and `Free`,
-  so that a change recompiles only the edited module and its importers.
+- **Dependency-ordered Lean modules** (Sections 10.2, 12.1, 13.2 class C5): the
+  single-file pilot was split into `Mslang/Prelim`, `Algebra`, `Congruence`,
+  `Subfinal`, and `Free`, so that a change recompiles only the edited module and
+  its importers, independent modules build in parallel, and the import DAG
+  becomes a compiler-enforced backbone for the extracted dependency graph.
   Motivated by a pilot file that had grown to ~1200 lines and recompiled in full
-  on every edit; because facets are hashed by declaration text, the split
-  preserved every facet hash and staled no evidence.
+  on every edit. Because facets are hashed by declaration text, the split
+  preserved every facet hash and staled no evidence; a module move is therefore
+  a C5 identity operation, and a module move that *does* stale a record is a
+  hashing defect to fix rather than a re-issue to perform.
 - **Auditor model recorded** (Sections 11.4, 24.4): correspondence and review
   records name the model, so the trust view can report a same-model share
   rather than repeating the caveat as prose.
