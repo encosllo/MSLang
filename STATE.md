@@ -2560,9 +2560,11 @@ not formalized; the comparator agreed it is not part of the assertion.
     `§7.2`/`§8.1` supersession vocabulary, and the `§6`/`§12.3`
     `definition_closure` facet split. All Revision 3 gaps are now built; keep
     the sections as normative spec.
-13. **Narrate the session as it runs** (`Architecture.md` §16.1, adopter
-    request after Session 55): open with a banner (number, goal, numbered plan),
-    emit a `step k/n: <action> -> <result>` line after each meaningful action or
-    small batch, and surface decisions where they are made - not only in the
-    final summary. The `STATE.md` entry is the post-hoc record; the live work
-    log is what lets a human follow along without reading diffs.
+13. **Narrate the session as it runs** (`Architecture.md` §16.1; adopted by the
+    author in Session 56, default level "step lines + rationale"): open with a
+    banner (number, goal, numbered plan), emit a `step k/n: <action> -> <result>`
+    line after each meaningful action or small batch with a sentence of
+    rationale when the step is non-obvious, and surface decisions where they are
+    made - not only in the final summary. The `STATE.md` entry is the post-hoc
+    record; the live work log is what lets a human follow along without reading
+    diffs.

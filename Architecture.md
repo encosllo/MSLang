@@ -1460,7 +1460,9 @@ A session therefore narrates itself in the response stream as it proceeds:
   of the session before it starts.
 - **Emit a step line after each meaningful action or small batch** -
   `step k/n: <what I did> -> <what it showed>` - so cause and effect are
-  visible without reading the diffs.
+  visible without reading the diffs. One line per step, plus a sentence of
+  rationale when the step (or why it is next) is not obvious; this is the
+  default level, adopted by the author in Session 56.
 - **Surface decisions where they are made** - when a result forces a choice
   (for example, layer-based versus field-based supersession after seeing the
   legacy records), state the options and the chosen one *before* acting on it,
