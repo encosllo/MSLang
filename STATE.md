@@ -2606,6 +2606,40 @@ now the subtype `{P // P ∈ Sg … s}`; the next session characterizes them.
 
 ---
 
+## Session 60 -- 2026-09-16 -- frontier extension: B-R001 (delta as copower)
+
+**Goal.** `δ^{t,X} ≅ ∐_{x∈X} δ^t`, and with it the sorted-set coproduct vocabulary.
+
+**What was established (closed).**
+
+- **`B-R001`** as `Mslang.delta_iso_coprod`, with supporting
+  `Mslang.SortedIso` (sortwise-bijective sorted map), `Mslang.iCoprod`
+  (coproduct of sorted sets), `Mslang.deltaT` (`δ^{t,X}`),
+  `Mslang.sigmaPUnitEquiv`, and `Mslang.deltaEquiv`. The proof is the evident
+  componentwise equivalence (`x ↦ ⟨x, ⋆⟩` at `t`, empty bijection elsewhere).
+- Mapped in `lean/declarations.json`; facets regenerated (**46 mapped blocks**).
+- Evidence **`E-000112`** (verification, `build_ok`) and **`E-000113`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R001-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **84 -> 83**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000065`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+`δ`/`δ^{t,X}` definitions use an `if s = t` with `classical`, so the equivalence
+is built by case analysis on `s = t`; a first build appeared to hang but was a
+cold rebuild, not a tactic loop. `SortedIso` and `iCoprod` are reused later.
+
+**Prioritized next steps.**
+
+1. `B-P010` (term characterization): needs "unique parsing" of the three term
+  forms (mutual exclusivity + uniqueness) — a genuine multi-session proof.
+2. `B-P011`: the universal property `f^♯ ∘ η^X = f`, by recursion on the
+  generated subalgebra; depends on `B-P010`'s structure.
+3. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level encoding — a scope decision).
+  Batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
