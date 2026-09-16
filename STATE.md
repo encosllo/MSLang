@@ -2213,6 +2213,55 @@ pairing's uniqueness is stated for all sorted maps (a fortiori homomorphisms).
 
 ---
 
+## Session 48 -- 2026-09-16 -- architecture revision (documentation only)
+
+**Goal.** Incorporate the engineering insights from Sessions 40-47 into the
+normative `Architecture.md` (author-directed), then record the revision.
+
+**What was established (closed).** `Architecture.md` **Revision 3 -
+frontier-hardened** (249 insertions / 27 deletions), covering:
+
+- **Statement/closure separation** (`§6`, `§7.2`, `§12.3`, `§13.1`): a new
+  `definition_closure` facet, keyed on declaration identity, decoupled from
+  `formal_statement`. Definition *content* still propagates; block-ownership
+  bookkeeping (a declaration remap) no longer moves dependents' hashes.
+- **Declaration ownership** (`§6`) and the **C5 remap sub-case** (`§13.2`).
+- **The mechanical Lean gate** (`§15.6`, new): build with full diagnostics and
+  a warning allowlist, `#print axioms` on every mapped declaration, `sorry`
+  check, recorded in a derived `lean_audit` artifact. Corrected `§15.2`/`§15.5`,
+  which had claimed these were "part of the build" while the gate never invoked
+  the compiler (the Session 45 "0 warnings" drift).
+- **Re-issue vocabulary** (`§7.2`, `§8.1`): `supersedes`/`reissue_reason`; the
+  status model now separates *awaiting re-audit* from *superseded*.
+- **Layer assignment by block kind** (`§7.2`) — previously folklore.
+- **Extractor fail-closed policy** (`§12.1`); **post-hoc declaration addition**
+  as hygiene mode 4 (`§13.3`); a **single session orchestrator** for derived
+  views (`§16.1`); auditor model recorded for a same-model metric (`§11.4`,
+  `§24.4`); Open Questions 11-12; change log Revision 3 (`§25`).
+
+**Honest caveat.** This is a *specification* edit: no block facet, evidence
+record, or derived-view content changed (`Architecture.md` is not a hashed
+facet). It documents rules the project has been following by convention; the
+tooling in `scripts/` does not yet implement the `§15.6` gate,
+`definition_closure` split, or re-issue fields — those are now specified
+targets, not built features (see next steps).
+
+**Prioritized next steps.**
+
+1. **Implement the Revision 3 spec gaps** (coordinator-level, mechanical):
+   `scripts/lean_audit.py` + a `check_all` entry (`§15.6`); split
+   `definition_closure` out of `formal_statement` in `lean_facets.py`
+   (`§6`/`§12.3`); add `supersedes`/`reissue_reason` to the evidence schema
+   (`§7.2`).
+2. `B-R012` (the quotient by `∇` is subfinal) and the congruence-lattice clauses
+   of `B-D024` (`∇`/`Δ`, `Cgr(A)` an algebraic closure system).
+3. `B-D023` (subfinal `Σ`-algebra) with `B-P008` (`A` subfinal iff `A` is
+   subfinal) and `B-R011` (at most one homomorphism into a subfinal algebra).
+4. The many-sorted closure-system vocabulary `B-D010`-`B-D013`; `B-P001`
+   (`propssupport`); `B-P006` (`CABA`).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -2256,3 +2305,10 @@ pairing's uniqueness is stated for all sorted maps (a fortiori homomorphisms).
     (Architecture.md Section 16.4): a plain-language keynote, the concrete
     artifact to audit, the consequences, and numbered options. Mechanical
     decisions are the coordinator's to take and report, never to escalate.
+12. `Architecture.md` is at **Revision 3 (frontier-hardened)** (Session 48,
+    `EV-000053`). Revision 3 specifies changes that are **not yet implemented**
+    in `scripts/`: the `§15.6` mechanical Lean gate, the `definition_closure`
+    facet split (`§6`/`§12.3`), and the `supersedes`/`reissue_reason` evidence
+    fields (`§7.2`). Until built, continue the current manual practice (build
+    with `ELAN_HOME` unset and inspect the full output, not a tail; re-issue
+    per the Session 43 rule) and treat those sections as target state.
