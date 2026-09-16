@@ -1,0 +1,37 @@
+{
+  "block": "B-R009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000075",
+  "findings": [
+    "Stage 1 read-back: IsClosureSystemOn requires the universe and nonempty-intersection closure; the product algebra's support is the intersection of the factor supports; the range of suppAlg is a closure system.",
+    "Stage 2 comparator returned equivalent; clause-for-clause match, with the formal statement quantified over every signature (harmless generalization) and standard universe framing.",
+    "Transcript: blocks/audits/B-R009-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-R009/formal_statement",
+      "hash": "03cdb4115f9233fe360f83b422a07a7e17082325f380e47aee312c4ef2d0c056"
+    },
+    {
+      "artifact": "B-R009/informal_statement",
+      "hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T09:58:25Z"
+}

@@ -13,6 +13,11 @@ families of predicates `∀ s, Set (A s)`.
 
 universe u
 
+-- The `haveI`s in `finiteSSet_iff` (`B-R003`) register `Fintype`/`Finite`
+-- instances consumed by later instance synthesis; the style linter's `have`
+-- suggestion would not register them, so it is a false positive here.
+set_option linter.style.haveILetI false
+
 namespace Mslang
 
 variable {S : Type u}
@@ -765,5 +770,60 @@ theorem finiteSSet_iff {S : Type u} (A : SSet S) :
     exact Finite.of_surjective
       (fun y : (Σ s : ↥(supp A), A s.1) => (⟨y.1.1, y.2⟩ : Sigma A))
       (fun x => ⟨⟨⟨x.1, ⟨x.2⟩⟩, x.2⟩, rfl⟩)
+
+/-! ### `B-R009`: the supports of `Σ`-algebras form a closure system on `S`. -/
+
+/-- An ordinary closure system on a set `S` (the paper's `B-D010` in the
+one-sorted case, applied to the set of sorts `S`): a family of subsets of `S`
+containing `S` and closed under nonempty intersections. -/
+def IsClosureSystemOn (S : Type u) (C : Set (Set S)) : Prop :=
+  Set.univ ∈ C ∧ ∀ D : Set (Set S), D ⊆ C → D.Nonempty → ⋂₀ D ∈ C
+
+/-- The product `∏_i A_i` of a family of `Σ`-algebras, componentwise on carriers
+and operations. -/
+noncomputable def iAlg {S : Type u} (Sig : Signature S) {ι : Type u}
+    (A : ι → Alg Sig) : Alg Sig :=
+  ⟨fun s => ∀ i, (A i).1 s,
+   fun p σ b => fun i => (A i).2 p σ (fun j => b j i)⟩
+
+/-- The support of a product of `Σ`-algebras is the intersection of the
+supports. -/
+theorem suppAlg_iAlg {S : Type u} (Sig : Signature S) {ι : Type u}
+    (A : ι → Alg Sig) :
+    suppAlg (iAlg Sig A) = {s | ∀ i, s ∈ suppAlg (A i)} := by
+  ext s
+  show Nonempty (∀ i, (A i).1 s) ↔ ∀ i, Nonempty ((A i).1 s)
+  constructor
+  · rintro ⟨x⟩ i
+    exact ⟨x i⟩
+  · intro h
+    exact ⟨fun i => Classical.choice (h i)⟩
+
+/-- Remark `B-R009`: the supports of the `Σ`-algebras form a closure system on
+the set of sorts `S`. `S` itself is the support of a constant one-element
+algebra, and a nonempty intersection of supports is realized by the product
+algebra. -/
+theorem supports_isClosureSystem {S : Type u} (Sig : Signature S) :
+    IsClosureSystemOn S (Set.range (fun A : Alg Sig => suppAlg A)) := by
+  constructor
+  · refine ⟨⟨fun _ => PUnit, fun _ _ _ => PUnit.unit⟩, ?_⟩
+    ext s
+    exact iff_true_intro ⟨PUnit.unit⟩
+  · intro D hD _
+    let A : ↥D → Alg Sig := fun X => Classical.choose (Set.mem_range.mp (hD X.2))
+    have hA : ∀ X : ↥D, suppAlg (A X) = X.1 := fun X =>
+      Classical.choose_spec (Set.mem_range.mp (hD X.2))
+    refine ⟨iAlg Sig A, ?_⟩
+    change suppAlg (iAlg Sig A) = ⋂₀ D
+    rw [suppAlg_iAlg]
+    ext s
+    rw [Set.mem_sInter]
+    constructor
+    · intro h X hX
+      have := h ⟨X, hX⟩
+      rwa [hA ⟨X, hX⟩] at this
+    · intro h X
+      rw [hA X]
+      exact h X.1 X.2
 
 end Mslang

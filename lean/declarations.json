@@ -201,6 +201,15 @@
         "Mslang.quotAlgLift_unique"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R009": {
+      "decls": [
+        "Mslang.IsClosureSystemOn",
+        "Mslang.iAlg",
+        "Mslang.suppAlg_iAlg",
+        "Mslang.supports_isClosureSystem"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

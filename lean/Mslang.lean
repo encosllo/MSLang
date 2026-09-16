@@ -49,3 +49,5 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.quotAlgLift_isAlgHom
 #print axioms Mslang.quotAlgLift_comp
 #print axioms Mslang.quotAlgLift_unique
+#print axioms Mslang.suppAlg_iAlg
+#print axioms Mslang.supports_isClosureSystem

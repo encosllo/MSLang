@@ -1,0 +1,28 @@
+{
+  "block": "B-R009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000074",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-R009 (Mslang.IsClosureSystemOn, iAlg, suppAlg_iAlg, supports_isClosureSystem) compiled against Mathlib v4.33.1.",
+    "#print axioms suppAlg_iAlg/supports_isClosureSystem depend on propext, Classical.choice and Quot.sound (within the permitted set).",
+    "Build clean after suppressing the pre-existing linter.style.haveILetI false positive on B-R003's load-bearing haveI instances (cosmetic, no facet impact)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R009/formal_proof",
+      "hash": "bd3158d63a6db51db1d826d0cc1c2f5f0e875ab3fb1c7ce74fface3daa0f8455"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T09:57:45Z"
+}

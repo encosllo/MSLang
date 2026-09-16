@@ -566,6 +566,27 @@
       "formal_statement": {
         "hash": "349c2d391adae5f19c3b03241c3a4504c0dbe6d42a4678190bf41b8fb5bff894"
       }
+    },
+    "B-R009": {
+      "decls": [
+        "Mslang.IsClosureSystemOn",
+        "Mslang.iAlg",
+        "Mslang.suppAlg_iAlg",
+        "Mslang.supports_isClosureSystem"
+      ],
+      "definition_closure": [
+        "B-D002",
+        "B-D009",
+        "B-D016",
+        "B-D018"
+      ],
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "bd3158d63a6db51db1d826d0cc1c2f5f0e875ab3fb1c7ce74fface3daa0f8455"
+      },
+      "formal_statement": {
+        "hash": "03cdb4115f9233fe360f83b422a07a7e17082325f380e47aee312c4ef2d0c056"
+      }
     }
   },
   "source": "lean/declarations.json"
