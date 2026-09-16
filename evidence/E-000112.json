@@ -1,0 +1,27 @@
+{
+  "block": "B-R001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000112",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R001 (Mslang.SortedIso, iCoprod, deltaT, sigmaPUnitEquiv, deltaEquiv, delta_iso_coprod) compiled against Mathlib v4.33.1.",
+    "#print axioms delta_iso_coprod depends on propext, Classical.choice, Quot.sound (within the permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R001/formal_proof",
+      "hash": "58dfa9e9390f0550871e1304d5e9e21c1ea089ea13890cdecbea31afad62ecf6"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T14:04:31Z"
+}

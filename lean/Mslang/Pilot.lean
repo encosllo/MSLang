@@ -1146,4 +1146,45 @@ def etaX {S : Type u} (Sig : Signature S) (X : SSet S) : SortedMap X (TSet Sig X
     ⟨[Sum.inr (⟨s, x⟩ : XElem X)],
      subset_Sg Sig (WAlg Sig X).2 (genSet Sig X) s ⟨x, rfl⟩⟩
 
+/-! ### `B-R001`: `δ^{t,X}` is a copower of the delta `δ^t`. -/
+
+/-- An isomorphism of `S`-sorted sets: a sortwise-bijective sorted map. -/
+def SortedIso {S : Type u} (A B : SSet S) : Prop :=
+  ∃ f : SortedMap A B, ∀ s, Function.Bijective (f s)
+
+/-- The coproduct `∐_i A^i` of a family of `S`-sorted sets. -/
+abbrev iCoprod {S : Type u} {ι : Type u} (A : ι → SSet S) : SSet S :=
+  fun s => Σ i, A i s
+
+/-- `B-R001` (with `B-D006`): `δ^{t,X}` — the set `X` at sort `t`, empty
+elsewhere. -/
+noncomputable def deltaT {S : Type u} (t : S) (X : Type u) : SSet S :=
+  by classical exact fun s => if s = t then X else PEmpty.{u+1}
+
+/-- `(Σ _ : X, PUnit) ≃ X`. -/
+def sigmaPUnitEquiv (X : Type u) : (Σ _ : X, PUnit.{u+1}) ≃ X where
+  toFun p := p.1
+  invFun x := ⟨x, PUnit.unit⟩
+  left_inv p := by rcases p with ⟨a, b⟩; cases b; rfl
+  right_inv _x := rfl
+
+/-- The sortwise equivalence underlying `B-R001`. -/
+noncomputable def deltaEquiv {S : Type u} (t : S) (X : Type u) (s : S) :
+    deltaT t X s ≃ iCoprod (fun _ : X => delta t) s := by
+  classical
+  by_cases h : s = t
+  · rw [show deltaT t X s = X from if_pos h]
+    change X ≃ (Σ _x : X, delta t s)
+    rw [show delta t s = PUnit from if_pos h]
+    exact (sigmaPUnitEquiv X).symm
+  · rw [show deltaT t X s = PEmpty from if_neg h]
+    change PEmpty ≃ (Σ _x : X, delta t s)
+    rw [show delta t s = PEmpty from if_neg h]
+    exact ⟨fun e => e.elim, fun e => e.2.elim, fun e => e.elim, fun e => e.2.elim⟩
+
+/-- Remark `B-R001`: `δ^{t,X}` is isomorphic to the coproduct `∐_{x∈X} δ^t`. -/
+theorem delta_iso_coprod {S : Type u} (t : S) (X : Type u) :
+    SortedIso (deltaT t X) (iCoprod (fun _ : X => delta t)) :=
+  ⟨fun s => (deltaEquiv t X s).toFun, fun s => (deltaEquiv t X s).bijective⟩
+
 end Mslang

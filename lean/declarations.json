@@ -318,6 +318,17 @@
         "Mslang.etaX"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-R001": {
+      "decls": [
+        "Mslang.SortedIso",
+        "Mslang.iCoprod",
+        "Mslang.deltaT",
+        "Mslang.sigmaPUnitEquiv",
+        "Mslang.deltaEquiv",
+        "Mslang.delta_iso_coprod"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

@@ -852,6 +852,31 @@
         "hash": "3da6d505a20d5224b6435eda37bb9f1ab16370143f64d23baa6ee149f1a14a0d"
       }
     },
+    "B-R001": {
+      "decls": [
+        "Mslang.SortedIso",
+        "Mslang.iCoprod",
+        "Mslang.deltaT",
+        "Mslang.sigmaPUnitEquiv",
+        "Mslang.deltaEquiv",
+        "Mslang.delta_iso_coprod"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedMap",
+          "Mslang.delta"
+        ],
+        "hash": "6f2fcad3bb43d6c8489df14af5e69463ec0d9c77f841f807c472f9e99e9048d6"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "58dfa9e9390f0550871e1304d5e9e21c1ea089ea13890cdecbea31afad62ecf6"
+      },
+      "formal_statement": {
+        "hash": "b82bbebb18fccd6692b7795332e516b59ca65b72af1c36d609044bf03d9c39b8"
+      }
+    },
     "B-R003": {
       "decls": [
         "Mslang.finiteSSet_iff"

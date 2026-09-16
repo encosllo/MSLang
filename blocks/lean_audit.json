@@ -42,6 +42,7 @@
     "Mslang.SigElem": [],
     "Mslang.Signature": [],
     "Mslang.SortedEqv": [],
+    "Mslang.SortedIso": [],
     "Mslang.SortedMap": [],
     "Mslang.Sub": [],
     "Mslang.Sub_iInter": [],
@@ -58,6 +59,21 @@
     "Mslang.XElem": [],
     "Mslang.concat": [],
     "Mslang.delta": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.deltaEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.deltaT": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.delta_iso_coprod": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -81,6 +97,7 @@
       "propext"
     ],
     "Mslang.iAlg": [],
+    "Mslang.iCoprod": [],
     "Mslang.iPair": [],
     "Mslang.iPairAlg": [],
     "Mslang.iPairAlg_unique": [
@@ -240,6 +257,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.sigmaPUnitEquiv": [],
     "Mslang.subAlg": [],
     "Mslang.subfinalAlg_iff": [
       "Classical.choice"
@@ -284,7 +302,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 125,
+  "declarations_audited": 131,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",
