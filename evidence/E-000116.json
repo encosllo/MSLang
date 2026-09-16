@@ -1,0 +1,27 @@
+{
+  "block": "B-D028",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000116",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D028 (Mslang.IsMonoAlg, IsEpiAlg, IsSubdirectEmbedding, IsSubdirectProduct, IsomorphicSubdirectEmbeddings) compiled against Mathlib v4.33.1.",
+    "Encoding: subdirect product via existence of a subdirect embedding into the product (the paper's second formulation), since the encoding has no literal 'A is a subalgebra of the product'; monomorphisms/epimorphisms are injective/surjective homomorphisms. Opens the formation-theoretic layer in a new Mslang/Formation.lean module."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D028/formal_proof",
+      "hash": "074345cbae9f9cd5a7cfe481cce2ec9603aefee96b103b49899250a544ae6d74"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T15:40:45Z"
+}

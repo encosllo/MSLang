@@ -333,6 +333,16 @@
     "B-L001": {
       "decl": "Mslang.TAlg_hom_ext",
       "file": "lean/Mslang/Free.lean"
+    },
+    "B-D028": {
+      "decls": [
+        "Mslang.IsMonoAlg",
+        "Mslang.IsEpiAlg",
+        "Mslang.IsSubdirectEmbedding",
+        "Mslang.IsSubdirectProduct",
+        "Mslang.IsomorphicSubdirectEmbeddings"
+      ],
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }

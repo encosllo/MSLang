@@ -652,6 +652,36 @@
         "hash": "e42c311e5c741bdc14386f5df54c50e7a446fb90396ef93ca21daa0a07d700aa"
       }
     },
+    "B-D028": {
+      "decls": [
+        "Mslang.IsMonoAlg",
+        "Mslang.IsEpiAlg",
+        "Mslang.IsSubdirectEmbedding",
+        "Mslang.IsSubdirectProduct",
+        "Mslang.IsomorphicSubdirectEmbeddings"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "9737e794a38f4cef89d3981f66988f4db3ed481901e60822b2911c853a8727a1"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "074345cbae9f9cd5a7cfe481cce2ec9603aefee96b103b49899250a544ae6d74"
+      },
+      "formal_statement": {
+        "hash": "42284e1f0d68a95e34776687e6048c700a2b60f501d03b60bdf6b3bc5cfee230"
+      }
+    },
     "B-L001": {
       "decls": [
         "Mslang.TAlg_hom_ext"
