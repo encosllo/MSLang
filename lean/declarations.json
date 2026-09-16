@@ -354,6 +354,20 @@
     "B-D030": {
       "decl": "Mslang.IsCongruenceFormation",
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D031": {
+      "decls": [
+        "Mslang.HOperator",
+        "Mslang.PFsdOperator"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D032": {
+      "decls": [
+        "Mslang.IsAlgebraFormation",
+        "Mslang.algebraFormations"
+      ],
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }

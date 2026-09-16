@@ -92,4 +92,30 @@ def IsCongruenceFormation {S : Type u} (Sig : Signature S)
           (fun x => prAlg Sig (TAlg Sig B).2 Θ hΘ s (f s x))) →
         ker (fun s => prAlg Sig (TAlg Sig B).2 Θ hΘ s ∘ f s) ∈ F A)
 
+/-! ### `B-D031`: the operators `H` and `P_fsd`. -/
+
+/-- `B-D031`: `H(F)`, the homomorphic images of the members of `F`: the
+`Σ`-algebras `A` admitting an epimorphism `B → A` from some `B ∈ F`. -/
+def HOperator {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Set (Alg Sig) :=
+  {A | ∃ B ∈ F, ∃ f : SortedMap B.1 A.1, IsEpiAlg Sig B.2 A.2 f}
+
+/-- `B-D031`: `P_fsd(F)`, the finite subdirect products of members of `F`: the
+`Σ`-algebras `A` admitting a subdirect embedding into `∏_{α∈n} C^α` for some
+`n : ℕ` and family `(C^α) ∈ F^n`. -/
+def PFsdOperator {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Set (Alg Sig) :=
+  {A | ∃ (ι : Type u) (_ : Fintype ι) (C : ι → Alg Sig), (∀ i, C i ∈ F) ∧
+      ∃ f : SortedMap A.1 (iAlg Sig C).1, IsSubdirectEmbedding Sig A.2 C f}
+
+/-! ### `B-D032`: formations of `Σ`-algebras. -/
+
+/-- `B-D032`: a *formation of `Σ`-algebras* is a set `F` of `Σ`-algebras closed
+under homomorphic images (`H(F) ⊆ F`) and under finite subdirect products
+(`P_fsd(F) ⊆ F`). -/
+def IsAlgebraFormation {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Prop :=
+  HOperator Sig F ⊆ F ∧ PFsdOperator Sig F ⊆ F
+
+/-- `B-D032`: `Form_Alg(Σ)`, the set of all formations of `Σ`-algebras. -/
+def algebraFormations {S : Type u} (Sig : Signature S) : Set (Set (Alg Sig)) :=
+  {F | IsAlgebraFormation Sig F}
+
 end Mslang

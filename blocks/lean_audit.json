@@ -8,8 +8,14 @@
     "Mslang.FiniteAlg": [],
     "Mslang.FiniteSSet": [],
     "Mslang.FiniteSub": [],
+    "Mslang.HOperator": [],
     "Mslang.IsAlgHom": [],
     "Mslang.IsAlgIso": [],
+    "Mslang.IsAlgebraFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsAlgebraic": [],
     "Mslang.IsAlgebraicClosureSystem": [],
     "Mslang.IsAlgebraicLattice": [],
@@ -34,6 +40,11 @@
     "Mslang.IsUniformAlgebraicClosureOperator": [],
     "Mslang.IsomorphicSubdirectEmbeddings": [],
     "Mslang.MemSg": [],
+    "Mslang.PFsdOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.RowAlpha": [],
     "Mslang.SSet": [],
     "Mslang.Sg": [],
@@ -69,6 +80,11 @@
     "Mslang.WSet": [],
     "Mslang.Word": [],
     "Mslang.XElem": [],
+    "Mslang.algebraFormations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.concat": [],
     "Mslang.delta": [
       "Classical.choice",
@@ -315,7 +331,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 140,
+  "declarations_audited": 144,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -1,0 +1,27 @@
+{
+  "block": "B-D031",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000119",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D031 (Mslang.HOperator, Mslang.PFsdOperator) compiled against Mathlib v4.33.1.",
+    "Encoding: H(F) = algebras admitting an epimorphism from a member of F; P_fsd(F) = algebras admitting a subdirect embedding into a finite product of members, with the finite index set encoded as an arbitrary finite type (iota, Fintype iota) rather than n : Nat/Fin n."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D031/formal_proof",
+      "hash": "d02ed21e29b6b942a65761ff12c69a77d07ee3dff8e08ea529482479450ea0fe"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T16:10:38Z"
+}

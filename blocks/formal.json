@@ -743,6 +743,66 @@
         "hash": "a483b157c6c70b453793737999f96bfe40e5f4095014312528cc3b7a3f46f17c"
       }
     },
+    "B-D031": {
+      "decls": [
+        "Mslang.HOperator",
+        "Mslang.PFsdOperator"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "d7ad1e4f2f8aec43708d3e263d1b50691a6173e2e8bd043822fee6f56c936095"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "d02ed21e29b6b942a65761ff12c69a77d07ee3dff8e08ea529482479450ea0fe"
+      },
+      "formal_statement": {
+        "hash": "77817738a82addf55d50eb050139cc013bd017e34ae6e7a4ebc765cd4fff3f43"
+      }
+    },
+    "B-D032": {
+      "decls": [
+        "Mslang.IsAlgebraFormation",
+        "Mslang.algebraFormations"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "93fe7a1ca7a6ca8a166eb6e1c6dde5541548cd6cb9babb68761bfab132c1da67"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "5b434414af6721dc38042241470ec670ea4eca1a6c22ab92d55a8b15b0ff0cf7"
+      },
+      "formal_statement": {
+        "hash": "3e2d910db5a589563e55a6d6c1e9daffc7fdee6e2997670bf927ad1f5f686e31"
+      }
+    },
     "B-L001": {
       "decls": [
         "Mslang.TAlg_hom_ext"

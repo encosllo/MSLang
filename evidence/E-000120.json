@@ -1,0 +1,27 @@
+{
+  "block": "B-D032",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000120",
+  "findings": [
+    "lake build: B-D032 (Mslang.IsAlgebraFormation, Mslang.algebraFormations) compiled.",
+    "Encoding: a formation of Sigma-algebras is a set F with H(F) subseteq F and P_fsd(F) subseteq F (the manuscript's nonempty/abstractness clauses are commented out, so they are not included); Form_Alg(Sigma) as the set of all such."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D032/formal_proof",
+      "hash": "5b434414af6721dc38042241470ec670ea4eca1a6c22ab92d55a8b15b0ff0cf7"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T16:10:39Z"
+}
