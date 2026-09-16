@@ -2441,6 +2441,42 @@ ready): trust the STATE priority list, not the reverse-dependency heuristic.
 
 ---
 
+## Session 54 -- 2026-09-16 -- frontier extension: B-P008
+
+**Goal.** Prove the substantive half of the subfinal cluster: `A` subfinal as a
+`Σ`-algebra iff its carrier is subfinal.
+
+**What was established (closed).**
+
+- **`B-P008`** as `Mslang.subfinalAlg_iff`:
+  `SubfinalAlg Sig X ↔ Subfinal X.1`. Forward: a bijective homomorphism onto a
+  subalgebra of the one-element algebra forces every component to be a
+  subsingleton. Backward: exhibit the image subalgebra
+  `Y s = {q : PUnit | Nonempty (X.1 s)}` as a subalgebra of `1` (using `X`'s
+  operations to supply witnesses) and the sortwise bijection
+  `a ↦ ⟨PUnit.unit, ⟨a⟩⟩`.
+- Mapped in `lean/declarations.json`; facets regenerated (**41 mapped blocks**).
+- Evidence **`E-000104`** (verification, `build_ok`; axiom `Classical.choice`)
+  and **`E-000105`** (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-P008-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **89 -> 88**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000059`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. No
+review layer (the informal proof is not separately audited, consistent with
+`B-P002`/`B-R003`). The proof uses `Classical.choice` to build the witnesses;
+`Subsingleton`/empty components are handled.
+
+**Prioritized next steps.**
+
+1. `B-R012` (the quotient by `∇` is subfinal) — now reachable with `quotAlg`
+  (`B-D025`), `nabla`, and `SubfinalAlg`; then `B-R011` (at most one
+  homomorphism into a subfinal algebra).
+2. `B-P001` (`propssupport`) clauses (1)-(2).
+3. `B-P006` (`CABA`); batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
