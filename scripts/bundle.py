@@ -38,6 +38,7 @@ MANIFEST_PATHS = [
     "blocks/hashes.json",
     "blocks/formal.json",
     "blocks/formal_graph.json",
+    "blocks/lean_audit.json",
     "blocks/graph.json",
     "representation/pilot-encoding.md",
     "calibration/seeded.json",

@@ -247,6 +247,34 @@
         "Mslang.suppSub_Sg_uniform"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D010": {
+      "decls": [
+        "Mslang.Sub_iInter",
+        "Mslang.IsClosureSystem"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D011": {
+      "decls": [
+        "Mslang.IsCompact",
+        "Mslang.IsAlgebraicLattice"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D012": {
+      "decls": [
+        "Mslang.Sub_iUnion",
+        "Mslang.IsAlgebraicClosureSystem"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D013": {
+      "decls": [
+        "Mslang.IsUniform",
+        "Mslang.IsUniformAlgebraicClosureOperator"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

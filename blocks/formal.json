@@ -217,6 +217,88 @@
         "hash": "748af42c7da9c440d704822315bd1ae6c8c26d0de5b083591b150bfdc4368f79"
       }
     },
+    "B-D010": {
+      "decls": [
+        "Mslang.Sub_iInter",
+        "Mslang.IsClosureSystem"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Sub"
+        ],
+        "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "0576f62e8df2cda9734f971318564ad0e82c006e7c3adffd0493827adccb1edb"
+      },
+      "formal_statement": {
+        "hash": "eb25af2526e70cec7faba52353941f0828df7eaa9243f166630f9ed093fa7a8c"
+      }
+    },
+    "B-D011": {
+      "decls": [
+        "Mslang.IsCompact",
+        "Mslang.IsAlgebraicLattice"
+      ],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "74a443bf7a7c67a909c9abe3d0cd117d34335c423dbb0ef0f7aaf40f09d0ab06"
+      },
+      "formal_statement": {
+        "hash": "752ccfe0e3d09734c99b4ec60eafdb6b46057ff97d343442dbb5f74ee9ed837d"
+      }
+    },
+    "B-D012": {
+      "decls": [
+        "Mslang.Sub_iUnion",
+        "Mslang.IsAlgebraicClosureSystem"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsClosureSystem",
+          "Mslang.SSet",
+          "Mslang.Sub",
+          "Mslang.Sub_iInter",
+          "Mslang.Subset"
+        ],
+        "hash": "862d79afc694c49cecc28e4662fbdf93bfe45a3e10788cbd02e7fc230a5c5409"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "c871f892eb88666ffe6e449491bd16cb29c5fbb8c84d6d5c0a41d721ecc69e3f"
+      },
+      "formal_statement": {
+        "hash": "a7c2d0e7522d49fc05af3388605b4dba60cc0204687faaada973514251cac3bc"
+      }
+    },
+    "B-D013": {
+      "decls": [
+        "Mslang.IsUniform",
+        "Mslang.IsUniformAlgebraicClosureOperator"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsAlgebraic",
+          "Mslang.SSet",
+          "Mslang.Sub",
+          "Mslang.Subset"
+        ],
+        "hash": "215bd73d6498690a6d54f16a59bd1b86a658452c8e59545cb1bfec8257931135"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "c36fb38311e863270341ffd7831e659e0c5187b6fddd29e89f466b3ab10e917f"
+      },
+      "formal_statement": {
+        "hash": "b13ca3a616903b59b86bc6ce322762252d168c154acb5b365af7b404d7d9408d"
+      }
+    },
     "B-D014": {
       "decls": [
         "Mslang.SortedEqv",

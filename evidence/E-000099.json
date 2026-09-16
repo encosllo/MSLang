@@ -1,0 +1,27 @@
+{
+  "block": "B-D010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000099",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D010 (Mslang.Sub_iInter, IsClosureSystem) compiled against Mathlib v4.33.1.",
+    "The closure-operator half of B-D010 is already formalized as Mslang.IsClosureOperator (mapped to B-P005)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D010/formal_proof",
+      "hash": "0576f62e8df2cda9734f971318564ad0e82c006e7c3adffd0493827adccb1edb"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:02Z"
+}

@@ -1,0 +1,26 @@
+{
+  "block": "B-D011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000100",
+  "findings": [
+    "lake build: B-D011 (Mslang.IsCompact, IsAlgebraicLattice) compiled; complete-lattice vocabulary from Mathlib."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D011/formal_proof",
+      "hash": "74a443bf7a7c67a909c9abe3d0cd117d34335c423dbb0ef0f7aaf40f09d0ab06"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:02Z"
+}

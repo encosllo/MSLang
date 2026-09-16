@@ -1,0 +1,26 @@
+{
+  "block": "B-D012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000101",
+  "findings": [
+    "lake build: B-D012 (Mslang.Sub_iUnion, IsAlgebraicClosureSystem) compiled; the algebraic-operator half is Mslang.IsAlgebraic (B-P005)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D012/formal_proof",
+      "hash": "c871f892eb88666ffe6e449491bd16cb29c5fbb8c84d6d5c0a41d721ecc69e3f"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T11:47:03Z"
+}

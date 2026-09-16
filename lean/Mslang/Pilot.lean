@@ -968,4 +968,51 @@ theorem suppSub_Sg_uniform {S : Type u} (Sig : Signature S) {A : SSet S}
     suppSub (Sg Sig F X) = suppSub (Sg Sig F Y) := by
   rw [suppSub_Sg, suppSub_Sg, h]
 
+/-! ### `B-D010`-`B-D013`: many-sorted closure systems and operators. -/
+
+/-- The componentwise intersection of a family of componentwise subsets
+(`B-D010`). -/
+def Sub_iInter {S : Type u} {A : SSet S} (D : Set (Sub A)) : Sub A :=
+  fun s a => ∀ X : Sub A, X ∈ D → a ∈ X s
+
+/-- `B-D010`: an `S`-closure system on `A` — a family of componentwise subsets
+of `A` containing `A` and closed under nonempty intersections. The
+`S`-closure *operator* half of `B-D010` (extensive, isotone, idempotent) is
+`IsClosureOperator` (`B-P005`). -/
+def IsClosureSystem {S : Type u} {A : SSet S} (C : Set (Sub A)) : Prop :=
+  (fun s => (Set.univ : Set (A s))) ∈ C ∧
+    ∀ D : Set (Sub A), D ⊆ C → D.Nonempty → Sub_iInter D ∈ C
+
+/-- The componentwise union of a family of componentwise subsets (`B-D012`). -/
+def Sub_iUnion {S : Type u} {A : SSet S} (D : Set (Sub A)) : Sub A :=
+  fun s a => ∃ X : Sub A, X ∈ D ∧ a ∈ X s
+
+/-- `B-D012`: an algebraic `S`-closure system — a closure system closed under
+directed unions. (The algebraic *operator* half of `B-D012` is `IsAlgebraic`,
+`B-P005`.) -/
+def IsAlgebraicClosureSystem {S : Type u} {A : SSet S} (C : Set (Sub A)) : Prop :=
+  IsClosureSystem C ∧
+    ∀ D : Set (Sub A), D ⊆ C → D.Nonempty →
+      (∀ X ∈ D, ∀ Y ∈ D, ∃ Z ∈ D, Subset X Z ∧ Subset Y Z) →
+      Sub_iUnion D ∈ C
+
+/-- `B-D011`: a compact element of a complete lattice. -/
+def IsCompact {L : Type u} [CompleteLattice L] (a : L) : Prop :=
+  ∀ X : Set L, a ≤ sSup X → ∃ Y : Set L, Y ⊆ X ∧ Y.Finite ∧ a ≤ sSup Y
+
+/-- `B-D011`: an algebraic lattice — every element is the supremum of a set of
+compact elements. -/
+def IsAlgebraicLattice (L : Type u) [CompleteLattice L] : Prop :=
+  ∀ a : L, ∃ X : Set L, (∀ x ∈ X, IsCompact x) ∧ a = sSup X
+
+/-- `B-D013`: an operator on `Sub(A)` is uniform when the support of its value
+depends only on the support of its argument. -/
+def IsUniform {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
+  ∀ X Y : Sub A, suppSub X = suppSub Y → suppSub (c X) = suppSub (c Y)
+
+/-- `B-D013`: a uniform algebraic `S`-closure operator. -/
+def IsUniformAlgebraicClosureOperator {S : Type u} {A : SSet S}
+    (c : Sub A → Sub A) : Prop :=
+  IsAlgebraic c ∧ IsUniform c
+
 end Mslang
