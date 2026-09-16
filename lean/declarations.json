@@ -299,6 +299,16 @@
     "B-R011": {
       "decl": "Mslang.hom_unique_of_subfinalAlg",
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D026": {
+      "decls": [
+        "Mslang.SigElem",
+        "Mslang.XElem",
+        "Mslang.RowAlpha",
+        "Mslang.WSet",
+        "Mslang.WAlg"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

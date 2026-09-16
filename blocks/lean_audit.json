@@ -25,6 +25,7 @@
     "Mslang.IsUniform": [],
     "Mslang.IsUniformAlgebraicClosureOperator": [],
     "Mslang.MemSg": [],
+    "Mslang.RowAlpha": [],
     "Mslang.SSet": [],
     "Mslang.Sg": [],
     "Mslang.Sg_idem": [
@@ -38,6 +39,7 @@
     "Mslang.Sg_isSubalgebra": [],
     "Mslang.Sg_least": [],
     "Mslang.Sg_monotone": [],
+    "Mslang.SigElem": [],
     "Mslang.Signature": [],
     "Mslang.SortedEqv": [],
     "Mslang.SortedMap": [],
@@ -48,7 +50,10 @@
     "Mslang.SubfinalAlg": [],
     "Mslang.Subset": [],
     "Mslang.SuppClosure": [],
+    "Mslang.WAlg": [],
+    "Mslang.WSet": [],
     "Mslang.Word": [],
+    "Mslang.XElem": [],
     "Mslang.concat": [],
     "Mslang.delta": [
       "Classical.choice",
@@ -275,7 +280,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 116,
+  "declarations_audited": 121,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

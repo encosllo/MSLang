@@ -1,0 +1,27 @@
+{
+  "block": "B-D026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000110",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D026 (Mslang.SigElem, XElem, RowAlpha, WSet, WAlg) compiled against Mathlib v4.33.1.",
+    "Encoding: coproduct of the signature as a dependent sum Sigma p, Sig p; coproduct of X likewise; the row alphabet as their sum; W_Sigma(X) the constant word family; the structural operations prepend sigma to the concatenation of their arguments. First step of the free-algebra layer (T_Sigma, B-D027, follows)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D026/formal_proof",
+      "hash": "d53786d4fbf5ad82e737cf9117ac2791a26a27b86f66419a846f5896043139e2"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T13:18:54Z"
+}

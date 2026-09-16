@@ -1102,4 +1102,26 @@ theorem hom_unique_of_subfinalAlg {S : Type u} (Sig : Signature S) {A B : SSet S
   haveI : Subsingleton (A s) := hA s
   exact Subsingleton.elim (f s x) (g s x)
 
+/-! ### `B-D026`: the algebra of `Σ`-rows `W_Σ(X)`. -/
+
+/-- `∐Σ`, the disjoint union of the operation sets of a signature. -/
+abbrev SigElem {S : Type u} (Sig : Signature S) := Σ p : List S × S, Sig p
+
+/-- `∐X`, the disjoint union of the sort components of an `S`-sorted set. -/
+abbrev XElem {S : Type u} (X : SSet S) := Σ s : S, X s
+
+/-- The alphabet `∐Σ ⨿ ∐X` of `Σ`-rows. -/
+abbrev RowAlpha {S : Type u} (Sig : Signature S) (X : SSet S) := SigElem Sig ⊕ XElem X
+
+/-- `B-D026`: the underlying `S`-sorted set `W_Σ(X)`, constantly the set of words
+on the alphabet `∐Σ ⨿ ∐X`. -/
+abbrev WSet {S : Type u} (Sig : Signature S) (X : SSet S) : SSet S :=
+  fun _ => List (RowAlpha Sig X)
+
+/-- `B-D026`: the algebra of `Σ`-rows `W_Σ(X)`. The structural operation for
+`σ : Σ_{w,s}` sends `(P_i)_{i∈|w|}` to the word `σ : P₀ ⧺ … ⧺ P_{|w|-1}`. -/
+def WAlg {S : Type u} (Sig : Signature S) (X : SSet S) : Alg Sig :=
+  ⟨WSet Sig X,
+   fun p σ a => Sum.inl (⟨p, σ⟩ : SigElem Sig) :: (List.ofFn a).flatten⟩
+
 end Mslang

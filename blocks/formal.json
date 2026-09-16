@@ -590,6 +590,29 @@
         "hash": "e00c08d11051426f763821545c73d3ab9284ba3f814f67afe5a6e439a077775d"
       }
     },
+    "B-D026": {
+      "decls": [
+        "Mslang.SigElem",
+        "Mslang.XElem",
+        "Mslang.RowAlpha",
+        "Mslang.WSet",
+        "Mslang.WAlg"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Signature"
+        ],
+        "hash": "276cc584548336d9e2dbccfeb4e9996e85f7ccf4ce3edeb37a1b5a46f5616b8b"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "d53786d4fbf5ad82e737cf9117ac2791a26a27b86f66419a846f5896043139e2"
+      },
+      "formal_statement": {
+        "hash": "3363a12c4ec98737bc347247accf6dfeb0745be6cb035464be7e8ce6b01ba8bc"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"
