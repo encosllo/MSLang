@@ -67,3 +67,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.hom_unique_of_subfinalAlg
 #print axioms Mslang.delta_iso_coprod
 #print axioms Mslang.TAlg_hom_ext
+#print axioms Mslang.IsCongruence_inf

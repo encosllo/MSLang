@@ -803,6 +803,38 @@
         "hash": "3e2d910db5a589563e55a6d6c1e9daffc7fdee6e2997670bf927ad1f5f686e31"
       }
     },
+    "B-D033": {
+      "decls": [
+        "Mslang.IsCongruence_inf",
+        "Mslang.IsShSkFormation"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsEpiAlg",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "d62113f936bccaf298d3ae3e3b64c123287ab8fd83bb6ccb6f4bdd33951779d3"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "322e1f8ecf25e73c724dabc2a3c24ff8d26ec15c39ea757df2e53d8a986d0f79"
+      },
+      "formal_statement": {
+        "hash": "1bf26e3aa5968ee97b0860d58309ba6a9cde7fe4265981f0c67f57e6c538c4ec"
+      }
+    },
     "B-L001": {
       "decls": [
         "Mslang.TAlg_hom_ext"

@@ -118,4 +118,25 @@ def IsAlgebraFormation {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Pr
 def algebraFormations {S : Type u} (Sig : Signature S) : Set (Set (Alg Sig)) :=
   {F | IsAlgebraFormation Sig F}
 
+/-! ### `B-D033`: ShSk-formations of `Σ`-algebras. -/
+
+/-- The pointwise meet `Φ ⊓ Ψ` of two congruences is a congruence. -/
+theorem IsCongruence_inf {S : Type u} (Sig : Signature S) {A : SSet S}
+    (F : AlgStruct Sig A) {Φ Ψ : SortedEqv A}
+    (hΦ : IsCongruence Sig F Φ) (hΨ : IsCongruence Sig F Ψ) :
+    IsCongruence Sig F (sortedEqvInf Φ Ψ) := by
+  intro p σ a b h
+  exact ⟨hΦ p σ a b (fun i => (h i).1), hΨ p σ a b (fun i => (h i).2)⟩
+
+/-- `B-D033`: an *ShSk-formation* of `Σ`-algebras is a nonempty set `F` of
+`Σ`-algebras closed under homomorphic images and under the meet of congruences:
+if `A/Φ` and `A/Ψ` lie in `F` then so does `A/(Φ ⊓ Ψ)`. -/
+def IsShSkFormation {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Prop :=
+  F.Nonempty ∧
+  HOperator Sig F ⊆ F ∧
+  (∀ (A : Alg Sig) (Φ Ψ : SortedEqv A.1)
+      (hΦ : IsCongruence Sig A.2 Φ) (hΨ : IsCongruence Sig A.2 Ψ),
+      quotAlg Sig A.2 Φ hΦ ∈ F → quotAlg Sig A.2 Ψ hΨ ∈ F →
+      quotAlg Sig A.2 (sortedEqvInf Φ Ψ) (IsCongruence_inf Sig A.2 hΦ hΨ) ∈ F)
+
 end Mslang

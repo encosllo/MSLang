@@ -1,0 +1,28 @@
+{
+  "block": "B-D033",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000121",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D033 (Mslang.IsCongruence_inf, Mslang.IsShSkFormation) compiled against Mathlib v4.33.1.",
+    "#print axioms IsCongruence_inf = none.",
+    "Auxiliary: IsCongruence_inf (the pointwise meet sortedEqvInf of two congruences is a congruence), needed to form A/(Phi inf Psi); attached to B-D033 as a helper. IsShSkFormation: F nonempty, H(F) subseteq F, and A/Phi, A/Psi in F implies A/(Phi inf Psi) in F."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D033/formal_proof",
+      "hash": "322e1f8ecf25e73c724dabc2a3c24ff8d26ec15c39ea757df2e53d8a986d0f79"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T16:21:56Z"
+}

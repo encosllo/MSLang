@@ -28,11 +28,15 @@
     "Mslang.IsCongruenceFormation": [
       "Classical.choice"
     ],
+    "Mslang.IsCongruence_inf": [],
     "Mslang.IsEpiAlg": [],
     "Mslang.IsGenerating": [],
     "Mslang.IsLatticeFilter": [],
     "Mslang.IsMonoAlg": [],
     "Mslang.IsSat": [],
+    "Mslang.IsShSkFormation": [
+      "Classical.choice"
+    ],
     "Mslang.IsSubalgebra": [],
     "Mslang.IsSubdirectEmbedding": [],
     "Mslang.IsSubdirectProduct": [],
@@ -331,7 +335,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 144,
+  "declarations_audited": 146,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

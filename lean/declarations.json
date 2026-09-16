@@ -368,6 +368,13 @@
         "Mslang.algebraFormations"
       ],
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D033": {
+      "decls": [
+        "Mslang.IsCongruence_inf",
+        "Mslang.IsShSkFormation"
+      ],
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }
