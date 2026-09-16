@@ -343,6 +343,17 @@
         "Mslang.IsomorphicSubdirectEmbeddings"
       ],
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D029": {
+      "decls": [
+        "Mslang.IsLatticeFilter",
+        "Mslang.latticeFilters"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D030": {
+      "decl": "Mslang.IsCongruenceFormation",
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }

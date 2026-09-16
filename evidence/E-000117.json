@@ -1,0 +1,27 @@
+{
+  "block": "B-D029",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000117",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D029 (Mslang.IsLatticeFilter, Mslang.latticeFilters) compiled against Mathlib v4.33.1.",
+    "A filter of a lattice: nonempty, closed under meets, up-closed; Filt(L) as the set of such filters."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D029/formal_proof",
+      "hash": "d1de8c2b06176bd87e84d4943eb2c1ec2fdd699ce513e3431dc4f447f8f848d3"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T15:54:55Z"
+}

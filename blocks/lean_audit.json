@@ -19,8 +19,12 @@
     "Mslang.IsCompact": [],
     "Mslang.IsCompletelyAdditive": [],
     "Mslang.IsCongruence": [],
+    "Mslang.IsCongruenceFormation": [
+      "Classical.choice"
+    ],
     "Mslang.IsEpiAlg": [],
     "Mslang.IsGenerating": [],
+    "Mslang.IsLatticeFilter": [],
     "Mslang.IsMonoAlg": [],
     "Mslang.IsSat": [],
     "Mslang.IsSubalgebra": [],
@@ -145,6 +149,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.latticeFilters": [],
     "Mslang.nabla_isCongruence": [],
     "Mslang.nabla_sat": [
       "Quot.sound",
@@ -310,7 +315,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 137,
+  "declarations_audited": 140,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

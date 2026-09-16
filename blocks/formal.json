@@ -682,6 +682,67 @@
         "hash": "42284e1f0d68a95e34776687e6048c700a2b60f501d03b60bdf6b3bc5cfee230"
       }
     },
+    "B-D029": {
+      "decls": [
+        "Mslang.IsLatticeFilter",
+        "Mslang.latticeFilters"
+      ],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "d1de8c2b06176bd87e84d4943eb2c1ec2fdd699ce513e3431dc4f447f8f848d3"
+      },
+      "formal_statement": {
+        "hash": "d9745e4942695b54a55a5305a15552ffa2ef35957f91a9c9e46932f9f5e08a77"
+      }
+    },
+    "B-D030": {
+      "decls": [
+        "Mslang.IsCongruenceFormation"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsSubalgebra",
+          "Mslang.MemSg",
+          "Mslang.RowAlpha",
+          "Mslang.SSet",
+          "Mslang.Sg",
+          "Mslang.Sg_isSubalgebra",
+          "Mslang.SigElem",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.TAlg",
+          "Mslang.WAlg",
+          "Mslang.WSet",
+          "Mslang.XElem",
+          "Mslang.finOp",
+          "Mslang.genSet",
+          "Mslang.ker",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.subAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "467da4a7132800a088a171752b0e56f30cff3b56b986ef4989aad704f7aa4503"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "8af19fa674bb96b641a684dab4310e1cc621afcc7205713e1685e0dd89bd1780"
+      },
+      "formal_statement": {
+        "hash": "a483b157c6c70b453793737999f96bfe40e5f4095014312528cc3b7a3f46f17c"
+      }
+    },
     "B-L001": {
       "decls": [
         "Mslang.TAlg_hom_ext"

@@ -421,6 +421,46 @@
       "to": "B-D023"
     },
     {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D017"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D024"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D025"
+    },
+    {
+      "from": "B-D030",
+      "kind": "formal_uses",
+      "to": "B-D027"
+    },
+    {
       "from": "B-L001",
       "kind": "formal_uses",
       "to": "B-D002"

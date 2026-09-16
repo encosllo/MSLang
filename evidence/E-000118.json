@@ -1,0 +1,27 @@
+{
+  "block": "B-D030",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000118",
+  "findings": [
+    "lake build: B-D030 (Mslang.IsCongruenceFormation) compiled.",
+    "Encoding: a formation of congruences is a dependent choice function F : (A : SSet S) -> Set (SortedEqv (TAlg Sig A).1) with (1) each F A a nonempty, meet-closed, refinement-up-closed set of congruences on T_Sigma(A), and (2) closure under kernel pullback along Theta-epimorphisms (homomorphisms whose composite with pr^Theta is surjective). The 'filter of Cgr(T_Sigma(A))' condition is inlined since Set is predicate-based (no bundled congruence lattice)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D030/formal_proof",
+      "hash": "8af19fa674bb96b641a684dab4310e1cc621afcc7205713e1685e0dd89bd1780"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T15:54:55Z"
+}
