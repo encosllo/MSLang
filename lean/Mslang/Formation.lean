@@ -163,4 +163,87 @@ theorem formation_nonempty {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
     exact ⟨⟨fun _ _ _ => rfl, fun _ _ _ h => h⟩, fun i => i.elim⟩
   exact ⟨iAlg (ι := PEmpty.{u+1}) Sig C, hP hmem⟩
 
+/-! ### `B-P016`: a formation satisfies the `B-D033` intersection closure. -/
+
+theorem formation_congInf {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
+    (hF : IsAlgebraFormation Sig F) (A : Alg Sig)
+    (Φ Ψ : SortedEqv A.1) (hΦ : IsCongruence Sig A.2 Φ) (hΨ : IsCongruence Sig A.2 Ψ)
+    (hΦF : quotAlg Sig A.2 Φ hΦ ∈ F) (hΨF : quotAlg Sig A.2 Ψ hΨ ∈ F) :
+    quotAlg Sig A.2 (sortedEqvInf Φ Ψ) (IsCongruence_inf Sig A.2 hΦ hΨ) ∈ F := by
+  classical
+  let hInf := IsCongruence_inf Sig A.2 hΦ hΨ
+  have hleΦ : sortedEqvLe (sortedEqvInf Φ Ψ) (ker (prAlg Sig A.2 Φ hΦ)) := by
+    rw [ker_prAlg Sig A.2 Φ hΦ]; exact sortedEqvInf_le_left Φ Ψ
+  have hleΨ : sortedEqvLe (sortedEqvInf Φ Ψ) (ker (prAlg Sig A.2 Ψ hΨ)) := by
+    rw [ker_prAlg Sig A.2 Ψ hΨ]; exact sortedEqvInf_le_right Φ Ψ
+  let Qinf := quotAlg Sig A.2 (sortedEqvInf Φ Ψ) hInf
+  let QΦ := quotAlg Sig A.2 Φ hΦ
+  let QΨ := quotAlg Sig A.2 Ψ hΨ
+  let pΦ : SortedMap Qinf.1 QΦ.1 := quotLift (sortedEqvInf Φ Ψ) (prAlg Sig A.2 Φ hΦ) hleΦ
+  let pΨ : SortedMap Qinf.1 QΨ.1 := quotLift (sortedEqvInf Φ Ψ) (prAlg Sig A.2 Ψ hΨ) hleΨ
+  have hcompΦ : ∀ (s : S) (a : A.1 s),
+      pΦ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Φ s) a := by
+    intro s a
+    have h := congrFun (congrFun (quotLift_comp (sortedEqvInf Φ Ψ) (prAlg Sig A.2 Φ hΦ) hleΦ) s) a
+    simpa [pΦ, prAlg, pr, Function.comp] using h
+  have hcompΨ : ∀ (s : S) (a : A.1 s),
+      pΨ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Ψ s) a := by
+    intro s a
+    have h := congrFun (congrFun (quotLift_comp (sortedEqvInf Φ Ψ) (prAlg Sig A.2 Ψ hΨ) hleΨ) s) a
+    simpa [pΨ, prAlg, pr, Function.comp] using h
+  let B2 := ULift.{u, 0} Bool
+  let C : B2 → Alg Sig := fun b => Bool.rec QΦ QΨ b.down
+  let g : ∀ b : B2, SortedMap Qinf.1 (C b).1 := by
+    rintro ⟨bb⟩
+    cases bb
+    · exact pΦ
+    · exact pΨ
+  have hgHom : ∀ b : B2, IsAlgHom Sig Qinf.2 (C b).2 (g b) := by
+    rintro ⟨bb⟩
+    cases bb
+    · exact quotAlgLift_isAlgHom Sig A.2 QΦ.2 (sortedEqvInf Φ Ψ) hInf
+        (prAlg Sig A.2 Φ hΦ) (isAlgHom_prAlg Sig A.2 Φ hΦ) hleΦ
+    · exact quotAlgLift_isAlgHom Sig A.2 QΨ.2 (sortedEqvInf Φ Ψ) hInf
+        (prAlg Sig A.2 Ψ hΨ) (isAlgHom_prAlg Sig A.2 Ψ hΨ) hleΨ
+  let f : SortedMap Qinf.1 (iAlg (ι := B2) Sig C).1 := iPairAlg Sig C g
+  apply hF.2
+  refine ⟨B2, inferInstance, C, ?_, ?_⟩
+  · rintro ⟨bb⟩
+    cases bb
+    · exact hΦF
+    · exact hΨF
+  · refine ⟨f, ?_⟩
+    refine ⟨⟨?_, ?_⟩, ?_⟩
+    · exact isAlgHom_iPairAlg Sig Qinf.2 g hgHom
+    · intro s x y hxy
+      have hf : pΦ s x = pΦ s y := congrFun hxy ⟨false⟩
+      have ht : pΨ s x = pΨ s y := congrFun hxy ⟨true⟩
+      induction x using Quotient.inductionOn with
+      | _ a =>
+        induction y using Quotient.inductionOn with
+        | _ b =>
+          have hΦab : (Φ s).r a b := by
+            have h := hf
+            rw [show pΦ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Φ s) a from hcompΦ s a,
+                show pΦ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) b) = Quotient.mk (Φ s) b from hcompΦ s b] at h
+            exact Quotient.exact h
+          have hΨab : (Ψ s).r a b := by
+            have h := ht
+            rw [show pΨ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Ψ s) a from hcompΨ s a,
+                show pΨ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) b) = Quotient.mk (Ψ s) b from hcompΨ s b] at h
+            exact Quotient.exact h
+          exact Quotient.sound (show (Φ s).r a b ∧ (Ψ s).r a b from ⟨hΦab, hΨab⟩)
+    · rintro ⟨bb⟩ s y
+      cases bb
+      · induction y using Quotient.inductionOn with
+        | _ a =>
+          refine ⟨Quotient.mk ((sortedEqvInf Φ Ψ) s) a, ?_⟩
+          change pΦ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Φ s) a
+          exact hcompΦ s a
+      · induction y using Quotient.inductionOn with
+        | _ a =>
+          refine ⟨Quotient.mk ((sortedEqvInf Φ Ψ) s) a, ?_⟩
+          change pΨ s (Quotient.mk ((sortedEqvInf Φ Ψ) s) a) = Quotient.mk (Ψ s) a
+          exact hcompΨ s a
+
 end Mslang

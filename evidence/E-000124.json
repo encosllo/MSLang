@@ -1,0 +1,28 @@
+{
+  "block": "B-P016",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000124",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P016 (Mslang.formation_congInf) compiled against Mathlib v4.33.1.",
+    "#print axioms formation_congInf depends on propext, Classical.choice, Quot.sound (within the permitted set).",
+    "Proof: exhibit A/(Phi inf Psi) as a finite subdirect product of {A/Phi, A/Psi} via the pairing <p^{inf,Phi}, p^{inf,Psi}> (quotLift over the meet, B-P009/B-P007) into iAlg over a lifted 2-element index; injectivity uses that the meet refines both, projection-surjectivity uses pr^Phi = p . pr^{inf}."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-P016/formal_proof",
+      "hash": "83bd35274347c467da5bb0408076cfb610a602e53594443c79f0cafa68dca05c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T17:40:26Z"
+}

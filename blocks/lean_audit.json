@@ -123,6 +123,11 @@
     ],
     "Mslang.finiteSubsets": [],
     "Mslang.formation_abstract": [],
+    "Mslang.formation_congInf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.formation_nonempty": [
       "Classical.choice",
       "Quot.sound",
@@ -341,7 +346,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 148,
+  "declarations_audited": 149,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

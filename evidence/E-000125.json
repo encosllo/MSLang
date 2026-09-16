@@ -1,0 +1,41 @@
+{
+  "block": "B-P016",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000125",
+  "findings": [
+    "Stage 1 read-back: A/(Phi inf Psi) is a subdirect product of A/Phi and A/Psi via the comparison map; a formation contains it.",
+    "Stage 2 comparator returned equivalent; formation, congruences, meet, quotients all match, no extra or missing hypothesis.",
+    "Transcript: blocks/audits/B-P016-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-P016/definition_closure",
+      "hash": "19bf029423b80f812507d67ee1b87db4612641ae2d981e56ef0325089b63162b"
+    },
+    {
+      "artifact": "B-P016/formal_statement",
+      "hash": "2da30f9e7ccd0e6068f81f1c6af625553ad3808b8a13cf88d37aed3b708fa5db"
+    },
+    {
+      "artifact": "B-P016/informal_statement",
+      "hash": "7f242a782cda7d9267328a798e6254b19f62b58caf0fbc6d05e9861e85107d86"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T17:42:16Z"
+}
