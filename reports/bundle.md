@@ -9,8 +9,8 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `a6bacb03a6dcf8b63ccf4e7486142a53a06a7eeb2fc29ed33ec1a9c9ce989c6d` |
-| `blocks/formal_graph.json` | `056548fe41979dcad20cb151e1811fd408b3681a3df2ac532425f635ac284ecd` |
+| `blocks/formal.json` | `ae18bb6fb77b70907e5731da60eaa56ac508f4a4f1fa36b6f19c9056ed33ef6b` |
+| `blocks/formal_graph.json` | `d590039dafe6248a273e5ee98f4be72a8652caec9e0006a7a7de20a69bd0e243` |
 | `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
 | `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
 | `blocks/registry.json` | `4aa5522852f1a6697fdbcdf8bd757f317e83371dac9b027d326c98ecab63d982` |
@@ -86,7 +86,11 @@ repository.
 | `evidence/E-000067.json` | `0b562b7291c3bedd8c7c54215e0f1d6b7b3b2a8e5440a78f5cd9922039a46d8a` |
 | `evidence/E-000068.json` | `70aa7299d9cf4c1e5c58fa94fb0e116cd41002e0eb7bb5ce40a81f5d0fbc51eb` |
 | `evidence/E-000069.json` | `ee8a38ff5a3e4bcc81f867774f824f58c139ad3fc6d435e7849d959bf7a0865b` |
-| `journal/events.jsonl` | `e556673f3a1fbf7feb945779778281efc3634779bb85daf38ea2acccb8a0bea8` |
+| `evidence/E-000070.json` | `3f774d4b06d2fd1daf78d0edc14a6257225286d815d221ec0d73dc6ef2b5e711` |
+| `evidence/E-000071.json` | `0df89e2d16de72a01c59d53c6fcaf71b09304cd3f193a72ff60381604c5ecfe8` |
+| `evidence/E-000072.json` | `b0e37e0555b8df9cb939287cf4059a4c970b4d08221b66934fbba6ca7d6e6b5e` |
+| `evidence/E-000073.json` | `b8dbfca40965c9bade840e23d38e27069b39ed80a9d9c945c607933b8f09725c` |
+| `journal/events.jsonl` | `ead7683c96b5ffeef8b972e81190cfef6baa36441e6e4deaa0c153931d827a41` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
@@ -119,6 +123,8 @@ repository.
 | `B-D017` | verification | pass | 1 | 0 |
 | `B-D018` | verification | pass | 1 | 0 |
 | `B-D019` | verification | pass | 1 | 0 |
+| `B-D024` | verification | pass | 1 | 0 |
+| `B-D025` | verification | pass | 1 | 0 |
 | `B-P002` | correspondence | pass | 1 | 2 |
 | `B-P002` | verification | pass | 1 | 1 |
 | `B-P003` | correspondence | pass | 1 | 2 |
@@ -130,6 +136,8 @@ repository.
 | `B-P005` | verification | pass | 1 | 1 |
 | `B-P007` | correspondence | pass | 1 | 0 |
 | `B-P007` | verification | pass | 1 | 0 |
+| `B-P009` | correspondence | pass | 1 | 0 |
+| `B-P009` | verification | pass | 1 | 0 |
 | `B-R003` | correspondence | pass | 1 | 0 |
 | `B-R003` | verification | pass | 1 | 0 |
 | `B-R005` | correspondence | pass | 1 | 0 |
@@ -2810,6 +2818,147 @@ repository.
 }
 ```
 
+### E-000070
+
+```json
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000070",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D024 (Mslang.IsCongruence) compiled against Mathlib v4.33.1."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D024/formal_proof",
+      "hash": "6923bc666cde1a21b7bda4e18cbb96bc230e14428dbdb6486c42cb48ad7e559e"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T09:11:48Z"
+}
+```
+
+### E-000071
+
+```json
+{
+  "block": "B-D025",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000071",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-D025 (Mslang.quotOp, quotAlg, prAlg, quotOp_mk, isAlgHom_prAlg) compiled against Mathlib v4.33.1.",
+    "#print axioms quotOp_mk/isAlgHom_prAlg depend on propext, Classical.choice and Quot.sound (within the permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D025/formal_proof",
+      "hash": "2c825b110c5497ebc41e61158710920a71259ad77dabe223460b13da3d425fc7"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T09:11:48Z"
+}
+```
+
+### E-000072
+
+```json
+{
+  "block": "B-P009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000072",
+  "findings": [
+    "lake build under the dependent-type carrier model: block B-P009 (Mslang.ker_isCongruence, ker_prAlg, quotAlgLift_isAlgHom/_comp/_unique) compiled against Mathlib v4.33.1.",
+    "#print axioms ker_isCongruence/ker_prAlg/quotAlgLift_* stay within propext, Classical.choice, Quot.sound (permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-P009/formal_proof",
+      "hash": "772de9e6ba10098dab19ec035f6a5f51f47777565b53e06cef75e9d0afb471d4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T09:11:48Z"
+}
+```
+
+### E-000073
+
+```json
+{
+  "block": "B-P009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000073",
+  "findings": [
+    "Stage 1 read-back: quotient algebra A/Phi with induced operations, pr is a homomorphism, Ker(f) is a congruence, Ker(pr)=Phi, and the induced lift is a homomorphism factoring f uniquely.",
+    "Stage 2 comparator returned equivalent; the only divergence is that uniqueness holds for all sorted maps (a fortiori homomorphisms), a strengthening the contract already entails.",
+    "Transcript: blocks/audits/B-P009-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P009/formal_statement",
+      "hash": "99355605055790faf265c76be3be8bbb4c906064028d97a81cbe7c2cdd42fe1f"
+    },
+    {
+      "artifact": "B-P009/informal_statement",
+      "hash": "980c6a9ffa63681c1be82677d3ebe921676f9458773507480e4886c574aefaf6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T09:13:20Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -2820,8 +2969,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 28
-- Evidence records: 69
+- Blocks with any evidence: 31
+- Evidence records: 73
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -2851,11 +3000,14 @@ assertion).
 | `B-D017` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D018` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D019` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-D024` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-D025` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P005` | proposition | Preliminaries. | none | pass | pass | none | - |
 | `B-P007` | proposition | Preliminaries. | none | pass | pass | none | - |
+| `B-P009` | proposition | Preliminaries. | none | pass | pass | none | - |
 | `B-R003` | remark | Preliminaries. | none | pass | pass | none | - |
 | `B-R005` | remark | Preliminaries. | none | pass | pass | none | - |
 | `B-R006` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
@@ -2863,7 +3015,7 @@ assertion).
 | `B-R008` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
-101 block(s) have no evidence.
+98 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -2974,7 +3126,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`
+Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D024`, `B-D025`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P009`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -3007,6 +3159,17 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-D018` | `B-D016` |
 | `B-D019` | `B-D008` |
 | `B-D019` | `B-D016` |
+| `B-D024` | `B-D002` |
+| `B-D024` | `B-D014` |
+| `B-D024` | `B-D016` |
+| `B-D024` | `B-D017` |
+| `B-D025` | `B-D002` |
+| `B-D025` | `B-D014` |
+| `B-D025` | `B-D015` |
+| `B-D025` | `B-D016` |
+| `B-D025` | `B-D017` |
+| `B-D025` | `B-D024` |
+| `B-D025` | `B-R005` |
 | `B-P002` | `B-D002` |
 | `B-P002` | `B-D005` |
 | `B-P003` | `B-D002` |
@@ -3018,6 +3181,14 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-P005` | `B-R007` |
 | `B-P007` | `B-D002` |
 | `B-P007` | `B-R005` |
+| `B-P009` | `B-D002` |
+| `B-P009` | `B-D014` |
+| `B-P009` | `B-D016` |
+| `B-P009` | `B-D017` |
+| `B-P009` | `B-D024` |
+| `B-P009` | `B-D025` |
+| `B-P009` | `B-P007` |
+| `B-P009` | `B-R005` |
 | `B-R003` | `B-D002` |
 | `B-R003` | `B-D008` |
 | `B-R003` | `B-D009` |
@@ -3050,6 +3221,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-P005` | `B-D014` |
 | `B-P007` | `B-D014` |
 | `B-P007` | `B-D015` |
+| `B-P009` | `B-D015` |
 | `B-R005` | `B-D014` |
 | `B-R006` | `B-D014` |
 | `B-R007` | `B-D014` |
@@ -3063,7 +3235,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-109 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+108 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
 
 ## reports/impact.md
 
@@ -3122,11 +3294,11 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Blocks with no Lean counterpart (102)
+## Blocks with no Lean counterpart (99)
 
 These confirmed blocks are outside the current formalization frontier.
 
-`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P006`, `B-P008`, `B-P009`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R002`, `B-R004`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R013`, `B-R014`, `B-R015`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D026`, `B-D027`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P006`, `B-P008`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R002`, `B-R004`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R013`, `B-R014`, `B-R015`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 

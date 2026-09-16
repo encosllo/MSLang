@@ -2025,6 +2025,51 @@ the same session, before committing.
 
 ---
 
+## Session 44 -- 2026-09-16 -- frontier extension: B-D024, B-D025, B-P009
+
+**Goal.** Continue the frontier into the congruence and quotient-`Σ`-algebra
+layer.
+
+**What was established (closed).**
+
+- **`B-D024` formalized**: `Mslang.IsCongruence` — a sorted equivalence
+  compatible with every formal operation.
+- **`B-D025` formalized**: `Mslang.quotOp` (the induced operation on `A/Φ`,
+  representatives via `Quotient.out`), `Mslang.quotAlg` (the quotient
+  `Σ`-algebra), `Mslang.prAlg` (the canonical projection), with
+  `Mslang.quotOp_mk` (`F_{A/Φ,σ}([a]) = [F_σ(a)]`) and
+  `Mslang.isAlgHom_prAlg` (`pr^Φ` is a homomorphism).
+- **`B-P009` formalized**: `Mslang.ker_isCongruence` (`Ker(f) ∈ Cgr(A)`),
+  `Mslang.ker_prAlg` (`Ker(pr^Φ) = Φ`), and the universal property
+  `Mslang.quotAlgLift_isAlgHom` / `quotAlgLift_comp` / `quotAlgLift_unique`
+  (the induced `p^{Φ,Ker(f)}` is a homomorphism, factors `f`, and is unique).
+- Mapped in `lean/declarations.json`; facets regenerated (**29 mapped blocks**).
+- Evidence **`E-000070`** (B-D024), **`E-000071`** (B-D025), **`E-000072`**
+  (B-P009), all verification `build_ok`, axioms within the permitted set; and
+  **`E-000073`** (B-P009 correspondence, `equivalent`; two-stage blind;
+  transcript `blocks/audits/B-P009-correspondence.md`). Definitions carry the
+  verification layer only; `B-P009` has no informal proof, so no review layer.
+- `reports/frontier.md`: unmapped blocks **102 -> 99**. Views and bundle
+  regenerated. Journal `EV-000049`. `check_all`: **25 passed, 0 failed**.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+correspondence verdict notes that `quotAlgLift_unique` is stated for arbitrary
+sorted maps rather than only homomorphisms — a harmless strengthening the
+contract already entails (the projection is surjective). The quotient
+representative selection makes `quotOp` noncomputable.
+
+**Prioritized next steps.**
+
+1. `B-R009` (supports of `Alg(Σ)` form a closure system on `S`): needs an
+   `IsClosureSystem` predicate and closure of supports under nonempty
+   intersection.
+2. `B-R012` (the quotient by `∇` is subfinal) and the congruence-lattice
+   clauses of `B-D024` (`∇`/`Δ`, `Cgr(A)` an algebraic closure system);
+   `B-P001` (`propssupport`); `B-P006` (`CABA`); `B-D010`-`B-D013`; batch
+   cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
