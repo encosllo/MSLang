@@ -2407,6 +2407,40 @@ session adds only the system-level predicates and the lattice vocabulary.
 
 ---
 
+## Session 53 -- 2026-09-16 -- frontier extension: B-D023 (subfinal algebra)
+
+**Goal.** Introduce the algebra-local vocabulary needed by the subfinal cluster
+(`B-D023`, `B-P008`, `B-R011`, `B-R012`).
+
+**What was established (closed).**
+
+- **`B-D023`**: `Mslang.finalAlg` (the final `Σ`-algebra `1`),
+  `Mslang.IsAlgIso` (a sortwise-bijective homomorphism), `Mslang.subAlg` (a
+  subalgebra as a standalone `Σ`-algebra over its subtype carrier), and
+  `Mslang.SubfinalAlg` (isomorphic to a subalgebra of `1`).
+- Mapped in `lean/declarations.json`; facets regenerated (**40 mapped blocks**).
+- Evidence **`E-000103`**, verification `build_ok`. Definition carries the
+  verification layer only.
+- `reports/frontier.md`: unmapped blocks **90 -> 89**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000058`.
+
+**Honest caveat.** Definitions only; the hard content is `B-P008`'s iff, which
+needs the image subalgebra `ω^A[X]` and the unique homomorphism `ω^A`. That is
+the next target. Note the frontier-ready analysis from the (over-approximating)
+dependency graph is unreliable for far blocks (e.g. `B-P017` is *not* actually
+ready): trust the STATE priority list, not the reverse-dependency heuristic.
+
+**Prioritized next steps.**
+
+1. `B-P008`: `SubfinalAlg Sig X ↔ Subfinal X.1` (algebra subfinal iff carrier
+   subfinal) — the natural sequel; then `B-R011` (at most one homomorphism into
+   a subfinal algebra) and `B-R012` (`A/∇^A` is subfinal).
+2. `B-P001` (`propssupport`) clauses (1)-(2) via `SortedMap`/`supp`/images;
+   clause (3) needs coproduct/intersection/difference encodings.
+3. `B-P006` (`CABA`); batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
