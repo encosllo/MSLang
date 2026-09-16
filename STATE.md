@@ -2831,6 +2831,39 @@ only the `H`/`P_fsd` closure clauses.
 
 ---
 
+## Session 66 -- 2026-09-16 -- frontier: B-D033 (ShSk-formations)
+
+**Goal.** The Shemetkov–Skiba formation definition.
+
+**What was established (closed).**
+
+- **`B-D033`** as `Mslang.IsShSkFormation` (`F` nonempty, `H(F) ⊆ F`, and
+  `A/Φ, A/Ψ ∈ F ⟹ A/(Φ ⊓ Ψ) ∈ F`), plus the auxiliary
+  `Mslang.IsCongruence_inf` (the pointwise meet `sortedEqvInf` of two
+  congruences is a congruence; **axiom-free**), needed to form the quotient
+  `A/(Φ ⊓ Ψ)`.
+- Mapped in `lean/declarations.json`; facets regenerated (**56 mapped blocks**).
+- Evidence **`E-000121`**, verification `build_ok`. Definition + helper.
+- `reports/frontier.md`: unmapped blocks **77 -> 76**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000072`.
+
+**Honest caveat.** `IsCongruence_inf` is attached to `B-D033` as a helper (it is
+a general congruence fact, but attaching it to `B-D024` would stale that
+block's already-recorded verification; the declaration-ownership rule puts it
+with the block that needs it). The intersection in `B-D033` is the pointwise
+`sortedEqvInf` of congruences.
+
+**Prioritized next steps.**
+
+1. `B-P016`: a formation of algebras satisfies the `B-D033` intersection
+   closure (needs the `p^{Φ,Ψ}` maps and the subdirect embedding into the
+   product `A/Φ × A/Ψ`).
+2. `B-P017`/`B-C004`: equivalence of the two formation definitions; then
+   `B-P018`+ and the section's Eilenberg theorem.
+3. `B-P010` (term characterization; the unique-parsing proof).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
