@@ -15,18 +15,18 @@ rework.
 |---|---|---|
 | E-000038 | `B-C001` | review |
 | E-000039 | `B-C002` | review |
-| E-000041 | `B-C001` | correspondence |
-| E-000042 | `B-C002` | correspondence |
-| E-000044 | `B-P002` | correspondence |
-| E-000045 | `B-P003` | correspondence |
-| E-000046 | `B-R006` | correspondence |
-| E-000047 | `B-R008` | correspondence |
-| E-000049 | `B-P004` | correspondence |
 | E-000050 | `B-P004` | review |
-| E-000052 | `B-R007` | correspondence |
-| E-000054 | `B-P005` | correspondence |
-| E-000056 | `B-R005` | correspondence |
-| E-000058 | `B-P007` | correspondence |
+| E-000083 | `B-C001` | correspondence |
+| E-000084 | `B-C002` | correspondence |
+| E-000086 | `B-P002` | correspondence |
+| E-000087 | `B-P003` | correspondence |
+| E-000088 | `B-R006` | correspondence |
+| E-000089 | `B-R008` | correspondence |
+| E-000090 | `B-P004` | correspondence |
+| E-000091 | `B-R007` | correspondence |
+| E-000092 | `B-P005` | correspondence |
+| E-000093 | `B-R005` | correspondence |
+| E-000094 | `B-P007` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

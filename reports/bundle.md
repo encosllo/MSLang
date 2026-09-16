@@ -9,7 +9,7 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `dac2898407ba32f681af13b71ba4245d666572f38c43f3aab4fad610682dddfc` |
+| `blocks/formal.json` | `72458f9ad79c097c18053f68f6cdf5934466d58e0baba0fa6904a3ccee5ab73d` |
 | `blocks/formal_graph.json` | `c5ca1bc1cc686a60348bf1c638a1f95be5946ec0a44e92ab21bd8171a830505f` |
 | `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
 | `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
@@ -99,7 +99,23 @@ repository.
 | `evidence/E-000080.json` | `4c233e5b2ccc4f6247b77636c6e5c5ae877b51e57b7fc88d53b9abcf8845f40e` |
 | `evidence/E-000081.json` | `cd30cda9ea99f192ac221ee753471ae6b2584c5873db5f35bd9d432643e0de71` |
 | `evidence/E-000082.json` | `2930e500b824939c4da97048b57f3cfeb9341c795da56491e10820769c4a4a8d` |
-| `journal/events.jsonl` | `fb042cb82ec80930e0fdc6b43b18b82d25c153ea260ec85d7cff906405308b9c` |
+| `evidence/E-000083.json` | `df0cac34717868fc98e5028de088e9c466ed28f1f208f4ab04d4c4bc5d5bb803` |
+| `evidence/E-000084.json` | `6577b4b8d64c6bf6e0ad2098bac1a77ff3b804b30a2b887fb151419329bdc67e` |
+| `evidence/E-000085.json` | `f196d8bee93cfa57322b343b25b805225c57503536702fc94c1c4ab238c59871` |
+| `evidence/E-000086.json` | `c23c162be42b288caabdd0aa2c981bd0b364fde72265ee98236a6bc2ceee86b8` |
+| `evidence/E-000087.json` | `8462fd5bf1c364919719b4f834269ffcecca75a9b03d8300224752620734355a` |
+| `evidence/E-000088.json` | `287f2848e8504018b60e5ab16a865f514dfff33c32db031e08484058a9419686` |
+| `evidence/E-000089.json` | `2d10cc988fccd9ef0208e10ec2553a8577a9dd5ad23c0da0a946085aad85d7f6` |
+| `evidence/E-000090.json` | `00a5c99cfa8ec83823080b57ba27d9a37df1e3b8039eb6174584524823aac23a` |
+| `evidence/E-000091.json` | `a81f0c3a238a6090a70ca95089c383d66eee77057202d5c614213e7c843a3fdf` |
+| `evidence/E-000092.json` | `e784763c489ff277248890b1f11d2b8b5b689e704174ae8ff909d0b10050910d` |
+| `evidence/E-000093.json` | `0ae55e4a92f99edea31b570c2a71d8e0e431b6636f52d361ff560dda435a2e15` |
+| `evidence/E-000094.json` | `2d4c3eae5f375fd8e2354af4e317a9fe8f075274471b4c72de68dcf82f5c925b` |
+| `evidence/E-000095.json` | `e5324ce86668cb30847b2f0b95f90a3295b29b6941d661b41066bfadbfaf295b` |
+| `evidence/E-000096.json` | `dcba2446b6557d33924cd6cc03420717a6043ca2d513da6842d346f5cb101ad8` |
+| `evidence/E-000097.json` | `6cee18d961d93403bc75a6e206057609b733ecb4709a652dc7821f958ea4fbd3` |
+| `evidence/E-000098.json` | `2dff3d985efeaeabf9c6f3a421bebf68c277d26d9d87deb8d48f6f106d0bc585` |
+| `journal/events.jsonl` | `332b6422c5400f43bd67533676664bd605cc7e44c97aafaa556ae2fd39aca730` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
@@ -110,16 +126,16 @@ repository.
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-C001` | correspondence | pass | 1 | 2 |
+| `B-C001` | correspondence | pass | 1 | 3 |
 | `B-C001` | review | pass | 1 | 1 |
 | `B-C001` | verification | pass | 2 | 0 |
-| `B-C002` | correspondence | pass | 1 | 2 |
+| `B-C002` | correspondence | pass | 1 | 3 |
 | `B-C002` | review | pass | 1 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
 | `B-D002` | verification | pass | 1 | 0 |
 | `B-D003` | verification | pass | 1 | 0 |
-| `B-D004` | correspondence | pass | 1 | 1 |
+| `B-D004` | correspondence | pass | 1 | 2 |
 | `B-D004` | verification | pass | 1 | 1 |
 | `B-D005` | verification | pass | 1 | 0 |
 | `B-D006` | verification | pass | 1 | 1 |
@@ -137,32 +153,32 @@ repository.
 | `B-D022` | verification | pass | 1 | 0 |
 | `B-D024` | verification | pass | 1 | 0 |
 | `B-D025` | verification | pass | 1 | 0 |
-| `B-P002` | correspondence | pass | 1 | 2 |
+| `B-P002` | correspondence | pass | 1 | 3 |
 | `B-P002` | verification | pass | 1 | 1 |
-| `B-P003` | correspondence | pass | 1 | 2 |
+| `B-P003` | correspondence | pass | 1 | 3 |
 | `B-P003` | verification | pass | 1 | 1 |
-| `B-P004` | correspondence | pass | 1 | 0 |
+| `B-P004` | correspondence | pass | 1 | 1 |
 | `B-P004` | review | pass | 1 | 0 |
 | `B-P004` | verification | pass | 1 | 0 |
-| `B-P005` | correspondence | pass | 1 | 0 |
+| `B-P005` | correspondence | pass | 1 | 1 |
 | `B-P005` | verification | pass | 1 | 1 |
-| `B-P007` | correspondence | pass | 1 | 0 |
+| `B-P007` | correspondence | pass | 1 | 1 |
 | `B-P007` | verification | pass | 1 | 0 |
-| `B-P009` | correspondence | pass | 1 | 0 |
+| `B-P009` | correspondence | pass | 1 | 1 |
 | `B-P009` | verification | pass | 1 | 0 |
-| `B-R003` | correspondence | pass | 1 | 0 |
+| `B-R003` | correspondence | pass | 1 | 1 |
 | `B-R003` | verification | pass | 1 | 0 |
-| `B-R005` | correspondence | pass | 1 | 0 |
+| `B-R005` | correspondence | pass | 1 | 1 |
 | `B-R005` | verification | pass | 1 | 0 |
-| `B-R006` | correspondence | pass | 1 | 1 |
+| `B-R006` | correspondence | pass | 1 | 2 |
 | `B-R006` | verification | pass | 2 | 0 |
-| `B-R007` | correspondence | pass | 1 | 0 |
+| `B-R007` | correspondence | pass | 1 | 1 |
 | `B-R007` | verification | pass | 1 | 0 |
-| `B-R008` | correspondence | pass | 1 | 1 |
+| `B-R008` | correspondence | pass | 1 | 2 |
 | `B-R008` | verification | pass | 2 | 0 |
-| `B-R009` | correspondence | pass | 1 | 1 |
+| `B-R009` | correspondence | pass | 1 | 2 |
 | `B-R009` | verification | pass | 1 | 1 |
-| `B-R010` | correspondence | pass | 1 | 0 |
+| `B-R010` | correspondence | pass | 1 | 1 |
 | `B-R010` | verification | pass | 1 | 0 |
 | `representation/encoding` | representation | pass | 1 | 2 |
 
@@ -3293,6 +3309,853 @@ repository.
 }
 ```
 
+### E-000083
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000083",
+  "findings": [
+    "Content-preserving re-issue of E-000041 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back restates the theorem as antitonicity of saturation: a coarser relation's saturated sets are saturated for every finer relation.",
+    "Stage 2 comparator returned equivalent; direction, quantifier domain, and degenerate cases all match the contract.",
+    "Transcript: blocks/audits/B-C001-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000004/E-000017)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C001/definition_closure",
+      "hash": "2a18cc63b7ffaf23a71f974224dcf35b377dc8be142b198f4f652353acd6fd45"
+    },
+    {
+      "artifact": "B-C001/formal_statement",
+      "hash": "34650019f58b085459587eb30ed322b61e33cc574d522dc254b7488f377c1d09"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000041",
+  "timestamp": "2026-09-16T11:21:59Z"
+}
+```
+
+### E-000084
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000084",
+  "findings": [
+    "Content-preserving re-issue of E-000042 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: if X is both Phi-saturated and Psi-saturated then it is saturated under the componentwise meet of Phi and Psi (one-directional).",
+    "Stage 2 comparator returned equivalent; the unused second hypothesis is a proof-level observation, not a change in statement strength.",
+    "Transcript: blocks/audits/B-C002-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000011/E-000018)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C002/definition_closure",
+      "hash": "6a6179cc665da7e56f3bb567f6009621f31aa176a2266bbce203c1af4be2e380"
+    },
+    {
+      "artifact": "B-C002/formal_statement",
+      "hash": "ba1671b98acf19a084bfba2d865c3ed93e22a6d1ff12420a0f16dc49a6163d22"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000042",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000085
+
+```json
+{
+  "block": "B-D004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000085",
+  "findings": [
+    "Content-preserving re-issue of E-000043 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: Subfinal = every component Subsingleton; finalSorted is the constant PUnit family; initialSorted the constant PEmpty family; support as Nonempty.",
+    "Stage 2 comparator returned equivalent: card_le_one_iff matches card <= 1, and the dependent-type carrier makes 1^S a genuine constant singleton (previously incomparable under the fixed-ambient carrier).",
+    "Transcript: blocks/audits/B-D004-correspondence.md. Supersedes the incomparable E-000021; D-finalSorted closed in Session 29."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D004/definition_closure",
+      "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+    },
+    {
+      "artifact": "B-D004/formal_statement",
+      "hash": "f212e133b8a70943d7a7b6c838996c15f5a9b361e67983b1acfcc945eeed20cc"
+    },
+    {
+      "artifact": "B-D004/informal_statement",
+      "hash": "5b4c278e6f02c3b826ad448bea84526c8544ce98b846c98f6c68c1352431d9a8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000043",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000086
+
+```json
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000086",
+  "findings": [
+    "Content-preserving re-issue of E-000044 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: Phi refines Psi iff for every X, sat Phi (sat Psi X) = sat Psi X; both directions reconstructed (forward uses Psi-closure; reverse instantiates at a singleton family).",
+    "Stage 2 comparator returned equivalent; both directions and quantifier domain match the contract.",
+    "Transcript: blocks/audits/B-P002-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000006/E-000019)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/definition_closure",
+      "hash": "6c5c2a348ac40a1713f63a5227846153081434f3e605b8cf963b20ab0b21dfd8"
+    },
+    {
+      "artifact": "B-P002/formal_statement",
+      "hash": "5ba46d9330406801816e6d72ac276062ebc80fd7d1fff77a0e16651927efaba4"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000044",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000087
+
+```json
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000087",
+  "findings": [
+    "Content-preserving re-issue of E-000045 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: X is nabla-saturated iff every sort in the support of X has X_s equal to the whole component A_s.",
+    "Stage 2 comparator returned equivalent; IsSat (nabla A) X unfolds to (X s nonempty -> X s = univ), matching the contract, with matching degenerate cases.",
+    "Transcript: blocks/audits/B-P003-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000008/E-000020)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P003/definition_closure",
+      "hash": "2a18cc63b7ffaf23a71f974224dcf35b377dc8be142b198f4f652353acd6fd45"
+    },
+    {
+      "artifact": "B-P003/formal_statement",
+      "hash": "10b8dd63daaf87bc3a052e4e7fd1c4b516df1ed850039e1c96ef38fcb3fbba52"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000045",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000088
+
+```json
+{
+  "block": "B-R006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000088",
+  "findings": [
+    "Content-preserving re-issue of E-000046 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: saturation equals the inverse image under the quotient projection of its direct image; X is saturated iff X is the preimage of some family Y of subsets of the quotient types.",
+    "Stage 2 comparator returned equivalent; the X superset-of [X]^Phi criterion is equivalent to equality by reflexivity, and quantifier domains agree.",
+    "Transcript: blocks/audits/B-R006-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000022)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R006/definition_closure",
+      "hash": "2a18cc63b7ffaf23a71f974224dcf35b377dc8be142b198f4f652353acd6fd45"
+    },
+    {
+      "artifact": "B-R006/formal_statement",
+      "hash": "51f8cd27444a76c2f9092ff865d6106814e0db1d144058d231f5ec71fd80c1be"
+    },
+    {
+      "artifact": "B-R006/informal_statement",
+      "hash": "1e3f64cb9f99390f83bd6aac3caac45d2fac51692f7b023adcaea9cc570c278e"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000046",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000089
+
+```json
+{
+  "block": "B-R008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000089",
+  "findings": [
+    "Content-preserving re-issue of E-000047 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: the empty, full, and deltaUnion T families are all nabla-saturated; deltaUnion T A selects whole sorts.",
+    "Stage 2 comparator returned equivalent; deltaUnion T A matches the componentwise union of deltas, and the T = empty / T = S specializations agree.",
+    "Transcript: blocks/audits/B-R008-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000023)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R008/definition_closure",
+      "hash": "d40e3f1b1ae66fe67901e8a3e8a3d9fab7cbcb7870084bf2bf5509bd74f9224d"
+    },
+    {
+      "artifact": "B-R008/formal_statement",
+      "hash": "6e0192380e18addc70309e28dafd7f1c246f5c8158b9c6dabf64f6c2d48f0e40"
+    },
+    {
+      "artifact": "B-R008/informal_statement",
+      "hash": "454d794d1386dd4b539909cbbca700ca6312f640dacba3a029d4fe85f85b3508"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000047",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000090
+
+```json
+{
+  "block": "B-P004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000090",
+  "findings": [
+    "Content-preserving re-issue of E-000049 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back restates the theorem: the saturation by the pointwise meet \u03a6\u2229\u03a8 is contained (componentwise) in the intersection of the two saturations.",
+    "Stage 2 comparator returned equivalent; direction, quantifier domain, hypotheses, and the meet operation all match the contract.",
+    "Transcript: blocks/audits/B-P004-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P004/definition_closure",
+      "hash": "c163f78b73b94871ba3fdb513f6e1f867182373a4637f7cf4fbe22c9b23531f1"
+    },
+    {
+      "artifact": "B-P004/formal_statement",
+      "hash": "77e67bbee5ad6c50104824562345258950cbe869d9c6b7a436260bdff8d2886d"
+    },
+    {
+      "artifact": "B-P004/informal_statement",
+      "hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000049",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000091
+
+```json
+{
+  "block": "B-R007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000091",
+  "findings": [
+    "Content-preserving re-issue of E-000052 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back restates the remark: the map \u03a6 \u21a6 \u03a6-Sat(A) sends a finer equivalence to the smaller family of saturated subsets.",
+    "Stage 2 comparator returned equivalent; the antitone variance (\u03a6 \u2286 \u03a8 \u21d2 \u03a8-Sat(A) \u2286 \u03a6-Sat(A)) and both ordered sets match the contract.",
+    "Transcript: blocks/audits/B-R007-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R007/definition_closure",
+      "hash": "6a6179cc665da7e56f3bb567f6009621f31aa176a2266bbce203c1af4be2e380"
+    },
+    {
+      "artifact": "B-R007/formal_statement",
+      "hash": "e5819c956163f3cc397649c0aa6b3d389ca829f7704e214ca5a7b3e35b126b65"
+    },
+    {
+      "artifact": "B-R007/informal_statement",
+      "hash": "b168aac9c69c08a1d21e3a38bebd3b62a54071374bcb019de22ad5e5642a0ad8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000052",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000092
+
+```json
+{
+  "block": "B-P005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000092",
+  "findings": [
+    "Content-preserving re-issue of E-000054 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back reconstructs all definitions (closure operator, complete additivity, algebraicity) and the operator lemmas.",
+    "Stage 2 comparator returned formal_stronger: every clause matches except that sat_iInter_subset holds for every index type, dropping the contract's 'nonempty I' hypothesis (the empty case is sat(A) subset A).",
+    "Transcript: blocks/audits/B-P005-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P005/definition_closure",
+      "hash": "1d882c9b9a16dae654ce42c8476f0531f8bf71819796a1a1a366163a86a5511a"
+    },
+    {
+      "artifact": "B-P005/formal_statement",
+      "hash": "b6ab2d4be98c50a964e722e983203f705fc8bc4040632b951b70eb3e8a701757"
+    },
+    {
+      "artifact": "B-P005/informal_statement",
+      "hash": "3539061a9c80562edadafb63d85cc37964072e1fffd0a51d0ba11c7ff63964e2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000054",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000093
+
+```json
+{
+  "block": "B-R005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000093",
+  "findings": [
+    "Content-preserving re-issue of E-000056 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: quot \u03a6 is the componentwise quotient A/\u03a6, and supp_quot states supp(A/\u03a6) = supp(A).",
+    "Stage 2 comparator returned equivalent; domain, A/\u03a6 interpretation, and both directions match the contract (the cited propssupport is not used).",
+    "Transcript: blocks/audits/B-R005-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "B-R005/definition_closure",
+      "hash": "d36d9154166da4ab13dc2669b2f3b84056067ffc1fc41fa9fe481bea82b489a8"
+    },
+    {
+      "artifact": "B-R005/formal_statement",
+      "hash": "99d6eb278c8d7ba95de3650bee12fd66e508bfdb745980fa225cb26d3c8a82af"
+    },
+    {
+      "artifact": "B-R005/informal_statement",
+      "hash": "820f452e01eadd59d00d2fc94a1218c49c45c30a59ba05ca9941ced72e54858d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000056",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000094
+
+```json
+{
+  "block": "B-P007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000094",
+  "findings": [
+    "Content-preserving re-issue of E-000058 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back reconstructs ker_pr (Ker(pr^\u03a6) = \u03a6), the descent quotLift, and its existence (quotLift_comp) and uniqueness (quotLift_unique).",
+    "Stage 2 comparator returned equivalent; all three clauses (Ker(f) \u2208 Eqv(A), Ker(pr^\u03a6) = \u03a6, universal property) match in direction and quantifiers.",
+    "Transcript: blocks/audits/B-P007-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P007/definition_closure",
+      "hash": "dd3c04ac932a77e3ed1c363b71a7b826444c2ea7aaeebbd127b9247505ba4cfe"
+    },
+    {
+      "artifact": "B-P007/formal_statement",
+      "hash": "b2a96d8de422df131b00de513ed79f5401fb4177f089688a55ee86938a1624b8"
+    },
+    {
+      "artifact": "B-P007/informal_statement",
+      "hash": "94a73f9f3674e6d1d4f456c654a55e9a2d651aa0af22008a0ed028116e55032b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000058",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000095
+
+```json
+{
+  "block": "B-R003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000095",
+  "findings": [
+    "Content-preserving re-issue of E-000068 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: finiteness of A is finiteness of the dependent sum \u03a3 s, A s, equivalent to finite support plus finite nonempty components.",
+    "Stage 2 comparator returned equivalent; the finite notion, support, and both directions of the iff match the contract (\u22d0A vs \u03a3 s, A s is notational).",
+    "Transcript: blocks/audits/B-R003-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-R003/definition_closure",
+      "hash": "c560c9116e413f06950987375af3d7a418f33771e13a675fbb3e3501d7d80d2a"
+    },
+    {
+      "artifact": "B-R003/formal_statement",
+      "hash": "dff498bbdf9ed3685979e82037c6082061f08ef643f6bea7bd08aaf821dc6b95"
+    },
+    {
+      "artifact": "B-R003/informal_statement",
+      "hash": "858c0c60716a9dac229645cf0644a81fbdfd844a7205962d9f5fbdf95e658e84"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000068",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000096
+
+```json
+{
+  "block": "B-P009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000096",
+  "findings": [
+    "Content-preserving re-issue of E-000073 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: quotient algebra A/Phi with induced operations, pr is a homomorphism, Ker(f) is a congruence, Ker(pr)=Phi, and the induced lift is a homomorphism factoring f uniquely.",
+    "Stage 2 comparator returned equivalent; the only divergence is that uniqueness holds for all sorted maps (a fortiori homomorphisms), a strengthening the contract already entails.",
+    "Transcript: blocks/audits/B-P009-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P009/definition_closure",
+      "hash": "3f55a34f3cb3b69860df2c8c6f9870e60b34da202fd6dd3f7cd73389eb7900bd"
+    },
+    {
+      "artifact": "B-P009/formal_statement",
+      "hash": "3da6d505a20d5224b6435eda37bb9f1ab16370143f64d23baa6ee149f1a14a0d"
+    },
+    {
+      "artifact": "B-P009/informal_statement",
+      "hash": "980c6a9ffa63681c1be82677d3ebe921676f9458773507480e4886c574aefaf6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000073",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000097
+
+```json
+{
+  "block": "B-R010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000097",
+  "findings": [
+    "Content-preserving re-issue of E-000079 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: Sg is the least subalgebra containing X; SuppClosure is the arity-closure of a sort set; suppSub_Sg identifies supp(Sg X) with SuppClosure(supp X); suppSub_Sg_uniform states uniformity.",
+    "Stage 2 comparator returned equivalent; same objects, quantifiers, and conclusion; suppSub_Sg is a stronger intermediate fact but the uniformity claim is exactly the contract.",
+    "Transcript: blocks/audits/B-R010-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-R010/definition_closure",
+      "hash": "e6de7f000f1dc260fed893c7917d5032ed34e392a05a3f8b8752e6a9033e416b"
+    },
+    {
+      "artifact": "B-R010/formal_statement",
+      "hash": "ff699e4002eb90cc9effb5038d10397f6cca3b76f9543463b4a08c775ae7673c"
+    },
+    {
+      "artifact": "B-R010/informal_statement",
+      "hash": "d07855916e37e5e20a76fe1ef6867d23fcbd1b0a107019f241f0d0d2d192a83d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000079",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
+### E-000098
+
+```json
+{
+  "block": "B-R009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000098",
+  "findings": [
+    "Content-preserving re-issue of E-000082 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Verdict unchanged: equivalent. Re-issued after the B-D022 re-mapping changed B-R009's definition closure (supersedes E-000075).",
+    "Transcript: blocks/audits/B-R009-correspondence.md."
+  ],
+  "independence_caveat": "Re-issue of E-000075: the two-stage blind audit is unchanged (stage 1 saw the declarations, stage 2 saw the read-back and the contract; transcript blocks/audits/B-R009-correspondence.md); only the formal_statement hash moved because Mslang.iAlg was re-mapped from B-R009 to B-D022. Same-model caveat and encoding residuals as before.",
+  "inputs": [
+    {
+      "artifact": "B-R009/definition_closure",
+      "hash": "4dc4bf5979cc9675652c1df7bc0be3f35b86672e343558d54c3f306791201a8d"
+    },
+    {
+      "artifact": "B-R009/formal_statement",
+      "hash": "00a5722b00f297e5be2f0e3fe93ad4308a347ea436d2393f2ef3beac8287ad78"
+    },
+    {
+      "artifact": "B-R009/informal_statement",
+      "hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000082",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -3304,7 +4167,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 36
-- Evidence records: 82
+- Evidence records: 98
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -3617,18 +4480,18 @@ rework.
 |---|---|---|
 | E-000038 | `B-C001` | review |
 | E-000039 | `B-C002` | review |
-| E-000041 | `B-C001` | correspondence |
-| E-000042 | `B-C002` | correspondence |
-| E-000044 | `B-P002` | correspondence |
-| E-000045 | `B-P003` | correspondence |
-| E-000046 | `B-R006` | correspondence |
-| E-000047 | `B-R008` | correspondence |
-| E-000049 | `B-P004` | correspondence |
 | E-000050 | `B-P004` | review |
-| E-000052 | `B-R007` | correspondence |
-| E-000054 | `B-P005` | correspondence |
-| E-000056 | `B-R005` | correspondence |
-| E-000058 | `B-P007` | correspondence |
+| E-000083 | `B-C001` | correspondence |
+| E-000084 | `B-C002` | correspondence |
+| E-000086 | `B-P002` | correspondence |
+| E-000087 | `B-P003` | correspondence |
+| E-000088 | `B-R006` | correspondence |
+| E-000089 | `B-R008` | correspondence |
+| E-000090 | `B-P004` | correspondence |
+| E-000091 | `B-R007` | correspondence |
+| E-000092 | `B-P005` | correspondence |
+| E-000093 | `B-R005` | correspondence |
+| E-000094 | `B-P007` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

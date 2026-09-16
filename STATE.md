@@ -2327,6 +2327,51 @@ re-issues will.
 
 ---
 
+## Session 51 -- 2026-09-16 -- definition_closure facet split (migration)
+
+**Goal.** Implement the last Revision 3 gap: split `definition_closure` out of
+`formal_statement` (`§6`/`§12.3`) so statement hashes are no longer coupled to
+graph bookkeeping.
+
+**What was established (closed).**
+
+- `scripts/lean_facets.py`: `formal_statement` is now the declaration's own
+  signature only; a third facet `definition_closure = {decls, hash}` holds the
+  transitive **declaration-level** closure (whole-identifier `formal_uses`
+  among mapped declarations), keyed on declaration identity. The block-level
+  `formal_graph` is derived from those declaration edges for the discrepancy
+  and impact views.
+- `scripts/closure.py`: correspondence self-facets gained `definition_closure`;
+  `_merge_formal` merges it from `blocks/formal.json`.
+- `scripts/impact.py`: a definition change now propagates to dependents'
+  `definition_closure` (was `formal_statement`).
+- **Migration.** The split changed every correspondence `formal_statement`
+  hash, staling **16** current records (`E-000041`..`E-000082`). Each was
+  re-issued content-preservingly as **`E-000083`..`E-000098`** with
+  `reissue_reason: facet-split` and `supersedes` set, keeping the original
+  transcripts and verdicts.
+- Regression test: moving a declaration between owning blocks changes no
+  dependent's `formal_statement` or `definition_closure` hash.
+- Result: **all layers pass, 0 awaiting** (39 superseded stale records).
+  `check_all`: **27 passed, 0 failed**. Journal `EV-000056`.
+
+**Honest caveat.** The declaration-level closure is computed over *mapped*
+declarations only (an unmapped helper can still break a transitive chain);
+this matches the previous over-approximation and is noted in the spec's honest
+limitations. The 39 superseded records predate the `supersedes` field, so the
+report cannot name their successors.
+
+**Prioritized next steps.**
+
+1. Resume the frontier: `B-R012` (the quotient by `∇` is subfinal), the
+   congruence-lattice clauses of `B-D024`, then `B-D023`/`B-P008`/`B-R011`.
+2. The `B-D010`-`B-D013` many-sorted closure-system vocabulary; `B-P001`
+   (`propssupport`); `B-P006` (`CABA`).
+3. Optional: link `build_ok` evidence issuance to `blocks/lean_audit.json`
+   (the `§15.6` "refuse to issue" clause is still manual).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

@@ -8,30 +8,46 @@ record is **superseded** when a current record names it through
 `supersedes`; otherwise it is **awaiting** re-audit. Only awaiting
 records represent outstanding work.
 
-23 of 82 record(s) are stale (23 superseded, 0 awaiting):
+39 of 98 record(s) are stale (39 superseded, 0 awaiting):
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
 | E-000001 | `B-C001` | review | superseded | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000002 | `representation/encoding` | representation | superseded | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000004 | `B-C001` | correspondence | superseded | B-C001/formal_statement: recorded 0e94f6999794... now 172973026cd3...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000004 | `B-C001` | correspondence | superseded | B-C001/formal_statement: recorded 0e94f6999794... now 34650019f58b...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000005 | `B-P002` | verification | superseded | B-P002/formal_proof: recorded 79f611aadc6d... now 05db635866a3... |
-| E-000006 | `B-P002` | correspondence | superseded | B-P002/formal_statement: recorded 408bc9793853... now 3ed3c3bf232e...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000006 | `B-P002` | correspondence | superseded | B-P002/formal_statement: recorded 408bc9793853... now 5ba46d933040...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000007 | `B-P003` | verification | superseded | B-P003/formal_proof: recorded 9f03d15577f7... now 905cbe54cd9b... |
-| E-000008 | `B-P003` | correspondence | superseded | B-P003/formal_statement: recorded 6a300ad97aca... now 594985f84c8b...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000008 | `B-P003` | correspondence | superseded | B-P003/formal_statement: recorded 6a300ad97aca... now 10b8dd63daaf...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000010 | `B-D006` | verification | superseded | B-D006/formal_proof: recorded d026edec3130... now 3293dabf6a39... |
-| E-000011 | `B-C002` | correspondence | superseded | B-C002/formal_statement: recorded 4e765eb8a907... now 13e01ed764e6...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000011 | `B-C002` | correspondence | superseded | B-C002/formal_statement: recorded 4e765eb8a907... now ba1671b98acf...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000012 | `B-C002` | review | superseded | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000013 | `representation/encoding` | representation | superseded | representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000014 | `B-D004` | verification | superseded | B-D004/formal_proof: recorded 4314c2284cf4... now 43b7c64774a4... |
-| E-000017 | `B-C001` | correspondence | superseded | B-C001/formal_statement: recorded e21690dcee63... now 172973026cd3...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000018 | `B-P002` | correspondence | superseded | B-P002/formal_statement: recorded be02effb97bf... now 3ed3c3bf232e...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000019 | `B-P003` | correspondence | superseded | B-P003/formal_statement: recorded ccdd6f4a1430... now 594985f84c8b...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000020 | `B-C002` | correspondence | superseded | B-C002/formal_statement: recorded f37cc0f89779... now 13e01ed764e6...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000021 | `B-D004` | correspondence | superseded | B-D004/formal_statement: recorded bdd31ea933b0... now 68027e5562e6...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000022 | `B-R006` | correspondence | superseded | B-R006/formal_statement: recorded 72af4697f692... now 4997c05a3812...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
-| E-000023 | `B-R008` | correspondence | superseded | B-R008/formal_statement: recorded b58cd9848795... now 349c2d391ada...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000017 | `B-C001` | correspondence | superseded | B-C001/formal_statement: recorded e21690dcee63... now 34650019f58b...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000018 | `B-P002` | correspondence | superseded | B-P002/formal_statement: recorded be02effb97bf... now 5ba46d933040...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000019 | `B-P003` | correspondence | superseded | B-P003/formal_statement: recorded ccdd6f4a1430... now 10b8dd63daaf...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000020 | `B-C002` | correspondence | superseded | B-C002/formal_statement: recorded f37cc0f89779... now ba1671b98acf...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000021 | `B-D004` | correspondence | superseded | B-D004/formal_statement: recorded bdd31ea933b0... now f212e133b8a7...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000022 | `B-R006` | correspondence | superseded | B-R006/formal_statement: recorded 72af4697f692... now 51f8cd27444a...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
+| E-000023 | `B-R008` | correspondence | superseded | B-R008/formal_statement: recorded b58cd9848795... now 6e0192380e18...<br>representation/encoding: recorded 8a1880e1f10d... now 96171838ac26... |
 | E-000024 | `B-D015` | verification | superseded | B-D015/formal_proof: recorded fdc5f113ee0c... now 221317b2a6f5... |
+| E-000041 | `B-C001` | correspondence | superseded | B-C001/formal_statement: recorded 172973026cd3... now 34650019f58b... |
+| E-000042 | `B-C002` | correspondence | superseded | B-C002/formal_statement: recorded 13e01ed764e6... now ba1671b98acf... |
+| E-000043 | `B-D004` | correspondence | superseded | B-D004/formal_statement: recorded 68027e5562e6... now f212e133b8a7... |
+| E-000044 | `B-P002` | correspondence | superseded | B-P002/formal_statement: recorded 3ed3c3bf232e... now 5ba46d933040... |
+| E-000045 | `B-P003` | correspondence | superseded | B-P003/formal_statement: recorded 594985f84c8b... now 10b8dd63daaf... |
+| E-000046 | `B-R006` | correspondence | superseded | B-R006/formal_statement: recorded 4997c05a3812... now 51f8cd27444a... |
+| E-000047 | `B-R008` | correspondence | superseded | B-R008/formal_statement: recorded 349c2d391ada... now 6e0192380e18... |
+| E-000049 | `B-P004` | correspondence | superseded | B-P004/formal_statement: recorded 124b9c04cf12... now 77e67bbee5ad... |
+| E-000052 | `B-R007` | correspondence | superseded | B-R007/formal_statement: recorded e31c9728cf85... now e5819c956163... |
 | E-000053 | `B-P005` | verification | superseded | B-P005/formal_proof: recorded 841bacddba81... now 56a4d8c765d4... |
+| E-000054 | `B-P005` | correspondence | superseded | B-P005/formal_statement: recorded 8a722d7da630... now b6ab2d4be98c... |
+| E-000056 | `B-R005` | correspondence | superseded | B-R005/formal_statement: recorded 0b66340f658b... now 99d6eb278c8d... |
+| E-000058 | `B-P007` | correspondence | superseded | B-P007/formal_statement: recorded 032edc48586c... now b2a96d8de422... |
+| E-000068 | `B-R003` | correspondence | superseded | B-R003/formal_statement: recorded 82ed401ee400... now dff498bbdf9e... |
+| E-000073 | `B-P009` | correspondence | superseded | B-P009/formal_statement: recorded 993556050557... now 3da6d505a20d... |
 | E-000074 | `B-R009` | verification | superseded | B-R009/formal_proof: recorded bd3158d63a6d... now 5e441a44341c... |
-| E-000075 | `B-R009` | correspondence | superseded | B-R009/formal_statement: recorded 03cdb4115f92... now 3010c2715f81... |
+| E-000075 | `B-R009` | correspondence | superseded | B-R009/formal_statement: recorded 03cdb4115f92... now 00a5722b00f2... |
+| E-000079 | `B-R010` | correspondence | superseded | B-R010/formal_statement: recorded 27d451dd1012... now ff699e4002eb... |
+| E-000082 | `B-R009` | correspondence | superseded | B-R009/formal_statement: recorded 3010c2715f81... now 00a5722b00f2... |
