@@ -2508,6 +2508,38 @@ not formalized; the comparator agreed it is not part of the assertion.
 
 ---
 
+## Session 57 -- 2026-09-16 -- frontier extension: B-R011 (subfinal cluster closed)
+
+**Goal.** Finish the subfinal cluster: if `A` is subfinal, every `Σ`-algebra has
+at most one homomorphism into `A`.
+
+**What was established (closed).**
+
+- **`B-R011`** as `Mslang.hom_unique_of_subfinalAlg`: from `SubfinalAlg Sig
+  ⟨A, FA⟩`, any two homomorphisms `B → A` are equal. Proved from `B-P008`
+  (componentwise subsingleton), pointwise.
+- Mapped in `lean/declarations.json`; facets regenerated (**43 mapped blocks**).
+- Evidence **`E-000108`** (verification, `build_ok`) and **`E-000109`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R011-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **87 -> 86**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000062`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+homomorphism hypotheses are present to match the contract but unused in the
+proof (subfinality alone forces equality of any two sorted maps). The subfinal
+cluster (`B-D023`, `B-P008`, `B-R011`, `B-R012`) is now complete.
+
+**Prioritized next steps.**
+
+1. `B-P001` (`propssupport`) clauses (1)-(2) via `SortedMap`/`supp`/images;
+   clause (3) needs coproduct/intersection/difference encodings.
+2. `B-P006` (`CABA`, likely scope reduction).
+3. The `B-D026`+ free-algebra layer (algebra of rows, `T_Σ`, adjunction) is the
+   next large frontier; batch cosmetic docs; calibration (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
