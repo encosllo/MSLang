@@ -52,6 +52,9 @@
     "Mslang.Subset": [],
     "Mslang.SuppClosure": [],
     "Mslang.TAlg": [],
+    "Mslang.TAlg_hom_ext": [
+      "Quot.sound"
+    ],
     "Mslang.TSet": [],
     "Mslang.WAlg": [],
     "Mslang.WSet": [],
@@ -302,7 +305,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 131,
+  "declarations_audited": 132,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

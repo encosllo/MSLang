@@ -1,0 +1,27 @@
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000114",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-L001 (Mslang.TAlg_hom_ext) compiled against Mathlib v4.33.1.",
+    "#print axioms TAlg_hom_ext depends on Quot.sound (via funext), within the permitted set."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-L001/formal_proof",
+      "hash": "914b2a30bc13f56f307675f950e661d07dfd178b757f1533067db37546782630"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T15:27:20Z"
+}

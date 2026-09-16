@@ -329,6 +329,10 @@
         "Mslang.delta_iso_coprod"
       ],
       "file": "lean/Mslang/Prelim.lean"
+    },
+    "B-L001": {
+      "decl": "Mslang.TAlg_hom_ext",
+      "file": "lean/Mslang/Free.lean"
     }
   }
 }

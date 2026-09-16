@@ -56,4 +56,32 @@ def etaX {S : Type u} (Sig : Signature S) (X : SSet S) : SortedMap X (TSet Sig X
     ⟨[Sum.inr (⟨s, x⟩ : XElem X)],
      subset_Sg Sig (WAlg Sig X).2 (genSet Sig X) s ⟨x, rfl⟩⟩
 
+/-- Lemma `B-L001`: two homomorphisms `T_Σ(X) → A` that agree on the inserted
+generators are equal. Every element of `T_Σ(X)` is a generated row, so this is
+an induction over `MemSg`: the generator case is the hypothesis, and the
+operation case uses the two homomorphism equations and the induction hypothesis. -/
+theorem TAlg_hom_ext {S : Type u} (Sig : Signature S) (X : SSet S) {A : SSet S}
+    (FA : AlgStruct Sig A) (f g : SortedMap (TAlg Sig X).1 A)
+    (hf : IsAlgHom Sig (TAlg Sig X).2 FA f)
+    (hg : IsAlgHom Sig (TAlg Sig X).2 FA g)
+    (hη : (fun s => f s ∘ etaX Sig X s) = (fun s => g s ∘ etaX Sig X s)) :
+    f = g := by
+  funext s P
+  obtain ⟨P, hP⟩ := P
+  induction hP with
+  | hyp s P hgen =>
+      obtain ⟨x, rfl⟩ := hgen
+      have hx := congrFun (congrFun hη s) x
+      simp only [Function.comp_apply, etaX] at hx
+      convert hx
+  | op p σ a hrec ih =>
+      have hf' := hf p σ (fun i => (⟨a i, hrec i⟩ : (TAlg Sig X).1 (p.1.get i)))
+      have hg' := hg p σ (fun i => (⟨a i, hrec i⟩ : (TAlg Sig X).1 (p.1.get i)))
+      rw [show (⟨(WAlg Sig X).2 p σ a, MemSg.op p σ a hrec⟩ : (TAlg Sig X).1 p.2) =
+            (TAlg Sig X).2 p σ (fun i => ⟨a i, hrec i⟩) from Subtype.ext rfl,
+          hf', hg']
+      congr 1
+      funext i
+      exact ih i
+
 end Mslang
