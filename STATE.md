@@ -2070,6 +2070,54 @@ representative selection makes `quotOp` noncomputable.
 
 ---
 
+## Session 45 -- 2026-09-16 -- frontier extension: B-R009
+
+**Goal.** Formalize `B-R009`, the long-standing next target: the supports of the
+`Σ`-algebras form a closure system on the set of sorts `S`.
+
+**What was established (closed).**
+
+- **`B-R009` formalized**: `Mslang.IsClosureSystemOn` (an ordinary closure
+  system on a set: contains the universe, closed under nonempty intersections),
+  `Mslang.iAlg` (the product of a family of `Σ`-algebras, pointwise),
+  `Mslang.suppAlg_iAlg` (the support of a product is the intersection of the
+  factor supports) and `Mslang.supports_isClosureSystem` (universe clause: the
+  constant one-element algebra `fun _ => PUnit` has support `Set.univ`;
+  intersection clause: the product of chosen witnesses realizes `⋂₀ D`).
+- Mapped in `lean/declarations.json`; facets regenerated (**30 mapped blocks**).
+- Evidence **`E-000074`** (verification, `build_ok`; axioms
+  `propext`/`Classical.choice`/`Quot.sound`) and **`E-000075`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R009-correspondence.md`). No review layer (a remark with no
+  informal proof).
+- `reports/frontier.md`: unmapped blocks **99 -> 98**. Views and bundle
+  regenerated. Journal `EV-000050`. `check_all`: **25 passed, 0 failed**.
+- **Warning-cleanliness correction.** The pinned build emits a pre-existing
+  style warning (`linter.style.haveILetI`) on the load-bearing `haveI`
+  instances inside `B-R003`'s `finiteSSet_iff` (from Session 42). It is a false
+  positive (the instances are consumed by later synthesis), so it is suppressed
+  at file scope in `Pilot.lean` with a comment. Cosmetic: no declaration facet
+  changes, so no evidence stales. Earlier "0 warnings" claims had missed it.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals.
+`IsClosureSystemOn` packages the *ordinary* (one-sorted) closure system — the
+paper's `B-D010` applied to the set of sorts — because `supp_S(A) ⊆ S`; the
+paper's many-sorted `ClSy(A)` is not separately formalized here.
+
+**Prioritized next steps.**
+
+1. `B-D020`/`B-D021` (subalgebras and the `Sg` generating operator) and
+   `B-R010` (uniformity of `Sg`); connect to the existing `IsClosureOperator`/
+   `IsAlgebraic` predicates from `B-P005`.
+2. `B-R012` (the quotient by `∇` is subfinal) and the congruence-lattice clauses
+   of `B-D024` (`∇`/`Δ`, `Cgr(A)` an algebraic closure system).
+3. The many-sorted closure-system vocabulary `B-D010`-`B-D013`
+   (`ClSy`/`ClOp`, algebraic, uniform); `B-P001` (`propssupport`); `B-P006`
+   (`CABA`, likely scope reduction); batch cosmetic docs; calibration
+   (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
