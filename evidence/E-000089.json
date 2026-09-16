@@ -1,0 +1,52 @@
+{
+  "block": "B-R008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000089",
+  "findings": [
+    "Content-preserving re-issue of E-000047 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: the empty, full, and deltaUnion T families are all nabla-saturated; deltaUnion T A selects whole sorts.",
+    "Stage 2 comparator returned equivalent; deltaUnion T A matches the componentwise union of deltas, and the T = empty / T = S specializations agree.",
+    "Transcript: blocks/audits/B-R008-correspondence.md. Re-run after the Session 29 representation change (supersedes E-000023)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R008/definition_closure",
+      "hash": "d40e3f1b1ae66fe67901e8a3e8a3d9fab7cbcb7870084bf2bf5509bd74f9224d"
+    },
+    {
+      "artifact": "B-R008/formal_statement",
+      "hash": "6e0192380e18addc70309e28dafd7f1c246f5c8158b9c6dabf64f6c2d48f0e40"
+    },
+    {
+      "artifact": "B-R008/informal_statement",
+      "hash": "454d794d1386dd4b539909cbbca700ca6312f640dacba3a029d4fe85f85b3508"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000047",
+  "timestamp": "2026-09-16T11:22:00Z"
+}

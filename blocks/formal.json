@@ -4,35 +4,45 @@
       "decls": [
         "Mslang.sat_antitone"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.sat"
+        ],
+        "hash": "2a18cc63b7ffaf23a71f974224dcf35b377dc8be142b198f4f652353acd6fd45"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "39d3a77deebc9c10d31f8cd9b5e13937e2e0ade1d883bb1e20fb410896ca1f16"
       },
       "formal_statement": {
-        "hash": "172973026cd357c3602a88e95cb013551a93bfcce017fd2d164ddb929e074530"
+        "hash": "34650019f58b085459587eb30ed322b61e33cc574d522dc254b7488f377c1d09"
       }
     },
     "B-C002": {
       "decls": [
         "Mslang.sat_inf"
       ],
-      "definition_closure": [
-        "B-C001",
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.sat",
+          "Mslang.sat_antitone"
+        ],
+        "hash": "6a6179cc665da7e56f3bb567f6009621f31aa176a2266bbce203c1af4be2e380"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "a999e0ac47409a53da65d08372f7b7bd1f159717b14a46117b21047740616c56"
       },
       "formal_statement": {
-        "hash": "13e01ed764e6f62db137a891d8432b911149f476312b99944093fb0bb2229bc8"
+        "hash": "ba1671b98acf19a084bfba2d865c3ed93e22a6d1ff12420a0f16dc49a6163d22"
       }
     },
     "B-D001": {
@@ -41,7 +51,10 @@
         "Mslang.concat",
         "Mslang.emptyWord"
       ],
-      "definition_closure": [],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "1e2ff3d386b64ad64c90c3020d2742636998e4d40740d33f9bb04d455eaca5b5"
@@ -54,7 +67,10 @@
       "decls": [
         "Mslang.SSet"
       ],
-      "definition_closure": [],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "03e3eb0844d19dcd6f466fe06ba1586215edc4df703ae931a11a6b6ce0dbc619"
@@ -69,18 +85,19 @@
         "Mslang.iProj",
         "Mslang.iPair"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedMap"
+        ],
+        "hash": "37f0793f7b840094099cdf93356fe773d5d7ff05add939aa86fbae0edd448bfa"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "ac85adb433e2ea20f9362f1560ab0638ffe80c229fa0d76c8dbadfa40c42feca"
       },
       "formal_statement": {
-        "hash": "517f79fce0076e7c6f3ce0cbdfafb563070b56af67aac544e89994000e3fa450"
+        "hash": "fb729eef3602e39843c9fdacd97e673e20832f8836f667a3fcaf09c0c4b4185f"
       }
     },
     "B-D004": {
@@ -89,15 +106,18 @@
         "Mslang.finalSorted",
         "Mslang.initialSorted"
       ],
-      "definition_closure": [
-        "B-D002"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet"
+        ],
+        "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "43b7c64774a40a231ad0fcd901960a1235e0fc8e107169f89f4bc31788d4da8c"
       },
       "formal_statement": {
-        "hash": "68027e5562e6fe7ac0f015f857c625c3828267bac714bdd27c469b006d35e317"
+        "hash": "f212e133b8a70943d7a7b6c838996c15f5a9b361e67983b1acfcc945eeed20cc"
       }
     },
     "B-D005": {
@@ -105,30 +125,36 @@
         "Mslang.Sub",
         "Mslang.Subset"
       ],
-      "definition_closure": [
-        "B-D002"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet"
+        ],
+        "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "54937fa6bb60f43a623548b22589e0fa908f062a6983926dbd1ff942480d684e"
       },
       "formal_statement": {
-        "hash": "d9e8d1b1db874794b6c289e4c5eb032d616de37c860aa3a0f3cd6f82b6d60634"
+        "hash": "305e52ab3ea790669cc682a8247651b735b9f91bee6935395bf4a1b657c8cb97"
       }
     },
     "B-D006": {
       "decls": [
         "Mslang.delta"
       ],
-      "definition_closure": [
-        "B-D002"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet"
+        ],
+        "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "3293dabf6a398518d051f74143a33f580fab3a623e101c6401cf4742fffbde89"
       },
       "formal_statement": {
-        "hash": "0789fbd8ea5a20de81d85e08010a2e0feddd49270215cac653e5652058e29ff8"
+        "hash": "410d66bb02b8ffe845a96dced0b19e34f6a180644851587ade744e46cbb6de26"
       }
     },
     "B-D007": {
@@ -136,18 +162,20 @@
         "Mslang.directImage",
         "Mslang.inverseImage"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedMap",
+          "Mslang.Sub"
+        ],
+        "hash": "0c8f3c617f82d04e6f2a15604c87ffac7ff2ba9a25ab0b4b634b008745e3dfdc"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "0f0ee17f72b04c86d5c9a043fee84714c6b04bcf29ddae5faaa0e7419bd8e2a8"
       },
       "formal_statement": {
-        "hash": "b8ed4c821003826f3aac8ec8f1ae714f1ed8bc0b15cf86de450d986e7a41b3d8"
+        "hash": "e5ed9350b79539b8cf5c1d957f1f326cf7ab2b799b7c7c79de676b2c73fba6eb"
       }
     },
     "B-D008": {
@@ -156,31 +184,37 @@
         "Mslang.FiniteSub",
         "Mslang.finiteSubsets"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Sub"
+        ],
+        "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "4d5b9139bb9de339da2cee7593430364b4a8bb43f94c07016a7ad7a742a6f166"
       },
       "formal_statement": {
-        "hash": "c1897f81664239dce5ce34bad8f1ffe6db027ea6f42802cb2476318dd14dfb6c"
+        "hash": "65c0d6073a865dc5bf3c21976febf5a4382d95bb609aba419d0baeef84d3a695"
       }
     },
     "B-D009": {
       "decls": [
         "Mslang.supp"
       ],
-      "definition_closure": [
-        "B-D002"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet"
+        ],
+        "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "9ea2f99a92a2e35bc75a2497e04b25e94d6463e714bae63576365a7d216a597d"
       },
       "formal_statement": {
-        "hash": "3df4189218acc6cf77dd505096009bb5fa8bf8d598f3ffc43e6a3d551b6e0bf6"
+        "hash": "748af42c7da9c440d704822315bd1ae6c8c26d0de5b083591b150bfdc4368f79"
       }
     },
     "B-D014": {
@@ -189,16 +223,19 @@
         "Mslang.sat",
         "Mslang.IsSat"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Sub"
+        ],
+        "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "5eebfe771f511420811854921af3148131aae85a1099ca5c70369086a1d1ebd7"
       },
       "formal_statement": {
-        "hash": "a54ecffedeb0f669222411020f7bfdfa5dd9dd2ccb41e8b05d64548a897b8aed"
+        "hash": "bda76e67f00bc494f77fa6c465d337ee9490ef0b93afed62be4c13f03517d6cc"
       }
     },
     "B-D015": {
@@ -206,24 +243,29 @@
         "Mslang.SortedMap",
         "Mslang.ker"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedEqv"
+        ],
+        "hash": "9468a52a71bf8669fc918fc1a8d42d93163d4d6d3330b68c8bcccd026aaa36c8"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "221317b2a6f5f800b4c7fbdee39b78c3766954dd27da9a55791f8581be535422"
       },
       "formal_statement": {
-        "hash": "64b8853b0b52408977ee92bba3fedc3abfc42c72b80683d41ece7a55dab4ae38"
+        "hash": "33389b3833ca2a91b1314a8f6c4df60c34a6073b6fc5751db52707521e1e4ccc"
       }
     },
     "B-D016": {
       "decls": [
         "Mslang.Signature"
       ],
-      "definition_closure": [],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "06b2f345c53a672c48eaef7d015706c971f3ae2303f12fc9bb70cdda6ace2dce"
@@ -239,74 +281,83 @@
         "Mslang.AlgStruct",
         "Mslang.IsAlgHom"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015",
-        "B-D016"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap"
+        ],
+        "hash": "b83dc683de255e106c4ef8150392c5d5169a3605f146aa8b74b8365570fdb8ce"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "617871bb9d804cc902494801424a74fbd5fb1c2bfd4df8c17e0ad9a6850d49b9"
       },
       "formal_statement": {
-        "hash": "2ab99e423cea03872ceb62309a1ee2895b01c16ae3bc840ce5b7986a5071183a"
+        "hash": "43792e5f4ae7660ab1dd9aec537c893739c46b9f52e5e7a3f0b96af896628a67"
       }
     },
     "B-D018": {
       "decls": [
         "Mslang.suppAlg"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D009",
-        "B-D016"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.supp"
+        ],
+        "hash": "40d94c32ffad0f62d1d79820cf45b2f79dc51f61d25105477dcfba3a15904bed"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "6841f957cd14ea5562677ec2d12ee76125c19b277124eaa545ef791a8f6902d5"
       },
       "formal_statement": {
-        "hash": "65fb28eecd26f63728dc685d96707c6dd3e957d180861e209676629314fa6b41"
+        "hash": "7d823cd37c6ac360b873e1f59f146740e61f7ab743fbdf26bebed9b7ca901e66"
       }
     },
     "B-D019": {
       "decls": [
         "Mslang.FiniteAlg"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D008",
-        "B-D016"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.FiniteSSet",
+          "Mslang.SSet",
+          "Mslang.Signature"
+        ],
+        "hash": "5e7be78fb0a4e7bd9820914ec6f120903015cab8a1d61fa2f9fc4f4891b4f74c"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "2705ccf17d4895c095df8e2c0ffdaf9fbcf88fda96efa68d2d6c86e958399dbf"
       },
       "formal_statement": {
-        "hash": "2174faa65ff7cd9a2aa20d76a4bac129d564107864fb863dc60e26fc79b681d4"
+        "hash": "419a88ae89a098586c0b81b2ac6adfa73f0bd7f492698498478caf329af13cec"
       }
     },
     "B-D020": {
       "decls": [
         "Mslang.IsSubalgebra"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.Sub",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "34160157680f5d0d3f46015774eeaf214c1b8739b96ca11a8d8a785bc6d9b441"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "4f57abbacaf9266f16d222f06062fd87c20bc88ec0b2e02961676a4498d0c44c"
       },
       "formal_statement": {
-        "hash": "7144f1f9bb04a33bdabe94fc6db8df2dd266c10cfe9266d62562767e3b7261d9"
+        "hash": "5d6a8e990b83a69605c04ee660a491fc0720439083fde45731719d574230fdda"
       }
     },
     "B-D021": {
@@ -321,24 +372,26 @@
         "Mslang.Sg_idem",
         "Mslang.Sg_isClosureOperator"
       ],
-      "definition_closure": [
-        "B-C001",
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017",
-        "B-D020",
-        "B-P005",
-        "B-R007"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsClosureOperator",
+          "Mslang.IsSubalgebra",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.Sub",
+          "Mslang.Subset",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "ed6c08193030257ffa6180a23a8015f45594ede1618590315b97b41d647d6104"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "fc566de69d743024b717f43b019966f447f38620adf9bce7939dde17ef78fa67"
       },
       "formal_statement": {
-        "hash": "34c00107d106e6064a39c05122935445a5ef036aada36744ec39cda24c92866c"
+        "hash": "c24a9f05d55a8462daf68c934a59bfb461b3de8908fb0966d0860c0fe3223b7f"
       }
     },
     "B-D022": {
@@ -351,40 +404,47 @@
         "Mslang.iProjAlg_iPairAlg",
         "Mslang.iPairAlg_unique"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "f2352c29d98ef5a0dc6dab420a884f58381205c9a65e2dbd29627b10cb982a87"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "387e4cdf15d01d08d25c568b7ffd4dc901f9085b37a78dbe32e216837524c3a4"
       },
       "formal_statement": {
-        "hash": "0165a8b659aa83505782a5b6d68c1a501994463ad4ee513584a66e7906b6eab5"
+        "hash": "5d33d241322b4f3327fe76b2ebd3b150685c4acb57d78603d8d79ed4119a701c"
       }
     },
     "B-D024": {
       "decls": [
         "Mslang.IsCongruence"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "1c97b62dcccadfe96150897a72934270aefa206d1da08c054d3f1b8842541e74"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "6923bc666cde1a21b7bda4e18cbb96bc230e14428dbdb6486c42cb48ad7e559e"
       },
       "formal_statement": {
-        "hash": "3162abb4d795be5cbd9da5d4498e0fcb433fa11568d31013b2ba6ce3af8493ce"
+        "hash": "2238cbab49a69fabbfb44a95103069cf4c13943a82c59817905604a1170bb0fd"
       }
     },
     "B-D025": {
@@ -395,74 +455,92 @@
         "Mslang.quotOp_mk",
         "Mslang.isAlgHom_prAlg"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D009",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017",
-        "B-D024",
-        "B-R005"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.quot",
+          "Mslang.wordProd"
+        ],
+        "hash": "caffadf6c7168d19e0c8b46fae2adf92edd2ecc9583bf741821d0df9eddd8579"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "2c825b110c5497ebc41e61158710920a71259ad77dabe223460b13da3d425fc7"
       },
       "formal_statement": {
-        "hash": "7211b79e8cf52bbe5fe2f8d210990adf8fdf4e5896687e86c69e91ed2db1f29c"
+        "hash": "e00c08d11051426f763821545c73d3ab9284ba3f814f67afe5a6e439a077775d"
       }
     },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.sat"
+        ],
+        "hash": "6c5c2a348ac40a1713f63a5227846153081434f3e605b8cf963b20ab0b21dfd8"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "05db635866a339b1512a6c25b270e031b1b46a01c3dd54dca0aeee87213c65d1"
       },
       "formal_statement": {
-        "hash": "3ed3c3bf232e3ffdca5981e1914a9e1000b39c3570e85547de103c1126141829"
+        "hash": "5ba46d9330406801816e6d72ac276062ebc80fd7d1fff77a0e16651927efaba4"
       }
     },
     "B-P003": {
       "decls": [
         "Mslang.nabla_sat"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.sat"
+        ],
+        "hash": "2a18cc63b7ffaf23a71f974224dcf35b377dc8be142b198f4f652353acd6fd45"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "905cbe54cd9ba58a72890c2e577c5ec3fb0603f8e21069768ca382e95c777128"
       },
       "formal_statement": {
-        "hash": "594985f84c8bcb8c64770ab511a15119da66f631be5a2f31730e8ba601758ff2"
+        "hash": "10b8dd63daaf87bc3a052e4e7fd1c4b516df1ed850039e1c96ef38fcb3fbba52"
       }
     },
     "B-P004": {
       "decls": [
         "Mslang.sat_inf_subset"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.Subset",
+          "Mslang.sat"
+        ],
+        "hash": "c163f78b73b94871ba3fdb513f6e1f867182373a4637f7cf4fbe22c9b23531f1"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "dfd869529bdedc80db937999682e3b586f8067e91d3fd68ad4b83e9dc585871c"
       },
       "formal_statement": {
-        "hash": "124b9c04cf128635b8c7f652275877a4c30c9328fbf3a33927d18d742f438471"
+        "hash": "77e67bbee5ad6c50104824562345258950cbe869d9c6b7a436260bdff8d2886d"
       }
     },
     "B-P005": {
@@ -484,19 +562,24 @@
         "Mslang.sat_uniform",
         "Mslang.satSets_fix"
       ],
-      "definition_closure": [
-        "B-C001",
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-R007"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.Subset",
+          "Mslang.sat",
+          "Mslang.satSets"
+        ],
+        "hash": "1d882c9b9a16dae654ce42c8476f0531f8bf71819796a1a1a366163a86a5511a"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "56a4d8c765d44d2c0951bb04b8c0355323f05cfe38cf672059cf26948b6ebc0d"
       },
       "formal_statement": {
-        "hash": "8a722d7da63022bba4d8d77b222a1c39d3ffe89ef944b6b1fdef59f3155528ed"
+        "hash": "b6ab2d4be98c50a964e722e983203f705fc8bc4040632b951b70eb3e8a701757"
       }
     },
     "B-P007": {
@@ -506,20 +589,22 @@
         "Mslang.quotLift_comp",
         "Mslang.quotLift_unique"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D009",
-        "B-D014",
-        "B-D015",
-        "B-R005"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.ker",
+          "Mslang.quot"
+        ],
+        "hash": "dd3c04ac932a77e3ed1c363b71a7b826444c2ea7aaeebbd127b9247505ba4cfe"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "ef3b51062ea9b56e78b4d9775d482eb483ed26e6f9676ce175fef48618c1a8cb"
       },
       "formal_statement": {
-        "hash": "032edc48586c73e1595f88af6be937923fbb4567fd9ec4a06dd3b16b284ae949"
+        "hash": "b2a96d8de422df131b00de513ed79f5401fb4177f089688a55ee86938a1624b8"
       }
     },
     "B-P009": {
@@ -530,43 +615,55 @@
         "Mslang.quotAlgLift_comp",
         "Mslang.quotAlgLift_unique"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D009",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017",
-        "B-D024",
-        "B-D025",
-        "B-P007",
-        "B-R005"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.ker",
+          "Mslang.ker_pr",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotLift",
+          "Mslang.quotLift_comp",
+          "Mslang.quotLift_unique",
+          "Mslang.quotOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "3f55a34f3cb3b69860df2c8c6f9870e60b34da202fd6dd3f7cd73389eb7900bd"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "772de9e6ba10098dab19ec035f6a5f51f47777565b53e06cef75e9d0afb471d4"
       },
       "formal_statement": {
-        "hash": "99355605055790faf265c76be3be8bbb4c906064028d97a81cbe7c2cdd42fe1f"
+        "hash": "3da6d505a20d5224b6435eda37bb9f1ab16370143f64d23baa6ee149f1a14a0d"
       }
     },
     "B-R003": {
       "decls": [
         "Mslang.finiteSSet_iff"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D008",
-        "B-D009"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.FiniteSSet",
+          "Mslang.SSet",
+          "Mslang.supp"
+        ],
+        "hash": "c560c9116e413f06950987375af3d7a418f33771e13a675fbb3e3501d7d80d2a"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "d78d1879d64603c3c82c93ef6def66e4c2429d4b91d4f5f0bdd3b295fd0a4473"
       },
       "formal_statement": {
-        "hash": "82ed401ee40026c36e37a0058441318ee353b81fbb9b850451f2a5ac39db208b"
+        "hash": "dff498bbdf9ed3685979e82037c6082061f08ef643f6bea7bd08aaf821dc6b95"
       }
     },
     "B-R005": {
@@ -574,18 +671,20 @@
         "Mslang.quot",
         "Mslang.supp_quot"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D009",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.supp"
+        ],
+        "hash": "d36d9154166da4ab13dc2669b2f3b84056067ffc1fc41fa9fe481bea82b489a8"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "d690f29a5f86cfc5f3f6ace4a6aa4c331baaa7117e9ba139ffd3070aeeb32d88"
       },
       "formal_statement": {
-        "hash": "0b66340f658bf41794c2bc0d6d36d295a2685d9c83ddab780a3af1f866a6d61e"
+        "hash": "99d6eb278c8d7ba95de3650bee12fd66e508bfdb745980fa225cb26d3c8a82af"
       }
     },
     "B-R006": {
@@ -593,17 +692,22 @@
         "Mslang.sat_eq_preimage",
         "Mslang.isSat_iff_preimage"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.sat"
+        ],
+        "hash": "2a18cc63b7ffaf23a71f974224dcf35b377dc8be142b198f4f652353acd6fd45"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "095c20f5ac354b2492a39e9c1e02b95a4ed9842c82c3380d6a12b9743a98f2ce"
       },
       "formal_statement": {
-        "hash": "4997c05a3812d42bef142317c4f1596d0738129aa2fbc9bf7303aacd21ebe96c"
+        "hash": "51f8cd27444a76c2f9092ff865d6106814e0db1d144058d231f5ec71fd80c1be"
       }
     },
     "B-R007": {
@@ -611,18 +715,23 @@
         "Mslang.satSets",
         "Mslang.satSets_antitone"
       ],
-      "definition_closure": [
-        "B-C001",
-        "B-D002",
-        "B-D005",
-        "B-D014"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.sat",
+          "Mslang.sat_antitone"
+        ],
+        "hash": "6a6179cc665da7e56f3bb567f6009621f31aa176a2266bbce203c1af4be2e380"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "c91952d5bf1bdb771884d699c921610088158256da200ba351b87b8851e3eaf8"
       },
       "formal_statement": {
-        "hash": "e31c9728cf854d8e7d0b853a36956e8ca845fe7410a32f5c14ff1961268ab0b2"
+        "hash": "e5819c956163f3cc397649c0aa6b3d389ca829f7704e214ca5a7b3e35b126b65"
       }
     },
     "B-R008": {
@@ -631,18 +740,23 @@
         "Mslang.nabla_sat_univ",
         "Mslang.nabla_sat_deltaUnion"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-P003"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.nabla_sat",
+          "Mslang.sat"
+        ],
+        "hash": "d40e3f1b1ae66fe67901e8a3e8a3d9fab7cbcb7870084bf2bf5509bd74f9224d"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "c9027bd59d2690040d6ac97f845b1d568f9b67a9ed0e7ee3af2fd66ee51dd564"
       },
       "formal_statement": {
-        "hash": "349c2d391adae5f19c3b03241c3a4504c0dbe6d42a4678190bf41b8fb5bff894"
+        "hash": "6e0192380e18addc70309e28dafd7f1c246f5c8158b9c6dabf64f6c2d48f0e40"
       }
     },
     "B-R009": {
@@ -651,23 +765,22 @@
         "Mslang.suppAlg_iAlg",
         "Mslang.supports_isClosureSystem"
       ],
-      "definition_closure": [
-        "B-D002",
-        "B-D005",
-        "B-D009",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017",
-        "B-D018",
-        "B-D022"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.iAlg",
+          "Mslang.supp",
+          "Mslang.suppAlg"
+        ],
+        "hash": "4dc4bf5979cc9675652c1df7bc0be3f35b86672e343558d54c3f306791201a8d"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "5e441a44341c60a1e4e34c8bf45ca27928f78bee91183290b99a6a34f3fa8385"
       },
       "formal_statement": {
-        "hash": "3010c2715f81cbd0e6eb50662d5a66901e7375e422a72c3fa640d074dcc81807"
+        "hash": "00a5722b00f297e5be2f0e3fe93ad4308a347ea436d2393f2ef3beac8287ad78"
       }
     },
     "B-R010": {
@@ -676,25 +789,25 @@
         "Mslang.suppSub_Sg",
         "Mslang.suppSub_Sg_uniform"
       ],
-      "definition_closure": [
-        "B-C001",
-        "B-D002",
-        "B-D005",
-        "B-D014",
-        "B-D015",
-        "B-D016",
-        "B-D017",
-        "B-D020",
-        "B-D021",
-        "B-P005",
-        "B-R007"
-      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.MemSg",
+          "Mslang.SSet",
+          "Mslang.Sg",
+          "Mslang.Signature",
+          "Mslang.Sub",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "e6de7f000f1dc260fed893c7917d5032ed34e392a05a3f8b8752e6a9033e416b"
+      },
       "file": "lean/Mslang/Pilot.lean",
       "formal_proof": {
         "hash": "5b9da39045a24dfd97dfde9fd70746e038237002d9b12460a0193d3f538c67ba"
       },
       "formal_statement": {
-        "hash": "27d451dd10128538b82d2cfcccf95ada3294c03a82e181a943e403c73fb7fc5f"
+        "hash": "ff699e4002eb90cc9effb5038d10397f6cca3b76f9543463b4a08c775ae7673c"
       }
     }
   },

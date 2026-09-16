@@ -1,0 +1,44 @@
+{
+  "block": "B-D004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000085",
+  "findings": [
+    "Content-preserving re-issue of E-000043 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: Subfinal = every component Subsingleton; finalSorted is the constant PUnit family; initialSorted the constant PEmpty family; support as Nonempty.",
+    "Stage 2 comparator returned equivalent: card_le_one_iff matches card <= 1, and the dependent-type carrier makes 1^S a genuine constant singleton (previously incomparable under the fixed-ambient carrier).",
+    "Transcript: blocks/audits/B-D004-correspondence.md. Supersedes the incomparable E-000021; D-finalSorted closed in Session 29."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D004/definition_closure",
+      "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+    },
+    {
+      "artifact": "B-D004/formal_statement",
+      "hash": "f212e133b8a70943d7a7b6c838996c15f5a9b361e67983b1acfcc945eeed20cc"
+    },
+    {
+      "artifact": "B-D004/informal_statement",
+      "hash": "5b4c278e6f02c3b826ad448bea84526c8544ce98b846c98f6c68c1352431d9a8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000043",
+  "timestamp": "2026-09-16T11:22:00Z"
+}

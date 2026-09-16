@@ -1,0 +1,43 @@
+{
+  "block": "B-R009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000098",
+  "findings": [
+    "Content-preserving re-issue of E-000082 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Verdict unchanged: equivalent. Re-issued after the B-D022 re-mapping changed B-R009's definition closure (supersedes E-000075).",
+    "Transcript: blocks/audits/B-R009-correspondence.md."
+  ],
+  "independence_caveat": "Re-issue of E-000075: the two-stage blind audit is unchanged (stage 1 saw the declarations, stage 2 saw the read-back and the contract; transcript blocks/audits/B-R009-correspondence.md); only the formal_statement hash moved because Mslang.iAlg was re-mapped from B-R009 to B-D022. Same-model caveat and encoding residuals as before.",
+  "inputs": [
+    {
+      "artifact": "B-R009/definition_closure",
+      "hash": "4dc4bf5979cc9675652c1df7bc0be3f35b86672e343558d54c3f306791201a8d"
+    },
+    {
+      "artifact": "B-R009/formal_statement",
+      "hash": "00a5722b00f297e5be2f0e3fe93ad4308a347ea436d2393f2ef3beac8287ad78"
+    },
+    {
+      "artifact": "B-R009/informal_statement",
+      "hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000082",
+  "timestamp": "2026-09-16T11:22:00Z"
+}

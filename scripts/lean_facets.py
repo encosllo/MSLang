@@ -141,16 +141,24 @@ def word_present(name: str, text: str) -> bool:
 def compute(decl_map, root: Path = ROOT):
     """Return (blocks/formal.json content, blocks/formal_graph.json content).
 
-    A block may map to several declarations (``decls``); their statements and
-    proofs are concatenated before hashing.  Per Section 6, ``formal_statement``
-    is the declaration's own signature **together with its definition closure**
-    (the transitive ``formal_uses`` dependencies' statements), so a definition
-    change propagates to its dependents; proofs are excluded from the closure,
-    so proof irrelevance is preserved.
+    A block may map to several declarations (``decls``). Each declaration
+    contributes two independently hashed facets:
+
+    * ``formal_statement`` -- the declaration's own signature only;
+    * ``formal_proof`` -- its term or script.
+
+    and the block's ``definition_closure`` is a third facet: the statements of
+    the declarations it transitively uses, together with the *declaration names*
+    of that closure. The closure is keyed on declaration identity, not on block
+    membership, so re-registering a declaration under a different block (a
+    bookkeeping edit, Section 13.2 class C5) changes no dependent's closure.
+    Proofs are excluded from the closure, so proof irrelevance is preserved,
+    while a definition change still moves its dependents' closure (Section 6).
     """
     cache = {}
     raw = {}
     blocks = {}
+    decl_info = {}
     for bid in sorted(decl_map):
         spec = decl_map[bid]
         path = root / spec["file"]
@@ -170,50 +178,64 @@ def compute(decl_map, root: Path = ROOT):
                 "error": f"declaration(s) {missing} not found in {spec['file']}",
             }
             continue
-        stmts, proofs, pieces = [], [], []
-        for s in shorts:
+        stmts, proofs = [], []
+        for n, s in zip(names, shorts):
             d = cache[path][s]
             stmts.append(d["statement"])
             proofs.append(d["proof"])
-            pieces.append(d["statement"] + "\n" + d["proof"])
+            decl_info[s] = {
+                "full": n, "block": bid,
+                "statement": d["statement"], "proof": d["proof"],
+            }
         raw[bid] = {
             "decls": names, "file": spec["file"],
-            "stmts": stmts, "proofs": proofs, "text": "\n".join(pieces),
+            "shorts": shorts, "stmts": stmts, "proofs": proofs,
         }
 
-    shorts_by_block = {
-        bid: [n.split(".")[-1] for n in raw[bid]["decls"]] for bid in raw
-    }
-    edges = []
-    adjacency = {}
-    for bid in sorted(raw):
-        for other in sorted(raw):
-            if other == bid:
-                continue
-            if any(word_present(n, raw[bid]["text"]) for n in shorts_by_block[other]):
-                edges.append({"from": bid, "to": other, "kind": "formal_uses"})
-                adjacency.setdefault(bid, set()).add(other)
+    # Declaration-level formal_uses: whole-identifier occurrence of another
+    # mapped declaration's short name anywhere in this declaration's text.
+    decls_sorted = sorted(decl_info)
+    decl_adj = {s: set() for s in decls_sorted}
+    for s in decls_sorted:
+        text = decl_info[s]["statement"] + "\n" + decl_info[s]["proof"]
+        for t in decls_sorted:
+            if t != s and word_present(t, text):
+                decl_adj[s].add(t)
 
-    def closure(bid):
-        seen, stack = set(), list(adjacency.get(bid, ()))
+    def decl_closure(bid):
+        own = set(raw[bid]["shorts"])
+        seen, stack = set(), [t for s in own for t in decl_adj.get(s, ())]
         while stack:
             cur = stack.pop()
-            if cur in seen:
+            if cur in seen or cur in own:
                 continue
             seen.add(cur)
-            stack.extend(adjacency.get(cur, ()))
+            stack.extend(decl_adj.get(cur, ()))
         return sorted(seen)
 
+    # Block-level formal graph, derived from the declaration edges (used by the
+    # discrepancy and impact views; not an evidence input).
+    edge_pairs = set()
+    for s in decls_sorted:
+        for t in decl_adj[s]:
+            b1, b2 = decl_info[s]["block"], decl_info[t]["block"]
+            if b1 != b2:
+                edge_pairs.add((b1, b2))
+    edges = [
+        {"from": a, "to": b, "kind": "formal_uses"} for a, b in sorted(edge_pairs)
+    ]
+
     for bid, r in raw.items():
-        deps = closure(bid)
-        dep_stmts = "\n".join("\n".join(raw[o]["stmts"]) for o in deps)
+        deps = decl_closure(bid)
+        dep_stmts = "\n".join(decl_info[s]["statement"] for s in deps)
         blocks[bid] = {
             "decls": r["decls"],
             "file": r["file"],
-            "definition_closure": deps,
-            "formal_statement": {
-                "hash": hash_text("\n".join(r["stmts"]) + "\n" + dep_stmts)
+            "definition_closure": {
+                "decls": sorted(decl_info[s]["full"] for s in deps),
+                "hash": hash_text(dep_stmts),
             },
+            "formal_statement": {"hash": hash_text("\n".join(r["stmts"]))},
             "formal_proof": (
                 {"hash": hash_text("\n".join(r["proofs"]))}
                 if any(r["proofs"])

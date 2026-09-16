@@ -1,0 +1,44 @@
+{
+  "block": "B-R010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000097",
+  "findings": [
+    "Content-preserving re-issue of E-000079 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back: Sg is the least subalgebra containing X; SuppClosure is the arity-closure of a sort set; suppSub_Sg identifies supp(Sg X) with SuppClosure(supp X); suppSub_Sg_uniform states uniformity.",
+    "Stage 2 comparator returned equivalent; same objects, quantifiers, and conclusion; suppSub_Sg is a stronger intermediate fact but the uniformity claim is exactly the contract.",
+    "Transcript: blocks/audits/B-R010-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-R010/definition_closure",
+      "hash": "e6de7f000f1dc260fed893c7917d5032ed34e392a05a3f8b8752e6a9033e416b"
+    },
+    {
+      "artifact": "B-R010/formal_statement",
+      "hash": "ff699e4002eb90cc9effb5038d10397f6cca3b76f9543463b4a08c775ae7673c"
+    },
+    {
+      "artifact": "B-R010/informal_statement",
+      "hash": "d07855916e37e5e20a76fe1ef6867d23fcbd1b0a107019f241f0d0d2d192a83d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000079",
+  "timestamp": "2026-09-16T11:22:00Z"
+}

@@ -40,7 +40,11 @@ from pathlib import Path
 # facets"), before the transitive statement closure is added.
 LAYER_SELF_FACETS = {
     "review": ["informal_statement", "informal_proof", "explanation"],
-    "correspondence": ["informal_statement", "formal_statement"],
+    "correspondence": [
+        "informal_statement",
+        "formal_statement",
+        "definition_closure",
+    ],
     "verification": ["formal_proof"],
     "representation": [],
 }
@@ -77,7 +81,7 @@ def _merge_formal(registry_path, blocks):
         if not block or entry.get("error"):
             continue
         facets = block.setdefault("facets", {})
-        for facet in ("formal_statement", "formal_proof"):
+        for facet in ("formal_statement", "formal_proof", "definition_closure"):
             if entry.get(facet):
                 facets[facet] = entry[facet]
 

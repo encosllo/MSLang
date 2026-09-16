@@ -83,9 +83,10 @@ def changed_artifacts(artifact, registry, formal_edges):
 
     A definition change (Section 13.2 class C4) propagates: a change to a
     block's ``formal_statement`` -- or to the ``formal_proof`` *body* of a
-    definition -- changes the ``formal_statement`` of every formal dependent,
-    because that facet includes its definition closure (Section 6). A theorem's
-    proof change (C1) does not propagate.
+    definition -- changes the ``definition_closure`` of every formal dependent
+    (Section 6), because that facet hashes the statements of the declarations
+    the dependent transitively uses. A theorem's proof change (C1) does not
+    propagate.
     """
     changed = {artifact}
     block, _, facet = artifact.partition("/")
@@ -93,7 +94,7 @@ def changed_artifacts(artifact, registry, formal_edges):
         is_definition = registry.get(block, {}).get("kind") == "definition"
         if facet == "formal_statement" or (facet == "formal_proof" and is_definition):
             for dep in formal_dependents(block, formal_edges):
-                changed.add(f"{dep}/formal_statement")
+                changed.add(f"{dep}/definition_closure")
     return changed
 
 

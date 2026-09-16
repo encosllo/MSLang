@@ -123,6 +123,37 @@ def main():
         out = lf.compute(missing, root=Path(tmp))[0]["blocks"]["B-Y"]
         check("missing declaration flagged", "error" in out, str(out))
 
+    # Remap invariance: moving a declaration to a different owning block must
+    # not change its dependents' hashes (the closure is keyed on declarations,
+    # not block membership; Architecture.md Sections 6, 12.3, 13.2 class C5).
+    remap_src = "namespace M\ndef aa : Nat := 0\ndef bb : Nat := aa + 1\nend M\n"
+    with tempfile.TemporaryDirectory() as tmp:
+        write(tmp, "r.lean", remap_src)
+        before = lf.compute(
+            {"B-A": {"decl": "M.aa", "file": "r.lean"},
+             "B-B": {"decl": "M.bb", "file": "r.lean"}},
+            root=Path(tmp),
+        )[0]["blocks"]["B-B"]
+        after = lf.compute(
+            {"B-C": {"decl": "M.aa", "file": "r.lean"},
+             "B-B": {"decl": "M.bb", "file": "r.lean"}},
+            root=Path(tmp),
+        )[0]["blocks"]["B-B"]
+        check(
+            "remap keeps the dependent's statement hash",
+            before["formal_statement"]["hash"] == after["formal_statement"]["hash"],
+        )
+        check(
+            "remap keeps the dependent's definition_closure hash",
+            before["definition_closure"]["hash"] == after["definition_closure"]["hash"],
+        )
+        check(
+            "definition_closure lists declarations, not blocks",
+            before["definition_closure"]["decls"] == ["M.aa"]
+            == after["definition_closure"]["decls"],
+            f"{before['definition_closure']} vs {after['definition_closure']}",
+        )
+
     print()
     if FAILURES:
         print(f"lean_facets_test: {len(FAILURES)} FAILED: {', '.join(FAILURES)}")

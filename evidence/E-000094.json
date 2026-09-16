@@ -1,0 +1,52 @@
+{
+  "block": "B-P007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000094",
+  "findings": [
+    "Content-preserving re-issue of E-000058 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back reconstructs ker_pr (Ker(pr^\u03a6) = \u03a6), the descent quotLift, and its existence (quotLift_comp) and uniqueness (quotLift_unique).",
+    "Stage 2 comparator returned equivalent; all three clauses (Ker(f) \u2208 Eqv(A), Ker(pr^\u03a6) = \u03a6, universal property) match in direction and quantifiers.",
+    "Transcript: blocks/audits/B-P007-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P007/definition_closure",
+      "hash": "dd3c04ac932a77e3ed1c363b71a7b826444c2ea7aaeebbd127b9247505ba4cfe"
+    },
+    {
+      "artifact": "B-P007/formal_statement",
+      "hash": "b2a96d8de422df131b00de513ed79f5401fb4177f089688a55ee86938a1624b8"
+    },
+    {
+      "artifact": "B-P007/informal_statement",
+      "hash": "94a73f9f3674e6d1d4f456c654a55e9a2d651aa0af22008a0ed028116e55032b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000058",
+  "timestamp": "2026-09-16T11:22:00Z"
+}

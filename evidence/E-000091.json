@@ -1,0 +1,48 @@
+{
+  "block": "B-R007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000091",
+  "findings": [
+    "Content-preserving re-issue of E-000052 after the definition_closure facet was split out of formal_statement (Section 6/12.3, reissue_reason=facet-split): the audit is unchanged (transcript referenced in the original findings).",
+    "Stage 1 read-back restates the remark: the map \u03a6 \u21a6 \u03a6-Sat(A) sends a finer equivalence to the smaller family of saturated subsets.",
+    "Stage 2 comparator returned equivalent; the antitone variance (\u03a6 \u2286 \u03a8 \u21d2 \u03a8-Sat(A) \u2286 \u03a6-Sat(A)) and both ordered sets match the contract.",
+    "Transcript: blocks/audits/B-R007-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R007/definition_closure",
+      "hash": "6a6179cc665da7e56f3bb567f6009621f31aa176a2266bbce203c1af4be2e380"
+    },
+    {
+      "artifact": "B-R007/formal_statement",
+      "hash": "e5819c956163f3cc397649c0aa6b3d389ca829f7704e214ca5a7b3e35b126b65"
+    },
+    {
+      "artifact": "B-R007/informal_statement",
+      "hash": "b168aac9c69c08a1d21e3a38bebd3b62a54071374bcb019de22ad5e5642a0ad8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "facet-split",
+  "supersedes": "E-000052",
+  "timestamp": "2026-09-16T11:22:00Z"
+}
