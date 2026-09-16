@@ -9,6 +9,7 @@
     "Mslang.FiniteSSet": [],
     "Mslang.FiniteSub": [],
     "Mslang.IsAlgHom": [],
+    "Mslang.IsAlgIso": [],
     "Mslang.IsAlgebraic": [],
     "Mslang.IsAlgebraicClosureSystem": [],
     "Mslang.IsAlgebraicLattice": [],
@@ -44,6 +45,7 @@
     "Mslang.Sub_iInter": [],
     "Mslang.Sub_iUnion": [],
     "Mslang.Subfinal": [],
+    "Mslang.SubfinalAlg": [],
     "Mslang.Subset": [],
     "Mslang.SuppClosure": [],
     "Mslang.Word": [],
@@ -56,6 +58,7 @@
     "Mslang.directImage": [],
     "Mslang.emptyWord": [],
     "Mslang.finOp": [],
+    "Mslang.finalAlg": [],
     "Mslang.finalSorted": [],
     "Mslang.finiteSSet_iff": [
       "Classical.choice",
@@ -217,6 +220,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.subAlg": [],
     "Mslang.subset_Sg": [],
     "Mslang.supp": [],
     "Mslang.suppAlg": [],
@@ -257,7 +261,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 108,
+  "declarations_audited": 112,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -1,0 +1,27 @@
+{
+  "block": "B-D023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000103",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D023 (Mslang.finalAlg, IsAlgIso, subAlg, SubfinalAlg) compiled against Mathlib v4.33.1.",
+    "Algebra-local vocabulary introduced for the subfinal cluster: the final algebra 1, isomorphism as a sortwise-bijective homomorphism, a subalgebra as a standalone algebra, and the subfinal predicate. B-P008 (A subfinal iff A subfinal) is the next target."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-D023/formal_proof",
+      "hash": "0b371ded6b1a26045965613cc163cea738922b7518bc150a005824ad7d1a4fdd"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T12:00:08Z"
+}

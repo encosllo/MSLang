@@ -506,6 +506,36 @@
         "hash": "5d33d241322b4f3327fe76b2ebd3b150685c4acb57d78603d8d79ed4119a701c"
       }
     },
+    "B-D023": {
+      "decls": [
+        "Mslang.finalAlg",
+        "Mslang.IsAlgIso",
+        "Mslang.subAlg",
+        "Mslang.SubfinalAlg"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsSubalgebra",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.finOp",
+          "Mslang.finalSorted",
+          "Mslang.wordProd"
+        ],
+        "hash": "04d87fba70bb23428dea206c66744b21168fe85c875175a0751d80816b5cf1e1"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "0b371ded6b1a26045965613cc163cea738922b7518bc150a005824ad7d1a4fdd"
+      },
+      "formal_statement": {
+        "hash": "0bc52371ed01740f50374fdd44b21e34ed322c1b74249bdafeede1df7b08541d"
+      }
+    },
     "B-D024": {
       "decls": [
         "Mslang.IsCongruence"

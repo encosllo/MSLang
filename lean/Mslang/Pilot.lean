@@ -1015,4 +1015,31 @@ def IsUniformAlgebraicClosureOperator {S : Type u} {A : SSet S}
     (c : Sub A → Sub A) : Prop :=
   IsAlgebraic c ∧ IsUniform c
 
+/-! ### `B-D023`: subfinal `Σ`-algebras (and the algebra-local vocabulary). -/
+
+/-- The final `Σ`-algebra `1 = (1^S, F)`: the constant one-element sorted set
+with the unique operations. -/
+def finalAlg {S : Type u} (Sig : Signature S) : Alg Sig :=
+  ⟨finalSorted S, fun _ _ _ => PUnit.unit⟩
+
+/-- An isomorphism of `Σ`-algebras: a sortwise-bijective homomorphism. (Its
+inverse is automatically a homomorphism.) -/
+def IsAlgIso {S : Type u} (Sig : Signature S) {A B : SSet S}
+    (FA : AlgStruct Sig A) (FB : AlgStruct Sig B) (f : SortedMap A B) : Prop :=
+  IsAlgHom Sig FA FB f ∧ ∀ s, Function.Bijective (f s)
+
+/-- A subalgebra `X ≤ A`, regarded as a `Σ`-algebra in its own right. -/
+def subAlg {S : Type u} (Sig : Signature S) {A : SSet S} (F : AlgStruct Sig A)
+    (X : Sub A) (hX : IsSubalgebra Sig F X) : Alg Sig :=
+  ⟨fun s => {a : A s // a ∈ X s},
+   fun p σ b => ⟨F p σ (fun i => (b i).1),
+     hX p σ (fun i => (b i).1) (fun i => (b i).2)⟩⟩
+
+/-- `B-D023`: a `Σ`-algebra is subfinal when it is isomorphic to a subalgebra
+of the final `Σ`-algebra `1`. -/
+def SubfinalAlg {S : Type u} (Sig : Signature S) (X : Alg Sig) : Prop :=
+  ∃ (Y : Sub (finalAlg Sig).1) (hY : IsSubalgebra Sig (finalAlg Sig).2 Y)
+    (f : SortedMap X.1 (subAlg Sig (finalAlg Sig).2 Y hY).1),
+    IsAlgIso Sig X.2 (subAlg Sig (finalAlg Sig).2 Y hY).2 f
+
 end Mslang

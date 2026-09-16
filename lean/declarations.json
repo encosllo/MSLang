@@ -275,6 +275,15 @@
         "Mslang.IsUniformAlgebraicClosureOperator"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-D023": {
+      "decls": [
+        "Mslang.finalAlg",
+        "Mslang.IsAlgIso",
+        "Mslang.subAlg",
+        "Mslang.SubfinalAlg"
+      ],
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }
