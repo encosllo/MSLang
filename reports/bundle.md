@@ -99,12 +99,12 @@ repository.
 | `evidence/E-000080.json` | `4c233e5b2ccc4f6247b77636c6e5c5ae877b51e57b7fc88d53b9abcf8845f40e` |
 | `evidence/E-000081.json` | `cd30cda9ea99f192ac221ee753471ae6b2584c5873db5f35bd9d432643e0de71` |
 | `evidence/E-000082.json` | `2930e500b824939c4da97048b57f3cfeb9341c795da56491e10820769c4a4a8d` |
-| `journal/events.jsonl` | `de343af7fad637086feb98fda400a6601e869d0ddf016564c546ac815a327d0c` |
+| `journal/events.jsonl` | `fb042cb82ec80930e0fdc6b43b18b82d25c153ea260ec85d7cff906405308b9c` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
-| `schemas/evidence.schema.json` | `4235ce098e41e968cd2854a2086d687ea32e4b9dcee07d8dd387701e36412609` |
+| `schemas/evidence.schema.json` | `cf99cb9231ca15a7ad31824fd6e156bc9602eb7d61a3741177ee17c2953c3bf9` |
 
 ## Status (validity rule applied to current evidence)
 

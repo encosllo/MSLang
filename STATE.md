@@ -2262,6 +2262,71 @@ targets, not built features (see next steps).
 
 ---
 
+## Session 49 -- 2026-09-16 -- Lean mechanical gate implemented
+
+**Goal.** Implement the `§15.6` gate (the first Revision 3 gap).
+
+**What was established (closed).**
+
+- **`scripts/lean_audit.py`** — runs `lake build` capturing the full diagnostic
+  stream, audits `#print axioms` over all **100** mapped declarations in one
+  Lean process, checks the permitted set, scans for `sorry`, and writes a
+  deterministic `blocks/lean_audit.json`; `--check` detects drift and fails when
+  the audit is not `ok`. `scripts/lean_audit_test.py` covers the parsing (8
+  checks).
+- Wired into `check_all` (**25 -> 27** checks). Current audit: 100
+  declarations, 0 warnings, 0 unpermitted axioms, 0 sorry, `ok=true`.
+- `Architecture.md` `§15.6` now names the implementation; the safe-restart
+  checklist records the ~2.5 min cost of the gate.
+
+**Honest caveat.** The gate measures build/axioms/sorry; the spec's stronger
+"refuse to issue a `build_ok` record that does not match the audit" linkage is
+still manual (the evidence writer does not consult `blocks/lean_audit.json`
+yet).
+
+---
+
+## Session 50 -- 2026-09-16 -- supersession vocabulary implemented
+
+**Goal.** Implement the `§7.2`/`§8.1` supersession vocabulary (the second
+Revision 3 gap), so the status views separate mechanical re-issues from real
+outstanding work.
+
+**What was established (closed).**
+
+- Evidence schema and `evidence.py` gained optional `supersedes` +
+  `reissue_reason`; `validate_records` self-test covers them.
+- `status.py` and the staleness view now classify each stale record as
+  **superseded** (its block/layer still has current evidence) or **awaiting**
+  (no current evidence in that layer).
+- **Design correction made during implementation:** the classification is
+  *layer-based*, not field-based. A field-based rule mislabelled the 23 legacy
+  re-issues (made before the fields existed) as awaiting; layer-based
+  classification reads them correctly as superseded. The fields remain
+  provenance (successor id + reason). `Architecture.md` `§7.2`/`§8.1` reworded
+  to match.
+- `reports/staleness.md` now reads **23 of 82 stale (23 superseded, 0
+  awaiting)**, replacing a false backlog. `check_all`: **27 passed, 0 failed**.
+
+**Honest caveat.** The 23 superseded records predate the fields, so the report
+cannot name their successors (only `supersedes`-carrying re-issues can). Future
+re-issues will.
+
+**Prioritized next steps.**
+
+1. **`definition_closure` facet split** (`§6`/`§12.3`) — the last Revision 3
+   gap, and a "big bang": splitting the closure out of `formal_statement`
+   changes the statement hash of every block with a closure, staling the
+   current correspondence/review surface. Now that the supersession vocabulary
+   exists, do it as a dedicated migration and re-issue the staled records with
+   `reissue_reason: facet-split` (content-preserving; keep the transcripts).
+2. `B-R012` (the quotient by `∇` is subfinal) and the congruence-lattice clauses
+   of `B-D024`.
+3. `B-D023`/`B-P008`/`B-R011` (subfinal cluster); `B-D010`-`B-D013`;
+   `B-P001`; `B-P006`.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
