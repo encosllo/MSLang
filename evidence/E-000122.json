@@ -1,0 +1,27 @@
+{
+  "block": "B-R014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000122",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R014 (Mslang.formation_abstract, Mslang.formation_nonempty) compiled against Mathlib v4.33.1.",
+    "#print axioms: formation_abstract none; formation_nonempty propext/Classical.choice/Quot.sound (permitted)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-R014/formal_proof",
+      "hash": "6fa5942898aedb014a331799c9fa832b6cd94e4d69a3ea0af1b26bfabcbc0229"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T16:50:48Z"
+}

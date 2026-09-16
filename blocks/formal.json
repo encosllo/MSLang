@@ -1336,6 +1336,38 @@
       "formal_statement": {
         "hash": "9bddc1c02c1acc6132bfc901a965efffaec67faf5df6311f1df5ca7cfe084e36"
       }
+    },
+    "B-R014": {
+      "decls": [
+        "Mslang.formation_abstract",
+        "Mslang.formation_nonempty"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "4a2ebde5511eb0028c18d5079e4c20806d6a4c4833c0c226586f975be57168d0"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "6fa5942898aedb014a331799c9fa832b6cd94e4d69a3ea0af1b26bfabcbc0229"
+      },
+      "formal_statement": {
+        "hash": "221fc0740820921f1c2e6d770b17b4c411fe528338a1cbdf507a0e2ec7a344d8"
+      }
     }
   },
   "source": "lean/declarations.json"

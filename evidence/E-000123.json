@@ -1,0 +1,49 @@
+{
+  "block": "B-R014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000123",
+  "findings": [
+    "Stage 1 read-back: H-closure gives abstractness (bijective hom is an epimorphism); P_fsd-closure gives nonemptiness via the empty product.",
+    "Stage 2 comparator returned equivalent; the A->B iso direction is harmless (isomorphism is symmetric), splitting the implications loses nothing, nonemptiness matches the n=0 convention.",
+    "Transcript: blocks/audits/B-R014-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-R014/definition_closure",
+      "hash": "4a2ebde5511eb0028c18d5079e4c20806d6a4c4833c0c226586f975be57168d0"
+    },
+    {
+      "artifact": "B-R014/formal_statement",
+      "hash": "221fc0740820921f1c2e6d770b17b4c411fe528338a1cbdf507a0e2ec7a344d8"
+    },
+    {
+      "artifact": "B-R014/informal_statement",
+      "hash": "6194b234d17a2a61968b4a192085fa7ca9bb9dcbe05ac8b3c358afb4cb477bf6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T16:54:29Z"
+}

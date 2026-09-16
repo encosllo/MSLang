@@ -375,6 +375,13 @@
         "Mslang.IsShSkFormation"
       ],
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-R014": {
+      "decls": [
+        "Mslang.formation_abstract",
+        "Mslang.formation_nonempty"
+      ],
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }

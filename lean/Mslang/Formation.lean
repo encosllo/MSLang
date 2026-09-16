@@ -139,4 +139,28 @@ def IsShSkFormation {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Prop 
       quotAlg Sig A.2 Φ hΦ ∈ F → quotAlg Sig A.2 Ψ hΨ ∈ F →
       quotAlg Sig A.2 (sortedEqvInf Φ Ψ) (IsCongruence_inf Sig A.2 hΦ hΨ) ∈ F)
 
+/-! ### `B-R014`: consequences of the formation axioms. -/
+
+/-- `B-R014`(1): if `F` is closed under homomorphic images, it is *abstract*:
+any algebra isomorphic to a member is again a member. (A bijective homomorphism
+is in particular an epimorphism.) -/
+theorem formation_abstract {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
+    (hH : HOperator Sig F ⊆ F) {A B : Alg Sig} (hA : A ∈ F)
+    (f : SortedMap A.1 B.1) (hf : IsAlgIso Sig A.2 B.2 f) : B ∈ F :=
+  hH ⟨A, hA, f, ⟨hf.1, fun s => (hf.2 s).2⟩⟩
+
+/-- `B-R014`(2): if `F` is closed under finite subdirect products then `F` is
+nonempty, because the empty product (`n = 0`) is the final algebra `1`, which
+is its own subdirect product. -/
+theorem formation_nonempty {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
+    (hP : PFsdOperator Sig F ⊆ F) : F.Nonempty := by
+  classical
+  let C : PEmpty.{u+1} → Alg Sig := fun i => i.elim
+  have hmem : iAlg (ι := PEmpty.{u+1}) Sig C ∈ PFsdOperator Sig F := by
+    refine ⟨PEmpty.{u+1}, inferInstance, C, ?_⟩
+    refine ⟨fun i => i.elim, ?_⟩
+    refine ⟨(fun _ a => a), ?_⟩
+    exact ⟨⟨fun _ _ _ => rfl, fun _ _ _ h => h⟩, fun i => i.elim⟩
+  exact ⟨iAlg (ι := PEmpty.{u+1}) Sig C, hP hmem⟩
+
 end Mslang

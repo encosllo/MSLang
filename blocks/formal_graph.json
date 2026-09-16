@@ -914,6 +914,31 @@
       "from": "B-R012",
       "kind": "formal_uses",
       "to": "B-P008"
+    },
+    {
+      "from": "B-R014",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-R014",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-R014",
+      "kind": "formal_uses",
+      "to": "B-D022"
+    },
+    {
+      "from": "B-R014",
+      "kind": "formal_uses",
+      "to": "B-D023"
+    },
+    {
+      "from": "B-R014",
+      "kind": "formal_uses",
+      "to": "B-D031"
     }
   ],
   "note": "Declared (formal) dependencies among mapped blocks, extracted from source by whole-identifier occurrence (Architecture.md Section 12.1)."

@@ -122,6 +122,12 @@
       "propext"
     ],
     "Mslang.finiteSubsets": [],
+    "Mslang.formation_abstract": [],
+    "Mslang.formation_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.genSet": [],
     "Mslang.hom_unique_of_subfinalAlg": [
       "Classical.choice",
@@ -335,7 +341,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 146,
+  "declarations_audited": 148,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",
