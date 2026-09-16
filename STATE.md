@@ -2118,6 +2118,56 @@ paper's many-sorted `ClSy(A)` is not separately formalized here.
 
 ---
 
+## Session 46 -- 2026-09-16 -- frontier extension: B-D020, B-D021, B-R010
+
+**Goal.** Formalize the subalgebra cluster: closed-under-operations subsets, the
+generating operator `Sg`, and the uniformity remark.
+
+**What was established (closed).**
+
+- **`B-D020` formalized**: `Mslang.IsSubalgebra` — a componentwise subset closed
+  under every formal operation.
+- **`B-D021` formalized**: `Mslang.MemSg` (inductive generation of the least
+  subalgebra containing `X`), `Mslang.Sg` (`Sg_A(X)`), `Mslang.IsGenerating`
+  (`Sg_A(X) = A`), and the order-theoretic facts `subset_Sg`,
+  `Sg_isSubalgebra`, `Sg_least`, `Sg_monotone`, `Sg_idem`, and
+  `Sg_isClosureOperator` (reusing `B-P005`'s `IsClosureOperator`).
+- **`B-R010` formalized**: `Mslang.SuppClosure` (the sort-level arity closure),
+  `Mslang.suppSub_Sg` (`supp(Sg_A(X)) = SuppClosure(supp X)`, so it depends only
+  on `Sig` and `supp X`), and `Mslang.suppSub_Sg_uniform` (the remark).
+- Mapped in `lean/declarations.json`; facets regenerated (**33 mapped blocks**).
+- Evidence **`E-000076`** (B-D020), **`E-000077`** (B-D021), **`E-000078`**
+  (B-R010), all verification `build_ok`; **`E-000079`** (B-R010 correspondence,
+  `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R010-correspondence.md`). Definitions carry verification
+  only; `B-R010` has no informal proof, so no review layer.
+- `reports/frontier.md`: unmapped blocks **98 -> 95**. Views and bundle
+  regenerated. Journal `EV-000051`. `check_all`: **25 passed, 0 failed**.
+- **Extractor fix.** `lean_facets`'s `DECL_RE` did not match `inductive`
+  declarations, so `MemSg`/`SuppClosure` were invisible to the facet extractor.
+  Added `inductive` to `DECL_RE` and a regression check to `lean_facets_test`
+  (constructors are part of the statement, no proof facet).
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals.
+`Sg_A` is encoded by the inductive predicate `MemSg` (definitionally the least
+subalgebra containing `X`). The "algebraic" part of the paper's claim (that
+`Sg_A` is an *algebraic* closure operator) is not yet formalized; only the
+closure-operator laws are.
+
+**Prioritized next steps.**
+
+1. `B-R012` (the quotient by `∇` is subfinal) and the congruence-lattice clauses
+   of `B-D024` (`∇`/`Δ`, `Cgr(A)` an algebraic closure system).
+2. `B-D022` (product of `Σ`-algebras, including `pr^i` and `<f^i>`) — the
+   product `Mslang.iAlg` already exists (mapped under `B-R009`); formalizing the
+   block properly would let it be re-mapped.
+3. The many-sorted closure-system vocabulary `B-D010`-`B-D013`
+   (`ClSy`/`ClOp`, algebraic, uniform); `B-P001` (`propssupport`); `B-P006`
+   (`CABA`, likely scope reduction); batch cosmetic docs; calibration
+   (author-gated).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
