@@ -2795,6 +2795,42 @@ congruence hypothesis is named `hΘ` explicitly.
 
 ---
 
+## Session 65 -- 2026-09-16 -- frontier: B-D031, B-D032
+
+**Goal.** The `H`/`P_fsd` operators and the definition of a formation of
+`Σ`-algebras.
+
+**What was established (closed).**
+
+- **`B-D031`** as `Mslang.HOperator` (homomorphic images of members of `F`) and
+  `Mslang.PFsdOperator` (finite subdirect products of members of `F`).
+- **`B-D032`** as `Mslang.IsAlgebraFormation` (`H(F) ⊆ F` and `P_fsd(F) ⊆ F`)
+  and `Mslang.algebraFormations` (`Form_Alg(Σ)`).
+- Mapped in `lean/declarations.json`; facets regenerated (**54 mapped blocks**).
+- Evidence **`E-000119`** (B-D031) and **`E-000120`** (B-D032), verification
+  `build_ok`. Definitions carry the verification layer only.
+- `reports/frontier.md`: unmapped blocks **79 -> 77**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000071`.
+
+**Honest caveat.** Definitions only. Two encoding notes: (a) the finite index
+set in `P_fsd` is an arbitrary *finite type* `ι` (`Fintype ι`) rather than
+`n : ℕ`/`Fin n`, to keep the index universe at `u` (an inferred `Fin n` also
+caused a metavariable mismatch); (b) `B-D032`'s nonempty and abstractness
+clauses are commented out *in the manuscript*, so the formal definition has
+only the `H`/`P_fsd` closure clauses.
+
+**Prioritized next steps.**
+
+1. `B-P015`: `F_𝔉` (the algebras isomorphic to a quotient `T_Σ(A)/Φ`) is
+   nonempty, abstract, and closed under `H`/`P_fsd` — the first substantive
+   proposition of the formation layer (needs isomorphisms, quotients, and the
+   free-algebra results).
+2. `B-R014`+ and the section's Eilenberg theorem.
+3. `B-P010` (term characterization; the unique-parsing proof) — still the gate
+   to `B-P011` existence and `B-P012`/`B-P013`.
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
