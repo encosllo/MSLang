@@ -14,6 +14,8 @@
 #   8. trust boundary tests             (representation residuals propagate)
 #   9. Lean facet tests                 (statement/proof split, irrelevance)
 #  10. Lean formal facets current       (blocks/formal{,_graph}.json drift)
+#  10b. Lean audit tests               (gate parsing, Section 15.6)
+#  10c. Lean mechanical gate current   (build+axioms+sorry, Section 15.6)
 #  11. calibration corpus + tests       (seeded mismatches, Section 11.4)
 #  12. calibration report current       (reports/calibration.md drift check)
 #  13. impact tests                     (blast radius, Sections 13.1/19)
@@ -68,6 +70,8 @@ run "status tests" python3 scripts/status_test.py
 run "trust boundary tests" python3 scripts/trust_test.py
 run "Lean facet tests" python3 scripts/lean_facets_test.py
 run "Lean formal facets current" python3 scripts/lean_facets.py --check
+run "Lean audit tests" python3 scripts/lean_audit_test.py
+run "Lean mechanical gate current" python3 scripts/lean_audit.py --check
 run "calibration corpus + tests" python3 scripts/calibration.py --self-test
 run "calibration statistics tests" python3 scripts/calibration_test.py
 run "calibration report current" python3 scripts/calibration.py --verdicts calibration/verdicts.json --check-report

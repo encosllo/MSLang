@@ -1368,8 +1368,10 @@ by the mechanical Lean gate (Section 15.6).
 
 ### 15.6 The Mechanical Lean Gate
 
-The formal side of the workspace has its own mechanical gate, and it is part of
-`check_all`, not a manual step. It exists because the three facts the
+The formal side of the workspace has its own mechanical gate (implemented by
+`scripts/lean_audit.py`, whose pure parsing is covered by
+`scripts/lean_audit_test.py`), and it is part of `check_all`, not a manual step.
+It exists because the three facts the
 verification layer depends on - that the project builds, that it builds
 cleanly, and that every reported theorem's axioms lie inside the permitted set
 - were, in early practice, asserted from a truncated console log rather than

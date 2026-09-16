@@ -1,0 +1,267 @@
+{
+  "allowlist": {
+    "axioms": [],
+    "warnings": []
+  },
+  "axioms": {
+    "Mslang.AlgStruct": [],
+    "Mslang.FiniteAlg": [],
+    "Mslang.FiniteSSet": [],
+    "Mslang.FiniteSub": [],
+    "Mslang.IsAlgHom": [],
+    "Mslang.IsAlgebraic": [],
+    "Mslang.IsClosureOperator": [],
+    "Mslang.IsClosureSystemOn": [],
+    "Mslang.IsCompletelyAdditive": [],
+    "Mslang.IsCongruence": [],
+    "Mslang.IsGenerating": [],
+    "Mslang.IsSat": [],
+    "Mslang.IsSubalgebra": [],
+    "Mslang.MemSg": [],
+    "Mslang.SSet": [],
+    "Mslang.Sg": [],
+    "Mslang.Sg_idem": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.Sg_isClosureOperator": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.Sg_isSubalgebra": [],
+    "Mslang.Sg_least": [],
+    "Mslang.Sg_monotone": [],
+    "Mslang.Signature": [],
+    "Mslang.SortedEqv": [],
+    "Mslang.SortedMap": [],
+    "Mslang.Sub": [],
+    "Mslang.Subfinal": [],
+    "Mslang.Subset": [],
+    "Mslang.SuppClosure": [],
+    "Mslang.Word": [],
+    "Mslang.concat": [],
+    "Mslang.delta": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.directImage": [],
+    "Mslang.emptyWord": [],
+    "Mslang.finOp": [],
+    "Mslang.finalSorted": [],
+    "Mslang.finiteSSet_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteSubsets": [],
+    "Mslang.iAlg": [],
+    "Mslang.iPair": [],
+    "Mslang.iPairAlg": [],
+    "Mslang.iPairAlg_unique": [
+      "Quot.sound"
+    ],
+    "Mslang.iProd": [],
+    "Mslang.iProj": [],
+    "Mslang.iProjAlg": [],
+    "Mslang.iProjAlg_iPairAlg": [
+      "Quot.sound"
+    ],
+    "Mslang.initialSorted": [],
+    "Mslang.inverseImage": [],
+    "Mslang.isAlgHom_iPairAlg": [
+      "Quot.sound"
+    ],
+    "Mslang.isAlgHom_iProjAlg": [],
+    "Mslang.isAlgHom_prAlg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isSat_iff_preimage": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.ker": [],
+    "Mslang.ker_isCongruence": [
+      "Quot.sound"
+    ],
+    "Mslang.ker_pr": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.ker_prAlg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.nabla_sat": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.nabla_sat_deltaUnion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.nabla_sat_empty": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.nabla_sat_univ": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.prAlg": [
+      "Classical.choice"
+    ],
+    "Mslang.prop_incSat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.quot": [],
+    "Mslang.quotAlg": [
+      "Classical.choice"
+    ],
+    "Mslang.quotAlgLift_comp": [
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Mslang.quotAlgLift_isAlgHom": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.quotAlgLift_unique": [
+      "Quot.sound"
+    ],
+    "Mslang.quotLift": [],
+    "Mslang.quotLift_comp": [
+      "Quot.sound"
+    ],
+    "Mslang.quotLift_unique": [
+      "Quot.sound"
+    ],
+    "Mslang.quotOp": [
+      "Classical.choice"
+    ],
+    "Mslang.quotOp_mk": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat": [],
+    "Mslang.satSets": [],
+    "Mslang.satSets_antitone": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.satSets_fix": [],
+    "Mslang.sat_antitone": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_compl": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_eq_preimage": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_extensive": [],
+    "Mslang.sat_iInter_subset": [
+      "propext"
+    ],
+    "Mslang.sat_iUnion": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_idem": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_inf": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_inf_subset": [],
+    "Mslang.sat_isAlgebraic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_isClosureOperator": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_isCompletelyAdditive": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_monotone": [],
+    "Mslang.sat_uniform": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sat_univ": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.subset_Sg": [],
+    "Mslang.supp": [],
+    "Mslang.suppAlg": [],
+    "Mslang.suppAlg_iAlg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.suppSub_Sg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.suppSub_Sg_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.suppSub_sat": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supp_quot": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supports_isClosureSystem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.wordProd": []
+  },
+  "build": {
+    "errors": [],
+    "ok": true,
+    "returncode": 0,
+    "unexpected_warnings": [],
+    "warnings": []
+  },
+  "declarations_audited": 100,
+  "declared_permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "missing_axiom_reports": [],
+  "note": "Mechanical Lean gate (Architecture.md Section 15.6). Derived by scripts/lean_audit.py; do not edit by hand.",
+  "ok": true,
+  "sorry": [],
+  "unpermitted_axioms": {}
+}
