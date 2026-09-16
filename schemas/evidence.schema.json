@@ -110,6 +110,16 @@
       "type": "string",
       "description": "Required in practice for agent producers; state plainly how independent the check was."
     },
+    "supersedes": {
+      "type": "string",
+      "pattern": "^E-[0-9]{6}$",
+      "description": "The evidence_id this record replaces (Section 7.2). Optional; set on a content-preserving re-issue."
+    },
+    "reissue_reason": {
+      "type": "string",
+      "enum": ["hash-move", "env-bump", "remap", "facet-split", "other"],
+      "description": "Why this record was re-issued over the one it supersedes (Section 7.2)."
+    },
     "findings": {
       "type": "array",
       "items": { "type": "string" }

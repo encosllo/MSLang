@@ -92,6 +92,10 @@ def new_record(args):
         record["independence_caveat"] = args.caveat
     if args.finding:
         record["findings"] = args.finding
+    if args.supersedes:
+        record["supersedes"] = args.supersedes
+    if args.reissue_reason:
+        record["reissue_reason"] = args.reissue_reason
 
     schema = json.loads(
         (ROOT / "schemas" / "evidence.schema.json").read_text(encoding="utf-8")
@@ -135,6 +139,11 @@ def main(argv):
     p.add_argument("--strength")
     p.add_argument("--caveat")
     p.add_argument("--finding", action="append")
+    p.add_argument("--supersedes")
+    p.add_argument(
+        "--reissue-reason",
+        choices=["hash-move", "env-bump", "remap", "facet-split", "other"],
+    )
     p.add_argument("--timestamp")
     p.add_argument("--write", action="store_true")
     args = ap.parse_args(argv)

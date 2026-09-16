@@ -95,6 +95,24 @@ def main():
         status.layer_status([stale_rec, fresh], REGISTRY, REP)[0] == "pass",
     )
 
+    # Supersession: a stale record in a layer that still has current evidence is
+    # superseded; one whose layer has no current evidence is awaiting.
+    successor = make_record("pass")
+    successor["evidence_id"] = "E-000002"
+    successor["supersedes"] = stale_rec["evidence_id"]
+    st, detail = status.layer_status([stale_rec, successor], REGISTRY, REP)
+    check(
+        "stale with current evidence in its layer is superseded",
+        st == "pass" and detail["superseded"] == 1 and detail["awaiting"] == 0,
+        str(detail),
+    )
+    st2, detail2 = status.layer_status([stale_rec], REGISTRY, REP)
+    check(
+        "stale with no current evidence in its layer is awaiting",
+        st2 == "stale" and detail2["superseded"] == 0 and detail2["awaiting"] == 1,
+        str(detail2),
+    )
+
     # Independent layers do not contaminate each other.
     grouped = status.group_by_block_layer([fresh, neg])
     bs = status.block_status(grouped["B-P002"], REGISTRY, REP)

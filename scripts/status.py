@@ -93,15 +93,46 @@ def record_is_current(record, registry, representation_hashes):
     return True
 
 
+def superseded_ids(records, registry, representation_hashes):
+    """Stale records whose (block, layer) still has current evidence.
+
+    A stale record is *superseded* when the same block and layer already has a
+    current record - the work it described has been redone - and *awaiting* only
+    when its layer has no current evidence at all. The optional
+    ``supersedes``/``reissue_reason`` fields (Section 7.2) record which record
+    replaced it and why; the classification itself does not depend on them, so
+    legacy re-issues made before the fields existed still classify correctly.
+    """
+    scopes_with_current = {
+        (r.get("block"), r.get("layer"))
+        for r in records
+        if record_is_current(r, registry, representation_hashes)
+    }
+    return {
+        r.get("evidence_id")
+        for r in records
+        if (r.get("block"), r.get("layer")) in scopes_with_current
+        and not record_is_current(r, registry, representation_hashes)
+    }
+
+
 def layer_status(records, registry, representation_hashes):
-    """Derive a single layer status from its records. Returns (status, detail)."""
+    """Derive a single layer status from its records. Returns (status, detail).
+
+    A stale record is *superseded* when its layer still has current evidence,
+    and *awaiting* re-audit otherwise (Section 7.2). The two are reported
+    separately so a run of content-preserving re-issues does not read as a
+    backlog of unverified claims.
+    """
     if not records:
-        return "none", {"current": 0, "stale": 0, "negative": 0}
+        return "none", {"current": 0, "stale": 0, "superseded": 0, "awaiting": 0, "negative": 0}
     current = [r for r in records if record_is_current(r, registry, representation_hashes)]
     stale = [r for r in records if r not in current]
     detail = {
         "current": len(current),
         "stale": len(stale),
+        "superseded": len(stale) if current else 0,
+        "awaiting": 0 if current else len(stale),
         "negative": sum(1 for r in current if r.get("outcome") in NEGATIVE),
     }
     if current:
@@ -170,7 +201,9 @@ def main(argv):
         for layer, st in layers.items():
             print(
                 f"  {block:10s} {layer:14s} {st['status']:12s} "
-                f"(current={st['current']} stale={st['stale']} negative={st['negative']})"
+                f"(current={st['current']} stale={st['stale']} "
+                f"superseded={st['superseded']} awaiting={st['awaiting']} "
+                f"negative={st['negative']})"
             )
     if missing:
         print(f"status: {len(missing)} block(s) have no evidence at all")

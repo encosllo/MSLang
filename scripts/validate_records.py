@@ -169,6 +169,22 @@ def self_test(schema):
     del bad3["inputs"]
     if not validate(bad3, schema):
         problems.append("missing required key was not rejected")
+    # Supersession fields (Section 7.2): optional, but typed when present.
+    with_supersede = dict(good)
+    with_supersede["supersedes"] = "E-000000"
+    with_supersede["reissue_reason"] = "remap"
+    if validate(with_supersede, schema):
+        problems.append(
+            f"valid supersession fields rejected: {validate(with_supersede, schema)}"
+        )
+    bad_reason = dict(good)
+    bad_reason["reissue_reason"] = "because"
+    if not validate(bad_reason, schema):
+        problems.append("unknown reissue_reason was not rejected")
+    bad_ref = dict(good)
+    bad_ref["supersedes"] = "E-1"
+    if not validate(bad_ref, schema):
+        problems.append("malformed supersedes reference was not rejected")
     return problems
 
 

@@ -320,13 +320,21 @@ facet wherever the layer depends on it (Section 12.3); `outcome` is from
 Section 7.4; `strength` from Section 7.3, review layer only; `git_commit` is
 optional.)
 
-Two optional fields support supersession: `supersedes` (the `evidence_id` this
-record replaces) and `reissue_reason` (`hash-move`, `env-bump`, `remap`, or
-`other`). They are recorded whenever a check is re-run on inputs that moved
-without the audited content changing. The status model (Section 8.1) uses them
-to distinguish *stale, awaiting re-audit* from *stale, superseded by a
-content-preserving re-issue*, so that a series of mechanical re-issues surfaces
-as bookkeeping rather than as a backlog of unverified claims.
+Two optional fields record supersession *provenance*: `supersedes` (the
+`evidence_id` this record replaces) and `reissue_reason` (`hash-move`,
+`env-bump`, `remap`, `facet-split`, or `other`). They are recorded whenever a
+check is re-run on inputs that moved without the audited content changing, and
+let a report name the successor and the reason.
+
+The *classification* of stale records does not depend on those fields - a
+mechanism that required every re-issue to carry them would mislabel every
+re-issue made before the fields existed. It is layer-based instead (Section
+8.1): a stale record is **superseded** when its block and layer still has a
+current record (the work was redone), and **awaiting re-audit** only when its
+layer has no current evidence at all. This is what lets a long history of
+mechanical re-issues - representation changes, environment bumps, hash moves,
+declaration remaps - read as bookkeeping rather than as a backlog of unverified
+claims, without retrofitting provenance onto immutable records.
 
 **Validity rule.** An evidence record is *current* if and only if every
 input hash equals the current hash of that artifact. Otherwise it is
@@ -492,11 +500,13 @@ A `stale` layer returns to `in_progress` when rework is scheduled, or
 directly to `pass` when an author decision record carries the evidence
 forward (for example after a purely editorial change; see Section 13.2).
 
-A `stale` layer is *awaiting re-audit* unless it has been superseded. When a
-record names a successor through `supersedes`/`reissue_reason` (Section 7.2)
-and that successor is current, the layer is `pass`; the superseded record
-remains in the store as history, but the views report it distinctly from a
-layer genuinely awaiting re-audit, so a run of mechanical re-issues (an
+At the record level, a stale record is **superseded** when its block and layer
+still has a current record, and **awaiting re-audit** otherwise (Section 7.2).
+A layer is `pass` whenever it has current evidence, so its stale records are
+superseded history; a layer is `stale` only when it has no current evidence, in
+which case its stale records are genuinely outstanding. The optional
+`supersedes`/`reissue_reason` fields name the successor and the reason but are
+not required for this classification, so a run of mechanical re-issues (an
 environment bump, a hash move, a declaration remap) does not read as a backlog
 of unverified claims.
 
