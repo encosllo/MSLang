@@ -1,0 +1,45 @@
+{
+  "block": "B-P017",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000129",
+  "findings": [
+    "Stage 1 read-back: an ShSk-formation is nonempty, H-closed, and closed under binary meets of congruence quotients; a subdirect embedding f : A -> B x C is an injective hom whose composites with both projections are surjective; the claim is A in F.",
+    "Stage 2 comparator returned equivalent; ShSk-formation clauses, the notion of subdirect embedding into the binary product B x C, the B, C in F hypotheses, and the conclusion all match, with no size or non-emptiness mismatch.",
+    "Transcript: blocks/audits/B-P017-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P017/definition_closure",
+      "hash": "dcd4d7a1dfae169dbca7112ae8d769407701b419507c9b9c87c6bb92344f7f88"
+    },
+    {
+      "artifact": "B-P017/formal_statement",
+      "hash": "6003fcb5e57ae5419ede447b01d3263c586a3023a85e838b8041ce668dad409d"
+    },
+    {
+      "artifact": "B-P017/informal_statement",
+      "hash": "42498e3efd831bf80ebd6c1f5c9bfeae7067b7c8d3495f52c7a3782f66b2d694"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T19:38:30Z"
+}

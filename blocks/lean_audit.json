@@ -128,6 +128,10 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.formation_mem_of_iso": [
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Mslang.formation_nonempty": [
       "Classical.choice",
       "Quot.sound",
@@ -162,6 +166,10 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "Mslang.isAlgIso_symm": [
+      "Classical.choice",
+      "Quot.sound"
     ],
     "Mslang.isSat_iff_preimage": [
       "Quot.sound",
@@ -199,6 +207,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.pairAlgFamily": [],
     "Mslang.prAlg": [
       "Classical.choice"
     ],
@@ -222,6 +231,11 @@
     ],
     "Mslang.quotAlgLift_unique": [
       "Quot.sound"
+    ],
+    "Mslang.quotAlg_ker_isAlgIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
     "Mslang.quotLift": [],
     "Mslang.quotLift_comp": [
@@ -301,6 +315,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.shskFormation_mem_of_subdirect_pair": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.sigmaPUnitEquiv": [],
     "Mslang.subAlg": [],
     "Mslang.subfinalAlg_iff": [
@@ -351,7 +370,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 150,
+  "declarations_audited": 155,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

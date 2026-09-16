@@ -2968,6 +2968,54 @@ further linter suppression.
 
 ---
 
+## Session 70 -- 2026-09-16 -- frontier: B-P017
+
+**Goal.** An ShSk-formation of `Σ`-algebras is closed under binary subdirect
+products.
+
+**What was established (closed).**
+
+- **`B-P017`** as `Mslang.shskFormation_mem_of_subdirect_pair`: for an
+  ShSk-formation `F`, algebras `B, C ∈ F`, and a subdirect embedding
+  `f : A → B × C`, we have `A ∈ F`. New helpers in `Mslang/Formation.lean`:
+  `pairAlgFamily` (the two-element family over `ULift.{u,0} Bool`),
+  `isAlgIso_symm` (the inverse of a bijective hom is a hom),
+  `quotAlg_ker_isAlgIso` (the first isomorphism theorem: a surjective hom
+  `f : A → B` induces an iso `A/Ker f → B`), and `formation_mem_of_iso` (the
+  converse direction of `formation_abstract`).
+- Proof: `Φ = Ker(pr^B ∘ f)`, `Ψ = Ker(pr^C ∘ f)`; `A/Φ ≅ B` and `A/Ψ ≅ C`
+  land in `F` by abstractness; ShSk meet-closure gives `A/(Φ ⊓ Ψ) ∈ F`;
+  injectivity of `f` gives `Φ ⊓ Ψ = Δ_A`, and `A/(Φ ⊓ Ψ) ≅ A`, so `A ∈ F`.
+- Mapped in `lean/declarations.json`; facets regenerated (**63 mapped blocks**).
+- Evidence **`E-000128`** (verification, `build_ok`; `propext`,
+  `Classical.choice`, `Quot.sound`) and **`E-000129`** (correspondence,
+  `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-P017-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **73 -> 72**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000076`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals.
+`pairAlgFamily` fixes the binary product as `iAlg` over `ULift.{u,0} Bool` (the
+same index-lifting convention as `B-P016`); the binary product is not a separate
+primitive. `quotAlg_ker_isAlgIso` gives the direct isomorphisms `A/Φ ≅ B`; they
+are consumed in the converse direction through `formation_mem_of_iso` because
+`formation_abstract` transports membership forward only. `funext` over the
+two-element index is what turns injectivity of `f` into `Φ ⊓ Ψ = Δ_A`, so the
+proof is specific to the binary case (the general finite product is next, in
+`B-C004`).
+
+**Prioritized next steps.**
+
+1. `B-C004`: equivalence of `DefFormAlg` (`B-D032`) and `ShSkFormAlg`
+   (`B-D033`) from `B-P016` + `B-P017` (the `n ≥ 1` induction on the finite
+   product, plus the `n = 0` subfinal base case via `B-R017`); then `B-P018`+
+   and the section's Eilenberg theorem.
+2. `B-D035`/`B-D036`: elementary translations / translations (heavy dependent
+   indexing).
+3. `B-P010` (term characterization; the unique-parsing proof).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
@@ -3010,8 +3058,9 @@ not by re-issuing.
    hygiene/propagation/status/trust/Lean-facet/Lean-audit/calibration/impact/
    discrepancy tests, decisions and bundle drift, record validation, view
    drift, and the build. The Lean mechanical gate (`scripts/lean_audit.py`,
-   Architecture.md Section 15.6) rebuilds the project, audits axioms on all 100
-   mapped declarations, and scans for `sorry`; it takes ~2.5 min because it
+    Architecture.md Section 15.6) rebuilds the project, audits axioms on every
+    mapped declaration (155 at Session 70), and scans for `sorry`; it takes
+    ~2.5 min because it
    loads Mathlib oleans, so `check_all` is no longer seconds-fast.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then

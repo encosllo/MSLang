@@ -269,4 +269,132 @@ theorem subfinalAlg_mem_of_formation {S : Type u} (Sig : Signature S) {F : Set (
     · intro i
       exact i.elim
 
+/-! ### `B-P017`: an ShSk-formation is closed under binary subdirect products. -/
+
+/-- The two-element family `{B, C}` indexing the binary product `B × C`
+(`B-D022`). The index is lifted to `Type u` because `iAlg`'s index lives in
+`Type u` while `Bool` is `Type 0` (the same convention as `B-P016`). -/
+def pairAlgFamily {S : Type u} (Sig : Signature S) (B C : Alg Sig) :
+    ULift.{u, 0} Bool → Alg Sig :=
+  fun b => Bool.rec B C b.down
+
+/-- The inverse of a bijective homomorphism is a homomorphism, so `IsAlgIso` is
+symmetric: if `f : A → B` is an isomorphism then so is its inverse. -/
+theorem isAlgIso_symm {S : Type u} (Sig : Signature S) {A B : SSet S}
+    (FA : AlgStruct Sig A) (FB : AlgStruct Sig B) {f : SortedMap A B}
+    (hf : IsAlgIso Sig FA FB f) :
+    IsAlgIso Sig FB FA (fun s => (Equiv.ofBijective (f s) (hf.2 s)).symm) := by
+  refine ⟨?_, fun s => (Equiv.ofBijective (f s) (hf.2 s)).symm.bijective⟩
+  intro p σ a
+  apply (hf.2 p.2).1
+  rw [Equiv.ofBijective_apply_symm_apply (f p.2) (hf.2 p.2)]
+  rw [hf.1 p σ (fun i => (Equiv.ofBijective (f (p.1.get i)) (hf.2 (p.1.get i))).symm (a i))]
+  exact (congrArg (FB p σ) (funext fun i =>
+    Equiv.ofBijective_apply_symm_apply (f (p.1.get i)) (hf.2 (p.1.get i)) (a i))).symm
+
+/-- The first isomorphism theorem for `Σ`-algebras: a surjective homomorphism
+`f : A → B` induces an isomorphism `A/Ker(f) → B`. -/
+theorem quotAlg_ker_isAlgIso {S : Type u} (Sig : Signature S) {A B : SSet S}
+    (FA : AlgStruct Sig A) (FB : AlgStruct Sig B) (f : SortedMap A B)
+    (hf : IsAlgHom Sig FA FB f) (hsurj : ∀ s, Function.Surjective (f s)) :
+    IsAlgIso Sig (quotAlg Sig FA (ker f) (ker_isCongruence Sig FA FB f hf)).2 FB
+      (quotLift (ker f) f (fun _ _ _ h => h)) := by
+  refine ⟨quotAlgLift_isAlgHom Sig FA FB (ker f)
+    (ker_isCongruence Sig FA FB f hf) f hf (fun _ _ _ h => h), ?_⟩
+  intro s
+  constructor
+  · intro x y hxy
+    induction x using Quotient.inductionOn with
+    | _ a =>
+      induction y using Quotient.inductionOn with
+      | _ b =>
+        have h : f s a = f s b := by simpa only [quotLift, Quotient.lift_mk] using hxy
+        exact Quotient.sound h
+  · intro b
+    rcases hsurj s b with ⟨a, ha⟩
+    exact ⟨Quotient.mk (ker f s) a, by
+      simp only [quotLift, Quotient.lift_mk]
+      exact ha⟩
+
+/-- Converse direction of `formation_abstract`: if `X ∈ F` and `F` is closed
+under homomorphic images, then every algebra isomorphic to `X` lies in `F`. -/
+theorem formation_mem_of_iso {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
+    (hH : HOperator Sig F ⊆ F) {X Y : Alg Sig} (hX : X ∈ F)
+    {f : SortedMap Y.1 X.1} (hf : IsAlgIso Sig Y.2 X.2 f) : Y ∈ F :=
+  formation_abstract Sig hH hX (fun s => (Equiv.ofBijective (f s) (hf.2 s)).symm)
+    (isAlgIso_symm Sig Y.2 X.2 hf)
+
+/-- `B-P017`: an ShSk-formation `F` is closed under binary subdirect products:
+for every `Σ`-algebra `A`, every `B, C ∈ F`, and every subdirect embedding `f`
+of `A` into `B × C`, we have `A ∈ F`. -/
+theorem shskFormation_mem_of_subdirect_pair {S : Type u} (Sig : Signature S)
+    {F : Set (Alg Sig)} (hF : IsShSkFormation Sig F) {A B C : Alg Sig}
+    (hB : B ∈ F) (hC : C ∈ F)
+    (f : SortedMap A.1 (iAlg Sig (pairAlgFamily Sig B C)).1)
+    (hf : IsSubdirectEmbedding Sig A.2 (pairAlgFamily Sig B C) f) : A ∈ F := by
+  classical
+  let pB : SortedMap (iAlg Sig (pairAlgFamily Sig B C)).1 B.1 :=
+    iProjAlg Sig (pairAlgFamily Sig B C) ⟨false⟩
+  let pC : SortedMap (iAlg Sig (pairAlgFamily Sig B C)).1 C.1 :=
+    iProjAlg Sig (pairAlgFamily Sig B C) ⟨true⟩
+  let φ : SortedMap A.1 B.1 := fun s a => pB s (f s a)
+  let ψ : SortedMap A.1 C.1 := fun s a => pC s (f s a)
+  have hφhom : IsAlgHom Sig A.2 B.2 φ := by
+    intro p σ a
+    show f p.2 (A.2 p σ a) ⟨false⟩ = B.2 p σ (fun i => f (p.1.get i) (a i) ⟨false⟩)
+    rw [hf.1.1 p σ a]
+    rfl
+  have hψhom : IsAlgHom Sig A.2 C.2 ψ := by
+    intro p σ a
+    show f p.2 (A.2 p σ a) ⟨true⟩ = C.2 p σ (fun i => f (p.1.get i) (a i) ⟨true⟩)
+    rw [hf.1.1 p σ a]
+    rfl
+  have hΦc : IsCongruence Sig A.2 (ker φ) := ker_isCongruence Sig A.2 B.2 φ hφhom
+  have hΨc : IsCongruence Sig A.2 (ker ψ) := ker_isCongruence Sig A.2 C.2 ψ hψhom
+  have hφsurj : ∀ s, Function.Surjective (φ s) :=
+    fun s => hf.2 ⟨false⟩ s
+  have hψsurj : ∀ s, Function.Surjective (ψ s) :=
+    fun s => hf.2 ⟨true⟩ s
+  have hAΦF : quotAlg Sig A.2 (ker φ) hΦc ∈ F :=
+    formation_mem_of_iso Sig hF.2.1 hB (quotAlg_ker_isAlgIso Sig A.2 B.2 φ hφhom hφsurj)
+  have hAΨF : quotAlg Sig A.2 (ker ψ) hΨc ∈ F :=
+    formation_mem_of_iso Sig hF.2.1 hC (quotAlg_ker_isAlgIso Sig A.2 C.2 ψ hψhom hψsurj)
+  have hInfF : quotAlg Sig A.2 (sortedEqvInf (ker φ) (ker ψ))
+      (IsCongruence_inf Sig A.2 hΦc hΨc) ∈ F :=
+    hF.2.2 A (ker φ) (ker ψ) hΦc hΨc hAΦF hAΨF
+  let idA : SortedMap A.1 A.1 := fun _ a => a
+  have hidA : IsAlgHom Sig A.2 A.2 idA := fun _ _ _ => rfl
+  have hle : sortedEqvLe (sortedEqvInf (ker φ) (ker ψ)) (ker idA) := by
+    intro s x y hxy
+    show x = y
+    apply hf.1.2 s
+    funext i
+    rcases i with ⟨b⟩
+    cases b
+    · exact hxy.1
+    · exact hxy.2
+  have hqhom : IsAlgHom Sig
+      (quotAlg Sig A.2 (sortedEqvInf (ker φ) (ker ψ))
+        (IsCongruence_inf Sig A.2 hΦc hΨc)).2 A.2
+      (quotLift (sortedEqvInf (ker φ) (ker ψ)) idA hle) :=
+    quotAlgLift_isAlgHom Sig A.2 A.2 (sortedEqvInf (ker φ) (ker ψ))
+      (IsCongruence_inf Sig A.2 hΦc hΨc) idA hidA hle
+  have hqbij : ∀ s, Function.Bijective
+      ((quotLift (sortedEqvInf (ker φ) (ker ψ)) idA hle) s) := by
+    intro s
+    constructor
+    · intro x y hxy
+      induction x using Quotient.inductionOn with
+      | _ a =>
+        induction y using Quotient.inductionOn with
+        | _ b =>
+          have hab : a = b := by simpa only [quotLift, Quotient.lift_mk, idA] using hxy
+          subst hab
+          rfl
+    · intro b
+      exact ⟨Quotient.mk (sortedEqvInf (ker φ) (ker ψ) s) b, by
+        simp only [quotLift, Quotient.lift_mk, idA]⟩
+  exact formation_abstract Sig hF.2.1 hInfF
+    (quotLift (sortedEqvInf (ker φ) (ker ψ)) idA hle) ⟨hqhom, hqbij⟩
+
 end Mslang

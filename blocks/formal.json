@@ -1124,6 +1124,53 @@
         "hash": "2da30f9e7ccd0e6068f81f1c6af625553ad3808b8a13cf88d37aed3b708fa5db"
       }
     },
+    "B-P017": {
+      "decls": [
+        "Mslang.pairAlgFamily",
+        "Mslang.isAlgIso_symm",
+        "Mslang.quotAlg_ker_isAlgIso",
+        "Mslang.formation_mem_of_iso",
+        "Mslang.shskFormation_mem_of_subdirect_pair"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruence_inf",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsShSkFormation",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.formation_abstract",
+          "Mslang.iAlg",
+          "Mslang.iProjAlg",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotAlgLift_isAlgHom",
+          "Mslang.quotLift",
+          "Mslang.quotOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "dcd4d7a1dfae169dbca7112ae8d769407701b419507c9b9c87c6bb92344f7f88"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "bd884b3479aa874e610e1e49d1960dcdf0965b0cfdc4a78b0ff9601cfd8a4d93"
+      },
+      "formal_statement": {
+        "hash": "6003fcb5e57ae5419ede447b01d3263c586a3023a85e838b8041ce668dad409d"
+      }
+    },
     "B-R001": {
       "decls": [
         "Mslang.SortedIso",

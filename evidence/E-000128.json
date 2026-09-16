@@ -1,0 +1,28 @@
+{
+  "block": "B-P017",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000128",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P017 (Mslang.shskFormation_mem_of_subdirect_pair, with helpers Mslang.pairAlgFamily, Mslang.isAlgIso_symm, Mslang.quotAlg_ker_isAlgIso, Mslang.formation_mem_of_iso) compiled against Mathlib v4.33.1.",
+    "#print axioms shskFormation_mem_of_subdirect_pair depends on propext, Classical.choice, Quot.sound (within the permitted set).",
+    "Proof: for an ShSk-formation F and a subdirect embedding f : A -> B x C, set Phi = Ker(pr^B . f) and Psi = Ker(pr^C . f). The first isomorphism theorem (quotAlg_ker_isAlgIso) makes A/Phi iso B and A/Psi iso C, so both quotients lie in F by abstractness (formation_abstract, via formation_mem_of_iso); ShSk meet-closure puts A/(Phi inf Psi) in F; injectivity of f gives Phi inf Psi = Delta_A, and the comparison map A/(Phi inf Psi) -> A is an isomorphism, so A in F."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-P017/formal_proof",
+      "hash": "bd884b3479aa874e610e1e49d1960dcdf0965b0cfdc4a78b0ff9601cfd8a4d93"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T19:36:15Z"
+}
