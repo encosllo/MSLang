@@ -2288,11 +2288,14 @@ targets, not built features (see next steps).
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
 7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (25 checks; exits non-zero on any failure). It covers
+   `scripts/check_all.sh` (27 checks; exits non-zero on any failure). It covers
    the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status/trust/Lean-facet/calibration/impact/discrepancy
-   tests, decisions and bundle drift, record validation, view drift, and the
-   build.
+   hygiene/propagation/status/trust/Lean-facet/Lean-audit/calibration/impact/
+   discrepancy tests, decisions and bundle drift, record validation, view
+   drift, and the build. The Lean mechanical gate (`scripts/lean_audit.py`,
+   Architecture.md Section 15.6) rebuilds the project, audits axioms on all 100
+   mapped declarations, and scans for `sorry`; it takes ~2.5 min because it
+   loads Mathlib oleans, so `check_all` is no longer seconds-fast.
 8. After editing Lean, rebuild and re-hash:
    `(unset ELAN_HOME; cd lean && lake build)` then
    `python3 scripts/lean_facets.py` (or `--check`). Confirm
@@ -2306,9 +2309,11 @@ targets, not built features (see next steps).
     artifact to audit, the consequences, and numbered options. Mechanical
     decisions are the coordinator's to take and report, never to escalate.
 12. `Architecture.md` is at **Revision 3 (frontier-hardened)** (Session 48,
-    `EV-000053`). Revision 3 specifies changes that are **not yet implemented**
-    in `scripts/`: the `§15.6` mechanical Lean gate, the `definition_closure`
-    facet split (`§6`/`§12.3`), and the `supersedes`/`reissue_reason` evidence
-    fields (`§7.2`). Until built, continue the current manual practice (build
-    with `ELAN_HOME` unset and inspect the full output, not a tail; re-issue
-    per the Session 43 rule) and treat those sections as target state.
+    `EV-000053`). Implemented in Session 49: the `§15.6` mechanical Lean gate
+    (`scripts/lean_audit.py` + `blocks/lean_audit.json`, wired into
+    `check_all`). **Still not implemented**: the `definition_closure` facet
+    split (`§6`/`§12.3`; `lean_facets.py` still folds the closure into
+    `formal_statement`) and the `supersedes`/`reissue_reason` evidence fields
+    (`§7.2`; the schema is unchanged, re-issues are noted in `findings` prose).
+    Until those land, treat those sections as target state; keep re-issuing per
+    the Session 43 rule and the `independence_caveat` convention.
