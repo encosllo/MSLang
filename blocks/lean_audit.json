@@ -221,6 +221,9 @@
       "propext"
     ],
     "Mslang.subAlg": [],
+    "Mslang.subfinalAlg_iff": [
+      "Classical.choice"
+    ],
     "Mslang.subset_Sg": [],
     "Mslang.supp": [],
     "Mslang.suppAlg": [],
@@ -261,7 +264,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 112,
+  "declarations_audited": 113,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -59,3 +59,4 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.isAlgHom_iPairAlg
 #print axioms Mslang.iProjAlg_iPairAlg
 #print axioms Mslang.iPairAlg_unique
+#print axioms Mslang.subfinalAlg_iff

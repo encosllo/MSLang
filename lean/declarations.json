@@ -284,6 +284,10 @@
         "Mslang.SubfinalAlg"
       ],
       "file": "lean/Mslang/Pilot.lean"
+    },
+    "B-P008": {
+      "decl": "Mslang.subfinalAlg_iff",
+      "file": "lean/Mslang/Pilot.lean"
     }
   }
 }

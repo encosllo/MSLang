@@ -1042,4 +1042,31 @@ def SubfinalAlg {S : Type u} (Sig : Signature S) (X : Alg Sig) : Prop :=
     (f : SortedMap X.1 (subAlg Sig (finalAlg Sig).2 Y hY).1),
     IsAlgIso Sig X.2 (subAlg Sig (finalAlg Sig).2 Y hY).2 f
 
+/-- Proposition `B-P008`: a `Σ`-algebra is subfinal if and only if its
+underlying `S`-sorted set is subfinal (`card ≤ 1` componentwise). -/
+theorem subfinalAlg_iff {S : Type u} (Sig : Signature S) (X : Alg Sig) :
+    SubfinalAlg Sig X ↔ Subfinal X.1 := by
+  constructor
+  · rintro ⟨_Y, _hY, f, hf⟩ s
+    haveI : Subsingleton ((finalAlg Sig).1 s) := inferInstanceAs (Subsingleton PUnit)
+    refine ⟨fun a b => (hf.2 s).1 ?_⟩
+    exact Subtype.ext (Subsingleton.elim (f s a).1 (f s b).1)
+  · intro hX
+    let Y : Sub (finalAlg Sig).1 := fun s => {q : PUnit | Nonempty (X.1 s)}
+    have hY : IsSubalgebra Sig (finalAlg Sig).2 Y := by
+      intro p σ _b hb
+      exact ⟨X.2 p σ (fun i =>
+        Classical.choice (show Nonempty (X.1 (p.1.get i)) from hb i))⟩
+    refine ⟨Y, hY, (fun _s a => ⟨PUnit.unit, ⟨a⟩⟩), ?_⟩
+    refine ⟨?_, ?_⟩
+    · intro p σ a
+      exact Subtype.ext rfl
+    · intro s
+      haveI : Subsingleton (X.1 s) := hX s
+      haveI : Subsingleton ((finalAlg Sig).1 s) := inferInstanceAs (Subsingleton PUnit)
+      refine ⟨fun a b _ => Subsingleton.elim a b, ?_⟩
+      intro y
+      exact ⟨Classical.choice (show Nonempty (X.1 s) from y.2),
+             Subtype.ext (Subsingleton.elim _ _)⟩
+
 end Mslang

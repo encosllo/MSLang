@@ -1,0 +1,45 @@
+{
+  "block": "B-P008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000105",
+  "findings": [
+    "Stage 1 read-back: SubfinalAlg is 'isomorphic to a subalgebra of the terminal algebra 1'; subfinalAlg_iff states the biconditional with componentwise subsingleton.",
+    "Stage 2 comparator returned equivalent; each clause (subalgebra of 1, terminal algebra, card<=1, no extra hypotheses) matches.",
+    "Transcript: blocks/audits/B-P008-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "B-P008/definition_closure",
+      "hash": "74b99e2585bb6fb3715e2dea1c65d58b502b330fed2637728f0d78cd2d2532d3"
+    },
+    {
+      "artifact": "B-P008/formal_statement",
+      "hash": "ed456f6f090861d4fb2beee37a6c20a1f5f090b08f2e73dc03b8855be24e6c9c"
+    },
+    {
+      "artifact": "B-P008/informal_statement",
+      "hash": "85ae063cc36e3fcb2374cead7f07ba35ac85bbc04b7ac719d331690333e2a0c3"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T12:17:11Z"
+}

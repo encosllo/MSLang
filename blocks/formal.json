@@ -719,6 +719,38 @@
         "hash": "b2a96d8de422df131b00de513ed79f5401fb4177f089688a55ee86938a1624b8"
       }
     },
+    "B-P008": {
+      "decls": [
+        "Mslang.subfinalAlg_iff"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsSubalgebra",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subfinal",
+          "Mslang.SubfinalAlg",
+          "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
+          "Mslang.subAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "74b99e2585bb6fb3715e2dea1c65d58b502b330fed2637728f0d78cd2d2532d3"
+      },
+      "file": "lean/Mslang/Pilot.lean",
+      "formal_proof": {
+        "hash": "3447d9687aaa8057712b969e1b4b8c6945a1dba15f833a3df0b56ac97dfd3507"
+      },
+      "formal_statement": {
+        "hash": "ed456f6f090861d4fb2beee37a6c20a1f5f090b08f2e73dc03b8855be24e6c9c"
+      }
+    },
     "B-P009": {
       "decls": [
         "Mslang.ker_isCongruence",

@@ -1,0 +1,27 @@
+{
+  "block": "B-P008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000104",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P008 (Mslang.subfinalAlg_iff) compiled against Mathlib v4.33.1.",
+    "#print axioms Mslang.subfinalAlg_iff depends on Classical.choice (within the permitted set)."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-P008/formal_proof",
+      "hash": "3447d9687aaa8057712b969e1b4b8c6945a1dba15f833a3df0b56ac97dfd3507"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T12:16:22Z"
+}
