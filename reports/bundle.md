@@ -9,11 +9,11 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `f17190f87360005bf642a6a2d4edb9d7b518e75e1730bd9fdfaf8f7dfde8fa11` |
-| `blocks/formal_graph.json` | `af2e46ace1e5007de2c258353b80916c3eda40d1cabd05c8676999ad201e2a4a` |
+| `blocks/formal.json` | `4fa8807294b828e6d5d9a23077dd32d9517da2b9acc07053eaae0a4fdde0b1ca` |
+| `blocks/formal_graph.json` | `34e28727bc6b07a0de07f2d31970ff1222ee77cb42d4698dcecef831a993a02f` |
 | `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
 | `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
-| `blocks/lean_audit.json` | `1f9c1ca98d4424d7dc4df835fdc65a802ef6ae5d383d243b25f38ea9bf5f0bc6` |
+| `blocks/lean_audit.json` | `9a26e90bc363a9d6cc2678f360541ecf363c9278462d1bfeeb0cca71b20b2ad5` |
 | `blocks/registry.json` | `4aa5522852f1a6697fdbcdf8bd757f317e83371dac9b027d326c98ecab63d982` |
 | `calibration/seeded.json` | `49f548dec238c446c1c9cf2d74c253b784aa2d009f80d8b69a2ac1b6b8c3d690` |
 | `calibration/verdicts.json` | `ee62f8bd57f5353e880bc6400b293c2646dc27637b739ac49518f124bd2719ca` |
@@ -131,7 +131,9 @@ repository.
 | `evidence/E-000111.json` | `3f81b98991dfea47dc45fdd0922c386d3468898eafedf2eb7276262cfae3287f` |
 | `evidence/E-000112.json` | `a9906e9930bde4b8d922ce5536dd53602929606f57bb2deb056ac51fb29132c8` |
 | `evidence/E-000113.json` | `676f3a4281d964ba6a130db5f3454d7fc51a486de1565e30e280ffd438550873` |
-| `journal/events.jsonl` | `bc4542ab4a334e12c3d16f4adab595a95acd2ad2149b41d49da0abfa9b80b533` |
+| `evidence/E-000114.json` | `cd3d4df905c49319da4c86d6a6749a05de5ec25119c04f7bf26379d593c6f27d` |
+| `evidence/E-000115.json` | `27a4bc369495e5a353a1fd7c3d8889308b0ee7d42158164d53cd39b56b26bef4` |
+| `journal/events.jsonl` | `b6958bfc8116eac307aaa14f8ef73a34a3a1c21e040a1f560eeaca8018676586` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
@@ -176,6 +178,8 @@ repository.
 | `B-D025` | verification | pass | 1 | 0 |
 | `B-D026` | verification | pass | 1 | 0 |
 | `B-D027` | verification | pass | 1 | 0 |
+| `B-L001` | correspondence | pass | 1 | 0 |
+| `B-L001` | verification | pass | 1 | 0 |
 | `B-P002` | correspondence | pass | 1 | 3 |
 | `B-P002` | verification | pass | 1 | 1 |
 | `B-P003` | correspondence | pass | 1 | 3 |
@@ -4728,6 +4732,84 @@ repository.
 }
 ```
 
+### E-000114
+
+```json
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000114",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-L001 (Mslang.TAlg_hom_ext) compiled against Mathlib v4.33.1.",
+    "#print axioms TAlg_hom_ext depends on Quot.sound (via funext), within the permitted set."
+  ],
+  "inputs": [
+    {
+      "artifact": "B-L001/formal_proof",
+      "hash": "914b2a30bc13f56f307675f950e661d07dfd178b757f1533067db37546782630"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-16T15:27:20Z"
+}
+```
+
+### E-000115
+
+```json
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000115",
+  "findings": [
+    "Stage 1 read-back: two homomorphisms out of the free algebra agreeing on the inserted generators are equal; proved by induction over MemSg (generator case = hypothesis, operation case = hom equations + IH).",
+    "Stage 2 comparator returned equivalent; T_Sigma(X), eta^X, IsAlgHom are the intended objects, no extra or missing hypothesis.",
+    "Transcript: blocks/audits/B-L001-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declaration and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-L001/definition_closure",
+      "hash": "aac30166156f4d77d3e3ab3ae7c0a46e80efb4be8b50bc4f659a860a3f70f5eb"
+    },
+    {
+      "artifact": "B-L001/formal_statement",
+      "hash": "266a46cd1380c931c504fd032db9f221dade062c3433c701c66ec8f893dfc2f5"
+    },
+    {
+      "artifact": "B-L001/informal_statement",
+      "hash": "fc0f1078cd4de13656d6f2c6e18bdc94751019418528ee92e49eb9a9023145d4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-16T15:28:11Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -4738,8 +4820,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 47
-- Evidence records: 113
+- Blocks with any evidence: 48
+- Evidence records: 115
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -4781,6 +4863,7 @@ assertion).
 | `B-D025` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D026` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D027` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-L001` | lemma | Preliminaries. | none | pass | pass | none | - |
 | `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
@@ -4800,7 +4883,7 @@ assertion).
 | `B-R012` | remark | Preliminaries. | none | pass | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
-82 block(s) have no evidence.
+81 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -4911,7 +4994,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`
+Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -4993,6 +5076,13 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-D027` | `B-D021` |
 | `B-D027` | `B-D023` |
 | `B-D027` | `B-D026` |
+| `B-L001` | `B-D002` |
+| `B-L001` | `B-D015` |
+| `B-L001` | `B-D016` |
+| `B-L001` | `B-D017` |
+| `B-L001` | `B-D021` |
+| `B-L001` | `B-D026` |
+| `B-L001` | `B-D027` |
 | `B-P002` | `B-D002` |
 | `B-P002` | `B-D005` |
 | `B-P003` | `B-D002` |
@@ -5146,11 +5236,11 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Blocks with no Lean counterpart (83)
+## Blocks with no Lean counterpart (82)
 
 These confirmed blocks are outside the current formalization frontier.
 
-`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R014`, `B-R015`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R014`, `B-R015`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 

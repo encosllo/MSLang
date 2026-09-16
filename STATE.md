@@ -2683,6 +2683,44 @@ mathematics and no evidence.
 2. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level — a scope decision).
 3. Batch cosmetic docs; calibration (author-gated).
 
+---
+
+## Session 62 -- 2026-09-16 -- frontier extension: B-L001
+
+**Goal.** Prove the uniqueness half of the free-algebra universal property:
+homomorphisms out of `T_Σ(X)` are determined by their values on generators.
+
+**What was established (closed).**
+
+- **`B-L001`** as `Mslang.TAlg_hom_ext`: for homomorphisms
+  `f, g : T_Σ(X) → A`, `f ∘ η^X = g ∘ η^X ⟹ f = g`, by induction over `MemSg`
+  (the generator case is the hypothesis; the operation case uses the two
+  homomorphism equations plus the induction hypothesis).
+- Mapped in `lean/declarations.json`; facets regenerated (**47 mapped blocks**).
+- Evidence **`E-000114`** (verification, `build_ok`; axiom `Quot.sound`) and
+  **`E-000115`** (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-L001-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **83 -> 82**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000068`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals.
+This is the *uniqueness* half of `B-P011`; the *existence* half (the recursive
+homomorphism `f^♯`) still needs `B-P010`'s term characterization, whose
+"unique parsing" (mutual exclusivity + uniqueness of the three term forms) is
+the genuinely hard remaining step. Two proof-engineering notes: `rw` cannot
+unfold the `etaX` def (use `simp only [etaX]`), and the subtype membership
+proofs in `MemSg`/`Sg` needed `convert` to bridge by proof irrelevance.
+
+**Prioritized next steps.**
+
+1. `B-P010` (term characterization; the unique-parsing proof) — the gate to
+   `B-P011` existence and the projective/free results (`B-P012`, `B-P013`).
+2. `B-P012`/`B-P013`: `T_Σ(X)` projective; every algebra is a quotient of a
+   free algebra (both need `B-P010`/`B-P011`).
+3. `B-C003`: `T_Σ ⊣ G_Σ` (functor-level — a scope decision).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
