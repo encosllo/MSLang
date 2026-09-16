@@ -2897,6 +2897,43 @@ subdirect embedding of the product into itself.
 
 ---
 
+## Session 68 -- 2026-09-16 -- frontier: B-P016
+
+**Goal.** A formation of `Σ`-algebras satisfies the `B-D033` intersection
+closure of congruences.
+
+**What was established (closed).**
+
+- **`B-P016`** as `Mslang.formation_congInf`: for a formation `F`, algebra `A`,
+  and congruences `Φ, Ψ` with `A/Φ, A/Ψ ∈ F`, the quotient `A/(Φ ⊓ Ψ) ∈ F`.
+- Proof: build the subdirect embedding `⟨p^{Φ⊓Ψ,Φ}, p^{Φ⊓Ψ,Ψ}⟩` of `A/(Φ⊓Ψ)`
+  into the finite product `A/Φ × A/Ψ` (`quotLift` over the meet `B-P009`/`B-P007`,
+  paired via `iPairAlg` `B-D022` over a lifted 2-element index); prove hom,
+  injectivity (the meet refines both factors), and projection-surjectivity; then
+  `P_fsd`-closure applies.
+- Mapped in `lean/declarations.json`; facets regenerated (**60 mapped blocks**).
+- Evidence **`E-000124`** (verification, `build_ok`; `propext`, `Classical.choice`,
+  `Quot.sound`) and **`E-000125`** (correspondence, `equivalent`; two-stage
+  blind; transcript `blocks/audits/B-P016-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **75 -> 74**. `check_all`: **27
+  passed, 0 failed**. Journal `EV-000074`.
+
+**Honest caveat.** Same-model audit; inherits the pilot-encoding residuals. The
+2-element product index must be lifted (`ULift.{u,0} Bool`) because `iAlg`'s
+index lives in `Type u` while `Bool` is `Type 0`; `simpa` did not fold
+`iPairAlg`/`g`, so the surjectivity witnesses needed explicit `change`.
+
+**Prioritized next steps.**
+
+1. `B-P017`/`B-C004`: equivalence of the two formation definitions (needs
+  `B-P016` plus the subdirect-product machinery); then `B-P018`+ and the
+  section's Eilenberg theorem.
+2. `B-D035`/`B-D036`: elementary translations / translations (heavy dependent
+  indexing).
+3. `B-P010` (term characterization; the unique-parsing proof).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
