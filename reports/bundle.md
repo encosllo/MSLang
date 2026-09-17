@@ -16,7 +16,7 @@ repository.
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
 | `blocks/lean_audit.json` | `d2bb4672aee8a15f81534ce150166d2a8ebb631f7e6b70b788ab0816e0e05e61` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
-| `blocks/scope_decisions.json` | `bf88a545e2de34a90810d1b2aa15342f320ed6cb707aed5872b9cb5d88af0f5e` |
+| `blocks/scope_decisions.json` | `82e562d98817f6f068ce690a3ada1246149cdcf0cd9a37cc4c866a407a27c8b4` |
 | `blocks/treatment_tiers.json` | `6542301a4c092696fda9b1925825685f9890c2dedf6c077d49bb782da24d2158` |
 | `calibration/baseline.json` | `c10a03ea904ab834070a8da546e88da7b18e91f5241486e07c5297bb9f3dbe2e` |
 | `calibration/generated.json` | `f404e40777743c210acc102f2955720cda2bbf955acf4fd32696c5cc652ec16d` |
@@ -188,7 +188,7 @@ repository.
 | `evidence/E-000162.json` | `184364d4ae884048cda9174fe52f0d96e72dedb07a4fcda905bd42488b77aac3` |
 | `evidence/E-000163.json` | `77e9adb7d8780fa04b6d18e86d60e69b7a70626111774cbd349495b0d261ec05` |
 | `evidence/E-000164.json` | `8610f50bdc20dfe364e00d8dc4d4e0cb63759f9e34e1612778ce0b3d0d052c5c` |
-| `journal/events.jsonl` | `5b496212e474b5266f18b7c6ca84290e932e737402993c526381bacf106484f0` |
+| `journal/events.jsonl` | `cfda5fcd8157fddc4c7b1203226090df02cd81db5599f06837d615ca7238f67e` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
@@ -7565,20 +7565,14 @@ assumed worth formalizing.
 
 | disposition | count |
 |---|---|
-| worth-formalizing | 0 |
-| deferred | 0 |
+| worth-formalizing | 33 |
+| deferred | 20 |
 | out-of-scope | 0 |
-| undecided | 53 |
+| undecided | 0 |
 
 ### Open obligations (53)
 
 Unmapped blocks not marked `out-of-scope`.
-
-`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
-
-### Undecided (53)
-
-Awaiting an author scope disposition.
 
 `B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 

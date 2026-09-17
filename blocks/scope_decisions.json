@@ -1,4 +1,270 @@
 {
-  "note": "Scope dispositions for confirmed blocks with no Lean counterpart (Architecture.md Sections 16.4, 17, 19). Author-reserved: a disposition is set only by an author decision (decided_by must begin with 'author:'). A block absent here is undecided, not assumed worth formalizing. Allowed values: worth-formalizing, deferred, out-of-scope.",
-  "dispositions": {}
+  "dispositions": {
+    "B-A001": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C003": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
+    },
+    "B-C005": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C006": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C007": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C008": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C009": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C010": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C011": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C012": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-C013": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D040": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D041": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D042": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D043": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D044": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D045": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-D046": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P001": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P006": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P010": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
+    },
+    "B-P011": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
+    },
+    "B-P012": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
+    },
+    "B-P013": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
+    },
+    "B-P014": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P015": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P019": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P020": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P029": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P030": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P031": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P032": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P033": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P034": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P035": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P036": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "No-proof lattice statement, likely subsumed by the surrounding algebraic-lattice results; author scope triage Session 82."
+    },
+    "B-P037": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P038": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-P039": {
+      "decided_by": "author:session82",
+      "disposition": "worth-formalizing",
+      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
+    },
+    "B-R002": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R004": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R013": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R015": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R016": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R019": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R022": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R023": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R024": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R025": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R026": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-R027": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-X001": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    },
+    "B-X002": {
+      "decided_by": "author:session82",
+      "disposition": "deferred",
+      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+    }
+  },
+  "note": "Scope dispositions for confirmed blocks with no Lean counterpart (Architecture.md Sections 16.4, 17, 19). Author-reserved: a disposition is set only by an author decision (decided_by must begin with 'author:'). A block absent here is undecided, not assumed worth formalizing. Allowed values: worth-formalizing, deferred, out-of-scope."
 }

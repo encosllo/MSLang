@@ -3872,6 +3872,19 @@ matching `B-R018`.
    for the 53 unmapped blocks, the discrepancy review queue; declare a second
    model to clear `provisional` layers.
 
+**Session 82 (continued) -- author scope triage.** The author triaged all 53
+unmapped blocks (the conservative option 1): **33 worth-formalizing** (both
+Eilenberg theorems and their load-bearing support), **20 deferred** (the
+free-algebra cluster `B-P010`-`B-P013`, `B-C003` pending the term
+characterization; `B-P036` as a subsumed lattice statement; and 12 remarks + 2
+examples), **0 out-of-scope**. Recorded in `blocks/scope_decisions.json`
+(`decided_by author:session82`) with journal `EV-000092`; `reports/frontier.md`
+now reports the triage, so the 53 are classified rather than undecided. Because
+nothing was marked `out-of-scope`, the open-obligation list is still 53 -- the
+classification, not a shorter list, is the deliverable (option 2 would have
+removed the 14 illustrative blocks from obligations). `check_all`: **34 passed,
+0 failed, 3 deferred**. Next: resume the frontier with `B-C005`.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**

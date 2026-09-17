@@ -23,6 +23,7 @@
         "status_change",
         "change_classified",
         "salvage_decision",
+        "scope_decision",
         "block_minted",
         "block_superseded",
         "representation_revision",
