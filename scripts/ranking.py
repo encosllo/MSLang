@@ -8,11 +8,13 @@ Two stages, both advisory:
    (dependency -> user) with restart mass over result-bearing blocks. On a DAG
    this concentrates on sinks, so the shortlist is "the results with the largest
    supporting foundation" - a size proxy, not a value judgement. The author
-   designates the goal in ``blocks/ranking.json`` (author-reserved).
-2. **Next step (forward rank).** Restricted to the goal's transitive ancestor
-   set, PageRank conditioned on the goal; the recommendation is the highest
-   ranked prerequisite that is undone and ready. The goal itself is never
-   recommended.
+   designates one or more goals in ``blocks/ranking.json`` (author-reserved).
+2. **Next step (forward rank).** Restricted to the union of the goals' transitive
+   ancestor sets, PageRank conditioned on the goal set; the recommendation is the
+   highest ranked prerequisite that is undone and ready and is not a terminal
+   goal (a goal that is a prerequisite of another designated goal may be
+   recommended). The report names, per ranked block, the goals it contributes
+   to.
 
 The ranking consumes *all* edges (confirmed and candidate), weighted by source
 (an author-written citation above extracted symbol usage), minus edges disposed
@@ -26,6 +28,8 @@ Usage:
     python3 scripts/ranking.py --check
     python3 scripts/ranking.py --set-goal --block B-P035 \
         --decided-by author:session83 --rationale "second Eilenberg theorem"
+    python3 scripts/ranking.py --remove-goal --block B-P035 \
+        --decided-by author:session83
 """
 from __future__ import annotations
 
@@ -75,8 +79,6 @@ def save_store(path, goals):
 
 def validate(goals):
     errors = []
-    if len(goals) > 1:
-        errors.append(f"at most one goal is supported; found {len(goals)}")
     for block, entry in sorted(goals.items()):
         if not BLOCK_RE.match(block):
             errors.append(f"{block}: not a block id")
@@ -213,18 +215,27 @@ def ancestors(goal, dep):
     return seen
 
 
-def forward_rank(goal, dep):
-    """Rank the goal's ancestors conditioned on the goal (goal excluded)."""
-    anc = ancestors(goal, dep)
-    if not anc:
-        return {}, []
-    nodes = sorted(anc | {goal})
+def forward_rank(goal_set, dep):
+    """Rank the union of the goals' ancestors, conditioned on the goal set.
+
+    Restart mass is spread uniformly over the designated goals. Returns
+    ``(ranks, ancestors_by_goal, union)``; ``ranks`` covers the union only, so
+    the goals themselves are never ranked.
+    """
+    anc_by_goal = {g: ancestors(g, dep) for g in goal_set}
+    union = set()
+    for anc in anc_by_goal.values():
+        union |= anc
+    if not union:
+        return {}, anc_by_goal, union
+    nodes = sorted(union | set(goal_set))
     sub = {
         x: {m: w for m, w in dep.get(x, {}).items() if m in nodes}
         for x in nodes
     }
-    pr = pagerank(nodes, sub, {goal: 1.0})
-    return {x: pr[x] for x in anc}, sorted(anc)
+    seed = {g: 1.0 for g in goal_set if g in nodes}
+    pr = pagerank(nodes, sub, seed)
+    return {b: pr[b] for b in union}, anc_by_goal, union
 
 
 # --- Report ------------------------------------------------------------------
@@ -278,43 +289,60 @@ def render(store_path, graph_path, discrepancy_path, registry_path, declarations
             f"{'yes' if block in done else 'no'} | {_fmt(score)} |"
         )
 
-    lines += ["", "## Designated goal", ""]
+    lines += ["", "## Designated goal set", ""]
+    valid_goals = sorted(g for g in goals if g in blocks)
     if not goals:
         lines += [
-            "**Undecided.** The author designates the goal from the shortlist "
-            "above; no goal is adopted automatically. Record one with "
+            "**Undecided.** The author designates one or more goals from the "
+            "shortlist above; no goal is adopted automatically. Record one with "
             "`python3 scripts/ranking.py --set-goal --block B-... "
             "--decided-by author:... --rationale \"...\"`.",
         ]
     else:
-        goal = sorted(goals)[0]
-        entry = goals[goal]
-        kind = blocks.get(goal, {}).get("kind", "")
-        lines += [
-            f"`{goal}` ({kind}) - {entry.get('rationale', '')} "
-            f"[{entry.get('decided_by', '')}]",
-        ]
-        if goal not in blocks:
-            lines += ["", "**Goal is not a registry block; no ranking produced.**"]
+        for g in sorted(goals):
+            entry = goals[g]
+            kind = blocks.get(g, {}).get("kind", "")
+            mark = "" if g in blocks else " **(not a registry block)**"
+            lines.append(
+                f"- `{g}` ({kind}) - {entry.get('rationale', '')} "
+                f"[{entry.get('decided_by', '')}]{mark}"
+            )
+        if not valid_goals:
+            lines += [
+                "",
+                "**No designated goal is a registry block; no ranking produced.**",
+            ]
         else:
-            ranks, anc = forward_rank(goal, dep)
-            undone = [b for b in anc if b not in done]
+            ranks, anc_by_goal, union = forward_rank(valid_goals, dep)
+            # A terminal goal (one no other designated goal depends on) is a
+            # target, not a step; a goal that is a prerequisite of another goal
+            # is a legitimate next step.
+            terminal_goals = {
+                g for g in valid_goals
+                if not any(g in anc_by_goal[g2] for g2 in valid_goals if g2 != g)
+            }
+            undone = [
+                b for b in union if b not in done and b not in terminal_goals
+            ]
             ranked = sorted(undone, key=lambda b: (-ranks.get(b, 0.0), b))
             ready = [b for b in ranked if is_ready(b, dep, done)]
             rec = ready[0] if ready else None
             lines += [
                 "",
-                "## Next step (target-conditioned forward rank)",
+                "## Next step (goal-set-conditioned forward rank)",
                 "",
-                f"- goal ancestors (transitive prerequisites): {len(anc)}",
+                f"- designated goals: {len(valid_goals)}; union of ancestors: "
+                f"{len(union)}",
                 f"- undone: {len(undone)}; ready: {len(ready)}",
                 "",
             ]
             if rec:
                 b = blocks[rec]
+                shared = [g for g in valid_goals if rec in anc_by_goal[g]]
                 lines += [
                     f"**Recommended next step: `{rec}`** ({b.get('kind', '')}, "
-                    f"score {_fmt(ranks[rec])}).",
+                    f"score {_fmt(ranks[rec])}; contributes to "
+                    f"{', '.join('`' + g + '`' for g in shared)}).",
                 ]
             else:
                 lines += [
@@ -323,18 +351,19 @@ def render(store_path, graph_path, discrepancy_path, registry_path, declarations
                 ]
             lines += [
                 "",
-                "| rank | block | kind | ready | score |",
-                "|---|---|---|---|---|",
+                "| rank | block | kind | ready | goals | score |",
+                "|---|---|---|---|---|---|",
             ]
             for i, block in enumerate(ranked, 1):
                 b = blocks[block]
+                gs = ", ".join(g for g in valid_goals if block in anc_by_goal[g])
                 lines.append(
                     f"| {i} | `{block}` | {b.get('kind', '')} | "
                     f"{'yes' if is_ready(block, dep, done) else 'no'} | "
-                    f"{_fmt(ranks.get(block, 0.0))} |"
+                    f"{gs} | {_fmt(ranks.get(block, 0.0))} |"
                 )
             if not ranked:
-                lines.append("| _none_ | | | | |")
+                lines.append("| _none_ | | | | | |")
 
     if excluded or unresolved:
         lines += ["", "## Notes", ""]
@@ -364,6 +393,7 @@ def main(argv):
     ap.add_argument("--discrepancy", default=str(DEFAULT_DISCREPANCY))
     ap.add_argument("--declarations", default=str(DEFAULT_DECLARATIONS))
     ap.add_argument("--set-goal", action="store_true")
+    ap.add_argument("--remove-goal", action="store_true")
     ap.add_argument("--block")
     ap.add_argument("--decided-by", default="")
     ap.add_argument("--rationale", default="")
@@ -401,10 +431,28 @@ def main(argv):
         if not args.block or not BLOCK_RE.match(args.block):
             print("ranking: --block must be a B-... id", file=sys.stderr)
             return 1
-        save_store(args.store, {
-            args.block: {"decided_by": args.decided_by, "rationale": args.rationale}
-        })
-        print(f"ranking: goal = {args.block}")
+        goals[args.block] = {
+            "decided_by": args.decided_by,
+            "rationale": args.rationale,
+        }
+        save_store(args.store, goals)
+        print(f"ranking: goal set = {', '.join(sorted(goals))}")
+        return 0
+
+    if args.remove_goal:
+        if not check_author(args.decided_by):
+            print(
+                "ranking: refusing to remove a goal without an author decision "
+                "(--decided-by author:...)",
+                file=sys.stderr,
+            )
+            return 1
+        if not args.block or args.block not in goals:
+            print("ranking: --block is not a designated goal", file=sys.stderr)
+            return 1
+        del goals[args.block]
+        save_store(args.store, goals)
+        print(f"ranking: goal set = {', '.join(sorted(goals)) or '(empty)'}")
         return 0
 
     text = render(args.store, args.graph, args.discrepancy, args.registry,

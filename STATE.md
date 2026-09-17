@@ -4038,6 +4038,73 @@ next buildable prerequisite. Advisory only.
 
 ---
 
+## Session 85 -- 2026-09-17 -- multi-goal ranking (OpenSpec change)
+
+**Goal.** Extend `scheduling/ranking` so the author's goal is a *set*, not a
+single block, and record the author's goal (both Eilenberg theorems). Implement
+`multi-goal-ranking`.
+
+**What was established (closed).**
+
+- **Goal set store.** `validate` no longer caps at one goal; `--set-goal`
+  adds/updates and a new `--remove-goal` removes (both author-reserved).
+- **Forward rank over the set.** Restart mass is spread over the designated
+  goals; the ranking covers the union of their ancestor sets, and the report
+  names, per ranked block, which designated goals it contributes to.
+- **Mid-implementation spec amendment (author option 1).** A *terminal* goal (a
+  designated goal that no other designated goal depends on) is never
+  recommended, but a designated goal that is a **prerequisite of another
+  designated goal** MAY be. Without this, `B-P020` - a goal and a prerequisite of
+  `B-P034` - was wrongly suppressed. Requirement and a new scenario updated in
+  the delta and synced to the main spec.
+- **Author goal set recorded** (`author:session84`), the two Eilenberg theorems
+  as three headline statements:
+  - `B-P020` first theorem: `Form_Alg(Σ) ≅ Form_Cgr(Σ)`
+  - `B-P034` second (half): `Form_Alg_f(Σ) ≅ Form_Cgr_fi(Σ)`
+  - `B-P039` second (half): `Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`
+- **Recommendation.** `reports/ranking.md` recommends **`B-P020`** (ready, score
+  0.1667, contributes to `B-P034`); next ready shared foundations `B-D040`
+  (`{B-P034, B-P039}`) and `B-D042`.
+- **Tests.** Extended for two goals, add/remove, agent refusal, shared
+  prerequisite, per-goal column, and the prerequisite-goal recommendation;
+  `ranking_test` green.
+- **OpenSpec.** proposal/specs/design/tasks complete; archived to
+  `openspec/changes/archive/2026-09-17-multi-goal-ranking/`; main spec
+  `scheduling/ranking` synced; `openspec validate --specs` 8 passed, 0 failed.
+- **Bundle** regenerated (`blocks/ranking.json` + `reports/ranking.md` embedded).
+
+**Findings.**
+
+- The reverse-rank top pick `B-P035` ("Def1FRL and Def2FRL are equivalent") is a
+  large *supporting* proposition, not a headline - the size proxy surfaced it,
+  confirming that author designation is the correction. The paper's Eilenberg
+  theorems are `B-P020`, `B-P034`, `B-P039`.
+- The second theorem's two halves (`B-P034`, `B-P039`) are mutually independent,
+  but `B-P034` uses the first theorem (`B-P020`) - so a single goal was
+  insufficient and a goal set was required.
+- Excluding *all* designated goals from the recommendation hid a valid next step;
+  the terminal/prerequisite distinction fixes it.
+
+**Gate.** `scripts/check_all.sh`: **43 passed, 0 failed** (Session 85).
+
+**Honestly deferred / author-reserved.**
+
+- The 113 recovered candidate edges remain unconfirmed; evidence re-issue is
+  deferred (Session 83).
+- `\Sub` context rule (`dependencies/notation` amendment).
+- Cost/risk weighting and a per-goal separate recommendation (design open
+  questions).
+
+**Prioritized next steps.**
+
+1. Formalize `B-P020` (the ranking's recommendation; all its prerequisites are
+   mapped), then the shared foundations `B-D040`/`B-D042` or `B-P020`'s sequel
+   toward `B-P034`/`B-P039`.
+2. Edge confirmation + evidence re-issue for the 113 candidates.
+3. `\Sub` context rule (`dependencies/notation` amendment).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

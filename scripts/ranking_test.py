@@ -45,6 +45,8 @@ def fixture(tmp):
         {"from": "B-P003", "to": "B-D002", "kind": "uses_definition", "source": "symbol"},
         {"from": "B-D002", "to": "B-D000", "kind": "uses_definition", "source": "symbol"},
         {"from": "B-P009", "to": "B-D001", "kind": "uses_definition", "source": "explicit"},
+        {"from": "B-P009", "to": "B-D000", "kind": "uses_definition", "source": "explicit"},
+        {"from": "B-P009", "to": "B-P003", "kind": "uses_definition", "source": "explicit"},
         {"from": "B-P003", "to": "B-Z999", "kind": "uses_definition", "source": "symbol"},
     ]}
     reg_p = Path(tmp) / "registry.json"
@@ -76,9 +78,9 @@ def main():
     check("an invalid goal target is rejected",
           ranking.validate({"nope": {"decided_by": "author:x"}}) != [])
     check("an agent cannot set a goal", not ranking.check_author("agent:opencode"))
-    check("more than one goal is rejected",
+    check("multiple goals validate",
           ranking.validate({"B-D000": {"decided_by": "author:x"},
-                            "B-D001": {"decided_by": "author:x"}}) != [])
+                            "B-D001": {"decided_by": "author:x"}}) == [])
     with tempfile.TemporaryDirectory() as tmp:
         store = Path(tmp) / "ranking.json"
         jwrite(store, {"note": "t", "goals": {}})
@@ -91,6 +93,18 @@ def main():
         check("the CLI accepts an author goal", rc2 == 0)
         check("the goal survives a reload",
               "B-P003" in ranking.load_store(store))
+        ranking.main(["--store", str(store), "--set-goal", "--block", "B-D000",
+                      "--decided-by", "author:test"])
+        check("a second goal is added, not replacing the first",
+              set(ranking.load_store(store)) == {"B-P003", "B-D000"})
+        rc3 = ranking.main(["--store", str(store), "--remove-goal", "--block", "B-D000",
+                            "--decided-by", "agent:opencode"])
+        check("an agent cannot remove a goal",
+              rc3 == 1 and "B-D000" in ranking.load_store(store))
+        rc4 = ranking.main(["--store", str(store), "--remove-goal", "--block", "B-D000",
+                            "--decided-by", "author:test"])
+        check("an author can remove a goal",
+              rc4 == 0 and set(ranking.load_store(store)) == {"B-P003"})
 
     # Edge weighting and disposition exclusion.
     explicit = ranking.edge_weight({"kind": "uses_definition", "source": "explicit"}, {})
@@ -127,6 +141,20 @@ def main():
         forward = text.split("## Next step")[1] if "## Next step" in text else ""
         check("a block outside the ancestor set is not ranked",
               "`B-P009`" not in forward, forward)
+
+        # Goal set: shared prerequisite recommended, per-goal breakdown.
+        jwrite(store_p, {"note": "t", "goals": {
+            "B-P003": {"decided_by": "author:test"},
+            "B-P009": {"decided_by": "author:test"}}})
+        text = ranking.render(*args)
+        check("multi-goal recommends a shared prerequisite",
+              "Recommended next step: `B-D000`" in text, text)
+        check("per-goal column names both goals for a shared block",
+              "B-P003, B-P009" in text, text)
+        forward = text.split("## Next step")[1] if "## Next step" in text else ""
+        check("a terminal goal is not recommended or ranked",
+              "Recommended next step: `B-P009`" not in forward
+              and "| `B-P009` |" not in forward, forward)
         check("an unresolved edge is named, not dropped",
               "B-P003->B-Z999" in text)
 
@@ -137,6 +165,30 @@ def main():
                       "--declarations", str(decl_p)])
         after = digest_dir(HERE.parent / "evidence")
         check("running the ranking changes no evidence", before == after)
+
+    # Prerequisite goal: a goal that another designated goal depends on may be
+    # recommended, unlike a terminal goal.
+    with tempfile.TemporaryDirectory() as tmp:
+        jwrite(Path(tmp) / "registry.json", {"blocks": [
+            {"id": "B-D001", "kind": "definition", "status": "confirmed"},
+            {"id": "B-P003", "kind": "proposition", "status": "confirmed"},
+            {"id": "B-P009", "kind": "proposition", "status": "confirmed"},
+        ]})
+        jwrite(Path(tmp) / "graph.json", {"edges": [
+            {"from": "B-P003", "to": "B-D001", "kind": "uses_definition", "source": "explicit"},
+            {"from": "B-P009", "to": "B-D001", "kind": "uses_definition", "source": "explicit"},
+            {"from": "B-P009", "to": "B-P003", "kind": "uses_definition", "source": "explicit"},
+        ]})
+        jwrite(Path(tmp) / "disc.json", {"dispositions": {}})
+        jwrite(Path(tmp) / "decl.json", {"blocks": {"B-D001": {}}})
+        jwrite(Path(tmp) / "ranking.json", {"goals": {
+            "B-P003": {"decided_by": "author:t"},
+            "B-P009": {"decided_by": "author:t"}}})
+        text = ranking.render(str(Path(tmp) / "ranking.json"),
+                              str(Path(tmp) / "graph.json"), str(Path(tmp) / "disc.json"),
+                              str(Path(tmp) / "registry.json"), str(Path(tmp) / "decl.json"))
+        check("a prerequisite goal may be recommended",
+              "Recommended next step: `B-P003`" in text, text)
 
     # Real corpus: the shortlist surfaces the headline results.
     real = ranking.render(str(ranking.DEFAULT_STORE), str(ranking.DEFAULT_GRAPH),

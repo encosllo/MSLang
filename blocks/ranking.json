@@ -1,4 +1,17 @@
 {
-  "note": "Author-reserved ranking goal (Architecture.md Sections 12.1, 16.4, 17.1). Keyed by the goal block; each entry carries decided_by (must begin 'author:') and rationale. reports/ranking.md proposes a reverse-rank shortlist; the goal is adopted only by an author decision recorded here. At most one goal is supported (a multi-goal portfolio is an open question in the change design).",
-  "goals": {}
+  "goals": {
+    "B-P020": {
+      "decided_by": "author:session84",
+      "rationale": "first Eilenberg theorem: Form_Alg(S) iso Form_Cgr(S)"
+    },
+    "B-P034": {
+      "decided_by": "author:session84",
+      "rationale": "second Eilenberg theorem (half): Form_Alg_f(S) iso Form_Cgr_fi(S)"
+    },
+    "B-P039": {
+      "decided_by": "author:session84",
+      "rationale": "second Eilenberg theorem (half): Form_Cgr_fi(S) iso Form_Lang_r(S)"
+    }
+  },
+  "note": "Author-reserved ranking goal set (Architecture.md Sections 12.1, 16.4, 17.1). Keyed by goal block; each entry carries decided_by (must begin 'author:') and rationale. reports/ranking.md proposes a reverse-rank shortlist; the goal set, one or more goals, is adopted only by an author decision recorded here. The next-step recommendation is conditioned on the union of the goals' ancestor sets."
 }
