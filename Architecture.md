@@ -641,6 +641,7 @@ The pilot's layout, coarse to fine along the dependency chain, with the umbrella
 | `Mslang/Congruence.lean` | congruences and the quotient `Σ`-algebra (`B-D024`, `B-D025`, `B-P009`) |
 | `Mslang/Subfinal.lean` | the final algebra `1`, algebra isomorphisms, the subfinal results (`B-D023`, `B-P008`, `B-R011`, `B-R012`) |
 | `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` and the free `Σ`-algebra `T_Σ(X)` (`B-D026`, `B-D027`) |
+| `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor: the free universal property (`termLift`, existence and uniqueness), projectivity (`term_projective`), and the evaluation onto an algebra (`termEval_surjective`) |
 | `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), opening the formation-theoretic layer |
 | `Mslang/Translation.lean` | elementary translations and translations (`B-D035`, `B-D036`), the actions `T[·]`/`T⁻¹[·]` and the cogenerated congruence (`B-D037`, `B-D038`), and the congruence characterization (`B-P021`) |
 

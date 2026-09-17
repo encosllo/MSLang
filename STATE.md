@@ -4105,6 +4105,60 @@ single block, and record the author's goal (both Eilenberg theorems). Implement
 
 ---
 
+## Session 86 -- 2026-09-17 -- free-algebra universal property (`Mslang.Term`)
+
+**Goal.** Take the first infrastructure step toward `B-P020` (the ranking's
+recommendation) after reconnaissance showed the word-based free algebra cannot
+support its proof.
+
+**Reconnaissance (blocker found).** `B-P020`'s mapped prerequisites all exist
+(`IsCongruenceFormation`, `IsAlgebraFormation`, `HOperator`/`PFsdOperator`,
+`formationGenerating`, `formation_congInf`, `quotAlg_ker_isAlgIso`, ...), but the
+proof needs facts the development lacks: the free universal property's
+*existence* half, projectivity of the free algebra, and quotient-of-a-quotient /
+coproduct facts. `TAlg` (`Free.lean`) is a `Sg`-generated subalgebra of `W_Σ(X)`
+and `MemSg` is a `Prop`, so it supports only the uniqueness half
+(`TAlg_hom_ext`); a data-valued recursor is required. **Finding:** the ranking's
+`done`/`ready` predicate (a block mapped, its prerequisites mapped) is necessary
+but not sufficient - `B-P020` is dependency-ready but not proof-ready, the first
+case of the `STATE.md` Session 53 caveat.
+
+**What was established (closed).**
+
+- **New module `lean/Mslang/Term.lean`** (imports `Mslang.Free`): the free
+  `Σ`-algebra `Term_Σ(X)` as an inductive `Type` with a recursor.
+  - `Term`, `termAlg`, `termEta`.
+  - **Free universal property (existence and uniqueness):** `termLift`,
+    `termLift_isAlgHom`, `termLift_eta`, `termLift_unique`.
+  - **Every algebra is a quotient of a free algebra:** `termEval`,
+    `termEval_isAlgHom`, `termEval_surjective`.
+  - **Projectivity of the free algebra:** `term_projective`.
+- Wired into the library: `import Mslang.Term` and five `#print axioms` lines in
+  `lean/Mslang.lean`; a `Mslang/Term.lean` row in the `Architecture.md` §10.2
+  module table; the safe-restart module list updated.
+- **Gate.** `scripts/lean_audit.py`: 223 declarations, 0 warnings, 0 `sorry`,
+  `ok=True`. `scripts/check_all.sh`: **43 passed, 0 failed**.
+
+**Honestly deferred (not started).**
+
+- `B-P020` itself: still needs the round trips `F = F_{𝔉_F}` and
+  `𝔉 = 𝔉_{F_𝔉}` built on `termEval_surjective` and `term_projective`, an
+  isomorphism connecting `Term` to the word-based `TAlg`, and the
+  quotient/coproduct facts.
+- No block was formalized and no evidence record was created: this module is
+  infrastructure (like `isAlgIso_symm`), so it carries no block and no layer.
+
+**Prioritized next steps.**
+
+1. Connect `Term` to `TAlg` (`Term_Σ(X) ≅ T_Σ(X)`) so both presentations are
+   interchangeable.
+2. Define `𝔉_F` and `F_𝔉`; prove the round trips with
+   `termEval_surjective`/`term_projective`.
+3. Then `B-P020` and `B-C006`, and the free-algebra cluster
+   (`B-P010`-`B-P015`, `B-C003`) that the term characterization also unblocks.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -4152,8 +4206,9 @@ single block, and record the author's goal (both Eilenberg theorems). Implement
    touches Lean (see `Architecture.md` Section 15.6, Revision 4, for the cost
    model). The Lean
    sources are split by dependency layer under `lean/Mslang/`:
-   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, with `Algebra` -> `Free`,
-   `Subfinal` -> `Formation`, and `Congruence` -> `Translation` (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
+   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, with `Algebra` -> `Free`
+   -> `Term`, `Subfinal` -> `Formation`, and `Congruence` -> `Translation`
+   (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
    block and update its `file` in `lean/declarations.json` if a declaration
    moves (the facet hashes are text-based, so a pure move stales no evidence).
 9. `scripts/validate_records.py --self-test` exercises the schema validator's

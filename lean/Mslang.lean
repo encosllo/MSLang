@@ -1,4 +1,5 @@
 import Mslang.Free
+import Mslang.Term
 import Mslang.Formation
 import Mslang.Sanity
 import Mslang.Translation
@@ -68,6 +69,10 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.hom_unique_of_subfinalAlg
 #print axioms Mslang.delta_iso_coprod
 #print axioms Mslang.TAlg_hom_ext
+#print axioms Mslang.termLift_isAlgHom
+#print axioms Mslang.termLift_unique
+#print axioms Mslang.termEval_surjective
+#print axioms Mslang.term_projective
 #print axioms Mslang.IsCongruence_inf
 #print axioms Mslang.formation_abstract
 #print axioms Mslang.formation_nonempty
