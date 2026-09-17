@@ -3669,6 +3669,211 @@ congruence section is now essentially complete on the formalization frontier.
 
 ---
 
+## Session 81 -- 2026-09-17 -- verification hardening (OpenSpec change)
+
+**Goal.** Implement `harden-verification-workflow` (the OpenSpec change that
+turns the explore-mode review into tracked work): make audit independence
+computed and visible, measure calibration at scale, turn reports into countable
+queues, close the manuscript loop, triage scope, and tier the gate.
+
+**What was established (closed).**
+
+- **Independence is computed and gated.** `schemas/evidence.schema.json` gained
+  the `independence` object; `scripts/status.py` gained `family_of`,
+  `derive_independence`, `classify_stages`, `classify_record`,
+  `independence_of`, `derive_caveat`, and `load_tiers`, plus the `provisional`
+  layer status. A current positive layer whose positive evidence is all
+  `same_model` is `provisional` unless the block is **explicitly** `light`
+  (unclassified is not exempt). `scripts/evidence.py` computes `independence`
+  and a derived `independence_caveat` (the free-text `--caveat` is gone; new
+  `--stage`, `--protocol`, `--residual`, `--models`). Shadow run over the
+  corpus: **41 layers pass -> provisional, 0 other changes**; recorded as
+  **`EV-000088`**. The 161 existing records were not edited.
+- **Model registry and routing.** `calibration/models.json` +
+  `scripts/models.py` (`choose_stages`, `--check`) route an
+  independence-requiring stage to a different model family when one is declared,
+  and record `same_model` (never a claim) when none is.
+- **Calibration at scale.** `scripts/mutations.py` (7 named operators) generates
+  `calibration/generated.json` (13 cases); the corpus self-check enforces a
+  per-type minimum; `scripts/calibration.py` reports `n`, detected, rate, and a
+  Wilson interval per type (never a rate without its `n`), per model pair, and
+  gates on a recorded baseline (`calibration/baseline.json`). 24 cases over 4
+  blocks; 7 run mutations, 13 generated unrun.
+- **Discrepancy dispositions.** `blocks/discrepancy_decisions.json` (the 3
+  legacy notes migrated), documented default rules (carrier target -> type-carrier),
+  and a report that surfaces a single **undecided** count/list and collapses
+  default-classified edges: 244 undecided, 49 default, 3 reviewed.
+- **Scope triage.** `blocks/scope_decisions.json` + `scripts/scope.py`
+  (author-reserved: an agent write is refused); `scripts/frontier.py` groups
+  unmapped blocks by disposition and excludes `out-of-scope` from open
+  obligations.
+- **Manuscript reconciliation.** `reconciliation/proposals.json` +
+  `scripts/reconcile.py`; the two existing Explanations are registered as open
+  `reconstructed-proof` proposals; acceptance is author-reserved and records the
+  resulting manuscript hash.
+- **Tiered gate.** `scripts/check_all.sh --fast` (32 checks; no Lean, no PDF;
+  Lean/build printed `DEFERRED`) is the per-edit gate; the full run is the
+  session-close artifact.
+- **Tests** added/extended: `status_test` (provisional, classification, caveat),
+  `models_test`, `scope_test`, `reconcile_test`; `calibration_test` (interval,
+  per-pair, baseline); `discrepancy_test` (dispositions, not-evidence).
+- **Docs**: `Architecture.md` **Revision 5** (Sections 8.1, 9, 11.4, 12.2, 19,
+  21, 25); `AGENTS.md` rule 2 restated as fast-per-edit / slow-per-session;
+  `STATE.md` safe-restart item 7 restated.
+
+**Findings.**
+
+- The spec's `light`-tier exemption collided with Architecture's "light is the
+  default": with a literal reading nothing would flip. The author chose
+  **unclassified is not light**, so the 41 same-model layers are visibly
+  provisional until a `light` designation is recorded; Architecture 8.3's
+  wording is corrected by Revision 5.
+- The discrepancy default rule is deliberately narrow (only the carrier target,
+  49 edges); 244 rows remain a genuine, countable review queue rather than
+  untriaged noise. Widening the defaults is a review decision, not a mechanical
+  one.
+- Generated calibration cases carry no verdicts and are reported **unrun**; no
+  detection was fabricated.
+
+**Gate.** `scripts/check_all.sh`: **35 passed, 0 failed** (Session 81). Journal
+`EV-000089`.
+
+**Honestly deferred / author-reserved.**
+
+- The 244 undecided discrepancy rows are a review queue for the author/reviewer.
+- The 13 generated calibration cases need a blind comparator run; a second model
+  would upgrade `provisional` to `pass`.
+- The two reconciliation proposals (B-C001, B-C002) and the 54-block scope
+  triage await author decisions; a scope decision brief is presented.
+
+**Prioritized next steps.**
+
+1. Run the 13 generated calibration cases blind; record verdicts and re-baseline.
+2. Obtain/declare a second model in `calibration/models.json` so routing can
+   produce `cross_model` and clear `provisional` layers.
+3. Author: accept or reject `R-0001`/`R-0002`; set scope dispositions for the
+   unmapped blocks; decide the 244 undecided discrepancy rows.
+4. Continue the formalization frontier (unchanged: the largest remaining
+   clusters from Session 80).
+
+**Session 81 (continued) -- post-archive corrections.** After archiving
+`harden-verification-workflow`, a self-audit of the session's own claims found
+three integration gaps; all are fixed and the fast gate is 32/0/3.
+
+- **The `light` exemption was not wired into the views.** `report.py`,
+  `frontier.py`, and `bundle.py` called `status.block_status` without the tier
+  store, so an explicit `light` designation would have been ignored in every
+  view (only the `status.py` CLI passed tiers). Added
+  `status.load_default_tiers()`, the committed store
+  `blocks/treatment_tiers.json` (empty; unclassified is still not light), and
+  wired all three callers; `status_test.py` now checks the exemption flows
+  through `block_status`. This corrects the coverage claimed for the archived
+  task 1.4; the archived `tasks.md` is left frozen.
+- **The bundle omitted the new durable stores and one view.** `bundle.py` now
+  hashes `calibration/{models,generated,baseline}.json`,
+  `blocks/{treatment_tiers,scope_decisions,discrepancy_decisions}.json`, and
+  `reconciliation/proposals.json`, and embeds `reports/reconciliation.md`.
+- **`AGENTS.md` named a non-existent flag** `--supersede`; corrected to
+  `--supersedes` (the flag `scripts/evidence.py` actually defines).
+- **The tier store's entry form was mishandled.** `block_status` compared the
+  raw store value, so a `{"tier": "light"}` entry would never have cleared
+  `provisional`; added `status.tier_of` and a normalization check.
+- **Added `scripts/tiers.py`** (author-guarded `set`, `--check`, `--list`) and
+  `scripts/tiers_test.py`, wired into the fast tier, so a tier can be recorded
+  without hand-editing JSON. Fast gate: **34 passed, 0 failed, 3 deferred**.
+- **Calibration run 3 -- generated cases, blind.** A fresh blind comparator
+  (contract/readback only, no type or expectation) judged the generated cases.
+  The first pass **exposed two operator defects**: the `encoding` operator only
+  changed "componentwise subset" to "subset", which is *not* a mismatch here
+  (all four were rightly judged equivalent), and `direction_flip` produced a
+  self-contradictory gloss. Both were fixed in `scripts/mutations.py`;
+  `encoding` now switches "S-sorted equivalences" to "S-sorted relations", a
+  genuine Setoid-vs-relation (residual D4) change. On the corrected corpus the
+  comparator returned **12/12 detected**; calibration is now **19/19 mutations
+  detected, 0/4 control false positives, 0 unrun**, and the baseline gate
+  passes. This is the calibration suite catching a bug in itself, which is what
+  it exists for. Caveat unchanged: one model pair, wide intervals at these
+  sample sizes.
+
+---
+
+## Session 82 -- 2026-09-17 -- frontier: B-R021 (Ω natural transformation)
+
+**Goal.** Formalize the next block on the frontier: `B-R021`, which says `Ω^A`
+is the component at `A` of a natural transformation `Ω : P⁻ ⇒ Cgr` between two
+contravariant functors on `Alg(Σ)_epi`. Session 80's `B-P028` pullback equality
+is its missing ingredient, so it became the natural next target.
+
+**Recon.** The disk was at **128 MiB free (99%)**, so Lean work was blocked;
+the author deleted the retired `~/Desktop/MathForm` (7.6 GiB, its own working
+tree, no symlinks from this repo), restoring **8.2 GiB**. The `B-R018` light
+category encoding (hom-sets + laws, not Mathlib `CategoryTheory`) was the
+precedent.
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` gained the light encoding:
+  - `isAlgHom_id`, `isAlgHom_comp` -- the homomorphism calculus;
+  - `sortedEqvLe_antisymm` -- mutual refinement is equality;
+  - `AlgEpi` (a surjective homomorphism), `AlgEpiId`, `AlgEpiComp`,
+    `AlgEpiComp_id_left`/`_id_right`/`_assoc`, `AlgEpiExt` -- the category
+    `Alg(Σ)_epi`;
+  - `SubMap` (= `inverseImage`), `CgrMap` (= `pullbackEqv`) and their
+    contravariant functor laws `SubMap_id`/`_comp`, `CgrMap_id`/`_comp`;
+  - `congCogenerated_natural`: for an epimorphism `f`,
+    `CgrMap f (Ω^B M) = Ω^A (SubMap f M)`, exactly the two `B-P028` inclusions
+    combined by antisymmetry.
+- Clean build; `lean_audit` **223 declarations, 0 warnings, 0 unpermitted, 0
+  `sorry`**. Axioms of `congCogenerated_natural`:
+  `{Classical.choice, Quot.sound, propext}` (permitted).
+- Facet extractor extended to `structure` declarations (with a regression test:
+  `lean_facets_test` now 16 checks, all pass).
+- Evidence: **`E-000163`** (verification, `build_ok`; supersedes `E-000162` after
+  the category laws changed the block's proof facet) and **`E-000164`**
+  (correspondence, **`equivalent`**, two-stage blind). Transcript
+  `blocks/audits/B-R021-correspondence.md`.
+- `reports/frontier.md`: unmapped blocks **54 -> 53**. `check_all`: **37 passed,
+  0 failed**. Journal `EV-000090` / `EV-000091`.
+
+**Finding (the audit changed the artifact).** The first-pass stage-1 read-back
+listed as *not claimed* exactly the epi category's identity/associativity laws
+and extensionality -- the paper calls `Alg(Σ)_epi` a category, but the first
+version proved only the functor laws. The laws were added
+(`AlgEpiComp_id_left`/`_id_right`/`_assoc`, `AlgEpiExt`) and the second pass
+returned `equivalent`. This is the two-stage blind audit doing its job: it drove
+a faithfulness fix rather than merely recording a verdict.
+
+**Gotchas.**
+
+- The facet extractor's `DECL_RE` did not match `structure` (now added), and it
+  does **not** match a keyword carrying an inline leading attribute
+  (`@[ext] theorem X`) -- the attribute must be on its own line, as elsewhere in
+  the codebase. Both surfaced here (`AlgEpi`, then `AlgEpiExt`).
+- No `AlgEpi.ext` is generated (the `hom`/`surj` fields are `Prop`); the
+  explicit `AlgEpiExt` is supplied.
+- **Three `lean_audit.py` runs were spent this session**: the first before the
+  category laws existed, and again after the attribute-placement edit. Each is a
+  full Mathlib load. Lesson: add a block's helper laws *before* the first audit.
+
+**Honestly deferred.** `B-R021`'s correspondence is `same_model`, so the layer is
+`provisional`; no second model is available. No `Category`/`Functor` typeclass
+instance is used (the light encoding gives the operations and their laws only),
+matching `B-R018`.
+
+**Prioritized next steps.**
+
+1. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice) -- `CompleteLattice` on the
+   formations plus universe-`v` `IsCompact`/`IsAlgebraicLattice`.
+2. `B-P019`/`B-P020`/`B-C006` -- congruence formations and the lattice
+   isomorphism `Form_Alg(Σ) ≅ Form_Cgr(Σ)`.
+3. The free-algebra cluster (`B-P010`..`B-P015`, `B-C003`), still blocked on the
+   term characterization (unique parsing).
+4. Author decisions still open: reconciliation `R-0001`/`R-0002`, scope triage
+   for the 53 unmapped blocks, the discrepancy review queue; declare a second
+   model to clear `provisional` layers.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -3678,7 +3883,9 @@ congruence section is now essentially complete on the formalization frontier.
    to the machine toolchain. Export `MATHLIB_CACHE_DIR` is project-local. For
    Lean work run `lake` with `ELAN_HOME` unset (the v4.33.1 machine toolchain).
 2b. Check disk before Lean work: `df -h /`. The extracted Mathlib oleans are
-   5.9 GiB; free space was ~1.3 GiB after the Session 9 fetch.
+    5.9 GiB inside `lean/.lake`. Free space was **8.2 GiB** at Session 82 after
+    the retired `~/Desktop/MathForm` (7.6 GiB) was deleted; it had fallen to
+    128 MiB, at which point Lean work must stop until space is reclaimed.
 3. Verify the manuscript baseline still holds: `./scripts/build_manuscript.sh`
    should exit 0 with a 49-page PDF.
 4. Before editing the manuscript, run
@@ -3694,16 +3901,16 @@ congruence section is now essentially complete on the formalization frontier.
    and inspect `reports/gap_report.md`; `blocks/hashes.json` anchors and
    `blocks/registry.json` body hashes must agree (both use
    `hash_blocks.normalize`).
-7. Run the whole mechanical gate after any change:
-   `scripts/check_all.sh` (27 checks; exits non-zero on any failure). It covers
-   the non-ASCII scan, anchor hashes, importer drift, cross-references, the
-   hygiene/propagation/status/trust/Lean-facet/Lean-audit/calibration/impact/
-   discrepancy tests, decisions and bundle drift, record validation, view
-   drift, and the build. The Lean mechanical gate (`scripts/lean_audit.py`,
-    Architecture.md Section 15.6) rebuilds the project, audits axioms on every
-    mapped declaration (206 at Session 80), and scans for `sorry`; it takes
-    ~2.5 min because it
-   loads Mathlib oleans, so `check_all` is no longer seconds-fast.
+7. Run the mechanical gate after any change, in tiers:
+   `scripts/check_all.sh --fast` runs every check needing neither Lean
+   compilation nor a PDF build (32 checks; seconds) and prints the Lean audit,
+   `lean_audit.py`, and the manuscript build as `DEFERRED`, never as passes. At
+   session close run `scripts/check_all.sh` once without `--fast`: it is the
+   artifact of record and adds the Lean audit tests, the Lean mechanical gate
+   (`scripts/lean_audit.py`, Architecture.md Section 15.6; rebuilds the project,
+   audits axioms on every mapped declaration, scans for `sorry`), and the
+   manuscript build. The slow tier takes ~2.5 min because it loads Mathlib
+   oleans, so it is run once per session, not per edit.
 8. After editing Lean, **do not run `lake build` as a standalone step** (it
    reloads the whole Mathlib olean graph, ~2.5 min, every time). Run
    `python3 scripts/lean_audit.py` **once**: it runs `lake build`, audits

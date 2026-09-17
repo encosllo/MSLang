@@ -1,0 +1,125 @@
+{
+  "cases": [
+    {
+      "block": "B-C001",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). If Phi is contained in Psi, then Psi-Sat(A) is contained in Phi-Sat(A). (Eqv(A) = S-sorted equivalences on A; Phi contained in Psi = relation inclusion; Theta-Sat(A) = the componentwise subsets X of A with X = [X]^Theta; X is Theta-saturated iff X = [X]^Theta.)",
+      "expect": "detected",
+      "id": "CAL-G001",
+      "operator": "conclusion_reverse",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Suppose Phi refines Psi (every pair related by Phi is related by Psi). Then every componentwise subset X of A that is Psi-saturated (X = [X]^Psi) is also Psi-saturated (X = [X]^Phi).",
+      "source": "generated",
+      "type": "conclusion_reverse"
+    },
+    {
+      "block": "B-C001",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). If Phi is contained in Psi, then Psi-Sat(A) is contained in Phi-Sat(A). (Eqv(A) = S-sorted equivalences on A; Phi contained in Psi = relation inclusion; Theta-Sat(A) = the componentwise subsets X of A with X = [X]^Theta; X is Theta-saturated iff X = [X]^Theta.)",
+      "expect": "detected",
+      "id": "CAL-G002",
+      "operator": "direction_flip",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Suppose Psi refines Phi (every pair related by Psi is related by Phi). Then every componentwise subset X of A that is Psi-saturated (X = [X]^Psi) is also Phi-saturated (X = [X]^Phi).",
+      "source": "generated",
+      "type": "direction_flip"
+    },
+    {
+      "block": "B-C001",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). If Phi is contained in Psi, then Psi-Sat(A) is contained in Phi-Sat(A). (Eqv(A) = S-sorted equivalences on A; Phi contained in Psi = relation inclusion; Theta-Sat(A) = the componentwise subsets X of A with X = [X]^Theta; X is Theta-saturated iff X = [X]^Theta.)",
+      "expect": "detected",
+      "id": "CAL-G003",
+      "operator": "dropped_hypothesis",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Then every componentwise subset X of A that is Psi-saturated (X = [X]^Psi) is also Phi-saturated (X = [X]^Phi).",
+      "source": "generated",
+      "type": "dropped_hypothesis"
+    },
+    {
+      "block": "B-C001",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). If Phi is contained in Psi, then Psi-Sat(A) is contained in Phi-Sat(A). (Eqv(A) = S-sorted equivalences on A; Phi contained in Psi = relation inclusion; Theta-Sat(A) = the componentwise subsets X of A with X = [X]^Theta; X is Theta-saturated iff X = [X]^Theta.)",
+      "expect": "detected",
+      "id": "CAL-G004",
+      "operator": "encoding",
+      "readback": "Fix an S-sorted set A and S-sorted relations Phi, Psi on A. Suppose Phi refines Psi (every pair related by Phi is related by Psi). Then every componentwise subset X of A that is Psi-saturated (X = [X]^Psi) is also Phi-saturated (X = [X]^Phi).",
+      "source": "generated",
+      "type": "encoding"
+    },
+    {
+      "block": "B-C002",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). Then Phi-Sat(A) intersect Psi-Sat(A) is contained in (Phi intersect Psi)-Sat(A). (Phi intersect Psi is the pointwise intersection of the relations.)",
+      "expect": "detected",
+      "id": "CAL-G005",
+      "operator": "dropped_hypothesis",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. If a componentwise subset X of A is saturated under Phi, then X is saturated under the pointwise intersection Phi intersect Psi.",
+      "source": "generated",
+      "type": "dropped_hypothesis"
+    },
+    {
+      "block": "B-C002",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). Then Phi-Sat(A) intersect Psi-Sat(A) is contained in (Phi intersect Psi)-Sat(A). (Phi intersect Psi is the pointwise intersection of the relations.)",
+      "expect": "detected",
+      "id": "CAL-G006",
+      "operator": "encoding",
+      "readback": "Fix an S-sorted set A and S-sorted relations Phi, Psi on A. If a componentwise subset X of A is saturated under both Phi and Psi, then X is saturated under the pointwise intersection Phi intersect Psi.",
+      "source": "generated",
+      "type": "encoding"
+    },
+    {
+      "block": "B-P002",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). Then Phi is contained in Psi if and only if, for every componentwise subset X of A, [[X]^Psi]^Phi = [X]^Psi. (Saturate X by Psi first, then by Phi.)",
+      "expect": "detected",
+      "id": "CAL-G007",
+      "operator": "direction_flip",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Then Psi refines Phi if and only if, for every componentwise subset X of A, saturating X by Psi and then by Phi equals saturating X by Psi alone.",
+      "source": "generated",
+      "type": "direction_flip"
+    },
+    {
+      "block": "B-P002",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). Then Phi is contained in Psi if and only if, for every componentwise subset X of A, [[X]^Psi]^Phi = [X]^Psi. (Saturate X by Psi first, then by Phi.)",
+      "expect": "detected",
+      "id": "CAL-G008",
+      "operator": "encoding",
+      "readback": "Fix an S-sorted set A and S-sorted relations Phi, Psi on A. Then Phi refines Psi if and only if, for every componentwise subset X of A, saturating X by Psi and then by Phi equals saturating X by Psi alone.",
+      "source": "generated",
+      "type": "encoding"
+    },
+    {
+      "block": "B-P002",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). Then Phi is contained in Psi if and only if, for every componentwise subset X of A, [[X]^Psi]^Phi = [X]^Psi. (Saturate X by Psi first, then by Phi.)",
+      "expect": "detected",
+      "id": "CAL-G009",
+      "operator": "quantifier_change",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Then Phi refines Psi if and only if, there exists a componentwise subset X of A, saturating X by Psi and then by Phi equals saturating X by Psi alone.",
+      "source": "generated",
+      "type": "quantifier_change"
+    },
+    {
+      "block": "B-P002",
+      "contract": "Let A be an S-sorted set and Phi, Psi in Eqv(A). Then Phi is contained in Psi if and only if, for every componentwise subset X of A, [[X]^Psi]^Phi = [X]^Psi. (Saturate X by Psi first, then by Phi.)",
+      "expect": "detected",
+      "id": "CAL-G010",
+      "operator": "saturation_order",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Then Phi refines Psi if and only if, for every componentwise subset X of A, saturating X by Phi and then by Psi equals saturating X by Psi alone.",
+      "source": "generated",
+      "type": "saturation_order"
+    },
+    {
+      "block": "B-P003",
+      "contract": "Let A be an S-sorted set and X a componentwise subset of A. Then X is nabla-saturated if and only if, for every sort s, if s is in the support of X (X_s nonempty) then X_s = A_s.",
+      "expect": "detected",
+      "id": "CAL-G011",
+      "operator": "quantifier_change",
+      "readback": "Fix an S-sorted set A and a componentwise subset X of A. Then X is saturated under the universal relation nabla if and only if, there exists a sort s, if the component X_s is nonempty then X_s equals all of A_s.",
+      "source": "generated",
+      "type": "quantifier_change"
+    },
+    {
+      "block": "B-P003",
+      "contract": "Let A be an S-sorted set and X a componentwise subset of A. Then X is nabla-saturated if and only if, for every sort s, if s is in the support of X (X_s nonempty) then X_s = A_s.",
+      "expect": "detected",
+      "id": "CAL-G012",
+      "operator": "weakened_conclusion",
+      "readback": "Fix an S-sorted set A and a componentwise subset X of A. Then X is saturated under the universal relation nabla if and only if, for every sort s, if the component X_s is nonempty then X_s is nonempty.",
+      "source": "generated",
+      "type": "weakened_conclusion"
+    }
+  ],
+  "note": "Generated seeded mutations (Architecture.md Section 11.4). Produced deterministically by scripts/mutations.py from the base read-backs in calibration/seeded.json. These carry no verdicts until an audit run supplies them; the report counts them as unrun."
+}

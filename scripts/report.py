@@ -34,11 +34,12 @@ LAYER_ORDER = ["review", "correspondence", "verification", "representation"]
 EMPTY = "-"
 
 
-def block_status_vector(registry, records, representation_hashes):
+def block_status_vector(registry, records, representation_hashes, tiers=None):
     """Return {block: {layer: status}} over all blocks that have records."""
     grouped = status.group_by_block_layer(records)
     return {
-        block: status.block_status(layers, registry, representation_hashes)
+        block: status.block_status(layers, registry, representation_hashes,
+                                   tiers=tiers, block=block)
         for block, layers in grouped.items()
     }
 
@@ -249,7 +250,7 @@ def build(root: Path, representation_path=None, representation_name="encoding"):
     if representation_path:
         rep[representation_name] = trust.hash_file(root / representation_path)
     representations, boundary = trust.compute(registry, coverage, records, rep)
-    vector = block_status_vector(registry, records, rep)
+    vector = block_status_vector(registry, records, rep, tiers=status.load_default_tiers())
     return {
         "reports/coverage.md": render_coverage(
             registry, records, coverage, boundary, vector

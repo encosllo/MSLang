@@ -12,6 +12,13 @@ concrete mechanism behind "formalization improves the mathematics":
   block the formal proof never uses: a possible superfluous hypothesis or an
   argument that can be simplified.
 
+Every row carries a *disposition* (Section 12.2): a typed review verdict drawn
+from ``blocks/discrepancy_decisions.json``, or a documented default for a
+structural pattern (an edge whose target is the type carrier). The report
+enumerates only **undecided** rows and collapses default-classified rows into
+counts, so the review queue is countable. A disposition is not an evidence
+record and changes no layer status.
+
 Only blocks with a formal counterpart (the mapped universe) are compared;
 unmapped informal edges are reported separately as "not yet mapped".
 
@@ -19,6 +26,7 @@ Usage:
     python3 scripts/discrepancy.py
     python3 scripts/discrepancy.py --report
     python3 scripts/discrepancy.py --check-report
+    python3 scripts/discrepancy.py --check-dispositions
 """
 from __future__ import annotations
 
@@ -30,6 +38,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEPENDENCY_KINDS = {"uses_statement", "uses_definition"}
 REPORT = ROOT / "reports" / "discrepancy.md"
+DISPOSITIONS = {
+    "real-hidden-dependency",
+    "type-carrier",
+    "simplification",
+    "expected",
+    "corrected",
+}
+# Structural patterns with a known benign class (Section 12.2). An edge whose
+# target is the S-sorted-set carrier is a type-carrier edge: the Lean signature
+# mentions the type while the prose names it.
+CARRIER_TARGETS = {"B-D002"}
 
 
 def load_edges(path, kinds=None):
@@ -58,8 +77,70 @@ def compare(informal, formal):
     }
 
 
-def render_report(d, notes=None):
-    notes = notes or {}
+def load_decisions(path, legacy_notes=None):
+    """Load typed dispositions, migrating legacy free-text notes if needed."""
+    decisions = {}
+    p = Path(path)
+    if p.exists():
+        doc = json.loads(p.read_text(encoding="utf-8"))
+        decisions = doc.get("dispositions", doc) if isinstance(doc, dict) else doc
+    elif legacy_notes and Path(legacy_notes).exists():
+        notes = json.loads(Path(legacy_notes).read_text(encoding="utf-8")).get("notes", {})
+        for key, note in notes.items():
+            decisions[key] = {
+                "disposition": "expected",
+                "note": note,
+                "decided_by": "migrated:discrepancy_notes.json",
+            }
+    return decisions
+
+
+def validate_decisions(decisions):
+    errors = []
+    for key, entry in sorted(decisions.items()):
+        if "->" not in key:
+            errors.append(f"{key}: key must be FROM->TO")
+        value = entry.get("disposition") if isinstance(entry, dict) else entry
+        if value not in DISPOSITIONS:
+            errors.append(f"{key}: invalid disposition {value!r}")
+    return errors
+
+
+def default_disposition(a, b):
+    if b in CARRIER_TARGETS:
+        return "type-carrier"
+    return None
+
+
+def disposition_of(a, b, decisions):
+    key = f"{a}->{b}"
+    entry = decisions.get(key)
+    if entry:
+        value = entry.get("disposition") if isinstance(entry, dict) else entry
+        return value, "recorded"
+    value = default_disposition(a, b)
+    if value:
+        return value, "default"
+    return None, "undecided"
+
+
+def classify(d, decisions):
+    """Split every discrepancy row into undecided, default, and reviewed."""
+    undecided, defaults, reviewed = [], {}, []
+    for a, b in d["formal_only"] + d["informal_only"]:
+        value, source = disposition_of(a, b, decisions)
+        if source == "undecided":
+            undecided.append((a, b))
+        elif source == "default":
+            defaults[value] = defaults.get(value, 0) + 1
+        else:
+            reviewed.append((a, b, value))
+    return undecided, defaults, reviewed
+
+
+def render_report(d, decisions=None):
+    decisions = decisions or {}
+    undecided, defaults, reviewed = classify(d, decisions)
     lines = [
         "# Dependency-graph discrepancy report (Sections 12.2, 19)",
         "",
@@ -70,34 +151,44 @@ def render_report(d, notes=None):
         "",
         f"Mapped blocks: {', '.join('`'+b+'`' for b in d['universe']) or 'none'}",
         "",
-        "## Formal-only (possible hidden dependency / unstated step)",
+        f"## Undecided edges ({len(undecided)})",
+        "",
+        "These rows have neither a recorded disposition nor a default; they are",
+        "the review queue.",
         "",
         "| from | to |",
         "|---|---|",
     ]
-    for a, b in d["formal_only"]:
+    for a, b in undecided:
         lines.append(f"| `{a}` | `{b}` |")
-    if not d["formal_only"]:
+    if not undecided:
         lines.append("| _none_ | |")
-    lines += ["", "## Informal-only, mapped (possible simplification)", "", "| from | to |", "|---|---|"]
-    for a, b in d["informal_only"]:
-        lines.append(f"| `{a}` | `{b}` |")
-    if not d["informal_only"]:
-        lines.append("| _none_ | |")
+    lines += [
+        "",
+        "## Default-classified edges (collapsed)",
+        "",
+        "| disposition | count |",
+        "|---|---|",
+    ]
+    for value in sorted(defaults):
+        lines.append(f"| {value} | {defaults[value]} |")
+    if not defaults:
+        lines.append("| _none_ | 0 |")
+    lines += ["", "## Reviewed dispositions", ""]
+    if reviewed:
+        for a, b, value in reviewed:
+            entry = decisions.get(f"{a}->{b}", {})
+            note = entry.get("note", "") if isinstance(entry, dict) else ""
+            by = entry.get("decided_by", "") if isinstance(entry, dict) else ""
+            suffix = f" ({by})" if by else ""
+            lines.append(f"- `{a} -> {b}`: {value}{suffix}. {note}".rstrip())
+    else:
+        lines.append("- none recorded")
     lines += ["", "## Agreeing edges", "", "| from | to |", "|---|---|"]
     for a, b in d["agree"]:
         lines.append(f"| `{a}` | `{b}` |")
     if not d["agree"]:
         lines.append("| _none_ | |")
-    lines += ["", "## Reviewer notes", ""]
-    used = False
-    for a, b in d["formal_only"] + d["informal_only"]:
-        key = f"{a}->{b}"
-        if key in notes:
-            used = True
-            lines.append(f"- `{a} -> {b}`: {notes[key]}")
-    if not used:
-        lines.append("- none recorded")
     lines += [
         "",
         "## Not yet mapped (informal edges with no formal counterpart)",
@@ -113,33 +204,46 @@ def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     ap.add_argument("--informal", default=str(ROOT / "blocks" / "graph.json"))
     ap.add_argument("--formal", default=str(ROOT / "blocks" / "formal_graph.json"))
-    ap.add_argument("--notes", default=str(ROOT / "blocks" / "discrepancy_notes.json"))
+    ap.add_argument("--decisions", default=str(ROOT / "blocks" / "discrepancy_decisions.json"))
+    ap.add_argument("--legacy-notes", default=str(ROOT / "blocks" / "discrepancy_notes.json"))
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--check-report", action="store_true")
+    ap.add_argument("--check-dispositions", action="store_true")
     args = ap.parse_args(argv)
 
     informal = load_edges(args.informal, DEPENDENCY_KINDS)
     formal = load_edges(args.formal)
     d = compare(informal, formal)
-    notes = {}
-    if Path(args.notes).exists():
-        notes = json.loads(Path(args.notes).read_text(encoding="utf-8")).get("notes", {})
+    decisions = load_decisions(args.decisions, args.legacy_notes)
+    errors = validate_decisions(decisions)
+
+    if args.check_dispositions:
+        for e in errors:
+            print(f"ERROR {e}")
+        if errors:
+            return 1
+        print(f"discrepancy: {len(decisions)} disposition(s) valid")
+        return 0
+
+    undecided, defaults, reviewed = classify(d, decisions)
 
     if args.json:
-        print(json.dumps(d, indent=2))
+        print(json.dumps({
+            "undecided": undecided,
+            "defaults": defaults,
+            "reviewed": reviewed,
+        }, indent=2))
         return 0
 
     print(f"discrepancy over {len(d['universe'])} mapped block(s):")
     print(f"  agree: {len(d['agree'])}  formal-only: {len(d['formal_only'])}  "
           f"informal-only: {len(d['informal_only'])}  unmapped: {len(d['unmapped'])}")
-    for a, b in d["formal_only"]:
-        print(f"    formal-only: {a} -> {b}")
-    for a, b in d["informal_only"]:
-        print(f"    informal-only: {a} -> {b}")
+    print(f"  undecided: {len(undecided)}  default-classified: "
+          f"{sum(defaults.values())}  reviewed: {len(reviewed)}")
 
     if args.report or args.check_report:
-        text = render_report(d, notes)
+        text = render_report(d, decisions)
         if args.check_report:
             actual = REPORT.read_text(encoding="utf-8") if REPORT.exists() else None
             if actual != text:

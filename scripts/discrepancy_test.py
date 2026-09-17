@@ -49,6 +49,49 @@ def main():
     check("the informal-only edge is annotated",
           "B-P002->B-D006" in notes, str(sorted(notes)))
 
+    # Typed dispositions (Section 12.2).
+    decisions = discrepancy.load_decisions(
+        ROOT / "blocks" / "discrepancy_decisions.json",
+        ROOT / "blocks" / "discrepancy_notes.json",
+    )
+    check("recorded dispositions load", "B-P002->B-D006" in decisions, str(sorted(decisions)))
+    check("recorded dispositions are valid", discrepancy.validate_decisions(decisions) == [])
+    check("an unknown disposition is rejected",
+          discrepancy.validate_decisions({"X->Y": {"disposition": "whatever"}}) != [])
+    check("the carrier pattern defaults to type-carrier",
+          discrepancy.default_disposition("B-P001", "B-D002") == "type-carrier")
+    check("an unmatched edge has no default",
+          discrepancy.default_disposition("B-P001", "B-P002") is None)
+    value, source = discrepancy.disposition_of("B-C001", "B-D002", decisions)
+    check("a recorded disposition wins over the default", source == "recorded", f"{value} {source}")
+    undecided, defaults, reviewed = discrepancy.classify(rd, decisions)
+    check("undecided rows are separated from classified rows",
+          ("B-P002", "B-D006") not in undecided
+          and defaults.get("type-carrier", 0) > 0,
+          f"undecided={len(undecided)} defaults={defaults}")
+    text = discrepancy.render_report(rd, decisions)
+    check("the report states an undecided count",
+          f"## Undecided edges ({len(undecided)})" in text, text[:120])
+    check("default-classified edges are collapsed, not enumerated",
+          "## Default-classified edges (collapsed)" in text)
+
+    # A disposition is not evidence: it changes no layer status.
+    import copy as _copy
+    import status  # noqa: E402
+    reg = status.load_registry(ROOT / "blocks" / "registry.json")
+    recs = status.load_evidence(ROOT / "evidence")
+    rep = {"encoding": status.hash_file(ROOT / "representation" / "pilot-encoding.md")}
+    before = {
+        b: status.block_status(layers, reg, rep, block=b)
+        for b, layers in status.group_by_block_layer(recs).items()
+    }
+    discrepancy.classify(rd, decisions)
+    after = {
+        b: status.block_status(layers, reg, rep, block=b)
+        for b, layers in status.group_by_block_layer(recs).items()
+    }
+    check("recording dispositions changes no layer status", before == after)
+
     print()
     if FAILURES:
         print(f"discrepancy_test: {len(FAILURES)} FAILED: {', '.join(FAILURES)}")

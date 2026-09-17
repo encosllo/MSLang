@@ -34,19 +34,29 @@ def check(name, condition, detail=""):
         FAILURES.append(name)
 
 
-def make_record(outcome="pass", block="B-P002", layer="review", registry=None):
+def make_record(outcome="pass", block="B-P002", layer="review", registry=None,
+                independence=None):
     reg = registry or REGISTRY
     cl = closure.compute_closure(
         block, layer, reg, EDGES, representation_hash=REP_HASH
     )
     assert not cl.get("blocked"), cl
-    return {
+    record = {
         "evidence_id": "E-000001",
         "layer": layer,
         "block": block,
         "inputs": cl["inputs"],
         "outcome": outcome,
+        "producer": {"kind": "agent", "role": "comparator", "model": "model-a"},
     }
+    record["independence"] = independence or {
+        "class": "cross_model",
+        "stages": [
+            {"role": "read_back_auditor", "model": "model-a"},
+            {"role": "comparator", "model": "model-b"},
+        ],
+    }
+    return record
 
 
 def main():
@@ -121,6 +131,86 @@ def main():
         set(bs) == {"review"} and bs["review"]["status"] == "fail",
         str(bs),
     )
+
+    # Independence (Section 9): a same-model positive layer is provisional
+    # unless the block is explicitly light-tier; build and cross-model pass.
+    same = make_record("pass", independence={
+        "class": "same_model",
+        "stages": [{"role": "comparator", "model": "model-a"}],
+    })
+    check(
+        "same-model layer is provisional (unclassified is not light)",
+        status.layer_status([same], REGISTRY, REP)[0] == "provisional",
+    )
+    check(
+        "same-model layer with an explicit light tier passes",
+        status.layer_status([same], REGISTRY, REP, tier="light")[0] == "pass",
+    )
+    check(
+        "same-model layer with a cabinet tier is provisional",
+        status.layer_status([same], REGISTRY, REP, tier="cabinet")[0] == "provisional",
+    )
+    build = make_record("build_ok", independence={"class": "build"})
+    check(
+        "build layer passes",
+        status.layer_status([build], REGISTRY, REP)[0] == "pass",
+    )
+    check(
+        "cross-model layer passes",
+        status.layer_status([fresh], REGISTRY, REP)[0] == "pass",
+    )
+    check(
+        "a cross-model record lifts a same-model layer",
+        status.layer_status([same, fresh], REGISTRY, REP)[0] == "pass",
+    )
+    check(
+        "shadow gate reports pass but counts the flip",
+        status.layer_status([same], REGISTRY, REP, gate=False)[0] == "pass",
+    )
+
+    # The tier store flows through block_status so views honour `light`.
+    check("the committed tier store loads", isinstance(status.load_default_tiers(), dict))
+    light_bs = status.block_status(
+        {"correspondence": [same]}, REGISTRY, REP,
+        tiers={"B-P002": "light"}, block="B-P002",
+    )
+    check("an explicit light tier clears provisional through block_status",
+          light_bs["correspondence"]["status"] == "pass", str(light_bs))
+    dict_bs = status.block_status(
+        {"correspondence": [same]}, REGISTRY, REP,
+        tiers={"B-P002": {"tier": "light"}}, block="B-P002",
+    )
+    check("the store's {tier: ...} entry form is honoured",
+          dict_bs["correspondence"]["status"] == "pass", str(dict_bs))
+    plain_bs = status.block_status(
+        {"correspondence": [same]}, REGISTRY, REP, tiers={}, block="B-P002",
+    )
+    check("an unclassified block stays provisional through block_status",
+          plain_bs["correspondence"]["status"] == "provisional", str(plain_bs))
+
+    # Derived classification (legacy records) and derived caveat.
+    legacy = make_record("pass")
+    del legacy["independence"]
+    legacy["producer"] = {"kind": "agent", "role": "comparator", "model": "deepseek-v4.1-flash"}
+    check(
+        "legacy agent record derives same_model",
+        status.independence_of(legacy) == "same_model",
+    )
+    legacy_build = make_record("build_ok")
+    del legacy_build["independence"]
+    legacy_build["producer"] = {"kind": "build", "role": "coordinator"}
+    check("legacy build record derives build", status.independence_of(legacy_build) == "build")
+    caveat_a = status.derive_caveat(same, protocol="two-stage blind")
+    caveat_b = status.derive_caveat(same, protocol="two-stage blind")
+    check("derived caveat is deterministic", caveat_a == caveat_b)
+    caveat_c = status.derive_caveat(
+        make_record("pass", independence={
+            "class": "cross_model",
+            "stages": [{"role": "comparator", "model": "model-b"}],
+        }),
+        protocol="two-stage blind",
+    )
+    check("model change changes the caveat", caveat_a != caveat_c)
 
     print()
     if FAILURES:

@@ -1,0 +1,23 @@
+{
+  "note": "Formalization-produced proposals to change the manuscript (Architecture.md Section 11a.5). Not evidence; acceptance is author-reserved.",
+  "proposals": {
+    "R-0001": {
+      "block": "B-C001",
+      "decided_by": null,
+      "kind": "reconstructed-proof",
+      "manuscript_hash": null,
+      "prose_change": "Add the reconstructed proof in blocks/explanations/B-C001.md: Explanation for `B-C001` (`IncSat`) -- PROPOSED, not yet in the manuscript",
+      "source": "blocks/explanations/B-C001.md",
+      "state": "open"
+    },
+    "R-0002": {
+      "block": "B-C002",
+      "decided_by": null,
+      "kind": "reconstructed-proof",
+      "manuscript_hash": null,
+      "prose_change": "Add the reconstructed proof in blocks/explanations/B-C002.md: Explanation for `B-C002` -- PROPOSED, not yet in the manuscript",
+      "source": "blocks/explanations/B-C002.md",
+      "state": "open"
+    }
+  }
+}

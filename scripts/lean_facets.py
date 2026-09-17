@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 DECL_RE = re.compile(
     r"(?m)^(?:(?:noncomputable|private|protected|unsafe)\s+)*"
-    r"(theorem|lemma|def|abbrev|opaque|inductive)\s+([A-Za-z_][A-Za-z0-9_'.]*)"
+    r"(theorem|lemma|def|abbrev|opaque|inductive|structure)\s+([A-Za-z_][A-Za-z0-9_'.]*)"
 )
 BOUNDARY_RE = re.compile(r"(?m)^(?:end|namespace|section|variable|open)\b|^@\[")
 

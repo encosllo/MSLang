@@ -37,6 +37,9 @@ noncomputable def ncd : Nat := 0
 inductive Leaf : Nat → Prop
   | base : Leaf 0
   | step : ∀ n, Leaf n → Leaf (n + 1)
+structure Asmb where
+  car : Nat
+  law : car = car
 end Mslang
 """
 
@@ -55,13 +58,20 @@ def write(tmp, name, text):
 
 def main():
     d = lf.extract_declarations(SRC)
-    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed", "ncd", "Leaf"}, str(set(d)))
+    check("all declarations found", set(d) == {"foo", "bar", "baz", "qux", "incomplete", "attributed", "ncd", "Leaf", "Asmb"}, str(set(d)))
     check(
         "inductive constructors are part of its statement, with no proof facet",
         d["Leaf"]["proof"] == ""
         and d["Leaf"]["statement"].startswith("inductive Leaf")
         and "| step" in d["Leaf"]["statement"],
         str(d["Leaf"]),
+    )
+    check(
+        "a structure is extracted as a statement with no proof facet",
+        d["Asmb"]["proof"] == ""
+        and d["Asmb"]["statement"].startswith("structure Asmb")
+        and "car : Nat" in d["Asmb"]["statement"],
+        str(d["Asmb"]),
     )
     check(
         "theorem statement split at :=",

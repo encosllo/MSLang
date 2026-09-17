@@ -541,6 +541,28 @@
         "Mslang.congCogenerated_le_pullback_of_surj"
       ],
       "file": "lean/Mslang/Translation.lean"
+    },
+    "B-R021": {
+      "decls": [
+        "Mslang.isAlgHom_id",
+        "Mslang.isAlgHom_comp",
+        "Mslang.sortedEqvLe_antisymm",
+        "Mslang.AlgEpi",
+        "Mslang.AlgEpiId",
+        "Mslang.AlgEpiComp",
+        "Mslang.AlgEpiExt",
+        "Mslang.AlgEpiComp_id_left",
+        "Mslang.AlgEpiComp_id_right",
+        "Mslang.AlgEpiComp_assoc",
+        "Mslang.SubMap",
+        "Mslang.CgrMap",
+        "Mslang.SubMap_id",
+        "Mslang.SubMap_comp",
+        "Mslang.CgrMap_id",
+        "Mslang.CgrMap_comp",
+        "Mslang.congCogenerated_natural"
+      ],
+      "file": "lean/Mslang/Translation.lean"
     }
   }
 }

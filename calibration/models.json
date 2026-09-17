@@ -1,0 +1,10 @@
+{
+  "note": "Models declared available for audit stages (Architecture.md Section 9). A record's independence is computed from the model families of its stages; when the registry offers a second family, the independence-requiring stages are routed to it. Families must agree with scripts/status.family_of (the identifier's first hyphen-segment); --check enforces this.",
+  "models": [
+    {
+      "id": "deepseek-v4.1-flash",
+      "family": "deepseek",
+      "available": true
+    }
+  ]
+}

@@ -5,18 +5,17 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
 
-## Formal-only (possible hidden dependency / unstated step)
+## Undecided edges (253)
+
+These rows have neither a recorded disposition nor a default; they are
+the review queue.
 
 | from | to |
 |---|---|
-| `B-C001` | `B-D002` |
 | `B-C001` | `B-D005` |
-| `B-C002` | `B-C001` |
-| `B-C002` | `B-D002` |
 | `B-C002` | `B-D005` |
-| `B-C004` | `B-D002` |
 | `B-C004` | `B-D014` |
 | `B-C004` | `B-D015` |
 | `B-C004` | `B-D016` |
@@ -32,84 +31,61 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-C004` | `B-P017` |
 | `B-C004` | `B-R014` |
 | `B-C004` | `B-R017` |
-| `B-D003` | `B-D002` |
 | `B-D003` | `B-D015` |
-| `B-D004` | `B-D002` |
-| `B-D005` | `B-D002` |
-| `B-D006` | `B-D002` |
-| `B-D007` | `B-D002` |
 | `B-D007` | `B-D005` |
 | `B-D007` | `B-D015` |
-| `B-D008` | `B-D002` |
 | `B-D008` | `B-D005` |
-| `B-D009` | `B-D002` |
-| `B-D010` | `B-D002` |
 | `B-D010` | `B-D005` |
-| `B-D012` | `B-D002` |
 | `B-D012` | `B-D005` |
 | `B-D012` | `B-D010` |
-| `B-D013` | `B-D002` |
 | `B-D013` | `B-D005` |
 | `B-D013` | `B-P005` |
-| `B-D014` | `B-D002` |
 | `B-D014` | `B-D005` |
-| `B-D015` | `B-D002` |
 | `B-D015` | `B-D014` |
-| `B-D017` | `B-D002` |
 | `B-D017` | `B-D015` |
 | `B-D017` | `B-D016` |
 | `B-D018` | `B-D009` |
 | `B-D018` | `B-D016` |
 | `B-D019` | `B-D008` |
 | `B-D019` | `B-D016` |
-| `B-D020` | `B-D002` |
 | `B-D020` | `B-D005` |
 | `B-D020` | `B-D016` |
 | `B-D020` | `B-D017` |
-| `B-D021` | `B-D002` |
 | `B-D021` | `B-D005` |
 | `B-D021` | `B-D016` |
 | `B-D021` | `B-D017` |
 | `B-D021` | `B-D020` |
 | `B-D021` | `B-P005` |
-| `B-D022` | `B-D002` |
 | `B-D022` | `B-D015` |
 | `B-D022` | `B-D016` |
 | `B-D022` | `B-D017` |
-| `B-D023` | `B-D002` |
 | `B-D023` | `B-D004` |
 | `B-D023` | `B-D005` |
 | `B-D023` | `B-D015` |
 | `B-D023` | `B-D016` |
 | `B-D023` | `B-D017` |
 | `B-D023` | `B-D020` |
-| `B-D024` | `B-D002` |
 | `B-D024` | `B-D014` |
 | `B-D024` | `B-D016` |
 | `B-D024` | `B-D017` |
-| `B-D025` | `B-D002` |
 | `B-D025` | `B-D014` |
 | `B-D025` | `B-D015` |
 | `B-D025` | `B-D016` |
 | `B-D025` | `B-D017` |
 | `B-D025` | `B-D024` |
 | `B-D025` | `B-R005` |
-| `B-D026` | `B-D002` |
 | `B-D026` | `B-D016` |
-| `B-D027` | `B-D002` |
 | `B-D027` | `B-D005` |
 | `B-D027` | `B-D015` |
 | `B-D027` | `B-D016` |
 | `B-D027` | `B-D021` |
 | `B-D027` | `B-D023` |
 | `B-D027` | `B-D026` |
-| `B-D028` | `B-D002` |
 | `B-D028` | `B-D015` |
 | `B-D028` | `B-D016` |
 | `B-D028` | `B-D017` |
 | `B-D028` | `B-D022` |
 | `B-D028` | `B-D023` |
-| `B-D030` | `B-D002` |
 | `B-D030` | `B-D014` |
 | `B-D030` | `B-D016` |
 | `B-D030` | `B-D017` |
@@ -120,7 +96,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-D031` | `B-D016` |
 | `B-D031` | `B-D022` |
 | `B-D032` | `B-D016` |
-| `B-D033` | `B-D002` |
 | `B-D033` | `B-D014` |
 | `B-D033` | `B-D016` |
 | `B-D033` | `B-D017` |
@@ -133,7 +108,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-D035` | `B-D016` |
 | `B-D036` | `B-D005` |
 | `B-D036` | `B-D016` |
-| `B-D037` | `B-D002` |
 | `B-D037` | `B-D005` |
 | `B-D038` | `B-D005` |
 | `B-D038` | `B-D014` |
@@ -142,30 +116,23 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-D039` | `B-D014` |
 | `B-D039` | `B-D016` |
 | `B-D039` | `B-D038` |
-| `B-L001` | `B-D002` |
 | `B-L001` | `B-D015` |
 | `B-L001` | `B-D016` |
 | `B-L001` | `B-D017` |
 | `B-L001` | `B-D021` |
 | `B-L001` | `B-D026` |
 | `B-L001` | `B-D027` |
-| `B-P002` | `B-D002` |
 | `B-P002` | `B-D005` |
-| `B-P003` | `B-D002` |
 | `B-P003` | `B-D005` |
-| `B-P004` | `B-D002` |
 | `B-P004` | `B-D005` |
-| `B-P005` | `B-D002` |
 | `B-P005` | `B-D005` |
 | `B-P005` | `B-R007` |
-| `B-P007` | `B-D002` |
 | `B-P007` | `B-R005` |
 | `B-P008` | `B-D004` |
 | `B-P008` | `B-D005` |
 | `B-P008` | `B-D016` |
 | `B-P008` | `B-D020` |
 | `B-P008` | `B-D023` |
-| `B-P009` | `B-D002` |
 | `B-P009` | `B-D014` |
 | `B-P009` | `B-D016` |
 | `B-P009` | `B-D017` |
@@ -184,7 +151,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P016` | `B-D033` |
 | `B-P016` | `B-P007` |
 | `B-P016` | `B-P009` |
-| `B-P017` | `B-D002` |
 | `B-P017` | `B-D016` |
 | `B-P017` | `B-D017` |
 | `B-P017` | `B-D022` |
@@ -203,13 +169,11 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P021` | `B-D016` |
 | `B-P021` | `B-D017` |
 | `B-P021` | `B-D024` |
-| `B-P022` | `B-D002` |
 | `B-P022` | `B-D005` |
 | `B-P022` | `B-D014` |
 | `B-P022` | `B-D016` |
 | `B-P022` | `B-D024` |
 | `B-P022` | `B-D038` |
-| `B-P023` | `B-D002` |
 | `B-P023` | `B-D005` |
 | `B-P023` | `B-D016` |
 | `B-P023` | `B-D024` |
@@ -225,7 +189,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P025` | `B-D005` |
 | `B-P025` | `B-D016` |
 | `B-P025` | `B-D038` |
-| `B-P026` | `B-D002` |
 | `B-P026` | `B-D005` |
 | `B-P026` | `B-D014` |
 | `B-P026` | `B-D016` |
@@ -237,7 +200,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P027` | `B-D016` |
 | `B-P027` | `B-D037` |
 | `B-P027` | `B-D038` |
-| `B-P028` | `B-D002` |
 | `B-P028` | `B-D005` |
 | `B-P028` | `B-D007` |
 | `B-P028` | `B-D014` |
@@ -245,35 +207,26 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P028` | `B-D016` |
 | `B-P028` | `B-D017` |
 | `B-P028` | `B-D038` |
-| `B-R001` | `B-D002` |
 | `B-R001` | `B-D015` |
-| `B-R003` | `B-D002` |
 | `B-R003` | `B-D008` |
 | `B-R003` | `B-D009` |
-| `B-R005` | `B-D002` |
 | `B-R005` | `B-D009` |
-| `B-R006` | `B-D002` |
 | `B-R006` | `B-D005` |
 | `B-R007` | `B-C001` |
-| `B-R007` | `B-D002` |
 | `B-R007` | `B-D005` |
-| `B-R008` | `B-D002` |
 | `B-R008` | `B-P003` |
 | `B-R009` | `B-D016` |
 | `B-R009` | `B-D018` |
 | `B-R009` | `B-D022` |
-| `B-R010` | `B-D002` |
 | `B-R010` | `B-D005` |
 | `B-R010` | `B-D016` |
 | `B-R010` | `B-D017` |
 | `B-R010` | `B-D021` |
-| `B-R011` | `B-D002` |
 | `B-R011` | `B-D015` |
 | `B-R011` | `B-D016` |
 | `B-R011` | `B-D017` |
 | `B-R011` | `B-D023` |
 | `B-R011` | `B-P008` |
-| `B-R012` | `B-D002` |
 | `B-R012` | `B-D016` |
 | `B-R012` | `B-D017` |
 | `B-R012` | `B-D023` |
@@ -289,21 +242,22 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-R017` | `B-D032` |
 | `B-R017` | `B-P008` |
 | `B-R018` | `B-D016` |
-| `B-R020` | `B-D002` |
 | `B-R020` | `B-D014` |
 | `B-R020` | `B-D016` |
 | `B-R020` | `B-D036` |
 | `B-R020` | `B-D037` |
 | `B-R020` | `B-D038` |
-
-## Informal-only, mapped (possible simplification)
-
-| from | to |
-|---|---|
+| `B-R021` | `B-D005` |
+| `B-R021` | `B-D007` |
+| `B-R021` | `B-D014` |
+| `B-R021` | `B-D015` |
+| `B-R021` | `B-D016` |
+| `B-R021` | `B-D017` |
+| `B-R021` | `B-D038` |
+| `B-R021` | `B-P028` |
 | `B-D032` | `B-D028` |
 | `B-D037` | `B-D006` |
 | `B-D037` | `B-D036` |
-| `B-P002` | `B-D006` |
 | `B-P022` | `B-D015` |
 | `B-P022` | `B-D036` |
 | `B-P023` | `B-C001` |
@@ -312,6 +266,19 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P026` | `B-D015` |
 | `B-R008` | `B-D006` |
 | `B-R020` | `B-D006` |
+| `B-R021` | `B-D031` |
+
+## Default-classified edges (collapsed)
+
+| disposition | count |
+|---|---|
+| type-carrier | 50 |
+
+## Reviewed dispositions
+
+- `B-C001 -> B-D002`: type-carrier (coordinator). Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
+- `B-C002 -> B-C001`: expected (coordinator). Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
+- `B-P002 -> B-D006`: expected (author:session33). Real informal edge; author-reviewed and retained (Session 33, D-bp002-simplification). The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. A formalization-produced simplification was proposed (use the singleton family Function.update (fun _ => empty) s {x}) but rejected: that family is exactly delta^{s,{x}}, so the delta machinery is not eliminated, only instantiated with {x} instead of the class [a]_{Psi_s}. Verdict: the paper's delta use is retained; the discrepancy is expected and intentional.
 
 ## Agreeing edges
 
@@ -350,12 +317,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-R017` | `B-D023` |
 | `B-R018` | `B-D036` |
 
-## Reviewer notes
-
-- `B-C001 -> B-D002`: Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
-- `B-C002 -> B-C001`: Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
-- `B-P002 -> B-D006`: Real informal edge; author-reviewed and retained (Session 33, D-bp002-simplification). The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. A formalization-produced simplification was proposed (use the singleton family Function.update (fun _ => empty) s {x}) but rejected: that family is exactly delta^{s,{x}}, so the delta machinery is not eliminated, only instantiated with {x} instead of the class [a]_{Psi_s}. Verdict: the paper's delta use is retained; the discrepancy is expected and intentional.
-
 ## Not yet mapped (informal edges with no formal counterpart)
 
-79 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+78 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.

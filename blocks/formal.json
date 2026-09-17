@@ -2079,6 +2079,55 @@
       "formal_statement": {
         "hash": "431297f431e62ecc774b099c9c660f18c1fb09e8f9e688f44b187aa638071bff"
       }
+    },
+    "B-R021": {
+      "decls": [
+        "Mslang.isAlgHom_id",
+        "Mslang.isAlgHom_comp",
+        "Mslang.sortedEqvLe_antisymm",
+        "Mslang.AlgEpi",
+        "Mslang.AlgEpiId",
+        "Mslang.AlgEpiComp",
+        "Mslang.AlgEpiExt",
+        "Mslang.AlgEpiComp_id_left",
+        "Mslang.AlgEpiComp_id_right",
+        "Mslang.AlgEpiComp_assoc",
+        "Mslang.SubMap",
+        "Mslang.CgrMap",
+        "Mslang.SubMap_id",
+        "Mslang.SubMap_comp",
+        "Mslang.CgrMap_id",
+        "Mslang.CgrMap_comp",
+        "Mslang.congCogenerated_natural"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_le_pullback_of_surj",
+          "Mslang.finOp",
+          "Mslang.inverseImage",
+          "Mslang.pullbackEqv",
+          "Mslang.pullbackEqv_congCogenerated_le",
+          "Mslang.wordProd"
+        ],
+        "hash": "c2863ebc15543555fca799347c22210d5cea46b10d8e954501a9bd6f4c698a8d"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "6c05e3befac9ca933a3543a019dc9b724800fe7f1378cffbde6b5ce2c9b57456"
+      },
+      "formal_statement": {
+        "hash": "bd47c0ed74656c384391d8dd212ca84ca8397541dc7bf7a35f555764cb38d97c"
+      }
     }
   },
   "source": "lean/declarations.json"

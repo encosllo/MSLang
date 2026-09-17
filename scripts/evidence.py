@@ -15,7 +15,11 @@ Usage:
     python3 scripts/evidence.py new --block B-C001 --layer review \
         --representation representation/pilot-encoding.md \
         --producer-role adversarial_reader --outcome pass --strength R1 \
-        --caveat "..." --finding "..." [--write]
+        --protocol "adversarial read" --finding "..." [--write]
+
+The ``independence`` classification and the ``independence_caveat`` text are
+**computed** from the producer and protocol (Architecture.md Section 9); neither
+is a hand-entered field.
 """
 from __future__ import annotations
 
@@ -31,10 +35,44 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 import closure  # noqa: E402
+import models  # noqa: E402
 import status  # noqa: E402
 import validate_records  # noqa: E402
 
 ROOT = HERE.parent
+
+
+def parse_stages(specs):
+    stages = []
+    for spec in specs or []:
+        role, _, model = spec.partition("=")
+        if not role.strip() or not model.strip():
+            raise SystemExit(f"evidence: --stage expects ROLE=MODEL, got {spec!r}")
+        stages.append({"role": role.strip(), "model": model.strip()})
+    return stages
+
+
+def build_independence(args):
+    """Compute the record's independence object (Architecture.md Section 9).
+
+    Explicit ``--stage`` declarations win; otherwise an agent record is routed
+    with ``scripts/models.py`` (cross-family where the registry offers one), and
+    a build/human record is classified from its producer.
+    """
+    if args.stage:
+        stages = parse_stages(args.stage)
+        return {"class": status.classify_stages(stages), "stages": stages}
+    if args.producer_kind == "agent":
+        registry = models.load_registry(args.models)
+        if args.model not in registry:
+            raise SystemExit(
+                f"evidence: model {args.model!r} is not declared in {args.models}"
+            )
+        chosen = models.choose_stages(registry, args.model, [args.producer_role])
+        return {"class": chosen["class"], "stages": chosen["stages"]}
+    return status.derive_independence(
+        {"producer": {"kind": args.producer_kind, "role": args.producer_role}}
+    )
 
 
 def next_evidence_id(evidence_dir):
@@ -88,8 +126,10 @@ def new_record(args):
     }
     if args.strength:
         record["strength"] = args.strength
-    if args.caveat:
-        record["independence_caveat"] = args.caveat
+    record["independence"] = build_independence(args)
+    record["independence_caveat"] = status.derive_caveat(
+        record, protocol=args.protocol, residuals=args.residual or None
+    )
     if args.finding:
         record["findings"] = args.finding
     if args.supersedes:
@@ -134,10 +174,16 @@ def main(argv):
     p.add_argument("--producer-kind", default="agent")
     p.add_argument("--producer-role", required=True)
     p.add_argument("--model", default="deepseek-v4.1-flash")
+    p.add_argument("--models", default=str(ROOT / "calibration" / "models.json"),
+                   help="model registry used to route independence stages")
+    p.add_argument("--stage", action="append",
+                   help="explicit audit stage as ROLE=MODEL (repeatable)")
     p.add_argument("--prompt-rev", default="")
     p.add_argument("--outcome", required=True)
     p.add_argument("--strength")
-    p.add_argument("--caveat")
+    p.add_argument("--protocol", help="audit protocol name used to derive the caveat")
+    p.add_argument("--residual", action="append",
+                   help="representation residual inherited by this audit (repeatable)")
     p.add_argument("--finding", action="append")
     p.add_argument("--supersedes")
     p.add_argument(

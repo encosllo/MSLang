@@ -4,7 +4,29 @@
     "warnings": []
   },
   "axioms": {
+    "Mslang.AlgEpi": [],
+    "Mslang.AlgEpiComp": [],
+    "Mslang.AlgEpiComp_assoc": [
+      "Quot.sound"
+    ],
+    "Mslang.AlgEpiComp_id_left": [
+      "Quot.sound"
+    ],
+    "Mslang.AlgEpiComp_id_right": [
+      "Quot.sound"
+    ],
+    "Mslang.AlgEpiExt": [],
+    "Mslang.AlgEpiId": [],
     "Mslang.AlgStruct": [],
+    "Mslang.CgrMap": [],
+    "Mslang.CgrMap_comp": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.CgrMap_id": [
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.ClosesUnderEtl": [],
     "Mslang.ClosesUnderTl": [],
     "Mslang.Etl": [],
@@ -79,6 +101,13 @@
     "Mslang.SortedIso": [],
     "Mslang.SortedMap": [],
     "Mslang.Sub": [],
+    "Mslang.SubMap": [],
+    "Mslang.SubMap_comp": [
+      "Quot.sound"
+    ],
+    "Mslang.SubMap_id": [
+      "Quot.sound"
+    ],
     "Mslang.Sub_iInter": [],
     "Mslang.Sub_iUnion": [],
     "Mslang.Subfinal": [],
@@ -152,6 +181,11 @@
       "propext"
     ],
     "Mslang.congCogenerated_le_transPreimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congCogenerated_natural": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -250,10 +284,12 @@
     ],
     "Mslang.initialSorted": [],
     "Mslang.inverseImage": [],
+    "Mslang.isAlgHom_comp": [],
     "Mslang.isAlgHom_iPairAlg": [
       "Quot.sound"
     ],
     "Mslang.isAlgHom_iProjAlg": [],
+    "Mslang.isAlgHom_id": [],
     "Mslang.isAlgHom_prAlg": [
       "Classical.choice",
       "Quot.sound",
@@ -443,6 +479,10 @@
       "propext"
     ],
     "Mslang.sigmaPUnitEquiv": [],
+    "Mslang.sortedEqvLe_antisymm": [
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.sortedEqvLe_refl": [],
     "Mslang.sortedEqvLe_trans": [],
     "Mslang.subAlg": [],
@@ -518,7 +558,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 206,
+  "declarations_audited": 223,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

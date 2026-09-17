@@ -28,10 +28,13 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 import decisions  # noqa: E402
+import scope  # noqa: E402
 import status  # noqa: E402
 
 ROOT = HERE.parent
 REPORT = ROOT / "reports" / "frontier.md"
+SCOPE_STORE = ROOT / "blocks" / "scope_decisions.json"
+SCOPE_ORDER = ["worth-formalizing", "deferred", "out-of-scope", "undecided"]
 
 
 def load_json(rel):
@@ -43,9 +46,11 @@ def non_pass_layers():
     records = status.load_evidence(ROOT / "evidence")
     rep = {"encoding": status.hash_file(ROOT / "representation" / "pilot-encoding.md")}
     grouped = status.group_by_block_layer(records)
+    tiers = status.load_default_tiers()
     rows = []
     for block in sorted(grouped):
-        for layer, st in sorted(status.block_status(grouped[block], registry, rep).items()):
+        for layer, st in sorted(status.block_status(grouped[block], registry, rep,
+                                                    tiers=tiers, block=block).items()):
             if st["status"] != "pass":
                 rows.append((block, layer, st["status"], st["current"], st["stale"]))
     return rows
@@ -55,6 +60,16 @@ def unmapped_blocks():
     registry = status.load_registry(ROOT / "blocks" / "registry.json")
     decls = load_json("lean/declarations.json").get("blocks", {})
     return sorted(b for b, e in registry.items() if e.get("status") == "confirmed" and b not in decls)
+
+
+def triage(unmapped, scopes):
+    """Group unmapped blocks by scope disposition (Section 17)."""
+    groups = {k: [] for k in SCOPE_ORDER}
+    for block in unmapped:
+        entry = scopes.get(block)
+        value = entry.get("disposition") if isinstance(entry, dict) else entry
+        groups[value if value in groups else "undecided"].append(block)
+    return groups
 
 
 def open_bridges():
@@ -68,9 +83,11 @@ def open_bridges():
 def render():
     rows = non_pass_layers()
     unmapped = unmapped_blocks()
+    groups = triage(unmapped, scope.load(SCOPE_STORE))
     bridges = open_bridges()
     standing = decisions.load_standing(ROOT / "decisions" / "standing.json")
     escalations = decisions.open_escalations(ROOT / "journal" / "events.jsonl")
+    obligations = [b for b in unmapped if b not in groups["out-of-scope"]]
     lines = [
         "# Frontier report (Section 19)",
         "",
@@ -90,10 +107,36 @@ def render():
         lines.append(f"| `{name}` | `{o}` |")
     if not bridges:
         lines.append("| _none_ | |")
-    lines += ["", f"## Blocks with no Lean counterpart ({len(unmapped)})", "",
-              "These confirmed blocks are outside the current formalization frontier.",
-              "",
-              ", ".join(f"`{b}`" for b in unmapped) if unmapped else "- none", ""]
+    lines += [
+        "",
+        f"## Unmapped blocks ({len(unmapped)})",
+        "",
+        "Scope triage (Sections 16.4, 17); an unrecorded block is undecided, not",
+        "assumed worth formalizing.",
+        "",
+        "| disposition | count |",
+        "|---|---|",
+    ]
+    for value in SCOPE_ORDER:
+        lines.append(f"| {value} | {len(groups[value])} |")
+    lines += [
+        "",
+        f"### Open obligations ({len(obligations)})",
+        "",
+        "Unmapped blocks not marked `out-of-scope`.",
+        "",
+        ", ".join(f"`{b}`" for b in obligations) if obligations else "- none",
+        "",
+    ]
+    if groups["undecided"]:
+        lines += [
+            f"### Undecided ({len(groups['undecided'])})",
+            "",
+            "Awaiting an author scope disposition.",
+            "",
+            ", ".join(f"`{b}`" for b in groups["undecided"]),
+            "",
+        ]
     lines += ["## Open author decisions", "", "| id | category |", "|---|---|"]
     for d in standing:
         lines.append(f"| `{d['id']}` | {d['category']} |")

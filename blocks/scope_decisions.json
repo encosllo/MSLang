@@ -1,0 +1,4 @@
+{
+  "note": "Scope dispositions for confirmed blocks with no Lean counterpart (Architecture.md Sections 16.4, 17, 19). Author-reserved: a disposition is set only by an author decision (decided_by must begin with 'author:'). A block absent here is undecided, not assumed worth formalizing. Allowed values: worth-formalizing, deferred, out-of-scope.",
+  "dispositions": {}
+}

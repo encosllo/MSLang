@@ -1,5 +1,7 @@
 {
-  "audit_note": "Run 2 (per-case, primary measurement): each of the 11 cases was judged in its own isolated comparator context, blind to the case type and to the expected outcome; same model as the project (deepseek-v4.1-flash). Detection is identical to the batched run (7/7 mutations detected, 0/4 control false positives); the typed outcome differs on CAL-006 (batched formal_weaker -> per-case formal_stronger) and CAL-008 (batched ill_posed -> per-case formal_weaker). The batched run is retained at calibration/verdicts.batched.json.",
+  "audit_note": "Run 3 (generated cases, batched): the 12 generated cases were judged in a single blind comparator context that received only contract/readback pairs (no case type, no expectation), on the project's model (deepseek-v4.1-flash). 12/12 detected, 0 missed. This run also drove an operator fix: the original `encoding` operator only changed 'componentwise subset' to 'subset' (not a mismatch in this setting) and the original `direction_flip` produced a self-contradictory gloss; both were corrected (encoding now switches 'S-sorted equivalences' to 'S-sorted relations', a genuine Setoid-vs-relation residual) and the corrected corpus detects 12/12. Run 2 (per-case, hand-authored cases) is retained in the same map for CAL-001..CAL-011.",
+  "model": "deepseek-v4.1-flash",
+  "producer_model": "deepseek-v4.1-flash",
   "verdicts": {
     "CAL-001": "equivalent",
     "CAL-002": "incomparable",
@@ -11,6 +13,18 @@
     "CAL-008": "formal_weaker",
     "CAL-009": "equivalent",
     "CAL-010": "formal_stronger",
-    "CAL-011": "equivalent"
+    "CAL-011": "equivalent",
+    "CAL-G001": "ill_posed",
+    "CAL-G002": "incomparable",
+    "CAL-G003": "formal_stronger",
+    "CAL-G004": "formal_stronger",
+    "CAL-G005": "formal_stronger",
+    "CAL-G006": "formal_stronger",
+    "CAL-G007": "incomparable",
+    "CAL-G008": "formal_stronger",
+    "CAL-G009": "formal_weaker",
+    "CAL-G010": "incomparable",
+    "CAL-G011": "formal_weaker",
+    "CAL-G012": "formal_weaker"
   }
 }

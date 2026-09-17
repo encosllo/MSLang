@@ -1,0 +1,16 @@
+{
+  "note": "Detection baseline (Section 11.4); a later run below these rates blocks the change.",
+  "pair": {
+    "comparator": "deepseek",
+    "producer": "deepseek"
+  },
+  "rates": {
+    "conclusion_reverse": 1.0,
+    "direction_flip": 1.0,
+    "dropped_hypothesis": 1.0,
+    "encoding": 1.0,
+    "quantifier_change": 1.0,
+    "saturation_order": 1.0,
+    "weakened_conclusion": 1.0
+  }
+}

@@ -495,6 +495,7 @@ Each of the three layers is in exactly one of these states:
 | `fail` | Current evidence with a negative outcome (finding, mismatch, failed build, disproof) |
 | `blocked` | A classified blocker prevents progress (Section 10.2) |
 | `stale` | The most recent evidence is no longer current |
+| `provisional` | A current positive layer whose positive evidence is entirely `same_model` and whose block is not explicitly `light`-tier: it holds, but not independently (Section 9) |
 
 A `stale` layer returns to `in_progress` when rework is scheduled, or
 directly to `pass` when an author decision record carries the evidence
@@ -566,6 +567,17 @@ identity and prompt revision; the schedule actively routes the
 higher-stakes stages (comparison, adversarial read) to a different model
 where one is available; and the evaluation plan (Section 18) measures audit
 effectiveness directly, by model pair, rather than assuming it.
+
+**Independence is computed, not asserted.** Each record carries an
+`independence` classification (`cross_model`, `same_model`, `human`, `build`)
+computed from the models of its audit stages, in the declared model registry
+(`calibration/models.json`); a stage model absent from the registry is
+rejected, and the human-readable `independence_caveat` is derived from these
+structured fields rather than typed by hand. A current positive layer whose
+positive records are all `same_model` reports `provisional`, not `pass`, unless
+the block is **explicitly** designated `light`; an unclassified block is not
+exempt. Routing is a coordinator duty the tooling makes explicit and checkable,
+never a claim the record can make about itself.
 
 ## 10. Architecture
 
@@ -971,6 +983,16 @@ representation corrupts many audits at once, so it is the most valuable
 mutation to detect. Detection rate is a gate: a drop after a change of model,
 prompt, or tooling blocks that change until the drop is explained.
 
+**Reporting and corpus form are normative.** Cases are generated
+deterministically by named mutation operators over a sampled set of audited
+blocks, so a mutation type carries multiple cases, and the corpus self-check
+fails a type below a declared minimum. Detection is reported per mutation type
+as case count, detected count, rate, and an uncertainty interval (Wilson); a
+rate is never reported without its `n`, and a single-case rate is visibly
+uninformative. Detection is reported per model pair, and the report states when
+only one pair exists. A recorded baseline is compared on every run: a drop
+below it fails, and a missing baseline is reported rather than passed.
+
 ### 11.5 Encoding (Representation) Audit
 
 The single highest-leverage audit in the system, because a representation
@@ -1189,6 +1211,15 @@ differences can be computed:
 
 This report is the concrete mechanism behind the claim that formalization
 improves the mathematics.
+
+**Rows carry dispositions.** Every discrepancy row is assigned a typed
+disposition (`real-hidden-dependency`, `type-carrier`, `simplification`,
+`expected`, `corrected`) recorded in `blocks/discrepancy_decisions.json`, or a
+documented default for a structural pattern (an edge whose target is the type
+carrier). The report enumerates only **undecided** rows and reports their count,
+and collapses default-classified rows into per-category counts; reviewed
+dispositions carry their rationale. A disposition is a review verdict, not an
+evidence record, and changes no layer status.
 
 ### 12.3 Closure Generation (the Input of Every Evidence Record)
 
@@ -1766,8 +1797,16 @@ Project-level views:
   the project.
 - **Discrepancy report:** differences between informal and formal
   dependency graphs.
-- **Frontier:** open obligations across the project.
+- **Frontier:** open obligations across the project. Unmapped blocks are grouped
+  by **scope disposition** (`worth-formalizing`, `deferred`, `out-of-scope`, or
+  undecided); a block marked `out-of-scope` leaves the open obligations while
+  remaining visible in the triage counts, and an unrecorded block is undecided,
+  not assumed worth formalizing.
 - **Staleness:** what became stale, why, and what rework is scheduled.
+- **Reconciliation:** formalization-produced proposals to change the manuscript
+  (reconstructed proofs, simplifications, newly proved commented-out results,
+  statement corrections), each with an acceptance state; acceptance is
+  author-reserved.
 - **Decision queue:** contract changes, escalations, and freeze requests
   awaiting the author.
 
@@ -1807,7 +1846,7 @@ consistent while the dependencies and the encoding it records are wrong.
 | 1. Ingestion, extraction, and calibration | Source inventory, symbol registry, lazy block registry with confirmed IDs, blueprint-compatible annotations, initial dependency graph seeded by symbol/prose extraction (Section 12.1), gap report, anchor-based hashing, and the **seeded-mismatch calibration suite stood up now** (Section 11.4) | Re-ingestion preserves every block identity or flags it; a seeded line-shift desyncs no hash; closure extraction recall measured against the hand closure; calibration detection rates reported per mutation type and model pair |
 | 2. Evidence engine | Evidence records with **computed closures** (Section 12.3), hashing (informal and formal statement/proof split), validity rule, status vectors, journal, change classification including C6, salvage, schema validation | All seeded propagation tests pass soundness, including a representation change (C6) staling exactly its dependent surface; fail-closed closure blocks on an unresolved edge |
 | 3. Audit pipeline | Read-back, comparator on a second model where available, the **encoding audit** (Section 11.5), formal sanity checks, the informal-proof adversarial-read protocol, seeded encoding mutations | Detection rates measured and reviewed by the author for all three audit protocols (statement, informal proof, encoding) |
-| 4. Mechanical hygiene tooling | Automated hash resync, cross-reference blast-radius check, encoding scanner, exit-code-checked build script | Every edit to the manuscript triggers all four checks automatically |
+| 4. Mechanical hygiene tooling | Automated hash resync, cross-reference blast-radius check, encoding scanner, exit-code-checked build script, and the tiered gate (fast per edit, full at session close) | Every edit runs the fast gate automatically; the full gate, including the Lean mechanical audit and the manuscript build, is the session-close artifact of record |
 | 5. Workspace and continuity | Side-by-side interface, project views, evidence bundles, `STATE.md`-style continuity file with a safe-restart checklist, treatment-tier scheduling (Section 17.2) | Evidence bundle for the pilot produced and usable by a third party; a new session can resume correctly from the continuity file alone |
 
 ## 22. Success Criteria
@@ -1902,6 +1941,46 @@ tooling, with no dependency on any external platform.
     13.2)?
 
 ## 25. Change Log
+
+### Revision 5 - evidence-hardened
+
+Added after a review found that the project's evidentiary strength was asserted
+rather than demonstrated: 48 of 66 correspondence records were same-model with
+no mechanism to notice, calibration reported 7/7 with n=1 per type, the
+discrepancy report had 328 rows and 3 dispositions, and formalization-produced
+manuscript proposals had no path back into the prose.
+
+- **Computed independence and `provisional` status** (Sections 8.1, 9): every
+  record carries an `independence` object computed from its stage models against
+  a declared model registry; `independence_caveat` is derived, not typed; a
+  current positive layer whose positive evidence is all `same_model` reports
+  `provisional` unless the block is explicitly `light`-tier (an unclassified
+  block is not exempt). Existing records are classified on read and were not
+  edited; the reclassification is a journal event.
+- **Model registry and routing** (Sections 9, 11.4): `calibration/models.json`
+  declares available models; independence-requiring stages are routed to a
+  different family where one exists; `scripts/models.py --check` rejects an
+  undeclared recorded model; detection is reported per model pair.
+- **Calibration at scale** (Sections 11.4, 18): named mutation operators generate
+  multiple cases per type over a sampled universe; the corpus self-check enforces
+  a per-type minimum; the report gives `n`, detected, rate, and a Wilson interval
+  and never a rate without its `n`; a recorded baseline gates a drop.
+- **Discrepancy dispositions** (Section 12.2): typed dispositions with a
+  documented default for structural patterns; the report enumerates only
+  undecided rows and collapses default-classified rows into counts. A
+  disposition is not evidence and changes no layer status.
+- **Manuscript reconciliation** (Section 11a.5, 19): a catalogue of
+  formalization-produced proposals with an acceptance state; acceptance is
+  author-reserved and records the resulting manuscript hash, closing the loop
+  from Lean back to the prose.
+- **Scope triage** (Sections 16.4, 17, 19): unmapped blocks carry an
+  author-reserved scope disposition; the frontier reports a triaged plan and
+  excludes `out-of-scope` blocks from open obligations.
+- **Tiered gate** (Sections 13.3, 15.6, 21): `scripts/check_all.sh` gains a fast
+  tier (no Lean, no PDF; seconds) that is the per-edit gate and reports
+  slow-only checks as `DEFERRED`, and the full tier remains the artifact of
+  record at session close; the Lean-gate cost discipline of Revision 4 is
+  retained.
 
 ### Revision 4 - cost-disciplined
 

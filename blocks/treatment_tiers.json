@@ -1,0 +1,4 @@
+{
+  "note": "Explicit treatment tiers (Architecture.md Sections 8.3, 9). Author-reserved: a block enters the cabinet by author designation. A block ABSENT here has no recorded tier and is NOT treated as light -- a current positive layer whose positive evidence is all same_model reports `provisional` until a `light` designation is recorded. Allowed values: light, cabinet.",
+  "tiers": {}
+}

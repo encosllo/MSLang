@@ -1,0 +1,39 @@
+{
+  "block": "B-R021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000163",
+  "findings": [
+    "Re-issue of E-000162: four declarations were added to B-R021 after that record (the epi category laws AlgEpiComp_id_left/id_right/assoc and the extensionality lemma AlgEpiExt), which moved the block's formal_proof hash. Content: the category Alg(Sigma)_epi is AlgEpi (hom with surjective components, with identity, composition, and the category laws); the contravariant functors P- and Cgr are SubMap (inverseImage) and CgrMap (pullbackEqv), with identity and composition laws; Omega is congCogenerated. Naturality at an epimorphism f is CgrMap f (Omega^B M) = Omega^A (SubMap f M), proved by antisymmetry from the two B-P028 inclusions.",
+    "Axioms of Mslang.congCogenerated_natural are {Classical.choice, Quot.sound, propext} (scripts/lean_audit.py, 223 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R021/formal_proof",
+      "hash": "6c05e3befac9ca933a3543a019dc9b724800fe7f1378cffbde6b5ce2c9b57456"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "hash-move",
+  "supersedes": "E-000162",
+  "timestamp": "2026-09-17T15:50:43Z"
+}

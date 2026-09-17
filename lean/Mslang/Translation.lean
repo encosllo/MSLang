@@ -660,4 +660,126 @@ theorem congCogenerated_le_pullback_of_surj {S : Type u} (Sig : Signature S) {A 
   rw [← hVf x, ← hVf y]
   exact h
 
+/-! ### `B-R021`: `Ω` is a natural transformation `P⁻ ⇒ Cgr`. -/
+
+/-- The identity is an algebra homomorphism. -/
+theorem isAlgHom_id {S : Type u} (Sig : Signature S) {A : SSet S} (FA : AlgStruct Sig A) :
+    IsAlgHom Sig FA FA (fun _ => id) := by
+  intro p σ a
+  rfl
+
+/-- Composition of algebra homomorphisms is an algebra homomorphism. -/
+theorem isAlgHom_comp {S : Type u} (Sig : Signature S) {A B C : SSet S}
+    {FA : AlgStruct Sig A} {FB : AlgStruct Sig B} {FC : AlgStruct Sig C}
+    {f : SortedMap A B} {g : SortedMap B C}
+    (hf : IsAlgHom Sig FA FB f) (hg : IsAlgHom Sig FB FC g) :
+    IsAlgHom Sig FA FC (fun s => g s ∘ f s) := by
+  intro p σ a
+  simp only [Function.comp_apply]
+  rw [hf p σ a, hg p σ (fun i => f (p.1.get i) (a i))]
+
+/-- Two sorted equivalences that refine each other are equal. -/
+theorem sortedEqvLe_antisymm {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
+    (h₁ : sortedEqvLe Φ Ψ) (h₂ : sortedEqvLe Ψ Φ) : Φ = Ψ := by
+  funext s
+  exact Setoid.ext (fun x y => ⟨h₁ s x y, h₂ s x y⟩)
+
+/-- `B-R021`: a morphism of `Alg(Σ)_epi`, i.e. an epimorphism of `Σ`-algebras:
+a homomorphism whose every component is surjective. -/
+structure AlgEpi {S : Type u} (Sig : Signature S) (A B : Alg Sig) where
+  map : SortedMap A.1 B.1
+  hom : IsAlgHom Sig A.2 B.2 map
+  surj : ∀ s, Function.Surjective (map s)
+
+/-- `B-R021`: the identity epimorphism. -/
+def AlgEpiId {S : Type u} (Sig : Signature S) (A : Alg Sig) : AlgEpi Sig A A where
+  map := fun _ => id
+  hom := isAlgHom_id Sig A.2
+  surj := fun _ => Function.surjective_id
+
+/-- `B-R021`: composition of epimorphisms. -/
+def AlgEpiComp {S : Type u} (Sig : Signature S) {A B C : Alg Sig}
+    (g : AlgEpi Sig B C) (f : AlgEpi Sig A B) : AlgEpi Sig A C where
+  map := fun s => g.map s ∘ f.map s
+  hom := isAlgHom_comp Sig f.hom g.hom
+  surj := fun s => (g.surj s).comp (f.surj s)
+
+/-- Two epimorphisms with the same underlying map are equal (the `hom` and
+`surj` fields are propositions). -/
+@[ext]
+theorem AlgEpiExt {S : Type u} {Sig : Signature S} {A B : Alg Sig}
+    {f g : AlgEpi Sig A B} (h : f.map = g.map) : f = g := by
+  obtain ⟨fm, fh, fs⟩ := f
+  obtain ⟨gm, gh, gs⟩ := g
+  simp only at h
+  subst h
+  congr
+
+/-- `B-R021`: the identity epimorphism is a left identity for composition. -/
+theorem AlgEpiComp_id_left {S : Type u} (Sig : Signature S) {A B : Alg Sig}
+    (f : AlgEpi Sig A B) : AlgEpiComp Sig (AlgEpiId Sig B) f = f :=
+  AlgEpiExt (by funext s x; rfl)
+
+/-- `B-R021`: the identity epimorphism is a right identity for composition. -/
+theorem AlgEpiComp_id_right {S : Type u} (Sig : Signature S) {A B : Alg Sig}
+    (f : AlgEpi Sig A B) : AlgEpiComp Sig f (AlgEpiId Sig A) = f :=
+  AlgEpiExt (by funext s x; rfl)
+
+/-- `B-R021`: composition of epimorphisms is associative. -/
+theorem AlgEpiComp_assoc {S : Type u} (Sig : Signature S) {A B C D : Alg Sig}
+    (h : AlgEpi Sig C D) (g : AlgEpi Sig B C) (f : AlgEpi Sig A B) :
+    AlgEpiComp Sig (AlgEpiComp Sig h g) f = AlgEpiComp Sig h (AlgEpiComp Sig g f) :=
+  AlgEpiExt (by funext s x; rfl)
+
+/-- `B-R021`: the functor `P⁻` on morphisms, `L ↦ f⁻¹[L]`. -/
+def SubMap {S : Type u} (Sig : Signature S) {A B : Alg Sig} (f : AlgEpi Sig A B) :
+    Sub B.1 → Sub A.1 :=
+  inverseImage f.map
+
+/-- `B-R021`: the functor `Cgr` on morphisms, `Φ ↦ (f×f)⁻¹[Φ]`. -/
+@[instance_reducible]
+def CgrMap {S : Type u} (Sig : Signature S) {A B : Alg Sig} (f : AlgEpi Sig A B) :
+    SortedEqv B.1 → SortedEqv A.1 :=
+  pullbackEqv f.map
+
+/-- `B-R021`: `P⁻` preserves identities. -/
+theorem SubMap_id {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    SubMap Sig (AlgEpiId Sig A) = id := by
+  funext Y s x
+  rfl
+
+/-- `B-R021`: `P⁻` reverses composition (contravariance). -/
+theorem SubMap_comp {S : Type u} (Sig : Signature S) {A B C : Alg Sig}
+    (g : AlgEpi Sig B C) (f : AlgEpi Sig A B) :
+    SubMap Sig (AlgEpiComp Sig g f) = SubMap Sig f ∘ SubMap Sig g := by
+  funext Z s x
+  rfl
+
+/-- `B-R021`: `Cgr` preserves identities. -/
+theorem CgrMap_id {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    CgrMap Sig (AlgEpiId Sig A) = id := by
+  funext Ψ s
+  apply Setoid.ext
+  intro x y
+  exact Iff.rfl
+
+/-- `B-R021`: `Cgr` reverses composition (contravariance). -/
+theorem CgrMap_comp {S : Type u} (Sig : Signature S) {A B C : Alg Sig}
+    (g : AlgEpi Sig B C) (f : AlgEpi Sig A B) :
+    CgrMap Sig (AlgEpiComp Sig g f) = CgrMap Sig f ∘ CgrMap Sig g := by
+  funext Θ s
+  apply Setoid.ext
+  intro x y
+  exact Iff.rfl
+
+/-- `B-R021`: `Ω` is natural. For an epimorphism `f : A → B` and `M ∈ Sub(B)`,
+`(f×f)⁻¹[Ω^B(M)] = Ω^A(f⁻¹[M])`. The two inclusions are the two halves of
+`B-P028`. -/
+theorem congCogenerated_natural {S : Type u} (Sig : Signature S) {A B : Alg Sig}
+    (f : AlgEpi Sig A B) (M : Sub B.1) :
+    CgrMap Sig f (congCogenerated Sig B M) = congCogenerated Sig A (SubMap Sig f M) :=
+  sortedEqvLe_antisymm
+    (pullbackEqv_congCogenerated_le Sig f.hom M)
+    (congCogenerated_le_pullback_of_surj Sig f.hom f.surj M)
+
 end Mslang

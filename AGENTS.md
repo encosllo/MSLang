@@ -13,10 +13,15 @@ file is the operational restatement of `Architecture.md` Section 15.6
    writes `blocks/lean_audit.json`. While *developing* a hard proof, a targeted
    `lake build Mslang.<Module>` (one process, the edited module only) is the
    minimal check and is the intended way to iterate; the final artifact must
-   still come from one `lean_audit.py` run and one `check_all.sh` run.
-2. **Budget one `lean_audit.py` and one `check_all.sh` per session.** `check_all`
-   needs the artifact current, so write it first. If `check_all` fails, read only
-   the failing check, fix that, and re-run once — do not loop.
+   still come from one `lean_audit.py` run and one *slow* `check_all.sh` run.
+2. **Use the fast gate per edit; budget one slow `check_all.sh` per session.**
+   `scripts/check_all.sh --fast` runs every check that needs neither Lean
+   compilation nor a PDF build (seconds), and reports the Lean audit and
+   manuscript build as `DEFERRED`, never as passes. Run it after each change. At
+   session close run `scripts/check_all.sh` once: it is the artifact of record
+   and includes `lean_audit.py --check` and the manuscript build. If the slow
+   gate fails, read only the failing check, fix that, and re-run once — do not
+   loop.
 3. `--skip-build` changes the emitted payload, so it fails `lean_audit.py
    --check`. Use it only as a quick mid-edit axiom probe, never to produce the
    artifact or to satisfy `check_all`.
@@ -29,12 +34,12 @@ file is the operational restatement of `Architecture.md` Section 15.6
    exactly the drift.
 6. Regeneration order when views/bundle are involved: `report.py`,
    `calibration.py --report`, `impact.py --report`, `discrepancy.py --report`,
-   `sanity.py --report`, `frontier.py --report`, then the journal event, then
-   `decisions.py --report`, then `bundle.py`. `bundle.py` embeds the journal and
-   the other reports, so it is always last.
+   `sanity.py --report`, `frontier.py --report`, `reconcile.py --report`, then
+   the journal event, then `decisions.py --report`, then `bundle.py`. `bundle.py`
+   embeds the journal and the other reports, so it is always last.
 7. **Never edit `manuscript/MSEilenberg.tex` with the `edit` tool** — it decodes
    latin1 as UTF-8 and corrupts the six legitimate high bytes. Read/modify/write
    with Python `open(..., encoding='latin1')`, then verify the high-byte
    histogram is unchanged (see `STATE.md` safe-restart step 5).
 8. `evidence/` is append-only: never edit or delete; supersede with a new record
-   via `python3 scripts/evidence.py new --supersede E-XXXXXX ... --write`.
+   via `python3 scripts/evidence.py new --supersedes E-XXXXXX ... --write`.

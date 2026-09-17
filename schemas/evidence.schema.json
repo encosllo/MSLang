@@ -106,9 +106,33 @@
       "enum": ["R0", "R1", "R2", "R3", "R4"],
       "description": "Review layer only (Section 7.3)."
     },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class"],
+      "description": "Computed independence of the audit's stages (Architecture.md Section 9). Never set by free choice.",
+      "properties": {
+        "class": {
+          "type": "string",
+          "enum": ["cross_model", "same_model", "human", "build"]
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "model"],
+            "properties": {
+              "role": { "type": "string" },
+              "model": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
     "independence_caveat": {
       "type": "string",
-      "description": "Required in practice for agent producers; state plainly how independent the check was."
+      "description": "Derived from the independence object and the audit protocol; not hand-entered for agent-produced records (Section 9)."
     },
     "supersedes": {
       "type": "string",

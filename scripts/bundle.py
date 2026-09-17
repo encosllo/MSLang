@@ -42,7 +42,14 @@ MANIFEST_PATHS = [
     "blocks/graph.json",
     "representation/pilot-encoding.md",
     "calibration/seeded.json",
+    "calibration/generated.json",
+    "calibration/baseline.json",
+    "calibration/models.json",
     "calibration/verdicts.json",
+    "blocks/treatment_tiers.json",
+    "blocks/scope_decisions.json",
+    "blocks/discrepancy_decisions.json",
+    "reconciliation/proposals.json",
     "decisions/standing.json",
     "journal/events.jsonl",
     "lean/lake-manifest.json",
@@ -57,6 +64,7 @@ VIEWS = [
     "reports/discrepancy.md",
     "reports/impact.md",
     "reports/frontier.md",
+    "reports/reconciliation.md",
     "reports/decisions.md",
 ]
 
@@ -81,9 +89,11 @@ def status_table():
     records = status.load_evidence(ROOT / "evidence")
     rep = {"encoding": status.hash_file(ROOT / "representation" / "pilot-encoding.md")}
     grouped = status.group_by_block_layer(records)
+    tiers = status.load_default_tiers()
     lines = ["| block | layer | status | current | stale |", "|---|---|---|---|---|"]
     for block in sorted(grouped):
-        for layer, st in sorted(status.block_status(grouped[block], registry, rep).items()):
+        for layer, st in sorted(status.block_status(grouped[block], registry, rep,
+                                                    tiers=tiers, block=block).items()):
             lines.append(
                 f"| `{block}` | {layer} | {st['status']} | {st['current']} | {st['stale']} |"
             )

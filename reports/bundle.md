@@ -9,14 +9,20 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `deaa4efcf662b7b56a790a4748e1f2391833fea26ac3d70ee4538a0ba03339f5` |
-| `blocks/formal_graph.json` | `fac473cbab9422fe2cf87e287e7a1973f1c9621284d2591d7b47b1bc8068954a` |
+| `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
+| `blocks/formal.json` | `1e52a02f4c63bcf5f0c5dae7f15d94e8784384b6203f5e4ba9af98303d123541` |
+| `blocks/formal_graph.json` | `315e3c128222b182458d6112139ba11029504c91a66b626ad849c3d168659749` |
 | `blocks/graph.json` | `6a907679615f6e0425130c4c12835c21aa9cef45926191ec2c22001a1a37a8eb` |
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
-| `blocks/lean_audit.json` | `77db9e24fd09b3c82d1a4c4accdac5a39a37e893c820f6b5f2afb3cb2edbf461` |
+| `blocks/lean_audit.json` | `d2bb4672aee8a15f81534ce150166d2a8ebb631f7e6b70b788ab0816e0e05e61` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
-| `calibration/seeded.json` | `49f548dec238c446c1c9cf2d74c253b784aa2d009f80d8b69a2ac1b6b8c3d690` |
-| `calibration/verdicts.json` | `ee62f8bd57f5353e880bc6400b293c2646dc27637b739ac49518f124bd2719ca` |
+| `blocks/scope_decisions.json` | `bf88a545e2de34a90810d1b2aa15342f320ed6cb707aed5872b9cb5d88af0f5e` |
+| `blocks/treatment_tiers.json` | `6542301a4c092696fda9b1925825685f9890c2dedf6c077d49bb782da24d2158` |
+| `calibration/baseline.json` | `c10a03ea904ab834070a8da546e88da7b18e91f5241486e07c5297bb9f3dbe2e` |
+| `calibration/generated.json` | `f404e40777743c210acc102f2955720cda2bbf955acf4fd32696c5cc652ec16d` |
+| `calibration/models.json` | `637456e4910e959aed35510fb9e18f616c29f96c6c78a8a49c71ae63021e3f05` |
+| `calibration/seeded.json` | `ce9f122e055a02698d321d150c412379893d70d8d4ed70d94be7539dc6ddbfbf` |
+| `calibration/verdicts.json` | `fa55628a0a4ffbd56c7da68d0a4fe656b027eb61b7f89469ec4741aa34d50397` |
 | `decisions/standing.json` | `03b61b27a750f6e99c78be0ba46cf46a9ad3b2c139b81b93fa5624ec4177adb8` |
 | `evidence/E-000001.json` | `3d3e19bd6a117f75c0167f8d16f6abdeebd47c5ea3a1b702b44e419eb031f1cf` |
 | `evidence/E-000002.json` | `34a2aaf9b9522512d51f2305bd32a4399f6ea46b6b827b69d855c854edb26ef5` |
@@ -179,29 +185,33 @@ repository.
 | `evidence/E-000159.json` | `b1fb91e9387b6b9f5163ccd5bcf318e1aae4a968bf6a2b37e932a5602ca1f2fd` |
 | `evidence/E-000160.json` | `5553c8107b2caf644104c23526374e91da6dabc36c9458fa5ee883c31b00fa17` |
 | `evidence/E-000161.json` | `f288ec59d9db3d4a59b714cd0502167991f64a2d2518005dd3ac6c5858311921` |
-| `journal/events.jsonl` | `90b4ea6220844f6e0871d423386685ac4c86ccc063ce7f6463a4e60fa65e9b6c` |
+| `evidence/E-000162.json` | `184364d4ae884048cda9174fe52f0d96e72dedb07a4fcda905bd42488b77aac3` |
+| `evidence/E-000163.json` | `77e9adb7d8780fa04b6d18e86d60e69b7a70626111774cbd349495b0d261ec05` |
+| `evidence/E-000164.json` | `8610f50bdc20dfe364e00d8dc4d4e0cb63759f9e34e1612778ce0b3d0d052c5c` |
+| `journal/events.jsonl` | `5b496212e474b5266f18b7c6ca84290e932e737402993c526381bacf106484f0` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
+| `reconciliation/proposals.json` | `cad78706a93883a409b94262b40fa06e3a1eec3d680abe1aab0645c038cccabd` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
-| `schemas/evidence.schema.json` | `cf99cb9231ca15a7ad31824fd6e156bc9602eb7d61a3741177ee17c2953c3bf9` |
+| `schemas/evidence.schema.json` | `c6cca4d570f1ff68ed94ab9b38efad979074c6e2ce3bf5db1f663aa379550449` |
 
 ## Status (validity rule applied to current evidence)
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| `B-C001` | correspondence | pass | 1 | 3 |
-| `B-C001` | review | pass | 1 | 1 |
+| `B-C001` | correspondence | provisional | 1 | 3 |
+| `B-C001` | review | provisional | 1 | 1 |
 | `B-C001` | verification | pass | 2 | 0 |
-| `B-C002` | correspondence | pass | 1 | 3 |
-| `B-C002` | review | pass | 1 | 1 |
+| `B-C002` | correspondence | provisional | 1 | 3 |
+| `B-C002` | review | provisional | 1 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
-| `B-C004` | correspondence | pass | 1 | 0 |
+| `B-C004` | correspondence | provisional | 1 | 0 |
 | `B-C004` | verification | pass | 1 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
 | `B-D002` | verification | pass | 1 | 0 |
 | `B-D003` | verification | pass | 1 | 0 |
-| `B-D004` | correspondence | pass | 1 | 2 |
+| `B-D004` | correspondence | provisional | 1 | 2 |
 | `B-D004` | verification | pass | 1 | 1 |
 | `B-D005` | verification | pass | 1 | 0 |
 | `B-D006` | verification | pass | 1 | 1 |
@@ -238,74 +248,76 @@ repository.
 | `B-D037` | verification | pass | 1 | 0 |
 | `B-D038` | verification | pass | 1 | 0 |
 | `B-D039` | verification | pass | 1 | 0 |
-| `B-L001` | correspondence | pass | 1 | 0 |
+| `B-L001` | correspondence | provisional | 1 | 0 |
 | `B-L001` | verification | pass | 1 | 0 |
-| `B-P002` | correspondence | pass | 1 | 3 |
+| `B-P002` | correspondence | provisional | 1 | 3 |
 | `B-P002` | verification | pass | 1 | 1 |
-| `B-P003` | correspondence | pass | 1 | 3 |
+| `B-P003` | correspondence | provisional | 1 | 3 |
 | `B-P003` | verification | pass | 1 | 1 |
-| `B-P004` | correspondence | pass | 1 | 1 |
-| `B-P004` | review | pass | 1 | 0 |
+| `B-P004` | correspondence | provisional | 1 | 1 |
+| `B-P004` | review | provisional | 1 | 0 |
 | `B-P004` | verification | pass | 1 | 0 |
-| `B-P005` | correspondence | pass | 1 | 1 |
+| `B-P005` | correspondence | provisional | 1 | 1 |
 | `B-P005` | verification | pass | 1 | 1 |
-| `B-P007` | correspondence | pass | 1 | 1 |
+| `B-P007` | correspondence | provisional | 1 | 1 |
 | `B-P007` | verification | pass | 1 | 0 |
-| `B-P008` | correspondence | pass | 1 | 0 |
+| `B-P008` | correspondence | provisional | 1 | 0 |
 | `B-P008` | verification | pass | 1 | 0 |
-| `B-P009` | correspondence | pass | 1 | 1 |
+| `B-P009` | correspondence | provisional | 1 | 1 |
 | `B-P009` | verification | pass | 1 | 0 |
-| `B-P016` | correspondence | pass | 1 | 0 |
+| `B-P016` | correspondence | provisional | 1 | 0 |
 | `B-P016` | verification | pass | 1 | 0 |
-| `B-P017` | correspondence | pass | 1 | 1 |
+| `B-P017` | correspondence | provisional | 1 | 1 |
 | `B-P017` | verification | pass | 1 | 0 |
-| `B-P018` | correspondence | pass | 1 | 0 |
+| `B-P018` | correspondence | provisional | 1 | 0 |
 | `B-P018` | verification | pass | 1 | 0 |
-| `B-P021` | correspondence | pass | 1 | 0 |
+| `B-P021` | correspondence | provisional | 1 | 0 |
 | `B-P021` | verification | pass | 1 | 0 |
-| `B-P022` | correspondence | pass | 1 | 0 |
+| `B-P022` | correspondence | provisional | 1 | 0 |
 | `B-P022` | verification | pass | 1 | 0 |
-| `B-P023` | correspondence | pass | 1 | 0 |
+| `B-P023` | correspondence | provisional | 1 | 0 |
 | `B-P023` | verification | pass | 1 | 0 |
-| `B-P024` | correspondence | pass | 1 | 0 |
+| `B-P024` | correspondence | provisional | 1 | 0 |
 | `B-P024` | verification | pass | 1 | 0 |
-| `B-P025` | correspondence | pass | 1 | 0 |
+| `B-P025` | correspondence | provisional | 1 | 0 |
 | `B-P025` | verification | pass | 1 | 0 |
-| `B-P026` | correspondence | pass | 1 | 0 |
+| `B-P026` | correspondence | provisional | 1 | 0 |
 | `B-P026` | verification | pass | 1 | 0 |
-| `B-P027` | correspondence | pass | 1 | 0 |
+| `B-P027` | correspondence | provisional | 1 | 0 |
 | `B-P027` | verification | pass | 1 | 0 |
-| `B-P028` | correspondence | pass | 1 | 0 |
+| `B-P028` | correspondence | provisional | 1 | 0 |
 | `B-P028` | verification | pass | 1 | 0 |
-| `B-R001` | correspondence | pass | 1 | 0 |
+| `B-R001` | correspondence | provisional | 1 | 0 |
 | `B-R001` | verification | pass | 1 | 0 |
-| `B-R003` | correspondence | pass | 1 | 1 |
+| `B-R003` | correspondence | provisional | 1 | 1 |
 | `B-R003` | verification | pass | 1 | 0 |
-| `B-R005` | correspondence | pass | 1 | 1 |
+| `B-R005` | correspondence | provisional | 1 | 1 |
 | `B-R005` | verification | pass | 1 | 0 |
-| `B-R006` | correspondence | pass | 1 | 2 |
+| `B-R006` | correspondence | provisional | 1 | 2 |
 | `B-R006` | verification | pass | 2 | 0 |
-| `B-R007` | correspondence | pass | 1 | 1 |
+| `B-R007` | correspondence | provisional | 1 | 1 |
 | `B-R007` | verification | pass | 1 | 0 |
-| `B-R008` | correspondence | pass | 1 | 2 |
+| `B-R008` | correspondence | provisional | 1 | 2 |
 | `B-R008` | verification | pass | 2 | 0 |
-| `B-R009` | correspondence | pass | 1 | 2 |
+| `B-R009` | correspondence | provisional | 1 | 2 |
 | `B-R009` | verification | pass | 1 | 1 |
-| `B-R010` | correspondence | pass | 1 | 1 |
+| `B-R010` | correspondence | provisional | 1 | 1 |
 | `B-R010` | verification | pass | 1 | 0 |
-| `B-R011` | correspondence | pass | 1 | 0 |
+| `B-R011` | correspondence | provisional | 1 | 0 |
 | `B-R011` | verification | pass | 1 | 0 |
-| `B-R012` | correspondence | pass | 1 | 0 |
+| `B-R012` | correspondence | provisional | 1 | 0 |
 | `B-R012` | verification | pass | 1 | 0 |
-| `B-R014` | correspondence | pass | 1 | 0 |
+| `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R014` | verification | pass | 1 | 0 |
-| `B-R017` | correspondence | pass | 1 | 0 |
+| `B-R017` | correspondence | provisional | 1 | 0 |
 | `B-R017` | verification | pass | 1 | 0 |
-| `B-R018` | correspondence | pass | 1 | 0 |
+| `B-R018` | correspondence | provisional | 1 | 0 |
 | `B-R018` | verification | pass | 1 | 0 |
-| `B-R020` | correspondence | pass | 1 | 0 |
+| `B-R020` | correspondence | provisional | 1 | 0 |
 | `B-R020` | verification | pass | 1 | 0 |
-| `representation/encoding` | representation | pass | 1 | 2 |
+| `B-R021` | correspondence | provisional | 1 | 0 |
+| `B-R021` | verification | pass | 1 | 1 |
+| `representation/encoding` | representation | provisional | 1 | 2 |
 
 ## Evidence records
 
@@ -6767,6 +6779,158 @@ repository.
 }
 ```
 
+### E-000162
+
+```json
+{
+  "block": "B-R021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000162",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R021 compiled against Mathlib v4.33.1. Encoding: the category Alg(Sigma)_epi is AlgEpi (a hom with surjective components); the contravariant functors P- and Cgr are SubMap (inverseImage) and CgrMap (pullbackEqv); Omega is congCogenerated. Naturality at an epimorphism f is CgrMap f (Omega^B M) = Omega^A (SubMap f M).",
+    "Axioms of Mslang.congCogenerated_natural are {Classical.choice, Quot.sound, propext} (scripts/lean_audit.py, 219 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R021/formal_proof",
+      "hash": "55c38335712179859e50b17c9f7dc8f3be8e0822578af118363e7968e365bc6b"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T15:29:42Z"
+}
+```
+
+### E-000163
+
+```json
+{
+  "block": "B-R021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000163",
+  "findings": [
+    "Re-issue of E-000162: four declarations were added to B-R021 after that record (the epi category laws AlgEpiComp_id_left/id_right/assoc and the extensionality lemma AlgEpiExt), which moved the block's formal_proof hash. Content: the category Alg(Sigma)_epi is AlgEpi (hom with surjective components, with identity, composition, and the category laws); the contravariant functors P- and Cgr are SubMap (inverseImage) and CgrMap (pullbackEqv), with identity and composition laws; Omega is congCogenerated. Naturality at an epimorphism f is CgrMap f (Omega^B M) = Omega^A (SubMap f M), proved by antisymmetry from the two B-P028 inclusions.",
+    "Axioms of Mslang.congCogenerated_natural are {Classical.choice, Quot.sound, propext} (scripts/lean_audit.py, 223 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R021/formal_proof",
+      "hash": "6c05e3befac9ca933a3543a019dc9b724800fe7f1378cffbde6b5ce2c9b57456"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "hash-move",
+  "supersedes": "E-000162",
+  "timestamp": "2026-09-17T15:50:43Z"
+}
+```
+
+### E-000164
+
+```json
+{
+  "block": "B-R021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000164",
+  "findings": [
+    "Stage 2 (skeptical comparator, fresh context) returned equivalent: the read-back preserves the same category Alg(Sigma)_epi (objects the Sigma-algebras, morphisms the surjective homomorphisms), the two contravariant functors P- (SubMap, preimage) and Cgr (CgrMap, pullback (fxf)^-1), and Omega^A : Sub(A) -> SortedEqv(A); the naturality square CgrMap f (Omega^B M) = Omega^A (SubMap f M) is stated in the same direction and as an equality, matching the contract. Transcript blocks/audits/B-R021-correspondence.md.",
+    "First-pass stage-1 read-back flagged that the epi category laws were absent; the category laws and extensionality lemma were added, and the audit re-run (verification E-000163 supersedes E-000162)."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-R021/definition_closure",
+      "hash": "c2863ebc15543555fca799347c22210d5cea46b10d8e954501a9bd6f4c698a8d"
+    },
+    {
+      "artifact": "B-R021/formal_statement",
+      "hash": "bd47c0ed74656c384391d8dd212ca84ca8397541dc7bf7a35f555764cb38d97c"
+    },
+    {
+      "artifact": "B-R021/informal_statement",
+      "hash": "1155ca40e15c2b9bea59bb21e7670bc5b486735587a6ec664bb4b4fce1e5c5a6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T15:52:02Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -6777,8 +6941,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 76
-- Evidence records: 161
+- Blocks with any evidence: 77
+- Evidence records: 164
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -6791,13 +6955,13 @@ assertion).
 
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
-| `B-C001` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C002` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-D001` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D003` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D004` | definition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D004` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D005` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D006` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D007` | definition | Preliminaries. | none | none | pass | none | - |
@@ -6833,42 +6997,43 @@ assertion).
 | `B-D037` | definition | Elementary translations and translations. | none | none | pass | none | - |
 | `B-D038` | definition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | none | pass | none | - |
 | `B-D039` | definition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | none | pass | none | - |
-| `B-L001` | lemma | Preliminaries. | none | pass | pass | none | - |
-| `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P004` | proposition | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P005` | proposition | Preliminaries. | none | pass | pass | none | - |
-| `B-P007` | proposition | Preliminaries. | none | pass | pass | none | - |
-| `B-P008` | proposition | Preliminaries. | none | pass | pass | none | - |
-| `B-P009` | proposition | Preliminaries. | none | pass | pass | none | - |
-| `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
-| `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
-| `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
-| `B-P021` | proposition | Elementary translations and translations. | none | pass | pass | none | - |
-| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `B-R001` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R003` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R005` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R006` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-R007` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
-| `B-R009` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R010` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R011` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R012` | remark | Preliminaries. | none | pass | pass | none | - |
-| `B-R014` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
-| `B-R017` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
-| `B-R018` | remark | Elementary translations and translations. | none | pass | pass | none | - |
-| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
-| `representation/encoding` | - | - | none | none | none | pass | - |
+| `B-L001` | lemma | Preliminaries. | none | provisional | pass | none | - |
+| `B-P002` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P003` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P004` | proposition | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P005` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P007` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P008` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P009` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P021` | proposition | Elementary translations and translations. | none | provisional | pass | none | - |
+| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-R001` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R003` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R005` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R006` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R007` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R008` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R009` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R010` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R011` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R012` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R014` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-R017` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-R018` | remark | Elementary translations and translations. | none | provisional | pass | none | - |
+| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `representation/encoding` | - | - | none | none | none | provisional | - |
 
-53 block(s) have no evidence.
+52 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -6940,35 +7105,34 @@ degenerate, so each audited block also carries lightweight checks.
 
 # Calibration report (Section 11.4)
 
-Generated by `scripts/calibration.py` from `calibration/seeded.json` and
-`calibration/verdicts.json`. A mutation is *detected* when the blind
-comparator returns an outcome other than `equivalent`. Controls are the
-audited read-backs; a control judged non-equivalent is a false positive.
+Generated by `scripts/calibration.py` from `calibration/seeded.json`,
+`calibration/generated.json`, and `calibration/verdicts.json`. A mutation
+is *detected* when the blind comparator returns an outcome other than
+`equivalent`. Controls are the audited read-backs; a control judged
+non-equivalent is a false positive. Generated cases with no verdict are
+*unrun*, never detections.
 
-Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 cases in a single pass. Run 2 (per-case; calibration/verdicts.json, rendered below): each case was judged in its own isolated context, blind to case type and expectation. Both use the project's same model (deepseek-v4.1-flash). Detection is identical: 7/7 mutations detected, 0/4 control false positives. The typed outcome is stable for 9/11 cases; CAL-006 (quantifier_change) was formal_weaker batched vs formal_stronger per-case, and CAL-008 (weakened_conclusion) was ill_posed batched vs formal_weaker per-case. So the detection rate is robust to batched-vs-per-case context, while the category assignment is not fully stable. Remaining caveats: same-model only (no second model available), and each mutation type still has n=1, so the per-type rates are point estimates, not stable detection rates.
+Corpus: 23 case(s) over 4 base block(s).
 
-## Detection by mutation type
+Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 hand-authored cases in a single pass. Run 2 (per-case; CAL-001..CAL-011): each case was judged in its own isolated context, blind to case type and expectation. Run 3 (generated; CAL-G001..): the 12 generated cases were judged in a single blind context that saw only contract/readback pairs. All runs use the project's one model. Detection is now 19/19 across all mutation types (hand + generated), 0/4 control false positives; generated cases are no longer unrun. Run 3 also drove an operator fix: the original encoding operator only changed 'componentwise subset' to 'subset' (not a mismatch here) and the original direction_flip produced a self-contradictory gloss; both were corrected. Remaining caveat: one model pair only (no second model available), so per-type rates are point estimates with wide intervals at these sample sizes.
 
-| mutation type | cases | detected | rate |
-|---|---|---|---|
-| conclusion_reverse | 1 | 1 | 1.00 |
-| direction_flip | 1 | 1 | 1.00 |
-| dropped_hypothesis | 1 | 1 | 1.00 |
-| encoding | 1 | 1 | 1.00 |
-| quantifier_change | 1 | 1 | 1.00 |
-| saturation_order | 1 | 1 | 1.00 |
-| weakened_conclusion | 1 | 1 | 1.00 |
+Only one model pair was measured (same-model run); no second model is currently available.
 
-## Controls (false positives)
+## Model pair: deepseek (producer) -> deepseek (comparator)
 
-- controls run: 4
-- false positives: 0
+| mutation type | cases run | detected | rate | 95% interval | unrun |
+|---|---|---|---|---|---|
+| conclusion_reverse | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+| direction_flip | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| dropped_hypothesis | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| encoding | 4 | 4 | 1.00 | [0.51, 1.00] | 0 |
+| quantifier_change | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| saturation_order | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+| weakened_conclusion | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
 
-## Overall (mutations only)
+Controls run: 4; false positives: 0.
 
-- mutations run: 7
-- detected: 7
-- unrun cases: 0
+Mutations run: 19; detected: 19; unrun: 0.
 
 ## reports/discrepancy.md
 
@@ -6979,18 +7143,17 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
 
-## Formal-only (possible hidden dependency / unstated step)
+## Undecided edges (253)
+
+These rows have neither a recorded disposition nor a default; they are
+the review queue.
 
 | from | to |
 |---|---|
-| `B-C001` | `B-D002` |
 | `B-C001` | `B-D005` |
-| `B-C002` | `B-C001` |
-| `B-C002` | `B-D002` |
 | `B-C002` | `B-D005` |
-| `B-C004` | `B-D002` |
 | `B-C004` | `B-D014` |
 | `B-C004` | `B-D015` |
 | `B-C004` | `B-D016` |
@@ -7006,84 +7169,61 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-C004` | `B-P017` |
 | `B-C004` | `B-R014` |
 | `B-C004` | `B-R017` |
-| `B-D003` | `B-D002` |
 | `B-D003` | `B-D015` |
-| `B-D004` | `B-D002` |
-| `B-D005` | `B-D002` |
-| `B-D006` | `B-D002` |
-| `B-D007` | `B-D002` |
 | `B-D007` | `B-D005` |
 | `B-D007` | `B-D015` |
-| `B-D008` | `B-D002` |
 | `B-D008` | `B-D005` |
-| `B-D009` | `B-D002` |
-| `B-D010` | `B-D002` |
 | `B-D010` | `B-D005` |
-| `B-D012` | `B-D002` |
 | `B-D012` | `B-D005` |
 | `B-D012` | `B-D010` |
-| `B-D013` | `B-D002` |
 | `B-D013` | `B-D005` |
 | `B-D013` | `B-P005` |
-| `B-D014` | `B-D002` |
 | `B-D014` | `B-D005` |
-| `B-D015` | `B-D002` |
 | `B-D015` | `B-D014` |
-| `B-D017` | `B-D002` |
 | `B-D017` | `B-D015` |
 | `B-D017` | `B-D016` |
 | `B-D018` | `B-D009` |
 | `B-D018` | `B-D016` |
 | `B-D019` | `B-D008` |
 | `B-D019` | `B-D016` |
-| `B-D020` | `B-D002` |
 | `B-D020` | `B-D005` |
 | `B-D020` | `B-D016` |
 | `B-D020` | `B-D017` |
-| `B-D021` | `B-D002` |
 | `B-D021` | `B-D005` |
 | `B-D021` | `B-D016` |
 | `B-D021` | `B-D017` |
 | `B-D021` | `B-D020` |
 | `B-D021` | `B-P005` |
-| `B-D022` | `B-D002` |
 | `B-D022` | `B-D015` |
 | `B-D022` | `B-D016` |
 | `B-D022` | `B-D017` |
-| `B-D023` | `B-D002` |
 | `B-D023` | `B-D004` |
 | `B-D023` | `B-D005` |
 | `B-D023` | `B-D015` |
 | `B-D023` | `B-D016` |
 | `B-D023` | `B-D017` |
 | `B-D023` | `B-D020` |
-| `B-D024` | `B-D002` |
 | `B-D024` | `B-D014` |
 | `B-D024` | `B-D016` |
 | `B-D024` | `B-D017` |
-| `B-D025` | `B-D002` |
 | `B-D025` | `B-D014` |
 | `B-D025` | `B-D015` |
 | `B-D025` | `B-D016` |
 | `B-D025` | `B-D017` |
 | `B-D025` | `B-D024` |
 | `B-D025` | `B-R005` |
-| `B-D026` | `B-D002` |
 | `B-D026` | `B-D016` |
-| `B-D027` | `B-D002` |
 | `B-D027` | `B-D005` |
 | `B-D027` | `B-D015` |
 | `B-D027` | `B-D016` |
 | `B-D027` | `B-D021` |
 | `B-D027` | `B-D023` |
 | `B-D027` | `B-D026` |
-| `B-D028` | `B-D002` |
 | `B-D028` | `B-D015` |
 | `B-D028` | `B-D016` |
 | `B-D028` | `B-D017` |
 | `B-D028` | `B-D022` |
 | `B-D028` | `B-D023` |
-| `B-D030` | `B-D002` |
 | `B-D030` | `B-D014` |
 | `B-D030` | `B-D016` |
 | `B-D030` | `B-D017` |
@@ -7094,7 +7234,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-D031` | `B-D016` |
 | `B-D031` | `B-D022` |
 | `B-D032` | `B-D016` |
-| `B-D033` | `B-D002` |
 | `B-D033` | `B-D014` |
 | `B-D033` | `B-D016` |
 | `B-D033` | `B-D017` |
@@ -7107,7 +7246,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-D035` | `B-D016` |
 | `B-D036` | `B-D005` |
 | `B-D036` | `B-D016` |
-| `B-D037` | `B-D002` |
 | `B-D037` | `B-D005` |
 | `B-D038` | `B-D005` |
 | `B-D038` | `B-D014` |
@@ -7116,30 +7254,23 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-D039` | `B-D014` |
 | `B-D039` | `B-D016` |
 | `B-D039` | `B-D038` |
-| `B-L001` | `B-D002` |
 | `B-L001` | `B-D015` |
 | `B-L001` | `B-D016` |
 | `B-L001` | `B-D017` |
 | `B-L001` | `B-D021` |
 | `B-L001` | `B-D026` |
 | `B-L001` | `B-D027` |
-| `B-P002` | `B-D002` |
 | `B-P002` | `B-D005` |
-| `B-P003` | `B-D002` |
 | `B-P003` | `B-D005` |
-| `B-P004` | `B-D002` |
 | `B-P004` | `B-D005` |
-| `B-P005` | `B-D002` |
 | `B-P005` | `B-D005` |
 | `B-P005` | `B-R007` |
-| `B-P007` | `B-D002` |
 | `B-P007` | `B-R005` |
 | `B-P008` | `B-D004` |
 | `B-P008` | `B-D005` |
 | `B-P008` | `B-D016` |
 | `B-P008` | `B-D020` |
 | `B-P008` | `B-D023` |
-| `B-P009` | `B-D002` |
 | `B-P009` | `B-D014` |
 | `B-P009` | `B-D016` |
 | `B-P009` | `B-D017` |
@@ -7158,7 +7289,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P016` | `B-D033` |
 | `B-P016` | `B-P007` |
 | `B-P016` | `B-P009` |
-| `B-P017` | `B-D002` |
 | `B-P017` | `B-D016` |
 | `B-P017` | `B-D017` |
 | `B-P017` | `B-D022` |
@@ -7177,13 +7307,11 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P021` | `B-D016` |
 | `B-P021` | `B-D017` |
 | `B-P021` | `B-D024` |
-| `B-P022` | `B-D002` |
 | `B-P022` | `B-D005` |
 | `B-P022` | `B-D014` |
 | `B-P022` | `B-D016` |
 | `B-P022` | `B-D024` |
 | `B-P022` | `B-D038` |
-| `B-P023` | `B-D002` |
 | `B-P023` | `B-D005` |
 | `B-P023` | `B-D016` |
 | `B-P023` | `B-D024` |
@@ -7199,7 +7327,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P025` | `B-D005` |
 | `B-P025` | `B-D016` |
 | `B-P025` | `B-D038` |
-| `B-P026` | `B-D002` |
 | `B-P026` | `B-D005` |
 | `B-P026` | `B-D014` |
 | `B-P026` | `B-D016` |
@@ -7211,7 +7338,6 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P027` | `B-D016` |
 | `B-P027` | `B-D037` |
 | `B-P027` | `B-D038` |
-| `B-P028` | `B-D002` |
 | `B-P028` | `B-D005` |
 | `B-P028` | `B-D007` |
 | `B-P028` | `B-D014` |
@@ -7219,35 +7345,26 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P028` | `B-D016` |
 | `B-P028` | `B-D017` |
 | `B-P028` | `B-D038` |
-| `B-R001` | `B-D002` |
 | `B-R001` | `B-D015` |
-| `B-R003` | `B-D002` |
 | `B-R003` | `B-D008` |
 | `B-R003` | `B-D009` |
-| `B-R005` | `B-D002` |
 | `B-R005` | `B-D009` |
-| `B-R006` | `B-D002` |
 | `B-R006` | `B-D005` |
 | `B-R007` | `B-C001` |
-| `B-R007` | `B-D002` |
 | `B-R007` | `B-D005` |
-| `B-R008` | `B-D002` |
 | `B-R008` | `B-P003` |
 | `B-R009` | `B-D016` |
 | `B-R009` | `B-D018` |
 | `B-R009` | `B-D022` |
-| `B-R010` | `B-D002` |
 | `B-R010` | `B-D005` |
 | `B-R010` | `B-D016` |
 | `B-R010` | `B-D017` |
 | `B-R010` | `B-D021` |
-| `B-R011` | `B-D002` |
 | `B-R011` | `B-D015` |
 | `B-R011` | `B-D016` |
 | `B-R011` | `B-D017` |
 | `B-R011` | `B-D023` |
 | `B-R011` | `B-P008` |
-| `B-R012` | `B-D002` |
 | `B-R012` | `B-D016` |
 | `B-R012` | `B-D017` |
 | `B-R012` | `B-D023` |
@@ -7263,21 +7380,22 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-R017` | `B-D032` |
 | `B-R017` | `B-P008` |
 | `B-R018` | `B-D016` |
-| `B-R020` | `B-D002` |
 | `B-R020` | `B-D014` |
 | `B-R020` | `B-D016` |
 | `B-R020` | `B-D036` |
 | `B-R020` | `B-D037` |
 | `B-R020` | `B-D038` |
-
-## Informal-only, mapped (possible simplification)
-
-| from | to |
-|---|---|
+| `B-R021` | `B-D005` |
+| `B-R021` | `B-D007` |
+| `B-R021` | `B-D014` |
+| `B-R021` | `B-D015` |
+| `B-R021` | `B-D016` |
+| `B-R021` | `B-D017` |
+| `B-R021` | `B-D038` |
+| `B-R021` | `B-P028` |
 | `B-D032` | `B-D028` |
 | `B-D037` | `B-D006` |
 | `B-D037` | `B-D036` |
-| `B-P002` | `B-D006` |
 | `B-P022` | `B-D015` |
 | `B-P022` | `B-D036` |
 | `B-P023` | `B-C001` |
@@ -7286,6 +7404,19 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-P026` | `B-D015` |
 | `B-R008` | `B-D006` |
 | `B-R020` | `B-D006` |
+| `B-R021` | `B-D031` |
+
+## Default-classified edges (collapsed)
+
+| disposition | count |
+|---|---|
+| type-carrier | 50 |
+
+## Reviewed dispositions
+
+- `B-C001 -> B-D002`: type-carrier (coordinator). Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
+- `B-C002 -> B-C001`: expected (coordinator). Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
+- `B-P002 -> B-D006`: expected (author:session33). Real informal edge; author-reviewed and retained (Session 33, D-bp002-simplification). The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. A formalization-produced simplification was proposed (use the singleton family Function.update (fun _ => empty) s {x}) but rejected: that family is exactly delta^{s,{x}}, so the delta machinery is not eliminated, only instantiated with {x} instead of the class [a]_{Psi_s}. Verdict: the paper's delta use is retained; the discrepancy is expected and intentional.
 
 ## Agreeing edges
 
@@ -7324,15 +7455,9 @@ Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D0
 | `B-R017` | `B-D023` |
 | `B-R018` | `B-D036` |
 
-## Reviewer notes
-
-- `B-C001 -> B-D002`: Formal-only, expected. Lean signatures mention the SSorted type (B-D002); the informal prose says 'S-sorted set' by name and the prose-name extractor did not record an edge. All X -> B-D002 rows share this explanation.
-- `B-C002 -> B-C001`: Formal-only, expected. Mslang.sat_inf proves B-C002 by applying sat_antitone (B-C001). The manuscript states B-C002 without proof, so there is no informal edge; our Explanation of B-C002 cites B-C001 explicitly.
-- `B-P002 -> B-D006`: Real informal edge; author-reviewed and retained (Session 33, D-bp002-simplification). The manuscript's converse proof of B-P002 constructs its test family via delta (delta^{s,[a]_{Psi_s}}), hence genuinely depends on B-D006. A formalization-produced simplification was proposed (use the singleton family Function.update (fun _ => empty) s {x}) but rejected: that family is exactly delta^{s,{x}}, so the delta machinery is not eliminated, only instantiated with {x} instead of the class [a]_{Psi_s}. Verdict: the paper's delta use is retained; the discrepancy is expected and intentional.
-
 ## Not yet mapped (informal edges with no formal counterpart)
 
-79 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+78 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
 
 ## reports/impact.md
 
@@ -7384,7 +7509,48 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
-| _none_ | | | | |
+| `B-C001` | correspondence | provisional | 1 | 3 |
+| `B-C001` | review | provisional | 1 | 1 |
+| `B-C002` | correspondence | provisional | 1 | 3 |
+| `B-C002` | review | provisional | 1 | 1 |
+| `B-C004` | correspondence | provisional | 1 | 0 |
+| `B-D004` | correspondence | provisional | 1 | 2 |
+| `B-L001` | correspondence | provisional | 1 | 0 |
+| `B-P002` | correspondence | provisional | 1 | 3 |
+| `B-P003` | correspondence | provisional | 1 | 3 |
+| `B-P004` | correspondence | provisional | 1 | 1 |
+| `B-P004` | review | provisional | 1 | 0 |
+| `B-P005` | correspondence | provisional | 1 | 1 |
+| `B-P007` | correspondence | provisional | 1 | 1 |
+| `B-P008` | correspondence | provisional | 1 | 0 |
+| `B-P009` | correspondence | provisional | 1 | 1 |
+| `B-P016` | correspondence | provisional | 1 | 0 |
+| `B-P017` | correspondence | provisional | 1 | 1 |
+| `B-P018` | correspondence | provisional | 1 | 0 |
+| `B-P021` | correspondence | provisional | 1 | 0 |
+| `B-P022` | correspondence | provisional | 1 | 0 |
+| `B-P023` | correspondence | provisional | 1 | 0 |
+| `B-P024` | correspondence | provisional | 1 | 0 |
+| `B-P025` | correspondence | provisional | 1 | 0 |
+| `B-P026` | correspondence | provisional | 1 | 0 |
+| `B-P027` | correspondence | provisional | 1 | 0 |
+| `B-P028` | correspondence | provisional | 1 | 0 |
+| `B-R001` | correspondence | provisional | 1 | 0 |
+| `B-R003` | correspondence | provisional | 1 | 1 |
+| `B-R005` | correspondence | provisional | 1 | 1 |
+| `B-R006` | correspondence | provisional | 1 | 2 |
+| `B-R007` | correspondence | provisional | 1 | 1 |
+| `B-R008` | correspondence | provisional | 1 | 2 |
+| `B-R009` | correspondence | provisional | 1 | 2 |
+| `B-R010` | correspondence | provisional | 1 | 1 |
+| `B-R011` | correspondence | provisional | 1 | 0 |
+| `B-R012` | correspondence | provisional | 1 | 0 |
+| `B-R014` | correspondence | provisional | 1 | 0 |
+| `B-R017` | correspondence | provisional | 1 | 0 |
+| `B-R018` | correspondence | provisional | 1 | 0 |
+| `B-R020` | correspondence | provisional | 1 | 0 |
+| `B-R021` | correspondence | provisional | 1 | 0 |
+| `representation/encoding` | representation | provisional | 1 | 2 |
 
 ## Representation bridges still open
 
@@ -7392,16 +7558,55 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Blocks with no Lean counterpart (54)
+## Unmapped blocks (53)
 
-These confirmed blocks are outside the current formalization frontier.
+Scope triage (Sections 16.4, 17); an unrecorded block is undecided, not
+assumed worth formalizing.
 
-`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+| disposition | count |
+|---|---|
+| worth-formalizing | 0 |
+| deferred | 0 |
+| out-of-scope | 0 |
+| undecided | 53 |
+
+### Open obligations (53)
+
+Unmapped blocks not marked `out-of-scope`.
+
+`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+
+### Undecided (53)
+
+Awaiting an author scope disposition.
+
+`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 
 | id | category |
 |---|---|
+
+## reports/reconciliation.md
+
+# Manuscript reconciliation (Section 11a.5)
+
+Generated by `scripts/reconcile.py`. Formalization-produced proposals to
+change the manuscript. Acceptance is author-reserved; a proposal changes
+no layer status.
+
+## Open proposals (2)
+
+| id | kind | block | proposed change |
+|---|---|---|---|
+| `R-0001` | reconstructed-proof | `B-C001` | Add the reconstructed proof in blocks/explanations/B-C001.md: Explanation for `B-C001` (`IncSat`) -- PROPOSED, not yet in the manuscript |
+| `R-0002` | reconstructed-proof | `B-C002` | Add the reconstructed proof in blocks/explanations/B-C002.md: Explanation for `B-C002` -- PROPOSED, not yet in the manuscript |
+
+## Resolved
+
+| id | state | block | decided by | manuscript hash |
+|---|---|---|---|---|
+| _none_ | | | | |
 
 ## reports/decisions.md
 
