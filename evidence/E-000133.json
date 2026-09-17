@@ -1,0 +1,57 @@
+{
+  "block": "B-C004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000133",
+  "findings": [
+    "Stage 1 read-back: IsAlgebraFormation = H-closure and P_fsd-closure, the latter over an arbitrary finite (possibly empty) index iota : Type u; IsShSkFormation = Sf(1) subseteq F, H-closure, and binary meet-of-congruences closure. shskFormation_mem_of_subdirect derives the full finite subdirect-product closure (empty index via the Sf clause, nonempty index via iterated binary meets), and algebraFormation_iff_shskFormation is the biconditional.",
+    "Stage 2 comparator returned equivalent; H-closure is shared verbatim, A => Sf(1) is the n = 0 instance of P_fsd, A => meet is the n = 2 instance via formation_congInf, and ShSk => P_fsd is shskFormation_mem_of_subdirect. The empty index (n = 0) is handled on both sides; the manuscript's commented-out F != empty clause is not required; the arbitrary finite index vs n in N is a canonical-isomorphism bookkeeping difference.",
+    "Transcript: blocks/audits/B-C004-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C004/definition_closure",
+      "hash": "a6f04c1105c6553fd5c1d6c63546d2c45d73653fb2052295faf8639a59e002f9"
+    },
+    {
+      "artifact": "B-C004/formal_statement",
+      "hash": "ed20820c54de7b816cf91776c79433ba1cf13e54fadc2a3cd62b6b2480775b9c"
+    },
+    {
+      "artifact": "B-C004/informal_statement",
+      "hash": "fa2574178629800ed9b56f3f09881f5e2e3da178ab304961efdc05938eab39db"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-D032/informal_statement",
+      "hash": "13989db2084380124bafd2c68452df7a98dc7d1535c2dbc80a9d3b0c84b3d96d"
+    },
+    {
+      "artifact": "B-D033/informal_statement",
+      "hash": "7c8fdb59b7e6eac51e933505ccc27227372a32e1107b69527e16e226f6a6a71d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T07:04:13Z"
+}

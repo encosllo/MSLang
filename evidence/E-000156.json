@@ -1,0 +1,29 @@
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000156",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R020 (Mslang.deltaEqv, Mslang.deltaEqv_eq_iInf_congCogenerated) compiled against Mathlib v4.33.1.",
+    "Encoding: deltaEqv A is the equality (diagonal) sorted equivalence; the theorem states deltaEqv A.1 = sortedEqv_iInf (fun p : Sigma A.1 => congCogenerated Sig A (deltaSub p.1 {p.2})), i.e. Delta^A = meet over (s,a) of Omega^A(delta^{s,a}). Proof: (=>) equality is preserved by every translation; (<=) take p = <s,x> and the identity translation to force y = x.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 202 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-R020/formal_proof",
+      "hash": "530b871aad6da0924e676afa960a5a866b29fab49adc10c32f97f90812318cfb"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}

@@ -59,3 +59,49 @@ The correspondence is `equivalent` relative to the pilot encoding
 (`representation/pilot-encoding.md`, independently audited in `E-000040`,
 residuals `carrier-model`, `small-large`, `univalence-missing`). Those residuals
 are inherited by this verdict; a representation change (class C6) stales it.
+
+---
+
+# Re-run (Session 71 resume) -- B-D033 clause 1 changed
+
+The Session 71 fix to `B-D033` (clause 1 changed from `F.Nonempty` to
+`Sf(1) ⊆ F`) moved `B-P017/definition_closure`, so the original verdict above
+(recorded as `E-000129`) is stale. Both stages were re-run with fresh isolated
+contexts; the protocol, declarations, and contract are otherwise unchanged.
+
+- **Recorded as:** `E-000131` (supersedes `E-000129`).
+- **Outcome:** `equivalent`.
+
+## Stage 1 -- read-back (fresh agent, Lean only)
+
+> `IsShSkFormation Sig F` = `(∀ A, SubfinalAlg Sig A → A ∈ F) ∧ HOperator Sig F ⊆ F
+> ∧ (binary meet-of-congruences closure)`. The first conjunct is the new clause
+> `Sf(1) ⊆ F` (with `SubfinalAlg Sig X ↔ ∀ s, Subsingleton (X.1 s)`, i.e. `X`
+> isomorphic to a subalgebra of the terminal algebra); the earlier `F.Nonempty`
+> is gone (it is subsumed, since `1` is subfinal).
+>
+> `shskFormation_mem_of_subdirect_pair`: for `B, C ∈ F` and a subdirect embedding
+> `f : A → B × C` (encoded as `iAlg Sig (pairAlgFamily Sig B C)` over the index
+> `ULift.{u,0} Bool`), conclude `A ∈ F`. The proof is unchanged: with
+> `Φ = Ker(pr^B ∘ f)` and `Ψ = Ker(pr^C ∘ f)`, the first isomorphism theorem
+> gives `A/Φ ≅ B` and `A/Ψ ≅ C` in `F`; meet-closure puts `A/(Φ ⊓ Ψ)` in `F`;
+> injectivity of `f` gives `Φ ⊓ Ψ = Δ_A`, and `A/(Φ ⊓ Ψ) ≅ A`.
+
+## Stage 2 -- comparison (fresh agent, read-back + contract only)
+
+> **Outcome: equivalent.**
+>
+> Clause-by-clause: the `Sf(1) ⊆ F` clause matches `∀ A, SubfinalAlg Sig A → A ∈ F`
+> (`SubfinalAlg` is exactly "isomorphic to a subalgebra of the terminal algebra");
+> `HOperator`/`IsEpiAlg` matches `H(F) ⊆ F`; `sortedEqvInf Φ Ψ` with the
+> `IsCongruence` guards matches `A/Φ, A/Ψ ∈ F ⇒ A/(Φ ∩ Ψ) ∈ F`;
+> `IsSubdirectEmbedding` is exactly an injective homomorphism whose composites
+> with both projections are surjective; `pairAlgFamily` realizes `B × C`; all
+> carriers live in the single universe `u`. No dropped/extra hypothesis, no
+> quantifier swap, no weakening/strengthening, no size or non-emptiness mismatch.
+
+## Residual note (re-run)
+
+Same as above; the verdict is relative to the pilot encoding and inherits its
+residuals. This re-run inherits the same-model caveat (`deepseek-v4.1-flash` for
+both stages).

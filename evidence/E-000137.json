@@ -1,0 +1,29 @@
+{
+  "block": "B-D038",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000137",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D038 (Mslang.congCogenerated) compiled against Mathlib v4.33.1.",
+    "Encoding: congCogenerated Sig A L : SortedEqv A.1 (a Setoid on each A_t) relates x y at sort t iff for every sort s and every t-translation T : A_t -> A_s (TlGen Sig A t s T), T x in L s iff T y in L s. This is Omega^A(L) as defined in the paper; the Setoid axioms (refl/symm/trans) are inherited from the iff. Marked instance_reducible to satisfy the class-type linter (matching nabla/ker/sortedEqvInf).",
+    "Definition depends on no axioms (scripts/lean_audit.py, 169 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D038/formal_proof",
+      "hash": "317ad58a80c5771dbbc0689f980f3ac79b091ef16bd855e90179e5d4a29716aa"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T08:46:03Z"
+}

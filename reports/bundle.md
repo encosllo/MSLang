@@ -9,12 +9,12 @@ repository.
 
 | artifact | sha256 |
 |---|---|
-| `blocks/formal.json` | `bfef3e04fa6b494232f1c634ec16846401f4f433984e0910e8ba46743cc2a09b` |
-| `blocks/formal_graph.json` | `07c7b02df6a6b8d0d274ec9a6dd9abb9c333d84f26a55673ca24aeb59d7d6e92` |
-| `blocks/graph.json` | `7d6bd08bd023020fabf4af38b9224a27e149661743775217a249e22a6e26bba3` |
-| `blocks/hashes.json` | `88e75849140b8c951b21ffce964de91a94f70c19e664e6d3a43e6b5526303b5a` |
-| `blocks/lean_audit.json` | `386e9ae852b1bdff839e8c965074b382280a5381c74e4e7c70a9782357bba293` |
-| `blocks/registry.json` | `4aa5522852f1a6697fdbcdf8bd757f317e83371dac9b027d326c98ecab63d982` |
+| `blocks/formal.json` | `deaa4efcf662b7b56a790a4748e1f2391833fea26ac3d70ee4538a0ba03339f5` |
+| `blocks/formal_graph.json` | `fac473cbab9422fe2cf87e287e7a1973f1c9621284d2591d7b47b1bc8068954a` |
+| `blocks/graph.json` | `6a907679615f6e0425130c4c12835c21aa9cef45926191ec2c22001a1a37a8eb` |
+| `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
+| `blocks/lean_audit.json` | `77db9e24fd09b3c82d1a4c4accdac5a39a37e893c820f6b5f2afb3cb2edbf461` |
+| `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
 | `calibration/seeded.json` | `49f548dec238c446c1c9cf2d74c253b784aa2d009f80d8b69a2ac1b6b8c3d690` |
 | `calibration/verdicts.json` | `ee62f8bd57f5353e880bc6400b293c2646dc27637b739ac49518f124bd2719ca` |
 | `decisions/standing.json` | `03b61b27a750f6e99c78be0ba46cf46a9ad3b2c139b81b93fa5624ec4177adb8` |
@@ -147,10 +147,42 @@ repository.
 | `evidence/E-000127.json` | `7fc7518a10302aa7a8a00ecff269be3aa16cb84d5a537d824d59c4f86fabd5b2` |
 | `evidence/E-000128.json` | `edc8fff218d6fed64f61026b1dbddcf1d4d0453473fb36271c958ef57045c3a2` |
 | `evidence/E-000129.json` | `390404ff8c92c2878de7db0b05560f04ceacbc07962e71f87fac6c639a0c1da9` |
-| `journal/events.jsonl` | `a579cff24256176fdac4119ec4ce0fa81d33d8c31f6a6c25d42fa3c3981aca79` |
+| `evidence/E-000130.json` | `3583245fe4a0e714c856fa769eda48fdafb14b76166da51964a42f9b64fca060` |
+| `evidence/E-000131.json` | `cc310d7507e56a0f2f279dc5df156d6761013a9cca08e4c4c21caad663adf3de` |
+| `evidence/E-000132.json` | `0c6e016d06ec7f1089f09e76316a1e48429d8705ec26bbf12276a8170a9079e3` |
+| `evidence/E-000133.json` | `909786580595fee90e713aa7da99964584293bfe29a3871c5db1e2468afab496` |
+| `evidence/E-000134.json` | `b48aeb2178b5ba4f4b970edadd905402332c15f30f6802e569c0fff370e7d846` |
+| `evidence/E-000135.json` | `479f6da907d1e9c0055272854a495eef5f9b381d1a3feb5fe3528b61818a07cb` |
+| `evidence/E-000136.json` | `e93a4e803088ec0e067ebf4650ef4888255f683dda64b3331acffe18bf2facca` |
+| `evidence/E-000137.json` | `7188d831b3a2b5a982003c01f1e70a2a87626de8712ef0944cfa283efaff1341` |
+| `evidence/E-000138.json` | `54d4f45199353a474dd5f1bf7375b09a37430349e4e48d8fe42feaa428767030` |
+| `evidence/E-000139.json` | `7502388d9811a24eeb2da12d29b6787dbcfbb4680c1d0daf6d6728d9f480ddda` |
+| `evidence/E-000140.json` | `c8bee8a2f553d8608705861470eb5a85cdc11c3d40ae9e8ea3056d3d6c5bc558` |
+| `evidence/E-000141.json` | `f5d5b663dbc442ae676475599a228ff91afd4c1ea87bb1d74ab5ab0f08b2d7ef` |
+| `evidence/E-000142.json` | `966ae8cb1c01f8f20eff185d8cc78a20156299de7c9f5168d2c7d14142845805` |
+| `evidence/E-000143.json` | `bdb94c7dc3ba1b88879307e750a960b25ee0085cf85c5bed8ada622dd06c06bf` |
+| `evidence/E-000144.json` | `fde80a887e9ae872a954b40a31712596f2989a9b4b1311594e3eab47f8d89c35` |
+| `evidence/E-000145.json` | `7a552ac99a819cafc2b2c3dfe652c47b56d8260ee94fe85f0600fabbc238a9e0` |
+| `evidence/E-000146.json` | `6379495d141e709b5a747169edc339ba4e5fb24d827cf489df902bd4384c003e` |
+| `evidence/E-000147.json` | `cf963579e2d3630ac782aca724a5c87af2ff837338b2398cb1181d2f6ed8ab08` |
+| `evidence/E-000148.json` | `1d82e03d3a92456b5fa5c41477f681b29509fe1a4310ddea5db483fe083a9c5c` |
+| `evidence/E-000149.json` | `211494443798611ab588064e5307b2679ea25bc13b51e8cfd7fb7254566b0b48` |
+| `evidence/E-000150.json` | `0efd631867cc9101a790b91153b3fec00839b29fd4541665759dbc0c732a631b` |
+| `evidence/E-000151.json` | `676cd6fdc1771eb29153420426b835c9eac3c4f90e7f2f82bfc0b40de18981ac` |
+| `evidence/E-000152.json` | `1b0e359eb96a5d50f6e76f81f4a652de293855bcdf7843f92a8e23b69a9bbfb7` |
+| `evidence/E-000153.json` | `d1f0c644e5fdd9f2c7cbb1cb62979692a230be92c8ecceb8ce333681d5ccbaff` |
+| `evidence/E-000154.json` | `ea006460e9bcd58e071794efc402df5b476c4631e3a370d3379e0f94f965a1cd` |
+| `evidence/E-000155.json` | `d7bf1e7ae947c5a961795e91f62e4dcc6c5d924f998ebf168f37d95174809b7f` |
+| `evidence/E-000156.json` | `0b8cb1a44fba2c2602138b8e9edc96fa88d5ad96d7264e2a16100fac8339136f` |
+| `evidence/E-000157.json` | `3dab77e07f23d2ce58cc9bfabfc4e9ff7265bf912b40271244fad21f672f8e24` |
+| `evidence/E-000158.json` | `f5e2395f59aecbc4449c69b7b76bd49f77e4b43a741d6c0435b0712aef5ac3e1` |
+| `evidence/E-000159.json` | `b1fb91e9387b6b9f5163ccd5bcf318e1aae4a968bf6a2b37e932a5602ca1f2fd` |
+| `evidence/E-000160.json` | `5553c8107b2caf644104c23526374e91da6dabc36c9458fa5ee883c31b00fa17` |
+| `evidence/E-000161.json` | `f288ec59d9db3d4a59b714cd0502167991f64a2d2518005dd3ac6c5858311921` |
+| `journal/events.jsonl` | `90b4ea6220844f6e0871d423386685ac4c86ccc063ce7f6463a4e60fa65e9b6c` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
-| `manuscript/MSEilenberg.tex` | `07a0b827ebb877363ef98ad58af3ac49f9892df96dcfbaa3f2ae1b5199a0fe24` |
+| `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
 | `schemas/evidence.schema.json` | `cf99cb9231ca15a7ad31824fd6e156bc9602eb7d61a3741177ee17c2953c3bf9` |
 
@@ -164,6 +196,8 @@ repository.
 | `B-C002` | correspondence | pass | 1 | 3 |
 | `B-C002` | review | pass | 1 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
+| `B-C004` | correspondence | pass | 1 | 0 |
+| `B-C004` | verification | pass | 1 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
 | `B-D002` | verification | pass | 1 | 0 |
 | `B-D003` | verification | pass | 1 | 0 |
@@ -197,7 +231,13 @@ repository.
 | `B-D030` | verification | pass | 1 | 0 |
 | `B-D031` | verification | pass | 1 | 0 |
 | `B-D032` | verification | pass | 1 | 0 |
-| `B-D033` | verification | pass | 1 | 0 |
+| `B-D033` | verification | pass | 1 | 1 |
+| `B-D034` | verification | pass | 1 | 0 |
+| `B-D035` | verification | pass | 1 | 0 |
+| `B-D036` | verification | pass | 1 | 0 |
+| `B-D037` | verification | pass | 1 | 0 |
+| `B-D038` | verification | pass | 1 | 0 |
+| `B-D039` | verification | pass | 1 | 0 |
 | `B-L001` | correspondence | pass | 1 | 0 |
 | `B-L001` | verification | pass | 1 | 0 |
 | `B-P002` | correspondence | pass | 1 | 3 |
@@ -217,8 +257,26 @@ repository.
 | `B-P009` | verification | pass | 1 | 0 |
 | `B-P016` | correspondence | pass | 1 | 0 |
 | `B-P016` | verification | pass | 1 | 0 |
-| `B-P017` | correspondence | pass | 1 | 0 |
+| `B-P017` | correspondence | pass | 1 | 1 |
 | `B-P017` | verification | pass | 1 | 0 |
+| `B-P018` | correspondence | pass | 1 | 0 |
+| `B-P018` | verification | pass | 1 | 0 |
+| `B-P021` | correspondence | pass | 1 | 0 |
+| `B-P021` | verification | pass | 1 | 0 |
+| `B-P022` | correspondence | pass | 1 | 0 |
+| `B-P022` | verification | pass | 1 | 0 |
+| `B-P023` | correspondence | pass | 1 | 0 |
+| `B-P023` | verification | pass | 1 | 0 |
+| `B-P024` | correspondence | pass | 1 | 0 |
+| `B-P024` | verification | pass | 1 | 0 |
+| `B-P025` | correspondence | pass | 1 | 0 |
+| `B-P025` | verification | pass | 1 | 0 |
+| `B-P026` | correspondence | pass | 1 | 0 |
+| `B-P026` | verification | pass | 1 | 0 |
+| `B-P027` | correspondence | pass | 1 | 0 |
+| `B-P027` | verification | pass | 1 | 0 |
+| `B-P028` | correspondence | pass | 1 | 0 |
+| `B-P028` | verification | pass | 1 | 0 |
 | `B-R001` | correspondence | pass | 1 | 0 |
 | `B-R001` | verification | pass | 1 | 0 |
 | `B-R003` | correspondence | pass | 1 | 1 |
@@ -243,6 +301,10 @@ repository.
 | `B-R014` | verification | pass | 1 | 0 |
 | `B-R017` | correspondence | pass | 1 | 0 |
 | `B-R017` | verification | pass | 1 | 0 |
+| `B-R018` | correspondence | pass | 1 | 0 |
+| `B-R018` | verification | pass | 1 | 0 |
+| `B-R020` | correspondence | pass | 1 | 0 |
+| `B-R020` | verification | pass | 1 | 0 |
 | `representation/encoding` | representation | pass | 1 | 2 |
 
 ## Evidence records
@@ -5362,6 +5424,1349 @@ repository.
 }
 ```
 
+### E-000130
+
+```json
+{
+  "block": "B-D033",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000130",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D033 (Mslang.IsShSkFormation, Mslang.IsCongruence_inf) compiled against Mathlib v4.33.1.",
+    "Mslang.IsShSkFormation clause 1 is now (forall A, SubfinalAlg Sig A -> A in F), i.e. Sf(1) subseteq F, replacing the old F.Nonempty clause; clauses 2 (H-closure) and 3 (binary meet-of-congruences) are unchanged. Mslang.IsCongruence_inf still has no axioms (proved in the same file).",
+    "Author decision (Session 71, Option 1), recorded in blocks/audits/B-C004-counterexample.md: the old clause 1 made B-C004 false (an ShSk-formation need not contain the subfinal algebras, so need not be closed under the empty subdirect product). The counterexample no longer compiles against the fixed definition.",
+    "Axioms for the block's declarations are within the permitted set {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 159 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Content change (not content-preserving): B-D033 clause 1 changed, so the previous verification no longer describes the current definition.",
+  "inputs": [
+    {
+      "artifact": "B-D033/formal_proof",
+      "hash": "a715b0b680250d2b3e8e11c99e8a17cabda689fe8e18ac5883c0f929cbba2280"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000121",
+  "timestamp": "2026-09-17T07:03:59Z"
+}
+```
+
+### E-000131
+
+```json
+{
+  "block": "B-P017",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000131",
+  "findings": [
+    "Re-run after the B-D033 clause-1 fix (F.Nonempty -> Sf(1) subseteq F) moved B-P017/definition_closure; the proof and statement of shskFormation_mem_of_subdirect_pair are unchanged (B-P017/formal_proof hash is stable), so the verification E-000128 remains valid and is not re-issued.",
+    "Stage 1 read-back: IsShSkFormation now requires every subfinal algebra in F (SubfinalAlg Sig X <-> forall s, Subsingleton (X.1 s)); the H-closure and binary meet-of-congruences clauses are unchanged. The theorem still concludes A in F for B, C in F and a subdirect embedding f : A -> B x C.",
+    "Stage 2 comparator returned equivalent; the Sf(1) subseteq F clause matches forall A, SubfinalAlg Sig A -> A in F, H-closure matches HOperator/IsEpiAlg, the meet clause matches sortedEqvInf with IsCongruence guards, IsSubdirectEmbedding matches an injective hom with surjective projection composites, and pairAlgFamily realises B x C. No dropped/extra hypothesis, no size or non-emptiness mismatch.",
+    "Transcript: blocks/audits/B-P017-correspondence.md (re-run section)."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P017/definition_closure",
+      "hash": "f5294219d82b5f6d819e86d7024f1585213373ed0eade4572cb223c8d082e6ce"
+    },
+    {
+      "artifact": "B-P017/formal_statement",
+      "hash": "6003fcb5e57ae5419ede447b01d3263c586a3023a85e838b8041ce668dad409d"
+    },
+    {
+      "artifact": "B-P017/informal_statement",
+      "hash": "42498e3efd831bf80ebd6c1f5c9bfeae7067b7c8d3495f52c7a3782f66b2d694"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000129",
+  "timestamp": "2026-09-17T07:04:03Z"
+}
+```
+
+### E-000132
+
+```json
+{
+  "block": "B-C004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000132",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-C004 (Mslang.algebraFormation_iff_shskFormation, helpers Mslang.shskFormation_mem_of_subdirect, Mslang.sortedEqvLe_refl, Mslang.sortedEqvLe_trans) compiled against Mathlib v4.33.1.",
+    "#print axioms algebraFormation_iff_shskFormation depends on propext, Classical.choice, Quot.sound (within the permitted set); shskFormation_mem_of_subdirect likewise; sortedEqvLe_refl/sortedEqvLe_trans depend on no axioms.",
+    "Proof: the backward direction is finite subdirect-product closure for an ShSk-formation. For nonempty finite index, build the meet of ker(pr^i . f) by Finset induction using binary meet-closure; each A/ker(pr^i . f) is isomorphic to C i in F by the first isomorphism theorem (quotAlg_ker_isAlgIso) and formation_mem_of_iso; injectivity of f gives the meet = Delta_A, so A in F. For empty index, A is subfinal and lies in F by the Sf(1) subseteq F clause. The forward direction uses subfinalAlg_mem_of_formation for the Sf clause, H-closure verbatim, and formation_congInf (B-P016) for the meet clause.",
+    "Provenance: this is the corrected pair of definitions after the Session 71 Option-1 fix (B-D033 clause 1); under the old definition the statement was false (blocks/audits/B-C004-counterexample.md).",
+    "Axioms audited by scripts/lean_audit.py (159 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-C004/formal_proof",
+      "hash": "fcdca78ff6dc7a571459e709057e84496758b3fa4df9d0b4ecab6abcbb83d431"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T07:04:08Z"
+}
+```
+
+### E-000133
+
+```json
+{
+  "block": "B-C004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000133",
+  "findings": [
+    "Stage 1 read-back: IsAlgebraFormation = H-closure and P_fsd-closure, the latter over an arbitrary finite (possibly empty) index iota : Type u; IsShSkFormation = Sf(1) subseteq F, H-closure, and binary meet-of-congruences closure. shskFormation_mem_of_subdirect derives the full finite subdirect-product closure (empty index via the Sf clause, nonempty index via iterated binary meets), and algebraFormation_iff_shskFormation is the biconditional.",
+    "Stage 2 comparator returned equivalent; H-closure is shared verbatim, A => Sf(1) is the n = 0 instance of P_fsd, A => meet is the n = 2 instance via formation_congInf, and ShSk => P_fsd is shskFormation_mem_of_subdirect. The empty index (n = 0) is handled on both sides; the manuscript's commented-out F != empty clause is not required; the arbitrary finite index vs n in N is a canonical-isomorphism bookkeeping difference.",
+    "Transcript: blocks/audits/B-C004-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C004/definition_closure",
+      "hash": "a6f04c1105c6553fd5c1d6c63546d2c45d73653fb2052295faf8639a59e002f9"
+    },
+    {
+      "artifact": "B-C004/formal_statement",
+      "hash": "ed20820c54de7b816cf91776c79433ba1cf13e54fadc2a3cd62b6b2480775b9c"
+    },
+    {
+      "artifact": "B-C004/informal_statement",
+      "hash": "fa2574178629800ed9b56f3f09881f5e2e3da178ab304961efdc05938eab39db"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-D032/informal_statement",
+      "hash": "13989db2084380124bafd2c68452df7a98dc7d1535c2dbc80a9d3b0c84b3d96d"
+    },
+    {
+      "artifact": "B-D033/informal_statement",
+      "hash": "7c8fdb59b7e6eac51e933505ccc27227372a32e1107b69527e16e226f6a6a71d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T07:04:13Z"
+}
+```
+
+### E-000134
+
+```json
+{
+  "block": "B-D035",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000134",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D035 (Mslang.IsElemTranslation, Mslang.Etl) compiled against Mathlib v4.33.1.",
+    "Encoding: IsElemTranslation Sig A t s T says there is a word w : List S, an index i : Fin w.length with w.get i = t, an operation sigma : Sig (w, s), constants a at every other position, such that for every x : A.1 t, T x = A.2 (w,s) sigma (the word with x inserted at position i via the equality w.get i = t). The nonemptiness w != [] is witnessed by i : Fin w.length. Etl Sig A t : Sub (fun s => A.1 t -> A.1 s) is the sorted family (Etl_t(A)_s)_s of the paper.",
+    "Definitions depend on no axioms (scripts/lean_audit.py, 163 declarations, 0 warnings, 0 unpermitted, 0 sorry). New module lean/Mslang/Translation.lean imports Mslang.Algebra only."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D035/formal_proof",
+      "hash": "51ce7cb254c50ed5901262852cab2fc781eadde3aa2ce1595d38014dba04380c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T07:33:00Z"
+}
+```
+
+### E-000135
+
+```json
+{
+  "block": "B-D036",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000135",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D036 (Mslang.TlGen, Mslang.Tl) compiled against Mathlib v4.33.1.",
+    "Encoding: Mslang.TlGen Sig A is an inductive relation on (t s : S) and T : A.1 t -> A.1 s, with constructors refl (the identity id_{A_t} is a t-translation of sort t), elem (every elementary translation is a translation), and comp (a composite U . T of translations is a translation). This is the smallest family containing the identity and the elementary translations and closed under composition, i.e. the paper's finite composites T_{n-1} . ... . T_0. Mslang.Tl Sig A t : Sub (fun s => A.1 t -> A.1 s) is the sorted family (Tl_t(A)_s)_s.",
+    "Definitions/inductive depend on no axioms (scripts/lean_audit.py, 163 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D036/formal_proof",
+      "hash": "7d9248520026408a8821d4ef058ae6eb31e71782be430de1fd98479c573185f6"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T07:33:01Z"
+}
+```
+
+### E-000136
+
+```json
+{
+  "block": "B-D037",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000136",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D037 (Mslang.deltaSub, Mslang.transImage, Mslang.transPreimage, Mslang.transImageSet, Mslang.transPreimageSet) compiled against Mathlib v4.33.1.",
+    "Encoding: for T : A_t -> A_s and L : Sub A, transImage T L = deltaSub s (Set.image T (L t)) is T[L] = delta^{s, T[L_t]} (direct image at sort s); transPreimage T L = deltaSub t (Set.preimage T (L s)) is T^{-1}[L] = delta^{t, T^{-1}[L_s]}. For X : Set (A_t) and Y : Set (A_s), transImageSet T X = transImage T (deltaSub t X) is T[X] = T[delta^{t,X}], and transPreimageSet T Y = transPreimage T (deltaSub s Y) is T^{-1}[Y] = T^{-1}[delta^{s,Y}]. deltaSub s Y is the S-sorted subset that is Y at s and empty elsewhere (Function.update of the empty family).",
+    "Definitions depend on no axioms (scripts/lean_audit.py, 169 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D037/formal_proof",
+      "hash": "d3c187c52b76d89e7eae989917f0b877bf6eb9929b29f08624e24c98a52323a4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T08:46:03Z"
+}
+```
+
+### E-000137
+
+```json
+{
+  "block": "B-D038",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000137",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D038 (Mslang.congCogenerated) compiled against Mathlib v4.33.1.",
+    "Encoding: congCogenerated Sig A L : SortedEqv A.1 (a Setoid on each A_t) relates x y at sort t iff for every sort s and every t-translation T : A_t -> A_s (TlGen Sig A t s T), T x in L s iff T y in L s. This is Omega^A(L) as defined in the paper; the Setoid axioms (refl/symm/trans) are inherited from the iff. Marked instance_reducible to satisfy the class-type linter (matching nabla/ker/sortedEqvInf).",
+    "Definition depends on no axioms (scripts/lean_audit.py, 169 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D038/formal_proof",
+      "hash": "317ad58a80c5771dbbc0689f980f3ac79b091ef16bd855e90179e5d4a29716aa"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T08:46:03Z"
+}
+```
+
+### E-000138
+
+```json
+{
+  "block": "B-P021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000138",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P021 (Mslang.ClosesUnderEtl, Mslang.ClosesUnderTl, and the implications plus the two biconditionals isCongruence_iff_closesUnderEtl / closesUnderEtl_iff_closesUnderTl) compiled against Mathlib v4.33.1.",
+    "Proofs: (1)=>(2) applies the congruence condition to the two tuples differing only at the insertion position; (2)=>(1) is the telescoping over the word using mixedTuple (interpolating a to b by position), insertTuple, and Fin.induction, each step an elementary translation; (2)=>(3) is induction on the TlGen derivation; (3)=>(2) is the elem constructor.",
+    "Axioms: all mapped declarations lie within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 177 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P021/formal_proof",
+      "hash": "5c9399d1e1a1cc4bf571190b667888803bd3c2adab7a074ad8d43c9a0ea11185"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T09:18:48Z"
+}
+```
+
+### E-000139
+
+```json
+{
+  "block": "B-P021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000139",
+  "findings": [
+    "Stage 1 read-back: ClosesUnderEtl/ClosesUnderTl are the (2)/(3) closure clauses; IsElemTranslation is the elementary-translation shape (operation with a variable inserted at one position, constants elsewhere); TlGen is the least family containing id, elementary translations, and composites. The two biconditionals are (1)<->(2) and (2)<->(3).",
+    "Stage 2 comparator returned equivalent; IsCongruence matches the congruence condition clause-for-clause, IsElemTranslation matches Etl_t(A)_s, TlGen matches Tl_t(A)_s (identity included, closed under composition), and splitting the three-way equivalence into two biconditionals is a packaging difference only. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P021-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P021/definition_closure",
+      "hash": "f5cba2474bc62f8b522757cefe783583178216a035f94a4a3324ec415534b014"
+    },
+    {
+      "artifact": "B-P021/formal_statement",
+      "hash": "9a85475b8bad8a15618cd8f5572a12d52667967e690bd6373b5f80928b5e162d"
+    },
+    {
+      "artifact": "B-P021/informal_statement",
+      "hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T09:18:48Z"
+}
+```
+
+### E-000140
+
+```json
+{
+  "block": "B-P022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000140",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P022 (Mslang.charEqv, Mslang.congCogenerated_isCongruence, Mslang.congCogenerated_le_charEqv, Mslang.le_congCogenerated_of_isCongruence) compiled against Mathlib v4.33.1.",
+    "Proofs: (1) reduces to ClosesUnderTl using B-P021's equivalence and the identity-based definition of congCogenerated, closing under composite translations via TlGen.comp; (2) instantiates the universal clause at the identity translation (TlGen.refl); (3) obtains translation-closure of a congruence from B-P021 and applies the hypothesis Phi subseteq Ker(ch^L) at the coarity sort.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 182 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P022/formal_proof",
+      "hash": "60d13ef72e1e64c70221f7edd57bad9f944927885e1f72dd628b00890034db08"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T09:57:21Z"
+}
+```
+
+### E-000141
+
+```json
+{
+  "block": "B-P022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000141",
+  "findings": [
+    "Stage 1 read-back: congCogenerated is Omega^A(L); charEqv is Ker(ch^L); the three theorems are (1) Omega is a congruence, (2) Omega subseteq Ker(ch^L), (3) any congruence Phi subseteq Ker(ch^L) is subseteq Omega. Proofs use B-P021 (congruence iff translation-closed) and TlGen.comp.",
+    "Stage 2 comparator returned equivalent; the statements and hypotheses match the contract clause-for-clause, and the three jointly assert that Omega^A(L) is the greatest congruence saturating L (Omega saturating + contains every saturating congruence). No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P022-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P021/informal_statement",
+      "hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2"
+    },
+    {
+      "artifact": "B-P022/definition_closure",
+      "hash": "e31079f57467bdadaf4c47108361d7d2381df493eae105af15e37af3ab7cb648"
+    },
+    {
+      "artifact": "B-P022/formal_statement",
+      "hash": "28e06a28aacd5615c9319938a6d7aa0115c1b9c6a5daa9ad2ebd5aee8da89878"
+    },
+    {
+      "artifact": "B-P022/informal_statement",
+      "hash": "8a4642103c383d7eab19e6a9bce07c11f491a7cc28771aae732a97e45dd769dc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T09:57:22Z"
+}
+```
+
+### E-000142
+
+```json
+{
+  "block": "B-D039",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000142",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D039 (Mslang.syntacticCongruence) compiled against Mathlib v4.33.1; it is an abbrev for Mslang.congCogenerated (B-D038).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 182 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations. B-D039 is a naming definition: the paper calls Omega^A(L) the congruence cogenerated by L (the syntactic congruence); the Lean records this as the abbrev Mslang.syntacticCongruence.",
+  "inputs": [
+    {
+      "artifact": "B-D039/formal_proof",
+      "hash": "4a321e010356fbab7d3d2c1fb7121485e6a9448e2d2fe8b64317d60e45f1299a"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T09:57:22Z"
+}
+```
+
+### E-000143
+
+```json
+{
+  "block": "B-R018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000143",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R018 (Mslang.TlHom, Mslang.TlId, Mslang.TlComp, the three laws, Mslang.tlEndMonoid) compiled against Mathlib v4.33.1.",
+    "The category Tl(A) is presented as raw data: objects are the sorts S, morphisms TlHom Sig A t s = {T : A.1 t -> A.1 s // TlGen Sig A t s T}, identity TlId (TlGen.refl), composition TlComp (TlGen.comp), with TlComp_id_left/TlComp_id_right/TlComp_assoc. tlEndMonoid packages End(t) = TlHom Sig A t t as a Monoid and is registered as an instance.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 189 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-R018/formal_proof",
+      "hash": "fbea300bd36f7361054bddf327a7069cf91d79d84785319a4c97df2dab87ab6a"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T11:13:27Z"
+}
+```
+
+### E-000144
+
+```json
+{
+  "block": "B-R018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000144",
+  "findings": [
+    "Stage 1 read-back: TlHom is the hom-set Tl_t(A)_s (subtype of A_t -> A_s cut down by TlGen); TlId/TlComp are identity/composition with the three category laws; tlEndMonoid gives End(t) a Monoid structure, registered as an instance.",
+    "Stage 2 comparator returned equivalent; Hom, identity, composition and the three laws match the contract's category, and End(t) monoid matches. Presenting the category as raw data rather than a Mathlib CategoryTheory.Category instance is a packaging difference only. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-R018-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-R018/definition_closure",
+      "hash": "e9ca388d0a74bc8b16d928a9330957b3e7f624af7c2456fb2603661f2cc9a0bf"
+    },
+    {
+      "artifact": "B-R018/formal_statement",
+      "hash": "3ef6e30fa2902761032ae9015d5d7aa5d8f6a63c6bf6ee559a4c4e406c3e20a1"
+    },
+    {
+      "artifact": "B-R018/informal_statement",
+      "hash": "85c508459788ef01c8a7de14706c7eb14e99f9bb017f5e213c53ba7398d60f2f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T11:13:27Z"
+}
+```
+
+### E-000145
+
+```json
+{
+  "block": "B-P018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000145",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P018 (Mslang.HOperator_mono, Mslang.PFsdOperator_mono, Mslang.exists_mem_superset_finset, Mslang.algebraFormations_isAlgebraicClosureSystem) compiled against Mathlib v4.33.1.",
+    "Encoding: IsAlgebraicClosureSystemOn X C (new, in Algebra.lean) is the one-sorted algebraic closure system (Set.univ in C; nonempty intersections; nonempty directed unions). The theorem instantiates X := Alg Sig and C := algebraFormations Sig. Proof: Alg(Sigma) is a formation; intersections via HOperator_mono/PFsdOperator_mono and Set.mem_sInter; directed unions via choosing one member of D per P_fsd factor and combining finitely many by exists_mem_superset_finset.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 194 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P018/formal_proof",
+      "hash": "d9f9e38c82e6dc6e34d3e43adf758bba0b10eaa7adbb252a23cd819945fcc1e4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:21:02Z"
+}
+```
+
+### E-000146
+
+```json
+{
+  "block": "B-P018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000146",
+  "findings": [
+    "Stage 1 read-back: IsAlgebraicClosureSystemOn X C has the three clauses (univ, nonempty intersections, nonempty directed unions); the theorem instantiates X = Alg Sig, C = Form_Alg(Sigma); the three proof parts are (i) Alg is a formation, (ii) intersections via monotonicity, (iii) directed unions via finite combination of P_fsd witnesses.",
+    "Stage 2 comparator returned equivalent; the three clauses match the contract's three facts, and IsAlgebraicClosureSystemOn is exactly the one-sorted algebraic closure system applied to the plain set Alg(Sigma). Nonemptiness and directedness are retained. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P018-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P018/definition_closure",
+      "hash": "4aa63f6d6c15214ddb29093909609d21d168d3bc3bb84cefedcd8a6db6c170b6"
+    },
+    {
+      "artifact": "B-P018/formal_statement",
+      "hash": "a1c7f7c3ef8a5bd8441a72f2c80895921ae70cdc151d7bab5b2a926426bd6937"
+    },
+    {
+      "artifact": "B-P018/informal_statement",
+      "hash": "7399956c92391a8fccc1edaf0639d0bfa62849158a81d889d554f78555e03350"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T12:21:02Z"
+}
+```
+
+### E-000147
+
+```json
+{
+  "block": "B-D034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000147",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D034 (Mslang.formationGenerating) compiled against Mathlib v4.33.1.",
+    "Encoding: formationGenerating Sig M = sInter {F | IsAlgebraFormation Sig F \u2227 M subseteq F}, i.e. Fmg_Sigma(M) = intersection of all formations containing M (the least such formation).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 194 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations. B-D034 is a definition by reference (the closure operator canonically associated to the algebraic closure system Form_Alg(Sigma)); the Lean encodes it as the intersection of all formations containing M. No closure-operator laws are proved here.",
+  "inputs": [
+    {
+      "artifact": "B-D034/formal_proof",
+      "hash": "b3a18f2292055f5fac5fedf29d2492072a567e826d50b5af6d7758400c13ef4d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:21:02Z"
+}
+```
+
+### E-000148
+
+```json
+{
+  "block": "B-P023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000148",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P023 (Mslang.isSat_iff_sortedEqvLe_charEqv, Mslang.isSat_iff_le_congCogenerated) compiled against Mathlib v4.33.1.",
+    "Proof: IsSat Phi L is sat Phi L = L; charEqv L is Ker(ch^L). The structure-free helper isSat_iff_sortedEqvLe_charEqv identifies saturation with containment in Ker(ch^L); isSat_iff_le_congCogenerated then uses B-P022(3) (le_congCogenerated_of_isCongruence) for (=>) and congCogenerated_le_charEqv for (<=).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 197 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P023/formal_proof",
+      "hash": "317878dba5cf3005225a9b2493d653169c031ae5b163acccdefdf02f7d6c4d9d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:45:00Z"
+}
+```
+
+### E-000149
+
+```json
+{
+  "block": "B-P023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000149",
+  "findings": [
+    "Stage 1 read-back: isSat_iff_le_congCogenerated states IsSat Phi L <-> sortedEqvLe Phi (congCogenerated Sig A L), with hPhi : IsCongruence. The helper renders saturation as containment in Ker(ch^L).",
+    "Stage 2 comparator returned equivalent; IsSat is L = [L]^Phi, sortedEqvLe is Phi subseteq Omega^A(L), hPhi is Phi in Cgr(A). The helper IsSat <-> Phi subseteq Ker(ch^L) is faithful, and the proof uses B-P022(3) in the direction that needs hPhi. No dropped/added hypothesis, no size mismatch.",
+    "Transcript: blocks/audits/B-P023-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P023/definition_closure",
+      "hash": "a34e267b18e410bbdd8d2faeb7d808dd2adb14cca5f75ace06b33e6f0adc07ff"
+    },
+    {
+      "artifact": "B-P023/formal_statement",
+      "hash": "e09b08f70b8c34d4a936a2c845bf8d0aa0edade73d0de6af1e9dc9e78b04109d"
+    },
+    {
+      "artifact": "B-P023/informal_statement",
+      "hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T12:45:00Z"
+}
+```
+
+### E-000150
+
+```json
+{
+  "block": "B-P025",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000150",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P025 (Mslang.congCogenerated_compl) compiled against Mathlib v4.33.1.",
+    "Proof: funext + Setoid.ext reduce the equality of sorted equivalences to a pointwise iff. The universal clause over translations with L and with complA L differs by replacing membership with non-membership; Iff.not handles (=>), and Iff.not plus double-negation elimination (not_not) handles (<=). complA_bridge exposes the negation.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 197 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P025/formal_proof",
+      "hash": "689294fae96769d0d359f1ad1491002ad6b5a76cf1e6d575a971ef850ef85442"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:45:00Z"
+}
+```
+
+### E-000151
+
+```json
+{
+  "block": "B-P025",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000151",
+  "findings": [
+    "Stage 1 read-back: congCogenerated_compl Sig A L asserts congCogenerated Sig A L = congCogenerated Sig A (complA L), an equality of sorted equivalences, no hypotheses. complA is the componentwise complement; the proof is the pointwise negation observation.",
+    "Stage 2 comparator returned equivalent; left side is Omega^A(L), right side Omega^A(complement_A L), equality of sorted equivalences (both inclusions), no extra hypotheses. The forward direction is constructive and the backward uses double-negation elimination; a proof-method difference only. No dropped/added hypothesis, no size mismatch.",
+    "Transcript: blocks/audits/B-P025-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-P025/definition_closure",
+      "hash": "aa93e1ee7f11e079992c887874b26502886a085e46397c50d316061ab34ae783"
+    },
+    {
+      "artifact": "B-P025/formal_statement",
+      "hash": "971d7fbcc07fd624d34c84e3c22d10310a20f5eec6626f9f336d9c288f492ed4"
+    },
+    {
+      "artifact": "B-P025/informal_statement",
+      "hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T12:45:00Z"
+}
+```
+
+### E-000152
+
+```json
+{
+  "block": "B-P026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000152",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P026 (Mslang.isCongruence_iInf, Mslang.congCogenerated_iInter_le) compiled against Mathlib v4.33.1.",
+    "Proof: hchar shows the meet of the Omega^A(L^j) is contained in Ker(ch^{intersection L^j}) using B-P022(2) at each j; hcong shows the meet of congruences is a congruence (isCongruence_iInf); le_congCogenerated_of_isCongruence (B-P022(3)) then yields the refinement. Uses the new sortedEqv_iInf (arbitrary meet) from Prelim.lean.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 202 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P026/formal_proof",
+      "hash": "a3fa70e2fcc8159e476168c393843c082c305d268a2a7ca01c3a8db4660f6c1f"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}
+```
+
+### E-000153
+
+```json
+{
+  "block": "B-P026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000153",
+  "findings": [
+    "Stage 1 read-back: congCogenerated_iInter_le states sortedEqvLe (sortedEqv_iInf (fun j => congCogenerated Sig A (L j))) (congCogenerated Sig A (fun s => iInter j, L j s)); no Nonempty index hypothesis.",
+    "Stage 2 comparator returned formal_stronger; the sides and the refinement order match the contract, and the only delta is the removed nonemptiness hypothesis, which is a faithful conservative generalization (the empty index gives the universal relation on both sides). No hypothesis added, no size mismatch.",
+    "Transcript: blocks/audits/B-P026-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals. The positive divergence is that the Lean drops the contract's nonemptiness of the index set; the empty case holds vacuously.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P026/definition_closure",
+      "hash": "add042f4c879edafe46212031ce1d3d08639bdb75771e64001a4edf72c608c68"
+    },
+    {
+      "artifact": "B-P026/formal_statement",
+      "hash": "4119087ef6d0593a76b4d656ea55d8a24ab58d4fa1205c0810e4fed628704b57"
+    },
+    {
+      "artifact": "B-P026/informal_statement",
+      "hash": "6dcfe895d8ad96290cce776bab759d6904ad9eb967b8814f38677967a328c3f2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}
+```
+
+### E-000154
+
+```json
+{
+  "block": "B-P027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000154",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P027 (Mslang.congCogenerated_le_transPreimage) compiled against Mathlib v4.33.1.",
+    "Proof: unfold sortedEqvLe and introduce a further translation V; case split on the coarity sort equalling t. If equal, the goal is the Omega^A(L) clause at the composite translation T . V (TlGen.comp); otherwise the inverse image is empty and the clause is trivial (Function.update_of_ne).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 202 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P027/formal_proof",
+      "hash": "16bc2dbd717345a410031de09906d4f1ebaec6f574aa134af1e96fd5799d6a96"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}
+```
+
+### E-000155
+
+```json
+{
+  "block": "B-P027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000155",
+  "findings": [
+    "Stage 1 read-back: congCogenerated_le_transPreimage states sortedEqvLe (Omega^A(L)) (Omega^A(T^{-1}[L])) for hT : TlGen Sig A t s T, with transPreimage T L = deltaSub t (T^{-1}[L_s]).",
+    "Stage 2 comparator returned equivalent; T/hT is T in Tl_t(A)_s, transPreimage T L is the concentrated inverse image, and the conclusion is Omega^A(L) subseteq Omega^A(T^{-1}[L]) in the correct direction. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P027-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P027/definition_closure",
+      "hash": "0c5e725fe4053daea165cf3c90a9fae4eebe21a1a0a81ae3b78d17ff23c73aad"
+    },
+    {
+      "artifact": "B-P027/formal_statement",
+      "hash": "ebbb9c4f88fbfa059355a1e84b3aac22401e4d3bc39362fa301b7310333dba8e"
+    },
+    {
+      "artifact": "B-P027/informal_statement",
+      "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}
+```
+
+### E-000156
+
+```json
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000156",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R020 (Mslang.deltaEqv, Mslang.deltaEqv_eq_iInf_congCogenerated) compiled against Mathlib v4.33.1.",
+    "Encoding: deltaEqv A is the equality (diagonal) sorted equivalence; the theorem states deltaEqv A.1 = sortedEqv_iInf (fun p : Sigma A.1 => congCogenerated Sig A (deltaSub p.1 {p.2})), i.e. Delta^A = meet over (s,a) of Omega^A(delta^{s,a}). Proof: (=>) equality is preserved by every translation; (<=) take p = <s,x> and the identity translation to force y = x.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 202 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-R020/formal_proof",
+      "hash": "530b871aad6da0924e676afa960a5a866b29fab49adc10c32f97f90812318cfb"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}
+```
+
+### E-000157
+
+```json
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000157",
+  "findings": [
+    "Stage 1 read-back: deltaEqv is equality in every component; the theorem equates it with the meet over p : Sigma A.1 of Omega^A(deltaSub p.1 {p.2}).",
+    "Stage 2 comparator returned equivalent; deltaEqv is Delta^A, Sigma A.1 is the index set of pairs (s,a), deltaSub p.1 {p.2} is delta^{s,a}, and sortedEqv_iInf is the pointwise intersection. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-R020-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R020/definition_closure",
+      "hash": "3497b9175bcbbddd7cb797bc100ce0d3939a069b6000358f7dee27f8fb8cf361"
+    },
+    {
+      "artifact": "B-R020/formal_statement",
+      "hash": "431297f431e62ecc774b099c9c660f18c1fb09e8f9e688f44b187aa638071bff"
+    },
+    {
+      "artifact": "B-R020/informal_statement",
+      "hash": "d57fad93f6634aba4d75d8dbe6774721b77d9a090f39abfd91a1348b239e849b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}
+```
+
+### E-000158
+
+```json
+{
+  "block": "B-P024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000158",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P024 (Mslang.isCongruence_eq_iInf_congCogenerated) compiled against Mathlib v4.33.1.",
+    "Encoding: Phi = sortedEqv_iInf (fun p : Sigma A.1 => congCogenerated Sig A (deltaSub p.1 (eqvClass Phi p.1 p.2))), i.e. a congruence is the meet over all marked points (s,a) of Omega^A(delta^{s,[a]_Phi}). Proof: (=>) Phi refines each Omega^A(delta^{s,[a]_Phi}) using closure of Phi under translations (B-P021) plus transitivity; (<=) the marked point (t,x) with the identity translation forces y in [x]_Phi.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 206 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P024/formal_proof",
+      "hash": "3c91533c54de84d4c9c1424299809d4c7d4da4f3fc4fbf5b249a82a9db15492e"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T14:03:47Z"
+}
+```
+
+### E-000159
+
+```json
+{
+  "block": "B-P024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000159",
+  "findings": [
+    "Stage 1 read-back: isCongruence_eq_iInf_congCogenerated states Phi = sortedEqv_iInf (fun p : Sigma A.1 => congCogenerated Sig A (deltaSub p.1 (eqvClass Phi p.1 p.2))) for hPhi : IsCongruence.",
+    "Stage 2 comparator returned equivalent; Phi is the congruence, Sigma A.1 the pairs (s,a), eqvClass the class [a]_{Phi_s}, deltaSub the delta, sortedEqv_iInf the pointwise intersection. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P024-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P024/definition_closure",
+      "hash": "7655e857c3c09cc9d77638ec71692e14606aa10535b7395f68cfecb17e72887b"
+    },
+    {
+      "artifact": "B-P024/formal_statement",
+      "hash": "d38273735c9faf10c60d189414176723a4f789e31faaeaeea995dd0d2e52dd97"
+    },
+    {
+      "artifact": "B-P024/informal_statement",
+      "hash": "9362eb3721fbbe559cdac4f6b3cdb815d827ec58c181f224c52ca3b8c76b4a57"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T14:03:47Z"
+}
+```
+
+### E-000160
+
+```json
+{
+  "block": "B-P028",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000160",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P028 (Mslang.pullbackEqv, Mslang.pullbackEqv_congCogenerated_le, Mslang.congCogenerated_le_pullback_of_surj) compiled against Mathlib v4.33.1.",
+    "Encoding: pullbackEqv f Psi is (f x f)^-1[Psi]; inverseImage f M is f^-1[M]. The two theorems give (f x f)^-1[Omega^B(M)] subseteq Omega^A(f^-1[M]) for a homomorphism, and the reverse inclusion for an epimorphism. Helpers tlGen_map / tlGen_lift transport/lift translations along a homomorphism/epimorphism (via sortedMap_cast, isElemTranslation_map/lift, using Classical.choose preimages for the epimorphism).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 206 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P028/formal_proof",
+      "hash": "c05aa4406cd8fcad910f4ae40ef89f112c80e7da94e85387a1baff67dd89a99e"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T14:03:47Z"
+}
+```
+
+### E-000161
+
+```json
+{
+  "block": "B-P028",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000161",
+  "findings": [
+    "Stage 1 read-back: pullbackEqv_congCogenerated_le states (f x f)^-1[Omega^B(M)] subseteq Omega^A(f^-1[M]) for hf : IsAlgHom; congCogenerated_le_pullback_of_surj states the reverse for a componentwise-surjective homomorphism. Helpers tlGen_map/tlGen_lift transport/lift translations.",
+    "Stage 2 comparator returned equivalent; pullbackEqv is the pullback relation, inverseImage is f^-1[M], the two directions are the contract's subseteq and (epi) reverse inclusion. Hypotheses match (IsAlgHom; surjectivity = epimorphism); splitting into two theorems faithfully captures the moreover equality. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P028-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-P028/definition_closure",
+      "hash": "c507b1370c4f3e485644355366f1ff9583050919eb12768a6141bf6571880d4c"
+    },
+    {
+      "artifact": "B-P028/formal_statement",
+      "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T14:03:47Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -5372,8 +6777,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 58
-- Evidence records: 129
+- Blocks with any evidence: 76
+- Evidence records: 161
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -5388,6 +6793,7 @@ assertion).
 |---|---|---|---|---|---|---|---|
 | `B-C001` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-C002` | corollary | Preliminaries. | pass | pass | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-D001` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D003` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
@@ -5421,6 +6827,12 @@ assertion).
 | `B-D031` | definition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-D032` | definition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-D033` | definition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | none | pass | none | - |
+| `B-D034` | definition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | none | pass | none | - |
+| `B-D035` | definition | Elementary translations and translations. | none | none | pass | none | - |
+| `B-D036` | definition | Elementary translations and translations. | none | none | pass | none | - |
+| `B-D037` | definition | Elementary translations and translations. | none | none | pass | none | - |
+| `B-D038` | definition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | none | pass | none | - |
+| `B-D039` | definition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | none | pass | none | - |
 | `B-L001` | lemma | Preliminaries. | none | pass | pass | none | - |
 | `B-P002` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
 | `B-P003` | proposition | Preliminaries. | none | pass | pass | none | carrier-model; small-large; univalence-missing |
@@ -5431,6 +6843,15 @@ assertion).
 | `B-P009` | proposition | Preliminaries. | none | pass | pass | none | - |
 | `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-P021` | proposition | Elementary translations and translations. | none | pass | pass | none | - |
+| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
+| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
+| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
+| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
+| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
+| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
+| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
 | `B-R001` | remark | Preliminaries. | none | pass | pass | none | - |
 | `B-R003` | remark | Preliminaries. | none | pass | pass | none | - |
 | `B-R005` | remark | Preliminaries. | none | pass | pass | none | - |
@@ -5443,9 +6864,11 @@ assertion).
 | `B-R012` | remark | Preliminaries. | none | pass | pass | none | - |
 | `B-R014` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-R017` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-R018` | remark | Elementary translations and translations. | none | pass | pass | none | - |
+| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | pass | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | pass | - |
 
-71 block(s) have no evidence.
+53 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -5556,7 +6979,7 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`
 
 ## Formal-only (possible hidden dependency / unstated step)
 
@@ -5567,6 +6990,22 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-C002` | `B-C001` |
 | `B-C002` | `B-D002` |
 | `B-C002` | `B-D005` |
+| `B-C004` | `B-D002` |
+| `B-C004` | `B-D014` |
+| `B-C004` | `B-D015` |
+| `B-C004` | `B-D016` |
+| `B-C004` | `B-D017` |
+| `B-C004` | `B-D022` |
+| `B-C004` | `B-D024` |
+| `B-C004` | `B-D025` |
+| `B-C004` | `B-D028` |
+| `B-C004` | `B-P007` |
+| `B-C004` | `B-P008` |
+| `B-C004` | `B-P009` |
+| `B-C004` | `B-P016` |
+| `B-C004` | `B-P017` |
+| `B-C004` | `B-R014` |
+| `B-C004` | `B-R017` |
 | `B-D003` | `B-D002` |
 | `B-D003` | `B-D015` |
 | `B-D004` | `B-D002` |
@@ -5659,8 +7098,24 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-D033` | `B-D014` |
 | `B-D033` | `B-D016` |
 | `B-D033` | `B-D017` |
+| `B-D033` | `B-D023` |
 | `B-D033` | `B-D024` |
 | `B-D033` | `B-D025` |
+| `B-D034` | `B-D016` |
+| `B-D034` | `B-D032` |
+| `B-D035` | `B-D005` |
+| `B-D035` | `B-D016` |
+| `B-D036` | `B-D005` |
+| `B-D036` | `B-D016` |
+| `B-D037` | `B-D002` |
+| `B-D037` | `B-D005` |
+| `B-D038` | `B-D005` |
+| `B-D038` | `B-D014` |
+| `B-D038` | `B-D016` |
+| `B-D039` | `B-D005` |
+| `B-D039` | `B-D014` |
+| `B-D039` | `B-D016` |
+| `B-D039` | `B-D038` |
 | `B-L001` | `B-D002` |
 | `B-L001` | `B-D015` |
 | `B-L001` | `B-D016` |
@@ -5716,6 +7171,54 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-P017` | `B-P007` |
 | `B-P017` | `B-P009` |
 | `B-P017` | `B-R014` |
+| `B-P018` | `B-D016` |
+| `B-P018` | `B-D032` |
+| `B-P021` | `B-D014` |
+| `B-P021` | `B-D016` |
+| `B-P021` | `B-D017` |
+| `B-P021` | `B-D024` |
+| `B-P022` | `B-D002` |
+| `B-P022` | `B-D005` |
+| `B-P022` | `B-D014` |
+| `B-P022` | `B-D016` |
+| `B-P022` | `B-D024` |
+| `B-P022` | `B-D038` |
+| `B-P023` | `B-D002` |
+| `B-P023` | `B-D005` |
+| `B-P023` | `B-D016` |
+| `B-P023` | `B-D024` |
+| `B-P023` | `B-D038` |
+| `B-P023` | `B-P022` |
+| `B-P024` | `B-D014` |
+| `B-P024` | `B-D016` |
+| `B-P024` | `B-D024` |
+| `B-P024` | `B-D036` |
+| `B-P024` | `B-D037` |
+| `B-P024` | `B-D038` |
+| `B-P024` | `B-P021` |
+| `B-P025` | `B-D005` |
+| `B-P025` | `B-D016` |
+| `B-P025` | `B-D038` |
+| `B-P026` | `B-D002` |
+| `B-P026` | `B-D005` |
+| `B-P026` | `B-D014` |
+| `B-P026` | `B-D016` |
+| `B-P026` | `B-D017` |
+| `B-P026` | `B-D024` |
+| `B-P026` | `B-D038` |
+| `B-P026` | `B-P022` |
+| `B-P027` | `B-D005` |
+| `B-P027` | `B-D016` |
+| `B-P027` | `B-D037` |
+| `B-P027` | `B-D038` |
+| `B-P028` | `B-D002` |
+| `B-P028` | `B-D005` |
+| `B-P028` | `B-D007` |
+| `B-P028` | `B-D014` |
+| `B-P028` | `B-D015` |
+| `B-P028` | `B-D016` |
+| `B-P028` | `B-D017` |
+| `B-P028` | `B-D038` |
 | `B-R001` | `B-D002` |
 | `B-R001` | `B-D015` |
 | `B-R003` | `B-D002` |
@@ -5759,14 +7262,30 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-R017` | `B-D016` |
 | `B-R017` | `B-D032` |
 | `B-R017` | `B-P008` |
+| `B-R018` | `B-D016` |
+| `B-R020` | `B-D002` |
+| `B-R020` | `B-D014` |
+| `B-R020` | `B-D016` |
+| `B-R020` | `B-D036` |
+| `B-R020` | `B-D037` |
+| `B-R020` | `B-D038` |
 
 ## Informal-only, mapped (possible simplification)
 
 | from | to |
 |---|---|
 | `B-D032` | `B-D028` |
+| `B-D037` | `B-D006` |
+| `B-D037` | `B-D036` |
 | `B-P002` | `B-D006` |
+| `B-P022` | `B-D015` |
+| `B-P022` | `B-D036` |
+| `B-P023` | `B-C001` |
+| `B-P024` | `B-D006` |
+| `B-P024` | `B-D015` |
+| `B-P026` | `B-D015` |
 | `B-R008` | `B-D006` |
+| `B-R020` | `B-D006` |
 
 ## Agreeing edges
 
@@ -5774,10 +7293,14 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 |---|---|
 | `B-C001` | `B-D014` |
 | `B-C002` | `B-D014` |
+| `B-C004` | `B-D032` |
+| `B-C004` | `B-D033` |
 | `B-D030` | `B-D015` |
 | `B-D031` | `B-D028` |
 | `B-D032` | `B-D031` |
 | `B-D033` | `B-D031` |
+| `B-D036` | `B-D035` |
+| `B-D038` | `B-D036` |
 | `B-P002` | `B-D014` |
 | `B-P003` | `B-D014` |
 | `B-P004` | `B-D014` |
@@ -5786,6 +7309,12 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-P007` | `B-D015` |
 | `B-P009` | `B-D015` |
 | `B-P017` | `B-D015` |
+| `B-P018` | `B-D031` |
+| `B-P021` | `B-D035` |
+| `B-P021` | `B-D036` |
+| `B-P022` | `B-P021` |
+| `B-P023` | `B-D014` |
+| `B-P027` | `B-D036` |
 | `B-R001` | `B-D006` |
 | `B-R005` | `B-D014` |
 | `B-R006` | `B-D014` |
@@ -5793,6 +7322,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 | `B-R008` | `B-D014` |
 | `B-R014` | `B-D031` |
 | `B-R017` | `B-D023` |
+| `B-R018` | `B-D036` |
 
 ## Reviewer notes
 
@@ -5802,7 +7332,7 @@ Mapped blocks: `B-C001`, `B-C002`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D0
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-99 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+79 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
 
 ## reports/impact.md
 
@@ -5817,7 +7347,7 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 14
+- evidence records that would go stale: 15
 
 | record | block | layer |
 |---|---|---|
@@ -5835,6 +7365,7 @@ rework.
 | E-000092 | `B-P005` | correspondence |
 | E-000093 | `B-R005` | correspondence |
 | E-000094 | `B-P007` | correspondence |
+| E-000149 | `B-P023` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -5861,11 +7392,11 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Blocks with no Lean counterpart (72)
+## Blocks with no Lean counterpart (54)
 
 These confirmed blocks are outside the current formalization frontier.
 
-`B-A001`, `B-C003`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 

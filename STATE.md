@@ -3016,6 +3016,121 @@ proof is specific to the binary case (the general finite product is next, in
 
 ---
 
+## Session 71 -- 2026-09-16/17 -- B-C004 (fixed definition); resumed and closed
+
+**Goal.** `B-C004` (Definition `DefFormAlg` `B-D032` ≡ `ShSkFormAlg` `B-D033`)
+was found **false as literally stated**: an ShSk-formation need not contain the
+subfinal Σ-algebras, so it need not be closed under the **empty** subdirect
+product (`n = 0`). The author chose **Option 1**: change `B-D033` clause 1 from
+`F ≠ ∅` to `Sf(1) ⊆ F`, and highlight the manuscript change in red. The first
+half ran on 2026-09-16 and was interrupted by a machine shutdown; the resume on
+2026-09-17 finished the verification/evidence/views work. This entry is the
+combined completed record.
+
+**Author decision taken (this session).** Option 1. The manuscript edit is done.
+
+**What is closed / done.**
+
+- **Counterexample (falsification probe).** Durable record:
+  `blocks/audits/B-C004-counterexample.md` (probe source:
+  `blocks/audits/B-C004-counterexample.lean.txt`; a copy also lives in
+  `/var/folders/0c/zp_5pqkn603dcn4m1b4z806m0000gn/T/opencode/ce_bc004.lean`).
+  It proved `∃ F, IsShSkFormation Sig F ∧ ¬ IsAlgebraFormation Sig F` for the
+  old clause-1 definition: take `S ≠ ∅`, `Σ` with no operations,
+  `F = {algebras with nonempty support}` — ShSk but not a formation (the initial
+  algebra `∅^S` is a subproduct of the empty family). Axioms permitted. The file
+  **no longer compiles** against the fixed definition, confirming the gap is
+  closed.
+- **Manuscript edit (done, builds).** `manuscript/MSEilenberg.tex`:
+  added `\usepackage{xcolor}`; replaced `\item $\mathcal{F}\neq\varnothing$.`
+  with `\item $\textcolor{red}{\mathrm{Sf}(\mathbf{1})\subseteq \mathcal{F}}$.`
+  (old line kept commented). Manuscript rebuild: exit 0, **49 pages**. Non-ASCII
+  scan clean. `hash_blocks`, `ingest` (129 confirmed, 0 proposed, 126 edges),
+  crossrefs re-run; new informal symbol edge `B-D033 -> B-D023` (`\Sf`).
+- **Lean (done, built once).** `lean/Mslang/Formation.lean`:
+  - `IsShSkFormation` clause 1 is now `(∀ A, SubfinalAlg Sig A → A ∈ F)`
+    (i.e. `Sf(1) ⊆ F`); `HOperator`/meet-closure clauses unchanged, so
+    `hF.2.1`/`hF.2.2` and the `B-P017` proof are untouched.
+  - New `shskFormation_mem_of_subdirect` (finite subdirect-product closure:
+    finite meet of `ker(pr^i ∘ f)` built by iterating the binary meet-closure;
+    empty index handled by the `Sf(1) ⊆ F` clause).
+  - New `algebraFormation_iff_shskFormation` = `B-C004`.
+  - New `sortedEqvLe_refl` / `sortedEqvLe_trans` (moved here from `Prelim.lean`,
+    which is back to its committed state).
+  - A build **completed successfully (8714 jobs)** with this code before the
+    lemma move; axioms for the new theorems are `propext, Classical.choice,
+    Quot.sound` (permitted). No `sorry`.
+- `lean/declarations.json`: new `B-C004` mapping
+  (`algebraFormation_iff_shskFormation`, `shskFormation_mem_of_subdirect`,
+  `sortedEqvLe_refl`, `sortedEqvLe_trans`; file `lean/Mslang/Formation.lean`).
+  58 blocks in the file.
+
+**Resumed and completed (2026-09-17).**
+
+1. **Rebuild after the lemma move.** `env -u ELAN_HOME lake build` completed
+   (8714 jobs) with 0 warnings / 0 errors. `#print axioms`: `sortedEqvLe_refl`
+   and `sortedEqvLe_trans` depend on none; `shskFormation_mem_of_subdirect` and
+   `algebraFormation_iff_shskFormation` on `propext, Classical.choice,
+   Quot.sound` (permitted). `Mslang.lean`'s axiom smoke-test list was extended
+   with the four B-C004 declarations.
+2. **Stale evidence, corrected against the records.** The 2026-09-16 note that
+   `B-P017` verification `E-000128` was stale was **wrong**: the verification
+   layer's only input is `B-P017/formal_proof`, which the clause-1 edit does not
+   touch, so `E-000128` remains valid (`status`: current). Only two records were
+   actually stale:
+   - `B-D033` verification `E-000121` (`formal_proof` moved) -> re-issued as
+     `E-000130` (supersede; `reissue_reason=other`, since the definition content
+     genuinely changed, not a hash move).
+   - `B-P017` correspondence `E-000129` (`definition_closure` moved) -> re-run
+     two-stage blind, re-issued as `E-000131` (supersede).
+   - `B-C004` new: `E-000132` (verification `build_ok`) and `E-000133`
+     (correspondence `equivalent`; transcript
+     `blocks/audits/B-C004-correspondence.md`). The `B-P017` transcript gained a
+     dated re-run section.
+3. **`blocks/lean_audit.json` regenerated** (`scripts/lean_audit.py`): **159**
+   declarations, 0 warnings, 0 unpermitted axioms, 0 `sorry`.
+4. **Views regenerated in dependency order:** `report.py`, `calibration.py
+   --report`, `impact.py --report`, `discrepancy.py --report`, `sanity.py
+   --report`, `frontier.py --report`, then the journal, then `decisions.py
+   --report`, then `bundle.py`.
+5. **Journal `EV-000077`** (B-D033 facet revision / author Option 1) and
+   **`EV-000078`** (B-C004 evidence). Two events, because the definition
+   revision was an unrecorded state change from the interrupted half.
+6. **`scripts/check_all.sh`: 27 passed, 0 failed**; frontier unmapped
+   **72 -> 71**.
+
+**Honest caveat (continued).** Same-model audit; inherits the pilot-encoding
+residuals. Both the B-P017 re-run and the new B-C004 correspondence are
+two-stage blind with the same underlying model (`deepseek-v4.1-flash`), so
+common blind spots are not excluded. The B-C004 correspondence verdict is for
+the **corrected** pair of definitions; the old pair is genuinely non-equivalent
+(`B-C004-counterexample`). The `pairAlgFamily`/`ULift.{u,0} Bool` binary-product
+encoding is used in the B-P017 proof only; the B-C004 backward direction now
+covers the general finite index directly.
+
+**Engineering gotcha (important, cost real time this session).** The `edit`
+tool **corrupts the latin1 manuscript**: it decoded `manuscript/MSEilenberg.tex`
+as UTF-8, turning the 6 legitimate high bytes (`0xF3 0xED 0xE9 0xE4`) into
+U+FFFD (`EF BF BD`). Fix used: `git checkout -- manuscript/MSEilenberg.tex`,
+then apply edits with Python `open(..., encoding='latin1')` read/modify/write
+(latin1 round-trips all bytes). **Never edit the manuscript with the `edit`
+tool; use Python/latin1.** Verify with a high-byte histogram vs `HEAD`.
+
+**Dirty tree (uncommitted).** `manuscript/MSEilenberg.tex`,
+`lean/Mslang/{Formation,Mslang}.lean`, `lean/declarations.json`,
+`blocks/{hashes,registry,graph,formal,formal_graph,lean_audit}.json`,
+`journal/events.jsonl`, `blocks/audits/B-P017-correspondence.md`, and the
+regenerated views `reports/{coverage,staleness,bundle,frontier}.md` plus the
+ingest reports `reports/{inventory,gap_report,pilot_candidates}.md`. New
+untracked records: `evidence/E-000130.json`..`E-000133.json`,
+`blocks/audits/B-C004-correspondence.md`, and the counterexample probes
+`blocks/audits/B-C004-counterexample.{md,lean.txt}`. `calibration.md`,
+`impact.md`, `decisions.md`, `sanity.md`, `trust_boundary.md` regenerated
+byte-identical (no drift). `check_all` is clean (27/27) on this tree. **No commit
+was made** (the session was not asked to commit).
+
+---
+
 **Addendum (author-directed).** The splitting insight is now normative spec, not
 just this session's practice: `Architecture.md` §10.2 treats the module layout
 as the compile-time dependency graph (with the rationale and the layout table),
@@ -3024,6 +3139,533 @@ order; the extracted graph authoritative for closures), and §13.2 adds
 "module move" as an explicit C5 identity sub-case. Journal `EV-000067`. Rule to
 remember: a module move *must* stale no evidence; if it does, fix the hashing,
 not by re-issuing.
+
+---
+
+## Session 72 -- 2026-09-17 -- translations layer: B-D035, B-D036
+
+**Goal.** Open the "Elementary translations and translations" section with its
+two definitions: elementary translations (`B-D035`) and their composite closure
+(`B-D036`). Chosen over the listed priority `B-P018` because `B-P018`
+(`Form_Alg(Σ)` is an algebraic closure system) needs new vocabulary — an
+"algebraic closure system on a class" (the existing `IsClosureSystemOn` at
+`Algebra.lean:116` has no directed-union clause, and instantiating the sorted
+`IsAlgebraicClosureSystem` at `Alg(Σ)` would cross universes) — whereas the
+translations cluster depends only on the `Algebra` layer and is a clean,
+bounded step.
+
+**What was established (closed).**
+
+- New module `lean/Mslang/Translation.lean` (imports `Mslang.Algebra` only),
+  added to the `Architecture.md` §10.2 module table and the STATE safe-restart
+  layout. Declarations:
+  - **`B-D035`** as `Mslang.IsElemTranslation` + `Mslang.Etl`: `T : A_t → A_s` is
+    a `t`-elementary translation of sort `s` when there is a word `w`, an index
+    `i : Fin w.length` with `w.get i = t`, an operation `σ : Σ_{w,s}`, and
+    constants in the other positions, with `T x = F_σ(…, x, …)` (`x` inserted at
+    position `i`). `Etl Sig A t` is the sorted family `(Etl_t(A)_s)_s`.
+  - **`B-D036`** as `Mslang.TlGen` (inductive: `refl`/`elem`/`comp`) + `Mslang.Tl`:
+    the smallest family containing the identity and the elementary translations
+    and closed under composition, i.e. the paper's finite composites; `Tl` is
+    `(Tl_t(A)_s)_s`.
+- Encoding notes. The paper's `w ∈ S* − {λ}` is witnessed by `i : Fin w.length`
+  (nonemptiness is implied), so no separate hypothesis is carried. The variable
+  insertion uses the equality `w.get i = t` through a conjoined `congrArg`/`▸`
+  cast; a first attempt with `by rw [h]` inside the `if` failed to elaborate
+  (`rewrite` did not find the `Fin` index occurrence) and was replaced by an
+  explicit equality chain — no tactic rewrite on a `Fin` index.
+- Mapped in `lean/declarations.json`; facets regenerated (**60 mapped blocks**,
+  **163 declarations**).
+- Evidence: **`E-000134`** (`B-D035`, verification, `build_ok`) and
+  **`E-000135`** (`B-D036`, verification, `build_ok`); both axiom-free.
+  Definitions carry verification only (layer assignment).
+- `reports/frontier.md`: unmapped blocks **71 -> 69**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000079`.
+
+**Honest caveat.** Definitions, so no correspondence layer; a later proposition
+over `Etl`/`Tl` will audit the encoding. `TlGen` is the inductive (least) closure
+of `id`, elementary translations, and composition; this is equivalent to the
+paper's "there is a chain of length `n`" formulation, but the equivalence is not
+itself formalized. `Etl_t(A)` is encoded as the set of *functions* `A_t → A_s`
+satisfying the translation formula (the formula forces the hom property the
+paper attributes to `Hom(A_t, A_s)`); a `Hom`-restricted variant is not used.
+
+**Prioritized next steps.**
+
+1. `B-D037` (actions `T[·]`, `T⁻¹[·]` on subsets) and `B-R018` (`Tl(A)` is a
+   category, `End(t)` a monoid) — the rest of the translations cluster.
+2. `B-P018`/`B-C005`/`B-D034`: `Form_Alg(Σ)` is an algebraic closure system, its
+   lattice, and the formation generating operator. **Requires first** a
+   directed-union closure-system-on-`Set (Alg Σ)` vocabulary (new definition);
+   decide its universe (`Alg Sig : Type (u+1)`).
+3. `B-P019`/`B-P020`/`B-C006`: congruence formations `𝔉_F` and the lattice
+   isomorphism (depend on `T_Σ`, B-D026/B-D027, mapped).
+4. `B-P010` (term characterization; unique parsing) still open in the
+   free-algebra layer.
+
+---
+
+## Session 73 -- 2026-09-17 -- translations layer: B-D037, B-D038
+
+**Goal.** Continue the translations section: the actions `T[·]`/`T⁻¹[·]`
+(`B-D037`) and the congruence `Ω^A(L)` cogenerated by `L` (`B-D038`). Both are
+definitions, so verification only — a bounded step before the harder
+`B-P021`/`B-P022` propositions.
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` gained:
+  - **`B-D037`**: `Mslang.deltaSub s Y` (the `S`-sorted subset that is `Y` at
+    `s`, empty elsewhere; `Function.update` of the empty family — the
+    subset-level analogue of `deltaT`), `Mslang.transImage T L = δ^{s,T[L_t]}`,
+    `Mslang.transPreimage T L = δ^{t,T⁻¹[L_s]}`, and the `X : Set (A_t)` /
+    `Y : Set (A_s)` variants `Mslang.transImageSet` (`T[X] = T[δ^{t,X}]`) and
+    `Mslang.transPreimageSet`.
+  - **`B-D038`**: `Mslang.congCogenerated Sig A L : SortedEqv A.1` — `x ~ y` at
+    `t` iff every `t`-translation `T` of any sort `s` satisfies
+    `T x ∈ L_s ↔ T y ∈ L_s`. It carries an `@[instance_reducible]` attribute
+    (class-typed), matching `nabla`/`ker`/`sortedEqvInf`; the first audit run
+    flagged this as the only warning and it was fixed in the same session.
+- Mapped in `lean/declarations.json`; facets regenerated (**62 mapped blocks**,
+  **169 declarations**).
+- Evidence: **`E-000136`** (`B-D037`), **`E-000137`** (`B-D038`), both
+  verification `build_ok` and axiom-free.
+- `reports/frontier.md`: unmapped blocks **69 -> 67**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000080`.
+
+**Honest caveat.** Definitions only; the encoding of `δ`-concentration is via
+`deltaSub`, and `transImage`/`transPreimage` are stated for an *arbitrary*
+function `T : A_t → A_s` (the paper states them for `T ∈ Tl_t(A)_s`, but the
+formula does not use the translation property). `Ω^A(L)` is encoded as a
+`Setoid` family; its axioms follow from `Iff` and are not separately audited.
+
+**Prioritized next steps.**
+
+1. `B-P021` (`CharacCong`): `Φ` is a congruence iff closed under `Etl` iff
+   closed under `Tl`. The hard direction is (2) ⇒ (1): the telescoping
+   `F_σ(a) = T_0(a_0)`, `T_0(b_0) = T_1(a_1)`, … over an arbitrary word `w`,
+   proved by induction on the list with `Fin.cases`/`Fin.tail`. (1) ⇒ (2) is the
+   congruence property with the elementary-translation constants; (2) ⇔ (3) is
+   `TlGen` induction.
+2. `B-P022` (`CharacCogenCong`): `Ω^A(L)` is a congruence, `Ω^A(L) ⊆ Ker(ch^L)`,
+   and it is greatest — needs `B-P021` and the `ch^L`/`Ker` vocabulary (B-D015,
+   B-D006, mapped).
+3. `B-R018` (`Tl(A)` is a category, `End(t)` a monoid) — remark; may want a
+   light `Category`/`Monoid` instance or be left statement-only.
+4. `B-P018`/`B-C005`/`B-D034` (algebraic closure system on `Form_Alg(Σ)`) still
+   needs the directed-union closure-system-on-a-class vocabulary first.
+
+---
+
+## Session 74 -- 2026-09-17 -- translations layer: B-P021 (CharacCong)
+
+**Goal.** The characterization `B-P021`: a sorted equivalence `Φ` on a
+`Σ`-algebra `A` is a congruence iff it is closed under the elementary
+translations iff it is closed under the translations. This is the section's
+substantive proposition and the prerequisite for the cogenerated-congruence
+results (`B-P022`).
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` (now importing `Mslang.Congruence` for
+  `IsCongruence`) gained:
+  - **`B-P021`** as the pair of biconditionals
+    `Mslang.isCongruence_iff_closesUnderEtl` `(1) ↔ (2)` and
+    `Mslang.closesUnderEtl_iff_closesUnderTl` `(2) ↔ (3)`, with the predicates
+    `Mslang.ClosesUnderEtl` and `Mslang.ClosesUnderTl` and the four implications
+    `closesUnderEtl_of_isCongruence`, `congruence_of_closesUnderEtl`,
+    `closesUnderTl_of_closesUnderEtl`, `closesUnderEtl_of_closesUnderTl`.
+  - Proof content. (1)⇒(2): unpack the elementary translation and apply the
+    congruence condition to the two tuples differing only at the insertion
+    position. (2)⇒(1): **the telescoping** — `mixedTuple a b j` interpolates
+    from `a` (`j = 0`) to `b` (`j = Fin.last`), each step changing one
+    coordinate via the elementary translation `Tj z = F_σ(insertTuple j rfl z c)`,
+    and the steps are chained by transitivity over `Fin.induction`. (2)⇒(3):
+    induction on the `TlGen` derivation; (3)⇒(2): the `elem` constructor.
+  - Helpers: `Mslang.insertTuple` (the insertion tuple matching the
+    `IsElemTranslation` witness), `Mslang.isElemTranslation_insert` (restating
+    `IsElemTranslation` via `insertTuple`), `Mslang.cast_rel` (transporting a
+    `Φ`-related pair along a sort equality), and `Mslang.mixedTuple` with
+    `mixedTuple_zero`/`mixedTuple_last`.
+- Mapped in `lean/declarations.json`; `Architecture.md` §10.2 module row and the
+  STATE layout updated (`Translation` now depends on `Congruence`); facets
+  regenerated (**63 mapped blocks**, **177 declarations**).
+- Evidence: **`E-000138`** (verification, `build_ok`; permitted axioms) and
+  **`E-000139`** (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-P021-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **67 -> 66**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000081`.
+
+**Engineering note (the one long run).** The telescoping was developed across a
+few **targeted `lake build Mslang.Translation`** iterations (one Mathlib process
+each) rather than full `lean_audit` runs; the session still budgeted exactly one
+`lean_audit.py` and one `check_all.sh` for the gate. Fixes along the way: the
+dependent `if` with a `Fin`-index rewrite (replaced by the `congrArg`/`▸` chain
+in `IsElemTranslation`; here the insertion uses `insertTuple` and the `Fin`
+threshold arithmetic is discharged by `omega`); constructor-index access in the
+`TlGen` induction (use `h _ _ x y _ hE hxy` and `ihU _ _ (ihT …)`); and
+`(Φ s).trans ih (step j)` rather than `ih.trans` (Setoid method, not proof field
+notation). This is a legitimate use of the targeted check per `AGENTS.md`
+rule 1's spirit: the minimal process start, with the artifact still produced by
+`lean_audit`.
+
+**Honest caveat.** Same-model audit. The correspondence verdict is relative to
+the pilot encoding. `TlGen` is the *least* family generated by `id`, `elem`,
+`comp`; this is equivalent to the paper's finite-composite formulation but the
+equivalence is by construction, not separately formalized. `IsElemTranslation`
+is the paper's "operation with a variable in one position", with the nonempty
+word witnessed by `Fin w.length`.
+
+**Prioritized next steps.**
+
+1. `B-P022` (`CharacCogenCong`): `Ω^A(L)` is a congruence, `Ω^A(L) ⊆ Ker(ch^L)`,
+   and it is the greatest such — uses `B-P021` and the `ch^L`/`Ker` vocabulary
+   (`B-D015`, `B-D006`, mapped). `B-D039` is the naming of `Ω^A(L)`.
+2. `B-R018` (`Tl(A)` is a category, `End(t)` a monoid) — remark.
+3. `B-P018`/`B-C005`/`B-D034` (algebraic closure system on `Form_Alg(Σ)`) —
+   needs the directed-union closure-system-on-a-class vocabulary first.
+
+---
+
+## Session 75 -- 2026-09-17 -- translations layer: B-P022, B-D039
+
+**Goal.** The cogenerated-congruence proposition `B-P022`: `Ω^A(L)` is a
+congruence, is contained in `Ker(ch^L)`, and contains every congruence so
+contained — i.e. it is the greatest congruence saturating `L`. Plus `B-D039`,
+the naming of `Ω^A(L)` as the syntactic congruence. Now dependency-closed by
+`B-P021`.
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` gained:
+  - **`B-P022`**: `Mslang.charEqv L` (the kernel `Ker(ch^L)`: `x ~ y` at `s`
+    iff `x ∈ L s ↔ y ∈ L s`), and the three theorems
+    - `congCogenerated_isCongruence` — `Ω^A(L)` is a congruence. Reduces to
+      `ClosesUnderTl` via `B-P021`, and closure under composite translations is
+      exactly `TlGen.comp` (`U ∘ T`).
+    - `congCogenerated_le_charEqv` — `Ω^A(L) ⊆ Ker(ch^L)` by instantiating the
+      universal clause at the identity translation (`TlGen.refl`).
+    - `le_congCogenerated_of_isCongruence` — from `hΦ : IsCongruence … Φ` get
+      translation-closure (via `B-P021`), so `(Φ t).r x y` gives
+      `(Φ s).r (T x)(T y)`, and `h : Φ ⊆ Ker(ch^L)` gives
+      `T x ∈ L s ↔ T y ∈ L s`.
+  - **`B-D039`** as the `abbrev Mslang.syntacticCongruence = congCogenerated`
+    (the paper's alternative name for `Ω^A(L)`).
+- Mapped in `lean/declarations.json`; facets regenerated (**65 mapped blocks**,
+  **182 declarations**).
+- Evidence: **`E-000140`** (B-P022 verification, `build_ok`), **`E-000141`**
+  (B-P022 correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-P022-correspondence.md`), **`E-000142`** (B-D039 verification,
+  `build_ok`).
+- `reports/frontier.md`: unmapped blocks **66 -> 64**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000082`.
+
+**Honest caveat.** Same-model audit. `ch^L` is defined only in the manuscript
+prose (no block); the Lean encodes `Ker(ch^L)` directly as `charEqv L`, avoiding
+a characteristic map into a two-element sorted set. `B-D039` is a naming
+convention, encoded as an `abbrev` alias (the only formal content is that name);
+its verification does not add mathematics beyond `B-D038`.
+
+**Prioritized next steps.**
+
+1. `B-R018` (`Tl(A)` is a category, `End(t)` a monoid) — remark; may want a
+   light `Category`/`Monoid` instance or be left statement-only.
+2. `B-P018`/`B-C005`/`B-D034` (`Form_Alg(Σ)` algebraic closure system, its
+   lattice, the formation generating operator) — **requires first** a
+   directed-union closure-system-on-`Set (Alg Σ)` vocabulary (new definition;
+   the existing `IsClosureSystemOn` lacks the directed-union clause, and the
+   sorted `IsAlgebraicClosureSystem` cannot be instantiated at `Alg(Σ)` without
+   crossing universes). A definition-first step.
+3. `B-P019`/`B-P020`/`B-C006` — congruence formations `𝔉_F` and the lattice
+   isomorphism `Form_Alg(Σ) ≅ Form_Cgr(Σ)` (depend on `T_Σ`, mapped; large).
+4. `B-P010` (term characterization; unique parsing) still open in the
+   free-algebra layer.
+
+---
+
+## Session 76 -- 2026-09-17 -- translations layer: B-R018
+
+**Goal.** The category `Tl(A)` of translations and the endomorphism monoid
+`End(t)`. Closes the translations section (`B-D035`–`B-D039`, `B-P021`,
+`B-P022`, `B-R018`).
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` gained **`B-R018`**:
+  - `Mslang.TlHom Sig A t s = {T : A.1 t → A.1 s // TlGen Sig A t s T}` — the
+    hom-set `Tl_t(A)_s`;
+  - `Mslang.TlId` (`⟨id, TlGen.refl t⟩`) and `Mslang.TlComp`
+    (`⟨g.1 ∘ f.1, TlGen.comp f.2 g.2⟩`);
+  - the three category laws `TlComp_id_left`, `TlComp_id_right`,
+    `TlComp_assoc` (by `Subtype.ext` + function extensionality, the translation
+    proofs being irrelevant);
+  - `Mslang.tlEndMonoid : Monoid (TlHom Sig A t t)` with `mul = TlComp`,
+    `one = TlId`, registered as a typeclass instance
+    (`attribute [instance] tlEndMonoid`).
+- The category is presented as **raw data** (hom type, identity, composition,
+  the three laws) rather than a Mathlib `CategoryTheory.Category` instance. This
+  is deliberate: a `Category` instance keyed on the bare sort type `S` would
+  risk leaking. Stage 2 of the audit judged this a packaging difference only.
+- Mapped in `lean/declarations.json`; facets regenerated (**66 mapped blocks**,
+  **189 declarations**).
+- Evidence: **`E-000143`** (verification, `build_ok`) and **`E-000144`**
+  (correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-R018-correspondence.md`).
+- `reports/frontier.md`: unmapped blocks **64 -> 63**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000083`.
+
+**Honest caveat.** Same-model audit. The `Monoid` structure is a `def`
+(`tlEndMonoid`) with `attribute [instance]` rather than an `instance` command,
+because the facet extractor matches `def`/`theorem`/`inductive` but not
+`instance`; this keeps the declaration mappable while still registering it for
+typeclass search. Arguments to `mul` follow the category order (`mul f g =
+TlComp f g = g ∘ f`); the opposite convention yields the opposite monoid, and
+the stage-2 comparator treated this as notation, not a weakening.
+
+**Prioritized next steps.**
+
+1. `B-P018`/`B-C005`/`B-D034` (`Form_Alg(Σ)` algebraic closure system, its
+   lattice, the formation generating operator). **Requires first** a
+   directed-union closure-system-on-`Set (Alg Σ)` vocabulary (new definition;
+   `IsClosureSystemOn` lacks the directed-union clause, and the sorted
+   `IsAlgebraicClosureSystem` cannot be instantiated at `Alg(Σ)` without crossing
+   universes). Then: `Alg(Σ)` is a formation; a nonempty intersection of
+   formations is a formation; a directed union of formations is a formation (the
+   last needs combining finitely many indices via the directedness, over the
+   `Fintype` index of `P_fsd`).
+2. `B-P019`/`B-P020`/`B-C006` — congruence formations `𝔉_F` and the lattice
+   isomorphism `Form_Alg(Σ) ≅ Form_Cgr(Σ)` (depend on `T_Σ`; large).
+3. `B-P010`/`B-P011`/`B-C003` — term characterization, free-algebra universal
+   property, adjunction.
+
+---
+
+## Session 77 -- 2026-09-17 -- formation cluster: B-P018, B-D034
+
+**Goal.** Open the `Form_Alg(Σ)` cluster: `B-P018` (`Form_Alg(Σ)` is an
+algebraic closure system) and `B-D034` (the formation generating operator
+`Fmg_Σ`).
+
+**What was established (closed).**
+
+- `lean/Mslang/Algebra.lean` gained a generic one-sorted closure notion,
+  **`Mslang.IsAlgebraicClosureSystemOn (X : Type v) (C : Set (Set X))`**: `X ∈ C`,
+  closed under nonempty intersections, and closed under nonempty directed unions
+  (pairwise upper bounds). This is the encoding device for `B-P018`: the existing
+  many-sorted `IsAlgebraicClosureSystem` is `u`-monomorphic and cannot be
+  instantiated at `Alg Sig : Type (u+1)`. The file's universe line became
+  `universe u v`.
+- `lean/Mslang/Formation.lean` gained:
+  - **`B-P018`** as `Mslang.algebraFormations_isAlgebraicClosureSystem :
+    IsAlgebraicClosureSystemOn (Alg Sig) (algebraFormations Sig)`. Helpers:
+    `HOperator_mono`/`PFsdOperator_mono` (monotonicity of the two operators) and
+    `exists_mem_superset_finset` (in a nonempty directed family, any finite
+    subfamily has a common upper bound, by `Finset` induction). Proof: `Alg(Σ)`
+    is a formation; a nonempty intersection is a formation (push each witness
+    into every member via monotonicity and `Set.mem_sInter`); a nonempty directed
+    union is a formation (H-closure uses one witness; `P_fsd`-closure chooses one
+    member per factor and combines the finitely many by directedness).
+  - **`B-D034`** as `Mslang.formationGenerating Sig M = ⋂₀ {F |
+    IsAlgebraFormation Sig F ∧ M ⊆ F}` — `Fmg_Σ(M)`, the intersection of all
+    formations containing `M`.
+- Mapped in `lean/declarations.json`; facets regenerated (**68 mapped blocks**,
+  **194 declarations**).
+- Evidence: **`E-000145`** (B-P018 verification, `build_ok`), **`E-000146`**
+  (B-P018 correspondence, `equivalent`; two-stage blind; transcript
+  `blocks/audits/B-P018-correspondence.md`), **`E-000147`** (B-D034 verification,
+  `build_ok`).
+- `reports/frontier.md`: unmapped blocks **63 -> 61**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000084`.
+
+**Honest caveat.** Same-model audit. `IsAlgebraicClosureSystemOn` is an encoding
+device (no manuscript block); the many-sorted `IsAlgebraicClosureSystem`
+(`B-D012`) is not universe-polymorphic, so the one-sorted notion is introduced
+rather than instantiated. `B-D034` is a definition by reference: the paper calls
+`Fmg_Σ` "the algebraic closure operator canonically associated to
+`Form_Alg(Σ)`", and the Lean encodes it as the intersection of the formations
+containing `M`; the closure-operator laws (extensive/monotone/idempotent,
+`B-P005`'s `IsClosureOperator`) are **not** proved here (deferred to `B-C005`).
+
+**Prioritized next steps.**
+
+1. `B-C005`: `Form_Alg(Σ)` is an *algebraic lattice*, and `F` is compact iff
+   `F = Fmg_Σ(M)` for a finite `M`. Needs a `CompleteLattice` structure on the
+   formations (order `⊆`, `sInf` = intersection, `sSup` = `Fmg_Σ` of the union)
+   and `IsAlgebraicLattice`; this is the natural continuation and also lets the
+   `B-D034` closure-operator laws be added.
+2. `B-P019`/`B-P020`/`B-C006` — congruence formations `𝔉_F` and the lattice
+   isomorphism `Form_Alg(Σ) ≅ Form_Cgr(Σ)`.
+3. `B-P010`/`B-P011`/`B-C003` — term characterization, free-algebra universal
+   property, adjunction.
+
+---
+
+## Session 78 -- 2026-09-17 -- cogenerated-congruence section: B-P023, B-P025
+
+**Goal.** Two more blocks in the "Congruence cogenerated by an `S`-sorted
+subset" section, both dependency-closed by the translations layer.
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` gained:
+  - **`B-P023`** (`CharacSatCCog`) as
+    `Mslang.isSat_iff_le_congCogenerated : IsSat Φ L ↔ sortedEqvLe Φ
+    (congCogenerated Sig A L)` for `hΦ : IsCongruence Sig A.2 Φ`, plus the
+    structure-free helper `Mslang.isSat_iff_sortedEqvLe_charEqv :
+    IsSat Φ L ↔ sortedEqvLe Φ (charEqv L)` (saturation is containment in
+    `Ker(ch^L)`). Proof: (→) `B-P022`(3)
+    (`le_congCogenerated_of_isCongruence`, the only use of `hΦ`); (←)
+    `congCogenerated_le_charEqv` composed pointwise.
+  - **`B-P025`** (`Compl`) as `Mslang.congCogenerated_compl :
+    congCogenerated Sig A L = congCogenerated Sig A (complA L)`. Proof:
+    `funext t`, `Setoid.ext`, then the pointwise iff — `Iff.not` for (→), and
+    `Iff.not` + double-negation elimination (`not_not`) for (←), with
+    `complA_bridge` exposing the negation.
+- Mapped in `lean/declarations.json`; facets regenerated (**70 mapped blocks**,
+  **197 declarations**).
+- Evidence: **`E-000148`/`E-000149`** (B-P023 verification/correspondence) and
+  **`E-000150`/`E-000151`** (B-P025 verification/correspondence); both
+  correspondences `equivalent`, two-stage blind, transcripts
+  `blocks/audits/B-P023-correspondence.md` and `B-P025-correspondence.md`.
+- `reports/frontier.md`: unmapped blocks **61 -> 59**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000085`.
+
+**Honest caveat.** Same-model audit. `B-P025`'s reverse direction uses classical
+double-negation elimination (the forward direction is constructive); stage 2
+treated this as a proof-method difference, not a statement difference.
+`B-P023`'s helper `isSat_iff_sortedEqvLe_charEqv` is stated at the bare
+sorted-set level (no signature), which is the natural level for
+"saturation = membership-invariance".
+
+**Prioritized next steps.**
+
+1. `B-P024`/`B-R020` (`Φ = ⋂ Ω^A(δ^{s,[a]_{Φ_s}})`; `Δ^A = ⋂ Ω^A(δ^{s,a})`) and
+   `B-P026` (`⋂_j Ω^A(L^j) ⊆ Ω^A(⋂_j L^j)`) — all need an **arbitrary meet of
+   sorted equivalences** (`sortedEqv_iInf`, the infinitary analogue of
+   `sortedEqvInf`), which is new infrastructure. `B-P024` needs the
+   `δ^{s,[a]_Φ}` subsets and the `B-P023` bridge.
+2. `B-P027` (`Ω^A(L) ⊆ Ω^A(T⁻¹[L])`, using `transPreimage` B-D037) and `B-P028`
+   (pullback along a homomorphism, with equality for an epimorphism).
+3. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice) — needs a `CompleteLattice`
+   on the formations (a `ClosureOperator` on `Set (Alg Σ)` with `toFun =
+   formationGenerating` and `GaloisInsertion.liftCompleteLattice`, then transport
+   across `IsClosed ↔ IsAlgebraFormation`) and the finitary/compact argument;
+   the project's `IsCompact`/`IsAlgebraicLattice` are `u`-monomorphic, so
+   universe-`v` versions are also needed.
+4. `B-P019`/`B-P020`/`B-C006` — congruence formations `𝔉_F` and the lattice
+   isomorphism `Form_Alg(Σ) ≅ Form_Cgr(Σ)`.
+
+---
+
+## Session 79 -- 2026-09-17 -- cogenerated-congruence section: B-P026, B-P027, B-R020
+
+**Goal.** Add the missing *arbitrary meet of sorted equivalences* and use it to
+close the meet/anti-translation results of the cogenerated-congruence section.
+
+**What was established (closed).**
+
+- `lean/Mslang/Prelim.lean` gained **`Mslang.sortedEqv_iInf`** (the componentwise
+  meet `⋂_i Φ_i` of a family of sorted equivalences), with `sortedEqv_iInf_le`
+  and `le_sortedEqv_iInf` (the meet is the greatest lower bound). This is the
+  infinitary analogue of the existing binary `sortedEqvInf`.
+- `lean/Mslang/Translation.lean` gained:
+  - **`B-P026`** (`InterCCog and CCogInter`) as
+    `Mslang.congCogenerated_iInter_le : ⋂_j Ω^A(L^j) ⊆ Ω^A(⋂_j L^j)`, with
+    `Mslang.isCongruence_iInf` (a meet of congruences is a congruence). Proof:
+    the meet is contained in `Ker(ch^{⋂ L^j})` (`B-P022`(2) at each `j`), the
+    meet of congruences is a congruence, and `B-P022`(3) concludes. The
+    nonemptiness of the index set is **unnecessary** (the empty case gives the
+    universal relation on both sides), so the correspondence is
+    `formal_stronger`.
+  - **`B-P027`** (`TAntiTrans`) as `Mslang.congCogenerated_le_transPreimage :
+    Ω^A(L) ⊆ Ω^A(T⁻¹[L])` for `T ∈ Tl_t(A)_s`. Proof: the composite translation
+    `T ∘ V` (`TlGen.comp`) handles the `s'' = t` case; the other case is empty.
+  - **`B-R020`** as `Mslang.deltaEqv` (the diagonal sorted equivalence) and
+    `Mslang.deltaEqv_eq_iInf_congCogenerated : Δ^A = ⋂_{s,a} Ω^A(δ^{s,a})`
+    (index `Σ s, A_s`; the marked point `⟨s,x⟩` with the identity translation
+    forces `y = x`).
+- Mapped in `lean/declarations.json`; facets regenerated (**73 mapped blocks**,
+  **202 declarations**).
+- Evidence: **`E-000152`/`E-000153`** (B-P026), **`E-000154`/`E-000155`**
+  (B-P027), **`E-000156`/`E-000157`** (B-R020). Correspondences: `formal_stronger`
+  (B-P026), `equivalent` (B-P027, B-R020); two-stage blind; transcripts
+  `blocks/audits/B-P026-correspondence.md`, `B-P027-correspondence.md`,
+  `B-R020-correspondence.md`.
+- `reports/frontier.md`: unmapped blocks **59 -> 56**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000086`.
+
+**Honest caveat.** Same-model audit. `B-P026` is `formal_stronger` because the
+manuscript's index nonemptiness is dropped; the empty case holds vacuously, so
+this is a faithful conservative generalization (the same shape as `B-P005`'s
+`formal_stronger`). `B-R020`'s reverse direction uses the identity translation
+at the chosen marked point.
+
+**Prioritized next steps.**
+
+1. `B-P024` (`Φ = ⋂{Ω^A(δ^{s,[a]_{Φ_s}})}`) — needs the `Φ`-classes (`eqvClass`,
+  B-P013 of Prelim) and the `B-P023` bridge; the same `sortedEqv_iInf` now
+  applies.
+2. `B-P028` (pullback `(f×f)⁻¹[Ω^B(M)] ⊆ Ω^A(f⁻¹[M])`, equality for an
+  epimorphism) — needs the pullback of a sorted relation along `f×f`.
+3. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice) — needs a `CompleteLattice`
+  on the formations and universe-`v` `IsCompact`/`IsAlgebraicLattice`.
+4. `B-P019`/`B-P020`/`B-C006` — congruence formations `𝔉_F` and the lattice
+   isomorphism.
+5. `B-P010`/`B-P011`/`B-P012`/`B-P013`/`B-P015`/`B-C003` — the free-algebra
+   cluster, blocked on the term characterization (unique parsing).
+
+---
+
+## Session 80 -- 2026-09-17 -- cogenerated-congruence section: B-P024, B-P028
+
+**Goal.** Finish the cogenerated-congruence section: the class decomposition of a
+congruence and the behaviour of `Ω` under homomorphisms.
+
+**What was established (closed).**
+
+- `lean/Mslang/Translation.lean` gained:
+  - **`B-P024`** (`RepCongInterCCogKroneckerDelta`) as
+    `Mslang.isCongruence_eq_iInf_congCogenerated : Φ = ⋂_{s,a}
+    Ω^A(δ^{s,[a]_{Φ_s}})` for a congruence `Φ`. (⊆) uses closure of `Φ` under
+    translations (`B-P021`) and transitivity; (⊇) the marked point `(t,x)` with
+    the identity translation forces `y ∈ [x]_Φ`.
+  - **`B-P028`** (`TAntiHom`) as `Mslang.pullbackEqv` (the pullback
+    `(f×f)⁻¹[·]`), `Mslang.pullbackEqv_congCogenerated_le`
+    (`(f×f)⁻¹[Ω^B(M)] ⊆ Ω^A(f⁻¹[M])` for a homomorphism) and
+    `Mslang.congCogenerated_le_pullback_of_surj` (the reverse inclusion for an
+    epimorphism, giving equality). Helpers: `Mslang.sortedMap_cast`
+    (`Eq.rec`-transport naturality for a sorted map), `Mslang.isElemTranslation_map`
+    / `Mslang.tlGen_map` (transport a translation along a homomorphism) and
+    `Mslang.isElemTranslation_lift` / `Mslang.tlGen_lift` (lift a translation
+    along an epimorphism, choosing preimages with `Classical.choose`). These
+    formalize the manuscript's **commented-out** proposition `TlandHom`.
+- Mapped in `lean/declarations.json`; facets regenerated (**75 mapped blocks**,
+  **206 declarations**).
+- Evidence: **`E-000158`/`E-000159`** (B-P024), **`E-000160`/`E-000161`**
+  (B-P028); both correspondences `equivalent`, two-stage blind; transcripts
+  `blocks/audits/B-P024-correspondence.md` and `B-P028-correspondence.md`.
+- `reports/frontier.md`: unmapped blocks **56 -> 54**. `check_all`: **27 passed,
+  0 failed**. Journal `EV-000087`.
+
+**Honest caveat.** Same-model audit. The translation/homomorphism helpers go
+beyond `B-P028`'s contract (they are the commented-out `TlandHom` proposition);
+they are mapped as helpers of `B-P028` rather than as a block, since the
+manuscript does not mint an ID for that commented proposition. The cogenerated-
+congruence section is now essentially complete on the formalization frontier.
+
+**Prioritized next steps.**
+
+1. `B-R021` (`Ω` is a natural transformation `P⁻ ⇒ Cgr` between contravariant
+   functors on `Alg(Σ)_epi`) — the manuscript's other large cogenerated-
+   congruence remark; needs a light category/functor encoding (like `B-R018`)
+   and the `B-P028` equality.
+2. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice) — `CompleteLattice` on the
+   formations plus universe-`v` `IsCompact`/`IsAlgebraicLattice` and the
+   finitary/compact argument.
+3. `B-P019`/`B-P020`/`B-C006` — congruence formations `𝔉_F` (a filter-valued
+   choice function) and the lattice isomorphism `Form_Alg(Σ) ≅ Form_Cgr(Σ)`.
+4. `B-P010`/`B-P011`/`B-P012`/`B-P013`/`B-P015`/`B-C003` — the free-algebra
+   cluster, blocked on the term characterization (unique parsing).
 
 ---
 
@@ -3059,16 +3701,21 @@ not by re-issuing.
    discrepancy tests, decisions and bundle drift, record validation, view
    drift, and the build. The Lean mechanical gate (`scripts/lean_audit.py`,
     Architecture.md Section 15.6) rebuilds the project, audits axioms on every
-    mapped declaration (155 at Session 70), and scans for `sorry`; it takes
+    mapped declaration (206 at Session 80), and scans for `sorry`; it takes
     ~2.5 min because it
    loads Mathlib oleans, so `check_all` is no longer seconds-fast.
-8. After editing Lean, rebuild and re-hash:
-   `(unset ELAN_HOME; cd lean && lake build)` then
-   `python3 scripts/lean_facets.py` (or `--check`). Confirm
-   `#print axioms` on the new theorems stays within the permitted set. The Lean
+8. After editing Lean, **do not run `lake build` as a standalone step** (it
+   reloads the whole Mathlib olean graph, ~2.5 min, every time). Run
+   `python3 scripts/lean_audit.py` **once**: it runs `lake build`, audits
+   `#print axioms` for every declaration in `lean/declarations.json`, scans for
+   `sorry`, and writes `blocks/lean_audit.json`. Then run
+   `python3 scripts/lean_facets.py` (or `--check`) to re-hash the facets. Budget
+   exactly one `lean_audit.py` and one `check_all.sh` run per session that
+   touches Lean (see `Architecture.md` Section 15.6, Revision 4, for the cost
+   model). The Lean
    sources are split by dependency layer under `lean/Mslang/`:
-   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, with `Algebra` -> `Free`
-   and `Subfinal` -> `Formation` (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
+   `Prelim` -> `Algebra` -> `Congruence` -> `Subfinal`, with `Algebra` -> `Free`,
+   `Subfinal` -> `Formation`, and `Congruence` -> `Translation` (Section 10.2); `Pilot.lean` no longer exists. Edit the module that owns the
    block and update its `file` in `lean/declarations.json` if a declaration
    moves (the facet hashes are text-based, so a pure move stales no evidence).
 9. `scripts/validate_records.py --self-test` exercises the schema validator's

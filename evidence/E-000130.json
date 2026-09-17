@@ -1,0 +1,32 @@
+{
+  "block": "B-D033",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000130",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D033 (Mslang.IsShSkFormation, Mslang.IsCongruence_inf) compiled against Mathlib v4.33.1.",
+    "Mslang.IsShSkFormation clause 1 is now (forall A, SubfinalAlg Sig A -> A in F), i.e. Sf(1) subseteq F, replacing the old F.Nonempty clause; clauses 2 (H-closure) and 3 (binary meet-of-congruences) are unchanged. Mslang.IsCongruence_inf still has no axioms (proved in the same file).",
+    "Author decision (Session 71, Option 1), recorded in blocks/audits/B-C004-counterexample.md: the old clause 1 made B-C004 false (an ShSk-formation need not contain the subfinal algebras, so need not be closed under the empty subdirect product). The counterexample no longer compiles against the fixed definition.",
+    "Axioms for the block's declarations are within the permitted set {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 159 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash. Content change (not content-preserving): B-D033 clause 1 changed, so the previous verification no longer describes the current definition.",
+  "inputs": [
+    {
+      "artifact": "B-D033/formal_proof",
+      "hash": "a715b0b680250d2b3e8e11c99e8a17cabda689fe8e18ac5883c0f929cbba2280"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000121",
+  "timestamp": "2026-09-17T07:03:59Z"
+}

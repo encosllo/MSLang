@@ -5,10 +5,14 @@
   },
   "axioms": {
     "Mslang.AlgStruct": [],
+    "Mslang.ClosesUnderEtl": [],
+    "Mslang.ClosesUnderTl": [],
+    "Mslang.Etl": [],
     "Mslang.FiniteAlg": [],
     "Mslang.FiniteSSet": [],
     "Mslang.FiniteSub": [],
     "Mslang.HOperator": [],
+    "Mslang.HOperator_mono": [],
     "Mslang.IsAlgHom": [],
     "Mslang.IsAlgIso": [],
     "Mslang.IsAlgebraFormation": [
@@ -29,6 +33,7 @@
       "Classical.choice"
     ],
     "Mslang.IsCongruence_inf": [],
+    "Mslang.IsElemTranslation": [],
     "Mslang.IsEpiAlg": [],
     "Mslang.IsGenerating": [],
     "Mslang.IsLatticeFilter": [],
@@ -45,6 +50,11 @@
     "Mslang.IsomorphicSubdirectEmbeddings": [],
     "Mslang.MemSg": [],
     "Mslang.PFsdOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.PFsdOperator_mono": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -80,22 +90,94 @@
       "Quot.sound"
     ],
     "Mslang.TSet": [],
+    "Mslang.Tl": [],
+    "Mslang.TlComp": [],
+    "Mslang.TlComp_assoc": [
+      "Quot.sound"
+    ],
+    "Mslang.TlComp_id_left": [
+      "Quot.sound"
+    ],
+    "Mslang.TlComp_id_right": [
+      "Quot.sound"
+    ],
+    "Mslang.TlGen": [],
+    "Mslang.TlHom": [],
+    "Mslang.TlId": [],
     "Mslang.WAlg": [],
     "Mslang.WSet": [],
     "Mslang.Word": [],
     "Mslang.XElem": [],
+    "Mslang.algebraFormation_iff_shskFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.algebraFormations": [
       "Classical.choice",
       "Quot.sound",
       "propext"
     ],
+    "Mslang.algebraFormations_isAlgebraicClosureSystem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.charEqv": [],
+    "Mslang.closesUnderEtl_iff_closesUnderTl": [],
+    "Mslang.closesUnderEtl_of_closesUnderTl": [],
+    "Mslang.closesUnderEtl_of_isCongruence": [],
+    "Mslang.closesUnderTl_of_closesUnderEtl": [],
     "Mslang.concat": [],
+    "Mslang.congCogenerated": [],
+    "Mslang.congCogenerated_compl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congCogenerated_iInter_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congCogenerated_isCongruence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congCogenerated_le_charEqv": [],
+    "Mslang.congCogenerated_le_pullback_of_surj": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congCogenerated_le_transPreimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congruence_of_closesUnderEtl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.delta": [
       "Classical.choice",
       "Quot.sound",
       "propext"
     ],
     "Mslang.deltaEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.deltaEqv": [],
+    "Mslang.deltaEqv_eq_iInf_congCogenerated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.deltaSub": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -113,6 +195,11 @@
     "Mslang.directImage": [],
     "Mslang.emptyWord": [],
     "Mslang.etaX": [],
+    "Mslang.exists_mem_superset_finset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.finOp": [],
     "Mslang.finalAlg": [],
     "Mslang.finalSorted": [],
@@ -122,6 +209,11 @@
       "propext"
     ],
     "Mslang.finiteSubsets": [],
+    "Mslang.formationGenerating": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.formation_abstract": [],
     "Mslang.formation_congInf": [
       "Classical.choice",
@@ -171,7 +263,26 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Mslang.isCongruence_eq_iInf_congCogenerated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isCongruence_iInf": [],
+    "Mslang.isCongruence_iff_closesUnderEtl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isSat_iff_le_congCogenerated": [
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.isSat_iff_preimage": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isSat_iff_sortedEqvLe_charEqv": [
       "Quot.sound",
       "propext"
     ],
@@ -189,6 +300,7 @@
       "propext"
     ],
     "Mslang.latticeFilters": [],
+    "Mslang.le_congCogenerated_of_isCongruence": [],
     "Mslang.nabla_isCongruence": [],
     "Mslang.nabla_sat": [
       "Quot.sound",
@@ -213,6 +325,11 @@
     ],
     "Mslang.prop_incSat": [
       "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.pullbackEqv": [],
+    "Mslang.pullbackEqv_congCogenerated_le": [
       "Quot.sound",
       "propext"
     ],
@@ -315,12 +432,19 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.shskFormation_mem_of_subdirect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.shskFormation_mem_of_subdirect_pair": [
       "Classical.choice",
       "Quot.sound",
       "propext"
     ],
     "Mslang.sigmaPUnitEquiv": [],
+    "Mslang.sortedEqvLe_refl": [],
+    "Mslang.sortedEqvLe_trans": [],
     "Mslang.subAlg": [],
     "Mslang.subfinalAlg_iff": [
       "Classical.choice"
@@ -361,6 +485,30 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.syntacticCongruence": [],
+    "Mslang.tlEndMonoid": [
+      "Quot.sound"
+    ],
+    "Mslang.transImage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.transImageSet": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.transPreimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.transPreimageSet": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.wordProd": []
   },
   "build": {
@@ -370,7 +518,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 155,
+  "declarations_audited": 206,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

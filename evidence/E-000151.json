@@ -1,0 +1,41 @@
+{
+  "block": "B-P025",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000151",
+  "findings": [
+    "Stage 1 read-back: congCogenerated_compl Sig A L asserts congCogenerated Sig A L = congCogenerated Sig A (complA L), an equality of sorted equivalences, no hypotheses. complA is the componentwise complement; the proof is the pointwise negation observation.",
+    "Stage 2 comparator returned equivalent; left side is Omega^A(L), right side Omega^A(complement_A L), equality of sorted equivalences (both inclusions), no extra hypotheses. The forward direction is constructive and the backward uses double-negation elimination; a proof-method difference only. No dropped/added hypothesis, no size mismatch.",
+    "Transcript: blocks/audits/B-P025-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-P025/definition_closure",
+      "hash": "aa93e1ee7f11e079992c887874b26502886a085e46397c50d316061ab34ae783"
+    },
+    {
+      "artifact": "B-P025/formal_statement",
+      "hash": "971d7fbcc07fd624d34c84e3c22d10310a20f5eec6626f9f336d9c288f492ed4"
+    },
+    {
+      "artifact": "B-P025/informal_statement",
+      "hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T12:45:00Z"
+}

@@ -1,0 +1,49 @@
+{
+  "block": "B-P021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000139",
+  "findings": [
+    "Stage 1 read-back: ClosesUnderEtl/ClosesUnderTl are the (2)/(3) closure clauses; IsElemTranslation is the elementary-translation shape (operation with a variable inserted at one position, constants elsewhere); TlGen is the least family containing id, elementary translations, and composites. The two biconditionals are (1)<->(2) and (2)<->(3).",
+    "Stage 2 comparator returned equivalent; IsCongruence matches the congruence condition clause-for-clause, IsElemTranslation matches Etl_t(A)_s, TlGen matches Tl_t(A)_s (identity included, closed under composition), and splitting the three-way equivalence into two biconditionals is a packaging difference only. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P021-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P021/definition_closure",
+      "hash": "f5cba2474bc62f8b522757cefe783583178216a035f94a4a3324ec415534b014"
+    },
+    {
+      "artifact": "B-P021/formal_statement",
+      "hash": "9a85475b8bad8a15618cd8f5572a12d52667967e690bd6373b5f80928b5e162d"
+    },
+    {
+      "artifact": "B-P021/informal_statement",
+      "hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T09:18:48Z"
+}

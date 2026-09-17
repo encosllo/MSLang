@@ -1,0 +1,57 @@
+{
+  "block": "B-P022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000141",
+  "findings": [
+    "Stage 1 read-back: congCogenerated is Omega^A(L); charEqv is Ker(ch^L); the three theorems are (1) Omega is a congruence, (2) Omega subseteq Ker(ch^L), (3) any congruence Phi subseteq Ker(ch^L) is subseteq Omega. Proofs use B-P021 (congruence iff translation-closed) and TlGen.comp.",
+    "Stage 2 comparator returned equivalent; the statements and hypotheses match the contract clause-for-clause, and the three jointly assert that Omega^A(L) is the greatest congruence saturating L (Omega saturating + contains every saturating congruence). No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P022-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P021/informal_statement",
+      "hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2"
+    },
+    {
+      "artifact": "B-P022/definition_closure",
+      "hash": "e31079f57467bdadaf4c47108361d7d2381df493eae105af15e37af3ab7cb648"
+    },
+    {
+      "artifact": "B-P022/formal_statement",
+      "hash": "28e06a28aacd5615c9319938a6d7aa0115c1b9c6a5daa9ad2ebd5aee8da89878"
+    },
+    {
+      "artifact": "B-P022/informal_statement",
+      "hash": "8a4642103c383d7eab19e6a9bce07c11f491a7cc28771aae732a97e45dd769dc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T09:57:22Z"
+}

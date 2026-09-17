@@ -1,0 +1,29 @@
+{
+  "block": "B-P018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000145",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P018 (Mslang.HOperator_mono, Mslang.PFsdOperator_mono, Mslang.exists_mem_superset_finset, Mslang.algebraFormations_isAlgebraicClosureSystem) compiled against Mathlib v4.33.1.",
+    "Encoding: IsAlgebraicClosureSystemOn X C (new, in Algebra.lean) is the one-sorted algebraic closure system (Set.univ in C; nonempty intersections; nonempty directed unions). The theorem instantiates X := Alg Sig and C := algebraFormations Sig. Proof: Alg(Sigma) is a formation; intersections via HOperator_mono/PFsdOperator_mono and Set.mem_sInter; directed unions via choosing one member of D per P_fsd factor and combining finitely many by exists_mem_superset_finset.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 194 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P018/formal_proof",
+      "hash": "d9f9e38c82e6dc6e34d3e43adf758bba0b10eaa7adbb252a23cd819945fcc1e4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:21:02Z"
+}

@@ -1,0 +1,29 @@
+{
+  "block": "B-P022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000140",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P022 (Mslang.charEqv, Mslang.congCogenerated_isCongruence, Mslang.congCogenerated_le_charEqv, Mslang.le_congCogenerated_of_isCongruence) compiled against Mathlib v4.33.1.",
+    "Proofs: (1) reduces to ClosesUnderTl using B-P021's equivalence and the identity-based definition of congCogenerated, closing under composite translations via TlGen.comp; (2) instantiates the universal clause at the identity translation (TlGen.refl); (3) obtains translation-closure of a congruence from B-P021 and applies the hypothesis Phi subseteq Ker(ch^L) at the coarity sort.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 182 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P022/formal_proof",
+      "hash": "60d13ef72e1e64c70221f7edd57bad9f944927885e1f72dd628b00890034db08"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T09:57:21Z"
+}

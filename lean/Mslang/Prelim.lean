@@ -166,6 +166,28 @@ theorem sortedEqvInf_le_left {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
 theorem sortedEqvInf_le_right {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
     sortedEqvLe (sortedEqvInf Φ Ψ) Ψ := fun _ _ _ h => h.2
 
+/-- The componentwise meet `⋂_i Φ_i` of a family of sorted equivalences. -/
+@[instance_reducible]
+def sortedEqv_iInf {S : Type u} {A : SSet S} {ι : Type u} (Φ : ι → SortedEqv A) :
+    SortedEqv A :=
+  fun s =>
+    ⟨fun x y => ∀ i, (Φ i s).r x y,
+     ⟨fun x => fun i => (Φ i s).refl x,
+      fun h => fun i => (Φ i s).symm (h i),
+      fun h1 h2 => fun i => (Φ i s).trans (h1 i) (h2 i)⟩⟩
+
+/-- The meet `⋂_i Φ_i` refines each `Φ_i`. -/
+theorem sortedEqv_iInf_le {S : Type u} {A : SSet S} {ι : Type u}
+    (Φ : ι → SortedEqv A) (i : ι) : sortedEqvLe (sortedEqv_iInf Φ) (Φ i) :=
+  fun _ _ _ h => h i
+
+/-- The meet is the greatest lower bound: any `Ψ` refining every `Φ_i` refines
+`⋂_i Φ_i`. -/
+theorem le_sortedEqv_iInf {S : Type u} {A : SSet S} {ι : Type u}
+    {Φ : ι → SortedEqv A} {Ψ : SortedEqv A}
+    (h : ∀ i, sortedEqvLe Ψ (Φ i)) : sortedEqvLe Ψ (sortedEqv_iInf Φ) :=
+  fun s x y hxy i => h i s x y hxy
+
 /-- Proposition `B-P004`: saturation by a meet is contained in the meet of the
 saturations. -/
 theorem sat_inf_subset {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) (X : Sub A) :

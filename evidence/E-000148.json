@@ -1,0 +1,29 @@
+{
+  "block": "B-P023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000148",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P023 (Mslang.isSat_iff_sortedEqvLe_charEqv, Mslang.isSat_iff_le_congCogenerated) compiled against Mathlib v4.33.1.",
+    "Proof: IsSat Phi L is sat Phi L = L; charEqv L is Ker(ch^L). The structure-free helper isSat_iff_sortedEqvLe_charEqv identifies saturation with containment in Ker(ch^L); isSat_iff_le_congCogenerated then uses B-P022(3) (le_congCogenerated_of_isCongruence) for (=>) and congCogenerated_le_charEqv for (<=).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 197 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P023/formal_proof",
+      "hash": "317878dba5cf3005225a9b2493d653169c031ae5b163acccdefdf02f7d6c4d9d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:45:00Z"
+}

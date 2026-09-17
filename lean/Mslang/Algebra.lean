@@ -6,7 +6,7 @@ finiteness of algebras, products of algebras, subalgebras and the generating
 operator `Sg`, and the many-sorted closure-system vocabulary (`B-D010`-`B-D013`).
 -/
 
-universe u
+universe u v
 
 namespace Mslang
 
@@ -279,6 +279,16 @@ def IsAlgebraicClosureSystem {S : Type u} {A : SSet S} (C : Set (Sub A)) : Prop 
     ∀ D : Set (Sub A), D ⊆ C → D.Nonempty →
       (∀ X ∈ D, ∀ Y ∈ D, ∃ Z ∈ D, Subset X Z ∧ Subset Y Z) →
       Sub_iUnion D ∈ C
+
+/-- An algebraic closure system on a plain type `X` (the one-sorted instance of
+`IsAlgebraicClosureSystem`, used for `Sub(Alg(Σ))` in `B-P018`): a family of
+subsets of `X` containing `X`, closed under nonempty intersections and under
+nonempty directed unions. -/
+def IsAlgebraicClosureSystemOn (X : Type v) (C : Set (Set X)) : Prop :=
+  Set.univ ∈ C ∧
+    (∀ D : Set (Set X), D ⊆ C → D.Nonempty → ⋂₀ D ∈ C) ∧
+    (∀ D : Set (Set X), D ⊆ C → D.Nonempty →
+      (∀ A ∈ D, ∀ B ∈ D, ∃ E ∈ D, A ⊆ E ∧ B ⊆ E) → ⋃₀ D ∈ C)
 
 /-- `B-D011`: a compact element of a complete lattice. -/
 def IsCompact {L : Type u} [CompleteLattice L] (a : L) : Prop :=

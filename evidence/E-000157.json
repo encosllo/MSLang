@@ -1,0 +1,45 @@
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000157",
+  "findings": [
+    "Stage 1 read-back: deltaEqv is equality in every component; the theorem equates it with the meet over p : Sigma A.1 of Omega^A(deltaSub p.1 {p.2}).",
+    "Stage 2 comparator returned equivalent; deltaEqv is Delta^A, Sigma A.1 is the index set of pairs (s,a), deltaSub p.1 {p.2} is delta^{s,a}, and sortedEqv_iInf is the pointwise intersection. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-R020-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R020/definition_closure",
+      "hash": "3497b9175bcbbddd7cb797bc100ce0d3939a069b6000358f7dee27f8fb8cf361"
+    },
+    {
+      "artifact": "B-R020/formal_statement",
+      "hash": "431297f431e62ecc774b099c9c660f18c1fb09e8f9e688f44b187aa638071bff"
+    },
+    {
+      "artifact": "B-R020/informal_statement",
+      "hash": "d57fad93f6634aba4d75d8dbe6774721b77d9a090f39abfd91a1348b239e849b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}

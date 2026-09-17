@@ -1,6 +1,7 @@
 import Mslang.Free
 import Mslang.Formation
 import Mslang.Sanity
+import Mslang.Translation
 
 /-!
 Environment smoke test and axiom audit for the MSLang pilot (Architecture.md
@@ -76,3 +77,38 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.quotAlg_ker_isAlgIso
 #print axioms Mslang.formation_mem_of_iso
 #print axioms Mslang.shskFormation_mem_of_subdirect_pair
+#print axioms Mslang.sortedEqvLe_refl
+#print axioms Mslang.sortedEqvLe_trans
+#print axioms Mslang.shskFormation_mem_of_subdirect
+#print axioms Mslang.algebraFormation_iff_shskFormation
+#print axioms Mslang.IsElemTranslation
+#print axioms Mslang.Etl
+#print axioms Mslang.TlGen
+#print axioms Mslang.Tl
+#print axioms Mslang.deltaSub
+#print axioms Mslang.transImage
+#print axioms Mslang.transPreimage
+#print axioms Mslang.transImageSet
+#print axioms Mslang.transPreimageSet
+#print axioms Mslang.congCogenerated
+#print axioms Mslang.ClosesUnderEtl
+#print axioms Mslang.ClosesUnderTl
+#print axioms Mslang.isCongruence_iff_closesUnderEtl
+#print axioms Mslang.closesUnderEtl_iff_closesUnderTl
+#print axioms Mslang.congCogenerated_isCongruence
+#print axioms Mslang.congCogenerated_le_charEqv
+#print axioms Mslang.le_congCogenerated_of_isCongruence
+#print axioms Mslang.TlHom
+#print axioms Mslang.TlComp
+#print axioms Mslang.TlComp_assoc
+#print axioms Mslang.tlEndMonoid
+#print axioms Mslang.algebraFormations_isAlgebraicClosureSystem
+#print axioms Mslang.formationGenerating
+#print axioms Mslang.isSat_iff_le_congCogenerated
+#print axioms Mslang.congCogenerated_compl
+#print axioms Mslang.congCogenerated_iInter_le
+#print axioms Mslang.congCogenerated_le_transPreimage
+#print axioms Mslang.deltaEqv_eq_iInf_congCogenerated
+#print axioms Mslang.isCongruence_eq_iInf_congCogenerated
+#print axioms Mslang.pullbackEqv_congCogenerated_le
+#print axioms Mslang.congCogenerated_le_pullback_of_surj

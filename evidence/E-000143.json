@@ -1,0 +1,29 @@
+{
+  "block": "B-R018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000143",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-R018 (Mslang.TlHom, Mslang.TlId, Mslang.TlComp, the three laws, Mslang.tlEndMonoid) compiled against Mathlib v4.33.1.",
+    "The category Tl(A) is presented as raw data: objects are the sorts S, morphisms TlHom Sig A t s = {T : A.1 t -> A.1 s // TlGen Sig A t s T}, identity TlId (TlGen.refl), composition TlComp (TlGen.comp), with TlComp_id_left/TlComp_id_right/TlComp_assoc. tlEndMonoid packages End(t) = TlHom Sig A t t as a Monoid and is registered as an instance.",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 189 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-R018/formal_proof",
+      "hash": "fbea300bd36f7361054bddf327a7069cf91d79d84785319a4c97df2dab87ab6a"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T11:13:27Z"
+}

@@ -45,6 +45,74 @@
         "hash": "ba1671b98acf19a084bfba2d865c3ed93e22a6d1ff12420a0f16dc49a6163d22"
       }
     },
+    "B-C004": {
+      "decls": [
+        "Mslang.algebraFormation_iff_shskFormation",
+        "Mslang.shskFormation_mem_of_subdirect",
+        "Mslang.sortedEqvLe_refl",
+        "Mslang.sortedEqvLe_trans"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruence_inf",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsShSkFormation",
+          "Mslang.IsSubalgebra",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subfinal",
+          "Mslang.SubfinalAlg",
+          "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
+          "Mslang.formation_abstract",
+          "Mslang.formation_congInf",
+          "Mslang.formation_mem_of_iso",
+          "Mslang.iAlg",
+          "Mslang.iPairAlg",
+          "Mslang.isAlgHom_iPairAlg",
+          "Mslang.isAlgHom_prAlg",
+          "Mslang.isAlgIso_symm",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.ker_pr",
+          "Mslang.ker_prAlg",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotAlgLift_isAlgHom",
+          "Mslang.quotAlg_ker_isAlgIso",
+          "Mslang.quotLift",
+          "Mslang.quotLift_comp",
+          "Mslang.quotOp",
+          "Mslang.quotOp_mk",
+          "Mslang.subAlg",
+          "Mslang.subfinalAlg_iff",
+          "Mslang.subfinalAlg_mem_of_formation",
+          "Mslang.wordProd"
+        ],
+        "hash": "a6f04c1105c6553fd5c1d6c63546d2c45d73653fb2052295faf8639a59e002f9"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "fcdca78ff6dc7a571459e709057e84496758b3fa4df9d0b4ecab6abcbb83d431"
+      },
+      "formal_statement": {
+        "hash": "ed20820c54de7b816cf91776c79433ba1cf13e54fadc2a3cd62b6b2480775b9c"
+      }
+    },
     "B-D001": {
       "decls": [
         "Mslang.Word",
@@ -813,26 +881,177 @@
           "Mslang.AlgStruct",
           "Mslang.HOperator",
           "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
           "Mslang.IsCongruence",
           "Mslang.IsEpiAlg",
+          "Mslang.IsSubalgebra",
           "Mslang.SSet",
           "Mslang.Signature",
           "Mslang.SortedEqv",
           "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.SubfinalAlg",
           "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
           "Mslang.quot",
           "Mslang.quotAlg",
           "Mslang.quotOp",
+          "Mslang.subAlg",
           "Mslang.wordProd"
         ],
-        "hash": "d62113f936bccaf298d3ae3e3b64c123287ab8fd83bb6ccb6f4bdd33951779d3"
+        "hash": "08185a6a9837f0c8f7cda915e4c4f259f6c395b430b54d42621ade719a55feb8"
       },
       "file": "lean/Mslang/Formation.lean",
       "formal_proof": {
-        "hash": "322e1f8ecf25e73c724dabc2a3c24ff8d26ec15c39ea757df2e53d8a986d0f79"
+        "hash": "a715b0b680250d2b3e8e11c99e8a17cabda689fe8e18ac5883c0f929cbba2280"
       },
       "formal_statement": {
         "hash": "1bf26e3aa5968ee97b0860d58309ba6a9cde7fe4265981f0c67f57e6c538c4ec"
+      }
+    },
+    "B-D034": {
+      "decls": [
+        "Mslang.formationGenerating"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "aa81a62788308b3074ba5b0c76a6221c344b2ce929d439465096c192fadd5c57"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "b3a18f2292055f5fac5fedf29d2492072a567e826d50b5af6d7758400c13ef4d"
+      },
+      "formal_statement": {
+        "hash": "2deec640c4f37c001f7f9f086e64ea45e61ecd7d1700a8bde4372649a42e51e6"
+      }
+    },
+    "B-D035": {
+      "decls": [
+        "Mslang.IsElemTranslation",
+        "Mslang.Etl"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.Sub"
+        ],
+        "hash": "7f925e34ffb299e044d9d21c3be4fa17e11ff061ab81745ddb0d8ddb997f8e7a"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "51ce7cb254c50ed5901262852cab2fc781eadde3aa2ce1595d38014dba04380c"
+      },
+      "formal_statement": {
+        "hash": "f580fc6c8f17ca1bd406829006714a7599c78e0e4ac30c1dc346ead2c2497615"
+      }
+    },
+    "B-D036": {
+      "decls": [
+        "Mslang.TlGen",
+        "Mslang.Tl"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.Sub"
+        ],
+        "hash": "65df98ae8c614322a9afad9561e7e42e22670be7f917353c9eb25401152c7232"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "7d9248520026408a8821d4ef058ae6eb31e71782be430de1fd98479c573185f6"
+      },
+      "formal_statement": {
+        "hash": "f38cc609ec8a3f6a7e2eb8b594bf04ed2a101d5f5db0b99581ccda9454f2d86e"
+      }
+    },
+    "B-D037": {
+      "decls": [
+        "Mslang.deltaSub",
+        "Mslang.transImage",
+        "Mslang.transPreimage",
+        "Mslang.transImageSet",
+        "Mslang.transPreimageSet"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Sub"
+        ],
+        "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "d3c187c52b76d89e7eae989917f0b877bf6eb9929b29f08624e24c98a52323a4"
+      },
+      "formal_statement": {
+        "hash": "81603ce384e006dfad080104816d4c9741f8ab806643c927393fc19d82abe6a4"
+      }
+    },
+    "B-D038": {
+      "decls": [
+        "Mslang.congCogenerated"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen"
+        ],
+        "hash": "67b7effad34aebeb2e9e12b179aa111f622e4e71184ccd8e606b759f27faffb7"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "317ad58a80c5771dbbc0689f980f3ac79b091ef16bd855e90179e5d4a29716aa"
+      },
+      "formal_statement": {
+        "hash": "80f59a55267f9bf0d27efc460469c618edbda206f2c1491316596f5557d0afbe"
+      }
+    },
+    "B-D039": {
+      "decls": [
+        "Mslang.syntacticCongruence"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated"
+        ],
+        "hash": "aa93e1ee7f11e079992c887874b26502886a085e46397c50d316061ab34ae783"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "4a321e010356fbab7d3d2c1fb7121485e6a9448e2d2fe8b64317d60e45f1299a"
+      },
+      "formal_statement": {
+        "hash": "77bdf861bb668fc57c4b1e735c3a2fc9d0116b24e216d832e333781026ba6130"
       }
     },
     "B-L001": {
@@ -1143,12 +1362,17 @@
           "Mslang.IsEpiAlg",
           "Mslang.IsMonoAlg",
           "Mslang.IsShSkFormation",
+          "Mslang.IsSubalgebra",
           "Mslang.IsSubdirectEmbedding",
           "Mslang.SSet",
           "Mslang.Signature",
           "Mslang.SortedEqv",
           "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.SubfinalAlg",
           "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
           "Mslang.formation_abstract",
           "Mslang.iAlg",
           "Mslang.iProjAlg",
@@ -1159,9 +1383,10 @@
           "Mslang.quotAlgLift_isAlgHom",
           "Mslang.quotLift",
           "Mslang.quotOp",
+          "Mslang.subAlg",
           "Mslang.wordProd"
         ],
-        "hash": "dcd4d7a1dfae169dbca7112ae8d769407701b419507c9b9c87c6bb92344f7f88"
+        "hash": "f5294219d82b5f6d819e86d7024f1585213373ed0eade4572cb223c8d082e6ce"
       },
       "file": "lean/Mslang/Formation.lean",
       "formal_proof": {
@@ -1169,6 +1394,305 @@
       },
       "formal_statement": {
         "hash": "6003fcb5e57ae5419ede447b01d3263c586a3023a85e838b8041ce668dad409d"
+      }
+    },
+    "B-P018": {
+      "decls": [
+        "Mslang.HOperator_mono",
+        "Mslang.PFsdOperator_mono",
+        "Mslang.exists_mem_superset_finset",
+        "Mslang.algebraFormations_isAlgebraicClosureSystem"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.algebraFormations",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "4aa63f6d6c15214ddb29093909609d21d168d3bc3bb84cefedcd8a6db6c170b6"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "d9f9e38c82e6dc6e34d3e43adf758bba0b10eaa7adbb252a23cd819945fcc1e4"
+      },
+      "formal_statement": {
+        "hash": "a1c7f7c3ef8a5bd8441a72f2c80895921ae70cdc151d7bab5b2a926426bd6937"
+      }
+    },
+    "B-P021": {
+      "decls": [
+        "Mslang.ClosesUnderEtl",
+        "Mslang.ClosesUnderTl",
+        "Mslang.closesUnderEtl_of_isCongruence",
+        "Mslang.congruence_of_closesUnderEtl",
+        "Mslang.closesUnderTl_of_closesUnderEtl",
+        "Mslang.closesUnderEtl_of_closesUnderTl",
+        "Mslang.isCongruence_iff_closesUnderEtl",
+        "Mslang.closesUnderEtl_iff_closesUnderTl"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.TlGen",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "f5cba2474bc62f8b522757cefe783583178216a035f94a4a3324ec415534b014"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "5c9399d1e1a1cc4bf571190b667888803bd3c2adab7a074ad8d43c9a0ea11185"
+      },
+      "formal_statement": {
+        "hash": "9a85475b8bad8a15618cd8f5572a12d52667967e690bd6373b5f80928b5e162d"
+      }
+    },
+    "B-P022": {
+      "decls": [
+        "Mslang.charEqv",
+        "Mslang.congCogenerated_isCongruence",
+        "Mslang.congCogenerated_le_charEqv",
+        "Mslang.le_congCogenerated_of_isCongruence"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.finOp",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.wordProd"
+        ],
+        "hash": "e31079f57467bdadaf4c47108361d7d2381df493eae105af15e37af3ab7cb648"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "60d13ef72e1e64c70221f7edd57bad9f944927885e1f72dd628b00890034db08"
+      },
+      "formal_statement": {
+        "hash": "28e06a28aacd5615c9319938a6d7aa0115c1b9c6a5daa9ad2ebd5aee8da89878"
+      }
+    },
+    "B-P023": {
+      "decls": [
+        "Mslang.isSat_iff_sortedEqvLe_charEqv",
+        "Mslang.isSat_iff_le_congCogenerated"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.charEqv",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_le_charEqv",
+          "Mslang.finOp",
+          "Mslang.le_congCogenerated_of_isCongruence",
+          "Mslang.sat",
+          "Mslang.wordProd"
+        ],
+        "hash": "a34e267b18e410bbdd8d2faeb7d808dd2adb14cca5f75ace06b33e6f0adc07ff"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "317878dba5cf3005225a9b2493d653169c031ae5b163acccdefdf02f7d6c4d9d"
+      },
+      "formal_statement": {
+        "hash": "e09b08f70b8c34d4a936a2c845bf8d0aa0edade73d0de6af1e9dc9e78b04109d"
+      }
+    },
+    "B-P024": {
+      "decls": [
+        "Mslang.isCongruence_eq_iInf_congCogenerated"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.deltaSub",
+          "Mslang.finOp",
+          "Mslang.wordProd"
+        ],
+        "hash": "7655e857c3c09cc9d77638ec71692e14606aa10535b7395f68cfecb17e72887b"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "3c91533c54de84d4c9c1424299809d4c7d4da4f3fc4fbf5b249a82a9db15492e"
+      },
+      "formal_statement": {
+        "hash": "d38273735c9faf10c60d189414176723a4f789e31faaeaeea995dd0d2e52dd97"
+      }
+    },
+    "B-P025": {
+      "decls": [
+        "Mslang.congCogenerated_compl"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated"
+        ],
+        "hash": "aa93e1ee7f11e079992c887874b26502886a085e46397c50d316061ab34ae783"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "689294fae96769d0d359f1ad1491002ad6b5a76cf1e6d575a971ef850ef85442"
+      },
+      "formal_statement": {
+        "hash": "971d7fbcc07fd624d34c84e3c22d10310a20f5eec6626f9f336d9c288f492ed4"
+      }
+    },
+    "B-P026": {
+      "decls": [
+        "Mslang.isCongruence_iInf",
+        "Mslang.congCogenerated_iInter_le"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.charEqv",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_isCongruence",
+          "Mslang.congCogenerated_le_charEqv",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.finOp",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.le_congCogenerated_of_isCongruence",
+          "Mslang.wordProd"
+        ],
+        "hash": "add042f4c879edafe46212031ce1d3d08639bdb75771e64001a4edf72c608c68"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "a3fa70e2fcc8159e476168c393843c082c305d268a2a7ca01c3a8db4660f6c1f"
+      },
+      "formal_statement": {
+        "hash": "4119087ef6d0593a76b4d656ea55d8a24ab58d4fa1205c0810e4fed628704b57"
+      }
+    },
+    "B-P027": {
+      "decls": [
+        "Mslang.congCogenerated_le_transPreimage"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated",
+          "Mslang.deltaSub",
+          "Mslang.transPreimage"
+        ],
+        "hash": "0c5e725fe4053daea165cf3c90a9fae4eebe21a1a0a81ae3b78d17ff23c73aad"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "16bc2dbd717345a410031de09906d4f1ebaec6f574aa134af1e96fd5799d6a96"
+      },
+      "formal_statement": {
+        "hash": "ebbb9c4f88fbfa059355a1e84b3aac22401e4d3bc39362fa301b7310333dba8e"
+      }
+    },
+    "B-P028": {
+      "decls": [
+        "Mslang.pullbackEqv",
+        "Mslang.pullbackEqv_congCogenerated_le",
+        "Mslang.congCogenerated_le_pullback_of_surj"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated",
+          "Mslang.finOp",
+          "Mslang.inverseImage",
+          "Mslang.wordProd"
+        ],
+        "hash": "c507b1370c4f3e485644355366f1ff9583050919eb12768a6141bf6571880d4c"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "c05aa4406cd8fcad910f4ae40ef89f112c80e7da94e85387a1baff67dd89a99e"
+      },
+      "formal_statement": {
+        "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
       }
     },
     "B-R001": {
@@ -1502,6 +2026,58 @@
       },
       "formal_statement": {
         "hash": "6276e10ac40a6be7b74208f5684d79ba8231eeee04398f872afca39e45647cff"
+      }
+    },
+    "B-R018": {
+      "decls": [
+        "Mslang.TlHom",
+        "Mslang.TlId",
+        "Mslang.TlComp",
+        "Mslang.TlComp_id_left",
+        "Mslang.TlComp_id_right",
+        "Mslang.TlComp_assoc",
+        "Mslang.tlEndMonoid"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.Signature",
+          "Mslang.TlGen"
+        ],
+        "hash": "e9ca388d0a74bc8b16d928a9330957b3e7f624af7c2456fb2603661f2cc9a0bf"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "fbea300bd36f7361054bddf327a7069cf91d79d84785319a4c97df2dab87ab6a"
+      },
+      "formal_statement": {
+        "hash": "3ef6e30fa2902761032ae9015d5d7aa5d8f6a63c6bf6ee559a4c4e406c3e20a1"
+      }
+    },
+    "B-R020": {
+      "decls": [
+        "Mslang.deltaEqv",
+        "Mslang.deltaEqv_eq_iInf_congCogenerated"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated",
+          "Mslang.deltaSub"
+        ],
+        "hash": "3497b9175bcbbddd7cb797bc100ce0d3939a069b6000358f7dee27f8fb8cf361"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "530b871aad6da0924e676afa960a5a866b29fab49adc10c32f97f90812318cfb"
+      },
+      "formal_statement": {
+        "hash": "431297f431e62ecc774b099c9c660f18c1fb09e8f9e688f44b187aa638071bff"
       }
     }
   },

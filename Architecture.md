@@ -630,6 +630,7 @@ The pilot's layout, coarse to fine along the dependency chain, with the umbrella
 | `Mslang/Subfinal.lean` | the final algebra `1`, algebra isomorphisms, the subfinal results (`B-D023`, `B-P008`, `B-R011`, `B-R012`) |
 | `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` and the free `Σ`-algebra `T_Σ(X)` (`B-D026`, `B-D027`) |
 | `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), opening the formation-theoretic layer |
+| `Mslang/Translation.lean` | elementary translations and translations (`B-D035`, `B-D036`), the actions `T[·]`/`T⁻¹[·]` and the cogenerated congruence (`B-D037`, `B-D038`), and the congruence characterization (`B-P021`) |
 
 Modules are per *dependency layer*, not per block: coarse enough to avoid import
 churn, fine enough that frontier edits stay local. Splitting a module is itself
@@ -1482,6 +1483,33 @@ The same discipline that makes the informal checks reproducible - derive, do
 not assert - applies here. A session may state "clean build, axioms within the
 permitted set" only because the gate computed it this run.
 
+**Cost and invocation discipline.** The gate is the most expensive operation a
+session runs, and its cost is dominated by process start-up rather than by the
+work: any `lake` invocation that imports Mathlib loads the whole olean graph -
+about 2.5 minutes on the pilot machine, measured - independent of how little
+changed. Because `lean_audit.py` itself launches two such processes (the build,
+then a separate `lake env lean` axiom probe) and `check_all` runs the gate again
+with `--check`, a session that edits Lean pays for roughly four Mathlib loads at
+minimum. Three consequences are normative:
+
+1. **Never run `lake build` as a standalone step.** One `lean_audit.py` run
+   computes the build diagnostics, the per-declaration axiom sets, and the
+   `sorry` scan together, and writes the artifact a `build_ok` record must
+   match.
+2. **Budget one `lean_audit.py` write and one `check_all.sh` run per session.**
+   `check_all` verifies the artifact, so the single write precedes it; a failing
+   check is read, fixed once, and re-run once, never looped.
+3. **`--skip-build` is not a substitute.** It leaves the build fields empty, so
+   the emitted payload differs from the stored one and `--check` fails; it is a
+   mid-edit axiom probe only.
+
+Independent commands (reads, searches, report generation) are batched into one
+step, and a command whose output has already been captured is searched rather
+than re-run. The rule generalizes: the expensive operations are those that start
+a pinned-toolchain process, so the session's job is to start as few as possible
+while still deriving every fact it asserts. The operational restatement lives in
+`AGENTS.md`; this section is its normative source.
+
 ## 16. Session Continuity and the Agentic Writing Loop
 
 This section makes explicit what earlier drafts left implicit: the
@@ -1515,7 +1543,9 @@ entry recording:
   facet extractor rewrites), so regenerating them "in the right order" is a
   real, repeatedly-hit failure mode when it is left to memory. The orchestrator
   regenerates them in dependency order and then runs `check_all`, so a session
-  cannot end on a drifted view.
+  cannot end on a drifted view. The orchestrator is also the single place the
+  Lean gate is invoked, so a session pays for the pinned-toolchain process
+  starts once, not once per command (Section 15.6).
 
 **Narrate the session while it runs (the live work log).** The continuity file
 records what happened *after* the fact, and commits record the end state. Neither
@@ -1872,6 +1902,22 @@ tooling, with no dependency on any external platform.
     13.2)?
 
 ## 25. Change Log
+
+### Revision 4 - cost-disciplined
+
+Added after a resume session was observed re-running `lake build` three times
+and paying for roughly six Mathlib loads where two loads' worth of facts were
+needed.
+
+- **Lean-gate cost and invocation discipline** (Sections 15.6, 16.1): the gate's
+  cost is per-process, not per-change - each `lake` invocation that imports
+  Mathlib reloads the whole olean graph (~2.5 min measured), `lean_audit.py`
+  starts two such processes, and `check_all` starts them again, so a
+  Lean-editing session floors at about four loads. Now normative: never run
+  `lake build` as a standalone step; budget one `lean_audit.py` write and one
+  `check_all.sh` run per session; `--skip-build` is a mid-edit probe only (it
+  fails `--check`); batch independent commands and search captured output rather
+  than re-running it. Motivated by the author asking why each session was slow.
 
 ### Revision 3 - frontier-hardened
 

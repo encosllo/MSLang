@@ -1,0 +1,49 @@
+{
+  "block": "B-P018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000146",
+  "findings": [
+    "Stage 1 read-back: IsAlgebraicClosureSystemOn X C has the three clauses (univ, nonempty intersections, nonempty directed unions); the theorem instantiates X = Alg Sig, C = Form_Alg(Sigma); the three proof parts are (i) Alg is a formation, (ii) intersections via monotonicity, (iii) directed unions via finite combination of P_fsd witnesses.",
+    "Stage 2 comparator returned equivalent; the three clauses match the contract's three facts, and IsAlgebraicClosureSystemOn is exactly the one-sorted algebraic closure system applied to the plain set Alg(Sigma). Nonemptiness and directedness are retained. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P018-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P018/definition_closure",
+      "hash": "4aa63f6d6c15214ddb29093909609d21d168d3bc3bb84cefedcd8a6db6c170b6"
+    },
+    {
+      "artifact": "B-P018/formal_statement",
+      "hash": "a1c7f7c3ef8a5bd8441a72f2c80895921ae70cdc151d7bab5b2a926426bd6937"
+    },
+    {
+      "artifact": "B-P018/informal_statement",
+      "hash": "7399956c92391a8fccc1edaf0639d0bfa62849158a81d889d554f78555e03350"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T12:21:02Z"
+}

@@ -1,0 +1,29 @@
+{
+  "block": "B-P028",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000160",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P028 (Mslang.pullbackEqv, Mslang.pullbackEqv_congCogenerated_le, Mslang.congCogenerated_le_pullback_of_surj) compiled against Mathlib v4.33.1.",
+    "Encoding: pullbackEqv f Psi is (f x f)^-1[Psi]; inverseImage f M is f^-1[M]. The two theorems give (f x f)^-1[Omega^B(M)] subseteq Omega^A(f^-1[M]) for a homomorphism, and the reverse inclusion for an epimorphism. Helpers tlGen_map / tlGen_lift transport/lift translations along a homomorphism/epimorphism (via sortedMap_cast, isElemTranslation_map/lift, using Classical.choose preimages for the epimorphism).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 206 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P028/formal_proof",
+      "hash": "c05aa4406cd8fcad910f4ae40ef89f112c80e7da94e85387a1baff67dd89a99e"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T14:03:47Z"
+}

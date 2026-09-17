@@ -403,6 +403,14 @@
       "to": "B-D031"
     },
     {
+      "confirmed": false,
+      "detail": "\\Sf",
+      "from": "B-D033",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D023"
+    },
+    {
       "confirmed": true,
       "detail": "\\Ker",
       "from": "B-P017",
@@ -1300,7 +1308,8 @@
     ],
     "B-D033": [
       "Cgr",
-      "H"
+      "H",
+      "Sf"
     ],
     "B-D034": [
       "Alg",

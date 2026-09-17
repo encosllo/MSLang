@@ -1,0 +1,29 @@
+{
+  "block": "B-D034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000147",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D034 (Mslang.formationGenerating) compiled against Mathlib v4.33.1.",
+    "Encoding: formationGenerating Sig M = sInter {F | IsAlgebraFormation Sig F \u2227 M subseteq F}, i.e. Fmg_Sigma(M) = intersection of all formations containing M (the least such formation).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 194 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations. B-D034 is a definition by reference (the closure operator canonically associated to the algebraic closure system Form_Alg(Sigma)); the Lean encodes it as the intersection of all formations containing M. No closure-operator laws are proved here.",
+  "inputs": [
+    {
+      "artifact": "B-D034/formal_proof",
+      "hash": "b3a18f2292055f5fac5fedf29d2492072a567e826d50b5af6d7758400c13ef4d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T12:21:02Z"
+}

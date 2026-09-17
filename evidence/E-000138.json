@@ -1,0 +1,29 @@
+{
+  "block": "B-P021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000138",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P021 (Mslang.ClosesUnderEtl, Mslang.ClosesUnderTl, and the implications plus the two biconditionals isCongruence_iff_closesUnderEtl / closesUnderEtl_iff_closesUnderTl) compiled against Mathlib v4.33.1.",
+    "Proofs: (1)=>(2) applies the congruence condition to the two tuples differing only at the insertion position; (2)=>(1) is the telescoping over the word using mixedTuple (interpolating a to b by position), insertTuple, and Fin.induction, each step an elementary translation; (2)=>(3) is induction on the TlGen derivation; (3)=>(2) is the elem constructor.",
+    "Axioms: all mapped declarations lie within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 177 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P021/formal_proof",
+      "hash": "5c9399d1e1a1cc4bf571190b667888803bd3c2adab7a074ad8d43c9a0ea11185"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T09:18:48Z"
+}

@@ -7,6 +7,11 @@ lattice (`B-D029`), and formations of `Σ`-congruences (`B-D030`).
 
 universe u
 
+-- The `haveI`s below install `IsEmpty`/`Subsingleton`/`Fintype` instances used
+-- by `isEmptyElim`/`Subsingleton.elim`/instance synthesis; the style linter's
+-- `have` suggestion would not register them, so it is a false positive here.
+set_option linter.style.haveILetI false
+
 namespace Mslang
 
 variable {S : Type u}
@@ -128,11 +133,12 @@ theorem IsCongruence_inf {S : Type u} (Sig : Signature S) {A : SSet S}
   intro p σ a b h
   exact ⟨hΦ p σ a b (fun i => (h i).1), hΨ p σ a b (fun i => (h i).2)⟩
 
-/-- `B-D033`: an *ShSk-formation* of `Σ`-algebras is a nonempty set `F` of
-`Σ`-algebras closed under homomorphic images and under the meet of congruences:
-if `A/Φ` and `A/Ψ` lie in `F` then so does `A/(Φ ⊓ Ψ)`. -/
+/-- `B-D033`: an *ShSk-formation* of `Σ`-algebras is a set `F` of `Σ`-algebras
+containing every subfinal `Σ`-algebra (`Sf(1) ⊆ F`, which subsumes nonemptiness),
+closed under homomorphic images and under the meet of congruences: if `A/Φ` and
+`A/Ψ` lie in `F` then so does `A/(Φ ⊓ Ψ)`. -/
 def IsShSkFormation {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) : Prop :=
-  F.Nonempty ∧
+  (∀ A : Alg Sig, SubfinalAlg Sig A → A ∈ F) ∧
   HOperator Sig F ⊆ F ∧
   (∀ (A : Alg Sig) (Φ Ψ : SortedEqv A.1)
       (hΦ : IsCongruence Sig A.2 Φ) (hΨ : IsCongruence Sig A.2 Ψ),
@@ -396,5 +402,204 @@ theorem shskFormation_mem_of_subdirect_pair {S : Type u} (Sig : Signature S)
         simp only [quotLift, Quotient.lift_mk, idA]⟩
   exact formation_abstract Sig hF.2.1 hInfF
     (quotLift (sortedEqvInf (ker φ) (ker ψ)) idA hle) ⟨hqhom, hqbij⟩
+
+/-! ### `B-C004`: the two definitions of a formation are equivalent. -/
+
+/-- Reflexivity of pointwise refinement of sorted equivalences. -/
+theorem sortedEqvLe_refl {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    sortedEqvLe Φ Φ := fun _ _ _ h => h
+
+/-- Transitivity of pointwise refinement of sorted equivalences. -/
+theorem sortedEqvLe_trans {S : Type u} {A : SSet S} {Φ Ψ Χ : SortedEqv A}
+    (h1 : sortedEqvLe Φ Ψ) (h2 : sortedEqvLe Ψ Χ) : sortedEqvLe Φ Χ :=
+  fun s x y h => h2 s x y (h1 s x y h)
+
+/-- `B-C004` (backward half): an ShSk-formation is closed under finite subdirect
+products. Given a finite family `(C i)` in `F` and a subdirect embedding
+`f : A → ∏ i, C i`, take the congruences `ker(pr^i ∘ f)` — each quotient is
+isomorphic to `C i ∈ F` by the first isomorphism theorem. Their finite meet `Ψ`
+is assembled by iterating the binary meet-closure, and `Ψ ⊆ Δ_A` because `f` is
+injective, so the comparison map `A/Ψ → A` is an isomorphism and `A ∈ F`. The
+empty index is the `n = 0` case: `A` is subfinal, hence in `F` by the
+`Sf(1) ⊆ F` clause. -/
+theorem shskFormation_mem_of_subdirect {S : Type u} (Sig : Signature S)
+    {F : Set (Alg Sig)} (hF : IsShSkFormation Sig F) {ι : Type u} [Fintype ι]
+    (C : ι → Alg Sig) (hC : ∀ i, C i ∈ F) {A : Alg Sig}
+    (f : SortedMap A.1 (iAlg Sig C).1)
+    (hf : IsSubdirectEmbedding Sig A.2 C f) : A ∈ F := by
+  classical
+  let φ : ∀ i : ι, SortedMap A.1 (C i).1 := fun i s a => f s a i
+  have hφhom : ∀ i, IsAlgHom Sig A.2 (C i).2 (φ i) := fun i => by
+    intro p σ a
+    show f p.2 (A.2 p σ a) i = (C i).2 p σ (fun j => f (p.1.get j) (a j) i)
+    rw [hf.1.1 p σ a]
+    rfl
+  have hφc : ∀ i, IsCongruence Sig A.2 (ker (φ i)) := fun i =>
+    ker_isCongruence Sig A.2 (C i).2 (φ i) (hφhom i)
+  have hφF : ∀ i, quotAlg Sig A.2 (ker (φ i)) (hφc i) ∈ F := fun i =>
+    formation_mem_of_iso Sig hF.2.1 (hC i)
+      (quotAlg_ker_isAlgIso Sig A.2 (C i).2 (φ i) (hφhom i) (hf.2 i))
+  by_cases hι : Nonempty ι
+  · let i₀ : ι := Classical.choice hι
+    have hstep : ∀ s : Finset ι,
+        ∃ (Ψ : SortedEqv A.1) (hΨ : IsCongruence Sig A.2 Ψ),
+          quotAlg Sig A.2 Ψ hΨ ∈ F ∧ sortedEqvLe Ψ (ker (φ i₀)) ∧
+            ∀ i ∈ s, sortedEqvLe Ψ (ker (φ i)) := by
+      intro s
+      induction s using Finset.induction_on with
+      | empty =>
+        exact ⟨ker (φ i₀), hφc i₀, hφF i₀, sortedEqvLe_refl _,
+          fun i hi => absurd hi (Finset.notMem_empty i)⟩
+      | insert i s _hi ih =>
+        rcases ih with ⟨Ψ, hΨc, hΨF, hΨi₀, hΨs⟩
+        refine ⟨sortedEqvInf Ψ (ker (φ i)),
+          IsCongruence_inf Sig A.2 hΨc (hφc i),
+          hF.2.2 A Ψ (ker (φ i)) hΨc (hφc i) hΨF (hφF i),
+          sortedEqvLe_trans (sortedEqvInf_le_left Ψ (ker (φ i))) hΨi₀, ?_⟩
+        intro j hj
+        rw [Finset.mem_insert] at hj
+        rcases hj with h_eq | hj
+        · rw [h_eq]
+          exact sortedEqvInf_le_right Ψ (ker (φ i))
+        · exact sortedEqvLe_trans (sortedEqvInf_le_left Ψ (ker (φ i))) (hΨs j hj)
+    obtain ⟨Ψ, hΨc, hΨF, hΨi₀, hΨle⟩ := hstep (Finset.univ.erase i₀)
+    let idA : SortedMap A.1 A.1 := fun _ a => a
+    have hleDelta : sortedEqvLe Ψ (ker idA) := by
+      intro s x y hxy
+      show x = y
+      apply hf.1.2 s
+      funext i
+      by_cases hi : i = i₀
+      · subst hi
+        exact hΨi₀ s x y hxy
+      · exact hΨle i (Finset.mem_erase.mpr ⟨hi, Finset.mem_univ i⟩) s x y hxy
+    have hqhom : IsAlgHom Sig (quotAlg Sig A.2 Ψ hΨc).2 A.2
+        (quotLift Ψ idA hleDelta) :=
+      quotAlgLift_isAlgHom Sig A.2 A.2 Ψ hΨc idA (fun _ _ _ => rfl) hleDelta
+    have hqbij : ∀ s, Function.Bijective ((quotLift Ψ idA hleDelta) s) := by
+      intro s
+      constructor
+      · intro x y hxy
+        induction x using Quotient.inductionOn with
+        | _ a =>
+          induction y using Quotient.inductionOn with
+          | _ b =>
+            have hab : a = b := by
+              simpa only [quotLift, Quotient.lift_mk, idA] using hxy
+            subst hab
+            rfl
+      · intro b
+        exact ⟨Quotient.mk (Ψ s) b, by
+          simp only [quotLift, Quotient.lift_mk, idA]⟩
+    exact formation_abstract Sig hF.2.1 hΨF (quotLift Ψ idA hleDelta)
+      ⟨hqhom, hqbij⟩
+  · haveI : IsEmpty ι := not_nonempty_iff.mp hι
+    refine hF.1 A ((subfinalAlg_iff Sig A).mpr fun s => ⟨fun a b => ?_⟩)
+    haveI : Subsingleton ((iAlg Sig C).1 s) :=
+      ⟨fun x y => funext fun i => isEmptyElim i⟩
+    exact hf.1.2 s (Subsingleton.elim (f s a) (f s b))
+
+/-- `B-C004`: the two definitions of a formation of `Σ`-algebras are
+equivalent. For the empty index (`n = 0`) the `P_fsd`-closure is exactly
+`Sf(1) ⊆ F`, which is the first clause of `IsShSkFormation`; for `n ≥ 1` it is
+`shskFormation_mem_of_subdirect`. -/
+theorem algebraFormation_iff_shskFormation {S : Type u} (Sig : Signature S)
+    (F : Set (Alg Sig)) :
+    IsAlgebraFormation Sig F ↔ IsShSkFormation Sig F := by
+  constructor
+  · intro hF
+    exact ⟨fun A hA => subfinalAlg_mem_of_formation Sig hF hA, hF.1,
+      fun A Φ Ψ hΦ hΨ h1 h2 => formation_congInf Sig hF A Φ Ψ hΦ hΨ h1 h2⟩
+  · intro hF
+    refine ⟨hF.2.1, ?_⟩
+    rintro A ⟨ι, hιfin, C, hC, f, hf⟩
+    haveI := hιfin
+    exact shskFormation_mem_of_subdirect Sig hF C hC f hf
+
+/-! ### `B-P018`: `Form_Alg(Σ)` is an algebraic closure system. -/
+
+/-- `B-D031`: `H` is monotone in the family. -/
+theorem HOperator_mono {S : Type u} (Sig : Signature S) {F G : Set (Alg Sig)}
+    (h : F ⊆ G) : HOperator Sig F ⊆ HOperator Sig G :=
+  fun _ ⟨B, hB, f, hf⟩ => ⟨B, h hB, f, hf⟩
+
+/-- `B-D031`: `P_fsd` is monotone in the family. -/
+theorem PFsdOperator_mono {S : Type u} (Sig : Signature S) {F G : Set (Alg Sig)}
+    (h : F ⊆ G) : PFsdOperator Sig F ⊆ PFsdOperator Sig G :=
+  fun _ ⟨ι, hι, C, hC, f, hf⟩ => ⟨ι, hι, C, fun i => h (hC i), f, hf⟩
+
+/-- In a directed family of sets, any finite subfamily has a common upper bound
+in the family (the finite-index form of directedness). -/
+theorem exists_mem_superset_finset {S : Type u} (Sig : Signature S)
+    {D : Set (Set (Alg Sig))} (hD : D.Nonempty)
+    (hdir : ∀ A ∈ D, ∀ B ∈ D, ∃ E ∈ D, A ⊆ E ∧ B ⊆ E)
+    {ι : Type u} (s : Finset ι) (F : ι → Set (Alg Sig))
+    (hF : ∀ i ∈ s, F i ∈ D) : ∃ G ∈ D, ∀ i ∈ s, F i ⊆ G := by
+  classical
+  revert hF
+  refine Finset.induction_on s ?_ ?_
+  · intro _
+    obtain ⟨G, hG⟩ := hD
+    exact ⟨G, hG, by simp⟩
+  · intro a s ha ih hF
+    have hF' : ∀ i ∈ s, F i ∈ D := fun i hi => hF i (Finset.mem_insert_of_mem hi)
+    obtain ⟨G, hG, hGs⟩ := ih hF'
+    have haD : F a ∈ D := hF a (Finset.mem_insert_self a s)
+    obtain ⟨E, hE, hGE, haE⟩ := hdir G hG (F a) haD
+    refine ⟨E, hE, ?_⟩
+    intro i hi
+    rw [Finset.mem_insert] at hi
+    rcases hi with rfl | hi
+    · exact haE
+    · exact fun x hx => hGE (hGs i hi hx)
+
+/-- `B-P018` (`FormAlgAlgLat`): `Form_Alg(Σ) ⊆ Sub(Alg(Σ))` is an algebraic
+closure system. `Alg(Σ)` is a formation; a nonempty intersection of formations is
+a formation (each `H`/`P_fsd` witness lands in every member of the family); and a
+nonempty directed union of formations is a formation (the finitely many witnesses
+for `P_fsd` are combined by directedness). -/
+theorem algebraFormations_isAlgebraicClosureSystem {S : Type u} (Sig : Signature S) :
+    IsAlgebraicClosureSystemOn (Alg Sig) (algebraFormations Sig) := by
+  refine ⟨?_, ?_, ?_⟩
+  · exact ⟨fun _ _ => trivial, fun _ _ => trivial⟩
+  · intro D hD _
+    constructor
+    · intro A hA
+      rw [Set.mem_sInter]
+      intro G hG
+      exact (hD hG).1 (HOperator_mono Sig (fun B hB => Set.mem_sInter.mp hB G hG) hA)
+    · intro A hA
+      rw [Set.mem_sInter]
+      intro G hG
+      exact (hD hG).2 (PFsdOperator_mono Sig (fun B hB => Set.mem_sInter.mp hB G hG) hA)
+  · intro D hD hne hdir
+    constructor
+    · intro A hA
+      rw [Set.mem_sUnion]
+      obtain ⟨B, hB, f, hf⟩ := hA
+      obtain ⟨F, hF, hBF⟩ := Set.mem_sUnion.mp hB
+      exact ⟨F, hF, (hD hF).1 (⟨B, hBF, f, hf⟩ : A ∈ HOperator Sig F)⟩
+    · intro A hA
+      rw [Set.mem_sUnion]
+      obtain ⟨ι, hιfin, C, hC, f, hf⟩ := hA
+      classical
+      have hCF : ∀ i, ∃ F ∈ D, C i ∈ F := fun i => Set.mem_sUnion.mp (hC i)
+      let Fi : ι → Set (Alg Sig) := fun i => Classical.choose (hCF i)
+      have hFiD : ∀ i, Fi i ∈ D := fun i => (Classical.choose_spec (hCF i)).1
+      have hCFi : ∀ i, C i ∈ Fi i := fun i => (Classical.choose_spec (hCF i)).2
+      obtain ⟨G, hG, hFG⟩ :=
+        exists_mem_superset_finset Sig hne hdir Finset.univ Fi (fun i _ => hFiD i)
+      have hCG : ∀ i, C i ∈ G := fun i => hFG i (Finset.mem_univ i) (hCFi i)
+      exact ⟨G, hG, (hD hG).2
+        (⟨ι, hιfin, C, hCG, f, hf⟩ : A ∈ PFsdOperator Sig G)⟩
+
+/-! ### `B-D034`: the formation generating operator `Fmg_Σ`. -/
+
+/-- `B-D034`: the *formation generating operator* `Fmg_Σ` associated to the
+algebraic closure system `Form_Alg(Σ)`: `Fmg_Σ(M)` is the intersection of all
+formations of `Σ`-algebras containing `M` (the least such formation). -/
+def formationGenerating {S : Type u} (Sig : Signature S) (M : Set (Alg Sig)) :
+    Set (Alg Sig) :=
+  ⋂₀ {F | IsAlgebraFormation Sig F ∧ M ⊆ F}
 
 end Mslang

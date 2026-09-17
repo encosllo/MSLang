@@ -1,0 +1,29 @@
+{
+  "block": "B-P027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000154",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P027 (Mslang.congCogenerated_le_transPreimage) compiled against Mathlib v4.33.1.",
+    "Proof: unfold sortedEqvLe and introduce a further translation V; case split on the coarity sort equalling t. If equal, the goal is the Omega^A(L) clause at the composite translation T . V (TlGen.comp); otherwise the inverse image is empty and the clause is trivial (Function.update_of_ne).",
+    "Axioms within {propext, Classical.choice, Quot.sound} (scripts/lean_audit.py, 202 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-P027/formal_proof",
+      "hash": "16bc2dbd717345a410031de09906d4f1ebaec6f574aa134af1e96fd5799d6a96"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}

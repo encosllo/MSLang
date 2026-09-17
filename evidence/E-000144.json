@@ -1,0 +1,49 @@
+{
+  "block": "B-R018",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000144",
+  "findings": [
+    "Stage 1 read-back: TlHom is the hom-set Tl_t(A)_s (subtype of A_t -> A_s cut down by TlGen); TlId/TlComp are identity/composition with the three category laws; tlEndMonoid gives End(t) a Monoid structure, registered as an instance.",
+    "Stage 2 comparator returned equivalent; Hom, identity, composition and the three laws match the contract's category, and End(t) monoid matches. Presenting the category as raw data rather than a Mathlib CategoryTheory.Category instance is a packaging difference only. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-R018-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-R018/definition_closure",
+      "hash": "e9ca388d0a74bc8b16d928a9330957b3e7f624af7c2456fb2603661f2cc9a0bf"
+    },
+    {
+      "artifact": "B-R018/formal_statement",
+      "hash": "3ef6e30fa2902761032ae9015d5d7aa5d8f6a63c6bf6ee559a4c4e406c3e20a1"
+    },
+    {
+      "artifact": "B-R018/informal_statement",
+      "hash": "85c508459788ef01c8a7de14706c7eb14e99f9bb017f5e213c53ba7398d60f2f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T11:13:27Z"
+}

@@ -1,0 +1,80 @@
+import Mslang
+
+universe u
+
+namespace Mslang
+
+/-- The signature with no operations at all. -/
+def noOpSig (S : Type u) : Signature S := fun _ => PEmpty.{u+1}
+
+/-- The set of `Σ`-algebras with nonempty support (at least one nonempty
+component). -/
+def nonemptyAlgebras {S : Type u} (Sig : Signature S) : Set (Alg Sig) :=
+  {X | (supp X.1).Nonempty}
+
+/-- The initial `Σ`-algebra (all components empty), for a signature with no
+operations. -/
+def initialAlg (S : Type u) : Alg (noOpSig S) :=
+  ⟨initialSorted S, fun _ σ => σ.elim⟩
+
+theorem nonemptyAlgebras_isShSk (S : Type u) [Nonempty S] :
+    IsShSkFormation (noOpSig S) (nonemptyAlgebras (noOpSig S)) := by
+  refine ⟨?_, ?_, ?_⟩
+  ·     exact ⟨finalAlg (noOpSig S), by
+      show (supp (finalSorted S)).Nonempty
+      rw [supp_finalSorted]
+      exact Set.univ_nonempty⟩
+  · rintro A ⟨B, hB, f, hf⟩
+    rcases hB with ⟨s, ⟨b⟩⟩
+    exact ⟨s, ⟨f s b⟩⟩
+  · intro A Φ Ψ _hΦ _hΨ h1 _h2
+    rcases h1 with ⟨s, ⟨q⟩⟩
+    exact ⟨s, ⟨Quotient.mk ((sortedEqvInf Φ Ψ) s) (Quotient.out q)⟩⟩
+
+theorem initialAlg_not_mem (S : Type u) :
+    initialAlg S ∉ nonemptyAlgebras (noOpSig S) := by
+  intro h
+  rcases h with ⟨s, hs⟩
+  have hs' : s ∈ supp (initialSorted S) := hs
+  rw [supp_initialSorted] at hs'
+  exact hs'
+
+theorem initialAlg_mem_pfsd (S : Type u) :
+    initialAlg S ∈ PFsdOperator (noOpSig S) (nonemptyAlgebras (noOpSig S)) := by
+  refine ⟨PEmpty.{u+1}, inferInstance, (fun i => i.elim), ?_, ?_⟩
+  · intro i; exact i.elim
+  · refine ⟨(fun _s a => a.elim), ?_⟩
+    refine ⟨⟨?_, ?_⟩, ?_⟩
+    · intro _p σ _a; exact σ.elim
+    · intro _s x _y _; exact x.elim
+    · intro i; exact i.elim
+
+theorem nonemptyAlgebras_not_isAlgebraFormation (S : Type u) :
+    ¬ IsAlgebraFormation (noOpSig S) (nonemptyAlgebras (noOpSig S)) := by
+  intro h
+  exact initialAlg_not_mem S (h.2 (initialAlg_mem_pfsd S))
+
+/-- **Counterexample to `B-C004` as literally stated**: `nonemptyAlgebras` is an
+ShSk-formation that is not a formation (it misses the initial algebra, which is a
+subdirect product of the empty family). -/
+theorem shskFormation_not_algebraFormation (S : Type u) [Nonempty S] :
+    ∃ F : Set (Alg (noOpSig S)),
+      IsShSkFormation (noOpSig S) F ∧ ¬ IsAlgebraFormation (noOpSig S) F :=
+  ⟨nonemptyAlgebras (noOpSig S), nonemptyAlgebras_isShSk S,
+    nonemptyAlgebras_not_isAlgebraFormation S⟩
+
+end Mslang
+
+namespace Mslang
+
+/-- The forward direction of `B-C004` **is** true: a formation is an
+ShSk-formation. -/
+theorem algebraFormation_isShSk {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
+    (hF : IsAlgebraFormation Sig F) : IsShSkFormation Sig F :=
+  ⟨formation_nonempty Sig hF.2, hF.1,
+    fun A Φ Ψ hΦ hΨ h1 h2 => formation_congInf Sig hF A Φ Ψ hΦ hΨ h1 h2⟩
+
+#print axioms Mslang.algebraFormation_isShSk
+#print axioms Mslang.shskFormation_not_algebraFormation
+
+end Mslang

@@ -1,0 +1,41 @@
+{
+  "block": "B-P028",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000161",
+  "findings": [
+    "Stage 1 read-back: pullbackEqv_congCogenerated_le states (f x f)^-1[Omega^B(M)] subseteq Omega^A(f^-1[M]) for hf : IsAlgHom; congCogenerated_le_pullback_of_surj states the reverse for a componentwise-surjective homomorphism. Helpers tlGen_map/tlGen_lift transport/lift translations.",
+    "Stage 2 comparator returned equivalent; pullbackEqv is the pullback relation, inverseImage is f^-1[M], the two directions are the contract's subseteq and (epi) reverse inclusion. Hypotheses match (IsAlgHom; surjectivity = epimorphism); splitting into two theorems faithfully captures the moreover equality. No dropped/added hypothesis, no weakening/strengthening, no size mismatch.",
+    "Transcript: blocks/audits/B-P028-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals.",
+  "inputs": [
+    {
+      "artifact": "B-P028/definition_closure",
+      "hash": "c507b1370c4f3e485644355366f1ff9583050919eb12768a6141bf6571880d4c"
+    },
+    {
+      "artifact": "B-P028/formal_statement",
+      "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T14:03:47Z"
+}

@@ -1,0 +1,45 @@
+{
+  "block": "B-P026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000153",
+  "findings": [
+    "Stage 1 read-back: congCogenerated_iInter_le states sortedEqvLe (sortedEqv_iInf (fun j => congCogenerated Sig A (L j))) (congCogenerated Sig A (fun s => iInter j, L j s)); no Nonempty index hypothesis.",
+    "Stage 2 comparator returned formal_stronger; the sides and the refinement order match the contract, and the only delta is the removed nonemptiness hypothesis, which is a faithful conservative generalization (the empty index gives the universal relation on both sides). No hypothesis added, no size mismatch.",
+    "Transcript: blocks/audits/B-P026-correspondence.md."
+  ],
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Both stages share this session's underlying model (deepseek-v4.1-flash), so common blind spots are not excluded. Verdict is relative to the dependent-type carrier encoding; inherits its residuals. The positive divergence is that the Lean drops the contract's nonemptiness of the index set; the empty case holds vacuously.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P026/definition_closure",
+      "hash": "add042f4c879edafe46212031ce1d3d08639bdb75771e64001a4edf72c608c68"
+    },
+    {
+      "artifact": "B-P026/formal_statement",
+      "hash": "4119087ef6d0593a76b4d656ea55d8a24ab58d4fa1205c0810e4fed628704b57"
+    },
+    {
+      "artifact": "B-P026/informal_statement",
+      "hash": "6dcfe895d8ad96290cce776bab759d6904ad9eb967b8814f38677967a328c3f2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-17T13:42:43Z"
+}

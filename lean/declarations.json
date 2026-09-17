@@ -400,6 +400,147 @@
         "Mslang.shskFormation_mem_of_subdirect_pair"
       ],
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-C004": {
+      "decls": [
+        "Mslang.algebraFormation_iff_shskFormation",
+        "Mslang.shskFormation_mem_of_subdirect",
+        "Mslang.sortedEqvLe_refl",
+        "Mslang.sortedEqvLe_trans"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D035": {
+      "decls": [
+        "Mslang.IsElemTranslation",
+        "Mslang.Etl"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-D036": {
+      "decls": [
+        "Mslang.TlGen",
+        "Mslang.Tl"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-D037": {
+      "decls": [
+        "Mslang.deltaSub",
+        "Mslang.transImage",
+        "Mslang.transPreimage",
+        "Mslang.transImageSet",
+        "Mslang.transPreimageSet"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-D038": {
+      "decls": [
+        "Mslang.congCogenerated"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P021": {
+      "decls": [
+        "Mslang.ClosesUnderEtl",
+        "Mslang.ClosesUnderTl",
+        "Mslang.closesUnderEtl_of_isCongruence",
+        "Mslang.congruence_of_closesUnderEtl",
+        "Mslang.closesUnderTl_of_closesUnderEtl",
+        "Mslang.closesUnderEtl_of_closesUnderTl",
+        "Mslang.isCongruence_iff_closesUnderEtl",
+        "Mslang.closesUnderEtl_iff_closesUnderTl"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P022": {
+      "decls": [
+        "Mslang.charEqv",
+        "Mslang.congCogenerated_isCongruence",
+        "Mslang.congCogenerated_le_charEqv",
+        "Mslang.le_congCogenerated_of_isCongruence"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-D039": {
+      "decls": [
+        "Mslang.syntacticCongruence"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-R018": {
+      "decls": [
+        "Mslang.TlHom",
+        "Mslang.TlId",
+        "Mslang.TlComp",
+        "Mslang.TlComp_id_left",
+        "Mslang.TlComp_id_right",
+        "Mslang.TlComp_assoc",
+        "Mslang.tlEndMonoid"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P018": {
+      "decls": [
+        "Mslang.HOperator_mono",
+        "Mslang.PFsdOperator_mono",
+        "Mslang.exists_mem_superset_finset",
+        "Mslang.algebraFormations_isAlgebraicClosureSystem"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
+    "B-D034": {
+      "decls": [
+        "Mslang.formationGenerating"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
+    "B-P023": {
+      "decls": [
+        "Mslang.isSat_iff_sortedEqvLe_charEqv",
+        "Mslang.isSat_iff_le_congCogenerated"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P025": {
+      "decls": [
+        "Mslang.congCogenerated_compl"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P026": {
+      "decls": [
+        "Mslang.isCongruence_iInf",
+        "Mslang.congCogenerated_iInter_le"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P027": {
+      "decls": [
+        "Mslang.congCogenerated_le_transPreimage"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-R020": {
+      "decls": [
+        "Mslang.deltaEqv",
+        "Mslang.deltaEqv_eq_iInf_congCogenerated"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P024": {
+      "decls": [
+        "Mslang.isCongruence_eq_iInf_congCogenerated"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P028": {
+      "decls": [
+        "Mslang.pullbackEqv",
+        "Mslang.pullbackEqv_congCogenerated_le",
+        "Mslang.congCogenerated_le_pullback_of_surj"
+      ],
+      "file": "lean/Mslang/Translation.lean"
     }
   }
 }

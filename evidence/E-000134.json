@@ -1,0 +1,29 @@
+{
+  "block": "B-D035",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000134",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D035 (Mslang.IsElemTranslation, Mslang.Etl) compiled against Mathlib v4.33.1.",
+    "Encoding: IsElemTranslation Sig A t s T says there is a word w : List S, an index i : Fin w.length with w.get i = t, an operation sigma : Sig (w, s), constants a at every other position, such that for every x : A.1 t, T x = A.2 (w,s) sigma (the word with x inserted at position i via the equality w.get i = t). The nonemptiness w != [] is witnessed by i : Fin w.length. Etl Sig A t : Sub (fun s => A.1 t -> A.1 s) is the sorted family (Etl_t(A)_s)_s of the paper.",
+    "Definitions depend on no axioms (scripts/lean_audit.py, 163 declarations, 0 warnings, 0 unpermitted, 0 sorry). New module lean/Mslang/Translation.lean imports Mslang.Algebra only."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D035/formal_proof",
+      "hash": "51ce7cb254c50ed5901262852cab2fc781eadde3aa2ce1595d38014dba04380c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T07:33:00Z"
+}

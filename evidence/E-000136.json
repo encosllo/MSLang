@@ -1,0 +1,29 @@
+{
+  "block": "B-D037",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000136",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D037 (Mslang.deltaSub, Mslang.transImage, Mslang.transPreimage, Mslang.transImageSet, Mslang.transPreimageSet) compiled against Mathlib v4.33.1.",
+    "Encoding: for T : A_t -> A_s and L : Sub A, transImage T L = deltaSub s (Set.image T (L t)) is T[L] = delta^{s, T[L_t]} (direct image at sort s); transPreimage T L = deltaSub t (Set.preimage T (L s)) is T^{-1}[L] = delta^{t, T^{-1}[L_s]}. For X : Set (A_t) and Y : Set (A_s), transImageSet T X = transImage T (deltaSub t X) is T[X] = T[delta^{t,X}], and transPreimageSet T Y = transPreimage T (deltaSub s Y) is T^{-1}[Y] = T^{-1}[delta^{s,Y}]. deltaSub s Y is the S-sorted subset that is Y at s and empty elsewhere (Function.update of the empty family).",
+    "Definitions depend on no axioms (scripts/lean_audit.py, 169 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-D037/formal_proof",
+      "hash": "d3c187c52b76d89e7eae989917f0b877bf6eb9929b29f08624e24c98a52323a4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T08:46:03Z"
+}

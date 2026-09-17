@@ -1,0 +1,31 @@
+{
+  "block": "B-C004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000132",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-C004 (Mslang.algebraFormation_iff_shskFormation, helpers Mslang.shskFormation_mem_of_subdirect, Mslang.sortedEqvLe_refl, Mslang.sortedEqvLe_trans) compiled against Mathlib v4.33.1.",
+    "#print axioms algebraFormation_iff_shskFormation depends on propext, Classical.choice, Quot.sound (within the permitted set); shskFormation_mem_of_subdirect likewise; sortedEqvLe_refl/sortedEqvLe_trans depend on no axioms.",
+    "Proof: the backward direction is finite subdirect-product closure for an ShSk-formation. For nonempty finite index, build the meet of ker(pr^i . f) by Finset induction using binary meet-closure; each A/ker(pr^i . f) is isomorphic to C i in F by the first isomorphism theorem (quotAlg_ker_isAlgIso) and formation_mem_of_iso; injectivity of f gives the meet = Delta_A, so A in F. For empty index, A is subfinal and lies in F by the Sf(1) subseteq F clause. The forward direction uses subfinalAlg_mem_of_formation for the Sf clause, H-closure verbatim, and formation_congInf (B-P016) for the meet clause.",
+    "Provenance: this is the corrected pair of definitions after the Session 71 Option-1 fix (B-D033 clause 1); under the old definition the statement was false (blocks/audits/B-C004-counterexample.md).",
+    "Axioms audited by scripts/lean_audit.py (159 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence_caveat": "Verification is the local pinned build only; formal_proof is a source-level hash over the mapped declarations.",
+  "inputs": [
+    {
+      "artifact": "B-C004/formal_proof",
+      "hash": "fcdca78ff6dc7a571459e709057e84496758b3fa4df9d0b4ecab6abcbb83d431"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-17T07:04:08Z"
+}
