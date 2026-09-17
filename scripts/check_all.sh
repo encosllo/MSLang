@@ -50,6 +50,9 @@ defer() {
 run "non-ASCII scan" python3 scripts/nonascii_scan.py manuscript/MSEilenberg.tex
 run "anchor hashes current" python3 scripts/hash_blocks.py --check blocks/hashes.json manuscript/MSEilenberg.tex
 run "importer artifacts current" python3 scripts/ingest.py --check --aux manuscript/MSEilenberg.aux manuscript/MSEilenberg.tex
+run "notation resolutions valid" python3 scripts/notation.py --check
+run "notation tests" python3 scripts/notation_test.py
+run "ingest tests" python3 scripts/ingest_test.py
 run "cross-reference audit" python3 scripts/check_crossrefs.py --audit manuscript/MSEilenberg.tex
 run "hygiene tests" python3 scripts/hygiene_test.py
 run "propagation tests" python3 scripts/propagation_test.py
@@ -79,6 +82,9 @@ run "reconciliation tests" python3 scripts/reconcile_test.py
 run "reconciliation report current" python3 scripts/reconcile.py --check-report
 run "evidence bundle current" python3 scripts/bundle.py --check-report
 run "frontier report current" python3 scripts/frontier.py --check-report
+run "ranking goal valid" python3 scripts/ranking.py --check
+run "ranking tests" python3 scripts/ranking_test.py
+run "ranking report current" python3 scripts/ranking.py --check-report
 run "record schema validation" python3 scripts/validate_records.py
 run "project views current" python3 scripts/report.py --check
 

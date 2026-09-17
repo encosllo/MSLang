@@ -1,4 +1,554 @@
 {
+  "notations": [
+    {
+      "candidate_edges": 0,
+      "identity": "AClOp",
+      "owners": [
+        "B-D012"
+      ],
+      "state": "block",
+      "target": "B-D012",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "AClSy",
+      "owners": [
+        "B-D012"
+      ],
+      "state": "block",
+      "target": "B-D012",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Alg",
+      "owners": [
+        "B-D017"
+      ],
+      "state": "block",
+      "target": "B-D017",
+      "uses": 12
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Alg_f",
+      "owners": [
+        "B-D042"
+      ],
+      "state": "block",
+      "target": "B-D042",
+      "uses": 5
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "BPS",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Cgr",
+      "owners": [
+        "B-D024"
+      ],
+      "state": "block",
+      "target": "B-D024",
+      "uses": 18
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Cgr_fi",
+      "owners": [
+        "B-D040"
+      ],
+      "state": "block",
+      "target": "B-D040",
+      "uses": 10
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "ClOp",
+      "owners": [
+        "B-D010"
+      ],
+      "state": "block",
+      "target": "B-D010",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "ClSy",
+      "owners": [
+        "B-D010"
+      ],
+      "state": "block",
+      "target": "B-D010",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "D",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Delta",
+      "owners": [
+        "B-D014",
+        "B-D024"
+      ],
+      "state": "block",
+      "target": "B-D014",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Em_sd",
+      "owners": [
+        "B-D028"
+      ],
+      "state": "block",
+      "target": "B-D028",
+      "uses": 4
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "End",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Epi",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Eqv",
+      "owners": [
+        "B-D014"
+      ],
+      "state": "block",
+      "target": "B-D014",
+      "uses": 11
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Etl",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Etl_t",
+      "owners": [
+        "B-D035"
+      ],
+      "state": "block",
+      "target": "B-D035",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Filt",
+      "owners": [
+        "B-D029"
+      ],
+      "state": "block",
+      "target": "B-D029",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Fix",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Fmg",
+      "owners": [
+        "B-D034"
+      ],
+      "state": "block",
+      "target": "B-D034",
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Form",
+      "owners": [
+        "B-D046"
+      ],
+      "state": "block",
+      "target": "B-D046",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Form_Alg",
+      "owners": [
+        "B-D032"
+      ],
+      "state": "block",
+      "target": "B-D032",
+      "uses": 5
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Form_Alg_f",
+      "owners": [
+        "B-D043"
+      ],
+      "state": "block",
+      "target": "B-D043",
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Form_Cgr",
+      "owners": [
+        "B-D030"
+      ],
+      "state": "block",
+      "target": "B-D030",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Form_Cgr_fi",
+      "owners": [
+        "B-D041"
+      ],
+      "state": "block",
+      "target": "B-D041",
+      "uses": 4
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Form_Lang_r",
+      "owners": [
+        "B-D045"
+      ],
+      "state": "block",
+      "target": "B-D045",
+      "uses": 2
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "G",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "H",
+      "owners": [
+        "B-D031"
+      ],
+      "state": "block",
+      "target": "B-D031",
+      "uses": 7
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Hom",
+      "owners": [
+        "B-D002"
+      ],
+      "state": "block",
+      "target": "B-D002",
+      "uses": 7
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Iso",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "K",
+      "owners": [
+        "B-D011"
+      ],
+      "state": "block",
+      "target": "B-D011",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Ker",
+      "owners": [
+        "B-D015"
+      ],
+      "state": "block",
+      "target": "B-D015",
+      "uses": 15
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Lang_r",
+      "owners": [
+        "B-D044"
+      ],
+      "state": "block",
+      "target": "B-D044",
+      "uses": 6
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Mon",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Mor",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Omega",
+      "owners": [
+        "B-D038",
+        "B-D039"
+      ],
+      "state": "block",
+      "target": "B-D038",
+      "uses": 23
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "P",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "P_fsd",
+      "owners": [
+        "B-D031"
+      ],
+      "state": "block",
+      "target": "B-D031",
+      "uses": 6
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sat",
+      "owners": [
+        "B-D014"
+      ],
+      "state": "block",
+      "target": "B-D014",
+      "uses": 16
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sf",
+      "owners": [
+        "B-D023"
+      ],
+      "state": "block",
+      "target": "B-D023",
+      "uses": 5
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sg",
+      "owners": [
+        "B-D021"
+      ],
+      "state": "block",
+      "target": "B-D021",
+      "uses": 4
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sub",
+      "owners": [
+        "B-D005",
+        "B-D020"
+      ],
+      "state": "ambient",
+      "target": null,
+      "uses": 0
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sub_f",
+      "owners": [
+        "B-D008"
+      ],
+      "state": "block",
+      "target": "B-D008",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "T",
+      "owners": [
+        "B-D027"
+      ],
+      "state": "block",
+      "target": "B-D027",
+      "uses": 13
+    },
+    {
+      "candidate_edges": 4,
+      "identity": "Theta",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 4
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Tl_t",
+      "owners": [
+        "B-D036"
+      ],
+      "state": "block",
+      "target": "B-D036",
+      "uses": 11
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "W",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 4,
+      "identity": "card",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 4
+    },
+    {
+      "candidate_edges": 4,
+      "identity": "ch",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 4
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "delta",
+      "owners": [
+        "B-D006"
+      ],
+      "state": "block",
+      "target": "B-D006",
+      "uses": 13
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "epi",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "id",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 13,
+      "identity": "nabla",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 13
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "op",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 4,
+      "identity": "p",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 4
+    },
+    {
+      "candidate_edges": 20,
+      "identity": "pr",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 20
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "pr_t",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "supp",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "supp_S",
+      "owners": [
+        "B-D009",
+        "B-D018"
+      ],
+      "state": "block",
+      "target": "B-D009",
+      "uses": 19
+    }
+  ],
   "source": "manuscript/MSEilenberg.tex",
   "symbols": [
     {

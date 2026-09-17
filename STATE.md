@@ -3887,6 +3887,157 @@ removed the 14 illustrative blocks from obligations). `check_all`: **34 passed,
 
 ---
 
+## Session 83 -- 2026-09-17 -- notation resolution (OpenSpec change)
+
+**Goal.** Implement `resolve-ambiguous-notation` (the change the explore session
+produced): make notation extraction compound-aware and introducer-based, add an
+author-reserved resolution store, stop silently dropping ambiguous-notation
+edges, and stage the recovered dependency edges as candidates. No Lean or
+manuscript edit.
+
+**What was established (closed).**
+
+- **Compound notation identity.** `scripts/ingest.py` now folds a
+  `\mathrm{...}` base plus its normalised subscript chain into one identity,
+  including nesting (`\mathrm{Form}_{\mathrm{Cgr}_{\mathrm{fi}}}` -> `Form_Cgr_fi`).
+  The phantom tokens `f`/`fi` are gone (`parse_notations`, `_content_identity`,
+  `_qualifier_identity`, `_mathrm_identity`, `_subscript_end`).
+- **Introducer determination is sentence-scoped.** The fixed 100-character cue
+  window is replaced by definee detection: the cue must sit in the same sentence
+  and the notation must be adjacent to it (`denote by` / `call` / `write` /
+  coordinated `and by`, or `stands for` after an argument). `Alg` is now owned by
+  its true introducer `B-D017` (previously missed) and the five false owners
+  `B-D031`/`B-D032`/`B-D034`/`B-D042`/`B-D043` are dropped; mention-only
+  definitions no longer own (`Hom` -> `B-D002` only, `Sg` -> `B-D021`, and
+  `B-D027`'s "determined by" no longer captures `Sg`).
+- **Author-reserved resolution store.** `blocks/notation.json` +
+  `scripts/notation.py` (`--list`/`--check`/`set`; refuses any `decided_by` not
+  beginning `author:`) + `scripts/notation_test.py`. Resolution order is
+  store-first, then mechanical unique owner (term-match fallback, e.g. `\delta`
+  via "delta of Kronecker in"), else **unresolved and reported** rather than
+  assigned a default owner.
+- **Fail closed.** An unparsable `\mathrm{...}` declaration raises
+  `NotationError`; `ingest` reports it and exits 1 without a partial map.
+- **Recovered edges are candidates.** Graph edges **126 -> 236**; **113 new
+  candidates**; **no confirmed edge lost** (diffed against the pre-change
+  `graph.json`) and no layer status changed. Unconfirmed candidates do not enter
+  closure computation.
+- **Ambiguity is visible.** Gap report §7 lists every notation identity's
+  resolution state; the 4 genuinely ambiguous ones were resolved by the author
+  (`author:session73`): `supp_S`->`B-D009`, `Omega`->`B-D038`, `Delta`->`B-D014`,
+  `Sub`->`ambient`. `blocks/symbols.json` carries each identity's state and use
+  count.
+- **Drift and tests.** `ingest.py --check` now also drift-checks
+  `reports/gap_report.md`; `scripts/ingest_test.py` and `scripts/notation_test.py`
+  are wired into the fast tier. `reports/bundle.md` regenerated.
+- **OpenSpec.** proposal/specs/design/tasks complete; archived to
+  `openspec/changes/archive/2026-09-17-resolve-ambiguous-notation/`; the new main
+  spec `openspec/specs/dependencies/notation/spec.md` was created by the sync;
+  `openspec validate --specs` 7 passed, 0 failed.
+
+**Findings.**
+
+- The 10 `ambiguous_symbols` were **not 10 decisions**: two tokenizer artifacts
+  (`f`, `fi`), one prefix artifact (`Form`), five misattributed owners (`Alg`,
+  `Cgr`, `Sg`, `Sub`, `Hom`), and only two genuine overloads (`supp`, `Omega`).
+  The window both missed the real introducer (`B-D017` for `Alg`) and invented
+  five false ones.
+- `\Sub` is a genuine **overloading**, not a single-owner ambiguity: `B-D005`
+  means sorted *subsets*, `B-D020` means *subalgebras*. The single-target store
+  cannot express both, so it is `ambient` pending a context-sensitive rule (a
+  spec amendment). `\Delta` and `\Omega` are nested duals and resolved to their
+  root definition.
+- Confirmation cannot be free: **every one of the 113 recovered edges stales at
+  least one current evidence record**; confirming all would stale **59 of 72**
+  statement-layer records. The staged rollout is therefore not a mechanism
+  detail but the whole point.
+
+**Gate.** `scripts/check_all.sh`: **40 passed, 0 failed** (Session 83).
+
+**Honestly deferred / author-reserved.**
+
+- **Task 7.3** (confirm the 113 recovered edges, re-issue the staled evidence) is
+  deferred by author decision; the candidates stay unconfirmed and **no evidence
+  was invalidated**. Recorded in the archived `tasks.md`.
+- `\Sub` context-sensitive resolution (subsets vs subalgebras) needs a
+  `dependencies/notation` spec amendment.
+- The four notation resolutions were typed by the coordinator at the author's
+  direction and attributed to `author:session73`.
+
+**Prioritized next steps.**
+
+1. The original motivation: **goal-directed dependency ranking** (reverse rank
+   for the target, forward rank over its ancestors), now better grounded by the
+   126 -> 236-edge graph; start it as a new OpenSpec change.
+2. Edge confirmation + evidence re-issue policy for the 113 candidates.
+3. `\Sub` context rule (`dependencies/notation` amendment).
+
+---
+
+## Session 84 -- 2026-09-17 -- goal-directed ranking (OpenSpec change)
+
+**Goal.** Implement `goal-directed-ranking` (the change that turns the notation
+work into ordered formalization): a reverse-rank goal shortlist, an
+author-designated goal, and a target-conditioned forward rank that recommends the
+next buildable prerequisite. Advisory only.
+
+**What was established (closed).**
+
+- **Goal store.** `blocks/ranking.json` (author-reserved) +
+  `scripts/ranking.py` (`--set-goal`/`--list`/`--check`/`--report`/
+  `--check-report`/`--dry-run`); a goal whose `decided_by` does not begin
+  `author:` is refused, and at most one goal is supported.
+- **Goal proposal (reverse rank).** PageRank on the impact graph (dependency ->
+  user) with restart mass over result-bearing blocks. On the real graph the
+  shortlist tops `B-P035`, `B-P038`, `B-P015` - the headline results - and the
+  report labels it a *size* proxy (largest supporting foundation), not a value
+  judgement.
+- **Next step (forward rank).** Restrict to the goal's ancestor set, PageRank
+  conditioned on the goal (goal excluded), and recommend the highest-ranked
+  ancestor that is undone and ready. `done(a)` = `a` mapped in
+  `lean/declarations.json`; `ready(b)` = every dependency target of `b` done.
+- **Weighted graph.** All confirmed *and* candidate edges; source weights
+  explicit 1.0 > prose 0.5 > symbol 0.3; edges disposed `type-carrier`/
+  `simplification` excluded; unresolved edges named. Advisory: no closure, layer
+  status, or evidence record changes.
+- **Tests and view.** `scripts/ranking_test.py` (store author-reservation, edge
+  weighting, disposition exclusion, determinism, advisory, goal-excluded
+  recommendation, readiness, ancestor restriction, unresolved naming, headline
+  shortlist) and a drift-checked `reports/ranking.md`; the three checks are
+  wired into the fast gate.
+- **Bundle gap fixed.** `scripts/bundle.py` now hashes `blocks/notation.json`
+  (the gap left by Session 83) plus `blocks/ranking.json`, and embeds
+  `reports/ranking.md`.
+- **OpenSpec.** proposal/specs/design complete; 16/16 tasks; `--strict` valid.
+
+**Findings.**
+
+- Reverse PageRank on a DAG ranks by supporting-subtree size, so the shortlist
+  reads as "the biggest theorem by dependency count", not "the most valuable";
+  the author designates the goal and the report states it adopts nothing
+  automatically.
+- With no goal recorded the report is **Undecided**; the tool is dormant until
+  an author goal exists. A probe goal `B-P035` recommended `B-P006`.
+- Deep prerequisite ties fall through to a block-id tie-break (cost/risk
+  weighting is a design open question).
+
+**Gate.** `scripts/check_all.sh`: **43 passed, 0 failed** (Session 84).
+
+**Honestly deferred / author-reserved.**
+
+- No goal is designated yet (author decision); the ranking awaits it.
+- The 113 recovered candidate edges remain unconfirmed and their evidence
+  re-issue is deferred (Session 83).
+
+**Prioritized next steps.**
+
+1. Author designates a goal (`python3 scripts/ranking.py --set-goal ...`) to
+   activate the ranking.
+2. Edge confirmation + evidence re-issue for the 113 candidates.
+3. `\Sub` context rule (`dependencies/notation` amendment).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -3916,7 +4067,7 @@ removed the 14 illustrative blocks from obligations). `check_all`: **34 passed,
    `hash_blocks.normalize`).
 7. Run the mechanical gate after any change, in tiers:
    `scripts/check_all.sh --fast` runs every check needing neither Lean
-   compilation nor a PDF build (32 checks; seconds) and prints the Lean audit,
+   compilation nor a PDF build (40 checks; seconds) and prints the Lean audit,
    `lean_audit.py`, and the manuscript build as `DEFERRED`, never as passes. At
    session close run `scripts/check_all.sh` once without `--fast`: it is the
    artifact of record and adds the Lean audit tests, the Lean mechanical gate

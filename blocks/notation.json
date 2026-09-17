@@ -1,0 +1,29 @@
+{
+  "note": "Author-reserved notation resolutions (Architecture.md Sections 12.1, 16.4). Keyed by compound notation identity: a \\mathrm{...} base plus its normalised subscript chain (e.g. 'Alg', 'Alg_f', 'Sub', 'Sub_f', 'Form_Cgr_fi'), or a bare macro ('delta', 'Omega'). resolution is 'block' (with a 'target' defining block; symbol-usage edges are emitted to it) or 'ambient' (the notation yields no dependency edge). decided_by must begin with 'author:'. An identity absent here that is not mechanically unique is reported as unresolved by scripts/ingest.py.",
+  "resolutions": {
+    "Delta": {
+      "decided_by": "author:session73",
+      "rationale": "equivalence-level least element; B-D024 is the algebra analogue built on it",
+      "resolution": "block",
+      "target": "B-D014"
+    },
+    "Omega": {
+      "decided_by": "author:session73",
+      "rationale": "B-D038 constructs the operator; B-D039 names it and depends on it",
+      "resolution": "block",
+      "target": "B-D038"
+    },
+    "Sub": {
+      "decided_by": "author:session73",
+      "rationale": "overloaded subsets (B-D005) vs subalgebras (B-D020); ambient pending a context rule",
+      "resolution": "ambient",
+      "target": null
+    },
+    "supp_S": {
+      "decided_by": "author:session73",
+      "rationale": "root support definition; B-D018 is the algebra support defined from it",
+      "resolution": "block",
+      "target": "B-D009"
+    }
+  }
+}

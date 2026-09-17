@@ -49,6 +49,8 @@ MANIFEST_PATHS = [
     "blocks/treatment_tiers.json",
     "blocks/scope_decisions.json",
     "blocks/discrepancy_decisions.json",
+    "blocks/notation.json",
+    "blocks/ranking.json",
     "reconciliation/proposals.json",
     "decisions/standing.json",
     "journal/events.jsonl",
@@ -64,6 +66,7 @@ VIEWS = [
     "reports/discrepancy.md",
     "reports/impact.md",
     "reports/frontier.md",
+    "reports/ranking.md",
     "reports/reconciliation.md",
     "reports/decisions.md",
 ]

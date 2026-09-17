@@ -311,13 +311,284 @@ def load_decisions(path):
     return doc.get("decisions", doc)
 
 
-def edges_for(clean, registry, aux_numbers, decisions=None):
+def load_notation_resolutions(path):
+    """Load ``blocks/notation.json`` -> {identity: resolution entry}."""
+    if not path or not Path(path).exists():
+        return {}
+    doc = json.loads(Path(path).read_text(encoding="utf-8"))
+    return doc.get("resolutions", doc)
+
+
+# --- Notation identities (Architecture.md Section 12.1) ---------------------
+
+# A notation identity is the full compound form: a ``\mathrm{...}`` base plus a
+# chain of ``\mathrm{...}`` subscript qualifiers (``\mathrm{Sub}_{\mathrm{f}}``
+# -> ``Sub_f``), or a bare macro (``\delta``, ``\Omega``).  A qualifier is part
+# of the identity, never a standalone token, so a base and its qualified form are
+# distinct and subscript letters (``f``, ``fi``) cannot become phantom tokens.
+# A definition owns a notation only when it introduces it as a definee, not when
+# it merely mentions it.
+
+_MATHBF_RE = re.compile(r"\\mathrm\{")
+_MACRO_NOTATION_RE = re.compile(r"\\(delta|Omega|nabla|Delta|Theta|Lambda)\b")
+
+_INTRO_VERB_RE = re.compile(r"\b(denote[sd]?|call(?:ed|s)?|write[s]?|stand(?:s)?)\b", re.I)
+_DEFINEE_BEFORE_RE = re.compile(
+    r"(?:denote[sd]?|call(?:ed|s)?|write[s]?)\s+by\s*$"
+    r"|(?:denote[sd]?|call(?:ed|s)?|write[s]?)\s*$"
+    r"|and\s+by\s*$",
+    re.I,
+)
+_DEFINEE_AFTER_RE = re.compile(r"^(?:stands?\s+for|denotes?)\b", re.I)
+
+
+def _subscript_end(text, pos):
+    """End offset of the balanced ``{...}`` group opening at ``pos``, or None."""
+    if pos >= len(text) or text[pos] != "{":
+        return None
+    depth = 0
+    for i in range(pos, len(text)):
+        if text[i] == "{":
+            depth += 1
+        elif text[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return i + 1
+    return None
+
+
+def _letters(text):
+    return re.sub(r"[^A-Za-z]", "", text)
+
+
+class NotationError(ValueError):
+    """A notation declaration that cannot be parsed (fail closed)."""
+
+
+def _qualifier_identity(inner):
+    """Identity of a subscript's content, or "" when it is not a name.
+
+    ``\\mathrm{Lang_{r}}`` -> ``Lang_r``; ``\\mathrm{Cgr}_{\\mathrm{fi}}`` ->
+    ``Cgr_fi``; a bare letter run (``f``, ``r``) is itself; an argument-like
+    command subscript (``\\Sigma``, ``\\mathbf{A}``) is not part of the identity.
+    """
+    inner = inner.strip()
+    if inner.startswith("\\mathrm{"):
+        identity, end = _mathrm_identity(inner, 0)
+        if end == len(inner):
+            return identity
+    if re.fullmatch(r"[A-Za-z]{1,24}", inner):
+        return inner
+    return ""
+
+
+def _content_identity(content):
+    """Identity from a ``\\mathrm{...}`` brace content, folding subscripts."""
+    idx = content.find("_")
+    if idx == -1:
+        return _letters(content)
+    identity = _letters(content[:idx])
+    i = idx
+    while i < len(content):
+        if content[i] == "_" and i + 1 < len(content) and content[i + 1] == "{":
+            close = _subscript_end(content, i + 1)
+            if close is None:
+                break
+            qualifier = _qualifier_identity(content[i + 2 : close - 1])
+            if qualifier:
+                identity = f"{identity}_{qualifier}"
+            i = close
+        else:
+            i += 1
+    return identity
+
+
+def _mathrm_identity(text, pos):
+    """Identity and end offset of the ``\\mathrm{...}`` beginning at ``pos``.
+
+    Fails closed: an unbalanced declaration raises ``NotationError`` rather than
+    yielding a partial notation map.
+    """
+    close = _subscript_end(text, pos + len("\\mathrm"))
+    if close is None:
+        raise NotationError(f"unbalanced \\mathrm declaration at offset {pos}")
+    identity = _content_identity(text[pos + len("\\mathrm{") : close - 1])
+    end = close
+    n = len(text)
+    while True:
+        j = end
+        while j < n and text[j] in " \t\n":
+            j += 1
+        if j < n and text[j] == "_" and j + 1 < n and text[j + 1] == "{":
+            sub_close = _subscript_end(text, j + 1)
+            if sub_close is None:
+                raise NotationError(f"unbalanced subscript at offset {j}")
+            qualifier = _qualifier_identity(text[j + 2 : sub_close - 1])
+            if qualifier:
+                identity = f"{identity}_{qualifier}"
+            end = sub_close
+            continue
+        break
+    return identity, end
+
+
+def parse_notations(text):
+    """Ordered ``[(identity, start, end)]`` compound notation occurrences.
+
+    ``\\mathrm{X}_{\\mathrm{Y}}`` is the single identity ``X_Y``; the qualifier
+    is consumed with the base, so it is never emitted on its own.  Nesting such
+    as ``\\mathrm{Form}_{\\mathrm{Lang_{r}}}`` folds to ``Form_Lang_r``.
+    """
+    out = []
+    i, n = 0, len(text)
+    while i < n:
+        m = _MATHBF_RE.search(text, i)
+        macro = _MACRO_NOTATION_RE.search(text, i)
+        if m is None and macro is None:
+            break
+        if macro is None or (m is not None and m.start() <= macro.start()):
+            identity, end = _mathrm_identity(text, m.start())
+            start = m.start()
+        else:
+            identity, end = macro.group(1), macro.end()
+            start = macro.start()
+        if identity:
+            out.append((identity, start, end))
+        i = max(end, start + 1)
+    return out
+
+
+def _clean_window(text):
+    text = re.sub(r"\\[A-Za-z]+", " ", text)
+    text = re.sub(r"\\[^A-Za-z]", " ", text)
+    text = re.sub(r"[^A-Za-z\s]", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _definee_after(body, end):
+    """Text after the notation, skipping a parenthesised argument.
+
+    ``\\mathrm{H}(\\mathcal{F})$ stands for`` must read ``stands for``; the
+    argument between the definee and the cue is not part of the check.
+    """
+    j = end
+    if j < len(body) and body[j] == "(":
+        depth = 0
+        for k in range(j, len(body)):
+            if body[k] == "(":
+                depth += 1
+            elif body[k] == ")":
+                depth -= 1
+                if depth == 0:
+                    j = k + 1
+                    break
+    return _clean_window(body[j : j + 40])
+
+
+def _sentence_bounds(body, pos):
+    start = 0
+    for m in re.finditer(r"[.!?]\s", body[:pos]):
+        start = m.end()
+    m = re.search(r"[.!?](?:\s|$)", body[pos:])
+    return start, pos + m.end() if m else len(body)
+
+
+def is_definee(body, start, end):
+    """True when the notation at ``[start,end)`` is introduced, not mentioned.
+
+    An introduction places the definee next to a cue: after ``denote by`` /
+    ``call`` / ``write`` / a coordinated ``and by``, or before ``stands for``.
+    The cue must sit in the same sentence and the notation adjacent to it; a
+    mention elsewhere in the sentence -- or a non-introduction passive such as
+    ``determined by`` -- is not an introduction.
+    """
+    s0, s1 = _sentence_bounds(body, start)
+    if not _INTRO_VERB_RE.search(body[s0:s1]):
+        return False
+    before = _clean_window(body[max(0, start - 48) : start])
+    after = _definee_after(body, end)
+    return bool(_DEFINEE_BEFORE_RE.search(before) or _DEFINEE_AFTER_RE.match(after))
+
+
+def notation_owners(registry, bodies):
+    """identity -> sorted defining blocks that *introduce* it (definees only)."""
+    by_id = {b["id"]: b for b in registry if b["id"]}
+    owners = {}
+    for bid, (body, _proof) in bodies.items():
+        if by_id.get(bid, {}).get("kind") != "definition":
+            continue
+        for identity, start, end in parse_notations(body):
+            if is_definee(body, start, end):
+                owners.setdefault(identity, set()).add(bid)
+    return {k: sorted(v) for k, v in owners.items()}
+
+
+def notation_term_owners(registry, bodies):
+    """identity -> sorted defining blocks whose stated term matches the base.
+
+    Fallback for an introduction phrased with a term rather than a definee cue
+    (``delta of Kronecker in`` for ``\\delta``).
+    """
+    by_id = {b["id"]: b for b in registry if b["id"]}
+    owners = {}
+    for bid, (body, _proof) in bodies.items():
+        b = by_id.get(bid, {})
+        if b.get("kind") != "definition" or not b.get("term"):
+            continue
+        for identity, _start, _end in parse_notations(body):
+            if _term_matches(identity.split("_", 1)[0], b["term"]):
+                owners.setdefault(identity, set()).add(bid)
+    return {k: sorted(v) for k, v in owners.items()}
+
+
+def resolve_notations(registry, bodies, resolutions=None, identities=None):
+    """Resolve notation identities: store first, then mechanical, else none.
+
+    Returns ``{identity: {state, target, owners, term_owners}}`` with ``state``
+    one of ``block``, ``ambient`` or ``unresolved``.  A recorded resolution wins,
+    so an author can override the heuristic; otherwise an identity with exactly
+    one introducer resolves to it (term-match as fallback), and anything else is
+    left unresolved and reportable rather than assigned a default owner.
+    """
+    resolutions = resolutions or {}
+    intro = notation_owners(registry, bodies)
+    term = notation_term_owners(registry, bodies)
+    pool = set(identities) if identities is not None else (set(intro) | set(term))
+    out = {}
+    for identity in sorted(pool):
+        entry = resolutions.get(identity)
+        kind = entry.get("resolution") if isinstance(entry, dict) else entry
+        if kind in ("block", "ambient"):
+            out[identity] = {
+                "state": kind,
+                "target": entry.get("target") if kind == "block" else None,
+                "owners": intro.get(identity, []),
+                "term_owners": term.get(identity, []),
+            }
+            continue
+        owners = intro.get(identity, [])
+        if len(owners) == 1:
+            out[identity] = {"state": "block", "target": owners[0],
+                             "owners": owners, "term_owners": term.get(identity, [])}
+        elif not owners and len(term.get(identity, [])) == 1:
+            out[identity] = {"state": "block", "target": term[identity][0],
+                             "owners": [], "term_owners": term[identity]}
+        else:
+            out[identity] = {"state": "unresolved", "target": None,
+                             "owners": owners or term.get(identity, []),
+                             "term_owners": term.get(identity, [])}
+    return out
+
+
+def edges_for(clean, registry, aux_numbers, decisions=None, notation_resolutions=None):
     """Compute candidate dependency edges from statements *and* proofs.
 
     Sources (Architecture.md Section 12.1):
       * ``explicit``  -- ``\\uses{...}`` and ``\\ref{...}`` to a labelled block;
       * ``prose``     -- a number-cited environment ("Proposition 3.2");
-      * ``symbol``    -- reuse of a notation token introduced by a definition.
+      * ``symbol``    -- reuse of a compound notation identity introduced by a
+        definition, resolved through ``blocks/notation.json`` first and the
+        mechanical introducer heuristic otherwise.
 
     ``decisions`` (from ``blocks/edge_decisions.json``) carries author/agent
     confirmations and rejections keyed ``from|to|kind``.  A confirmed edge is
@@ -325,6 +596,7 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
     edge is emitted with ``confirmed: false``.
     """
     decisions = decisions or {}
+    notation_resolutions = notation_resolutions or {}
     instances = collect_env_instances(clean)
 
     # id -> (statement body, proof body or "")
@@ -345,38 +617,26 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
         if b["label"] and b["label"] in aux_numbers:
             number_to_block[aux_numbers[b["label"]]] = b["id"]
 
-    # Notation tokens introduced in definitions (heuristic). A definition
-    # *introduces* a token only if its occurrence sits near a definition cue
-    # ("denote by", "we call", ...); this filters bound variables and ambient
-    # notation (\mathcal{D}, \mathrm{card}, \mathrm{id}, ...).  Several
-    # operators are bare macros rather than \mathrm names (\delta), so both
-    # forms are scanned.  A token introduced by more than one definition is
-    # disambiguated by matching it against the definition's stated term; if
-    # that is not unique it is ambiguous and yields no edge.
-    token_res = (
-        re.compile(r"\\mathrm\{([A-Za-z]{1,24})\}"),
-        re.compile(r"\\(delta|Omega|nabla|Delta|Theta|Lambda)"),
+    # Notation resolution: the compound-identity store (``blocks/notation.json``)
+    # wins over the mechanical introducer/term-match heuristic.  A resolved
+    # identity yields symbol edges; an ``ambient`` identity yields none; an
+    # unresolved identity yields none and is reported with its candidate owners
+    # and the blocks that use it.
+    symbol_uses = {
+        bid: sorted(
+            {ident for ident, _s, _e in parse_notations(body + "\n" + proof)}
+        )
+        for bid, (body, proof) in bodies.items()
+    }
+    used_ids = {ident for idents in symbol_uses.values() for ident in idents}
+    notation_state = resolve_notations(
+        registry, bodies, notation_resolutions, identities=used_ids
     )
-    cue_re = re.compile(r"(denote[d]?|call(?:ed)?|defined|stand(?:s)? for|we write)", re.I)
-    by_id = {b["id"]: b for b in registry if b["id"]}
-    def_tokens = {}
-    for b in registry:
-        if b["kind"] != "definition" or not b["id"] or b["id"] not in bodies:
-            continue
-        body = bodies[b["id"]][0]
-        for token_re in token_res:
-            for m in token_re.finditer(body):
-                window = body[max(0, m.start() - 100) : m.start()]
-                if not cue_re.search(window):
-                    continue
-                tok = m.group(1)
-                def_tokens.setdefault(tok, [])
-                if b["id"] not in def_tokens[tok]:
-                    def_tokens[tok].append(b["id"])
+    for entry in notation_state.values():
+        entry["uses"] = []
 
     edges = []
     seen = set()
-    ambiguous = {}
 
     def add_edge(src, dst, kind, source, detail=""):
         if not src or not dst or src == dst:
@@ -399,7 +659,6 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
             }
         )
 
-    symbol_uses = {}
     for bid, (body, proof) in bodies.items():
         text = body + "\n" + proof
         # explicit \uses
@@ -426,30 +685,17 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
                     "prose",
                     f"prose {m.group(1)} {number}",
                 )
-        # symbol usage
-        used = set()
-        for token_re in token_res:
-            used.update(m.group(1) for m in token_re.finditer(text))
-        used = sorted(t for t in used if t in def_tokens)
-        symbol_uses[bid] = used
-        for tok in used:
-            owners = def_tokens[tok]
-            if len(owners) != 1:
-                # Disambiguate by the definition's stated term (see
-                # _term_matches). Short substring matches are rejected.
-                matches = [
-                    o
-                    for o in owners
-                    if _term_matches(
-                        tok.lower(), (by_id.get(o, {}).get("term") or "")
-                    )
-                ]
-                if len(matches) == 1:
-                    owners = matches
-                else:
-                    ambiguous.setdefault(tok, sorted(owners))
-                    continue
-            add_edge(bid, owners[0], "uses_definition", "symbol", f"\\{tok}")
+        # symbol usage (compound notation identities)
+        for ident in symbol_uses.get(bid, []):
+            entry = notation_state.get(ident)
+            if entry is None or entry["state"] == "ambient":
+                continue
+            if bid not in entry["uses"]:
+                entry["uses"].append(bid)
+            if entry["state"] == "block":
+                add_edge(
+                    bid, entry["target"], "uses_definition", "symbol", f"\\{ident}"
+                )
 
     # Confirmed edges the extractor did not propose (recorded manually).
     for key, dec in decisions.items():
@@ -471,7 +717,14 @@ def edges_for(clean, registry, aux_numbers, decisions=None):
                     "detail": dec.get("rationale", "confirmed manually"),
                 }
             )
-    return edges, bodies, label_to_block, number_to_block, symbol_uses, ambiguous
+    return (
+        edges,
+        bodies,
+        label_to_block,
+        number_to_block,
+        symbol_uses,
+        notation_state,
+    )
 
 
 def registry_kind(registry, bid):
@@ -537,8 +790,8 @@ def inventory_report(path, clean, preamble, sections, registry, symbols, theorem
     return "\n".join(lines) + "\n"
 
 
-def gap_report(path, clean, registry, edges, label_to_block, undefined_refs, ambiguous=None):
-    ambiguous = ambiguous or {}
+def gap_report(path, clean, registry, edges, label_to_block, undefined_refs, notation_state=None):
+    notation_state = notation_state or {}
     confirmed = [b for b in registry if b["status"] == "confirmed"]
     no_scope = [b for b in confirmed if not b["scope"]]
     no_label = [b for b in confirmed if not b["label"]]
@@ -602,15 +855,41 @@ def gap_report(path, clean, registry, edges, label_to_block, undefined_refs, amb
     for bid in sorted(isolated):
         lines.append(f"- `{bid}`")
     lines += [
-        "\n## 7. Ambiguous notation tokens\n",
-        "A token introduced by more than one definition; symbol-usage edges to "
-        "it are suppressed pending author disambiguation (Section 12.1).\n",
+        "\n## 7. Notation resolution\n",
+        "A compound notation identity (base plus subscript chain) is owned by "
+        "the definition that introduces it (Section 12.1). A resolved identity "
+        "yields symbol edges; an `ambient` identity yields none; an unresolved "
+        "identity yields none and is listed here rather than silently dropped. "
+        "Resolutions live in `blocks/notation.json` (author-reserved).\n",
     ]
-    if ambiguous:
-        for tok in sorted(ambiguous):
-            lines.append(f"- `\\{tok}`: {', '.join('`'+o+'`' for o in ambiguous[tok])}")
-    else:
-        lines.append("_None._")
+    notation_state = notation_state or {}
+    resolved = sorted(i for i, st in notation_state.items() if st["state"] == "block")
+    ambient = sorted(i for i, st in notation_state.items() if st["state"] == "ambient")
+    unresolved = sorted(
+        i for i, st in notation_state.items() if st["state"] == "unresolved"
+    )
+    with_owners = [i for i in unresolved if notation_state[i]["owners"]]
+    ownerless = [i for i in unresolved if not notation_state[i]["owners"]]
+    lines += [
+        f"- resolved to a defining block: {len(resolved)}",
+        f"- ambient: {len(ambient)}",
+        f"- unresolved: {len(unresolved)} ({len(with_owners)} with candidate "
+        "owners, resolved by the author via `blocks/notation.json`)\n",
+        "| notation | candidate owners | uses | candidate edges |",
+        "|---|---|---|---|",
+    ]
+    for ident in with_owners:
+        st = notation_state[ident]
+        owners = ", ".join(f"`{o}`" for o in st["owners"])
+        lines.append(f"| `\\{ident}` | {owners} | {len(st['uses'])} | {len(st['uses'])} |")
+    if not with_owners:
+        lines.append("| _none_ | | | |")
+    lines += [
+        "\nNotation identities with no candidate owner (not introduced by any "
+        "definition, so no edge is expected): "
+        + (", ".join(f"`\\{i}`" for i in ownerless) if ownerless else "_none_")
+        + "\n",
+    ]
     return "\n".join(lines) + "\n"
 
 
@@ -714,6 +993,10 @@ def main(argv):
         "--decisions",
         help="edge decisions JSON (default blocks/edge_decisions.json if present)",
     )
+    ap.add_argument(
+        "--notation",
+        help="notation resolutions JSON (default blocks/notation.json if present)",
+    )
     ap.add_argument("--dry-run", action="store_true", help="do not write artifacts")
     ap.add_argument(
         "--check",
@@ -725,6 +1008,7 @@ def main(argv):
     path = Path(args.file)
     root = path.resolve().parent.parent
     decisions_path = args.decisions or str(root / "blocks" / "edge_decisions.json")
+    notation_path = args.notation or str(root / "blocks" / "notation.json")
 
     def rel(p):
         try:
@@ -744,9 +1028,19 @@ def main(argv):
     theorems = collect_theorems(preamble)
     aux_numbers = parse_aux(args.aux)
     decisions = load_decisions(decisions_path)
-    edges, bodies, label_to_block, number_to_block, symbol_uses, ambiguous = edges_for(
-        clean, registry, aux_numbers, decisions
-    )
+    resolutions = load_notation_resolutions(notation_path)
+    try:
+        (
+            edges,
+            bodies,
+            label_to_block,
+            number_to_block,
+            symbol_uses,
+            notation_state,
+        ) = edges_for(clean, registry, aux_numbers, decisions, resolutions)
+    except NotationError as exc:
+        print(f"ingest: notation parse error: {exc}", file=sys.stderr)
+        return 1
 
     # Undefined refs: every \ref target with no \label definition anywhere.
     all_labels = set(LABEL_RE.findall(clean))
@@ -769,18 +1063,43 @@ def main(argv):
         "labels": label_to_block,
         "numbers": number_to_block,
         "symbols_used": symbol_uses,
-        "ambiguous_symbols": ambiguous,
+        "ambiguous_symbols": {
+            ident: st["owners"]
+            for ident, st in notation_state.items()
+            if st["state"] == "unresolved"
+        },
         "edges": edges,
     }
-    symbols_doc = {"source": src_rel, "symbols": symbols}
+    symbols_doc = {
+        "source": src_rel,
+        "symbols": symbols,
+        "notations": [
+            {
+                "identity": ident,
+                "state": st["state"],
+                "target": st["target"],
+                "owners": st["owners"],
+                "uses": len(st["uses"]),
+                "candidate_edges": (
+                    len(st["uses"]) if st["state"] == "unresolved" else 0
+                ),
+            }
+            for ident, st in sorted(notation_state.items())
+        ],
+    }
+    gap_text = gap_report(
+        path, clean, registry, edges, label_to_block, undefined_refs, notation_state
+    )
 
     if args.dry_run:
         nconf = sum(1 for e in edges if e["confirmed"])
+        nresolve = sum(1 for st in notation_state.values() if st["state"] == "block")
         print(
             f"ingest: {registry_doc['counts']['confirmed']} confirmed, "
             f"{registry_doc['counts']['proposed']} proposed blocks; "
             f"{len(symbols)} symbols; {len(edges)} edges "
-            f"({nconf} confirmed); {len(undefined_refs)} undefined refs (dry run)"
+            f"({nconf} confirmed); {len(notation_state)} notation identities "
+            f"({nresolve} resolved); {len(undefined_refs)} undefined refs (dry run)"
         )
         return 0
 
@@ -796,9 +1115,16 @@ def main(argv):
             if existing != expected:
                 print(f"ingest --check: DRIFT in {target.relative_to(root)}", file=sys.stderr)
                 drift += 1
+        gap_target = root / "reports" / "gap_report.md"
+        if (gap_target.read_text(encoding="utf-8") if gap_target.exists() else None) != gap_text:
+            print(f"ingest --check: DRIFT in {gap_target.relative_to(root)}", file=sys.stderr)
+            drift += 1
         if drift:
             return 1
-        print("ingest --check: registry, symbols, graph are up to date", file=sys.stderr)
+        print(
+            "ingest --check: registry, symbols, graph, gap report are up to date",
+            file=sys.stderr,
+        )
         return 0
 
     (root / "blocks").mkdir(exist_ok=True)
@@ -816,12 +1142,7 @@ def main(argv):
         inventory_report(path, clean, preamble, sections, registry, symbols, theorems),
         encoding="utf-8",
     )
-    (root / "reports" / "gap_report.md").write_text(
-        gap_report(
-            path, clean, registry, edges, label_to_block, undefined_refs, ambiguous
-        ),
-        encoding="utf-8",
-    )
+    (root / "reports" / "gap_report.md").write_text(gap_text, encoding="utf-8")
     (root / "reports" / "pilot_candidates.md").write_text(
         pilot_report(registry, edges), encoding="utf-8"
     )
