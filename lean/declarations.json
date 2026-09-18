@@ -551,6 +551,49 @@
       ],
       "file": "lean/Mslang/Formation.lean"
     },
+    "B-D040": {
+      "decls": [
+        "Mslang.IsFiniteIndex",
+        "Mslang.congFi"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D041": {
+      "decls": [
+        "Mslang.IsFiniteIndexCongruenceFormation",
+        "Mslang.finiteIndexCongruenceFormations"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D042": {
+      "decl": "Mslang.algebraFinite",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D043": {
+      "decls": [
+        "Mslang.IsFiniteAlgebraFormation",
+        "Mslang.finiteAlgebraFormations"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D044": {
+      "decls": [
+        "Mslang.IsRegularLanguage",
+        "Mslang.regularLanguages"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P031": {
+      "decls": [
+        "Mslang.quotLe",
+        "Mslang.quotLe_mk",
+        "Mslang.isFiniteIndex_nabla",
+        "Mslang.IsFiniteIndex_of_le",
+        "Mslang.IsFiniteIndex_inf",
+        "Mslang.congFi_filter"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

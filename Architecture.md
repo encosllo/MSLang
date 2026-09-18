@@ -644,6 +644,7 @@ The pilot's layout, coarse to fine along the dependency chain, with the umbrella
 | `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor, adopted as the free-algebra encoding of `B-D027`: the free universal property (`B-P011`), projectivity (`term_projective`, `B-P012`), the evaluation onto an algebra (`termEval_surjective`, `B-P013`), and the comparison map `toT : Term_Σ(X) → T_Σ(X)` (surjective; injectivity is the open `B-P010`) |
 | `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), formations of congruences (`B-D030`) and of algebras (`B-D032`, `B-D033`), `Form_Alg(Σ)` as an algebraic closure system (`B-P018`), `𝔉_F` (`B-P019`) and `F_𝔉` (`B-P015`), and the `B-P020` isomorphism `Form_Alg(Σ) ≃o Form_Cgr(Σ)` |
 | `Mslang/Translation.lean` | elementary translations and translations (`B-D035`, `B-D036`), the actions `T[·]`/`T⁻¹[·]` and the cogenerated congruence (`B-D037`, `B-D038`), and the congruence characterization (`B-P021`) |
+| `Mslang/Regular.lean` | the second Eilenberg theorem layer: finite-index congruences (`B-D040`, `B-D041`), finite algebras (`B-D042`, `B-D043`), regular languages (`B-D044`), and `Cgr_fi(A)` as a filter (`B-P031`) |
 
 Modules are per *dependency layer*, not per block: coarse enough to avoid import
 churn, fine enough that frontier edits stay local. Splitting a module is itself

@@ -1046,6 +1046,155 @@
         "hash": "77bdf861bb668fc57c4b1e735c3a2fc9d0116b24e216d832e333781026ba6130"
       }
     },
+    "B-D040": {
+      "decls": [
+        "Mslang.IsFiniteIndex",
+        "Mslang.congFi"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.FiniteSSet",
+          "Mslang.IsCongruence",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.finOp",
+          "Mslang.quot",
+          "Mslang.wordProd"
+        ],
+        "hash": "33a6d932e09fa9d7cf3254ec933063dda89888cbe11d6528debd751177f3a8a9"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "15ad3b4874ae8cb1af0bd86510e0f360198ee5768519150f5a3fa2229c7454a5"
+      },
+      "formal_statement": {
+        "hash": "9d8031094d714f0cfba1369fbc585c1b71a10d855180ced3d639db7b32f79243"
+      }
+    },
+    "B-D041": {
+      "decls": [
+        "Mslang.IsFiniteIndexCongruenceFormation",
+        "Mslang.finiteIndexCongruenceFormations"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.FiniteSSet",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruenceFormation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.congFi",
+          "Mslang.finOp",
+          "Mslang.ker",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.termAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "73e9c25d3f40a1434814695161c40d8dd8a2910408a4eaaef68a6c09ece30a29"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "c2aba309bccac465fb2c45338506b0483ad397b9f0013e53db05f0130c718471"
+      },
+      "formal_statement": {
+        "hash": "f68ea19a36325f436078104d06ba2e67846600ddc5349cd782977b1471ebde7c"
+      }
+    },
+    "B-D042": {
+      "decls": [
+        "Mslang.algebraFinite"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.FiniteAlg",
+          "Mslang.FiniteSSet",
+          "Mslang.SSet",
+          "Mslang.Signature"
+        ],
+        "hash": "7317779ac58000aa724b00e2d75ecd00181e984b84122a08f38c80c1e0062d1e"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "4e96b1022c11fd49fb4b3149073e4e8860b9278f8bc3f1f2fffe6a3dc6350a7d"
+      },
+      "formal_statement": {
+        "hash": "6214c7c825ef12e8ec549448ecdcd8bef69db5db06375913b0e0bd9a5f564eeb"
+      }
+    },
+    "B-D043": {
+      "decls": [
+        "Mslang.IsFiniteAlgebraFormation",
+        "Mslang.finiteAlgebraFormations"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.FiniteAlg",
+          "Mslang.FiniteSSet",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.algebraFinite",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "fb4cd000b411f632560dce675e419fc6c963d25269af3ac5903023910f398ccf"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "78ffa4066577f3792cf013bab184a535d036c8409eeaa50fbec3c5c2993a7c01"
+      },
+      "formal_statement": {
+        "hash": "4a68122eb15d6ebc53b0337ba280615dcf63d31d92d4f73835620c3a12e3b46e"
+      }
+    },
+    "B-D044": {
+      "decls": [
+        "Mslang.IsRegularLanguage",
+        "Mslang.regularLanguages"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.FiniteSSet",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated",
+          "Mslang.quot"
+        ],
+        "hash": "ae9562e01b06312772759f7bb7f61f95bea9da42d19a0d8e81cae8b05794a43f"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "e9ad098c1eb328eb035aa2f88a2781e1931b1ddc437a3a729a32e54b9d89c7fd"
+      },
+      "formal_statement": {
+        "hash": "b5a5010ea68158a0b0305535967acb5c2acbc6b7517c947bb953379af1b3854a"
+      }
+    },
     "B-L001": {
       "decls": [
         "Mslang.termLift_unique"
@@ -1994,6 +2143,43 @@
       },
       "formal_statement": {
         "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
+      }
+    },
+    "B-P031": {
+      "decls": [
+        "Mslang.quotLe",
+        "Mslang.quotLe_mk",
+        "Mslang.isFiniteIndex_nabla",
+        "Mslang.IsFiniteIndex_of_le",
+        "Mslang.IsFiniteIndex_inf",
+        "Mslang.congFi_filter"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.FiniteSSet",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruence_inf",
+          "Mslang.IsFiniteIndex",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.congFi",
+          "Mslang.finOp",
+          "Mslang.nabla_isCongruence",
+          "Mslang.quot",
+          "Mslang.supp",
+          "Mslang.wordProd"
+        ],
+        "hash": "f5f76e16571020b6e0235498fef6b776a127b6912dbcb615eee2ce157fa3fad2"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "fe92fedcd9b7b72e5e82dd210df953c8dd0cb9cb1d9cf72f72328bcfa2214362"
+      },
+      "formal_statement": {
+        "hash": "cb49ab9f02426b8fbe32f8d0fd5be7e53407eda1befe831862f66a6a520fda5a"
       }
     },
     "B-R001": {

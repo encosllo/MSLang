@@ -3,6 +3,7 @@ import Mslang.Term
 import Mslang.Formation
 import Mslang.Sanity
 import Mslang.Translation
+import Mslang.Regular
 
 /-!
 Environment smoke test and axiom audit for the MSLang pilot (Architecture.md
@@ -124,6 +125,20 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.thetaSigma
 #print axioms Mslang.thetaSigmaInv
 #print axioms Mslang.formAlgFormCgrIso
+#print axioms Mslang.IsFiniteIndex
+#print axioms Mslang.congFi
+#print axioms Mslang.algebraFinite
+#print axioms Mslang.IsFiniteAlgebraFormation
+#print axioms Mslang.finiteAlgebraFormations
+#print axioms Mslang.IsFiniteIndexCongruenceFormation
+#print axioms Mslang.finiteIndexCongruenceFormations
+#print axioms Mslang.IsRegularLanguage
+#print axioms Mslang.regularLanguages
+#print axioms Mslang.quotLe
+#print axioms Mslang.isFiniteIndex_nabla
+#print axioms Mslang.IsFiniteIndex_of_le
+#print axioms Mslang.IsFiniteIndex_inf
+#print axioms Mslang.congFi_filter
 #print axioms Mslang.isSat_iff_le_congCogenerated
 #print axioms Mslang.congCogenerated_compl
 #print axioms Mslang.congCogenerated_iInter_le

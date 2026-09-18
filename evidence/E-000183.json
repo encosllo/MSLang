@@ -1,0 +1,37 @@
+{
+  "block": "B-D042",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000183",
+  "findings": [
+    "B-D042: algebraFinite Sig := {A | FiniteAlg A}, the set Alg_f(Sigma) of finite Sigma-algebras (FiniteAlg = FiniteSSet of the carrier, B-D019).",
+    "Axiom-free (scripts/lean_audit.py: 261 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D042/formal_proof",
+      "hash": "4e96b1022c11fd49fb4b3149073e4e8860b9278f8bc3f1f2fffe6a3dc6350a7d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T13:38:21Z"
+}

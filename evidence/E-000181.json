@@ -1,0 +1,37 @@
+{
+  "block": "B-D040",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000181",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-D040 compiled against Mathlib v4.33.1. IsFiniteIndex Phi := FiniteSSet (quot Phi) (the quotient S-sorted set A/Phi is finite); congFi Sig F := {Phi | IsCongruence Sig F Phi and IsFiniteIndex Phi}.",
+    "Axiom-free (scripts/lean_audit.py: 261 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D040/formal_proof",
+      "hash": "15ad3b4874ae8cb1af0bd86510e0f360198ee5768519150f5a3fa2229c7454a5"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T13:38:21Z"
+}

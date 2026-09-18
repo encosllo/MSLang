@@ -1,0 +1,37 @@
+{
+  "block": "B-D043",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000184",
+  "findings": [
+    "B-D043: IsFiniteAlgebraFormation Sig F := IsAlgebraFormation Sig F and F subset algebraFinite Sig; finiteAlgebraFormations Sig = Form_Alg_f(Sigma).",
+    "Axioms {Classical.choice, Quot.sound, propext} (scripts/lean_audit.py: 261 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D043/formal_proof",
+      "hash": "78ffa4066577f3792cf013bab184a535d036c8409eeaa50fbec3c5c2993a7c01"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T13:38:26Z"
+}

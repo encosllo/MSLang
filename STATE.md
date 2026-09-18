@@ -4450,6 +4450,53 @@ remain separate, open blocks. Same-model audit (`provisional` layer).
 
 ---
 
+## Session 92 -- 2026-09-18 -- second Eilenberg layer: finite index and languages
+
+**Goal.** Open the second Eilenberg theorem's layer (author goals `B-P034`,
+`B-P039`): finite-index congruences, finite algebras, and regular languages.
+
+**What was established (closed, and mapped).**
+
+- **New module `lean/Mslang/Regular.lean`** (imports `Formation` and `Translation`;
+  added to `Mslang.lean` and the `Architecture.md` module table):
+  - **`B-D040`**: `IsFiniteIndex Φ := FiniteSSet (quot Φ)` and
+    `congFi Sig F = {Φ | IsCongruence Sig F Φ ∧ IsFiniteIndex Φ}` (`Cgr_fi(A)`);
+  - **`B-D041`**: `IsFiniteIndexCongruenceFormation` /
+    `finiteIndexCongruenceFormations` (`Form_Cgr_fi(Σ)`);
+  - **`B-D042`**: `algebraFinite Sig = Alg_f(Σ)`;
+  - **`B-D043`**: `IsFiniteAlgebraFormation` / `finiteAlgebraFormations`
+    (`Form_Alg_f(Σ)`);
+  - **`B-D044`**: `IsRegularLanguage Sig A L := IsFiniteIndex (congCogenerated
+    Sig A L)` and `regularLanguages` (`Lang_r(A)`);
+  - **`B-P031`**: `congFi_filter` — when `supp_S(A)` is finite, `Cgr_fi(A)` is a
+    filter (non-empty, meet-closed, up-closed among congruences), via the
+    quotient-finiteness lemmas `isFiniteIndex_nabla`, `IsFiniteIndex_of_le`,
+    `IsFiniteIndex_inf` and the canonical surjection `quotLe`.
+- Evidence: `E-000181`..`E-000185` (verifications; definitions carry the
+  verification layer only), `E-000186`/`E-000187` (B-P031 verification +
+  correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P031-correspondence.md`).
+- `blocks/lean_audit.json`: **267 declarations, 0 warnings, 0 unpermitted, 0
+  `sorry`, ok=True**. `check_all.sh` (slow): **43 passed, 0 failed**. Journal
+  `EV-000101`. Frontier unmapped **47 -> 41**.
+
+**Honest caveat.** Same-model audit (`provisional`). The definitions use the
+blanket `supp_S(A)`-finiteness hypothesis only where the manuscript does; the
+support hypothesis for the free algebras (used later in the section) is not yet
+threaded. `IsRegularLanguage` records the finite-index condition; the supporting
+`supp`-finiteness is a hypothesis of the propositions, not of the definition.
+
+**Prioritized next steps.**
+
+1. `B-P032` (`Form_Cgr_fi(Σ)` is a complete lattice) and `B-P033`
+   (`Form_Alg_f(Σ)` is an algebraic closure system), then `B-P034`
+   (`Form_Alg_f(Σ) ≅ Form_Cgr_fi(Σ)`, the second Eilenberg theorem's first half).
+2. `B-D045`/`B-D046` (formations of regular languages) and `B-P035`-`B-P039`
+   (the second half, `Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`).
+3. `B-C005`/`B-C006` (the algebraic-lattice structures).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

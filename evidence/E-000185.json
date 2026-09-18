@@ -1,0 +1,37 @@
+{
+  "block": "B-D044",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000185",
+  "findings": [
+    "B-D044: IsRegularLanguage Sig A L := IsFiniteIndex (congCogenerated Sig A L), i.e. the cogenerated congruence Omega^A(L) has finite index; regularLanguages Sig A = Lang_r(A). Uses B-D038 (congCogenerated).",
+    "Axiom-free (scripts/lean_audit.py: 261 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D044/formal_proof",
+      "hash": "e9ad098c1eb328eb035aa2f88a2781e1931b1ddc437a3a729a32e54b9d89c7fd"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T13:38:26Z"
+}

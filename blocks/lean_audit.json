@@ -57,9 +57,29 @@
     "Mslang.IsCongruence_inf": [],
     "Mslang.IsElemTranslation": [],
     "Mslang.IsEpiAlg": [],
+    "Mslang.IsFiniteAlgebraFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.IsFiniteIndex": [],
+    "Mslang.IsFiniteIndexCongruenceFormation": [
+      "Classical.choice"
+    ],
+    "Mslang.IsFiniteIndex_inf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.IsFiniteIndex_of_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsGenerating": [],
     "Mslang.IsLatticeFilter": [],
     "Mslang.IsMonoAlg": [],
+    "Mslang.IsRegularLanguage": [],
     "Mslang.IsSat": [],
     "Mslang.IsShSkFormation": [
       "Classical.choice"
@@ -135,6 +155,7 @@
     "Mslang.WSet": [],
     "Mslang.Word": [],
     "Mslang.XElem": [],
+    "Mslang.algebraFinite": [],
     "Mslang.algebraFormationOfCongruenceFormation": [
       "Classical.choice"
     ],
@@ -222,6 +243,12 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.congFi": [],
+    "Mslang.congFi_filter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.congruenceFormationOf": [
       "Classical.choice"
     ],
@@ -291,6 +318,14 @@
     "Mslang.finOp": [],
     "Mslang.finalAlg": [],
     "Mslang.finalSorted": [],
+    "Mslang.finiteAlgebraFormations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteIndexCongruenceFormations": [
+      "Classical.choice"
+    ],
     "Mslang.finiteSSet_iff": [
       "Classical.choice",
       "Quot.sound",
@@ -365,6 +400,11 @@
     ],
     "Mslang.isCongruence_iInf": [],
     "Mslang.isCongruence_iff_closesUnderEtl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isFiniteIndex_nabla": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -449,6 +489,12 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.quotLe": [
+      "Quot.sound"
+    ],
+    "Mslang.quotLe_mk": [
+      "Quot.sound"
+    ],
     "Mslang.quotLift": [],
     "Mslang.quotLift_comp": [
       "Quot.sound"
@@ -469,6 +515,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.regularLanguages": [],
     "Mslang.sat": [],
     "Mslang.satSets": [],
     "Mslang.satSets_antitone": [
@@ -654,7 +701,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 252,
+  "declarations_audited": 267,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",
