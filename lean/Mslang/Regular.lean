@@ -1332,4 +1332,102 @@ theorem bpsLanguageFormation_iInter_finite {S : Type u} (Sig : Signature S)
   rw [hEq]
   exact bpsLanguageFormation_finset_biInter Sig hL A Finset.univ f (fun i _ => hf i)
 
+/-! ### `B-P035` (converse): the atom claim `δ^{s,[a]_{Ω(X)}} ∈ L(A)`. -/
+
+/-- `δ^{s,A_s}` is `∇`-saturated. -/
+theorem isSat_nabla_deltaSub_univ {S : Type u} {A : SSet S} (s : S) :
+    IsSat (nabla A) (deltaSub s (Set.univ : Set (A s))) := by
+  classical
+  unfold IsSat
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    ext a
+    constructor
+    · intro _
+      simpa only [deltaSub, Function.update_self] using
+        (Set.mem_univ a : a ∈ (Set.univ : Set (A u)))
+    · intro _
+      exact ⟨a, by
+        simpa only [deltaSub, Function.update_self] using
+          (Set.mem_univ a : a ∈ (Set.univ : Set (A u))), trivial⟩
+  · have hz : deltaSub s (Set.univ : Set (A s)) u = (∅ : Set (A u)) := by
+      simp [deltaSub, Function.update_of_ne hu]
+    rw [hz]
+    simp [sat, hz]
+
+/-- If `U` is `Φ`-saturated, so is any translation preimage `T⁻¹[U]`, because
+`Ω(U) ⊆ Ω(T⁻¹[U])` (`B-P027`). -/
+theorem isSat_transPreimage {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    {t s : S} {T : A.1 t → A.1 s} (hT : TlGen Sig A t s T)
+    {Φ : SortedEqv A.1} (hΦ : IsCongruence Sig A.2 Φ) {U : Sub A.1}
+    (hU : IsSat Φ U) : IsSat Φ (transPreimage T U) :=
+  (isSat_iff_le_congCogenerated Sig A (transPreimage T U) hΦ).mpr
+    (sortedEqvLe_trans ((isSat_iff_le_congCogenerated Sig A U hΦ).mp hU)
+      (congCogenerated_le_transPreimage Sig A hT U))
+
+/-- The concentrated `s`-component of a language of a BPS-formation is again a
+language: `δ^{s,X_s} = X ∩ δ^{s,A_s}` with both factors in `L(A)`. -/
+theorem bpsLanguageFormation_deltaSub {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {X : Sub (Term Sig A)}
+    (hX : X ∈ L A) (s : S) : deltaSub s (X s) ∈ L A := by
+  rw [deltaSub_eq_inter]
+  exact bpsLanguageFormation_inter Sig hL A hX
+    (hL.2.1 A _ (isSat_nabla_deltaSub_univ (A := Term Sig A) s))
+
+/-- If `X` is `Φ`-saturated, so is its concentrated `s`-component. -/
+theorem isSat_deltaSub_of_isSat {S : Type u} {A : SSet S} {Φ : SortedEqv A}
+    {X : Sub A} (hX : IsSat Φ X) (s : S) : IsSat Φ (deltaSub s (X s)) := by
+  rw [deltaSub_eq_inter]
+  exact isSat_inter hX
+    (sat_antitone (fun _ _ _ _ => trivial) (isSat_nabla_deltaSub_univ (A := A) s))
+
+/-- `B-P035` (`BPS 3`): closure under translation preimages. -/
+theorem bpsLanguageFormation_transPreimage {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {t s : S} {T : Term Sig A t → Term Sig A s}
+    (hT : TlGen Sig (termAlg Sig A) t s T) {X : Sub (Term Sig A)} (hX : X ∈ L A) :
+    transPreimage T X ∈ L A :=
+  hL.2.2.1 A X hX t s T hT
+
+/-- The `δ^{s,Y}` for `Y` in the B-P029 family `𝒳_{X,s,a}` are languages. -/
+theorem cogClassSets_deltaSub_mem {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X : Sub (Term Sig A)} (hX : X ∈ L A) (s : S) (a : Term Sig A s)
+    {Y : Set (Term Sig A s)}
+    (hY : Y ∈ cogClassSets Sig (termAlg Sig A) X s a) : deltaSub s Y ∈ L A := by
+  obtain ⟨s', T, hT, hYeq, _⟩ := hY
+  subst hYeq
+  have hU : deltaSub s' (X s') ∈ L A := bpsLanguageFormation_deltaSub Sig hL A hX s'
+  have htrans := bpsLanguageFormation_transPreimage Sig hL A hT hU
+  have hss : (deltaSub s' (X s')) s' = X s' := by
+    classical
+    simp only [deltaSub, Function.update_self]
+  convert htrans using 1
+  unfold transPreimage
+  exact (congrArg (fun Z => deltaSub s (T ⁻¹' Z)) hss).symm
+
+/-- The `δ^{s,Y}` for `Y` in the B-P029 family `𝒳_{X,s,a}` are `Ω(X)`-saturated. -/
+theorem cogClassSets_deltaSub_isSat {S : Type u} (Sig : Signature S)
+    (A : SSet S) {X : Sub (Term Sig A)} (s : S) (a : Term Sig A s)
+    {Y : Set (Term Sig A s)}
+    (hY : Y ∈ cogClassSets Sig (termAlg Sig A) X s a) :
+    IsSat (congCogenerated Sig (termAlg Sig A) X) (deltaSub s Y) := by
+  obtain ⟨s', T, hT, hYeq, _⟩ := hY
+  subst hYeq
+  have hΦ : IsCongruence Sig (termAlg Sig A).2 (congCogenerated Sig (termAlg Sig A) X) :=
+    congCogenerated_isCongruence Sig (termAlg Sig A) X
+  have hU : IsSat (congCogenerated Sig (termAlg Sig A) X) (deltaSub s' (X s')) :=
+    isSat_deltaSub_of_isSat (isSat_congCogenerated Sig (termAlg Sig A) X) s'
+  have htrans := isSat_transPreimage Sig (termAlg Sig A) hT hΦ hU
+  have hss : (deltaSub s' (X s')) s' = X s' := by
+    classical
+    simp only [deltaSub, Function.update_self]
+  convert htrans using 1
+  unfold transPreimage
+  exact (congrArg (fun Z => deltaSub s (T ⁻¹' Z)) hss).symm
+
 end Mslang
