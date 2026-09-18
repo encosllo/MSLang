@@ -165,4 +165,63 @@ theorem congFi_filter {S : Type u} (Sig : Signature S) {A : SSet S} (F : AlgStru
   · rintro Φ ⟨_, hΦf⟩ Ψ hΨc hle
     exact ⟨hΨc, IsFiniteIndex_of_le hle hΦf⟩
 
+/-! ### `B-P034`: `Form_Alg_f(Σ) ≅ Form_Cgr_fi(Σ)`. -/
+
+/-- Finiteness of an `S`-sorted set is invariant under a sortwise bijection. -/
+theorem finiteSSet_of_isAlgIso {S : Type u} (Sig : Signature S) {A B : SSet S}
+    {FA : AlgStruct Sig A} {FB : AlgStruct Sig B} {f : SortedMap A B}
+    (hf : IsAlgIso Sig FA FB f) (hA : FiniteSSet A) : FiniteSSet B := by
+  unfold FiniteSSet at hA ⊢
+  haveI := hA
+  apply Finite.of_surjective (fun p : Sigma A => (⟨p.1, f p.1 p.2⟩ : Sigma B))
+  rintro ⟨s, b⟩
+  obtain ⟨a, ha⟩ := (hf.2 s).2 b
+  exact ⟨⟨s, a⟩, Sigma.mk.inj_iff.mpr ⟨rfl, heq_of_eq ha⟩⟩
+
+/-- `B-P034`: if `F ⊆ Alg_f(Σ)`, then every `Φ ∈ 𝔉_F(A)` has finite index, because
+`T_Σ(A)/Φ ∈ F` is finite. -/
+theorem congruenceFormationOf_isFiniteIndex {S : Type u} (Sig : Signature S)
+    {F : Set (Alg Sig)} (hF : F ⊆ algebraFinite Sig) :
+    ∀ A, congruenceFormationOf Sig F A ⊆ congFi Sig (termAlg Sig A).2 := by
+  rintro A Φ ⟨hΦ, hΦF⟩
+  exact ⟨hΦ, hF hΦF⟩
+
+/-- `B-P034`: if every `G(A) ⊆ Cgr_fi(T_Σ(A))`, then `F_𝔉 ⊆ Alg_f(Σ)`, because a
+quotient by a finite-index congruence is finite and finiteness is isomorphism-
+invariant. -/
+theorem algebraFormationOfCongruenceFormation_isFiniteAlgebra {S : Type u}
+    (Sig : Signature S) {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hfi : ∀ A, G A ⊆ congFi Sig (termAlg Sig A).2) :
+    algebraFormationOfCongruenceFormation Sig G ⊆ algebraFinite Sig := by
+  rintro C ⟨A, Φ, hΦ, hΦG, g, hg⟩
+  exact finiteSSet_of_isAlgIso Sig
+    (isAlgIso_symm Sig C.2 (quotAlg Sig (termAlg Sig A).2 Φ hΦ).2 hg) (hfi A hΦG).2
+
+/-- `B-P034`: the bi-restriction of `θ_Σ` (`B-P020`) to formations of finite
+algebras and formations of finite-index congruences: the two are isomorphic
+(the first half of the second Eilenberg theorem). -/
+def formAlgFFormCgrFiIso {S : Type u} (Sig : Signature S) :
+    finiteAlgebraFormations Sig ≃o finiteIndexCongruenceFormations Sig where
+  toFun := fun F => ⟨congruenceFormationOf Sig F.1,
+    congruenceFormation_isCongruenceFormation Sig F.2.1,
+    congruenceFormationOf_isFiniteIndex Sig F.2.2⟩
+  invFun := fun G => ⟨algebraFormationOfCongruenceFormation Sig G.1,
+    algebraFormationOfCongruenceFormation_isAlgebraFormation Sig G.2.1,
+    algebraFormationOfCongruenceFormation_isFiniteAlgebra Sig G.2.2⟩
+  left_inv := fun F => Subtype.ext
+    (algebraFormationOfCongruenceFormation_congruenceFormationOf Sig F.2.1)
+  right_inv := fun G => Subtype.ext
+    (congruenceFormationOf_algebraFormationOfCongruenceFormation Sig G.2.1)
+  map_rel_iff' := by
+    intro F F'
+    constructor
+    · intro h
+      have h' : ∀ A, congruenceFormationOf Sig F.1 A ⊆ congruenceFormationOf Sig F'.1 A := h
+      have h1 := algebraFormationOfCongruenceFormation_mono Sig h'
+      rw [algebraFormationOfCongruenceFormation_congruenceFormationOf Sig F.2.1,
+          algebraFormationOfCongruenceFormation_congruenceFormationOf Sig F'.2.1] at h1
+      exact h1
+    · intro h
+      exact congruenceFormationOf_mono Sig h
+
 end Mslang

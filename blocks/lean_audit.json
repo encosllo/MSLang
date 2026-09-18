@@ -183,6 +183,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.algebraFormationOfCongruenceFormation_isFiniteAlgebra": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.algebraFormationOfCongruenceFormation_mono": [
       "Classical.choice"
     ],
@@ -256,6 +261,9 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "Mslang.congruenceFormationOf_isFiniteIndex": [
+      "Classical.choice"
     ],
     "Mslang.congruenceFormationOf_mono": [
       "Classical.choice"
@@ -331,7 +339,17 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.finiteSSet_of_isAlgIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.finiteSubsets": [],
+    "Mslang.formAlgFFormCgrFiIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.formAlgFormCgrIso": [
       "Classical.choice",
       "Quot.sound",
@@ -701,7 +719,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 267,
+  "declarations_audited": 271,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

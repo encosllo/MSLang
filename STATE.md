@@ -4497,6 +4497,44 @@ threaded. `IsRegularLanguage` records the finite-index condition; the supporting
 
 ---
 
+## Session 93 -- 2026-09-18 -- B-P034 (second Eilenberg theorem, first half)
+
+**Goal.** Restrict the `B-P020` isomorphism to the finite-index / finite-algebra
+subfamilies: `Form_Alg_f(Σ) ≅ Form_Cgr_fi(Σ)`.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean` (`B-P034`):
+  - `finiteSSet_of_isAlgIso` — finiteness transfers along a sortwise bijection;
+  - `congruenceFormationOf_isFiniteIndex` — if `F ⊆ Alg_f(Σ)` then every
+    `Φ ∈ 𝔉_F(A)` has finite index (`T_Σ(A)/Φ ∈ F`);
+  - `algebraFormationOfCongruenceFormation_isFiniteAlgebra` — if every `G(A)`
+    consists of finite-index congruences then `F_𝔉 ⊆ Alg_f(Σ)`;
+  - **`formAlgFFormCgrFiIso : finiteAlgebraFormations Sig ≃o
+    finiteIndexCongruenceFormations Sig`** — the bi-restriction of `θ_Σ`, with
+    the inverse laws from the `B-P020` round trips and inclusion-reflection from
+    monotonicity.
+- Evidence **`E-000188`** (verification), **`E-000189`** (correspondence,
+  two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P034-correspondence.md`).
+- `lean_audit`: **271 declarations, 0 warnings, 0 unpermitted, 0 `sorry`**.
+  `check_all.sh` (slow): **43 passed, 0 failed**. Journal `EV-000102`. Frontier
+  **41 -> 40**.
+
+**Honest caveat.** Same-model audit (`provisional`). As with `B-P020`, the Lean
+statement is an order isomorphism (the lattice structures are separate);
+well-definedness composes the earlier `B-P019`/`B-P015`/`B-P020` results.
+
+**Prioritized next steps.**
+
+1. `B-P032` (`Form_Cgr_fi(Σ)` is a complete lattice) and `B-P033`
+   (`Form_Alg_f(Σ)` is an algebraic closure system) — the lattice structures.
+2. `B-D045`/`B-D046` (formations of regular languages) and `B-P035`-`B-P039`
+   (the second half: `Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`).
+3. `B-C005`/`B-C006` (the algebraic-lattice structures).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

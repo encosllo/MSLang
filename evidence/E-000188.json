@@ -1,0 +1,37 @@
+{
+  "block": "B-P034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000188",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P034 compiled against Mathlib v4.33.1. finiteSSet_of_isAlgIso transfers finiteness along a sortwise bijection; congruenceFormationOf_isFiniteIndex and algebraFormationOfCongruenceFormation_isFiniteAlgebra are the two landing lemmas; formAlgFFormCgrFiIso is the order isomorphism between Form_Alg_f(Sigma) and Form_Cgr_fi(Sigma), restricting the B-P020 theta_Sigma.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 271 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P034/formal_proof",
+      "hash": "5df13f84d3c152abb0548e92ef223aef840e414987b9e6b50eb5a0af6453aef1"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T14:19:55Z"
+}

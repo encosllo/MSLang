@@ -594,6 +594,15 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-P034": {
+      "decls": [
+        "Mslang.finiteSSet_of_isAlgIso",
+        "Mslang.congruenceFormationOf_isFiniteIndex",
+        "Mslang.algebraFormationOfCongruenceFormation_isFiniteAlgebra",
+        "Mslang.formAlgFFormCgrFiIso"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

@@ -139,6 +139,10 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.IsFiniteIndex_of_le
 #print axioms Mslang.IsFiniteIndex_inf
 #print axioms Mslang.congFi_filter
+#print axioms Mslang.finiteSSet_of_isAlgIso
+#print axioms Mslang.congruenceFormationOf_isFiniteIndex
+#print axioms Mslang.algebraFormationOfCongruenceFormation_isFiniteAlgebra
+#print axioms Mslang.formAlgFFormCgrFiIso
 #print axioms Mslang.isSat_iff_le_congCogenerated
 #print axioms Mslang.congCogenerated_compl
 #print axioms Mslang.congCogenerated_iInter_le

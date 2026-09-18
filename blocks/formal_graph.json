@@ -1806,6 +1806,91 @@
       "to": "B-R012"
     },
     {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D008"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D017"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D023"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D025"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D027"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D040"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D041"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D042"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-D043"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-P015"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-P017"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-P019"
+    },
+    {
+      "from": "B-P034",
+      "kind": "formal_uses",
+      "to": "B-P020"
+    },
+    {
       "from": "B-R001",
       "kind": "formal_uses",
       "to": "B-D002"
