@@ -4864,9 +4864,13 @@ residuals.
   - `finite_satSets`: for a finite-index `Φ`, the `Φ`-saturated componentwise
     subsets form a **finite** type — a saturated subset is determined by which
     classes it contains, giving an injection into `(Σ(quot Φ)) → Bool`.
-  - `bpsLanguageFormation_empty`/`_union`/`_inter`/`_compl`,
-    `bpsLanguageFormation_finset_biUnion`, `bpsLanguageFormation_iUnion_finite`:
-    the BPS-side Boolean closure and finite unions.
+  - `bpsLanguageFormation_empty`/`_univ`/`_union`/`_inter`/`_compl`,
+    `bpsLanguageFormation_finset_biUnion`/`_iUnion_finite`,
+    `bpsLanguageFormation_finset_biInter`/`_iInter_finite`: the BPS-side Boolean
+    closure and finite (arbitrary-index) unions/intersections.
+  - `deltaSub_sdiff`/`_inter`/`_union`/`_eq_inter` and the componentwise
+    distribution laws `deltaSub_sUnion`/`deltaSub_iInter` (the latter for a
+    nonempty family), the set-algebra input for the atom claim.
 - Build clean, 0 warnings; slow `check_all`: **43 passed, 0 failed**.
 - **`B-P035` stays unmapped**: the converse `Def2 ⇒ Def1` is the open half; the
   remaining pieces are the `deltaSub` distributive laws, the atom claim

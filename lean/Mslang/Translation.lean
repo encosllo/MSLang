@@ -63,6 +63,79 @@ noncomputable def deltaSub {S : Type u} {A : SSet S} (s : S) (Y : Set (A s)) :
     Sub A :=
   by classical exact Function.update (fun u => (∅ : Set (A u))) s Y
 
+theorem deltaSub_sdiff {S : Type u} {A : SSet S} (s : S) (E F : Set (A s)) :
+    deltaSub s (E \ F) = fun u => deltaSub s E u \ deltaSub s F u := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    simp [deltaSub, Function.update_self]
+  · simp [deltaSub, Function.update_of_ne hu]
+
+theorem deltaSub_inter {S : Type u} {A : SSet S} (s : S) (E F : Set (A s)) :
+    deltaSub s (E ∩ F) = fun u => deltaSub s E u ∩ deltaSub s F u := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    simp [deltaSub, Function.update_self]
+  · simp [deltaSub, Function.update_of_ne hu]
+
+theorem deltaSub_union {S : Type u} {A : SSet S} (s : S) (E F : Set (A s)) :
+    deltaSub s (E ∪ F) = fun u => deltaSub s E u ∪ deltaSub s F u := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    simp [deltaSub, Function.update_self]
+  · simp [deltaSub, Function.update_of_ne hu]
+
+/-- `δ^{s,X_s} = X ∩ δ^{s,A_s}`: the `s`-component of `X` concentrated at `s`. -/
+theorem deltaSub_eq_inter {S : Type u} {A : SSet S} (s : S) (X : Sub A) :
+    deltaSub s (X s) = fun u => X u ∩ deltaSub s (Set.univ : Set (A s)) u := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    simp [deltaSub, Function.update_self]
+  · simp [deltaSub, Function.update_of_ne hu]
+
+/-- `δ^{s,⋃₀𝒳} = ⋃_{Y∈𝒳} δ^{s,Y}` (componentwise). -/
+theorem deltaSub_sUnion {S : Type u} {A : SSet S} (s : S) (𝒳 : Set (Set (A s))) :
+    deltaSub s (⋃₀ 𝒳)
+      = fun u => ⋃₀ ((fun Y : Set (A s) => deltaSub s Y u) '' 𝒳) := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    simp [deltaSub, Function.update_self]
+  · simp [deltaSub, Function.update_of_ne hu]
+
+/-- `δ^{s,⋂₀𝒳} = ⋂_{Y∈𝒳} δ^{s,Y}` (componentwise, for `𝒳` nonempty). -/
+theorem deltaSub_iInter {S : Type u} {A : SSet S} (s : S) (𝒳 : Set (Set (A s)))
+    (hne : 𝒳.Nonempty) :
+    deltaSub s (⋂₀ 𝒳)
+      = fun u => ⋂₀ ((fun Y : Set (A s) => deltaSub s Y u) '' 𝒳) := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu
+    simp [deltaSub, Function.update_self]
+  · have hconst : ((fun Y : Set (A s) => deltaSub s Y u) '' 𝒳)
+        = ({∅} : Set (Set (A u))) := by
+      ext Z
+      constructor
+      · rintro ⟨Y, _, rfl⟩
+        simp [deltaSub, Function.update_of_ne hu]
+      · intro hZ
+        rw [Set.mem_singleton_iff] at hZ
+        subst hZ
+        obtain ⟨Y, hY⟩ := hne
+        exact ⟨Y, hY, by simp [deltaSub, Function.update_of_ne hu]⟩
+    rw [deltaSub, Function.update_of_ne hu, hconst]
+    ext a
+    simp
+
 /-- `B-D037`(1): `T[L] = δ^{s, T[L_t]}` — the direct image of `L` under `T`,
 concentrated at the coarity sort `s`. -/
 noncomputable def transImage {S : Type u} {A : SSet S} {t s : S}

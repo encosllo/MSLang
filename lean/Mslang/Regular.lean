@@ -1211,6 +1211,13 @@ theorem bpsLanguageFormation_empty {S : Type u} (Sig : Signature S)
     (fun s => (∅ : Set (Term Sig A s))) ∈ L A :=
   hL.2.1 A _ nabla_sat_empty
 
+/-- `B-P035` (`BPS 1`): a BPS-formation contains the full language. -/
+theorem bpsLanguageFormation_univ {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) :
+    (fun s => (Set.univ : Set (Term Sig A s))) ∈ L A :=
+  hL.2.1 A _ nabla_sat_univ
+
 /-- `B-P035` (`BPS 4`, union). -/
 theorem bpsLanguageFormation_union {S : Type u} (Sig : Signature S)
     {L : (A : SSet S) → Set (Sub (Term Sig A))}
@@ -1279,5 +1286,50 @@ theorem bpsLanguageFormation_iUnion_finite {S : Type u} (Sig : Signature S)
     rw [← Finset.set_biUnion_coe, Finset.coe_univ, Set.biUnion_univ]
   rw [hEq]
   exact bpsLanguageFormation_finset_biUnion Sig hL A Finset.univ f (fun i _ => hf i)
+
+/-- `B-P035`: a BPS-formation is closed under finite intersections. -/
+theorem bpsLanguageFormation_finset_biInter {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {ι : Type u}
+    [DecidableEq ι] (s : Finset ι) (f : ι → Sub (Term Sig A))
+    (hf : ∀ i ∈ s, f i ∈ L A) :
+    (fun u => ⋂ i ∈ s, f i u) ∈ L A := by
+  classical
+  revert hf
+  induction s using Finset.induction_on with
+  | empty =>
+      intro _
+      have h : (fun u => ⋂ i ∈ (∅ : Finset ι), f i u)
+          = fun u => (Set.univ : Set (Term Sig A u)) := by
+        funext u
+        simp
+      rw [h]
+      exact bpsLanguageFormation_univ Sig hL A
+  | insert a s ha ih =>
+      intro hf
+      have h : (fun u => ⋂ i ∈ insert a s, f i u)
+          = fun u => f a u ∩ (⋂ i ∈ s, f i u) := by
+        funext u
+        rw [Finset.set_biInter_insert]
+      rw [h]
+      exact bpsLanguageFormation_inter Sig hL A
+        (hf a (Finset.mem_insert_self a s))
+        (ih (fun i hi => hf i (Finset.mem_insert_of_mem hi)))
+
+/-- `B-P035`: a BPS-formation is closed under intersections indexed by a finite
+type. -/
+theorem bpsLanguageFormation_iInter_finite {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {ι : Type u} [Finite ι]
+    (f : ι → Sub (Term Sig A)) (hf : ∀ i, f i ∈ L A) :
+    (fun s => ⋂ i, f i s) ∈ L A := by
+  classical
+  haveI : Fintype ι := Fintype.ofFinite ι
+  have hEq : (fun s => ⋂ i, f i s)
+      = fun s => ⋂ i ∈ (Finset.univ : Finset ι), f i s := by
+    funext s
+    rw [← Finset.set_biInter_coe, Finset.coe_univ, Set.biInter_univ]
+  rw [hEq]
+  exact bpsLanguageFormation_finset_biInter Sig hL A Finset.univ f (fun i _ => hf i)
 
 end Mslang
