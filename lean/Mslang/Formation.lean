@@ -783,4 +783,109 @@ theorem congruenceFormationOf_algebraFormationOfCongruenceFormation {S : Type u}
     exact ⟨A, Φ, hΦ, hΦG, (fun _s => id),
       ⟨(by intro p σ a; rfl), fun _s => Function.bijective_id⟩⟩
 
+/-! ### `B-P015`: `F_𝔉` is a formation of `Σ`-algebras. -/
+
+/-- Composition of `Σ`-algebra isomorphisms. -/
+theorem isAlgIso_comp {S : Type u} (Sig : Signature S) {A B C : SSet S}
+    (FA : AlgStruct Sig A) (FB : AlgStruct Sig B) (FC : AlgStruct Sig C)
+    {f : SortedMap A B} {g : SortedMap B C}
+    (hf : IsAlgIso Sig FA FB f) (hg : IsAlgIso Sig FB FC g) :
+    IsAlgIso Sig FA FC (fun s => g s ∘ f s) := by
+  refine ⟨?_, fun s => (hg.2 s).comp (hf.2 s)⟩
+  intro p σ a
+  show g p.2 (f p.2 (FA p σ a)) =
+    FC p σ (fun i => g (p.1.get i) (f (p.1.get i) (a i)))
+  rw [hf.1 p σ a]
+  exact hg.1 p σ (fun i => f (p.1.get i) (a i))
+
+/-- `B-P015`(1): `F_𝔉` is non-empty: the final algebra `1` is
+`T_Σ(1)/∇^{T_Σ(1)}` (up to isomorphism), and `∇ ∈ 𝔉(1)` by up-closure. -/
+theorem algebraFormationOfCongruenceFormation_nonempty {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))} (hG : IsCongruenceFormation Sig G) :
+    (algebraFormationOfCongruenceFormation Sig G).Nonempty := by
+  classical
+  let A₀ : SSet S := (finalAlg Sig).1
+  obtain ⟨Ψ, hΨG⟩ := (hG.1 A₀).1
+  have hnablaG : nabla (Term Sig A₀) ∈ G A₀ :=
+    (hG.1 A₀).2.2.2 Ψ hΨG (nabla (Term Sig A₀))
+      (nabla_isCongruence Sig (termAlg Sig A₀).2) (fun _ _ _ _ => trivial)
+  let Q := quotAlg Sig (termAlg Sig A₀).2 (nabla (Term Sig A₀))
+    (nabla_isCongruence Sig (termAlg Sig A₀).2)
+  have hsub : ∀ s, Subsingleton (Q.1 s) := fun s =>
+    ⟨fun x y => Quotient.inductionOn₂ x y (fun _ _ => Quotient.sound trivial)⟩
+  have hne : ∀ s, Nonempty (Q.1 s) := fun s =>
+    ⟨Quotient.mk _ (Term.var (s := s) PUnit.unit)⟩
+  refine ⟨finalAlg Sig, A₀, nabla (Term Sig A₀),
+    nabla_isCongruence Sig (termAlg Sig A₀).2, hnablaG, ?_⟩
+  change ∃ f : SortedMap (finalAlg Sig).1 Q.1, IsAlgIso Sig (finalAlg Sig).2 Q.2 f
+  refine ⟨fun s _ => Classical.choice (hne s), ?_, fun s => ?_⟩
+  · intro p σ a
+    exact @Subsingleton.elim (Q.1 p.2) (hsub p.2) _ _
+  · haveI : Subsingleton ((finalAlg Sig).fst s) := inferInstanceAs (Subsingleton PUnit)
+    refine ⟨fun x y _ => Subsingleton.elim x y, fun y => ?_⟩
+    exact ⟨PUnit.unit, @Subsingleton.elim (Q.1 s) (hsub s) _ _⟩
+
+/-- `B-P015`(2): `F_𝔉` is abstract (closed under isomorphism): composition of
+isomorphisms. -/
+theorem algebraFormationOfCongruenceFormation_abstract {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))} :
+    ∀ {C D : Alg Sig}, C ∈ algebraFormationOfCongruenceFormation Sig G →
+      (∃ f : SortedMap C.1 D.1, IsAlgIso Sig C.2 D.2 f) →
+      D ∈ algebraFormationOfCongruenceFormation Sig G := by
+  rintro C D ⟨A, Φ, hΦ, hΦG, f, hf⟩ ⟨k, hk⟩
+  let k' : SortedMap D.1 C.1 := fun s => (Equiv.ofBijective (k s) (hk.2 s)).symm
+  have hk' : IsAlgIso Sig D.2 C.2 k' := isAlgIso_symm Sig C.2 D.2 hk
+  exact ⟨A, Φ, hΦ, hΦG, fun s => f s ∘ k' s,
+    isAlgIso_comp Sig D.2 C.2 (quotAlg Sig (termAlg Sig A).2 Φ hΦ).2 hk' hf⟩
+
+/-- `B-P015`(3): `F_𝔉` is closed under homomorphic images. The epimorphism
+`C ↠ D` composes with `T_Σ(A) ↠ C` (the inverse of `C ≅ T_Σ(A)/Φ`) to an
+epimorphism `T_Σ(A) ↠ D` whose kernel contains `Φ`; up-closure puts it in
+`𝔉(A)`, and the first isomorphism theorem identifies `D` with its quotient. -/
+theorem algebraFormationOfCongruenceFormation_HOperator {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))} (hG : IsCongruenceFormation Sig G) :
+    HOperator Sig (algebraFormationOfCongruenceFormation Sig G) ⊆
+      algebraFormationOfCongruenceFormation Sig G := by
+  classical
+  rintro D ⟨C, hC, f, hf_hom, hf_surj⟩
+  obtain ⟨A, Φ, hΦ, hΦG, g, hg⟩ := hC
+  let FA := (termAlg Sig A).2
+  let QA := quotAlg Sig FA Φ hΦ
+  let g' : SortedMap QA.1 C.1 := fun s => (Equiv.ofBijective (g s) (hg.2 s)).symm
+  have hg' : IsAlgIso Sig QA.2 C.2 g' := isAlgIso_symm Sig C.2 QA.2 hg
+  let k : SortedMap QA.1 D.1 := fun s => f s ∘ g' s
+  have hk_hom : IsAlgHom Sig QA.2 D.2 k := by
+    intro p σ a
+    show f p.2 (g' p.2 (QA.2 p σ a)) = D.2 p σ (fun i => f (p.1.get i) (g' (p.1.get i) (a i)))
+    rw [hg'.1 p σ a]
+    exact hf_hom p σ (fun i => g' (p.1.get i) (a i))
+  have hk_surj : ∀ s, Function.Surjective (k s) := fun s =>
+    (hf_surj s).comp (hg'.2 s).2
+  let prA : SortedMap (Term Sig A) QA.1 := prAlg Sig FA Φ hΦ
+  have hprA : ∀ s, Function.Surjective (prA s) := fun s => pr_surjective Φ s
+  let kk : SortedMap (Term Sig A) D.1 := fun s => k s ∘ prA s
+  have hkk_hom : IsAlgHom Sig FA D.2 kk := by
+    intro p σ a
+    show k p.2 (prA p.2 (FA p σ a)) = D.2 p σ (fun i => k (p.1.get i) (prA (p.1.get i) (a i)))
+    rw [show prA p.2 (FA p σ a) = QA.2 p σ (fun i => prA (p.1.get i) (a i)) from
+      isAlgHom_prAlg Sig FA Φ hΦ p σ a]
+    exact hk_hom p σ (fun i => prA (p.1.get i) (a i))
+  have hkk_surj : ∀ s, Function.Surjective (kk s) := fun s =>
+    (hk_surj s).comp (hprA s)
+  have hle : sortedEqvLe Φ (ker kk) := by
+    intro s a b hab
+    show kk s a = kk s b
+    have hpr : prA s a = prA s b := by
+      have hk := ker_prAlg Sig FA Φ hΦ
+      change (ker (prAlg Sig FA Φ hΦ) s).r a b
+      rw [hk]
+      exact hab
+    rw [show kk s a = k s (prA s a) from rfl, show kk s b = k s (prA s b) from rfl, hpr]
+  have hkerG : ker kk ∈ G A :=
+    (hG.1 A).2.2.2 Φ hΦG (ker kk) (ker_isCongruence Sig FA D.2 kk hkk_hom) hle
+  refine ⟨A, ker kk, ker_isCongruence Sig FA D.2 kk hkk_hom, hkerG, ?_⟩
+  exact ⟨_, isAlgIso_symm Sig
+    (quotAlg Sig FA (ker kk) (ker_isCongruence Sig FA D.2 kk hkk_hom)).2 D.2
+    (quotAlg_ker_isAlgIso Sig FA D.2 kk hkk_hom hkk_surj)⟩
+
 end Mslang
