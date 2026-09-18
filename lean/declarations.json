@@ -631,6 +631,17 @@
       "decl": "Mslang.langFormationOf_isRegularLanguageFormation",
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-P038": {
+      "decls": [
+        "Mslang.langCongFormationOf",
+        "Mslang.langCongFormationOf_nabla",
+        "Mslang.langCongFormationOf_up",
+        "Mslang.langCongFormationOf_inf",
+        "Mslang.langCongFormationOf_ker",
+        "Mslang.langCongFormationOf_isFiniteIndexCongruenceFormation"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

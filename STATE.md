@@ -4647,6 +4647,59 @@ finite-index congruence formation yields a regular-language formation.
 
 ---
 
+## Session 97 -- 2026-09-18 -- B-P038 (`L ↦ 𝔉_𝔏`, converse direction)
+
+**Goal.** Complete the WIP left by Session 96's successor: the targeted
+`lake build Mslang.Regular` for `B-P038` had timed out, so the code was
+committed unelaborated. Elaborate it, then run the normal facet/evidence/views
+pipeline.
+
+**What was established (closed, and mapped).**
+
+- **Build completed.** The WIP's `Regular.lean` additions (Boolean closure of a
+  language formation, class atoms `δ^{s,[a]_Φ}`, the finite decomposition of a
+  saturated set, and the `Lang2CongEnFinit` development) had several
+  elaboration errors, now fixed:
+  - `subst ht` on `t = s` was eliminating `s` and breaking later references
+    (use `subst t`); `Set.mem_setOf_eq` deprecated (use `Set.mem_ofPred_eq`);
+  - `sortedEqvInf` is `instance_reducible`, so `simp` will not unfold it
+    (added `unfold sortedEqvInf`);
+  - the subtype predicates of `eq_iUnion_atoms` / `langCongFormationOf_inf`
+    wrongly projected `q.1.1`/`q.1.2` where the subtype variable is already the
+    `Sigma` (they are `q.1`/`q.2` inside the subtype; `q.1.1`/`q.1.2` are correct
+    only in the surrounding proof);
+  - `isSat_iff_le_congCogenerated` needed its congruence argument to be `hΘ`,
+    and `charEqv`'s `Iff` runs `x ∈ L ↔ y ∈ L`, so the step wanted `.mp`;
+  - `(F A).Nonempty` needs an explicit witness, not a membership proof.
+  `lake build Mslang.Regular` clean; `lean_audit`: **287 declarations, 0
+  warnings, 0 unpermitted, 0 `sorry`**, ok.
+- Mapping `B-P038` -> `langCongFormationOf` plus the four closure lemmas and
+  `langCongFormationOf_isFiniteIndexCongruenceFormation`; facets regenerated
+  (formal graph includes the new edges).
+- Evidence **`E-000196`** (verification, `build_ok`) and **`E-000197`**
+  (correspondence, **`equivalent`**; two-stage blind; transcript
+  `blocks/audits/B-P038-correspondence.md`). The first comparator pass
+  (bare proposition, no section assumptions) returned `formal_weaker` on the
+  `[Finite S]` hypothesis; a fresh pass with the section's standing assumption
+  `B-A001` ("in the remainder of this section `S` is finite") returned
+  `equivalent` -- the omission was in the audit prompt, not the formalization.
+- `reports/frontier.md`: unmapped blocks **36 -> 35**. Views and bundle
+  regenerated. Journal `EV-000106`. `check_all.sh --fast`: **40 passed, 0
+  failed**.
+
+**Honest caveat.** Same-model audit as always: the correspondence verdict is
+independent-context but shares `deepseek-v4.1-flash`, and inherits the
+pilot-encoding residuals (`carrier-model`, `small-large`, `univalence-missing`).
+
+**Prioritized next steps.**
+
+1. `B-P039` (`Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`), combining `B-P037`/`B-P038`
+   with `B-P030`-style round trips, completing the second Eilenberg theorem.
+2. `B-P035` (equivalence of the two language-formation definitions).
+3. `B-P032`/`B-P033` and `B-C005`/`B-C006` (the lattice structures).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

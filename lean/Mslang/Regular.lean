@@ -516,9 +516,9 @@ theorem isSat_atomRep {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) (a : 
   unfold IsSat
   funext t
   by_cases ht : t = s
-  · subst ht
+  · subst t
     ext b
-    simp only [atomRep, deltaSub, Function.update_self, sat, Set.mem_setOf_eq, eqvClass]
+    simp only [atomRep, deltaSub, Function.update_self, sat, Set.mem_ofPred_eq, eqvClass]
     constructor
     · rintro ⟨x, hax, hxb⟩
       exact (Φ s).trans hax hxb
@@ -540,9 +540,11 @@ theorem atomRep_inf {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) (s : S) (a :
   classical
   funext t
   by_cases ht : t = s
-  · subst ht
+  · subst t
     ext b
-    simp [atomRep, deltaSub, eqvClass, sortedEqvInf]
+    simp only [atomRep, deltaSub, Function.update_self, eqvClass]
+    unfold sortedEqvInf
+    exact Iff.rfl
   · have h1 : atomRep (sortedEqvInf Φ Ψ) s a t = (∅ : Set (A t)) := by
       simp only [atomRep, deltaSub, Function.update_of_ne ht]
     have h2 : atomRep Φ s a t = (∅ : Set (A t)) := by
@@ -564,7 +566,7 @@ lies in it. -/
 theorem eq_iUnion_atoms {S : Type u} {A : SSet S} (Φ : SortedEqv A) (N : Sub A)
     (hN : IsSat Φ N) :
     N = fun s => ⋃ q : {q : Sigma (quot Φ) //
-        (Quotient.out q.1.2 : A q.1.1) ∈ N q.1.1}, atomOf Φ q.1 s := by
+        (Quotient.out q.2 : A q.1) ∈ N q.1}, atomOf Φ q.1 s := by
   classical
   funext s
   ext a
@@ -574,8 +576,8 @@ theorem eq_iUnion_atoms {S : Type u} {A : SSet S} (Φ : SortedEqv A) (N : Sub A)
     · have hrel : (Φ s).r (Quotient.out (Quotient.mk (Φ s) a)) a :=
         Quotient.exact (Quotient.out_eq (Quotient.mk (Φ s) a))
       rw [← hN]
-      exact ⟨a, ha, hrel.symm⟩
-    · simp only [atomOf, deltaSub, Function.update_self]
+      exact ⟨a, ha, (Φ s).symm hrel⟩
+    · simp only [atomOf, atomRep, deltaSub, Function.update_self, eqvClass]
       exact Quotient.exact (Quotient.out_eq (Quotient.mk (Φ s) a))
   · intro ha
     rcases Set.mem_iUnion.mp ha with ⟨q, hq⟩
@@ -583,14 +585,16 @@ theorem eq_iUnion_atoms {S : Type u} {A : SSet S} (Φ : SortedEqv A) (N : Sub A)
     have hs : s = q.1.1 := by
       by_contra hne
       have hz : atomOf Φ q.1 s = (∅ : Set (A s)) := by
-        simp only [atomOf, deltaSub, Function.update_of_ne hne]
+        simp only [atomOf, atomRep, deltaSub, Function.update_of_ne hne]
       rw [hz] at hq
       exact hq
     subst hs
     have hrel : (Φ q.1.1).r (Quotient.out q.1.2) a := by
-      simpa only [atomOf, deltaSub, Function.update_self] using hq
-    rw [← hN]
-    exact ⟨Quotient.out q.1.2, hcond, hrel⟩
+      simpa only [atomOf, atomRep, deltaSub, Function.update_self, eqvClass,
+        Set.mem_ofPred_eq] using hq
+    have hsat : a ∈ sat Φ N q.1.1 := ⟨Quotient.out q.1.2, hcond, hrel⟩
+    rw [hN] at hsat
+    exact hsat
 
 /-! ### `B-P038`: `𝔉_𝔏`, the congruence formation of a regular-language
 formation. -/
@@ -643,7 +647,7 @@ theorem langCongFormationOf_inf {S : Type u} (Sig : Signature S)
   haveI : Finite (Sigma (quot (sortedEqvInf Φ Ψ))) :=
     IsFiniteIndex_inf hΦ.1.2 hΨ.1.2
   let g : {q : Sigma (quot (sortedEqvInf Φ Ψ)) //
-      (Quotient.out q.1.2 : Term Sig A q.1.1) ∈ N q.1.1} → Sub (Term Sig A) :=
+      (Quotient.out q.2 : Term Sig A q.1) ∈ N q.1} → Sub (Term Sig A) :=
     fun q => atomOf (sortedEqvInf Φ Ψ) q.1
   have hNunion : N = fun s => ⋃ q, g q s := eq_iUnion_atoms (sortedEqvInf Φ Ψ) N hN
   rw [hNunion]
@@ -698,8 +702,8 @@ theorem langCongFormationOf_ker {S : Type u} (Sig : Signature S)
     have hKmem : sat Θ (directImage f N) ∈ L B := hΘmem.2 _ hKsat
     have hΘle : sortedEqvLe Θ
         (congCogenerated Sig (termAlg Sig B) (sat Θ (directImage f N))) :=
-      (isSat_iff_le_congCogenerated Sig (termAlg Sig B) _
-        (congCogenerated_isCongruence Sig (termAlg Sig B) _)).mp hKsat
+      (isSat_iff_le_congCogenerated Sig (termAlg Sig B) (sat Θ (directImage f N))
+        hΘ).mp hKsat
     have hsurjΩ : ∀ s, Function.Surjective (fun x =>
         prAlg Sig (termAlg Sig B).2
           (congCogenerated Sig (termAlg Sig B) (sat Θ (directImage f N)))
@@ -727,7 +731,7 @@ theorem langCongFormationOf_ker {S : Type u} (Sig : Signature S)
           (sat Θ (directImage f N)) s (f s x) (f s y) hΩrel
         have hfx : f s x ∈ sat Θ (directImage f N) s :=
           ⟨f s x, ⟨x, hx, rfl⟩, (Θ s).refl (f s x)⟩
-        have hfy : f s y ∈ sat Θ (directImage f N) s := hchar.mpr hfx
+        have hfy : f s y ∈ sat Θ (directImage f N) s := hchar.mp hfx
         rcases hfy with ⟨R, hR, hRy⟩
         rcases hR with ⟨R', hR', rfl⟩
         have hab : (ker g s).r R' y := by
@@ -746,12 +750,12 @@ theorem langCongFormationOf_isFiniteIndexCongruenceFormation {S : Type u}
     {L : (A : SSet S) → Set (Sub (Term Sig A))}
     (hL : IsRegularLanguageFormation Sig L) :
     IsFiniteIndexCongruenceFormation Sig (langCongFormationOf Sig L) :=
-  ⟨⟨fun A => ⟨langCongFormationOf_nabla Sig hL A,
+  ⟨⟨fun A => ⟨⟨nabla (Term Sig A), langCongFormationOf_nabla Sig hL A⟩,
       fun _Φ hΦ => hΦ.1.1,
       fun Φ hΦ Ψ hΨ => langCongFormationOf_inf Sig hL A Φ hΦ Ψ hΨ,
       fun Φ hΦ Ψ hΨc hle => langCongFormationOf_up Sig A Φ hΦ Ψ hΨc hle⟩,
     fun A B Θ hΘ hΘmem f hf hsurj =>
       langCongFormationOf_ker Sig hL A B Θ hΘ hΘmem f hf hsurj⟩,
-   fun A Φ hΦ => hΦ.1⟩
+   fun _ _ hΦ => hΦ.1⟩
 
 end Mslang

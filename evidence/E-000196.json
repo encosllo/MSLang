@@ -1,0 +1,37 @@
+{
+  "block": "B-P038",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000196",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P038 compiled against Mathlib v4.33.1. langCongFormationOf_isFiniteIndexCongruenceFormation : IsRegularLanguageFormation Sig L implies IsFiniteIndexCongruenceFormation Sig (langCongFormationOf Sig L); the nonempty clause is nabla (finite index by B-D040), the meet/up clauses are langCongFormationOf_inf/up, and the pullback clause is langCongFormationOf_ker.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 287 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P038/formal_proof",
+      "hash": "8bedcae7f14ac1c4a0c0e5488080876ce4b6371ccf02bcbf7ae446c9cf088545"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T20:28:46Z"
+}
