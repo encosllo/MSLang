@@ -400,4 +400,358 @@ theorem langFormationOf_isRegularLanguageFormation {S : Type u} (Sig : Signature
    fun A B M hM f hf hsurj N hN =>
      langFormationOf_ker Sig hG.1 A B M hM f hf hsurj N hN⟩
 
+/-! ### Boolean closure of a regular-language formation. -/
+
+/-- `Ω^A(L)` saturates `L` (it is the greatest congruence doing so). -/
+theorem isSat_congCogenerated {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    (X : Sub A.1) : IsSat (congCogenerated Sig A X) X :=
+  (isSat_iff_le_congCogenerated Sig A X (congCogenerated_isCongruence Sig A X)).mpr
+    (fun _ _ _ h => h)
+
+/-- A regular-language formation contains the empty language. -/
+theorem regularFormation_empty {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S) :
+    (fun s => (∅ : Set (Term Sig A s))) ∈ L A :=
+  hL.2.1 A _ nabla_sat_empty
+
+/-- A regular-language formation is closed under binary union. -/
+theorem regularFormation_union {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S)
+    (X Y : Sub (Term Sig A)) (hX : X ∈ L A) (hY : Y ∈ L A) :
+    (fun s => X s ∪ Y s) ∈ L A :=
+  hL.2.2.1 A X Y hX hY (fun s => X s ∪ Y s)
+    (isSat_union
+      (sat_antitone
+        (sortedEqvInf_le_left (congCogenerated Sig (termAlg Sig A) X)
+          (congCogenerated Sig (termAlg Sig A) Y))
+        (isSat_congCogenerated Sig (termAlg Sig A) X))
+      (sat_antitone
+        (sortedEqvInf_le_right (congCogenerated Sig (termAlg Sig A) X)
+          (congCogenerated Sig (termAlg Sig A) Y))
+        (isSat_congCogenerated Sig (termAlg Sig A) Y)))
+
+/-- A regular-language formation is closed under binary intersection. -/
+theorem regularFormation_inter {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S)
+    (X Y : Sub (Term Sig A)) (hX : X ∈ L A) (hY : Y ∈ L A) :
+    (fun s => X s ∩ Y s) ∈ L A :=
+  hL.2.2.1 A X Y hX hY (fun s => X s ∩ Y s)
+    (isSat_inter
+      (sat_antitone
+        (sortedEqvInf_le_left (congCogenerated Sig (termAlg Sig A) X)
+          (congCogenerated Sig (termAlg Sig A) Y))
+        (isSat_congCogenerated Sig (termAlg Sig A) X))
+      (sat_antitone
+        (sortedEqvInf_le_right (congCogenerated Sig (termAlg Sig A) X)
+          (congCogenerated Sig (termAlg Sig A) Y))
+        (isSat_congCogenerated Sig (termAlg Sig A) Y)))
+
+/-- A regular-language formation is closed under finite unions (induction on the
+`Finset` of indices). -/
+theorem regularFormation_finset_biUnion {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S) {ι : Type u}
+    [DecidableEq ι] (s : Finset ι) (f : ι → Sub (Term Sig A))
+    (hf : ∀ i ∈ s, f i ∈ L A) :
+    (fun u => ⋃ i ∈ s, f i u) ∈ L A := by
+  classical
+  revert hf
+  induction s using Finset.induction_on with
+  | empty =>
+      intro _
+      have h : (fun u => ⋃ i ∈ (∅ : Finset ι), f i u)
+          = fun u => (∅ : Set (Term Sig A u)) := by
+        funext u
+        simp
+      rw [h]
+      exact regularFormation_empty Sig hL A
+  | insert a s ha ih =>
+      intro hf
+      have h : (fun u => ⋃ i ∈ insert a s, f i u)
+          = fun u => f a u ∪ (⋃ i ∈ s, f i u) := by
+        funext u
+        rw [Finset.set_biUnion_insert]
+      rw [h]
+      exact regularFormation_union Sig hL A (f a) (fun u => ⋃ i ∈ s, f i u)
+        (hf a (Finset.mem_insert_self a s))
+        (ih (fun i hi => hf i (Finset.mem_insert_of_mem hi)))
+
+/-- A regular-language formation is closed under unions indexed by any finite
+type. -/
+theorem regularFormation_iUnion_finite {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S) {ι : Type u} [Finite ι]
+    (f : ι → Sub (Term Sig A)) (hf : ∀ i, f i ∈ L A) :
+    (fun s => ⋃ i, f i s) ∈ L A := by
+  classical
+  haveI : Fintype ι := Fintype.ofFinite ι
+  have hEq : (fun s => ⋃ i, f i s)
+      = fun s => ⋃ i ∈ (Finset.univ : Finset ι), f i s := by
+    funext s
+    rw [← Finset.set_biUnion_coe, Finset.coe_univ, Set.biUnion_univ]
+  rw [hEq]
+  exact regularFormation_finset_biUnion Sig hL A Finset.univ f (fun i _ => hf i)
+
+/-! ### Atoms of a sorted equivalence: `δ^{s,[a]_Φ}`. -/
+
+/-- The shell `δ^{s,[a]_Φ}` of an explicit representative: the `Φ`-class of `a`
+concentrated at sort `s`. -/
+noncomputable def atomRep {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) (a : A s) :
+    Sub A :=
+  deltaSub s (eqvClass Φ s a)
+
+/-- The atom of a class `q : A/Φ`: the paper's Kronecker delta
+`δ^{q.1,[out q]_{Φ_{q.1}}}`. (`Quotient.out` selects a representative.) -/
+noncomputable def atomOf {S : Type u} {A : SSet S} (Φ : SortedEqv A)
+    (q : Sigma (quot Φ)) : Sub A :=
+  atomRep Φ q.1 (Quotient.out q.2)
+
+/-- Each atom `δ^{s,[a]_Φ}` is `Φ`-saturated. -/
+theorem isSat_atomRep {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) (a : A s) :
+    IsSat Φ (atomRep Φ s a) := by
+  classical
+  unfold IsSat
+  funext t
+  by_cases ht : t = s
+  · subst ht
+    ext b
+    simp only [atomRep, deltaSub, Function.update_self, sat, Set.mem_setOf_eq, eqvClass]
+    constructor
+    · rintro ⟨x, hax, hxb⟩
+      exact (Φ s).trans hax hxb
+    · intro hab
+      exact ⟨a, (Φ s).refl a, hab⟩
+  · have hz : atomRep Φ s a t = (∅ : Set (A t)) := by
+      simp only [atomRep, deltaSub, Function.update_of_ne ht]
+    rw [hz]
+    simp [sat, hz]
+
+theorem isSat_atomOf {S : Type u} {A : SSet S} (Φ : SortedEqv A)
+    (q : Sigma (quot Φ)) : IsSat Φ (atomOf Φ q) :=
+  isSat_atomRep Φ q.1 (Quotient.out q.2)
+
+/-- The atoms of a meet factor through the atoms of the two factors:
+`δ^{s,[a]_{Φ∩Ψ}} = δ^{s,[a]_Φ} ∩ δ^{s,[a]_Ψ}`. -/
+theorem atomRep_inf {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) (s : S) (a : A s) :
+    atomRep (sortedEqvInf Φ Ψ) s a = fun t => atomRep Φ s a t ∩ atomRep Ψ s a t := by
+  classical
+  funext t
+  by_cases ht : t = s
+  · subst ht
+    ext b
+    simp [atomRep, deltaSub, eqvClass, sortedEqvInf]
+  · have h1 : atomRep (sortedEqvInf Φ Ψ) s a t = (∅ : Set (A t)) := by
+      simp only [atomRep, deltaSub, Function.update_of_ne ht]
+    have h2 : atomRep Φ s a t = (∅ : Set (A t)) := by
+      simp only [atomRep, deltaSub, Function.update_of_ne ht]
+    have h3 : atomRep Ψ s a t = (∅ : Set (A t)) := by
+      simp only [atomRep, deltaSub, Function.update_of_ne ht]
+    rw [h1, h2, h3, Set.empty_inter]
+
+theorem atomOf_inf {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A)
+    (q : Sigma (quot (sortedEqvInf Φ Ψ))) :
+    atomOf (sortedEqvInf Φ Ψ) q
+      = fun s => atomRep Φ q.1 (Quotient.out q.2) s
+          ∩ atomRep Ψ q.1 (Quotient.out q.2) s := by
+  unfold atomOf
+  exact atomRep_inf Φ Ψ q.1 (Quotient.out q.2)
+
+/-- A `Φ`-saturated set is the union of the atoms of `Φ` whose representative
+lies in it. -/
+theorem eq_iUnion_atoms {S : Type u} {A : SSet S} (Φ : SortedEqv A) (N : Sub A)
+    (hN : IsSat Φ N) :
+    N = fun s => ⋃ q : {q : Sigma (quot Φ) //
+        (Quotient.out q.1.2 : A q.1.1) ∈ N q.1.1}, atomOf Φ q.1 s := by
+  classical
+  funext s
+  ext a
+  constructor
+  · intro ha
+    refine Set.mem_iUnion.mpr ⟨⟨⟨s, Quotient.mk (Φ s) a⟩, ?_⟩, ?_⟩
+    · have hrel : (Φ s).r (Quotient.out (Quotient.mk (Φ s) a)) a :=
+        Quotient.exact (Quotient.out_eq (Quotient.mk (Φ s) a))
+      rw [← hN]
+      exact ⟨a, ha, hrel.symm⟩
+    · simp only [atomOf, deltaSub, Function.update_self]
+      exact Quotient.exact (Quotient.out_eq (Quotient.mk (Φ s) a))
+  · intro ha
+    rcases Set.mem_iUnion.mp ha with ⟨q, hq⟩
+    have hcond : (Quotient.out q.1.2 : A q.1.1) ∈ N q.1.1 := q.2
+    have hs : s = q.1.1 := by
+      by_contra hne
+      have hz : atomOf Φ q.1 s = (∅ : Set (A s)) := by
+        simp only [atomOf, deltaSub, Function.update_of_ne hne]
+      rw [hz] at hq
+      exact hq
+    subst hs
+    have hrel : (Φ q.1.1).r (Quotient.out q.1.2) a := by
+      simpa only [atomOf, deltaSub, Function.update_self] using hq
+    rw [← hN]
+    exact ⟨Quotient.out q.1.2, hcond, hrel⟩
+
+/-! ### `B-P038`: `𝔉_𝔏`, the congruence formation of a regular-language
+formation. -/
+
+/-- `B-P038` (`Lang2CongEnFinit`): the congruence formation
+`𝔉_𝔏(A) = {Φ ∈ Cgr_fi(T_Σ(A)) | Φ-Sat(T_Σ(A)) ⊆ 𝔏(A)}` associated to a
+formation `𝔏` of regular languages. -/
+def langCongFormationOf {S : Type u} (Sig : Signature S)
+    (L : (A : SSet S) → Set (Sub (Term Sig A))) :
+    (A : SSet S) → Set (SortedEqv (Term Sig A)) :=
+  fun A => {Φ | Φ ∈ congFi Sig (termAlg Sig A).2 ∧
+    ∀ N : Sub (Term Sig A), IsSat Φ N → N ∈ L A}
+
+/-- `B-P038`: `𝔉_𝔏(A)` is nonempty, because `∇^{T_Σ(A)}` has finite index (as
+`S` is finite) and every `∇`-saturated language lies in `𝔏(A)`. -/
+theorem langCongFormationOf_nabla {S : Type u} (Sig : Signature S) [Finite S]
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S) :
+    nabla (Term Sig A) ∈ langCongFormationOf Sig L A := by
+  refine ⟨⟨nabla_isCongruence Sig (termAlg Sig A).2, ?_⟩, ?_⟩
+  · exact isFiniteIndex_nabla (Term Sig A)
+      (Set.finite_univ.subset (Set.subset_univ (supp (Term Sig A))))
+  · intro N hN
+    exact hL.2.1 A N hN
+
+/-- `B-P038`: `𝔉_𝔏(A)` is up-closed under refinement among congruences (a
+coarser congruence has fewer saturated sets, by `B-C001`). -/
+theorem langCongFormationOf_up {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))} (A : SSet S) :
+    ∀ Φ ∈ langCongFormationOf Sig L A, ∀ Ψ : SortedEqv (Term Sig A),
+      IsCongruence Sig (termAlg Sig A).2 Ψ → sortedEqvLe Φ Ψ →
+      Ψ ∈ langCongFormationOf Sig L A := by
+  intro Φ hΦ Ψ hΨ hle
+  exact ⟨⟨hΨ, IsFiniteIndex_of_le hle hΦ.1.2⟩,
+    fun N hN => hΦ.2 N (sat_antitone hle hN)⟩
+
+/-- `B-P038`: `𝔉_𝔏(A)` is closed under the pointwise meet. A `(Φ ∩ Ψ)`-saturated
+`N` is the finite union of its atoms `δ^{s,[P]_{(Φ∩Ψ)_s}}`; each atom is the
+intersection of a `Φ`-atom and a `Ψ`-atom, both in `𝔏(A)`, so the union is too
+(`𝔏(A)` is a Boolean algebra and `Φ ∩ Ψ` has finite index). -/
+theorem langCongFormationOf_inf {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S) :
+    ∀ Φ ∈ langCongFormationOf Sig L A, ∀ Ψ ∈ langCongFormationOf Sig L A,
+      sortedEqvInf Φ Ψ ∈ langCongFormationOf Sig L A := by
+  intro Φ hΦ Ψ hΨ
+  refine ⟨⟨IsCongruence_inf Sig (termAlg Sig A).2 hΦ.1.1 hΨ.1.1,
+    IsFiniteIndex_inf hΦ.1.2 hΨ.1.2⟩, ?_⟩
+  intro N hN
+  haveI : Finite (Sigma (quot (sortedEqvInf Φ Ψ))) :=
+    IsFiniteIndex_inf hΦ.1.2 hΨ.1.2
+  let g : {q : Sigma (quot (sortedEqvInf Φ Ψ)) //
+      (Quotient.out q.1.2 : Term Sig A q.1.1) ∈ N q.1.1} → Sub (Term Sig A) :=
+    fun q => atomOf (sortedEqvInf Φ Ψ) q.1
+  have hNunion : N = fun s => ⋃ q, g q s := eq_iUnion_atoms (sortedEqvInf Φ Ψ) N hN
+  rw [hNunion]
+  apply regularFormation_iUnion_finite Sig hL A g
+  intro q
+  change atomOf (sortedEqvInf Φ Ψ) q.1 ∈ L A
+  rw [atomOf_inf]
+  exact regularFormation_inter Sig hL A
+    (atomRep Φ q.1.1 (Quotient.out q.1.2))
+    (atomRep Ψ q.1.1 (Quotient.out q.1.2))
+    (hΦ.2 (atomRep Φ q.1.1 (Quotient.out q.1.2))
+      (isSat_atomRep Φ q.1.1 (Quotient.out q.1.2)))
+    (hΨ.2 (atomRep Ψ q.1.1 (Quotient.out q.1.2))
+      (isSat_atomRep Ψ q.1.1 (Quotient.out q.1.2)))
+
+/-- `B-P038`: `𝔉_𝔏(A)` is closed under the pullback of kernels along
+`Θ`-epimorphisms. The saturation step is the manuscript's argument: for a
+`Ker(pr^Θ ∘ f)`-saturated `N`, the set `[f[N]]^Θ` lies in `𝔏(B)`, and `N` is
+`Ker(pr^{Ω([f[N]]^Θ)} ∘ f)`-saturated, so `𝔏`'s preimage clause applies. -/
+theorem langCongFormationOf_ker {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A B : SSet S)
+    (Θ : SortedEqv (Term Sig B)) (hΘ : IsCongruence Sig (termAlg Sig B).2 Θ)
+    (hΘmem : Θ ∈ langCongFormationOf Sig L B)
+    (f : SortedMap (Term Sig A) (Term Sig B))
+    (hf : IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f)
+    (hsurj : ∀ s, Function.Surjective
+      (fun x => prAlg Sig (termAlg Sig B).2 Θ hΘ s (f s x))) :
+    ker (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s)
+      ∈ langCongFormationOf Sig L A := by
+  let g : SortedMap (Term Sig A) (quot Θ) :=
+    fun s => (prAlg Sig (termAlg Sig B).2 Θ hΘ s) ∘ (f s)
+  change ker g ∈ langCongFormationOf Sig L A
+  have hg : IsAlgHom Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g := by
+    intro p σ a
+    show prAlg Sig (termAlg Sig B).2 Θ hΘ p.2 (f p.2 ((termAlg Sig A).2 p σ a)) =
+      (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 p σ
+        (fun i => prAlg Sig (termAlg Sig B).2 Θ hΘ (p.1.get i) (f (p.1.get i) (a i)))
+    rw [hf p σ a]
+    exact isAlgHom_prAlg Sig (termAlg Sig B).2 Θ hΘ p σ
+      (fun i => f (p.1.get i) (a i))
+  have hkg : IsCongruence Sig (termAlg Sig A).2 (ker g) :=
+    ker_isCongruence Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg
+  have hiso := quotAlg_ker_isAlgIso Sig (termAlg Sig A).2
+    (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg hsurj
+  refine ⟨⟨hkg, ?_⟩, ?_⟩
+  · exact finiteSSet_of_isAlgIso Sig
+      (isAlgIso_symm Sig (quotAlg Sig (termAlg Sig A).2 (ker g) hkg).2
+        (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 hiso) hΘmem.1.2
+  · intro N hN
+    have hKsat : IsSat Θ (sat Θ (directImage f N)) := sat_idem Θ (directImage f N)
+    have hKmem : sat Θ (directImage f N) ∈ L B := hΘmem.2 _ hKsat
+    have hΘle : sortedEqvLe Θ
+        (congCogenerated Sig (termAlg Sig B) (sat Θ (directImage f N))) :=
+      (isSat_iff_le_congCogenerated Sig (termAlg Sig B) _
+        (congCogenerated_isCongruence Sig (termAlg Sig B) _)).mp hKsat
+    have hsurjΩ : ∀ s, Function.Surjective (fun x =>
+        prAlg Sig (termAlg Sig B).2
+          (congCogenerated Sig (termAlg Sig B) (sat Θ (directImage f N)))
+          (congCogenerated_isCongruence Sig (termAlg Sig B) (sat Θ (directImage f N)))
+          s (f s x)) := by
+      intro s y
+      induction y using Quotient.inductionOn with
+      | _ b =>
+        obtain ⟨x, hx⟩ := hsurj s (Quotient.mk (Θ s) b)
+        refine ⟨x, ?_⟩
+        have hxb : (Θ s).r (f s x) b := Quotient.exact hx
+        exact Quotient.sound (hΘle s (f s x) b hxb)
+    have hNsat : IsSat (ker (fun s => prAlg Sig (termAlg Sig B).2
+        (congCogenerated Sig (termAlg Sig B) (sat Θ (directImage f N)))
+        (congCogenerated_isCongruence Sig (termAlg Sig B) (sat Θ (directImage f N)))
+        s ∘ f s)) N := by
+      unfold IsSat
+      funext s
+      ext y
+      constructor
+      · rintro ⟨x, hx, hxy⟩
+        have hΩrel : (congCogenerated Sig (termAlg Sig B)
+            (sat Θ (directImage f N)) s).r (f s x) (f s y) := Quotient.exact hxy
+        have hchar := congCogenerated_le_charEqv Sig (termAlg Sig B)
+          (sat Θ (directImage f N)) s (f s x) (f s y) hΩrel
+        have hfx : f s x ∈ sat Θ (directImage f N) s :=
+          ⟨f s x, ⟨x, hx, rfl⟩, (Θ s).refl (f s x)⟩
+        have hfy : f s y ∈ sat Θ (directImage f N) s := hchar.mpr hfx
+        rcases hfy with ⟨R, hR, hRy⟩
+        rcases hR with ⟨R', hR', rfl⟩
+        have hab : (ker g s).r R' y := by
+          change Quotient.mk (Θ s) (f s R') = Quotient.mk (Θ s) (f s y)
+          exact Quotient.sound hRy
+        rw [← hN]
+        exact ⟨R', hR', hab⟩
+      · intro hy
+        exact ⟨y, hy, rfl⟩
+    exact hL.2.2.2 A B (sat Θ (directImage f N)) hKmem f hf hsurjΩ N hNsat
+
+/-- `B-P038` (`Lang2CongEnFinit`): a formation `𝔏` of regular languages yields
+a formation `𝔉_𝔏` of finite-index congruences. -/
+theorem langCongFormationOf_isFiniteIndexCongruenceFormation {S : Type u}
+    (Sig : Signature S) [Finite S]
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) :
+    IsFiniteIndexCongruenceFormation Sig (langCongFormationOf Sig L) :=
+  ⟨⟨fun A => ⟨langCongFormationOf_nabla Sig hL A,
+      fun _Φ hΦ => hΦ.1.1,
+      fun Φ hΦ Ψ hΨ => langCongFormationOf_inf Sig hL A Φ hΦ Ψ hΨ,
+      fun Φ hΦ Ψ hΨc hle => langCongFormationOf_up Sig A Φ hΦ Ψ hΨc hle⟩,
+    fun A B Θ hΘ hΘmem f hf hsurj =>
+      langCongFormationOf_ker Sig hL A B Θ hΘ hΘmem f hf hsurj⟩,
+   fun A Φ hΦ => hΦ.1⟩
+
 end Mslang

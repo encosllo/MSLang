@@ -521,6 +521,33 @@ theorem sat_compl {S : Type u} {A : SSet S} (Φ : SortedEqv A) {X : Sub A}
     simp only [complA, Set.mem_compl_iff] at ha ⊢
     exact ⟨a, ha, (Φ s).refl a⟩
 
+/-- Saturation is closed under binary union. -/
+theorem isSat_union {S : Type u} {A : SSet S} {Φ : SortedEqv A} {X Y : Sub A}
+    (hX : IsSat Φ X) (hY : IsSat Φ Y) : IsSat Φ (fun s => X s ∪ Y s) := by
+  unfold IsSat at *
+  funext s
+  ext a
+  constructor
+  · rintro ⟨x, hx | hx, hxa⟩
+    · exact Or.inl (hX ▸ (⟨x, hx, hxa⟩ : a ∈ sat Φ X s))
+    · exact Or.inr (hY ▸ (⟨x, hx, hxa⟩ : a ∈ sat Φ Y s))
+  · rintro (ha | ha)
+    · exact ⟨a, Or.inl ha, (Φ s).refl a⟩
+    · exact ⟨a, Or.inr ha, (Φ s).refl a⟩
+
+/-- Saturation is closed under binary intersection. -/
+theorem isSat_inter {S : Type u} {A : SSet S} {Φ : SortedEqv A} {X Y : Sub A}
+    (hX : IsSat Φ X) (hY : IsSat Φ Y) : IsSat Φ (fun s => X s ∩ Y s) := by
+  unfold IsSat at *
+  funext s
+  ext a
+  constructor
+  · rintro ⟨x, hx, hxa⟩
+    exact ⟨hX ▸ (⟨x, hx.1, hxa⟩ : a ∈ sat Φ X s),
+      hY ▸ (⟨x, hx.2, hxa⟩ : a ∈ sat Φ Y s)⟩
+  · rintro ⟨ha, ha'⟩
+    exact ⟨a, ⟨ha, ha'⟩, (Φ s).refl a⟩
+
 theorem suppSub_sat {S : Type u} {A : SSet S} (Φ : SortedEqv A) (X : Sub A) :
     suppSub (sat Φ X) = suppSub X := by
   ext s
