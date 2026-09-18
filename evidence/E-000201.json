@@ -1,0 +1,37 @@
+{
+  "block": "B-R023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000201",
+  "findings": [
+    "B-R023: langFormationOf_sat_of_le - if L \u2208 L_F(A) and \u03a9(L) \u2286 \u03a8 then [L]^\u03a8 \u2208 L_F(A); \u03a6 \u2286 \u03a9(L) \u2286 \u03a8 gives \u03a8-saturation implies \u03a6-saturation (sat_antitone + sat_idem).",
+    "Axioms within the permitted set (lean_audit: 302 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R023/formal_proof",
+      "hash": "d2a5aeb88c1453f421412820b2678dbd99d098dbeca1cb149df130e87fa24e8f"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T21:20:45Z"
+}

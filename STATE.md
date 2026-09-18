@@ -4755,6 +4755,59 @@ are the separate `B-P018`/`B-C005`/`B-C012` results (as with `B-P020`/`B-P034`).
 
 ---
 
+## Session 99 -- 2026-09-18 -- L_𝔉 closure corollaries (B-C007/B-C008/B-C009/B-C010, B-R022/B-R023)
+
+**Goal.** Long-run continuation after the designated Eilenberg goals: formalize
+the closure properties of the language formation `L_𝔉` that the second half of
+the paper uses.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean`:
+  - **`B-R022`** `langFormationOf_eq_iUnion_satSets`:
+    `L_𝔉(A) = ⋃_{Φ∈𝔉(A)} Φ-Sat(T_Σ(A))`;
+  - **`B-R023`** `langFormationOf_sat_of_le`: if `L ∈ L_𝔉(A)` and
+    `Ω(L) ⊆ Ψ` then `[L]^Ψ ∈ L_𝔉(A)` (via `sat_antitone` + `sat_idem`);
+  - **`B-C007`** `langFormationOf_transPreimage`: closure under translation
+    preimages (`B-P027` + the meet clause at `X = Y = L`);
+  - **`B-C010`** `langFormationOf_inverseImage`: closure under `f⁻¹[M]` along
+    `Ω(M)`-epimorphisms (`B-P028` then the kernel clause);
+  - **`B-C008`** `langFormationOf_union`/`_inter`/`_compl`/`_empty`/`_univ`:
+    `L_𝔉(A)` is a Boolean subalgebra of `Sub(T_Σ(A))` (the two bounds are the
+    `∇`-saturated empty and full languages, so the "subalgebra" wording is
+    exact, not just closure);
+  - **`B-C009`** `langFormationOf_atom_inf`: `δ^{s,[P]_{Φ∩Ψ}} ∈ L_𝔉(A)` when
+    both factors are (`atomRep_inf` + `B-C008`).
+- Mapping: the six blocks. Evidence `E-000200`..`E-000205` (verification) and
+  `E-000206` (B-C008 reissued after the bounds were added), `E-000207`..`E-000210`
+  (correspondence). Verdicts: `B-C007`/`B-C008`/`B-C010` **`equivalent`**;
+  `B-C009` **`formal_stronger`** (the Lean statement quantifies over arbitrary
+  sorted equivalences, not only congruences — a positive generalization,
+  recorded).
+- `blocks/lean_audit.json`: **304 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**. `check_all.sh` slow: **43 passed, 0 failed**. Journal `EV-000108`.
+  Frontier unmapped **34 -> 28** (101 mapped blocks).
+
+**Note on the audit protocol (caught by the comparator).** The first `B-C008`
+comparator pass returned `formal_weaker`: the bare three closure implications do
+not entail "Boolean subalgebra" without the bounds. The `∅`/`T_Σ(A)` lemmas were
+then added and the verification record reissued (`E-000204` -> `E-000206`,
+reason `remap`). This is the protocol working as intended.
+
+**Honest caveat.** Same-model audits (`provisional`); B-R022/B-R023 carry
+verification only (definitional restatement / remark, matching the convention
+for remarks without a distinct result-bearing statement).
+
+**Prioritized next steps.**
+
+1. The lattice structures: `B-C005`/`B-C006`/`B-C011`/`B-C012`/`B-C013` and
+   `B-P032`/`B-P033`/`B-P036`.
+2. `B-P035` (Def1FRL ⇔ Def2FRL); the forward direction is short, the converse
+   needs the class representation `B-P029` (`DesClasCog`).
+3. `B-P001` (`propssupport`) support properties.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

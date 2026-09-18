@@ -899,4 +899,161 @@ def formCgrFiFormLangRIso {S : Type u} (Sig : Signature S) [Finite S] :
     · intro h
       exact langFormationOf_mono Sig h
 
+/-! ### `B-C007`--`B-C010`, `B-R022`/`B-R023`: closure properties of `L_𝔉`. -/
+
+/-- `B-R022`: `L_𝔉(A)` is the union of the saturated sets `Φ-Sat(T_Σ(A))` over
+`Φ ∈ 𝔉(A)`. -/
+theorem langFormationOf_eq_iUnion_satSets {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) :
+    langFormationOf Sig G A = ⋃ Φ ∈ G A, satSets Φ := by
+  ext L
+  simp only [Set.mem_iUnion, exists_prop, satSets, Set.mem_ofPred_eq]
+  exact mem_langFormationOf_iff Sig hG A L
+
+/-- `B-R023`: if `L ∈ L_𝔉(A)` and `Ω(L) ⊆ Ψ` (with `Ψ` a congruence), then the
+saturation `[L]^Ψ` is again in `L_𝔉(A)`. -/
+theorem langFormationOf_sat_of_le {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S)
+    {L : Sub (Term Sig A)} (hL : L ∈ langFormationOf Sig G A)
+    {Ψ : SortedEqv (Term Sig A)}
+    (hle : sortedEqvLe (congCogenerated Sig (termAlg Sig A) L) Ψ) :
+    sat Ψ L ∈ langFormationOf Sig G A := by
+  obtain ⟨Φ, hΦG, hΦsat⟩ := (mem_langFormationOf_iff Sig hG A L).mp hL
+  have hΦleΩ : sortedEqvLe Φ (congCogenerated Sig (termAlg Sig A) L) :=
+    (isSat_iff_le_congCogenerated Sig (termAlg Sig A) L
+      ((hG.1 A).2.1 Φ hΦG)).mp hΦsat
+  exact (mem_langFormationOf_iff Sig hG A _).mpr
+    ⟨Φ, hΦG, sat_antitone (sortedEqvLe_trans hΦleΩ hle) (sat_idem Ψ L)⟩
+
+/-- `B-C007`: `L_𝔉` is closed under inverse images of translations. -/
+theorem langFormationOf_transPreimage {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S)
+    {t s : S} {T : Term Sig A t → Term Sig A s}
+    (hT : TlGen Sig (termAlg Sig A) t s T) {L : Sub (Term Sig A)}
+    (hL : L ∈ langFormationOf Sig G A) :
+    transPreimage T L ∈ langFormationOf Sig G A := by
+  have hΩG : congCogenerated Sig (termAlg Sig A) L ∈ G A := hL
+  have hs : IsSat (congCogenerated Sig (termAlg Sig A) L) (transPreimage T L) :=
+    (isSat_iff_le_congCogenerated Sig (termAlg Sig A) (transPreimage T L)
+      ((hG.1 A).2.1 _ hΩG)).mpr
+      (congCogenerated_le_transPreimage Sig (termAlg Sig A) hT L)
+  refine langFormationOf_inf Sig hG A L L hL hL (transPreimage T L) ?_
+  rw [sortedEqvInf_self]
+  exact hs
+
+/-- `B-C010`: `L_𝔉` is closed under inverse images along `Ω(M)`-epimorphisms. -/
+theorem langFormationOf_inverseImage {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A B : SSet S)
+    {M : Sub (Term Sig B)} (hM : M ∈ langFormationOf Sig G B)
+    {f : SortedMap (Term Sig A) (Term Sig B)}
+    (hf : IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f)
+    (hsurj : ∀ s, Function.Surjective (fun x => prAlg Sig (termAlg Sig B).2
+      (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M) s (f s x))) :
+    inverseImage f M ∈ langFormationOf Sig G A := by
+  let g : SortedMap (Term Sig A) (quotAlg Sig (termAlg Sig B).2
+      (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M)).1 :=
+    fun s => (prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M) s) ∘ (f s)
+  have hg : IsAlgHom Sig (termAlg Sig A).2
+      (quotAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M)).2 g := by
+    intro p σ a
+    show prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M) p.2
+          (f p.2 ((termAlg Sig A).2 p σ a)) =
+      (quotAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M)).2 p σ
+        (fun i => prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M) (p.1.get i)
+          (f (p.1.get i) (a i)))
+    rw [hf p σ a]
+    exact isAlgHom_prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M) p σ
+      (fun i => f (p.1.get i) (a i))
+  refine langFormationOf_ker Sig hG A B M hM f hf hsurj (inverseImage f M) ?_
+  have hker_le : sortedEqvLe (ker g)
+      (congCogenerated Sig (termAlg Sig A) (inverseImage f M)) := by
+    intro s x y hxy
+    have hpb : (pullbackEqv f (congCogenerated Sig (termAlg Sig B) M) s).r x y := by
+      change (congCogenerated Sig (termAlg Sig B) M s).r (f s x) (f s y)
+      change Quotient.mk (congCogenerated Sig (termAlg Sig B) M s) (f s x) =
+        Quotient.mk (congCogenerated Sig (termAlg Sig B) M s) (f s y) at hxy
+      exact Quotient.exact hxy
+    exact pullbackEqv_congCogenerated_le Sig hf M s x y hpb
+  exact (isSat_iff_le_congCogenerated Sig (termAlg Sig A) (inverseImage f M)
+    (ker_isCongruence Sig (termAlg Sig A).2
+      (quotAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M)).2 g hg)).mpr hker_le
+
+/-- `B-C008` (union): `L_𝔉(A)` is closed under binary union. -/
+theorem langFormationOf_union {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S)
+    {L L' : Sub (Term Sig A)}
+    (hL : L ∈ langFormationOf Sig G A) (hL' : L' ∈ langFormationOf Sig G A) :
+    (fun s => L s ∪ L' s) ∈ langFormationOf Sig G A := by
+  obtain ⟨Φ, hΦG, hΦsat⟩ := (mem_langFormationOf_iff Sig hG A L).mp hL
+  obtain ⟨Ψ, hΨG, hΨsat⟩ := (mem_langFormationOf_iff Sig hG A L').mp hL'
+  refine (mem_langFormationOf_iff Sig hG A _).mpr
+    ⟨sortedEqvInf Φ Ψ, (hG.1 A).2.2.1 Φ hΦG Ψ hΨG, ?_⟩
+  exact isSat_union (sat_antitone (sortedEqvInf_le_left Φ Ψ) hΦsat)
+    (sat_antitone (sortedEqvInf_le_right Φ Ψ) hΨsat)
+
+/-- `B-C008` (intersection): `L_𝔉(A)` is closed under binary intersection. -/
+theorem langFormationOf_inter {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S)
+    {L L' : Sub (Term Sig A)}
+    (hL : L ∈ langFormationOf Sig G A) (hL' : L' ∈ langFormationOf Sig G A) :
+    (fun s => L s ∩ L' s) ∈ langFormationOf Sig G A := by
+  obtain ⟨Φ, hΦG, hΦsat⟩ := (mem_langFormationOf_iff Sig hG A L).mp hL
+  obtain ⟨Ψ, hΨG, hΨsat⟩ := (mem_langFormationOf_iff Sig hG A L').mp hL'
+  refine (mem_langFormationOf_iff Sig hG A _).mpr
+    ⟨sortedEqvInf Φ Ψ, (hG.1 A).2.2.1 Φ hΦG Ψ hΨG, ?_⟩
+  exact isSat_inter (sat_antitone (sortedEqvInf_le_left Φ Ψ) hΦsat)
+    (sat_antitone (sortedEqvInf_le_right Φ Ψ) hΨsat)
+
+/-- `B-C008` (complement): `L_𝔉(A)` is closed under `∁_{T_Σ(A)}`. -/
+theorem langFormationOf_compl {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S)
+    {L : Sub (Term Sig A)} (hL : L ∈ langFormationOf Sig G A) :
+    complA L ∈ langFormationOf Sig G A := by
+  obtain ⟨Φ, hΦG, hΦsat⟩ := (mem_langFormationOf_iff Sig hG A L).mp hL
+  exact (mem_langFormationOf_iff Sig hG A _).mpr ⟨Φ, hΦG, sat_compl Φ hΦsat⟩
+
+/-- `B-C008` (bottom): `L_𝔉(A)` contains the empty language, so it is a Boolean
+subalgebra of `Sub(T_Σ(A))` (not merely closed under ∪, ∩, ∁). -/
+theorem langFormationOf_empty {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) :
+    (fun s => (∅ : Set (Term Sig A s))) ∈ langFormationOf Sig G A :=
+  langFormationOf_nabla Sig hG A _ nabla_sat_empty
+
+/-- `B-C008` (top): `L_𝔉(A)` contains the full language. -/
+theorem langFormationOf_univ {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) :
+    (fun s => (Set.univ : Set (Term Sig A s))) ∈ langFormationOf Sig G A :=
+  langFormationOf_nabla Sig hG A _ nabla_sat_univ
+
+/-- `B-C009` (`CorolariAtoms`): the meet of two atoms `δ^{s,[P]_Φ}` and
+`δ^{s,[P]_Ψ}` is the atom `δ^{s,[P]_{Φ∩Ψ}}`; if the two factors are in `L_𝔉(A)`
+then so is the meet. -/
+theorem langFormationOf_atom_inf {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S)
+    {Φ Ψ : SortedEqv (Term Sig A)} {s : S} {P : Term Sig A s}
+    (hΦ : atomRep Φ s P ∈ langFormationOf Sig G A)
+    (hΨ : atomRep Ψ s P ∈ langFormationOf Sig G A) :
+    atomRep (sortedEqvInf Φ Ψ) s P ∈ langFormationOf Sig G A := by
+  rw [atomRep_inf]
+  exact langFormationOf_inter Sig hG A hΦ hΨ
+
 end Mslang

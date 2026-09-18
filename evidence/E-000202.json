@@ -1,0 +1,37 @@
+{
+  "block": "B-C007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000202",
+  "findings": [
+    "B-C007: langFormationOf_transPreimage - L_F is closed under inverse images of translations T \u2208 Tl_t, via B-P027 (\u03a9(L) \u2286 \u03a9(T^{-1}L)) and the meet clause at X=Y=L (sortedEqvInf_self).",
+    "Axioms within the permitted set (lean_audit: 302 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C007/formal_proof",
+      "hash": "a56eb4c0bfce0943a5f4ac03d7f24f223c3190d1b738bae248a2f7fa24ed14e5"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T21:20:45Z"
+}

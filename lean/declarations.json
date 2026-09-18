@@ -654,6 +654,36 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-R022": {
+      "decl": "Mslang.langFormationOf_eq_iUnion_satSets",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-R023": {
+      "decl": "Mslang.langFormationOf_sat_of_le",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-C007": {
+      "decl": "Mslang.langFormationOf_transPreimage",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-C010": {
+      "decl": "Mslang.langFormationOf_inverseImage",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-C008": {
+      "decls": [
+        "Mslang.langFormationOf_union",
+        "Mslang.langFormationOf_inter",
+        "Mslang.langFormationOf_compl",
+        "Mslang.langFormationOf_empty",
+        "Mslang.langFormationOf_univ"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-C009": {
+      "decl": "Mslang.langFormationOf_atom_inf",
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

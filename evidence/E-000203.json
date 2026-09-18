@@ -1,0 +1,37 @@
+{
+  "block": "B-C010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000203",
+  "findings": [
+    "B-C010: langFormationOf_inverseImage - for M \u2208 L_F(B) and an \u03a9(M)-epimorphism f, f^{-1}[M] \u2208 L_F(A); Ker(pr^{\u03a9(M)}\u2218f) \u2286 \u03a9(f^{-1}[M]) from B-P028 (pullbackEqv_congCogenerated_le), then the kernel clause of langFormationOf_ker.",
+    "Axioms within the permitted set (lean_audit: 302 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C010/formal_proof",
+      "hash": "2804be7f274c83f917678bacde41eb2dbc481bd313edaa922a0a6706429496a0"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T21:20:45Z"
+}

@@ -1,0 +1,39 @@
+{
+  "block": "B-C008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000206",
+  "findings": [
+    "B-C008: langFormationOf_union/inter/compl plus langFormationOf_empty/univ - L_F(A) is a Boolean subalgebra of Sub(T_\u03a3(A)): union/intersection use the meet of the witnessing congruences, complement uses sat_compl, and bottom/top are the \u2207-saturated empty and full languages (langFormationOf_nabla + nabla_sat_empty/univ). Supersedes E-000204 after adding the two bound lemmas to the block.",
+    "Axioms within the permitted set (lean_audit: 304 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C008/formal_proof",
+      "hash": "940b82c99e7e91b1beafb9d67b94f7aab0291f1db9ea0e4006a76c49db7c4131"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000204",
+  "timestamp": "2026-09-18T21:29:27Z"
+}

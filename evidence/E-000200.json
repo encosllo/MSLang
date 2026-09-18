@@ -1,0 +1,37 @@
+{
+  "block": "B-R022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000200",
+  "findings": [
+    "B-R022: langFormationOf_eq_iUnion_satSets - L_F(A) = \u22c3_{\u03a6 \u2208 F(A)} \u03a6-Sat(T_\u03a3(A)) (the union-of-saturations presentation), unfolding mem_langFormationOf_iff.",
+    "Axioms within the permitted set (lean_audit: 302 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R022/formal_proof",
+      "hash": "27e659a26786bdb4752f9ed6c8ca9835af8246836ece40e9e3082baa09a30b7a"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T21:20:45Z"
+}

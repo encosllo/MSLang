@@ -510,7 +510,37 @@
       "propext"
     ],
     "Mslang.langFormationOf": [],
+    "Mslang.langFormationOf_atom_inf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_compl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_empty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_eq_iUnion_satSets": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.langFormationOf_inf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_inter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_inverseImage": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -532,6 +562,26 @@
     ],
     "Mslang.langFormationOf_mono": [],
     "Mslang.langFormationOf_nabla": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_sat_of_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_transPreimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_univ": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -817,7 +867,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 294,
+  "declarations_audited": 304,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",
