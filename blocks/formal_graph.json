@@ -2101,6 +2101,41 @@
       "to": "B-P020"
     },
     {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-D014"
+    },
+    {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-D027"
+    },
+    {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-D041"
+    },
+    {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-D045"
+    },
+    {
+      "from": "B-P037",
+      "kind": "formal_uses",
+      "to": "B-P030"
+    },
+    {
       "from": "B-R001",
       "kind": "formal_uses",
       "to": "B-D002"

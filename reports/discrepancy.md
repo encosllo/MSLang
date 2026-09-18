@@ -5,9 +5,9 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P030`, `B-P031`, `B-P034`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P030`, `B-P031`, `B-P034`, `B-P037`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
 
-## Undecided edges (385)
+## Undecided edges (390)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -337,6 +337,11 @@ the review queue.
 | `B-P034` | `B-P015` |
 | `B-P034` | `B-P017` |
 | `B-P034` | `B-P019` |
+| `B-P037` | `B-D014` |
+| `B-P037` | `B-D016` |
+| `B-P037` | `B-D027` |
+| `B-P037` | `B-D041` |
+| `B-P037` | `B-D045` |
 | `B-R001` | `B-D015` |
 | `B-R003` | `B-D008` |
 | `B-R003` | `B-D009` |
@@ -404,7 +409,7 @@ the review queue.
 
 | disposition | count |
 |---|---|
-| type-carrier | 62 |
+| type-carrier | 63 |
 
 ## Reviewed dispositions
 
@@ -460,6 +465,7 @@ the review queue.
 | `B-P030` | `B-D015` |
 | `B-P030` | `B-D027` |
 | `B-P034` | `B-P020` |
+| `B-P037` | `B-P030` |
 | `B-R001` | `B-D006` |
 | `B-R005` | `B-D014` |
 | `B-R006` | `B-D014` |
@@ -471,4 +477,4 @@ the review queue.
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-56 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+55 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.

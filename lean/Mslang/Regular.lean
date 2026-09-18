@@ -384,4 +384,20 @@ def bpsLanguageFormations {S : Type u} (Sig : Signature S) :
     Set ((A : SSet S) → Set (Sub (Term Sig A))) :=
   {L | IsBPSLanguageFormation Sig L}
 
+/-! ### `B-P037`: `𝔉 ↦ L_𝔉` lands in regular-language formations. -/
+
+/-- `B-P037` (`Cong2LangEnFinit`): if `𝔉` is a formation of finite-index
+congruences, then `L_𝔉` is a formation of regular languages. The regularity
+clause is that `Ω(L) ∈ 𝔉(A)` has finite index; the three closure clauses are
+`B-P030`'s `langFormationOf_nabla`/`_inf`/`_ker`. -/
+theorem langFormationOf_isRegularLanguageFormation {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsFiniteIndexCongruenceFormation Sig G) :
+    IsRegularLanguageFormation Sig (langFormationOf Sig G) :=
+  ⟨fun A _L hL => (hG.2 A hL).2,
+   fun A X hX => langFormationOf_nabla Sig hG.1 A X hX,
+   fun A X Y hX hY N hN => langFormationOf_inf Sig hG.1 A X Y hX hY N hN,
+   fun A B M hM f hf hsurj N hN =>
+     langFormationOf_ker Sig hG.1 A B M hM f hf hsurj N hN⟩
+
 end Mslang

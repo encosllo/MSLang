@@ -1,0 +1,37 @@
+{
+  "block": "B-P037",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000194",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P037 compiled against Mathlib v4.33.1. langFormationOf_isRegularLanguageFormation : IsFiniteIndexCongruenceFormation Sig G implies IsRegularLanguageFormation Sig (langFormationOf Sig G); the regularity clause is (hG.2 A hL).2 and the three closure clauses are B-P030's lemmas.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 281 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P037/formal_proof",
+      "hash": "384cd95e1e6bc4696e67cd881450fbad5fb1e50d6a374a77cc83415ecb786d9b"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T15:13:36Z"
+}

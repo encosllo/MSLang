@@ -4613,6 +4613,40 @@ section's blanket assumption `B-A001`, not threaded through the definition).
 
 ---
 
+## Session 96 -- 2026-09-18 -- B-P037 (`𝔉 ↦ L_𝔉` is a language formation)
+
+**Goal.** The forward direction of the second-Eilenberg isomorphism: a
+finite-index congruence formation yields a regular-language formation.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean` (`B-P037`, `Cong2LangEnFinit`):
+  `langFormationOf_isRegularLanguageFormation : IsFiniteIndexCongruenceFormation
+  Sig G → IsRegularLanguageFormation Sig (langFormationOf Sig G)`. The regularity
+  clause is `(hG.2 A hL).2` (`Ω(L) ∈ 𝔉(A)` has finite index); the three closure
+  clauses are `B-P030`'s `langFormationOf_nabla`/`_inf`/`_ker` under `hG.1`.
+- Evidence **`E-000194`** (verification), **`E-000195`** (correspondence,
+  two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P037-correspondence.md`).
+- `lean_audit`: **281 declarations, 0 warnings, 0 unpermitted, 0 `sorry`**.
+  `check_all.sh` (slow): **43 passed, 0 failed**. Journal `EV-000105`. Frontier
+  **37 -> 36**.
+
+**Honest caveat.** Same-model audit (`provisional`).
+
+**Prioritized next steps.**
+
+1. `B-P038` (`Lang2CongEnFinit`): `L ↦ 𝔉_𝔏` — the converse direction. Its
+   meet-closure step represents a finite-index `Φ ∩ Ψ`-saturated language as a
+   finite union of Kronecker deltas, needing `B-C009`/`B-P024`/`B-R020`-style
+   machinery (finite decomposition).
+2. `B-P039` (`Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`), combining `B-P037`/`B-P038`
+   with `B-P030`-style round trips.
+3. `B-P035` (equivalence of the two language-formation definitions), `B-P032`/
+   `B-P033`, `B-C005`/`B-C006`.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

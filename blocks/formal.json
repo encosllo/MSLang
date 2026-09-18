@@ -2449,6 +2449,76 @@
         "hash": "2f89369af37b528f84c8ef8545eaf6424c42e81311dd32476e93274fae1d3868"
       }
     },
+    "B-P037": {
+      "decls": [
+        "Mslang.langFormationOf_isRegularLanguageFormation"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.FiniteSSet",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruenceFormation",
+          "Mslang.IsCongruence_inf",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.IsFiniteIndexCongruenceFormation",
+          "Mslang.IsRegularLanguage",
+          "Mslang.IsRegularLanguageFormation",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Term",
+          "Mslang.TlGen",
+          "Mslang.charEqv",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_isCongruence",
+          "Mslang.congCogenerated_le_charEqv",
+          "Mslang.congFi",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.finOp",
+          "Mslang.isAlgHom_prAlg",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.isSat_iff_le_congCogenerated",
+          "Mslang.isSat_iff_sortedEqvLe_charEqv",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.langFormationOf",
+          "Mslang.langFormationOf_inf",
+          "Mslang.langFormationOf_ker",
+          "Mslang.langFormationOf_nabla",
+          "Mslang.le_congCogenerated_of_isCongruence",
+          "Mslang.nabla_isCongruence",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.quotOp_mk",
+          "Mslang.regularLanguages",
+          "Mslang.sat",
+          "Mslang.sortedEqvLe_antisymm",
+          "Mslang.termAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "0f56a973bec2ab9e82f8c83a4f24ca26a7251cfe3516911a5562fdc7110ef00f"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "384cd95e1e6bc4696e67cd881450fbad5fb1e50d6a374a77cc83415ecb786d9b"
+      },
+      "formal_statement": {
+        "hash": "70efde19436a84bb5b0a836bf84a5e4632367ab5b546559dd87134199efc6bc3"
+      }
+    },
     "B-R001": {
       "decls": [
         "Mslang.SortedIso",

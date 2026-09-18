@@ -473,6 +473,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.langFormationOf_isRegularLanguageFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.langFormationOf_ker": [
       "Classical.choice",
       "Quot.sound",
@@ -760,7 +765,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 280,
+  "declarations_audited": 281,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -1,0 +1,68 @@
+{
+  "block": "B-P037",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000195",
+  "findings": [
+    "Stage 2 (fresh context) returned equivalent: the hypothesis is exactly a finite-index congruence formation, the conclusion has all four regular-language-formation clauses, and the B-P030 composition is legitimate. Transcript blocks/audits/B-P037-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P030/informal_statement",
+      "hash": "76d3b9e5e6cc1a979318f93011faa66e496d3ff10b4025fc5982d7afe7bf1179"
+    },
+    {
+      "artifact": "B-P037/definition_closure",
+      "hash": "0f56a973bec2ab9e82f8c83a4f24ca26a7251cfe3516911a5562fdc7110ef00f"
+    },
+    {
+      "artifact": "B-P037/formal_statement",
+      "hash": "70efde19436a84bb5b0a836bf84a5e4632367ab5b546559dd87134199efc6bc3"
+    },
+    {
+      "artifact": "B-P037/informal_statement",
+      "hash": "6d93dc747a1c244534ad3c6d8b52c51a8530852ae9cb8a217f2d605e00bde802"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T15:13:36Z"
+}
