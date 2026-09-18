@@ -4848,6 +4848,37 @@ residuals.
 
 ---
 
+## Session 101 (partial) -- 2026-09-18 -- B-P035 forward direction
+
+**Goal.** Start `B-P035` (`Def1FRL ⇔ Def2FRL`) with the tractable half.
+
+**What was established (unmapped infrastructure, no block mapped).**
+
+- `lean/Mslang/Regular.lean`: `regularFormation_compl`,
+  `regularFormation_transPreimage`, `regularFormation_inverseImage`, and
+  `isBPSLanguageFormation_of_isRegularLanguageFormation`
+  (`IsRegularLanguageFormation → IsBPSLanguageFormation`): `BPS 3` is `B-P027`
+  at `X = Y = L`, `BPS 4` is the Def1 Boolean closure, `BPS 5` is the Def1
+  kernel clause with `B-P028`.
+- Build clean, 0 warnings; slow `check_all`: **43 passed, 0 failed**.
+- **`B-P035` stays unmapped**: the converse `Def2 ⇒ Def1` is the open half and
+  requires the atom/class argument (finite unions of atoms
+  `δ^{t,[P]_{Ω(X)}}`, each written via `B-P029`) plus a finiteness result for
+  the `Ω(X)`-saturated sets. Because no block is mapped, there is no facet,
+  evidence record, or frontier movement from this session (per the convention
+  that unmapped infrastructure does not enter the frontier).
+
+**Prioritized next steps.**
+
+1. `B-P035` converse: formalize `δ^{t,[P]_{Ω(X)}} ∈ L(A)` for `X ∈ L(A)` using
+   `B-P029` + the finiteness of `Ω(X)`-saturated sets + the BPS Boolean
+   closure, then assemble `IsBPSLanguageFormation → IsRegularLanguageFormation`
+   and map `B-P035`.
+2. The lattice structures (`B-C005`/`B-C011` + bridge, then transports) and
+   `B-P006`.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
