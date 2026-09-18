@@ -152,6 +152,19 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Mslang.algebraFormationOfCongruenceFormation_congruenceFormationOf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.algebraFormationOfCongruenceFormation_isAlgebraFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.algebraFormationOfCongruenceFormation_mono": [
+      "Classical.choice"
+    ],
     "Mslang.algebraFormationOfCongruenceFormation_nonempty": [
       "Classical.choice",
       "Quot.sound"
@@ -212,10 +225,21 @@
     "Mslang.congruenceFormationOf": [
       "Classical.choice"
     ],
+    "Mslang.congruenceFormationOf_algebraFormationOfCongruenceFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congruenceFormationOf_mono": [
+      "Classical.choice"
+    ],
     "Mslang.congruenceFormation_isCongruenceFormation": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "Mslang.congruenceFormations": [
+      "Classical.choice"
     ],
     "Mslang.congruence_of_closesUnderEtl": [
       "Classical.choice",
@@ -273,6 +297,11 @@
       "propext"
     ],
     "Mslang.finiteSubsets": [],
+    "Mslang.formAlgFormCgrIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.formationGenerating": [
       "Classical.choice",
       "Quot.sound",
@@ -573,6 +602,26 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Mslang.thetaSigma": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.thetaSigmaInv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.thetaSigma_left_inv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.thetaSigma_right_inv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.tlEndMonoid": [
       "Quot.sound"
     ],
@@ -605,7 +654,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 241,
+  "declarations_audited": 252,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

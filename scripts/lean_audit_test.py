@@ -35,6 +35,14 @@ AXIOMS = """\
 'Mslang.baz' depends on axioms: [Classical.choice]
 """
 
+# Lean wraps the axiom list across lines for long declaration names.
+AXIOMS_WRAPPED = """\
+'Mslang.a_very_long_declaration_name_that_forces_wrapping' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Mslang.short' does not depend on any axioms
+"""
+
 
 def check(name, condition, detail=""):
     print(f"[{'PASS' if condition else 'FAIL'}] {name}"
@@ -56,6 +64,13 @@ def main():
     check("no-axiom declaration is empty", ax.get("Mslang.bar") == [], str(ax))
     check("axioms are sorted",
           ax.get("Mslang.foo") == sorted(ax.get("Mslang.foo", [])), str(ax))
+
+    axw = la.parse_axioms(AXIOMS_WRAPPED)
+    check("wrapped axiom list parsed",
+          axw.get("Mslang.a_very_long_declaration_name_that_forces_wrapping")
+          == ["Classical.choice", "Quot.sound", "propext"], str(axw))
+    check("wrapped output does not swallow the next declaration",
+          axw.get("Mslang.short") == [], str(axw))
 
     check("sorry token matched as a whole identifier",
           bool(la.SORRY_RE.search(":= by sorry")) and

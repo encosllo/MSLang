@@ -987,4 +987,79 @@ theorem algebraFormationOfCongruenceFormation_PFsdOperator {S : Type u} (Sig : S
     (quotAlg Sig (termAlg Sig B).2 (ker g) (ker_isCongruence Sig (termAlg Sig B).2 A.2 g hg_hom)).2 A.2
     (quotAlg_ker_isAlgIso Sig (termAlg Sig B).2 A.2 g hg_hom hg_surj)⟩
 
+/-! ### `B-P020`: `Form_Alg(Σ) ≅ Form_Cgr(Σ)`. -/
+
+/-- `B-P015` gives that `F_𝔉` is an algebra formation when `𝔉` is a congruence
+formation, so `θ_Σ⁻¹` maps into `Form_Alg(Σ)`. -/
+theorem algebraFormationOfCongruenceFormation_isAlgebraFormation {S : Type u}
+    (Sig : Signature S) {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) :
+    IsAlgebraFormation Sig (algebraFormationOfCongruenceFormation Sig G) :=
+  ⟨algebraFormationOfCongruenceFormation_HOperator Sig hG,
+   algebraFormationOfCongruenceFormation_PFsdOperator Sig hG⟩
+
+/-- `B-P020`: `𝔉_F` is monotone in `F` (order preservation of `θ_Σ`). -/
+theorem congruenceFormationOf_mono {S : Type u} (Sig : Signature S)
+    {F F' : Set (Alg Sig)} (h : F ⊆ F') :
+    ∀ A, congruenceFormationOf Sig F A ⊆ congruenceFormationOf Sig F' A := by
+  rintro A Φ ⟨hΦ, hΦF⟩
+  exact ⟨hΦ, h hΦF⟩
+
+/-- `B-P020`: `F_𝔉` is monotone in `𝔉` (order preservation of `θ_Σ⁻¹`). -/
+theorem algebraFormationOfCongruenceFormation_mono {S : Type u} (Sig : Signature S)
+    {G G' : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (h : ∀ A, G A ⊆ G' A) :
+    algebraFormationOfCongruenceFormation Sig G ⊆
+      algebraFormationOfCongruenceFormation Sig G' := by
+  rintro C ⟨A, Φ, hΦ, hΦG, f, hf⟩
+  exact ⟨A, Φ, hΦ, h A hΦG, f, hf⟩
+
+/-- `Form_Cgr(Σ)`, the set of formations of `Σ`-congruences. -/
+def congruenceFormations {S : Type u} (Sig : Signature S) :
+    Set ((A : SSet S) → Set (SortedEqv (Term Sig A))) :=
+  {G | IsCongruenceFormation Sig G}
+
+/-- `B-P020`: `θ_Σ : Form_Alg(Σ) → Form_Cgr(Σ)`, `F ↦ 𝔉_F` (`B-P019`). -/
+def thetaSigma {S : Type u} (Sig : Signature S) :
+    algebraFormations Sig → congruenceFormations Sig :=
+  fun F => ⟨congruenceFormationOf Sig F.1,
+    congruenceFormation_isCongruenceFormation Sig F.2⟩
+
+/-- `B-P020`: `θ_Σ⁻¹ : Form_Cgr(Σ) → Form_Alg(Σ)`, `𝔉 ↦ F_𝔉` (`B-P015`). -/
+def thetaSigmaInv {S : Type u} (Sig : Signature S) :
+    congruenceFormations Sig → algebraFormations Sig :=
+  fun G => ⟨algebraFormationOfCongruenceFormation Sig G.1,
+    algebraFormationOfCongruenceFormation_isAlgebraFormation Sig G.2⟩
+
+theorem thetaSigma_left_inv {S : Type u} (Sig : Signature S) (F : algebraFormations Sig) :
+    thetaSigmaInv Sig (thetaSigma Sig F) = F :=
+  Subtype.ext (algebraFormationOfCongruenceFormation_congruenceFormationOf Sig F.2)
+
+theorem thetaSigma_right_inv {S : Type u} (Sig : Signature S) (G : congruenceFormations Sig) :
+    thetaSigma Sig (thetaSigmaInv Sig G) = G :=
+  Subtype.ext (congruenceFormationOf_algebraFormationOfCongruenceFormation Sig G.2)
+
+/-- `B-P020` (`FormAlgFormCgrIso`): `Form_Alg(Σ)` and `Form_Cgr(Σ)`, ordered by
+inclusion (pointwise for congruence formations), are isomorphic. The bijection is
+`θ_Σ : F ↦ 𝔉_F` with inverse `𝔉 ↦ F_𝔉` (the two round trips); both directions are
+order-preserving, hence (the posets being the complete lattices of `B-P018` /
+`B-C005`) the complete lattices are isomorphic. -/
+def formAlgFormCgrIso {S : Type u} (Sig : Signature S) :
+    algebraFormations Sig ≃o congruenceFormations Sig where
+  toFun := thetaSigma Sig
+  invFun := thetaSigmaInv Sig
+  left_inv := thetaSigma_left_inv Sig
+  right_inv := thetaSigma_right_inv Sig
+  map_rel_iff' := by
+    intro F F'
+    constructor
+    · intro h
+      have h' : ∀ A, congruenceFormationOf Sig F.1 A ⊆ congruenceFormationOf Sig F'.1 A := h
+      have h1 := algebraFormationOfCongruenceFormation_mono Sig h'
+      rw [algebraFormationOfCongruenceFormation_congruenceFormationOf Sig F.2,
+          algebraFormationOfCongruenceFormation_congruenceFormationOf Sig F'.2] at h1
+      exact h1
+    · intro h
+      exact congruenceFormationOf_mono Sig h
+
 end Mslang

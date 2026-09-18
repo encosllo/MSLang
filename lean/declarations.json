@@ -535,6 +535,22 @@
       ],
       "file": "lean/Mslang/Formation.lean"
     },
+    "B-P020": {
+      "decls": [
+        "Mslang.congruenceFormations",
+        "Mslang.algebraFormationOfCongruenceFormation_isAlgebraFormation",
+        "Mslang.congruenceFormationOf_mono",
+        "Mslang.algebraFormationOfCongruenceFormation_mono",
+        "Mslang.algebraFormationOfCongruenceFormation_congruenceFormationOf",
+        "Mslang.congruenceFormationOf_algebraFormationOfCongruenceFormation",
+        "Mslang.thetaSigma",
+        "Mslang.thetaSigmaInv",
+        "Mslang.thetaSigma_left_inv",
+        "Mslang.thetaSigma_right_inv",
+        "Mslang.formAlgFormCgrIso"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

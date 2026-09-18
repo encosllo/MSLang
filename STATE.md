@@ -4394,6 +4394,62 @@ formation families, related to `B-C005`).
 
 ---
 
+## Session 91 -- 2026-09-18 -- B-P020 (first Eilenberg theorem)
+
+**Goal.** Package the Session 89 round trips and `B-P015` into `B-P020`:
+`Form_Alg(Σ) ≅ Form_Cgr(Σ)`.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Formation.lean` (`B-P020`):
+  - `congruenceFormations Sig` — the family `Form_Cgr(Σ)` of congruence
+    formations;
+  - `algebraFormationOfCongruenceFormation_isAlgebraFormation` —
+    `F_𝔉` is an algebra formation when `𝔉` is a congruence formation (from
+    `B-P015`'s H/P_fsd closures), so `θ_Σ⁻¹` is well-defined;
+  - `congruenceFormationOf_mono` / `algebraFormationOfCongruenceFormation_mono`
+    (order preservation);
+  - `thetaSigma` (`F ↦ 𝔉_F`), `thetaSigmaInv` (`𝔉 ↦ F_𝔉`), with
+    `thetaSigma_left_inv`/`_right_inv` from the two round trips;
+  - **`formAlgFormCgrIso : algebraFormations Sig ≃o congruenceFormations Sig`**
+    — the order isomorphism (`map_rel_iff'` from the monotonicity lemmas and the
+    round trips).
+- Mapping: `B-P020` → the above (plus the Session 89 round-trip declarations).
+  Evidence **`E-000179`** (verification) and **`E-000180`** (correspondence;
+  two-stage blind; verdict **`equivalent`** — an order isomorphism between
+  complete lattices is a complete-lattice isomorphism, and completeness of
+  `Form_Alg(Σ)` is the separate `B-P018` closure-system result; transcript
+  `blocks/audits/B-P020-correspondence.md`).
+- **Tooling fix.** `scripts/lean_audit.py`'s `AXIOM_RE` could not parse
+  `#print axioms` output whose list wraps across lines for long names (the three
+  longest `B-P020` names produced no report, `ok=False`); `parse_axioms` now
+  accumulates continuation lines, with a regression check in
+  `scripts/lean_audit_test.py` (10 checks).
+- `blocks/lean_audit.json`: **252 declarations, 0 warnings, 0 unpermitted, 0
+  `sorry`, ok=True**. `check_all.sh` (slow): **43 passed, 0 failed**. Journal
+  `EV-000100`. Frontier unmapped **48 -> 47**.
+
+**Honest caveat.** The Lean statement is an `OrderIso` of the two formation
+families; it does **not** itself construct the `CompleteLattice` structures
+(completeness of `Form_Alg(Σ)` is `B-P018`, and `Form_Cgr(Σ)`'s follows by
+transport). The comparator judged this `equivalent` for exactly that reason, but
+the explicit lattice structures (and `B-C005`'s algebraic-lattice statement)
+remain separate, open blocks. Same-model audit (`provisional` layer).
+
+**Prioritized next steps.**
+
+1. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice) and `B-C006`
+   (`Form_Cgr(Σ)` is an algebraic lattice, from `B-C005` + `B-P020`) — the
+   lattice-structure statements behind the isomorphism.
+2. The second Eilenberg theorem's two halves: `B-P034`
+   (`Form_Alg_f(Σ) ≅ Form_Cgr_fi(Σ)`) and `B-P039`
+   (`Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`), whose shared foundations `B-D040`,
+   `B-D042` are ready.
+3. Optional: prove `toT` injectivity (`B-P010`, unique parsing) and declare a
+   second model to clear `provisional` layers.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

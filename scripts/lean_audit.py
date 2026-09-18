@@ -50,8 +50,10 @@ ALLOWLIST = LEAN / "lean_audit_allowlist.json"
 PERMITTED_AXIOMS = ["propext", "Classical.choice", "Quot.sound"]
 
 DIAG_RE = re.compile(r"^(warning|error):\s*(.*)$")
-AXIOM_RE = re.compile(
-    r"^'([^']+)' (?:depends on axioms: \[(.*)\]|does not depend on any axioms)"
+# `#print axioms` wraps the axiom list across lines for long declaration names,
+# so the head is matched separately and the body accumulated until `]`.
+AXIOM_HEAD_RE = re.compile(
+    r"^'([^']+)' (does not depend on any axioms|depends on axioms: \[)(.*)$"
 )
 SORRY_RE = re.compile(r"(?<![A-Za-z0-9_'])sorry(?![A-Za-z0-9_'])")
 
@@ -99,16 +101,31 @@ def parse_diagnostics(text):
 
 
 def parse_axioms(text):
-    """{declaration: sorted axiom list} from `#print axioms` output."""
+    """{declaration: sorted axiom list} from `#print axioms` output.
+
+    The axiom list may be wrapped across several lines (Lean wraps long names),
+    so a head match is followed by continuation lines up to the closing ``]``.
+    """
     axioms = {}
-    for raw in text.splitlines():
-        m = AXIOM_RE.match(raw.strip())
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        m = AXIOM_HEAD_RE.match(lines[i].strip())
         if not m:
+            i += 1
             continue
-        name, body = m.group(1), m.group(2)
-        axioms[name] = [] if body is None else sorted(
-            a.strip() for a in body.split(",") if a.strip()
-        )
+        name = m.group(1)
+        head, body = m.group(2), m.group(3)
+        if head.startswith("does not depend"):
+            axioms[name] = []
+            i += 1
+            continue
+        while "]" not in body and i + 1 < len(lines):
+            i += 1
+            body += " " + lines[i].strip()
+        body = body.split("]", 1)[0]
+        axioms[name] = sorted(a.strip() for a in body.split(",") if a.strip())
+        i += 1
     return axioms
 
 

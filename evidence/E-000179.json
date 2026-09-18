@@ -1,0 +1,38 @@
+{
+  "block": "B-P020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000179",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P020 compiled against Mathlib v4.33.1. thetaSigma : Form_Alg(Sigma) -> Form_Cgr(Sigma) is F -> f_F (well-defined by B-P019); thetaSigmaInv is f -> F_f (well-defined by B-P015); the two round trips give the inverse laws; formAlgFormCgrIso packages them as an order isomorphism.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 252 declarations, 0 warnings, 0 unpermitted, 0 sorry): the mapping and iso declarations depend on {Classical.choice, Quot.sound, propext}.",
+    "Tooling fix in the same session: lean_audit.py's AXIOM_RE did not parse #print axioms output whose axiom list wraps across lines for long declaration names (it reported those as missing, ok=False); the parser now accumulates continuation lines, with a regression check in lean_audit_test.py."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P020/formal_proof",
+      "hash": "9d003b2c920d5fc37496165fc0a4af4dfd8b8c2f019e86f1c544b8c7df21b894"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T13:22:28Z"
+}
