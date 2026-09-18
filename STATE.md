@@ -4535,6 +4535,48 @@ well-definedness composes the earlier `B-P019`/`B-P015`/`B-P020` results.
 
 ---
 
+## Session 94 -- 2026-09-18 -- B-P030 (`L_𝔉`, gateway to the second half)
+
+**Goal.** Formalize the congruence-formation-to-language-formation construction,
+the prerequisite for the second half of the second Eilenberg theorem.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean` (`B-P030`, `Cong2LangBasic`):
+  - `langFormationOf Sig G A = {L | Ω^{T_Σ(A)}(L) ∈ G A}`;
+  - `mem_langFormationOf_iff` — equals the `∃ Φ ∈ G A, L = [L]^Φ`
+    (`Φ`-saturated) presentation;
+  - `langFormationOf_nabla` — every `∇`-saturated language lies in the family
+    (so `∅` and `T_Σ(A)` do);
+  - `langFormationOf_inf` — `(Ω(L) ∩ Ω(L'))`-saturated languages lie in the
+    family;
+  - `langFormationOf_ker` — for `M ∈ L_𝔉(B)` and an `Ω(M)`-epimorphism
+    `f : T_Σ(A) → T_Σ(B)`, `Ker(pr^{Ω(M)} ∘ f)`-saturated languages lie in the
+    family.
+  Proofs use `isSat_iff_le_congCogenerated` (`B-P023`), `congCogenerated_isCongruence`
+  (`B-P022`), `IsCongruence_inf`, `sortedEqvLe_antisymm`, and the filter/formation
+  clauses of `G`.
+- Evidence **`E-000190`** (verification), **`E-000191`** (correspondence,
+  two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P030-correspondence.md`).
+- `lean_audit`: **276 declarations, 0 warnings, 0 unpermitted, 0 `sorry`**.
+  `check_all.sh` (slow): **43 passed, 0 failed**. Journal `EV-000103`. Frontier
+  **40 -> 39**.
+
+**Honest caveat.** Same-model audit (`provisional`). The `∅`/`T_Σ(A)` special
+case is a corollary of the `∇` clause, not separately stated.
+
+**Prioritized next steps.**
+
+1. `B-D045`/`B-D046` (the two definitions of formation of regular languages) and
+   `B-P035` (they are equivalent).
+2. `B-P037` (`𝔉 ↦ L_𝔉` lands in regular-language formations) and `B-P038`
+   (`L ↦ 𝔉_𝔏` lands in finite-index congruence formations), then `B-P039`
+   (`Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`), completing the second theorem.
+3. `B-P032`/`B-P033` and `B-C005`/`B-C006` (the lattice structures).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

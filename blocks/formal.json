@@ -2145,6 +2145,69 @@
         "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
       }
     },
+    "B-P030": {
+      "decls": [
+        "Mslang.langFormationOf",
+        "Mslang.mem_langFormationOf_iff",
+        "Mslang.langFormationOf_nabla",
+        "Mslang.langFormationOf_inf",
+        "Mslang.langFormationOf_ker"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruenceFormation",
+          "Mslang.IsCongruence_inf",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Term",
+          "Mslang.TlGen",
+          "Mslang.charEqv",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_isCongruence",
+          "Mslang.congCogenerated_le_charEqv",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.finOp",
+          "Mslang.isAlgHom_prAlg",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.isSat_iff_le_congCogenerated",
+          "Mslang.isSat_iff_sortedEqvLe_charEqv",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.le_congCogenerated_of_isCongruence",
+          "Mslang.nabla_isCongruence",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.quotOp_mk",
+          "Mslang.sat",
+          "Mslang.sortedEqvLe_antisymm",
+          "Mslang.termAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "b6c1da3944037f1787b1ca8e889b2781e56b8d45aa06f12b726d4200a53b2125"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "be2eedddc67ee720064ab9423486cf6f6a0c6a300e4d909b8b7189bedfc0d8e9"
+      },
+      "formal_statement": {
+        "hash": "2b5c2649d0e34cb48e8f02b501ac83f80225a725312c4192ffdd5e1127ff8d9f"
+      }
+    },
     "B-P031": {
       "decls": [
         "Mslang.quotLe",

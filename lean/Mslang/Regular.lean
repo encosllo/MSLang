@@ -224,4 +224,106 @@ def formAlgFFormCgrFiIso {S : Type u} (Sig : Signature S) :
     · intro h
       exact congruenceFormationOf_mono Sig h
 
+/-! ### `B-P030`: the language formation `L_𝔉` of a congruence formation. -/
+
+/-- `B-P030` (`Cong2LangBasic`): the language formation `L_𝔉` associated to a
+congruence formation `𝔉`, `L_𝔉(A) = {L ∈ Sub(T_Σ(A)) | Ω^{T_Σ(A)}(L) ∈ 𝔉(A)}`
+(equivalently the `Φ`-saturated languages for some `Φ ∈ 𝔉(A)`). -/
+def langFormationOf {S : Type u} (Sig : Signature S)
+    (G : (A : SSet S) → Set (SortedEqv (Term Sig A))) :
+    (A : SSet S) → Set (Sub (Term Sig A)) :=
+  fun A => {L | congCogenerated Sig (termAlg Sig A) L ∈ G A}
+
+/-- `B-P030`: the two defining presentations of `L_𝔉(A) agree`: `L ∈ L_𝔉(A)`
+iff `L` is `Φ`-saturated for some `Φ ∈ 𝔉(A)`. -/
+theorem mem_langFormationOf_iff {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) (L : Sub (Term Sig A)) :
+    L ∈ langFormationOf Sig G A ↔ ∃ Φ ∈ G A, IsSat Φ L := by
+  constructor
+  · intro h
+    exact ⟨congCogenerated Sig (termAlg Sig A) L, h,
+      (isSat_iff_le_congCogenerated Sig (termAlg Sig A) L
+        (congCogenerated_isCongruence Sig (termAlg Sig A) L)).mpr (fun _ _ _ h => h)⟩
+  · rintro ⟨Φ, hΦG, hΦsat⟩
+    exact (hG.1 A).2.2.2 Φ hΦG (congCogenerated Sig (termAlg Sig A) L)
+      (congCogenerated_isCongruence Sig (termAlg Sig A) L)
+      ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) L ((hG.1 A).2.1 Φ hΦG)).mp hΦsat)
+
+/-- `B-P030`(1): every `∇^{T_Σ(A)}`-saturated language lies in `L_𝔉(A)` (so `∅`
+and `T_Σ(A)` are languages). -/
+theorem langFormationOf_nabla {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) :
+    ∀ L : Sub (Term Sig A), IsSat (nabla (Term Sig A)) L → L ∈ langFormationOf Sig G A := by
+  intro L hL
+  obtain ⟨Φ₀, hΦ₀⟩ := (hG.1 A).1
+  have hnablaG : nabla (Term Sig A) ∈ G A :=
+    (hG.1 A).2.2.2 Φ₀ hΦ₀ (nabla (Term Sig A))
+      (nabla_isCongruence Sig (termAlg Sig A).2) (fun _ _ _ _ => trivial)
+  show congCogenerated Sig (termAlg Sig A) L ∈ G A
+  have heq : congCogenerated Sig (termAlg Sig A) L = nabla (Term Sig A) :=
+    sortedEqvLe_antisymm (fun _ _ _ _ => trivial)
+      ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) L
+        (nabla_isCongruence Sig (termAlg Sig A).2)).mp hL)
+  rw [heq]; exact hnablaG
+
+/-- `B-P030`(2): if `L, L' ∈ L_𝔉(A)`, every `(Ω(L) ∩ Ω(L'))`-saturated language
+lies in `L_𝔉(A)`. -/
+theorem langFormationOf_inf {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) :
+    ∀ L L' : Sub (Term Sig A), L ∈ langFormationOf Sig G A →
+      L' ∈ langFormationOf Sig G A → ∀ N : Sub (Term Sig A),
+        IsSat (sortedEqvInf (congCogenerated Sig (termAlg Sig A) L)
+          (congCogenerated Sig (termAlg Sig A) L')) N → N ∈ langFormationOf Sig G A := by
+  intro L L' hL hL' N hN
+  show congCogenerated Sig (termAlg Sig A) N ∈ G A
+  have hmeet : sortedEqvInf (congCogenerated Sig (termAlg Sig A) L)
+      (congCogenerated Sig (termAlg Sig A) L') ∈ G A :=
+    (hG.1 A).2.2.1 _ hL _ hL'
+  exact (hG.1 A).2.2.2 _ hmeet _ (congCogenerated_isCongruence Sig (termAlg Sig A) N)
+    ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) N
+      (IsCongruence_inf Sig (termAlg Sig A).2
+        (congCogenerated_isCongruence Sig (termAlg Sig A) L)
+        (congCogenerated_isCongruence Sig (termAlg Sig A) L'))).mp hN)
+
+/-- `B-P030`(3): for `M ∈ L_𝔉(B)` and an `Ω^{T_Σ(B)}(M)`-epimorphism
+`f : T_Σ(A) → T_Σ(B)`, every `Ker(pr^{Ω(M)} ∘ f)`-saturated language lies in
+`L_𝔉(A)`. -/
+theorem langFormationOf_ker {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A B : SSet S) :
+    ∀ M : Sub (Term Sig B), M ∈ langFormationOf Sig G B →
+      ∀ f : SortedMap (Term Sig A) (Term Sig B),
+        IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f →
+        (∀ s, Function.Surjective (fun x => prAlg Sig (termAlg Sig B).2
+          (congCogenerated Sig (termAlg Sig B) M)
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M) s (f s x))) →
+        ∀ N : Sub (Term Sig A),
+          IsSat (ker (fun s => prAlg Sig (termAlg Sig B).2
+            (congCogenerated Sig (termAlg Sig B) M)
+            (congCogenerated_isCongruence Sig (termAlg Sig B) M) s ∘ f s)) N →
+          N ∈ langFormationOf Sig G A := by
+  intro M hM f hf hsurj N hN
+  let Θ : SortedEqv (Term Sig B) := congCogenerated Sig (termAlg Sig B) M
+  let hΘ : IsCongruence Sig (termAlg Sig B).2 Θ :=
+    congCogenerated_isCongruence Sig (termAlg Sig B) M
+  let g : SortedMap (Term Sig A) (quotAlg Sig (termAlg Sig B).2 Θ hΘ).1 :=
+    fun s => (prAlg Sig (termAlg Sig B).2 Θ hΘ s) ∘ (f s)
+  have hg : IsAlgHom Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g := by
+    intro p σ a
+    show prAlg Sig (termAlg Sig B).2 Θ hΘ p.2 (f p.2 ((termAlg Sig A).2 p σ a)) =
+      (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 p σ
+        (fun i => prAlg Sig (termAlg Sig B).2 Θ hΘ (p.1.get i) (f (p.1.get i) (a i)))
+    rw [hf p σ a]
+    exact isAlgHom_prAlg Sig (termAlg Sig B).2 Θ hΘ p σ
+      (fun i => f (p.1.get i) (a i))
+  have hker : ker (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) ∈ G A :=
+    hG.2 A B Θ hΘ (show Θ ∈ G B from hM) f hf hsurj
+  show congCogenerated Sig (termAlg Sig A) N ∈ G A
+  exact (hG.1 A).2.2.2 _ hker _ (congCogenerated_isCongruence Sig (termAlg Sig A) N)
+    ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) N
+      (ker_isCongruence Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg)).mp hN)
+
 end Mslang

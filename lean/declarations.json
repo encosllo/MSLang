@@ -603,6 +603,16 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-P030": {
+      "decls": [
+        "Mslang.langFormationOf",
+        "Mslang.mem_langFormationOf_iff",
+        "Mslang.langFormationOf_nabla",
+        "Mslang.langFormationOf_inf",
+        "Mslang.langFormationOf_ker"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"
