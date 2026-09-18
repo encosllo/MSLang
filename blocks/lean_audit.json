@@ -45,6 +45,11 @@
     "Mslang.IsAlgebraic": [],
     "Mslang.IsAlgebraicClosureSystem": [],
     "Mslang.IsAlgebraicLattice": [],
+    "Mslang.IsBPSLanguageFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsClosureOperator": [],
     "Mslang.IsClosureSystem": [],
     "Mslang.IsClosureSystemOn": [],
@@ -80,6 +85,11 @@
     "Mslang.IsLatticeFilter": [],
     "Mslang.IsMonoAlg": [],
     "Mslang.IsRegularLanguage": [],
+    "Mslang.IsRegularLanguageFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsSat": [],
     "Mslang.IsShSkFormation": [
       "Classical.choice"
@@ -206,6 +216,11 @@
       "propext"
     ],
     "Mslang.algebraFormations_isAlgebraicClosureSystem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.bpsLanguageFormations": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -554,6 +569,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.regularLanguageFormations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.regularLanguages": [],
     "Mslang.sat": [],
     "Mslang.satSets": [],
@@ -740,7 +760,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 276,
+  "declarations_audited": 280,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

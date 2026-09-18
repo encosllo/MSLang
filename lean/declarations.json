@@ -613,6 +613,20 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-D045": {
+      "decls": [
+        "Mslang.IsRegularLanguageFormation",
+        "Mslang.regularLanguageFormations"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D046": {
+      "decls": [
+        "Mslang.IsBPSLanguageFormation",
+        "Mslang.bpsLanguageFormations"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

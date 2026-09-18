@@ -148,6 +148,8 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.langFormationOf_nabla
 #print axioms Mslang.langFormationOf_inf
 #print axioms Mslang.langFormationOf_ker
+#print axioms Mslang.IsRegularLanguageFormation
+#print axioms Mslang.IsBPSLanguageFormation
 #print axioms Mslang.isSat_iff_le_congCogenerated
 #print axioms Mslang.congCogenerated_compl
 #print axioms Mslang.congCogenerated_iInter_le

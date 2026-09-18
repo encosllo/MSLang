@@ -1,0 +1,36 @@
+{
+  "block": "B-D046",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000193",
+  "findings": [
+    "B-D046 (Def2FRL): IsBPSLanguageFormation Sig L = L(A) subset Lang_r(T_Sigma(A)), nabla-saturated languages, closure under inverse images of translations (transPreimage T X for T in Tl_t(T_Sigma(A))_s), Boolean closure (union, intersection, complA), and closure under f^{-1}[M] along Omega(M)-epimorphisms; bpsLanguageFormations Sig = Form^BPS_Lang_r(Sigma). Axiom-free (lean_audit 280 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D046/formal_proof",
+      "hash": "f5ccbc9c84c9450c26c9c3c6c8897fd0a1c2e4b59d186dc3012c9b4dc2c3b23d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T14:58:14Z"
+}

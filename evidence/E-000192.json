@@ -1,0 +1,36 @@
+{
+  "block": "B-D045",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000192",
+  "findings": [
+    "B-D045 (Def1FRL): IsRegularLanguageFormation Sig L = (forall A, L A subset Lang_r(T_Sigma(A))) and the three closure clauses (nabla-saturated, (Omega(L) cap Omega(L'))-saturated, Ker(pr^{Omega(M)} o f)-saturated) matching B-P030's properties; regularLanguageFormations Sig = Form_Lang_r(Sigma). Axiom-free (lean_audit 280 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D045/formal_proof",
+      "hash": "0a4b1629346e65f5ed418a3afad409f35bfe0e3c0a6121aa171e1ed41ef487e3"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T14:58:14Z"
+}

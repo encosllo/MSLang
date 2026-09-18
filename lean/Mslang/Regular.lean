@@ -326,4 +326,62 @@ theorem langFormationOf_ker {S : Type u} (Sig : Signature S)
     ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) N
       (ker_isCongruence Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg)).mp hN)
 
+/-! ### `B-D045`/`B-D046`: formations of regular languages. -/
+
+/-- `B-D045` (`Def1FRL`): a *formation of regular languages*: a choice function
+`L` with `L(A) ⊆ Lang_r(T_Σ(A))`, containing every `∇^{T_Σ(A)}`-saturated
+language, closed under `(Ω(L) ∩ Ω(L'))`-saturation, and closed under
+`Ker(pr^{Ω(M)} ∘ f)`-saturation along `Ω(M)`-epimorphisms. -/
+def IsRegularLanguageFormation {S : Type u} (Sig : Signature S)
+    (L : (A : SSet S) → Set (Sub (Term Sig A))) : Prop :=
+  (∀ A, L A ⊆ regularLanguages Sig (termAlg Sig A)) ∧
+  (∀ A, ∀ X : Sub (Term Sig A), IsSat (nabla (Term Sig A)) X → X ∈ L A) ∧
+  (∀ A, ∀ X Y : Sub (Term Sig A), X ∈ L A → Y ∈ L A → ∀ N : Sub (Term Sig A),
+      IsSat (sortedEqvInf (congCogenerated Sig (termAlg Sig A) X)
+        (congCogenerated Sig (termAlg Sig A) Y)) N → N ∈ L A) ∧
+  (∀ A B (M : Sub (Term Sig B)), M ∈ L B →
+      ∀ f : SortedMap (Term Sig A) (Term Sig B),
+        IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f →
+        (∀ s, Function.Surjective (fun x => prAlg Sig (termAlg Sig B).2
+          (congCogenerated Sig (termAlg Sig B) M)
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M) s (f s x))) →
+        ∀ N : Sub (Term Sig A),
+          IsSat (ker (fun s => prAlg Sig (termAlg Sig B).2
+            (congCogenerated Sig (termAlg Sig B) M)
+            (congCogenerated_isCongruence Sig (termAlg Sig B) M) s ∘ f s)) N →
+          N ∈ L A)
+
+/-- `B-D046` (`Def2FRL`): a (BPS-)formation of regular languages, by translations
+and Boolean operations: `L(A) ⊆ Lang_r(T_Σ(A))`, contains the `∇`-saturated
+languages, is closed under inverse images of translations, is a Boolean
+subalgebra of `Sub(T_Σ(A))`, and is closed under inverse images along
+`Ω(M)`-epimorphisms. -/
+def IsBPSLanguageFormation {S : Type u} (Sig : Signature S)
+    (L : (A : SSet S) → Set (Sub (Term Sig A))) : Prop :=
+  (∀ A, L A ⊆ regularLanguages Sig (termAlg Sig A)) ∧
+  (∀ A, ∀ X : Sub (Term Sig A), IsSat (nabla (Term Sig A)) X → X ∈ L A) ∧
+  (∀ A, ∀ X : Sub (Term Sig A), X ∈ L A →
+      ∀ (t s : S) (T : (Term Sig A) t → (Term Sig A) s),
+        TlGen Sig (termAlg Sig A) t s T → transPreimage T X ∈ L A) ∧
+  (∀ A, ∀ X : Sub (Term Sig A), X ∈ L A → ∀ Y : Sub (Term Sig A), Y ∈ L A →
+      (fun s => X s ∪ Y s) ∈ L A ∧ (fun s => X s ∩ Y s) ∈ L A ∧ complA X ∈ L A) ∧
+  (∀ A B (M : Sub (Term Sig B)), M ∈ L B →
+      ∀ f : SortedMap (Term Sig A) (Term Sig B),
+        IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f →
+        (∀ s, Function.Surjective (fun x => prAlg Sig (termAlg Sig B).2
+          (congCogenerated Sig (termAlg Sig B) M)
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M) s (f s x))) →
+        inverseImage f M ∈ L A)
+
+/-- `B-D045`: `Form_Lang_r(Σ)`, the set of formations of regular languages. -/
+def regularLanguageFormations {S : Type u} (Sig : Signature S) :
+    Set ((A : SSet S) → Set (Sub (Term Sig A))) :=
+  {L | IsRegularLanguageFormation Sig L}
+
+/-- `B-D046`: `Form^BPS_Lang_r(Σ)`, the set of BPS-formations of regular
+languages. -/
+def bpsLanguageFormations {S : Type u} (Sig : Signature S) :
+    Set ((A : SSet S) → Set (Sub (Term Sig A))) :=
+  {L | IsBPSLanguageFormation Sig L}
+
 end Mslang

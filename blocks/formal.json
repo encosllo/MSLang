@@ -1195,6 +1195,110 @@
         "hash": "b5a5010ea68158a0b0305535967acb5c2acbc6b7517c947bb953379af1b3854a"
       }
     },
+    "B-D045": {
+      "decls": [
+        "Mslang.IsRegularLanguageFormation",
+        "Mslang.regularLanguageFormations"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.FiniteSSet",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.IsRegularLanguage",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Term",
+          "Mslang.TlGen",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_isCongruence",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.finOp",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.ker",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.regularLanguages",
+          "Mslang.sat",
+          "Mslang.termAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "144dd9513133225e46a00743f246ee7aee36f2c1f2d6b3571dfd58a7d3b1fa51"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "0a4b1629346e65f5ed418a3afad409f35bfe0e3c0a6121aa171e1ed41ef487e3"
+      },
+      "formal_statement": {
+        "hash": "1a4a3222f24f9646f2b51257d7b4d8f85e6019f241dcb120afcffb471bd396a1"
+      }
+    },
+    "B-D046": {
+      "decls": [
+        "Mslang.IsBPSLanguageFormation",
+        "Mslang.bpsLanguageFormations"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.FiniteSSet",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.IsRegularLanguage",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Term",
+          "Mslang.TlGen",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_isCongruence",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.deltaSub",
+          "Mslang.finOp",
+          "Mslang.inverseImage",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.regularLanguages",
+          "Mslang.sat",
+          "Mslang.termAlg",
+          "Mslang.transPreimage",
+          "Mslang.wordProd"
+        ],
+        "hash": "6fd0164a24254dd311846c263d40c5e17dddd08e6c91393594cc1fd27d83599c"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "f5ccbc9c84c9450c26c9c3c6c8897fd0a1c2e4b59d186dc3012c9b4dc2c3b23d"
+      },
+      "formal_statement": {
+        "hash": "52815d52a689f92d7468a2cbcbb8683ebf26f3320795536b93975d692c38f09b"
+      }
+    },
     "B-L001": {
       "decls": [
         "Mslang.termLift_unique"

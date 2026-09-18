@@ -4577,6 +4577,42 @@ case is a corollary of the `∇` clause, not separately stated.
 
 ---
 
+## Session 95 -- 2026-09-18 -- B-D045/B-D046 (regular-language formations)
+
+**Goal.** The two definitions of "formation of regular languages" (equivalent by
+`B-P035`), prerequisites for the second half of the second Eilenberg theorem.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean`:
+  - **`B-D045`** (`Def1FRL`): `IsRegularLanguageFormation Sig L` =
+    `L(A) ⊆ Lang_r(T_Σ(A))`, closed under `∇`-, `(Ω(L) ∩ Ω(L'))`- and
+    `Ker(pr^{Ω(M)} ∘ f)`-saturation; `regularLanguageFormations Sig`
+    (`Form_Lang_r(Σ)`);
+  - **`B-D046`** (`Def2FRL`): `IsBPSLanguageFormation Sig L` = `L(A) ⊆ Lang_r`,
+    `∇`-saturated languages, closure under inverse images of translations
+    (`transPreimage T X`), Boolean closure (union, intersection, `complA`), and
+    closure under `f⁻¹[M]` along `Ω(M)`-epimorphisms; `bpsLanguageFormations Sig`.
+- Evidence **`E-000192`** (`B-D045`), **`E-000193`** (`B-D046`), verifications
+  (definitions carry the verification layer only).
+- `lean_audit`: **280 declarations, 0 warnings, 0 unpermitted, 0 `sorry`**.
+  `check_all.sh` (slow): **43 passed, 0 failed**. Journal `EV-000104`. Frontier
+  **39 -> 37**.
+
+**Honest caveat.** The `Lang_r` condition uses `IsRegularLanguage` =
+finite-index (the manuscript's finite-support hypothesis on `T_Σ(A)` is the
+section's blanket assumption `B-A001`, not threaded through the definition).
+
+**Prioritized next steps.**
+
+1. `B-P035` (the two definitions are equivalent).
+2. `B-P037` (`𝔉 ↦ L_𝔉` lands in `Form_Lang_r`), `B-P038`
+   (`L ↦ 𝔉_𝔏` lands in `Form_Cgr_fi`), then `B-P039`
+   (`Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`), completing the second theorem.
+3. `B-P032`/`B-P033`, `B-C005`/`B-C006` (lattice structures).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
