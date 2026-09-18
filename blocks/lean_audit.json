@@ -135,6 +135,27 @@
     "Mslang.WSet": [],
     "Mslang.Word": [],
     "Mslang.XElem": [],
+    "Mslang.algebraFormationOfCongruenceFormation": [
+      "Classical.choice"
+    ],
+    "Mslang.algebraFormationOfCongruenceFormation_HOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.algebraFormationOfCongruenceFormation_PFsdOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.algebraFormationOfCongruenceFormation_abstract": [
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Mslang.algebraFormationOfCongruenceFormation_nonempty": [
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Mslang.algebraFormation_iff_shskFormation": [
       "Classical.choice",
       "Quot.sound",
@@ -584,7 +605,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 236,
+  "declarations_audited": 241,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

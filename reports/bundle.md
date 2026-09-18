@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `456750e8bfcebbde640eb70966de2bbfa22f5bdcc7de29c18a7203d83bffd09b` |
-| `blocks/formal_graph.json` | `cdce50a26f5cad3306b1477f7d9039055e8a28d650c9565ca09f4f4688cad740` |
+| `blocks/formal.json` | `ddb8b7199e505c96412179d1ca67176f70f30fdc7d31ca97e09100ff9f56eb25` |
+| `blocks/formal_graph.json` | `db8db8faaeed44ce360befa913a49ce6f91b77fcefd28a470ba9b0fede1688d6` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
-| `blocks/lean_audit.json` | `48aa5834ca32c692208a9a5ac224c2fb9b676e3725630027d21e858f36d08e39` |
+| `blocks/lean_audit.json` | `19877928e0d6e47297d930b01ce800e17641f51c9f662414af39eb1e5d173cac` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
@@ -202,7 +202,9 @@ repository.
 | `evidence/E-000174.json` | `e1d50a02ea4a9825577d861d0b0c6e4912cf804d64e9447b7e34838f9042bd94` |
 | `evidence/E-000175.json` | `19998b52e13c73e26567b33874cdd7b2b6e2c64133cd66921c8744362577bde6` |
 | `evidence/E-000176.json` | `3cc76aecd53e6cff00becdfe1d951c6080621cc6aa0a93e516760715d3f7342f` |
-| `journal/events.jsonl` | `83889ef4120bb1bd567ac6cd318444885e29e25d7f14603815d6bfaff85fa7f1` |
+| `evidence/E-000177.json` | `1363cc9519e5477bb11b278cc74215602103361390d2aa0815b7b9b811e9db39` |
+| `evidence/E-000178.json` | `a626a23ab5bf71560e043e036dc3f5eb71c4c0c5325f2e00af88753e8ebdc2d2` |
+| `journal/events.jsonl` | `1951264a8316ea08e5519a1781afe88d62469402db41be2219ff8393698c32c4` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
@@ -285,6 +287,8 @@ repository.
 | `B-P012` | verification | pass | 1 | 0 |
 | `B-P013` | correspondence | provisional | 1 | 0 |
 | `B-P013` | verification | pass | 1 | 0 |
+| `B-P015` | correspondence | provisional | 1 | 0 |
+| `B-P015` | verification | pass | 1 | 0 |
 | `B-P016` | correspondence | provisional | 1 | 0 |
 | `B-P016` | verification | pass | 1 | 0 |
 | `B-P017` | correspondence | provisional | 1 | 1 |
@@ -7562,6 +7566,126 @@ repository.
 }
 ```
 
+### E-000177
+
+```json
+{
+  "block": "B-P015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000177",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P015 compiled against Mathlib v4.33.1. algebraFormationOfCongruenceFormation Sig G is the class of Sigma-algebras isomorphic to a quotient T_Sigma(A)/Phi with Phi in G(A); the four theorems prove F_f is nonempty, abstract (for arbitrary G), H-closed, and P_fsd-closed when G is a congruence formation.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 241 declarations, 0 warnings, 0 unpermitted, 0 sorry): the definition uses {Classical.choice}; nonempty/abstract {Classical.choice, Quot.sound}; HOperator/PFsdOperator {Classical.choice, Quot.sound, propext}.",
+    "The P_fsd proof uses projectivity of the free algebra (B-P012, term_projective), the formation clause of B-P019, closure of G(B) under finite meets (Finset.inf induction), and the first isomorphism theorem."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P015/formal_proof",
+      "hash": "4900ebf93afab7e6e1a44ab04026fad1c1c85b8c9acbd23c7f0550e069cd1487"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T12:58:06Z"
+}
+```
+
+### E-000178
+
+```json
+{
+  "block": "B-P015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000178",
+  "findings": [
+    "Stage 2 (fresh context) returned formal_stronger: the defined set F_f and properties (1), (3), (4) match the contract exactly (inclusions, under the congruence-formation hypothesis), but property (2) abstractness is proved for arbitrary G rather than only for a formation. Since a formation is a special case this specializes to the contract; it is a strict generalization adding no hypothesis, so the typed divergence is formal_stronger. Transcript blocks/audits/B-P015-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P012/informal_statement",
+      "hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd"
+    },
+    {
+      "artifact": "B-P013/informal_statement",
+      "hash": "081db99883818eb31f60d358ebf66dfd15187b01259997eb736a37a2343e9d39"
+    },
+    {
+      "artifact": "B-P015/definition_closure",
+      "hash": "cc16c830f301937660724bc07c8e1a80bc8ecb049d415133e12adb00915b2e23"
+    },
+    {
+      "artifact": "B-P015/formal_statement",
+      "hash": "2077cad0a191dec642dd16cd13c0f509d709ea3d2b6a3c434e766d64158d2025"
+    },
+    {
+      "artifact": "B-P015/informal_statement",
+      "hash": "ffc11c4898e2fe38d2b33daf244f2bfc44c120dcb33f8e779e63315d27bc4721"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T12:58:06Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -7572,8 +7696,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 81
-- Evidence records: 176
+- Blocks with any evidence: 82
+- Evidence records: 178
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -7639,6 +7763,7 @@ assertion).
 | `B-P011` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P012` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P013` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P015` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
@@ -7668,7 +7793,7 @@ assertion).
 | `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
-48 block(s) have no evidence.
+47 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -7778,9 +7903,9 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
 
-## Undecided edges (282)
+## Undecided edges (295)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -7927,6 +8052,18 @@ the review queue.
 | `B-P013` | `B-D017` |
 | `B-P013` | `B-D027` |
 | `B-P013` | `B-P011` |
+| `B-P015` | `B-D014` |
+| `B-P015` | `B-D016` |
+| `B-P015` | `B-D017` |
+| `B-P015` | `B-D022` |
+| `B-P015` | `B-D023` |
+| `B-P015` | `B-D024` |
+| `B-P015` | `B-D025` |
+| `B-P015` | `B-D027` |
+| `B-P015` | `B-D030` |
+| `B-P015` | `B-P009` |
+| `B-P015` | `B-P017` |
+| `B-P015` | `B-R012` |
 | `B-P016` | `B-D014` |
 | `B-P016` | `B-D015` |
 | `B-P016` | `B-D016` |
@@ -8059,6 +8196,7 @@ the review queue.
 | `B-D032` | `B-D028` |
 | `B-D037` | `B-D006` |
 | `B-D037` | `B-D036` |
+| `B-P015` | `B-D028` |
 | `B-P019` | `B-D023` |
 | `B-P022` | `B-D015` |
 | `B-P022` | `B-D036` |
@@ -8074,7 +8212,7 @@ the review queue.
 
 | disposition | count |
 |---|---|
-| type-carrier | 53 |
+| type-carrier | 54 |
 
 ## Reviewed dispositions
 
@@ -8104,6 +8242,10 @@ the review queue.
 | `B-P007` | `B-D015` |
 | `B-P009` | `B-D015` |
 | `B-P011` | `B-D027` |
+| `B-P015` | `B-D015` |
+| `B-P015` | `B-D031` |
+| `B-P015` | `B-P012` |
+| `B-P015` | `B-P013` |
 | `B-P017` | `B-D015` |
 | `B-P018` | `B-D031` |
 | `B-P019` | `B-D015` |
@@ -8124,7 +8266,7 @@ the review queue.
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-74 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+69 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
 
 ## reports/impact.md
 
@@ -8194,6 +8336,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-P011` | correspondence | provisional | 1 | 0 |
 | `B-P012` | correspondence | provisional | 1 | 0 |
 | `B-P013` | correspondence | provisional | 1 | 0 |
+| `B-P015` | correspondence | provisional | 1 | 0 |
 | `B-P016` | correspondence | provisional | 1 | 0 |
 | `B-P017` | correspondence | provisional | 1 | 1 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
@@ -8229,23 +8372,23 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Unmapped blocks (49)
+## Unmapped blocks (48)
 
 Scope triage (Sections 16.4, 17); an unrecorded block is undecided, not
 assumed worth formalizing.
 
 | disposition | count |
 |---|---|
-| worth-formalizing | 32 |
+| worth-formalizing | 31 |
 | deferred | 17 |
 | out-of-scope | 0 |
 | undecided | 0 |
 
-### Open obligations (49)
+### Open obligations (48)
 
 Unmapped blocks not marked `out-of-scope`.
 
-`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P014`, `B-P015`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P014`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 
@@ -8271,7 +8414,7 @@ Generated by `scripts/ranking.py`. **Advisory only**: it sets no scope dispositi
 |---|---|---|---|---|
 | 1 | `B-P035` | proposition | no | 0.0720 |
 | 2 | `B-P038` | proposition | no | 0.0511 |
-| 3 | `B-P015` | proposition | no | 0.0364 |
+| 3 | `B-P015` | proposition | yes | 0.0364 |
 | 4 | `B-C009` | corollary | no | 0.0271 |
 | 5 | `B-C008` | corollary | no | 0.0256 |
 | 6 | `B-P019` | proposition | yes | 0.0250 |

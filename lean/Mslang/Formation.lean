@@ -888,4 +888,103 @@ theorem algebraFormationOfCongruenceFormation_HOperator {S : Type u} (Sig : Sign
     (quotAlg Sig FA (ker kk) (ker_isCongruence Sig FA D.2 kk hkk_hom)).2 D.2
     (quotAlg_ker_isAlgIso Sig FA D.2 kk hkk_hom hkk_surj)⟩
 
+/-- `B-P015`(4): `F_𝔉` is closed under finite subdirect products. A finite
+subdirect product `A` of members `C^i ≅ T_Σ(A^i)/Φ^i` is a quotient of a free
+algebra `T_Σ(B)` (take `B = A` and `g = termEval`). For each `i`, projectivity
+of `T_Σ(B)` lifts `pr^i ∘ f ∘ g` to `h^i : T_Σ(B) → T_Σ(A^i)`; the formation
+clause puts `Ker(pr^{Φ^i} ∘ h^i)` in `𝔉(B)`, so their finite meet is in `𝔉(B)`;
+that meet refines `Ker(g)` (because the `f ∘ g`-images agree on every projection
+and `f` is injective), so `Ker(g) ∈ 𝔉(B)`, and `T_Σ(B)/Ker(g) ≅ A`. -/
+theorem algebraFormationOfCongruenceFormation_PFsdOperator {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))} (hG : IsCongruenceFormation Sig G) :
+    PFsdOperator Sig (algebraFormationOfCongruenceFormation Sig G) ⊆
+      algebraFormationOfCongruenceFormation Sig G := by
+  classical
+  rintro A ⟨ι, hι, C, hC, f, hf⟩
+  haveI := hι
+  choose Ai hAi using hC
+  choose Φi hΦi using hAi
+  choose hΦic hrest using hΦi
+  have hΦiG : ∀ i, Φi i ∈ G (Ai i) := fun i => (hrest i).1
+  choose gi hgi using fun i => (hrest i).2
+  let B : SSet S := A.1
+  let g : SortedMap (Term Sig B) B := termEval Sig A
+  have hg_hom : IsAlgHom Sig (termAlg Sig B).2 A.2 g := termEval_isAlgHom Sig A
+  have hg_surj : ∀ s, Function.Surjective (g s) := termEval_surjective Sig A
+  let ki : (i : ι) → SortedMap (Term Sig B)
+      (quotAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)).1 :=
+    fun i s x => gi i s (f s (g s x) i)
+  have hki_hom : ∀ i, IsAlgHom Sig (termAlg Sig B).2
+      (quotAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)).2 (ki i) := by
+    intro i p σ a
+    show gi i p.2 (f p.2 (g p.2 ((termAlg Sig B).2 p σ a)) i) =
+      (quotAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)).2 p σ
+        (fun j => gi i (p.1.get j) (f (p.1.get j) (g (p.1.get j) (a j)) i))
+    rw [show g p.2 ((termAlg Sig B).2 p σ a) = A.2 p σ (fun j => g (p.1.get j) (a j)) from
+      hg_hom p σ a]
+    rw [show f p.2 (A.2 p σ (fun j => g (p.1.get j) (a j))) =
+        (iAlg Sig C).2 p σ (fun j => f (p.1.get j) (g (p.1.get j) (a j))) from
+      hf.1.1 p σ (fun j => g (p.1.get j) (a j))]
+    exact (hgi i).1 p σ (fun j => f (p.1.get j) (g (p.1.get j) (a j)) i)
+  have hki_surj : ∀ i s, Function.Surjective (ki i s) := by
+    intro i s y
+    obtain ⟨c, hc⟩ := (hgi i).2 s |>.2 y
+    obtain ⟨a, ha⟩ := hf.2 i s c
+    obtain ⟨x, hx⟩ := hg_surj s a
+    refine ⟨x, ?_⟩
+    show gi i s (f s (g s x) i) = y
+    have ha' : f s a i = c := by simpa using ha
+    rw [hx, ha', hc]
+  have hproj : ∀ i, ∃ hi : SortedMap (Term Sig B) (Term Sig (Ai i)),
+      IsAlgHom Sig (termAlg Sig B).2 (termAlg Sig (Ai i)).2 hi ∧
+      (fun s => (prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)) s ∘ hi s) = ki i :=
+    fun i => term_projective Sig B (termAlg Sig (Ai i)).2
+      (quotAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)).2
+      (prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i))
+      (isAlgHom_prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i))
+      (fun s => pr_surjective (Φi i) s) (ki i) (hki_hom i)
+  choose hi hhi_hom hhi_comp using hproj
+  let Φ : ι → SortedEqv (Term Sig B) := fun i =>
+    ker (fun s => (prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)) s ∘ hi i s)
+  have hΦmem : ∀ i, Φ i ∈ G B := by
+    intro i
+    have hsurj : ∀ s, Function.Surjective
+        (fun x => (prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)) s (hi i s x)) := by
+      intro s y
+      obtain ⟨x, hx⟩ := hki_surj i s y
+      exact ⟨x, (congrFun (congrFun (hhi_comp i) s) x).trans hx⟩
+    exact hG.2 B (Ai i) (Φi i) (hΦic i) (hΦiG i) (hi i) (hhi_hom i) hsurj
+  have hInf : Finset.inf Finset.univ Φ ∈ G B := by
+    have hstep : ∀ (t : Finset ι), Finset.inf t Φ ∈ G B := by
+      intro t
+      induction t using Finset.induction with
+      | empty =>
+          rw [Finset.inf_empty]
+          obtain ⟨Ψ₀, hΨ₀⟩ := (hG.1 B).1
+          exact (hG.1 B).2.2.2 Ψ₀ hΨ₀ ⊤ (fun _ _ _ _ _ => trivial) (fun _ _ _ _ => trivial)
+      | insert a t ha ih =>
+          rw [Finset.inf_insert]
+          exact (hG.1 B).2.2.1 (Φ a) (hΦmem a) (Finset.inf t Φ) ih
+    exact hstep Finset.univ
+  have hle : sortedEqvLe (Finset.inf Finset.univ Φ) (ker g) := by
+    intro s x y hxy
+    have hproj_eq : f s (g s x) = f s (g s y) := by
+      funext i
+      have h1 : ki i s x = ki i s y := by
+        have h3 : (Φ i s).r x y :=
+          (Setoid.le_def.mp ((Pi.le_def.mp (Finset.inf_le (Finset.mem_univ i))) s)) hxy
+        change (fun s => (prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)) s ∘ hi i s) s x =
+          (fun s => (prAlg Sig (termAlg Sig (Ai i)).2 (Φi i) (hΦic i)) s ∘ hi i s) s y at h3
+        rw [hhi_comp i] at h3
+        exact h3
+      exact ((hgi i).2 s).1 h1
+    exact hf.1.2 s hproj_eq
+  have hkerG : ker g ∈ G B :=
+    (hG.1 B).2.2.2 (Finset.inf Finset.univ Φ) hInf (ker g)
+      (ker_isCongruence Sig (termAlg Sig B).2 A.2 g hg_hom) hle
+  refine ⟨B, ker g, ker_isCongruence Sig (termAlg Sig B).2 A.2 g hg_hom, hkerG, ?_⟩
+  exact ⟨_, isAlgIso_symm Sig
+    (quotAlg Sig (termAlg Sig B).2 (ker g) (ker_isCongruence Sig (termAlg Sig B).2 A.2 g hg_hom)).2 A.2
+    (quotAlg_ker_isAlgIso Sig (termAlg Sig B).2 A.2 g hg_hom hg_surj)⟩
+
 end Mslang

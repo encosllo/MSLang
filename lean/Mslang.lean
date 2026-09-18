@@ -112,6 +112,11 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.formationGenerating
 #print axioms Mslang.congruenceFormationOf
 #print axioms Mslang.congruenceFormation_isCongruenceFormation
+#print axioms Mslang.algebraFormationOfCongruenceFormation
+#print axioms Mslang.algebraFormationOfCongruenceFormation_nonempty
+#print axioms Mslang.algebraFormationOfCongruenceFormation_abstract
+#print axioms Mslang.algebraFormationOfCongruenceFormation_HOperator
+#print axioms Mslang.algebraFormationOfCongruenceFormation_PFsdOperator
 #print axioms Mslang.isSat_iff_le_congCogenerated
 #print axioms Mslang.congCogenerated_compl
 #print axioms Mslang.congCogenerated_iInter_le

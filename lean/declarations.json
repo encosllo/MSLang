@@ -525,6 +525,16 @@
       ],
       "file": "lean/Mslang/Formation.lean"
     },
+    "B-P015": {
+      "decls": [
+        "Mslang.algebraFormationOfCongruenceFormation",
+        "Mslang.algebraFormationOfCongruenceFormation_nonempty",
+        "Mslang.algebraFormationOfCongruenceFormation_abstract",
+        "Mslang.algebraFormationOfCongruenceFormation_HOperator",
+        "Mslang.algebraFormationOfCongruenceFormation_PFsdOperator"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

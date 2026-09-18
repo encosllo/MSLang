@@ -1366,6 +1366,72 @@
         "hash": "5618db677da6abc0518370a51511f69faf97b368e3a523944c08fc5b37c2afe5"
       }
     },
+    "B-P015": {
+      "decls": [
+        "Mslang.algebraFormationOfCongruenceFormation",
+        "Mslang.algebraFormationOfCongruenceFormation_nonempty",
+        "Mslang.algebraFormationOfCongruenceFormation_abstract",
+        "Mslang.algebraFormationOfCongruenceFormation_HOperator",
+        "Mslang.algebraFormationOfCongruenceFormation_PFsdOperator"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgIso",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruenceFormation",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.finOp",
+          "Mslang.finalAlg",
+          "Mslang.finalSorted",
+          "Mslang.iAlg",
+          "Mslang.isAlgHom_prAlg",
+          "Mslang.isAlgIso_symm",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.ker_pr",
+          "Mslang.ker_prAlg",
+          "Mslang.nabla_isCongruence",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotAlgLift_isAlgHom",
+          "Mslang.quotAlg_ker_isAlgIso",
+          "Mslang.quotLift",
+          "Mslang.quotOp",
+          "Mslang.quotOp_mk",
+          "Mslang.termAlg",
+          "Mslang.termEta",
+          "Mslang.termEval",
+          "Mslang.termEval_isAlgHom",
+          "Mslang.termEval_surjective",
+          "Mslang.termLift",
+          "Mslang.termLift_eta",
+          "Mslang.termLift_isAlgHom",
+          "Mslang.termLift_unique",
+          "Mslang.term_projective",
+          "Mslang.wordProd"
+        ],
+        "hash": "cc16c830f301937660724bc07c8e1a80bc8ecb049d415133e12adb00915b2e23"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "4900ebf93afab7e6e1a44ab04026fad1c1c85b8c9acbd23c7f0550e069cd1487"
+      },
+      "formal_statement": {
+        "hash": "2077cad0a191dec642dd16cd13c0f509d709ea3d2b6a3c434e766d64158d2025"
+      }
+    },
     "B-P016": {
       "decls": [
         "Mslang.formation_congInf"

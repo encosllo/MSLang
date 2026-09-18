@@ -1,0 +1,38 @@
+{
+  "block": "B-P015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000177",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P015 compiled against Mathlib v4.33.1. algebraFormationOfCongruenceFormation Sig G is the class of Sigma-algebras isomorphic to a quotient T_Sigma(A)/Phi with Phi in G(A); the four theorems prove F_f is nonempty, abstract (for arbitrary G), H-closed, and P_fsd-closed when G is a congruence formation.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 241 declarations, 0 warnings, 0 unpermitted, 0 sorry): the definition uses {Classical.choice}; nonempty/abstract {Classical.choice, Quot.sound}; HOperator/PFsdOperator {Classical.choice, Quot.sound, propext}.",
+    "The P_fsd proof uses projectivity of the free algebra (B-P012, term_projective), the formation clause of B-P019, closure of G(B) under finite meets (Finset.inf induction), and the first isomorphism theorem."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P015/formal_proof",
+      "hash": "4900ebf93afab7e6e1a44ab04026fad1c1c85b8c9acbd23c7f0550e069cd1487"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T12:58:06Z"
+}

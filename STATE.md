@@ -4335,6 +4335,65 @@ complete-lattice isomorphism is not yet stated; both remain open.
 
 ---
 
+## Session 90 -- 2026-09-18 -- B-P015 (`F_𝔉` is a formation of algebras)
+
+**Goal.** Complete `B-P015`, the companion of `B-P019` and the prerequisite for
+`B-P020`: if `𝔉` is a congruence formation, the direct image
+`F_𝔉 = {C | ∃ A, ∃ Φ ∈ 𝔉(A), C ≅ T_Σ(A)/Φ}` is a formation of `Σ`-algebras.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Formation.lean` (`B-P015`):
+  - `algebraFormationOfCongruenceFormation Sig G` — the direct image `F_𝔉`;
+  - `..._nonempty` (`1 ≅ T_Σ(1)/∇`, `∇ ∈ G(1)` by up-closure);
+  - `..._abstract` (composition of isomorphisms; the helper `isAlgIso_comp`);
+  - `..._HOperator` (`H(F_𝔉) ⊆ F_𝔉`): an epimorphism `C ↠ D` composes with
+    `T_Σ(A) ↠ C`; the kernel contains `Φ`, so up-closure of `𝔉(A)` + the first
+    isomorphism theorem put `D ∈ F_𝔉`;
+  - `..._PFsdOperator` (`P_fsd(F_𝔉) ⊆ F_𝔉`): a finite subdirect product `A` of
+    `C^i ≅ T_Σ(A^i)/Φ^i` is a quotient of `T_Σ(B)` (`B = A`, `g = termEval`);
+    **projectivity (`B-P012`) lifts each `pr^i ∘ f ∘ g`** to
+    `h^i : T_Σ(B) → T_Σ(A^i)`; the `B-P019` formation clause puts
+    `Ker(pr^{Φ^i} ∘ h^i) ∈ 𝔉(B)`, hence their finite meet (`Finset.inf`
+    induction over closure under binary meets + nonemptiness); the meet refines
+    `Ker(g)` because the `f(g ·)`-images agree on every projection and `f` is
+    injective; first isomorphism theorem concludes.
+- Mapping: `B-P015` -> the above five declarations. Evidence **`E-000177`**
+  (verification) and **`E-000178`** (correspondence; two-stage blind; verdict
+  **`formal_stronger`** — abstractness is proved for arbitrary `G`, a positive
+  strict generalization, recorded not `equivalent`; transcript
+  `blocks/audits/B-P015-correspondence.md`).
+- `blocks/lean_audit.json`: **241 declarations, 0 warnings, 0 unpermitted, 0
+  `sorry`, ok=True**. `check_all.sh` (slow): **43 passed, 0 failed**. Journal
+  `EV-000098` (round trips) / `EV-000099` (B-P015). Frontier unmapped
+  **49 -> 48**.
+
+**Engineering gotcha (recurring, now with a standard set of fixes).** Lean's
+`rw`/`simpa`/`▸` at `implicit` transparency does not unfold `termAlg`/`Phi`
+to see carrier equalities. Standard fixes: bind the structure with an explicit
+carrier (`let FA : AlgStruct Sig (Term Sig A) := (termAlg Sig A).2`); use
+`Eq.trans`/`congrArg`-transported equalities instead of rewriting under
+`termAlg`; use `Pi.le_def.mp` + `Setoid.le_def.mp` to turn `Finset.inf_le`'s
+`≤` into a pointwise implication; reduce beta-redexes in `obtain`ed hypotheses
+(`have ha' : f s a i = c := by simpa using ha`).
+
+**B-P020 readiness.** `θ_Σ : F ↦ 𝔉_F` is well-defined by `B-P019`; `θ_Σ⁻¹ : 𝔉 ↦ F_𝔉`
+is well-defined by `B-P015`; the round trips (`F_{𝔉_F} = F`, `𝔉_{F_𝔉} = 𝔉`) are
+proved (Session 89). Remaining for `B-P020`: package these as the complete-lattice
+isomorphism (order preservation + the `CompleteLattice`/`OrderIso` on the two
+formation families, related to `B-C005`).
+
+**Prioritized next steps.**
+
+1. `B-P020`: state and prove the lattice isomorphism from `B-P019` + `B-P015` +
+   the two round trips (order preservation is straightforward; completeness via
+   `B-P018`/`B-C005`).
+2. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice) if the `CompleteLattice`
+   packaging is built there first.
+3. The `B-P034`/`B-P039` finite-index halves.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
