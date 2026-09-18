@@ -1,4 +1,4 @@
-import Mslang.Free
+import Mslang.Term
 
 /-!
 The formation-theoretic layer: subdirect products (`B-D028`), filters of a
@@ -79,23 +79,26 @@ lattice `Cgr(T_Σ(A))` (nonempty, a set of congruences, closed under pointwise
 meet, and up-closed under refinement) that is closed under the pullback of
 kernels along `Θ`-epimorphisms: for every `Θ ∈ F(B)` and every homomorphism
 `f : T_Σ(A) → T_Σ(B)` whose composite with the projection `pr^Θ` is surjective,
-the kernel `Ker(pr^Θ ∘ f)` lies in `F(A)`. -/
+the kernel `Ker(pr^Θ ∘ f)` lies in `F(A)`.
+
+`T_Σ(A)` is the inductive free algebra `Term Sig A` (the adopted encoding of
+`B-D027`; see `B-P010` for the open equivalence with the row presentation). -/
 def IsCongruenceFormation {S : Type u} (Sig : Signature S)
-    (F : (A : SSet S) → Set (SortedEqv (TAlg Sig A).1)) : Prop :=
+    (F : (A : SSet S) → Set (SortedEqv (Term Sig A))) : Prop :=
   (∀ A : SSet S,
       (F A).Nonempty ∧
-      (∀ Φ ∈ F A, IsCongruence Sig (TAlg Sig A).2 Φ) ∧
+      (∀ Φ ∈ F A, IsCongruence Sig (termAlg Sig A).2 Φ) ∧
       (∀ Φ ∈ F A, ∀ Ψ ∈ F A, sortedEqvInf Φ Ψ ∈ F A) ∧
-      (∀ Φ ∈ F A, ∀ Ψ : SortedEqv (TAlg Sig A).1,
-        IsCongruence Sig (TAlg Sig A).2 Ψ → sortedEqvLe Φ Ψ → Ψ ∈ F A)) ∧
-  (∀ (A B : SSet S) (Θ : SortedEqv (TAlg Sig B).1)
-      (hΘ : IsCongruence Sig (TAlg Sig B).2 Θ),
+      (∀ Φ ∈ F A, ∀ Ψ : SortedEqv (Term Sig A),
+        IsCongruence Sig (termAlg Sig A).2 Ψ → sortedEqvLe Φ Ψ → Ψ ∈ F A)) ∧
+  (∀ (A B : SSet S) (Θ : SortedEqv (Term Sig B))
+      (hΘ : IsCongruence Sig (termAlg Sig B).2 Θ),
       Θ ∈ F B →
-      ∀ f : SortedMap (TAlg Sig A).1 (TAlg Sig B).1,
-        IsAlgHom Sig (TAlg Sig A).2 (TAlg Sig B).2 f →
+      ∀ f : SortedMap (Term Sig A) (Term Sig B),
+        IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f →
         (∀ s : S, Function.Surjective
-          (fun x => prAlg Sig (TAlg Sig B).2 Θ hΘ s (f s x))) →
-        ker (fun s => prAlg Sig (TAlg Sig B).2 Θ hΘ s ∘ f s) ∈ F A)
+          (fun x => prAlg Sig (termAlg Sig B).2 Θ hΘ s (f s x))) →
+        ker (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) ∈ F A)
 
 /-! ### `B-D031`: the operators `H` and `P_fsd`. -/
 
@@ -601,5 +604,74 @@ formations of `Σ`-algebras containing `M` (the least such formation). -/
 def formationGenerating {S : Type u} (Sig : Signature S) (M : Set (Alg Sig)) :
     Set (Alg Sig) :=
   ⋂₀ {F | IsAlgebraFormation Sig F ∧ M ⊆ F}
+
+/-! ### `B-P019`: `𝔉_F` is a formation of congruences. -/
+
+/-- `B-P019`: for a formation `F` of `Σ`-algebras, the function `𝔉_F` sending
+each `S`-sorted set `A` to `{Φ ∈ Cgr(T_Σ(A)) | T_Σ(A)/Φ ∈ F}`, a subset of
+`Cgr(T_Σ(A))`. Membership is the `Σ`-form `∃ hΦ, quotAlg … Φ hΦ ∈ F`, since
+`IsCongruence` is a proposition. -/
+def congruenceFormationOf {S : Type u} (Sig : Signature S) (F : Set (Alg Sig)) :
+    (A : SSet S) → Set (SortedEqv (Term Sig A)) :=
+  fun A => {Φ | ∃ hΦ : IsCongruence Sig (termAlg Sig A).2 Φ,
+                  quotAlg Sig (termAlg Sig A).2 Φ hΦ ∈ F}
+
+/-- `B-P019` (`FormAlgentailsCgrForm`): if `F` is a formation of `Σ`-algebras,
+then `𝔉_F` is a formation of congruences. Each `𝔉_F(A)` is a filter of
+`Cgr(T_Σ(A))` — non-empty by `∇^{T_Σ(A)}` (its quotient is subfinal, hence in
+`F`), closed under `⊓` by `B-P016`, and up-closed because a coarser congruence
+gives a quotient — and the formation clause holds by the first isomorphism
+theorem (`B-P017`): `T_Σ(A)/Ker(pr^Θ ∘ f) ≅ T_Σ(B)/Θ ∈ F`. -/
+theorem congruenceFormation_isCongruenceFormation {S : Type u} (Sig : Signature S)
+    {F : Set (Alg Sig)} (hF : IsAlgebraFormation Sig F) :
+    IsCongruenceFormation Sig (congruenceFormationOf Sig F) := by
+  classical
+  constructor
+  · intro A
+    refine ⟨?_, ?_, ?_, ?_⟩
+    · exact ⟨nabla (Term Sig A), nabla_isCongruence Sig (termAlg Sig A).2,
+        subfinalAlg_mem_of_formation Sig hF (quot_nabla_subfinal Sig (termAlg Sig A).2)⟩
+    · rintro Φ ⟨hΦ, _⟩
+      exact hΦ
+    · rintro Φ ⟨hΦ, hΦF⟩ Ψ ⟨hΨ, hΨF⟩
+      exact ⟨IsCongruence_inf Sig (termAlg Sig A).2 hΦ hΨ,
+        formation_congInf Sig hF (termAlg Sig A) Φ Ψ hΦ hΨ hΦF hΨF⟩
+    · rintro Φ ⟨hΦ, hΦF⟩ Ψ hΨ hle
+      have hle' : sortedEqvLe Φ (ker (prAlg Sig (termAlg Sig A).2 Ψ hΨ)) :=
+        (congrArg (fun R => sortedEqvLe Φ R)
+          (ker_prAlg Sig (termAlg Sig A).2 Ψ hΨ)).symm.mp hle
+      let p : SortedMap (quotAlg Sig (termAlg Sig A).2 Φ hΦ).1
+          (quotAlg Sig (termAlg Sig A).2 Ψ hΨ).1 :=
+        quotLift Φ (prAlg Sig (termAlg Sig A).2 Ψ hΨ) hle'
+      have hp_hom : IsAlgHom Sig (quotAlg Sig (termAlg Sig A).2 Φ hΦ).2
+          (quotAlg Sig (termAlg Sig A).2 Ψ hΨ).2 p :=
+        quotAlgLift_isAlgHom Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig A).2 Ψ hΨ).2
+          Φ hΦ (prAlg Sig (termAlg Sig A).2 Ψ hΨ)
+          (isAlgHom_prAlg Sig (termAlg Sig A).2 Ψ hΨ) hle'
+      have hp_surj : ∀ s, Function.Surjective (p s) := by
+        intro s y
+        induction y using Quotient.inductionOn with
+        | _ a =>
+          refine ⟨Quotient.mk (Φ s) a, ?_⟩
+          exact Quotient.lift_mk (prAlg Sig (termAlg Sig A).2 Ψ hΨ s)
+            (fun a b hab => hle' s a b hab) a
+      exact ⟨hΨ, hF.1 ⟨quotAlg Sig (termAlg Sig A).2 Φ hΦ, hΦF, p, hp_hom, hp_surj⟩⟩
+  · rintro A B Θ hΘ hΘF f hf hsurj
+    obtain ⟨_, hΘFmem⟩ := hΘF
+    let g : SortedMap (Term Sig A) (quotAlg Sig (termAlg Sig B).2 Θ hΘ).1 :=
+      fun s => (prAlg Sig (termAlg Sig B).2 Θ hΘ s) ∘ (f s)
+    have hg : IsAlgHom Sig (termAlg Sig A).2
+        (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g := by
+      intro p σ a
+      show prAlg Sig (termAlg Sig B).2 Θ hΘ p.2 (f p.2 ((termAlg Sig A).2 p σ a)) =
+        (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 p σ
+          (fun i => prAlg Sig (termAlg Sig B).2 Θ hΘ (p.1.get i) (f (p.1.get i) (a i)))
+      rw [hf p σ a]
+      exact isAlgHom_prAlg Sig (termAlg Sig B).2 Θ hΘ p σ
+        (fun i => f (p.1.get i) (a i))
+    have hiso := quotAlg_ker_isAlgIso Sig (termAlg Sig A).2
+      (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg hsurj
+    exact ⟨ker_isCongruence Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg,
+      formation_mem_of_iso Sig hF.1 hΘFmem hiso⟩
 
 end Mslang

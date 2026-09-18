@@ -518,6 +518,13 @@
       ],
       "file": "lean/Mslang/Formation.lean"
     },
+    "B-P019": {
+      "decls": [
+        "Mslang.congruenceFormationOf",
+        "Mslang.congruenceFormation_isCongruenceFormation"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

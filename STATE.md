@@ -4219,6 +4219,62 @@ Option 1.
 
 ---
 
+## Session 88 -- 2026-09-18 -- B-P019 (`𝔉_F` is a congruence formation)
+
+**Goal.** First step toward `B-P020`: formalize `B-P019`, which builds the
+congruence formation `𝔉_F` from an algebra formation `F` — the object whose
+lattice is the right-hand side of the Eilenberg isomorphism.
+
+**What was established (closed).**
+
+- **`B-P019`** in `lean/Mslang/Formation.lean`:
+  - `congruenceFormationOf Sig F A = {Φ | IsCongruence Sig (termAlg Sig A).2 Φ ∧
+    quotAlg Sig (termAlg Sig A).2 Φ hΦ ∈ F}` (the `∃ hΦ` Σ-form, since
+    `IsCongruence` is a proposition);
+  - `congruenceFormation_isCongruenceFormation : IsAlgebraFormation Sig F →
+    IsCongruenceFormation Sig (congruenceFormationOf Sig F)`.
+  - Proof: **non-empty** `∇^{T_Σ(A)}` (`quot_nabla_subfinal` + `B-R017`
+    `subfinalAlg_mem_of_formation`); **meet-closure** `B-P016`
+    `formation_congInf`; **up-closure** the induced `quotLift`
+    `T_Σ(A)/Φ ↠ T_Σ(A)/Ψ` is a surjective hom, so `HOperator` closure applies;
+    **formation clause** `quotAlg_ker_isAlgIso` (`B-P017`) plus
+    `formation_mem_of_iso`. Axioms
+    `{Classical.choice, Quot.sound, propext}`.
+- **`B-D030` re-based on the adopted encoding.** `IsCongruenceFormation` now
+  uses `Term`/`termAlg` (the adopted free algebra) instead of `TAlg`; its content
+  is unchanged (`T_Σ(A)` is the same object). `Formation.lean` now imports
+  `Mslang.Term` (which imports `Free`, so `W_Σ`/`TAlg` remain available).
+- Evidence: **`E-000174`** (B-D030 verification, supersedes `E-000117`,
+  `reissue_reason: other`), **`E-000175`** (B-P019 verification),
+  **`E-000176`** (B-P019 correspondence, `equivalent`; two-stage blind;
+  transcript `blocks/audits/B-P019-correspondence.md`).
+- `blocks/lean_audit.json`: **236 declarations, 0 warnings, 0 unpermitted, 0
+  `sorry`, ok=True**. `check_all.sh` (slow): **43 passed, 0 failed**. Journal
+  `EV-000098`. Frontier unmapped **50 -> 49**; ranking still recommends
+  `B-P020`.
+
+**Engineering gotcha.** `rw`/`▸` matching at Lean's `implicit` transparency does
+not unfold `termAlg` to see `(termAlg Sig A).1 = Term Sig A`, so `rw [ker_prAlg]`
+failed; the fix is `(congrArg (fun R => …) hk).symm.mp hle` (a `Prop`-level
+transport) instead of rewriting under the quotient term. Also `HOperator`'s
+witness starts with the *source* algebra.
+
+**Honest caveat.** Same-model audit (`provisional` layer). `B-D030`'s encoding
+change is the same representation decision as Session 87 (adopt `Term`); the
+`Term ≅ T_Σ` equivalence remains the open `B-P010` bridge.
+
+**Prioritized next steps.**
+
+1. `B-P020`: define `F_𝔉` (the algebras isomorphic to a quotient `T_Σ(A)/Φ` with
+   `Φ ∈ 𝔉(A)`) and prove `F = F_{𝔉_F}`, `𝔉 = 𝔉_{F_𝔉}`, then the complete-lattice
+   isomorphism, using `B-P013` (`termEval_surjective`) and `B-P019`.
+2. `B-C005` (the two formation lattices are algebraic): the `CompleteLattice`
+   structure on `algebraFormations`/congruence formations.
+3. The `B-P034`/`B-P039` finite-index halves (shared foundations `B-D040`,
+   `B-D042` are ready).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

@@ -1,0 +1,39 @@
+{
+  "block": "B-D030",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000174",
+  "findings": [
+    "Re-issue of E-000117: IsCongruenceFormation now uses the inductive free algebra Term Sig A (termAlg) instead of the row presentation TAlg, consistent with the adopted free-algebra encoding (author Option 1, Session 87). The definition's content is unchanged (T_Sigma(A) is the same object); only the encoding of T_Sigma moved, so the block's formal_statement and definition_closure changed.",
+    "lake build under the dependent-type carrier model: B-D030 (Mslang.IsCongruenceFormation) compiled against Mathlib v4.33.1. Axioms of IsCongruenceFormation are {Classical.choice} (scripts/lean_audit.py: 236 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D030/formal_proof",
+      "hash": "d922834ad8c9111e66e6be469512c091d9ad48e4cd30cbd9482c6a37d88a906c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000117",
+  "timestamp": "2026-09-18T11:23:59Z"
+}

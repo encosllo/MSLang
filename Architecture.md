@@ -642,7 +642,7 @@ The pilot's layout, coarse to fine along the dependency chain, with the umbrella
 | `Mslang/Subfinal.lean` | the final algebra `1`, algebra isomorphisms, the subfinal results (`B-D023`, `B-P008`, `B-R011`, `B-R012`) |
 | `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` (`B-D026`) and the row presentation of the free `Σ`-algebra (`genSet`, `TAlg`, `etaX`) |
 | `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor, adopted as the free-algebra encoding of `B-D027`: the free universal property (`B-P011`), projectivity (`term_projective`, `B-P012`), the evaluation onto an algebra (`termEval_surjective`, `B-P013`), and the comparison map `toT : Term_Σ(X) → T_Σ(X)` (surjective; injectivity is the open `B-P010`) |
-| `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), opening the formation-theoretic layer |
+| `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), formations of congruences (`B-D030`) and of algebras (`B-D032`, `B-D033`), `Form_Alg(Σ)` as an algebraic closure system (`B-P018`) and `𝔉_F` (`B-P019`) |
 | `Mslang/Translation.lean` | elementary translations and translations (`B-D035`, `B-D036`), the actions `T[·]`/`T⁻¹[·]` and the cogenerated congruence (`B-D037`, `B-D038`), and the congruence characterization (`B-P021`) |
 
 Modules are per *dependency layer*, not per block: coarse enough to avoid import

@@ -8,7 +8,7 @@ record is **superseded** when a current record names it through
 `supersedes`; otherwise it is **awaiting** re-audit. Only awaiting
 records represent outstanding work.
 
-45 of 173 record(s) are stale (45 superseded, 0 awaiting):
+46 of 176 record(s) are stale (46 superseded, 0 awaiting):
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
@@ -54,6 +54,7 @@ records represent outstanding work.
 | E-000111 | `B-D027` | verification | superseded | B-D027/formal_proof: recorded e52f4b6ef16e... now 0bf365ad135d... |
 | E-000114 | `B-L001` | verification | superseded | B-L001/formal_proof: recorded 914b2a30bc13... now cb7503133deb... |
 | E-000115 | `B-L001` | correspondence | superseded | B-L001/definition_closure: recorded aac30166156f... now 24f37ec45279...<br>B-L001/formal_statement: recorded 266a46cd1380... now 5bf5ee8ddb39... |
+| E-000118 | `B-D030` | verification | superseded | B-D030/formal_proof: recorded 8af19fa674bb... now d922834ad8c9... |
 | E-000121 | `B-D033` | verification | superseded | B-D033/formal_proof: recorded 322e1f8ecf25... now a715b0b68025... |
 | E-000129 | `B-P017` | correspondence | superseded | B-P017/definition_closure: recorded dcd4d7a1dfae... now f5294219d82b... |
 | E-000162 | `B-R021` | verification | superseded | B-R021/formal_proof: recorded 55c383357121... now 6c05e3befac9... |

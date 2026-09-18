@@ -110,6 +110,8 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.tlEndMonoid
 #print axioms Mslang.algebraFormations_isAlgebraicClosureSystem
 #print axioms Mslang.formationGenerating
+#print axioms Mslang.congruenceFormationOf
+#print axioms Mslang.congruenceFormation_isCongruenceFormation
 #print axioms Mslang.isSat_iff_le_congCogenerated
 #print axioms Mslang.congCogenerated_compl
 #print axioms Mslang.congCogenerated_iInter_le

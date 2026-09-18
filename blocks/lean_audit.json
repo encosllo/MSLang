@@ -188,6 +188,14 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.congruenceFormationOf": [
+      "Classical.choice"
+    ],
+    "Mslang.congruenceFormation_isCongruenceFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.congruence_of_closesUnderEtl": [
       "Classical.choice",
       "Quot.sound",
@@ -576,7 +584,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 234,
+  "declarations_audited": 236,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",
