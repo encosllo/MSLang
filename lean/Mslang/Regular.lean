@@ -758,4 +758,145 @@ theorem langCongFormationOf_isFiniteIndexCongruenceFormation {S : Type u}
       langCongFormationOf_ker Sig hL A B Θ hΘ hΘmem f hf hsurj⟩,
    fun _ _ hΦ => hΦ.1⟩
 
+/-! ### `B-P039`: `Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`. -/
+
+/-- `sortedEqvInf` is idempotent. -/
+theorem sortedEqvInf_self {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    sortedEqvInf Φ Φ = Φ :=
+  sortedEqvLe_antisymm (fun _ _ _ h => h.1) (fun _ _ _ h => ⟨h, h⟩)
+
+/-- A congruence formation is closed under finite meets (over any finite index). -/
+theorem IsCongruenceFormation_finset_inf {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) (A : SSet S) {ι : Type u} [Fintype ι]
+    (Φ : ι → SortedEqv (Term Sig A)) (h : ∀ i, Φ i ∈ G A) :
+    (Finset.univ : Finset ι).inf Φ ∈ G A := by
+  classical
+  have hstep : ∀ (t : Finset ι), t.inf Φ ∈ G A := by
+    intro t
+    induction t using Finset.induction with
+    | empty =>
+        rw [Finset.inf_empty]
+        obtain ⟨Ψ₀, hΨ₀⟩ := (hG.1 A).1
+        exact (hG.1 A).2.2.2 Ψ₀ hΨ₀ ⊤ (fun _ _ _ _ _ => trivial)
+          (fun _ _ _ _ => trivial)
+    | insert a t ha ih =>
+        rw [Finset.inf_insert]
+        exact (hG.1 A).2.2.1 (Φ a) (h a) (t.inf Φ) ih
+  exact hstep Finset.univ
+
+/-- `B-P030`: `L_𝔉` is monotone in `𝔉`. -/
+theorem langFormationOf_mono {S : Type u} (Sig : Signature S)
+    {G G' : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (h : ∀ A, G A ⊆ G' A) :
+    ∀ A, langFormationOf Sig G A ⊆ langFormationOf Sig G' A := by
+  intro A L hL
+  exact h A hL
+
+/-- `B-P038`: `𝔉_𝔏` is monotone in `𝔏`. -/
+theorem langCongFormationOf_mono {S : Type u} (Sig : Signature S)
+    {L L' : (A : SSet S) → Set (Sub (Term Sig A))}
+    (h : ∀ A, L A ⊆ L' A) :
+    ∀ A, langCongFormationOf Sig L A ⊆ langCongFormationOf Sig L' A := by
+  rintro A Φ ⟨hΦ, hsat⟩
+  exact ⟨hΦ, fun N hN => h A (hsat N hN)⟩
+
+/-- `B-P039` (first round trip): `𝔉_{L_𝔉} = 𝔉` for a formation of finite-index
+congruences. The substantive direction reduces `Φ ∈ 𝔉_{L_𝔉}(A)` to the finite
+meet of the `Ω(δ^{s,[a]_Φ})` over the finitely many `Φ`-classes: each atom is
+`Φ`-saturated, hence lies in `L_𝔉(A)`, hence its syntactic congruence is in
+`𝔉(A)` by up-closure; `𝔉` is closed under finite meets and that meet refines
+`Φ` (every class is one of the atoms), so `Φ ∈ 𝔉(A)` by up-closure. -/
+theorem langCongFormationOf_langFormationOf {S : Type u} (Sig : Signature S)
+    {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsFiniteIndexCongruenceFormation Sig G) :
+    langCongFormationOf Sig (langFormationOf Sig G) = G := by
+  funext A
+  ext Φ
+  constructor
+  · intro hΦ
+    haveI : Finite (Sigma (quot Φ)) := hΦ.1.2
+    haveI : Fintype (Sigma (quot Φ)) := Fintype.ofFinite _
+    let Ωfun : Sigma (quot Φ) → SortedEqv (Term Sig A) :=
+      fun q => congCogenerated Sig (termAlg Sig A) (atomOf Φ q)
+    have hΩmem : ∀ q, Ωfun q ∈ G A := by
+      intro q
+      have hmemL : atomOf Φ q ∈ langFormationOf Sig G A :=
+        hΦ.2 (atomOf Φ q) (isSat_atomOf Φ q)
+      obtain ⟨Ψ, hΨG, hΨsat⟩ :=
+        (mem_langFormationOf_iff Sig hG.1 A (atomOf Φ q)).mp hmemL
+      exact (hG.1.1 A).2.2.2 Ψ hΨG (Ωfun q)
+        (congCogenerated_isCongruence Sig (termAlg Sig A) (atomOf Φ q))
+        ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) (atomOf Φ q)
+          ((hG.1.1 A).2.1 Ψ hΨG)).mp hΨsat)
+    have hInf : (Finset.univ : Finset (Sigma (quot Φ))).inf Ωfun ∈ G A :=
+      IsCongruenceFormation_finset_inf Sig hG.1 A Ωfun (fun q => hΩmem q)
+    have hle : sortedEqvLe ((Finset.univ : Finset (Sigma (quot Φ))).inf Ωfun) Φ := by
+      intro s x y hxy
+      let qx : Sigma (quot Φ) := ⟨s, Quotient.mk (Φ s) x⟩
+      have hq : (Ωfun qx s).r x y :=
+        (Setoid.le_def.mp ((Pi.le_def.mp (Finset.inf_le (Finset.mem_univ qx))) s)) hxy
+      have hxatom : x ∈ atomOf Φ qx s := by
+        show x ∈ atomRep Φ s (Quotient.out (Quotient.mk (Φ s) x)) s
+        simp only [atomRep, deltaSub, Function.update_self, eqvClass, Set.mem_ofPred_eq]
+        exact Quotient.exact (Quotient.out_eq (Quotient.mk (Φ s) x))
+      have hsat : IsSat (Ωfun qx) (atomOf Φ qx) :=
+        isSat_congCogenerated Sig (termAlg Sig A) (atomOf Φ qx)
+      have hyatom : y ∈ atomOf Φ qx s := by
+        rw [← hsat]
+        exact ⟨x, hxatom, hq⟩
+      have hout : (Φ s).r (Quotient.out (Quotient.mk (Φ s) x)) y := by
+        simpa only [qx, atomOf, atomRep, deltaSub, Function.update_self, eqvClass,
+          Set.mem_ofPred_eq] using hyatom
+      exact (Φ s).trans ((Φ s).symm
+        (Quotient.exact (Quotient.out_eq (Quotient.mk (Φ s) x)))) hout
+    exact (hG.1.1 A).2.2.2 ((Finset.univ : Finset (Sigma (quot Φ))).inf Ωfun) hInf Φ
+      hΦ.1.1 hle
+  · intro hΦG
+    refine ⟨hG.2 A hΦG, ?_⟩
+    intro N hN
+    exact (mem_langFormationOf_iff Sig hG.1 A N).mpr ⟨Φ, hΦG, hN⟩
+
+/-- `B-P039` (second round trip): `L_{𝔉_𝔏} = 𝔏` for a formation of regular
+languages. -/
+theorem langFormationOf_langCongFormationOf {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) :
+    langFormationOf Sig (langCongFormationOf Sig L) = L := by
+  funext A
+  ext N
+  constructor
+  · intro hN
+    exact hN.2 N (isSat_congCogenerated Sig (termAlg Sig A) N)
+  · intro hN
+    refine ⟨⟨congCogenerated_isCongruence Sig (termAlg Sig A) N, hL.1 A hN⟩, ?_⟩
+    intro M hM
+    have hM' : IsSat (sortedEqvInf (congCogenerated Sig (termAlg Sig A) N)
+        (congCogenerated Sig (termAlg Sig A) N)) M := by
+      rw [sortedEqvInf_self]
+      exact hM
+    exact hL.2.2.1 A N N hN hN M hM'
+
+/-- `B-P039`: the order isomorphism `Form_Cgr_fi(Σ) ≃o Form_Lang_r(Σ)` (the
+second Eilenberg theorem). `θ : 𝔉 ↦ L_𝔉` (`B-P030`) and
+`θ⁻¹ : 𝔏 ↦ 𝔉_𝔏` (`B-P038`) are mutually inverse and preserve/reflect the order. -/
+def formCgrFiFormLangRIso {S : Type u} (Sig : Signature S) [Finite S] :
+    finiteIndexCongruenceFormations Sig ≃o regularLanguageFormations Sig where
+  toFun G := ⟨langFormationOf Sig G.1,
+    langFormationOf_isRegularLanguageFormation Sig G.2⟩
+  invFun L := ⟨langCongFormationOf Sig L.1,
+    langCongFormationOf_isFiniteIndexCongruenceFormation Sig L.2⟩
+  left_inv G := Subtype.ext (langCongFormationOf_langFormationOf Sig G.2)
+  right_inv L := Subtype.ext (langFormationOf_langCongFormationOf Sig L.2)
+  map_rel_iff' := by
+    intro G G'
+    constructor
+    · intro h A Φ hΦ
+      rw [← langCongFormationOf_langFormationOf Sig G.2] at hΦ
+      have h' : ∀ A, langFormationOf Sig G.1 A ⊆ langFormationOf Sig G'.1 A := h
+      have hmono := langCongFormationOf_mono Sig h' A hΦ
+      rwa [langCongFormationOf_langFormationOf Sig G'.2] at hmono
+    · intro h
+      exact langFormationOf_mono Sig h
+
 end Mslang

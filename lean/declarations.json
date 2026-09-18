@@ -642,6 +642,18 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-P039": {
+      "decls": [
+        "Mslang.sortedEqvInf_self",
+        "Mslang.IsCongruenceFormation_finset_inf",
+        "Mslang.langFormationOf_mono",
+        "Mslang.langCongFormationOf_mono",
+        "Mslang.langCongFormationOf_langFormationOf",
+        "Mslang.langFormationOf_langCongFormationOf",
+        "Mslang.formCgrFiFormLangRIso"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-D034": {
       "decls": [
         "Mslang.formationGenerating"

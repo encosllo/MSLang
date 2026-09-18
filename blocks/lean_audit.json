@@ -59,6 +59,11 @@
     "Mslang.IsCongruenceFormation": [
       "Classical.choice"
     ],
+    "Mslang.IsCongruenceFormation_finset_inf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsCongruence_inf": [],
     "Mslang.IsElemTranslation": [],
     "Mslang.IsEpiAlg": [],
@@ -370,6 +375,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.formCgrFiFormLangRIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.formationGenerating": [
       "Classical.choice",
       "Quot.sound",
@@ -483,6 +493,12 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.langCongFormationOf_langFormationOf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langCongFormationOf_mono": [],
     "Mslang.langCongFormationOf_nabla": [
       "Classical.choice",
       "Quot.sound",
@@ -509,6 +525,12 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.langFormationOf_langCongFormationOf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.langFormationOf_mono": [],
     "Mslang.langFormationOf_nabla": [
       "Classical.choice",
       "Quot.sound",
@@ -675,6 +697,10 @@
       "propext"
     ],
     "Mslang.sigmaPUnitEquiv": [],
+    "Mslang.sortedEqvInf_self": [
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.sortedEqvLe_antisymm": [
       "Quot.sound",
       "propext"
@@ -791,7 +817,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 287,
+  "declarations_audited": 294,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

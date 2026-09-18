@@ -4700,6 +4700,61 @@ pilot-encoding residuals (`carrier-model`, `small-large`, `univalence-missing`).
 
 ---
 
+## Session 98 -- 2026-09-18 -- B-P039 (second Eilenberg theorem)
+
+**Goal.** Complete the second Eilenberg theorem: `Form_Cgr_fi(Σ) ≅ Form_Lang_r(Σ)`.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean` (`B-P039`):
+  - `sortedEqvInf_self` (idempotence) and `IsCongruenceFormation_finset_inf`
+    (a congruence formation is closed under finite meets over any finite index;
+    empty case by up-closure of the nonempty witness to `⊤`);
+  - `langFormationOf_mono` / `langCongFormationOf_mono` (order preservation of
+    the two maps);
+  - **first round trip `langCongFormationOf_langFormationOf`**: `𝔉_{L_𝔉} = 𝔉`
+    for a finite-index congruence formation. The substantive direction is
+    formalized *without* the manuscript's full meet representation
+    `Φ = ⋂ Ω(δ^{s,[a]_Φ})`: for `Φ ∈ 𝔉_{L_𝔉}(A)`, each class atom
+    `atomOf Φ q` (`q : Σ(A/Φ)`) is `Φ`-saturated, hence lies in `L_𝔉(A)`, hence
+    its syntactic congruence is in `𝔉(A)` by up-closure; the **finite** meet over
+    the finitely many classes is in `𝔉(A)`; and that meet refines `Φ` because for
+    `x` the class `q_x` has `x` in its atom, so `Ω(atomOf Φ q_x)`-relatedness
+    forces `Φ`-relatedness. Up-closure then gives `Φ ∈ 𝔉(A)`;
+  - **second round trip `langFormationOf_langCongFormationOf`**: `L_{𝔉_𝔏} = L`,
+    using the meet clause of `B-D045` at `X = Y = L` to see that every
+    `Ω(L)`-saturated language lies in `L(A)`;
+  - **`formCgrFiFormLangRIso : finiteIndexCongruenceFormations Sig ≃o
+    regularLanguageFormations Sig`** — the order isomorphism (mutual inverses
+    plus order preservation/reflection).
+  Axioms within the permitted set.
+- Mapping: `B-P039` -> the seven declarations above. Evidence **`E-000198`**
+  (verification) and **`E-000199`** (correspondence, two-stage blind,
+  **`equivalent`**; transcript `blocks/audits/B-P039-correspondence.md`).
+- `blocks/lean_audit.json`: **294 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**, ok. `check_all.sh` (slow): **43 passed, 0 failed**. Journal
+  `EV-000107`. Frontier unmapped **35 -> 34** (95 mapped blocks).
+
+**Finding (formalization simplification).** The manuscript's `𝔉_{L_𝔉} ⊆ 𝔉`
+direction invokes `B-P024` (`Φ = ⋂ Ω(δ^{s,[a]_Φ})`, indexed by all elements of
+`A`) and then finiteness to collapse the intersection to the classes. The Lean
+proof needs only the class-indexed atoms and the *one* class of `x`, so the
+`sortedEqv_iInf` representation theorem is not needed. Same-model audit
+(`provisional` layer); inherits the pilot-encoding residuals.
+
+**Honest caveat.** The Lean statement is an order isomorphism of the two posets;
+the `CompleteLattice`/algebraic-lattice structures behind "complete lattices"
+are the separate `B-P018`/`B-C005`/`B-C012` results (as with `B-P020`/`B-P034`).
+
+**Prioritized next steps.**
+
+1. `B-C013` (`Form_Lang_r(Σ)` is an algebraic lattice, from `B-P039` +
+   `B-C012`) and `B-C005`/`B-C006` (the algebraic-lattice structures).
+2. `B-P035` (equivalence of the two language-formation definitions).
+3. `B-P032`/`B-P033` (the lattice structures on the finite subfamilies).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
