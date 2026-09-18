@@ -1,0 +1,40 @@
+{
+  "block": "B-D027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000165",
+  "findings": [
+    "lake build under the dependent-type carrier model. B-D027 now maps to both presentations of the free Sigma-algebra T_Sigma(X): the row presentation (Mslang.genSet, TAlg, TSet, etaX in Free.lean) and the inductive term algebra (Mslang.Term, termAlg, termEta in Term.lean) adopted as the free-algebra encoding (author decision, Option 1).",
+    "Axioms within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry); Term (inductive), termAlg and termEta depend on no axioms.",
+    "Re-issue of E-000111: the block declaration set, hence its formal_proof aggregate, changed by adding the inductive presentation."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D027/formal_proof",
+      "hash": "0bf365ad135d10e99637ac529a9fcccbb67e8162a3c5278463e9d5a9beca80ad"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000111",
+  "timestamp": "2026-09-18T09:53:05Z"
+}

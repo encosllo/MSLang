@@ -728,17 +728,12 @@
     {
       "from": "B-L001",
       "kind": "formal_uses",
-      "to": "B-D021"
-    },
-    {
-      "from": "B-L001",
-      "kind": "formal_uses",
-      "to": "B-D026"
-    },
-    {
-      "from": "B-L001",
-      "kind": "formal_uses",
       "to": "B-D027"
+    },
+    {
+      "from": "B-L001",
+      "kind": "formal_uses",
+      "to": "B-P011"
     },
     {
       "from": "B-P002",
@@ -894,6 +889,96 @@
       "from": "B-P009",
       "kind": "formal_uses",
       "to": "B-R005"
+    },
+    {
+      "from": "B-P011",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P011",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-P011",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-P011",
+      "kind": "formal_uses",
+      "to": "B-D017"
+    },
+    {
+      "from": "B-P011",
+      "kind": "formal_uses",
+      "to": "B-D027"
+    },
+    {
+      "from": "B-P011",
+      "kind": "formal_uses",
+      "to": "B-L001"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-D002"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-D017"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-D027"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-L001"
+    },
+    {
+      "from": "B-P012",
+      "kind": "formal_uses",
+      "to": "B-P011"
+    },
+    {
+      "from": "B-P013",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-P013",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-P013",
+      "kind": "formal_uses",
+      "to": "B-D017"
+    },
+    {
+      "from": "B-P013",
+      "kind": "formal_uses",
+      "to": "B-D027"
+    },
+    {
+      "from": "B-P013",
+      "kind": "formal_uses",
+      "to": "B-P011"
     },
     {
       "from": "B-P016",

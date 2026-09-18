@@ -640,14 +640,22 @@ The pilot's layout, coarse to fine along the dependency chain, with the umbrella
 | `Mslang/Algebra.lean` | signatures, `Σ`-algebras, homomorphisms, products of algebras, subalgebras and `Sg`, closure-system vocabulary |
 | `Mslang/Congruence.lean` | congruences and the quotient `Σ`-algebra (`B-D024`, `B-D025`, `B-P009`) |
 | `Mslang/Subfinal.lean` | the final algebra `1`, algebra isomorphisms, the subfinal results (`B-D023`, `B-P008`, `B-R011`, `B-R012`) |
-| `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` and the free `Σ`-algebra `T_Σ(X)` (`B-D026`, `B-D027`) |
-| `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor: the free universal property (`termLift`, existence and uniqueness), projectivity (`term_projective`), and the evaluation onto an algebra (`termEval_surjective`) |
+| `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` (`B-D026`) and the row presentation of the free `Σ`-algebra (`genSet`, `TAlg`, `etaX`) |
+| `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor, adopted as the free-algebra encoding of `B-D027`: the free universal property (`B-P011`), projectivity (`term_projective`, `B-P012`), the evaluation onto an algebra (`termEval_surjective`, `B-P013`), and the comparison map `toT : Term_Σ(X) → T_Σ(X)` (surjective; injectivity is the open `B-P010`) |
 | `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), opening the formation-theoretic layer |
 | `Mslang/Translation.lean` | elementary translations and translations (`B-D035`, `B-D036`), the actions `T[·]`/`T⁻¹[·]` and the cogenerated congruence (`B-D037`, `B-D038`), and the congruence characterization (`B-P021`) |
 
 Modules are per *dependency layer*, not per block: coarse enough to avoid import
 churn, fine enough that frontier edits stay local. Splitting a module is itself
 a refactor governed by Section 13.2 class C5.
+
+A block normally maps to declarations in one module. When a block's contract is
+genuinely presented in more than one module — `B-D027` is the row presentation
+(`Free.lean`) *and* the inductive presentation (`Term.lean`) — the block-to-module
+map may override the file per declaration (`decl_files` in
+`lean/declarations.json`); the block's `file` remains the primary one. The
+alternative presentations are equated by proofs (`toT` here), not merely
+co-located.
 
 **Module moves stale no evidence.** Because formal facets are hashed from
 declaration text (Section 6), moving a declaration between modules preserves its

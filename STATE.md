@@ -4159,6 +4159,66 @@ case of the `STATE.md` Session 53 caveat.
 
 ---
 
+## Session 87 -- 2026-09-18 -- free-algebra encoding adopted (B-P011/B-P012/B-P013)
+
+**Goal.** Unblock the author's designated goal `B-P020` by adopting the inductive
+`Term_Σ(X)` as the encoding of the free `Σ`-algebra (author decision **Option
+1**), after recon showed the row presentation's universal property is exactly the
+deferred `B-P010` (unique parsing).
+
+**What was established (closed).**
+
+- **The canonical comparison map.** `lean/Mslang/Term.lean` gained
+  `toT : Term_Σ(X) → T_Σ(X)` (extends `η^X`), `toT_isAlgHom`, `toT_eta`, and
+  `toT_surjective` (the image is a subalgebra of `W_Σ(X)` containing `genSet`, so
+  it contains `Sg(genSet) = T_Σ(X)`). `toT` **injectivity is `B-P010` (unique
+  parsing), recorded as the open bridge** between the row and inductive
+  presentations; it is not needed once `Term_Σ` is the encoding.
+- **`B-P011`** (free-algebra universal property, existence + uniqueness) added as
+  `termLift` / `termLift_isAlgHom` / `termLift_eta` / `exists_unique_termLift`
+  (`∃! f, IsAlgHom … ∧ f ∘ termEta = g`). Axioms `{Quot.sound}`.
+- **`B-P012`** (projectivity) added as `term_projective`; axioms
+  `{Classical.choice, Quot.sound}`.
+- **`B-P013`** (every algebra is isomorphic to a quotient of a free algebra) added
+  as `termEval` / `termEval_isAlgHom` / `termEval_surjective`; axiom-free. The
+  correspondence comparator judged the surjection `Term_Σ(A) ↠ A` equivalent to
+  the contract via `B-P017`'s `quotAlg_ker_isAlgIso` (first isomorphism theorem),
+  so no separate quotient/iso declaration was needed.
+- **`B-D027` now spans modules.** It maps to both presentations — the row
+  declarations (`genSet`, `TAlg`, `TSet`, `etaX`, `Free.lean`) and the inductive
+  ones (`Term`, `termAlg`, `termEta`, `Term.lean`). To support this,
+  `scripts/lean_facets.py` gained a per-declaration **`decl_files`** override
+  (multi-file blocks); `file` remains the primary file.
+- **`B-L001` remapped** (class C5) from `TAlg_hom_ext` (row) to
+  `termLift_unique` (inductive).
+- **Evidence.** Reissues: `E-000165` (B-D027 verification, supersedes
+  `E-000111`), `E-000166`/`E-000167` (B-L001 verification/correspondence,
+  supersede `E-000114`/`E-000115`, `remap`). New: `E-000168`..`E-000173`
+  (verification + correspondence for `B-P011`/`B-P012`/`B-P013`; both
+  correspondences `equivalent`, two-stage blind; transcripts
+  `blocks/audits/{B-P011,B-P012,B-P013}-correspondence.md`, and a dated re-run
+  section in `B-L001-correspondence.md`).
+- `blocks/lean_audit.json`: **234 declarations, 0 warnings, 0 unpermitted, 0
+  `sorry`, ok=True**. `scripts/check_all.sh` (slow): **43 passed, 0 failed**.
+  Journal `EV-000097`.
+
+**Honest caveat.** Same-model audit (all stages `deepseek-v4.1-flash`; layers
+report `provisional`). `Term_Σ ≅ T_Σ` is not proved — only the surjection `toT`;
+`B-P010`, `B-C003`, and the term characterization remain open. The
+free-algebra encoding choice (both presentations under `B-D027`) is the author's
+Option 1.
+
+**Prioritized next steps.**
+
+1. `B-P020` (the ranking's recommendation): define `𝔉_F`/`F_𝔉` on `Term_Σ` and
+   prove the round trips using `exists_unique_termLift`, `term_projective`,
+   `termEval_surjective` — its two free-algebra inputs now exist.
+2. The `B-P034`/`B-P039` finite-index halves (share `B-D040`, `B-D042`).
+3. Optional: prove `toT` injective (`B-P010` unique parsing) to close the
+   row/inductive bridge; and a second model to clear `provisional`.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

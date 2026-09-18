@@ -1,0 +1,56 @@
+{
+  "block": "B-P011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000169",
+  "findings": [
+    "Stage 2 (fresh context) returned equivalent: same quantifier order and direction (for all X, for all (A,FA), for all g : X -> A, there is a unique homomorphism f with f o termEta = g); the explicit witness termLift and the factored uniqueness termLift_unique are the same uniqueness class as the contract; no extra hypotheses imposed. Transcript blocks/audits/B-P011-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P011/definition_closure",
+      "hash": "42558656170df0357b14711a777ee6741792037b993cd730cfc6147316fed0d2"
+    },
+    {
+      "artifact": "B-P011/formal_statement",
+      "hash": "72b49ce5ab332ad8a200f19754526342fbffdc2083185a4e093629df6e4a5af7"
+    },
+    {
+      "artifact": "B-P011/informal_statement",
+      "hash": "a69a87db239e7f9b2dc80c6ad48070e994f97e56f9d4b2d7d42dac661a62f9f4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T09:53:11Z"
+}

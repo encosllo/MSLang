@@ -130,6 +130,18 @@ def declaration_names(spec):
     return [spec["decl"]]
 
 
+def declaration_entries(spec):
+    """The ``(name, file)`` pairs for a block.
+
+    A block normally maps to declarations in a single ``file``.  A block that
+    genuinely spans modules (e.g. ``B-D027``, whose free algebra is presented by
+    both the row-based declarations in ``Free.lean`` and the inductive ones in
+    ``Term.lean``) may override the file per declaration with ``decl_files``.
+    """
+    overrides = spec.get("decl_files", {})
+    return [(n, overrides.get(n, spec["file"])) for n in declaration_names(spec)]
+
+
 def word_present(name: str, text: str) -> bool:
     """Whole-identifier occurrence of ``name`` in Lean ``text``."""
     return (
@@ -161,26 +173,30 @@ def compute(decl_map, root: Path = ROOT):
     decl_info = {}
     for bid in sorted(decl_map):
         spec = decl_map[bid]
-        path = root / spec["file"]
-        if path not in cache:
-            cache[path] = (
-                extract_declarations(path.read_text(encoding="utf-8"))
-                if path.exists()
-                else {}
-            )
-        names = declaration_names(spec)
+        entries = declaration_entries(spec)
+        names = [n for n, _ in entries]
         shorts = [n.split(".")[-1] for n in names]
-        missing = [n for n, s in zip(names, shorts) if s not in cache[path]]
+        missing = []
+        for (n, f), s in zip(entries, shorts):
+            path = root / f
+            if path not in cache:
+                cache[path] = (
+                    extract_declarations(path.read_text(encoding="utf-8"))
+                    if path.exists()
+                    else {}
+                )
+            if s not in cache[path]:
+                missing.append(f"{n} in {f}")
         if missing:
             blocks[bid] = {
                 "decls": names,
                 "file": spec["file"],
-                "error": f"declaration(s) {missing} not found in {spec['file']}",
+                "error": f"declaration(s) not found: {missing}",
             }
             continue
         stmts, proofs = [], []
-        for n, s in zip(names, shorts):
-            d = cache[path][s]
+        for (n, f), s in zip(entries, shorts):
+            d = cache[root / f][s]
             stmts.append(d["statement"])
             proofs.append(d["proof"])
             decl_info[s] = {

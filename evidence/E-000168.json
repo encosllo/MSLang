@@ -1,0 +1,38 @@
+{
+  "block": "B-P011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000168",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P011 (free-algebra universal property) compiled against Mathlib v4.33.1. Encoding: T_Sigma(X) is the inductive term algebra Term Sig X; eta^X is termEta; the lift is termLift; exists_unique_termLift states there is a unique homomorphism f : T_Sigma(X) -> A with f o eta^X = g.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry): termLift and termLift_isAlgHom depend on none; termLift_eta and exists_unique_termLift on {Quot.sound} (via funext).",
+    "New block: the free-algebra universal property (existence + uniqueness), the prerequisite B-P013 needs for the first Eilenberg theorem (B-P020)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P011/formal_proof",
+      "hash": "8681f2a637871948407948f755fedf22e7317a20726326f52958da71f19f5021"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T09:53:11Z"
+}

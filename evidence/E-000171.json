@@ -1,0 +1,52 @@
+{
+  "block": "B-P012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000171",
+  "findings": [
+    "Stage 2 (fresh context) returned equivalent: quantifier order (for all X, for all f, for all g, there exists h) matches; the epimorphism is homomorphism plus componentwise surjectivity; the equation is f o h = g in the same direction; h is explicitly a homomorphism. The disclaimed extra properties (uniqueness of l, bijectivity, global section) add no strength. Transcript blocks/audits/B-P012-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P012/definition_closure",
+      "hash": "5630799dd70cda60279aa3f6951e418b57f3a1ff6ca2934672f5b5dda7823425"
+    },
+    {
+      "artifact": "B-P012/formal_statement",
+      "hash": "d2339a7ae6cfde996c1db80bb1db67a135fc08a67357dd24490c24350bd0ed61"
+    },
+    {
+      "artifact": "B-P012/informal_statement",
+      "hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T09:53:17Z"
+}

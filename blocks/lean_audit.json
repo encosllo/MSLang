@@ -115,10 +115,8 @@
     "Mslang.Subset": [],
     "Mslang.SuppClosure": [],
     "Mslang.TAlg": [],
-    "Mslang.TAlg_hom_ext": [
-      "Quot.sound"
-    ],
     "Mslang.TSet": [],
+    "Mslang.Term": [],
     "Mslang.Tl": [],
     "Mslang.TlComp": [],
     "Mslang.TlComp_assoc": [
@@ -233,6 +231,9 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "Mslang.exists_unique_termLift": [
+      "Quot.sound"
     ],
     "Mslang.finOp": [],
     "Mslang.finalAlg": [],
@@ -526,6 +527,23 @@
       "propext"
     ],
     "Mslang.syntacticCongruence": [],
+    "Mslang.termAlg": [],
+    "Mslang.termEta": [],
+    "Mslang.termEval": [],
+    "Mslang.termEval_isAlgHom": [],
+    "Mslang.termEval_surjective": [],
+    "Mslang.termLift": [],
+    "Mslang.termLift_eta": [
+      "Quot.sound"
+    ],
+    "Mslang.termLift_isAlgHom": [],
+    "Mslang.termLift_unique": [
+      "Quot.sound"
+    ],
+    "Mslang.term_projective": [
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Mslang.tlEndMonoid": [
       "Quot.sound"
     ],
@@ -558,7 +576,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 223,
+  "declarations_audited": 234,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

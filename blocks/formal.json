@@ -686,7 +686,10 @@
         "Mslang.genSet",
         "Mslang.TAlg",
         "Mslang.TSet",
-        "Mslang.etaX"
+        "Mslang.etaX",
+        "Mslang.Term",
+        "Mslang.termAlg",
+        "Mslang.termEta"
       ],
       "definition_closure": {
         "decls": [
@@ -714,10 +717,10 @@
       },
       "file": "lean/Mslang/Free.lean",
       "formal_proof": {
-        "hash": "e52f4b6ef16e6b7a9b8141b0523613c68e25d98064a6085c53cd6e9f9158de60"
+        "hash": "0bf365ad135d10e99637ac529a9fcccbb67e8162a3c5278463e9d5a9beca80ad"
       },
       "formal_statement": {
-        "hash": "e42c311e5c741bdc14386f5df54c50e7a446fb90396ef93ca21daa0a07d700aa"
+        "hash": "a0762bc8da4cd113cd168a0c03129df8d02bd83c3c19b2f3fae52c77198d7c36"
       }
     },
     "B-D028": {
@@ -1056,43 +1059,30 @@
     },
     "B-L001": {
       "decls": [
-        "Mslang.TAlg_hom_ext"
+        "Mslang.termLift_unique"
       ],
       "definition_closure": {
         "decls": [
           "Mslang.AlgStruct",
           "Mslang.IsAlgHom",
-          "Mslang.IsSubalgebra",
-          "Mslang.MemSg",
-          "Mslang.RowAlpha",
           "Mslang.SSet",
-          "Mslang.Sg",
-          "Mslang.Sg_isSubalgebra",
-          "Mslang.SigElem",
           "Mslang.Signature",
           "Mslang.SortedMap",
-          "Mslang.Sub",
-          "Mslang.Subset",
-          "Mslang.TAlg",
-          "Mslang.TSet",
-          "Mslang.WAlg",
-          "Mslang.WSet",
-          "Mslang.XElem",
-          "Mslang.etaX",
+          "Mslang.Term",
           "Mslang.finOp",
-          "Mslang.genSet",
-          "Mslang.subAlg",
-          "Mslang.subset_Sg",
+          "Mslang.termAlg",
+          "Mslang.termEta",
+          "Mslang.termLift",
           "Mslang.wordProd"
         ],
-        "hash": "aac30166156f4d77d3e3ab3ae7c0a46e80efb4be8b50bc4f659a860a3f70f5eb"
+        "hash": "24f37ec45279b3e369b7576c0d8d75496e9a51a3b02912682817d6e7332d0bda"
       },
-      "file": "lean/Mslang/Free.lean",
+      "file": "lean/Mslang/Term.lean",
       "formal_proof": {
-        "hash": "914b2a30bc13f56f307675f950e661d07dfd178b757f1533067db37546782630"
+        "hash": "cb7503133deb68046bfe1e6a564a0ec38dc9e2c151f7c77ca4851094f12ffbcc"
       },
       "formal_statement": {
-        "hash": "266a46cd1380c931c504fd032db9f221dade062c3433c701c66ec8f893dfc2f5"
+        "hash": "5bf5ee8ddb3912b1ffe643ca6ef280df6c98680aff3cc00ea7f87a95c34c7e77"
       }
     },
     "B-P002": {
@@ -1293,6 +1283,98 @@
       },
       "formal_statement": {
         "hash": "3da6d505a20d5224b6435eda37bb9f1ab16370143f64d23baa6ee149f1a14a0d"
+      }
+    },
+    "B-P011": {
+      "decls": [
+        "Mslang.termLift",
+        "Mslang.termLift_isAlgHom",
+        "Mslang.termLift_eta",
+        "Mslang.exists_unique_termLift"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.finOp",
+          "Mslang.termAlg",
+          "Mslang.termEta",
+          "Mslang.termLift_unique",
+          "Mslang.wordProd"
+        ],
+        "hash": "42558656170df0357b14711a777ee6741792037b993cd730cfc6147316fed0d2"
+      },
+      "file": "lean/Mslang/Term.lean",
+      "formal_proof": {
+        "hash": "8681f2a637871948407948f755fedf22e7317a20726326f52958da71f19f5021"
+      },
+      "formal_statement": {
+        "hash": "72b49ce5ab332ad8a200f19754526342fbffdc2083185a4e093629df6e4a5af7"
+      }
+    },
+    "B-P012": {
+      "decls": [
+        "Mslang.term_projective"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.finOp",
+          "Mslang.termAlg",
+          "Mslang.termEta",
+          "Mslang.termLift",
+          "Mslang.termLift_eta",
+          "Mslang.termLift_isAlgHom",
+          "Mslang.termLift_unique",
+          "Mslang.wordProd"
+        ],
+        "hash": "5630799dd70cda60279aa3f6951e418b57f3a1ff6ca2934672f5b5dda7823425"
+      },
+      "file": "lean/Mslang/Term.lean",
+      "formal_proof": {
+        "hash": "819525288f83f5d880c54a24924f1423f1ff8e15eaf4f08f2fca8111252499da"
+      },
+      "formal_statement": {
+        "hash": "d2339a7ae6cfde996c1db80bb1db67a135fc08a67357dd24490c24350bd0ed61"
+      }
+    },
+    "B-P013": {
+      "decls": [
+        "Mslang.termEval",
+        "Mslang.termEval_isAlgHom",
+        "Mslang.termEval_surjective"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.finOp",
+          "Mslang.termAlg",
+          "Mslang.termLift",
+          "Mslang.termLift_isAlgHom",
+          "Mslang.wordProd"
+        ],
+        "hash": "f6238fbb27298f257edf192a3e65bd73b574afc0dfa48e08c9851f80b3d7f396"
+      },
+      "file": "lean/Mslang/Term.lean",
+      "formal_proof": {
+        "hash": "264009dc8f032753cbfcee87d388d0d1a776a7271b60513c21e04b9adce1d0fa"
+      },
+      "formal_statement": {
+        "hash": "5618db677da6abc0518370a51511f69faf97b368e3a523944c08fc5b37c2afe5"
       }
     },
     "B-P016": {

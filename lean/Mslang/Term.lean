@@ -83,6 +83,19 @@ theorem termLift_unique {S : Type u} (Sig : Signature S) (X : SSet S)
       funext i
       exact ih i
 
+/-- `B-P011` (free-algebra universal property, existence and uniqueness): for
+every `Σ`-algebra `A` and every sorted map `g : X → A` there is a *unique*
+homomorphism `f♯ : T_Σ(X) → A` with `f♯ ∘ η^X = g`. Existence is the recursive
+`termLift`; uniqueness is `termLift_unique` (`B-L001`). -/
+theorem exists_unique_termLift {S : Type u} (Sig : Signature S) (X : SSet S)
+    {A : SSet S} (FA : AlgStruct Sig A) (g : SortedMap X A) :
+    ∃! f : SortedMap (Term Sig X) A,
+      IsAlgHom Sig (termAlg Sig X).2 FA f ∧ (fun s => f s ∘ termEta Sig X s) = g := by
+  refine ⟨termLift Sig X FA g,
+    ⟨⟨termLift_isAlgHom Sig X FA g, termLift_eta Sig X FA g⟩, ?_⟩⟩
+  intro f hf
+  exact termLift_unique Sig X FA g f hf.1 hf.2
+
 /-- `B-D027`: the evaluation `Term_Σ(A) → A` of a `Σ`-algebra on its own
 underlying sorted set, the extension of the identity map. -/
 def termEval {S : Type u} (Sig : Signature S) (A : Alg Sig) :
@@ -100,6 +113,53 @@ quotient of a free `Σ`-algebra, which is the first input to `B-P020`. -/
 theorem termEval_surjective {S : Type u} (Sig : Signature S) (A : Alg Sig) :
     ∀ s, Function.Surjective (termEval Sig A s) :=
   fun _s a => ⟨Term.var a, rfl⟩
+
+/-- The canonical `Σ`-homomorphism `Term_Σ(X) → T_Σ(X)` (`B-D027`): it extends
+`η^X` by the universal property, i.e. it sends each variable term to the
+one-letter row `(x)`. This is the comparison map between the inductive free
+algebra (`Term`) and the row presentation (`TAlg`). It is surjective (see
+`toT_surjective`); injectivity is the term-characterization proposition
+`B-P010` (unique parsing), which is not yet formalized. -/
+def toT {S : Type u} (Sig : Signature S) (X : SSet S) :
+    SortedMap (Term Sig X) (TSet Sig X) :=
+  termLift Sig X (TAlg Sig X).2 (etaX Sig X)
+
+/-- The comparison map `toT` is a `Σ`-homomorphism. -/
+theorem toT_isAlgHom {S : Type u} (Sig : Signature S) (X : SSet S) :
+    IsAlgHom Sig (termAlg Sig X).2 (TAlg Sig X).2 (toT Sig X) :=
+  termLift_isAlgHom Sig X (TAlg Sig X).2 (etaX Sig X)
+
+/-- The comparison map `toT` agrees with the insertions on generators. -/
+theorem toT_eta {S : Type u} (Sig : Signature S) (X : SSet S) :
+    (fun s => toT Sig X s ∘ termEta Sig X s) = etaX Sig X :=
+  termLift_eta Sig X (TAlg Sig X).2 (etaX Sig X)
+
+/-- The comparison map `toT : Term_Σ(X) → T_Σ(X)` is surjective: its image is a
+subalgebra of `W_Σ(X)` containing the generators `(x)`, so it contains
+`Sg_{W_Σ(X)}(genSet) = T_Σ(X)`. This expresses `T_Σ(X)` as a quotient of the
+inductive free algebra; the missing injectivity is `B-P010`. -/
+theorem toT_surjective {S : Type u} (Sig : Signature S) (X : SSet S) :
+    ∀ s, Function.Surjective (toT Sig X s) := by
+  classical
+  intro s P
+  let im : Sub (WSet Sig X) := fun s P => ∃ t : Term Sig X s, (toT Sig X s t).1 = P
+  have hgen : Subset (genSet Sig X) im := by
+    intro s P hP
+    obtain ⟨x, rfl⟩ := hP
+    exact ⟨Term.var x, rfl⟩
+  have him : IsSubalgebra Sig (WAlg Sig X).2 im := by
+    intro p σ a ha
+    choose t ht using ha
+    refine ⟨Term.op p σ t, ?_⟩
+    show (toT Sig X p.2 (Term.op p σ t)).1 = (WAlg Sig X).2 p σ a
+    rw [show toT Sig X p.2 (Term.op p σ t) =
+        (TAlg Sig X).2 p σ (fun i => toT Sig X (p.1.get i) (t i)) from rfl]
+    show (WAlg Sig X).2 p σ (fun i => (toT Sig X (p.1.get i) (t i)).1) =
+      (WAlg Sig X).2 p σ a
+    rw [show (fun i => (toT Sig X (p.1.get i) (t i)).1) = a from funext ht]
+  have hSg := Sg_least Sig (WAlg Sig X).2 him hgen
+  exact ⟨Classical.choose (hSg s P.2),
+    Subtype.ext (Classical.choose_spec (hSg s P.2))⟩
 
 /-- `B-D027` (projectivity of the free `Σ`-algebra): given an epimorphism
 `f : B → C` and a homomorphism `g : Term_Σ(X) → C`, there is a homomorphism

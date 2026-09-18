@@ -1,0 +1,38 @@
+{
+  "block": "B-P012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000170",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P012 (projectivity of the free algebra) compiled against Mathlib v4.33.1. Encoding: T_Sigma(X) is Term Sig X; an epimorphism is a homomorphism with componentwise-surjective components; term_projective lifts a homomorphism g : T_Sigma(X) -> C along such an f : B -> C to l : T_Sigma(X) -> B with f o l = g.",
+    "Axioms of Mslang.term_projective are {Classical.choice, Quot.sound} (the preimage choice plus funext), within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry).",
+    "New block: projectivity of the free algebra, used by B-P013 and B-P020."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P012/formal_proof",
+      "hash": "819525288f83f5d880c54a24924f1423f1ff8e15eaf4f08f2fca8111252499da"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T09:53:17Z"
+}

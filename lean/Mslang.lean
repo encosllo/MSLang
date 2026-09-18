@@ -71,6 +71,7 @@ theorem mslang_smoke : 1 + 1 = 2 := rfl
 #print axioms Mslang.TAlg_hom_ext
 #print axioms Mslang.termLift_isAlgHom
 #print axioms Mslang.termLift_unique
+#print axioms Mslang.exists_unique_termLift
 #print axioms Mslang.termEval_surjective
 #print axioms Mslang.term_projective
 #print axioms Mslang.IsCongruence_inf

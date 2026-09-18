@@ -1,0 +1,40 @@
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000166",
+  "findings": [
+    "lake build under the dependent-type carrier model. B-L001 remapped (class C5) from Mslang.TAlg_hom_ext (Free.lean, row presentation) to Mslang.termLift_unique (Term.lean, inductive free algebra): any homomorphism f : T_Sigma(X) -> A with f o eta^X = g equals the canonical lift termLift g.",
+    "Axioms of Mslang.termLift_unique are {Quot.sound} (via funext), within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry).",
+    "Re-issue of E-000114 (reissue_reason: remap); the lemma content is unchanged, only the declaration ownership moved with the adopted inductive encoding."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-L001/formal_proof",
+      "hash": "cb7503133deb68046bfe1e6a564a0ec38dc9e2c151f7c77ca4851094f12ffbcc"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000114",
+  "timestamp": "2026-09-18T09:53:05Z"
+}

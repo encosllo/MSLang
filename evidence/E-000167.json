@@ -1,0 +1,54 @@
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000167",
+  "findings": [
+    "Fresh two-stage blind re-run after B-L001 was remapped to Mslang.termLift_unique. Stage 2 returned equivalent: the lemma is the uniqueness half of the free universal property phrased against the canonical lift; the contract's f, g with f o eta = g o eta is recovered by applying the lemma to both (each equals termLift (g o eta)), and conversely the lemma follows from the contract once the lift exists. Transcript blocks/audits/B-L001-correspondence.md (Re-run 2026-09-18 section)."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-L001/definition_closure",
+      "hash": "24f37ec45279b3e369b7576c0d8d75496e9a51a3b02912682817d6e7332d0bda"
+    },
+    {
+      "artifact": "B-L001/formal_statement",
+      "hash": "5bf5ee8ddb3912b1ffe643ca6ef280df6c98680aff3cc00ea7f87a95c34c7e77"
+    },
+    {
+      "artifact": "B-L001/informal_statement",
+      "hash": "fc0f1078cd4de13656d6f2c6e18bdc94751019418528ee92e49eb9a9023145d4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000115",
+  "timestamp": "2026-09-18T09:53:11Z"
+}

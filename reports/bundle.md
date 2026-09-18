@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `1e52a02f4c63bcf5f0c5dae7f15d94e8784384b6203f5e4ba9af98303d123541` |
-| `blocks/formal_graph.json` | `315e3c128222b182458d6112139ba11029504c91a66b626ad849c3d168659749` |
+| `blocks/formal.json` | `3112603c635eed787bd8b653060ee5036b5e58889a1dc8ec680c0cf77949f5bd` |
+| `blocks/formal_graph.json` | `43effc00ae9bd2c8210e792b843d55b8b5046d3522dba79a4a0ed25d3f93f353` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
-| `blocks/lean_audit.json` | `d2bb4672aee8a15f81534ce150166d2a8ebb631f7e6b70b788ab0816e0e05e61` |
+| `blocks/lean_audit.json` | `69faffe8716058bc23958c25d9be2dc12179687a4d2c70f9cd2905ed0f6114a9` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
@@ -190,7 +190,16 @@ repository.
 | `evidence/E-000162.json` | `184364d4ae884048cda9174fe52f0d96e72dedb07a4fcda905bd42488b77aac3` |
 | `evidence/E-000163.json` | `77e9adb7d8780fa04b6d18e86d60e69b7a70626111774cbd349495b0d261ec05` |
 | `evidence/E-000164.json` | `8610f50bdc20dfe364e00d8dc4d4e0cb63759f9e34e1612778ce0b3d0d052c5c` |
-| `journal/events.jsonl` | `d6b86a32422a8237494c76178fbab52b56f88ce1eaf9d2e08e52817b88e3acae` |
+| `evidence/E-000165.json` | `2c26b253173a0cd16349d03c5266c157b978278511aa928393ca9a1f56e3a341` |
+| `evidence/E-000166.json` | `d7c5fe1faf97fb0fd78c3d9648a5c352b8d70edf13203b554f7b606d9c92d4e9` |
+| `evidence/E-000167.json` | `806846901734bf1fe97e96f2b8861e3823f0e7d74f2a82c99a19189782e7a3c4` |
+| `evidence/E-000168.json` | `e7ffc3b67c7e5e85c1a9fd5c70f6f28647b98ef9d6eaa056032c9eaa8617ccfa` |
+| `evidence/E-000169.json` | `811b76afe2ba37240a1ab02f891bdcaec985facc19e36347f76db836acf15694` |
+| `evidence/E-000170.json` | `cd4171e48deb6572e88b68876de82d54315f67b5016d6f3be8e4ed8a579f4df8` |
+| `evidence/E-000171.json` | `d0a445f98019475c7c7c88d4702a2baaf85113a889416146282f4f27607031f7` |
+| `evidence/E-000172.json` | `c4d068a862146b052e98b76a47e82fdd2a5c581802274126d8ebeb246530c57e` |
+| `evidence/E-000173.json` | `150cd2ec09089db48eded8d55f563485077db5df0b1a58ee94d0b9518c84ae39` |
+| `journal/events.jsonl` | `ae109b84901dc40196f043750acdbbc7b8ba1d1f9eda02e7ca1713327d1ae928` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
@@ -237,7 +246,7 @@ repository.
 | `B-D024` | verification | pass | 1 | 0 |
 | `B-D025` | verification | pass | 1 | 0 |
 | `B-D026` | verification | pass | 1 | 0 |
-| `B-D027` | verification | pass | 1 | 0 |
+| `B-D027` | verification | pass | 1 | 1 |
 | `B-D028` | verification | pass | 1 | 0 |
 | `B-D029` | verification | pass | 1 | 0 |
 | `B-D030` | verification | pass | 1 | 0 |
@@ -250,8 +259,8 @@ repository.
 | `B-D037` | verification | pass | 1 | 0 |
 | `B-D038` | verification | pass | 1 | 0 |
 | `B-D039` | verification | pass | 1 | 0 |
-| `B-L001` | correspondence | provisional | 1 | 0 |
-| `B-L001` | verification | pass | 1 | 0 |
+| `B-L001` | correspondence | provisional | 1 | 1 |
+| `B-L001` | verification | pass | 1 | 1 |
 | `B-P002` | correspondence | provisional | 1 | 3 |
 | `B-P002` | verification | pass | 1 | 1 |
 | `B-P003` | correspondence | provisional | 1 | 3 |
@@ -267,6 +276,12 @@ repository.
 | `B-P008` | verification | pass | 1 | 0 |
 | `B-P009` | correspondence | provisional | 1 | 1 |
 | `B-P009` | verification | pass | 1 | 0 |
+| `B-P011` | correspondence | provisional | 1 | 0 |
+| `B-P011` | verification | pass | 1 | 0 |
+| `B-P012` | correspondence | provisional | 1 | 0 |
+| `B-P012` | verification | pass | 1 | 0 |
+| `B-P013` | correspondence | provisional | 1 | 0 |
+| `B-P013` | verification | pass | 1 | 0 |
 | `B-P016` | correspondence | provisional | 1 | 0 |
 | `B-P016` | verification | pass | 1 | 0 |
 | `B-P017` | correspondence | provisional | 1 | 1 |
@@ -6933,6 +6948,459 @@ repository.
 }
 ```
 
+### E-000165
+
+```json
+{
+  "block": "B-D027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000165",
+  "findings": [
+    "lake build under the dependent-type carrier model. B-D027 now maps to both presentations of the free Sigma-algebra T_Sigma(X): the row presentation (Mslang.genSet, TAlg, TSet, etaX in Free.lean) and the inductive term algebra (Mslang.Term, termAlg, termEta in Term.lean) adopted as the free-algebra encoding (author decision, Option 1).",
+    "Axioms within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry); Term (inductive), termAlg and termEta depend on no axioms.",
+    "Re-issue of E-000111: the block declaration set, hence its formal_proof aggregate, changed by adding the inductive presentation."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D027/formal_proof",
+      "hash": "0bf365ad135d10e99637ac529a9fcccbb67e8162a3c5278463e9d5a9beca80ad"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000111",
+  "timestamp": "2026-09-18T09:53:05Z"
+}
+```
+
+### E-000166
+
+```json
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000166",
+  "findings": [
+    "lake build under the dependent-type carrier model. B-L001 remapped (class C5) from Mslang.TAlg_hom_ext (Free.lean, row presentation) to Mslang.termLift_unique (Term.lean, inductive free algebra): any homomorphism f : T_Sigma(X) -> A with f o eta^X = g equals the canonical lift termLift g.",
+    "Axioms of Mslang.termLift_unique are {Quot.sound} (via funext), within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry).",
+    "Re-issue of E-000114 (reissue_reason: remap); the lemma content is unchanged, only the declaration ownership moved with the adopted inductive encoding."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-L001/formal_proof",
+      "hash": "cb7503133deb68046bfe1e6a564a0ec38dc9e2c151f7c77ca4851094f12ffbcc"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000114",
+  "timestamp": "2026-09-18T09:53:05Z"
+}
+```
+
+### E-000167
+
+```json
+{
+  "block": "B-L001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000167",
+  "findings": [
+    "Fresh two-stage blind re-run after B-L001 was remapped to Mslang.termLift_unique. Stage 2 returned equivalent: the lemma is the uniqueness half of the free universal property phrased against the canonical lift; the contract's f, g with f o eta = g o eta is recovered by applying the lemma to both (each equals termLift (g o eta)), and conversely the lemma follows from the contract once the lift exists. Transcript blocks/audits/B-L001-correspondence.md (Re-run 2026-09-18 section)."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-L001/definition_closure",
+      "hash": "24f37ec45279b3e369b7576c0d8d75496e9a51a3b02912682817d6e7332d0bda"
+    },
+    {
+      "artifact": "B-L001/formal_statement",
+      "hash": "5bf5ee8ddb3912b1ffe643ca6ef280df6c98680aff3cc00ea7f87a95c34c7e77"
+    },
+    {
+      "artifact": "B-L001/informal_statement",
+      "hash": "fc0f1078cd4de13656d6f2c6e18bdc94751019418528ee92e49eb9a9023145d4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000115",
+  "timestamp": "2026-09-18T09:53:11Z"
+}
+```
+
+### E-000168
+
+```json
+{
+  "block": "B-P011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000168",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P011 (free-algebra universal property) compiled against Mathlib v4.33.1. Encoding: T_Sigma(X) is the inductive term algebra Term Sig X; eta^X is termEta; the lift is termLift; exists_unique_termLift states there is a unique homomorphism f : T_Sigma(X) -> A with f o eta^X = g.",
+    "Axioms within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry): termLift and termLift_isAlgHom depend on none; termLift_eta and exists_unique_termLift on {Quot.sound} (via funext).",
+    "New block: the free-algebra universal property (existence + uniqueness), the prerequisite B-P013 needs for the first Eilenberg theorem (B-P020)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P011/formal_proof",
+      "hash": "8681f2a637871948407948f755fedf22e7317a20726326f52958da71f19f5021"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T09:53:11Z"
+}
+```
+
+### E-000169
+
+```json
+{
+  "block": "B-P011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000169",
+  "findings": [
+    "Stage 2 (fresh context) returned equivalent: same quantifier order and direction (for all X, for all (A,FA), for all g : X -> A, there is a unique homomorphism f with f o termEta = g); the explicit witness termLift and the factored uniqueness termLift_unique are the same uniqueness class as the contract; no extra hypotheses imposed. Transcript blocks/audits/B-P011-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P011/definition_closure",
+      "hash": "42558656170df0357b14711a777ee6741792037b993cd730cfc6147316fed0d2"
+    },
+    {
+      "artifact": "B-P011/formal_statement",
+      "hash": "72b49ce5ab332ad8a200f19754526342fbffdc2083185a4e093629df6e4a5af7"
+    },
+    {
+      "artifact": "B-P011/informal_statement",
+      "hash": "a69a87db239e7f9b2dc80c6ad48070e994f97e56f9d4b2d7d42dac661a62f9f4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T09:53:11Z"
+}
+```
+
+### E-000170
+
+```json
+{
+  "block": "B-P012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000170",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P012 (projectivity of the free algebra) compiled against Mathlib v4.33.1. Encoding: T_Sigma(X) is Term Sig X; an epimorphism is a homomorphism with componentwise-surjective components; term_projective lifts a homomorphism g : T_Sigma(X) -> C along such an f : B -> C to l : T_Sigma(X) -> B with f o l = g.",
+    "Axioms of Mslang.term_projective are {Classical.choice, Quot.sound} (the preimage choice plus funext), within the permitted set (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry).",
+    "New block: projectivity of the free algebra, used by B-P013 and B-P020."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P012/formal_proof",
+      "hash": "819525288f83f5d880c54a24924f1423f1ff8e15eaf4f08f2fca8111252499da"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T09:53:17Z"
+}
+```
+
+### E-000171
+
+```json
+{
+  "block": "B-P012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000171",
+  "findings": [
+    "Stage 2 (fresh context) returned equivalent: quantifier order (for all X, for all f, for all g, there exists h) matches; the epimorphism is homomorphism plus componentwise surjectivity; the equation is f o h = g in the same direction; h is explicitly a homomorphism. The disclaimed extra properties (uniqueness of l, bijectivity, global section) add no strength. Transcript blocks/audits/B-P012-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P012/definition_closure",
+      "hash": "5630799dd70cda60279aa3f6951e418b57f3a1ff6ca2934672f5b5dda7823425"
+    },
+    {
+      "artifact": "B-P012/formal_statement",
+      "hash": "d2339a7ae6cfde996c1db80bb1db67a135fc08a67357dd24490c24350bd0ed61"
+    },
+    {
+      "artifact": "B-P012/informal_statement",
+      "hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T09:53:17Z"
+}
+```
+
+### E-000172
+
+```json
+{
+  "block": "B-P013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000172",
+  "findings": [
+    "lake build under the dependent-type carrier model: B-P013 (AlgIsoQuotFree) compiled against Mathlib v4.33.1. Encoding: T_Sigma(X) is Term Sig X; termEval : Term_Sigma(A) -> A is the evaluation of terms of A in A; termEval_isAlgHom makes it a homomorphism and termEval_surjective makes every component surjective, exhibiting A as a quotient of a free algebra.",
+    "Axioms of Mslang.termEval, termEval_isAlgHom and termEval_surjective are all empty (scripts/lean_audit.py: 234 declarations, 0 warnings, 0 unpermitted, 0 sorry).",
+    "New block: every algebra is a quotient of a free algebra, the second prerequisite B-P020 needs."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P013/formal_proof",
+      "hash": "264009dc8f032753cbfcee87d388d0d1a776a7271b60513c21e04b9adce1d0fa"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T09:53:17Z"
+}
+```
+
+### E-000173
+
+```json
+{
+  "block": "B-P013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000173",
+  "findings": [
+    "Stage 2 (fresh context) returned equivalent: a surjective homomorphism Term_Sigma(A) -> A is, by the first isomorphism theorem for many-sorted Sigma-algebras (B-P017 quotAlg_ker_isAlgIso), precisely the assertion that A is isomorphic to a quotient of a free algebra; the unconstructed kernel/quotient/isomorphism is standard first-isomorphism-theorem packaging, not extra content. Transcript blocks/audits/B-P013-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P013/definition_closure",
+      "hash": "f6238fbb27298f257edf192a3e65bd73b574afc0dfa48e08c9851f80b3d7f396"
+    },
+    {
+      "artifact": "B-P013/formal_statement",
+      "hash": "5618db677da6abc0518370a51511f69faf97b368e3a523944c08fc5b37c2afe5"
+    },
+    {
+      "artifact": "B-P013/informal_statement",
+      "hash": "081db99883818eb31f60d358ebf66dfd15187b01259997eb736a37a2343e9d39"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-18T09:53:17Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -6943,8 +7411,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 77
-- Evidence records: 164
+- Blocks with any evidence: 80
+- Evidence records: 173
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -7007,6 +7475,9 @@ assertion).
 | `B-P007` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P008` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P009` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P011` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P012` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P013` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
@@ -7035,7 +7506,7 @@ assertion).
 | `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
-52 block(s) have no evidence.
+49 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -7145,9 +7616,9 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P016`, `B-P017`, `B-P018`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`
 
-## Undecided edges (253)
+## Undecided edges (267)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -7259,9 +7730,8 @@ the review queue.
 | `B-L001` | `B-D015` |
 | `B-L001` | `B-D016` |
 | `B-L001` | `B-D017` |
-| `B-L001` | `B-D021` |
-| `B-L001` | `B-D026` |
 | `B-L001` | `B-D027` |
+| `B-L001` | `B-P011` |
 | `B-P002` | `B-D005` |
 | `B-P003` | `B-D005` |
 | `B-P004` | `B-D005` |
@@ -7280,6 +7750,21 @@ the review queue.
 | `B-P009` | `B-D025` |
 | `B-P009` | `B-P007` |
 | `B-P009` | `B-R005` |
+| `B-P011` | `B-D015` |
+| `B-P011` | `B-D016` |
+| `B-P011` | `B-D017` |
+| `B-P011` | `B-L001` |
+| `B-P012` | `B-D015` |
+| `B-P012` | `B-D016` |
+| `B-P012` | `B-D017` |
+| `B-P012` | `B-D027` |
+| `B-P012` | `B-L001` |
+| `B-P012` | `B-P011` |
+| `B-P013` | `B-D015` |
+| `B-P013` | `B-D016` |
+| `B-P013` | `B-D017` |
+| `B-P013` | `B-D027` |
+| `B-P013` | `B-P011` |
 | `B-P016` | `B-D014` |
 | `B-P016` | `B-D015` |
 | `B-P016` | `B-D016` |
@@ -7412,7 +7897,7 @@ the review queue.
 
 | disposition | count |
 |---|---|
-| type-carrier | 50 |
+| type-carrier | 52 |
 
 ## Reviewed dispositions
 
@@ -7441,6 +7926,7 @@ the review queue.
 | `B-P007` | `B-D014` |
 | `B-P007` | `B-D015` |
 | `B-P009` | `B-D015` |
+| `B-P011` | `B-D027` |
 | `B-P017` | `B-D015` |
 | `B-P018` | `B-D031` |
 | `B-P021` | `B-D035` |
@@ -7459,7 +7945,7 @@ the review queue.
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-78 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+77 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
 
 ## reports/impact.md
 
@@ -7517,7 +8003,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-C002` | review | provisional | 1 | 1 |
 | `B-C004` | correspondence | provisional | 1 | 0 |
 | `B-D004` | correspondence | provisional | 1 | 2 |
-| `B-L001` | correspondence | provisional | 1 | 0 |
+| `B-L001` | correspondence | provisional | 1 | 1 |
 | `B-P002` | correspondence | provisional | 1 | 3 |
 | `B-P003` | correspondence | provisional | 1 | 3 |
 | `B-P004` | correspondence | provisional | 1 | 1 |
@@ -7526,6 +8012,9 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-P007` | correspondence | provisional | 1 | 1 |
 | `B-P008` | correspondence | provisional | 1 | 0 |
 | `B-P009` | correspondence | provisional | 1 | 1 |
+| `B-P011` | correspondence | provisional | 1 | 0 |
+| `B-P012` | correspondence | provisional | 1 | 0 |
+| `B-P013` | correspondence | provisional | 1 | 0 |
 | `B-P016` | correspondence | provisional | 1 | 0 |
 | `B-P017` | correspondence | provisional | 1 | 1 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
@@ -7560,7 +8049,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Unmapped blocks (53)
+## Unmapped blocks (50)
 
 Scope triage (Sections 16.4, 17); an unrecorded block is undecided, not
 assumed worth formalizing.
@@ -7568,15 +8057,15 @@ assumed worth formalizing.
 | disposition | count |
 |---|---|
 | worth-formalizing | 33 |
-| deferred | 20 |
+| deferred | 17 |
 | out-of-scope | 0 |
 | undecided | 0 |
 
-### Open obligations (53)
+### Open obligations (50)
 
 Unmapped blocks not marked `out-of-scope`.
 
-`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-P001`, `B-P006`, `B-P010`, `B-P014`, `B-P015`, `B-P019`, `B-P020`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R022`, `B-R023`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 

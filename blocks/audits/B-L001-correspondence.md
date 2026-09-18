@@ -41,3 +41,29 @@ The correspondence is `equivalent` relative to the pilot encoding
 (`representation/pilot-encoding.md`, independently audited in `E-000040`,
 residuals `carrier-model`, `small-large`, `univalence-missing`). Those residuals
 are inherited by this verdict; a representation change (class C6) stales it.
+
+---
+
+## Re-run 2026-09-18 -- adopted inductive free algebra
+
+The block was remapped (class C5) from `Mslang.TAlg_hom_ext` (row presentation,
+`Free.lean`) to `Mslang.termLift_unique` (inductive free algebra, `Term.lean`)
+when the inductive `Term_Σ(X)` was adopted as the free-algebra encoding. The
+re-run followed the same two-stage blind protocol.
+
+- **Lean declaration:** `Mslang.termLift_unique` (`lean/Mslang/Term.lean`)
+- **Stage 1 read-back.** `termLift Sig X FA g` is the recursively defined
+  interpretation of terms (variables via `g`; operation nodes via `FA` on the
+  recursively lifted children). `termLift_unique`: if a sorted map
+  `f : Term Sig X → A` is a homomorphism and `f ∘ termEta = g`, then
+  `f = termLift Sig X FA g`. Proved by function extensionality and induction on
+  the term (variable case = `hη`; operation case = homomorphism equation plus the
+  induction hypothesis). Not claimed: existence of a lift; that `termLift` itself
+  is a homomorphism or restricts to `g`; no equations/quotients.
+- **Stage 2 comparator.** Returned **`equivalent`**: the lemma is the uniqueness
+  half of the free universal property phrased against the canonical lift; the
+  contract's `f, g` with `f ∘ η^X = g ∘ η^X` is recovered by applying the lemma to
+  both (each equals `termLift (g ∘ η^X)`), and conversely the lemma follows from
+  the contract once the lift exists. The "second argument is a map, not a
+  homomorphism" difference is immaterial.
+- **Recorded as:** `E-000167` (supersedes `E-000115`, `reissue_reason: remap`).

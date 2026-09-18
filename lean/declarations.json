@@ -315,9 +315,17 @@
         "Mslang.genSet",
         "Mslang.TAlg",
         "Mslang.TSet",
-        "Mslang.etaX"
+        "Mslang.etaX",
+        "Mslang.Term",
+        "Mslang.termAlg",
+        "Mslang.termEta"
       ],
-      "file": "lean/Mslang/Free.lean"
+      "file": "lean/Mslang/Free.lean",
+      "decl_files": {
+        "Mslang.Term": "lean/Mslang/Term.lean",
+        "Mslang.termAlg": "lean/Mslang/Term.lean",
+        "Mslang.termEta": "lean/Mslang/Term.lean"
+      }
     },
     "B-R001": {
       "decls": [
@@ -331,8 +339,29 @@
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-L001": {
-      "decl": "Mslang.TAlg_hom_ext",
-      "file": "lean/Mslang/Free.lean"
+      "decl": "Mslang.termLift_unique",
+      "file": "lean/Mslang/Term.lean"
+    },
+    "B-P011": {
+      "decls": [
+        "Mslang.termLift",
+        "Mslang.termLift_isAlgHom",
+        "Mslang.termLift_eta",
+        "Mslang.exists_unique_termLift"
+      ],
+      "file": "lean/Mslang/Term.lean"
+    },
+    "B-P012": {
+      "decl": "Mslang.term_projective",
+      "file": "lean/Mslang/Term.lean"
+    },
+    "B-P013": {
+      "decls": [
+        "Mslang.termEval",
+        "Mslang.termEval_isAlgHom",
+        "Mslang.termEval_surjective"
+      ],
+      "file": "lean/Mslang/Term.lean"
     },
     "B-D028": {
       "decls": [
