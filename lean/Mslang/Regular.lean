@@ -1154,4 +1154,130 @@ theorem isBPSLanguageFormation_of_isRegularLanguageFormation {S : Type u}
       regularFormation_compl Sig hL A hX⟩,
    fun A B _ hM _ hf hsurj => regularFormation_inverseImage Sig hL A B hM hf hsurj⟩
 
+/-! ### `B-P035` (converse, infrastructure): finiteness and BPS closure. -/
+
+/-- A finite-index congruence has only finitely many saturated componentwise
+subsets: a saturated subset is determined by which `Φ`-classes it contains, and
+`Σ(A/Φ)` is finite. This is the finiteness input for the `Def2 ⇒ Def1`
+direction of `B-P035`. -/
+theorem finite_satSets {S : Type u} {A : SSet S} (Φ : SortedEqv A)
+    (h : IsFiniteIndex Φ) : Finite {N : Sub A // IsSat Φ N} := by
+  classical
+  haveI : Finite (Sigma (quot Φ)) := h
+  haveI : Fintype (Sigma (quot Φ)) := Fintype.ofFinite _
+  refine Finite.of_injective
+    (fun N : {N : Sub A // IsSat Φ N} =>
+      (fun q : Sigma (quot Φ) =>
+        if (Quotient.out q.2 : A q.1) ∈ N.1 q.1 then true else false)) ?_
+  intro N M hNM
+  apply Subtype.ext
+  funext t
+  ext a
+  have key : ∀ P : Sub A, IsSat Φ P →
+      ((Quotient.out (Quotient.mk (Φ t) a) : A t) ∈ P t ↔ a ∈ P t) := by
+    intro P hP
+    constructor
+    · intro hout
+      rw [← hP]
+      exact ⟨Quotient.out (Quotient.mk (Φ t) a), hout,
+        Quotient.exact (Quotient.out_eq (Quotient.mk (Φ t) a))⟩
+    · intro ha
+      rw [← hP]
+      exact ⟨a, ha,
+        (Φ t).symm (Quotient.exact (Quotient.out_eq (Quotient.mk (Φ t) a)))⟩
+  have hiff : ((Quotient.out (Quotient.mk (Φ t) a) : A t) ∈ N.1 t) ↔
+      ((Quotient.out (Quotient.mk (Φ t) a) : A t) ∈ M.1 t) := by
+    have h := congrFun hNM ⟨t, Quotient.mk (Φ t) a⟩
+    simp only [] at h
+    by_cases hp : (Quotient.out (Quotient.mk (Φ t) a) : A t) ∈ N.1 t
+    · have hq : (Quotient.out (Quotient.mk (Φ t) a) : A t) ∈ M.1 t := by
+        by_contra hq
+        rw [if_pos hp, if_neg hq] at h
+        exact Bool.noConfusion h
+      exact ⟨fun _ => hq, fun _ => hp⟩
+    · have hq : ¬ (Quotient.out (Quotient.mk (Φ t) a) : A t) ∈ M.1 t := by
+        intro hq
+        rw [if_neg hp, if_pos hq] at h
+        exact Bool.noConfusion h
+      exact ⟨fun hh => absurd hh hp, fun hh => absurd hh hq⟩
+  rw [← key N.1 N.2, ← key M.1 M.2]
+  exact hiff
+
+/-- `B-P035` (`BPS 1`): a BPS-formation contains the empty language, which is
+`∇`-saturated. -/
+theorem bpsLanguageFormation_empty {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) :
+    (fun s => (∅ : Set (Term Sig A s))) ∈ L A :=
+  hL.2.1 A _ nabla_sat_empty
+
+/-- `B-P035` (`BPS 4`, union). -/
+theorem bpsLanguageFormation_union {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X Y : Sub (Term Sig A)} (hX : X ∈ L A) (hY : Y ∈ L A) :
+    (fun s => X s ∪ Y s) ∈ L A :=
+  (hL.2.2.2.1 A X hX Y hY).1
+
+/-- `B-P035` (`BPS 4`, intersection). -/
+theorem bpsLanguageFormation_inter {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X Y : Sub (Term Sig A)} (hX : X ∈ L A) (hY : Y ∈ L A) :
+    (fun s => X s ∩ Y s) ∈ L A :=
+  (hL.2.2.2.1 A X hX Y hY).2.1
+
+/-- `B-P035` (`BPS 4`, complement). -/
+theorem bpsLanguageFormation_compl {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X : Sub (Term Sig A)} (hX : X ∈ L A) :
+    complA X ∈ L A :=
+  (hL.2.2.2.1 A X hX X hX).2.2
+
+/-- `B-P035`: a BPS-formation is closed under finite unions (the `BPS 4`
+Boolean closure by induction). -/
+theorem bpsLanguageFormation_finset_biUnion {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {ι : Type u}
+    [DecidableEq ι] (s : Finset ι) (f : ι → Sub (Term Sig A))
+    (hf : ∀ i ∈ s, f i ∈ L A) :
+    (fun u => ⋃ i ∈ s, f i u) ∈ L A := by
+  classical
+  revert hf
+  induction s using Finset.induction_on with
+  | empty =>
+      intro _
+      have h : (fun u => ⋃ i ∈ (∅ : Finset ι), f i u)
+          = fun u => (∅ : Set (Term Sig A u)) := by
+        funext u
+        simp
+      rw [h]
+      exact bpsLanguageFormation_empty Sig hL A
+  | insert a s ha ih =>
+      intro hf
+      have h : (fun u => ⋃ i ∈ insert a s, f i u)
+          = fun u => f a u ∪ (⋃ i ∈ s, f i u) := by
+        funext u
+        rw [Finset.set_biUnion_insert]
+      rw [h]
+      exact bpsLanguageFormation_union Sig hL A
+        (hf a (Finset.mem_insert_self a s))
+        (ih (fun i hi => hf i (Finset.mem_insert_of_mem hi)))
+
+/-- `B-P035`: a BPS-formation is closed under unions indexed by any finite type. -/
+theorem bpsLanguageFormation_iUnion_finite {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {ι : Type u} [Finite ι]
+    (f : ι → Sub (Term Sig A)) (hf : ∀ i, f i ∈ L A) :
+    (fun s => ⋃ i, f i s) ∈ L A := by
+  classical
+  haveI : Fintype ι := Fintype.ofFinite ι
+  have hEq : (fun s => ⋃ i, f i s)
+      = fun s => ⋃ i ∈ (Finset.univ : Finset ι), f i s := by
+    funext s
+    rw [← Finset.set_biUnion_coe, Finset.coe_univ, Set.biUnion_univ]
+  rw [hEq]
+  exact bpsLanguageFormation_finset_biUnion Sig hL A Finset.univ f (fun i _ => hf i)
+
 end Mslang

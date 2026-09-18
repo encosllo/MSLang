@@ -4860,13 +4860,21 @@ residuals.
   (`IsRegularLanguageFormation → IsBPSLanguageFormation`): `BPS 3` is `B-P027`
   at `X = Y = L`, `BPS 4` is the Def1 Boolean closure, `BPS 5` is the Def1
   kernel clause with `B-P028`.
+- Converse infrastructure (also unmapped):
+  - `finite_satSets`: for a finite-index `Φ`, the `Φ`-saturated componentwise
+    subsets form a **finite** type — a saturated subset is determined by which
+    classes it contains, giving an injection into `(Σ(quot Φ)) → Bool`.
+  - `bpsLanguageFormation_empty`/`_union`/`_inter`/`_compl`,
+    `bpsLanguageFormation_finset_biUnion`, `bpsLanguageFormation_iUnion_finite`:
+    the BPS-side Boolean closure and finite unions.
 - Build clean, 0 warnings; slow `check_all`: **43 passed, 0 failed**.
-- **`B-P035` stays unmapped**: the converse `Def2 ⇒ Def1` is the open half and
-  requires the atom/class argument (finite unions of atoms
-  `δ^{t,[P]_{Ω(X)}}`, each written via `B-P029`) plus a finiteness result for
-  the `Ω(X)`-saturated sets. Because no block is mapped, there is no facet,
-  evidence record, or frontier movement from this session (per the convention
-  that unmapped infrastructure does not enter the frontier).
+- **`B-P035` stays unmapped**: the converse `Def2 ⇒ Def1` is the open half; the
+  remaining pieces are the `deltaSub` distributive laws, the atom claim
+  `δ^{t,[P]_{Ω(X)}} ∈ L(A)` via `B-P029` + `finite_satSets`, and the assembly of
+  `IsBPSLanguageFormation → IsRegularLanguageFormation`. Because no block is
+  mapped, there is no facet, evidence record, or frontier movement from this
+  session (per the convention that unmapped infrastructure does not enter the
+  frontier).
 
 **Prioritized next steps.**
 
