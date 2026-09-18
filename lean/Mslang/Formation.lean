@@ -674,4 +674,113 @@ theorem congruenceFormation_isCongruenceFormation {S : Type u} (Sig : Signature 
     exact ⟨ker_isCongruence Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2 g hg,
       formation_mem_of_iso Sig hF.1 hΘFmem hiso⟩
 
+/-! ### `B-P020`: the Galois correspondence `𝔉_F ↔ F_𝔉`. -/
+
+/-- The canonical projection `pr^Φ : A → A/Φ` is surjective. -/
+theorem pr_surjective {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    ∀ s, Function.Surjective (pr Φ s) :=
+  fun _s y => Quotient.inductionOn y (fun a => ⟨a, rfl⟩)
+
+/-- If `f` is injective, precomposing with `f` does not change a kernel:
+`Ker(f ∘ h) = Ker(h)`. -/
+theorem ker_comp_of_injective {S : Type u} {A B C : SSet S} (h : SortedMap A B)
+    (f : SortedMap B C) (hf : ∀ s, Function.Injective (f s)) :
+    ker (fun s => f s ∘ h s) = ker h := by
+  funext s
+  refine Setoid.ext ?_
+  intro a b
+  exact ⟨fun hab => hf s hab, fun hab => congrArg (f s) hab⟩
+
+/-- `B-P020`: the direct image `F_𝔉` of a congruence formation `𝔉`: the
+`Σ`-algebras isomorphic to a quotient `T_Σ(A)/Φ` with `Φ ∈ 𝔉(A)`. -/
+def algebraFormationOfCongruenceFormation {S : Type u} (Sig : Signature S)
+    (G : (A : SSet S) → Set (SortedEqv (Term Sig A))) : Set (Alg Sig) :=
+  {C | ∃ (A : SSet S) (Φ : SortedEqv (Term Sig A))
+        (hΦ : IsCongruence Sig (termAlg Sig A).2 Φ),
+        Φ ∈ G A ∧ ∃ f : SortedMap C.1 (quotAlg Sig (termAlg Sig A).2 Φ hΦ).1,
+          IsAlgIso Sig C.2 (quotAlg Sig (termAlg Sig A).2 Φ hΦ).2 f}
+
+/-- `B-P020` (first round trip): for an algebra formation `F`,
+`F = F_{𝔉_F}`. The `⊆` direction uses that every `Σ`-algebra is a quotient of a
+free `Σ`-algebra (`B-P013`), taking `Φ = Ker(termEval)`; the `⊇` direction is
+abstractness of `F` (`B-R014`). -/
+theorem algebraFormationOfCongruenceFormation_congruenceFormationOf {S : Type u}
+    (Sig : Signature S) {F : Set (Alg Sig)} (hF : IsAlgebraFormation Sig F) :
+    algebraFormationOfCongruenceFormation Sig (congruenceFormationOf Sig F) = F := by
+  ext C
+  constructor
+  · rintro ⟨A, Φ, hΦ, hΦF, f, hf⟩
+    obtain ⟨hΦ', hΦ'F⟩ := hΦF
+    exact formation_mem_of_iso Sig hF.1 hΦ'F hf
+  · intro hC
+    let hker := ker_isCongruence Sig (termAlg Sig C.1).2 C.2 (termEval Sig C)
+      (termEval_isAlgHom Sig C)
+    let Q := quotAlg Sig (termAlg Sig C.1).2 (ker (termEval Sig C)) hker
+    let hiso : IsAlgIso Sig Q.2 C.2
+        (quotLift (ker (termEval Sig C)) (termEval Sig C) (fun _ _ _ h => h)) :=
+      quotAlg_ker_isAlgIso Sig (termAlg Sig C.1).2 C.2 (termEval Sig C)
+        (termEval_isAlgHom Sig C) (termEval_surjective Sig C)
+    refine ⟨C.1, ker (termEval Sig C), hker, ?_, ?_⟩
+    · refine ⟨hker, ?_⟩
+      exact formation_mem_of_iso Sig hF.1 hC hiso
+    · exact ⟨_, isAlgIso_symm Sig Q.2 C.2 hiso⟩
+
+/-- `B-P020` (second round trip): for a congruence formation `𝔉`,
+`𝔉 = 𝔉_{F_𝔉}`. The `⊆` direction is the substantive one: a quotient
+`T_Σ(A)/Φ ∈ F_𝔉` comes from `T_Σ(B)/Ψ` with `Ψ ∈ 𝔉(B)`, and projectivity of the
+free algebra (`B-P012`) lifts the isomorphism to a homomorphism `g : T_Σ(A) →
+T_Σ(B)`; the formation clause of `𝔉` then gives
+`Ker(pr^Ψ ∘ g) ∈ 𝔉(A)`, and `Ker(pr^Ψ ∘ g) = Φ` because the isomorphism is
+injective. -/
+theorem congruenceFormationOf_algebraFormationOfCongruenceFormation {S : Type u}
+    (Sig : Signature S) {G : (A : SSet S) → Set (SortedEqv (Term Sig A))}
+    (hG : IsCongruenceFormation Sig G) :
+    congruenceFormationOf Sig (algebraFormationOfCongruenceFormation Sig G) = G := by
+  classical
+  funext A
+  ext Φ
+  constructor
+  · rintro ⟨hΦ, hΦF⟩
+    obtain ⟨B, Ψ, hΨ, hΨG, f, hf⟩ := hΦF
+    let FA : AlgStruct Sig (Term Sig A) := (termAlg Sig A).2
+    let FB : AlgStruct Sig (Term Sig B) := (termAlg Sig B).2
+    let QA := quotAlg Sig FA Φ hΦ
+    let QB := quotAlg Sig FB Ψ hΨ
+    let prA : SortedMap (Term Sig A) QA.1 := prAlg Sig FA Φ hΦ
+    let prB : SortedMap (Term Sig B) QB.1 := prAlg Sig FB Ψ hΨ
+    have hprA : ∀ s, Function.Surjective (prA s) := fun s => pr_surjective Φ s
+    have hprB : ∀ s, Function.Surjective (prB s) := fun s => pr_surjective Ψ s
+    have hcomp : IsAlgHom Sig FA QB.2 (fun s => f s ∘ prA s) := by
+      intro p σ a
+      show f p.2 (prA p.2 (FA p σ a)) =
+        QB.2 p σ (fun i => f (p.1.get i) (prA (p.1.get i) (a i)))
+      rw [show prA p.2 (FA p σ a) = QA.2 p σ (fun i => prA (p.1.get i) (a i)) from
+        isAlgHom_prAlg Sig FA Φ hΦ p σ a]
+      exact hf.1 p σ (fun i => prA (p.1.get i) (a i))
+    obtain ⟨g, hg_hom, hg_comp⟩ :=
+      term_projective Sig A FB QB.2 prB (isAlgHom_prAlg Sig FB Ψ hΨ) hprB
+        (fun s => f s ∘ prA s) hcomp
+    have hsurj_g : ∀ s, Function.Surjective (prB s ∘ g s) := by
+      intro s y
+      obtain ⟨y', hy'⟩ := (hf.2 s).2 y
+      obtain ⟨x, hx⟩ := hprA s y'
+      exact ⟨x, (congrFun (congrFun hg_comp s) x).trans
+        ((congrArg (f s) hx).trans hy')⟩
+    have hmem : (ker fun s => prB s ∘ g s) ∈ G A :=
+      hG.2 A B Ψ hΨ hΨG g hg_hom hsurj_g
+    have hker_eq : ker (fun s => prB s ∘ g s) = Φ := by
+      have h1 : ker (fun s => prB s ∘ g s) = ker (fun s => f s ∘ prA s) :=
+        congrArg ker hg_comp
+      have h2 : ker (fun s => f s ∘ prA s) = ker prA :=
+        ker_comp_of_injective prA f (fun s => (hf.2 s).1)
+      have h3 : ker prA = Φ := ker_prAlg Sig FA Φ hΦ
+      rw [h1, h2, h3]
+    rw [hker_eq] at hmem
+    exact hmem
+  · intro hΦG
+    have hΦ : IsCongruence Sig (termAlg Sig A).2 Φ := (hG.1 A).2.1 Φ hΦG
+    refine ⟨hΦ, ?_⟩
+    exact ⟨A, Φ, hΦ, hΦG, (fun _s => id),
+      ⟨(by intro p σ a; rfl), fun _s => Function.bijective_id⟩⟩
+
 end Mslang

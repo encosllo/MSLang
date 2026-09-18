@@ -4275,6 +4275,66 @@ change is the same representation decision as Session 87 (adopt `Term`); the
 
 ---
 
+## Session 89 -- 2026-09-18 -- B-P020 round trips (`F_𝔉` infrastructure)
+
+**Goal.** Continue toward `B-P020`: the maps `θ_Σ : F ↦ 𝔉_F` and
+`θ_Σ⁻¹ : 𝔉 ↦ F_𝔉` and the round trips that make them mutually inverse.
+
+**What was established (closed; infrastructure, no block mapped).**
+
+- `lean/Mslang/Formation.lean` gained:
+  - `algebraFormationOfCongruenceFormation Sig G` — the direct image `F_𝔉`, the
+    `Σ`-algebras isomorphic to a quotient `T_Σ(A)/Φ` with `Φ ∈ G(A)`;
+  - helpers `pr_surjective` (the projection `pr^Φ` is surjective) and
+    `ker_comp_of_injective` (`Ker(f ∘ h) = Ker(h)` for injective `f`);
+  - **first round trip** `algebraFormationOfCongruenceFormation_congruenceFormationOf`:
+    `F_{𝔉_F} = F` for an algebra formation `F`. `⊆` uses `B-P013`
+    (`termEval_surjective` + `quoAlg_ker_isAlgIso`), `⊇` uses abstractness
+    (`formation_mem_of_iso`).
+  - **second round trip** `congruenceFormationOf_algebraFormationOfCongruenceFormation`:
+    `𝔉_{F_𝔉} = 𝔉` for a congruence formation `𝔉`. The `⊆` direction is the
+    substantive one: a quotient `T_Σ(A)/Φ ∈ F_𝔉` comes from `T_Σ(B)/Ψ` with
+    `Ψ ∈ 𝔉(B)`; **projectivity of the free algebra (`B-P012` `term_projective`)**
+    lifts the isomorphism to `g : T_Σ(A) → T_Σ(B)` with `pr^Ψ ∘ g = f ∘ pr^Φ`;
+    the formation clause of `B-P019` gives `Ker(pr^Ψ ∘ g) ∈ 𝔉(A)`, and
+    `Ker(pr^Ψ ∘ g) = Φ` because the isomorphism is injective
+    (`ker_comp_of_injective`, `ker_prAlg`).
+- Build clean; `scripts/check_all.sh` (slow): **43 passed, 0 failed**. Only
+  `lean/Mslang/Formation.lean` changed, so no facet, evidence, or derived view
+  moved (the declarations are unmapped infrastructure, like `Term.lean` in
+  Session 86).
+
+**Finding that changes the plan.** The companion of `B-P019` is a *separate
+block*: the manuscript's **`B-P015`** states that `F_𝔉` is a formation
+(nonempty, abstract, `H`-closed, `P_fsd`-closed), with the `P_fsd` direction
+using projectivity and a finite intersection of kernels. `B-P020`'s
+"complete lattices are isomorphic" needs `B-P015` (so `θ⁻¹` maps into
+`Form_Alg(Σ)`) plus the lattice/order packaging. So the frontier order is
+`B-P015` before `B-P020`, not `B-P019`'s round trips directly.
+`B-P015` is already in the author's "worth-formalizing" triage.
+
+**Engineering gotcha (recurring).** Lean's `rw`/`▸` matching at `implicit`
+transparency does not unfold `termAlg` to see `(termAlg Sig A).1 = Term Sig A`.
+Fixes used: `congrArg`-transported equalities (`(congrArg … hk).symm.mp hle`),
+`congrArg ker hg_comp`, explicit `AlgStruct Sig (Term Sig A)` binders for
+`FA`/`FB`, and `Eq.trans` chains instead of rewriting under `termAlg`.
+
+**Honest caveat.** The two round trips are proved but **not mapped**. `F_𝔉` is
+not yet shown to be an algebra formation (that is `B-P015`), and `B-P020`'s
+complete-lattice isomorphism is not yet stated; both remain open.
+
+**Prioritized next steps.**
+
+1. `B-P015`: `F_𝔉` is a nonempty abstract formation (`H`-closure via
+   `B-P019`'s up-closure; `P_fsd`-closure via `B-P012` projectivity, a finite
+   intersection of kernels, and the subdirect-embedding argument). Then map it.
+2. `B-P020`: package the round trips + order preservation as the lattice
+   isomorphism (needs a `CompleteLattice`/`OrderIso` on the two formation
+   families; related to `B-C005`).
+3. `B-C005` (`Form_Alg(Σ)` is an algebraic lattice).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
