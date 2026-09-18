@@ -1056,4 +1056,102 @@ theorem langFormationOf_atom_inf {S : Type u} (Sig : Signature S)
   rw [atomRep_inf]
   exact langFormationOf_inter Sig hG A hΦ hΨ
 
+/-! ### `B-P035` (forward direction): `Def1FRL ⇒ Def2FRL`. -/
+
+/-- `B-P035` (`BPS 3`): a regular-language formation is closed under
+complement. -/
+theorem regularFormation_compl {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S)
+    {X : Sub (Term Sig A)} (hX : X ∈ L A) :
+    complA X ∈ L A := by
+  refine hL.2.2.1 A X X hX hX (complA X) ?_
+  have hΦ : sortedEqvInf (congCogenerated Sig (termAlg Sig A) X)
+      (congCogenerated Sig (termAlg Sig A) X) = congCogenerated Sig (termAlg Sig A) X :=
+    sortedEqvLe_antisymm (fun _ _ _ h => h.1) (fun _ _ _ h => ⟨h, h⟩)
+  rw [hΦ]
+  exact sat_compl _ (isSat_congCogenerated Sig (termAlg Sig A) X)
+
+/-- `B-P035` (`BPS 2`): a regular-language formation is closed under inverse
+images of translations. -/
+theorem regularFormation_transPreimage {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A : SSet S)
+    {t s : S} {T : Term Sig A t → Term Sig A s}
+    (hT : TlGen Sig (termAlg Sig A) t s T) {X : Sub (Term Sig A)} (hX : X ∈ L A) :
+    transPreimage T X ∈ L A := by
+  refine hL.2.2.1 A X X hX hX (transPreimage T X) ?_
+  have hΦ : sortedEqvInf (congCogenerated Sig (termAlg Sig A) X)
+      (congCogenerated Sig (termAlg Sig A) X) = congCogenerated Sig (termAlg Sig A) X :=
+    sortedEqvLe_antisymm (fun _ _ _ h => h.1) (fun _ _ _ h => ⟨h, h⟩)
+  rw [hΦ]
+  exact (isSat_iff_le_congCogenerated Sig (termAlg Sig A) (transPreimage T X)
+    (congCogenerated_isCongruence Sig (termAlg Sig A) X)).mpr
+    (congCogenerated_le_transPreimage Sig (termAlg Sig A) hT X)
+
+/-- `B-P035` (`BPS 4`): a regular-language formation is closed under inverse
+images along `Ω(M)`-epimorphisms. -/
+theorem regularFormation_inverseImage {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) (A B : SSet S)
+    {M : Sub (Term Sig B)} (hM : M ∈ L B)
+    {f : SortedMap (Term Sig A) (Term Sig B)}
+    (hf : IsAlgHom Sig (termAlg Sig A).2 (termAlg Sig B).2 f)
+    (hsurj : ∀ s, Function.Surjective (fun x => prAlg Sig (termAlg Sig B).2
+      (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M) s (f s x))) :
+    inverseImage f M ∈ L A := by
+  let g : SortedMap (Term Sig A) (quotAlg Sig (termAlg Sig B).2
+      (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M)).1 :=
+    fun s => (prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M) s) ∘ (f s)
+  have hg : IsAlgHom Sig (termAlg Sig A).2
+      (quotAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M)).2 g := by
+    intro p σ a
+    show prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M) p.2
+          (f p.2 ((termAlg Sig A).2 p σ a)) =
+      (quotAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M)).2 p σ
+        (fun i => prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M) (p.1.get i)
+          (f (p.1.get i) (a i)))
+    rw [hf p σ a]
+    exact isAlgHom_prAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+      (congCogenerated_isCongruence Sig (termAlg Sig B) M) p σ
+      (fun i => f (p.1.get i) (a i))
+  have hker_le : sortedEqvLe (ker g)
+      (congCogenerated Sig (termAlg Sig A) (inverseImage f M)) := by
+    intro s x y hxy
+    have hpb : (pullbackEqv f (congCogenerated Sig (termAlg Sig B) M) s).r x y := by
+      change (congCogenerated Sig (termAlg Sig B) M s).r (f s x) (f s y)
+      change Quotient.mk (congCogenerated Sig (termAlg Sig B) M s) (f s x) =
+        Quotient.mk (congCogenerated Sig (termAlg Sig B) M s) (f s y) at hxy
+      exact Quotient.exact hxy
+    exact pullbackEqv_congCogenerated_le Sig hf M s x y hpb
+  exact hL.2.2.2 A B M hM f hf hsurj (inverseImage f M)
+    ((isSat_iff_le_congCogenerated Sig (termAlg Sig A) (inverseImage f M)
+      (ker_isCongruence Sig (termAlg Sig A).2
+        (quotAlg Sig (termAlg Sig B).2 (congCogenerated Sig (termAlg Sig B) M)
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M)).2 g hg)).mpr hker_le)
+
+/-- `B-P035` (forward direction): every regular-language formation in the sense
+of `Def1FRL` (`IsRegularLanguageFormation`) is one in the sense of `Def2FRL`
+(`IsBPSLanguageFormation`). `BPS 1` is the regularity clause, `BPS 2` the
+`∇`-clause, `BPS 3` translation preimages (`B-P027`), `BPS 4` Boolean closure,
+and `BPS 5` inverse images along `Ω(M)`-epimorphisms. -/
+theorem isBPSLanguageFormation_of_isRegularLanguageFormation {S : Type u}
+    (Sig : Signature S) {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsRegularLanguageFormation Sig L) :
+    IsBPSLanguageFormation Sig L :=
+  ⟨hL.1, hL.2.1,
+   fun A _ hX _ _ _ hT => regularFormation_transPreimage Sig hL A hT hX,
+   fun A X hX Y hY =>
+     ⟨regularFormation_union Sig hL A X Y hX hY,
+      regularFormation_inter Sig hL A X Y hX hY,
+      regularFormation_compl Sig hL A hX⟩,
+   fun A B _ hM _ hf hsurj => regularFormation_inverseImage Sig hL A B hM hf hsurj⟩
+
 end Mslang
