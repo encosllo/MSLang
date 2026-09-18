@@ -660,6 +660,53 @@ theorem congCogenerated_le_pullback_of_surj {S : Type u} (Sig : Signature S) {A 
   rw [← hVf x, ← hVf y]
   exact h
 
+/-! ### `B-P029`: `[a]_{Ω(L)} = ⋂ 𝒳_{L,t,a} − ⋃ 𝒳̄_{L,t,a}`. -/
+
+/-- `B-P029` (`DesClasCog`): the family `𝒳_{L,t,a}` of sets `T⁻¹[L_s]` over the
+translations `T : A_t → A_s` with `T(a) ∈ L_s`. -/
+def cogClassSets {S : Type u} (Sig : Signature S) (A : Alg Sig) (L : Sub A.1)
+    (t : S) (a : A.1 t) : Set (Set (A.1 t)) :=
+  {X | ∃ (s : S) (T : A.1 t → A.1 s),
+    TlGen Sig A t s T ∧ X = T ⁻¹' (L s) ∧ T a ∈ L s}
+
+/-- `B-P029` (`DesClasCog`): the family `𝒳̄_{L,t,a}` of sets `T⁻¹[L_s]` over the
+translations `T : A_t → A_s` with `T(a) ∉ L_s`. -/
+def cogClassSetsCompl {S : Type u} (Sig : Signature S) (A : Alg Sig) (L : Sub A.1)
+    (t : S) (a : A.1 t) : Set (Set (A.1 t)) :=
+  {X | ∃ (s : S) (T : A.1 t → A.1 s),
+    TlGen Sig A t s T ∧ X = T ⁻¹' (L s) ∧ T a ∉ L s}
+
+/-- `B-P029` (`DesClasCog`): the `Ω^{A}(L)_t`-class of `a` is the intersection of
+the sets `T⁻¹[L_s]` with `T(a) ∈ L_s`, minus the union of those with
+`T(a) ∉ L_s`. The two inclusions are the two directions of the defining
+equivalence `T a ∈ L_s ↔ T b ∈ L_s`. -/
+theorem eqvClass_congCogenerated {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    (L : Sub A.1) (t : S) (a : A.1 t) :
+    eqvClass (congCogenerated Sig A L) t a
+      = (⋂₀ cogClassSets Sig A L t a) \ (⋃₀ cogClassSetsCompl Sig A L t a) := by
+  ext b
+  constructor
+  · intro hb
+    change (congCogenerated Sig A L t).r a b at hb
+    refine ⟨?_, ?_⟩
+    · rw [Set.mem_sInter]
+      rintro X ⟨s, T, hT, rfl, haL⟩
+      exact (hb s T hT).mp haL
+    · rw [Set.mem_sUnion]
+      rintro ⟨X, ⟨s, T, hT, rfl, haL⟩, hbX⟩
+      exact haL ((hb s T hT).mpr hbX)
+  · rintro ⟨hbInter, hbNotUnion⟩
+    change ∀ (s : S) (T : A.1 t → A.1 s), TlGen Sig A t s T →
+      (T a ∈ L s ↔ T b ∈ L s)
+    intro s T hT
+    constructor
+    · intro haL
+      exact Set.mem_sInter.mp hbInter (T ⁻¹' (L s)) ⟨s, T, hT, rfl, haL⟩
+    · intro hbL
+      by_contra haL
+      exact hbNotUnion (Set.mem_sUnion.mpr
+        ⟨T ⁻¹' (L s), ⟨s, T, hT, rfl, haL⟩, hbL⟩)
+
 /-! ### `B-R021`: `Ω` is a natural transformation `P⁻ ⇒ Cgr`. -/
 
 /-- The identity is an algebra homomorphism. -/

@@ -737,6 +737,14 @@
       ],
       "file": "lean/Mslang/Translation.lean"
     },
+    "B-P029": {
+      "decls": [
+        "Mslang.cogClassSets",
+        "Mslang.cogClassSetsCompl",
+        "Mslang.eqvClass_congCogenerated"
+      ],
+      "file": "lean/Mslang/Translation.lean"
+    },
     "B-R021": {
       "decls": [
         "Mslang.isAlgHom_id",

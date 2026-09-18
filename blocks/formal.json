@@ -2494,6 +2494,32 @@
         "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
       }
     },
+    "B-P029": {
+      "decls": [
+        "Mslang.cogClassSets",
+        "Mslang.cogClassSetsCompl",
+        "Mslang.eqvClass_congCogenerated"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated"
+        ],
+        "hash": "aa93e1ee7f11e079992c887874b26502886a085e46397c50d316061ab34ae783"
+      },
+      "file": "lean/Mslang/Translation.lean",
+      "formal_proof": {
+        "hash": "8857c8ddb2755f5d087d471fa64104d4c0dbb9b199bec6f2fc24be862016a522"
+      },
+      "formal_statement": {
+        "hash": "f78744137fb86d299c1be52455810f584d5ad65e845345e755e2db4f6cc43b81"
+      }
+    },
     "B-P030": {
       "decls": [
         "Mslang.langFormationOf",

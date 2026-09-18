@@ -235,6 +235,8 @@
     "Mslang.closesUnderEtl_of_closesUnderTl": [],
     "Mslang.closesUnderEtl_of_isCongruence": [],
     "Mslang.closesUnderTl_of_closesUnderEtl": [],
+    "Mslang.cogClassSets": [],
+    "Mslang.cogClassSetsCompl": [],
     "Mslang.concat": [],
     "Mslang.congCogenerated": [],
     "Mslang.congCogenerated_compl": [
@@ -334,6 +336,11 @@
     ],
     "Mslang.directImage": [],
     "Mslang.emptyWord": [],
+    "Mslang.eqvClass_congCogenerated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.etaX": [],
     "Mslang.exists_mem_superset_finset": [
       "Classical.choice",
@@ -867,7 +874,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 304,
+  "declarations_audited": 307,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

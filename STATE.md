@@ -4808,6 +4808,46 @@ for remarks without a distinct result-bearing statement).
 
 ---
 
+## Session 100 -- 2026-09-18 -- B-P029 (`DesClasCog`)
+
+**Goal.** Formalize the representation of an `Ω`-class as an
+intersection-minus-union of translation preimages — the key input for the
+`Def2 ⇒ Def1` direction of `B-P035`.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Translation.lean` (`B-P029`):
+  - `cogClassSets Sig A L t a`: the family `𝒳_{L,t,a}` of `T⁻¹[L_s]` over
+    translations `T : A_t → A_s` with `T a ∈ L_s`;
+  - `cogClassSetsCompl Sig A L t a`: the `𝒳̄_{L,t,a}` with `T a ∉ L_s`;
+  - `eqvClass_congCogenerated`: the `Ω^A(L)_t`-class of `a` equals
+    `(⋂₀ 𝒳_{L,t,a}) \ (⋃₀ 𝒳̄_{L,t,a})`. The forward inclusion uses the two
+    directions of the defining equivalence `T a ∈ L_s ↔ T b ∈ L_s`; the reverse
+    uses the family members for a given `T`.
+- Evidence **`E-000211`** (verification) and **`E-000212`** (correspondence,
+  two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P029-correspondence.md`).
+- `blocks/lean_audit.json`: **307 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**. `check_all.sh` slow: **43 passed, 0 failed**. Journal `EV-000109`.
+  Frontier unmapped **28 -> 27** (102 mapped blocks).
+
+**Honest caveat.** Same-model audit (`provisional`); inherits the pilot-encoding
+residuals.
+
+**Prioritized next steps.**
+
+1. `B-P035` (`Def1FRL ⇔ Def2FRL`): the forward direction (`Def1 ⇒ Def2`) is
+   short (translation preimages by `B-P027`, Boolean closure by `B-C008`
+   restricted to `L_𝔉`); the converse (`Def2 ⇒ Def1`) now has its key input in
+   `B-P029` plus the finiteness of `Ω(X) ∩ Ω(Y)`.
+2. The lattice structures: `B-C005`/`B-C011` (from `B-P018`/`B-P033` plus an
+   algebraic-closure-system-to-algebraic-lattice bridge and a `CompleteLattice`
+   instance), then `B-C006`/`B-C012`/`B-C013` by transport along the
+   `B-P020`/`B-P034`/`B-P039` order isomorphisms, and `B-P014`/`B-P032`/`B-P036`.
+3. `B-P006` (`Φ-Sat(A)` is a complete atomic Boolean algebra).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

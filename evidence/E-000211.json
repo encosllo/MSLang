@@ -1,0 +1,37 @@
+{
+  "block": "B-P029",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000211",
+  "findings": [
+    "B-P029 (DesClasCog): eqvClass_congCogenerated - for a \u03a3-algebra A, L \u2286 A, t : S, a \u2208 A_t, the \u03a9^A(L)_t-class of a equals (\u22c2\u2080 cogClassSets) \\ (\u22c3\u2080 cogClassSetsCompl), where the two families are the T\u207b\u00b9[L_s] over translations T : A_t \u2192 A_s with T a \u2208 L_s resp. T a \u2209 L_s. Both inclusions are the two directions of the defining equivalence T a \u2208 L_s \u2194 T b \u2208 L_s.",
+    "Axioms within the permitted set (lean_audit: 307 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P029/formal_proof",
+      "hash": "8857c8ddb2755f5d087d471fa64104d4c0dbb9b199bec6f2fc24be862016a522"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-18T21:43:18Z"
+}
