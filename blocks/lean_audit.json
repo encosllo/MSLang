@@ -413,7 +413,17 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.finiteAlgebraFormationsCompleteLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.finiteAlgebraFormations_isAlgebraicClosureSystem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteAlgebraFormations_isAlgebraicLattice": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -969,7 +979,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 326,
+  "declarations_audited": 328,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

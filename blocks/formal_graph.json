@@ -401,6 +401,31 @@
       "to": "B-P030"
     },
     {
+      "from": "B-C011",
+      "kind": "formal_uses",
+      "to": "B-D011"
+    },
+    {
+      "from": "B-C011",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-C011",
+      "kind": "formal_uses",
+      "to": "B-D042"
+    },
+    {
+      "from": "B-C011",
+      "kind": "formal_uses",
+      "to": "B-D043"
+    },
+    {
+      "from": "B-C011",
+      "kind": "formal_uses",
+      "to": "B-P033"
+    },
+    {
       "from": "B-D003",
       "kind": "formal_uses",
       "to": "B-D002"

@@ -5283,6 +5283,57 @@ the transported instance is *defeq* to `B-P014`'s.
 
 ---
 
+## Session 109 -- 2026-09-19 -- `B-C011` (`Form_Alg_f(Σ)` algebraic lattice)
+
+**Goal.** Session 108 step 1: the **carrier** variant of the closure-system
+bridge, from `IsAlgebraicClosureSystemOnCarrier` (`B-P033`). Resumed from the
+WIP commit `4370c77`, whose `Mslang.Regular` check had been aborted.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Algebra.lean`: the generic carrier bridge —
+  `carrierImage` (a carrier family `C ⊆ Set X` viewed as a family of subsets of
+  the carrier `C₀`), `isAlgebraicClosureSystemOn_carrierImage` (it is an
+  ordinary algebraic closure system on `C₀`), `carrierClosureOperator`
+  (`ClosureOperator.ofCompletePred`, with the empty intersection handled
+  separately as `C₀`), `isAlgebraicLattice_carrierImage` (the closed sets form
+  an algebraic lattice, by `B-C005`'s generic theorem), and `carrierOrderIso`
+  (`C ≃o carrierImage C₀ C`, preserving and reflecting inclusion).
+- `lean/Mslang/Regular.lean`: `finiteAlgebraFormationsCompleteLattice` and
+  `finiteAlgebraFormations_isAlgebraicLattice` for `Form_Alg_f(Σ)`, under
+  `B-A001` `[Finite S]`. The lattice is transported across
+  `(carrierOrderIso …).symm`; the algebraicness follows from
+  `isAlgebraicLattice_carrierImage` through `isAlgebraicLattice_of_orderIso`.
+- `lean/declarations.json` maps `B-C011`; facets regenerated.
+  `blocks/lean_audit.json`: **328 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**.
+- Evidence **`E-000227`** (verification, `build_ok`) and **`E-000228`**
+  (correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-C011-correspondence.md`). Journal `EV-000117`. Frontier
+  unmapped **21 → 20**. Fast gate: **40 passed, 0 failed**.
+
+**Finding (the WIP did not compile; two fixes).** The committed WIP omitted
+`B-A001`'s `[Finite S]` on both new declarations, so
+`finiteAlgebraFormations_isAlgebraicClosureSystem` could not be applied; and the
+order-isomorphism transport was taken in the wrong direction (`carrierOrderIso`
+is `C ≃o carrierImage`, but `isAlgebraicLattice_of_orderIso` needs the source
+algebraic and the target derived), so `.symm` is required on both uses.
+`carrierOrderIso` goes from the carrier-side lattice's *codomain*, hence
+`(carrierOrderIso …).symm.toGaloisInsertion.liftCompleteLattice` places the
+`CompleteLattice` on `Form_Alg_f(Σ)`.
+
+**Caveat.** Same-model audit; inherits the pilot-encoding residuals.
+
+**Prioritized next steps.**
+
+1. `B-C012` (transport of `B-C011` along `B-P034`) and `B-C013` (along
+   `B-P039`), reusing `isAlgebraicLattice_of_orderIso` and the complete-lattice
+   halves already present (`B-P032`, `B-P014`).
+2. `B-P006` (CABA on `Φ-Sat`).
+3. Independent representation audit; the author-reserved decisions.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

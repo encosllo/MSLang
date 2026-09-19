@@ -806,6 +806,13 @@
       ],
       "file": "lean/Mslang/Formation.lean"
     },
+    "B-C011": {
+      "decls": [
+        "Mslang.finiteAlgebraFormationsCompleteLattice",
+        "Mslang.finiteAlgebraFormations_isAlgebraicLattice"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-P032": {
       "decls": [
         "Mslang.isFiniteIndex_ker_of_finite",

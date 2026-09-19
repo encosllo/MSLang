@@ -507,6 +507,55 @@
         "hash": "44f943bc8847aff4fdfa40c457504f0089af6b6911a16ece26cf5415deab462b"
       }
     },
+    "B-C011": {
+      "decls": [
+        "Mslang.finiteAlgebraFormationsCompleteLattice",
+        "Mslang.finiteAlgebraFormations_isAlgebraicLattice"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.FiniteAlg",
+          "Mslang.FiniteSSet",
+          "Mslang.HOperator",
+          "Mslang.HOperator_mono",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsAlgebraicLattice",
+          "Mslang.IsCompact",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsFiniteAlgebraFormation",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.PFsdOperator_mono",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.algebraFinite",
+          "Mslang.algebraFinite_closed_HOperator",
+          "Mslang.algebraFinite_closed_PFsdOperator",
+          "Mslang.exists_mem_superset_finset",
+          "Mslang.finOp",
+          "Mslang.finiteAlgebraFormations",
+          "Mslang.finiteAlgebraFormations_isAlgebraicClosureSystem",
+          "Mslang.finiteSSet_iff",
+          "Mslang.iAlg",
+          "Mslang.supp",
+          "Mslang.suppAlg",
+          "Mslang.suppAlg_iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "9b4178e07cdf8bb9fb11c07844df51edd93735676cf937f86e7ee9669b18e7ce"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "a2ee2e9d3437d4f4277692c1f8ae8a00a8d9389cb27f97d98cfb0a1f922948c6"
+      },
+      "formal_statement": {
+        "hash": "3fe98e20c3888bc3441d924592e4a3fa5240fb2bb01b622101b02fd33311bd4a"
+      }
+    },
     "B-D001": {
       "decls": [
         "Mslang.Word",

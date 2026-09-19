@@ -1,0 +1,36 @@
+{
+  "block": "B-C011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000227",
+  "findings": [
+    "B-C011: Form_Alg_f(Sigma) is an algebraic lattice. New generic carrier bridge in Algebra.lean (carrierImage, isAlgebraicClosureSystemOn_carrierImage, carrierClosureOperator, isAlgebraicLattice_carrierImage, carrierOrderIso): a closure system with a fixed carrier C0 induces an ordinary closure system on the set C0, whose closed sets form an algebraic lattice; applied in Regular.lean via finiteAlgebraFormationsCompleteLattice and finiteAlgebraFormations_isAlgebraicLattice under B-A001 [Finite S], transporting IsAlgebraicLattice across carrierOrderIso.symm. Axioms within the permitted set (lean_audit: 328 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C011/formal_proof",
+      "hash": "a2ee2e9d3437d4f4277692c1f8ae8a00a8d9389cb27f97d98cfb0a1f922948c6"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T20:58:30Z"
+}
