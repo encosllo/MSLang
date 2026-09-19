@@ -1941,4 +1941,38 @@ noncomputable def finiteIndexCongruenceFormationsCompleteLattice {S : Type u} [F
   completeLatticeOfInf (finiteIndexCongruenceFormations Sig)
     (finiteIndexCongruenceFormations_isGLB_sInf Sig)
 
+/-! ### `B-C011`: `Form_Alg_f(Σ)` is an algebraic lattice. -/
+
+/-- `B-C011`: `Form_Alg_f(Σ)` is a complete lattice, as the order-isomorphic
+image of the closure system `B-P033` on the carrier `Alg_f(Σ)`. -/
+@[instance_reducible]
+noncomputable def finiteAlgebraFormationsCompleteLattice {S : Type u} (Sig : Signature S) :
+    CompleteLattice (finiteAlgebraFormations Sig) :=
+  letI : CompleteLattice
+      ↥(carrierImage (algebraFinite Sig) (finiteAlgebraFormations Sig)) :=
+    (carrierClosureOperator (algebraFinite Sig) (finiteAlgebraFormations Sig)
+      (finiteAlgebraFormations_isAlgebraicClosureSystem Sig)).gi.liftCompleteLattice
+  (carrierOrderIso (algebraFinite Sig) (finiteAlgebraFormations Sig)
+    (finiteAlgebraFormations_isAlgebraicClosureSystem Sig)).toGaloisInsertion.liftCompleteLattice
+
+/-- `B-C011` (`FormAlgFAlgLat`): `Form_Alg_f(Σ)`, ordered by inclusion, is an
+algebraic lattice. -/
+theorem finiteAlgebraFormations_isAlgebraicLattice {S : Type u} (Sig : Signature S) :
+    @IsAlgebraicLattice (finiteAlgebraFormations Sig)
+      (finiteAlgebraFormationsCompleteLattice Sig) := by
+  letI : CompleteLattice
+      ↥(carrierImage (algebraFinite Sig) (finiteAlgebraFormations Sig)) :=
+    (carrierClosureOperator (algebraFinite Sig) (finiteAlgebraFormations Sig)
+      (finiteAlgebraFormations_isAlgebraicClosureSystem Sig)).gi.liftCompleteLattice
+  letI : CompleteLattice (finiteAlgebraFormations Sig) :=
+    finiteAlgebraFormationsCompleteLattice Sig
+  have h := isAlgebraicLattice_of_orderIso
+    (carrierOrderIso (algebraFinite Sig) (finiteAlgebraFormations Sig)
+      (finiteAlgebraFormations_isAlgebraicClosureSystem Sig))
+    (isAlgebraicLattice_carrierImage (algebraFinite Sig) (finiteAlgebraFormations Sig)
+      (finiteAlgebraFormations_isAlgebraicClosureSystem Sig))
+  change @IsAlgebraicLattice (finiteAlgebraFormations Sig)
+    (finiteAlgebraFormationsCompleteLattice Sig)
+  exact h
+
 end Mslang

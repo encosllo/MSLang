@@ -543,4 +543,89 @@ theorem isAlgebraicLattice_of_orderIso {L M : Type*} [CompleteLattice L] [Comple
     rw [← hmap, ← hm]
     exact (e.apply_symm_apply m).symm
 
+/-- `B-C011` bridge: a closure system with a fixed carrier `C₀`, viewed as a
+family of subsets of the carrier `C₀`. -/
+def carrierImage {X : Type v} (C₀ : Set X) (C : Set (Set X)) : Set (Set C₀) :=
+  {T | (Subtype.val '' T) ∈ C}
+
+/-- `B-C011` bridge: a carrier closure system induces an ordinary closure system
+on the carrier. -/
+theorem isAlgebraicClosureSystemOn_carrierImage {X : Type v} (C₀ : Set X) (C : Set (Set X))
+    (hC : IsAlgebraicClosureSystemOnCarrier X C₀ C) :
+    IsAlgebraicClosureSystemOn C₀ (carrierImage C₀ C) := by
+  refine ⟨?_, ?_, ?_⟩
+  · show (Subtype.val '' (Set.univ : Set C₀)) ∈ C
+    rw [Set.image_univ, Subtype.range_coe]
+    exact hC.1
+  · intro D hD hne
+    show (Subtype.val '' (⋂₀ D)) ∈ C
+    rw [Set.image_val_sInter hne]
+    refine hC.2.2.1 ((fun T : Set C₀ => Subtype.val '' T) '' D) ?_ ?_
+    · rintro _ ⟨T, hT, rfl⟩
+      exact hD hT
+    · exact Set.Nonempty.image (fun T : Set C₀ => Subtype.val '' T) hne
+  · intro D hD hne hdir
+    show (Subtype.val '' (⋃₀ D)) ∈ C
+    rw [Set.image_val_sUnion]
+    refine hC.2.2.2 ((fun T : Set C₀ => Subtype.val '' T) '' D) ?_ ?_ ?_
+    · rintro _ ⟨T, hT, rfl⟩
+      exact hD hT
+    · exact Set.Nonempty.image (fun T : Set C₀ => Subtype.val '' T) hne
+    · rintro _ ⟨A, hA, rfl⟩ _ ⟨B, hB, rfl⟩
+      obtain ⟨E, hE, hAE, hBE⟩ := hdir A hA B hB
+      exact ⟨Subtype.val '' E, ⟨E, hE, rfl⟩, Set.image_mono hAE, Set.image_mono hBE⟩
+
+/-- `B-C011` bridge: the closure operator on `Set C₀` attached to a carrier
+closure system. -/
+noncomputable def carrierClosureOperator {X : Type v} (C₀ : Set X) (C : Set (Set X))
+    (hC : IsAlgebraicClosureSystemOnCarrier X C₀ C) : ClosureOperator (Set C₀) :=
+  ClosureOperator.ofCompletePred (carrierImage C₀ C) (by
+    intro s hs
+    by_cases hne : s.Nonempty
+    · change (⋂₀ s) ∈ carrierImage C₀ C
+      exact (isAlgebraicClosureSystemOn_carrierImage C₀ C hC).2.1 s hs hne
+    · have he : s = ∅ := Set.not_nonempty_iff_eq_empty.mp hne
+      subst he
+      change (⋂₀ (∅ : Set (Set C₀))) ∈ carrierImage C₀ C
+      rw [Set.sInter_empty]
+      exact (isAlgebraicClosureSystemOn_carrierImage C₀ C hC).1)
+
+/-- `B-C011` bridge: the closed sets of a carrier closure system form an
+algebraic lattice (the carrier analogue of `B-C005`). -/
+theorem isAlgebraicLattice_carrierImage {X : Type v} (C₀ : Set X) (C : Set (Set X))
+    (hC : IsAlgebraicClosureSystemOnCarrier X C₀ C) :
+    @IsAlgebraicLattice ↥(carrierImage C₀ C)
+      ((carrierClosureOperator C₀ C hC).gi.liftCompleteLattice) := by
+  letI := (carrierClosureOperator C₀ C hC).gi.liftCompleteLattice
+  exact isAlgebraicLattice_of_isAlgebraicClosureOperator (carrierClosureOperator C₀ C hC)
+    (fun s hs hne hdir => (isAlgebraicClosureSystemOn_carrierImage C₀ C hC).2.2 s hs hne hdir)
+
+/-- `B-C011` bridge: `Form`-with-carrier is order-isomorphic to its image as a
+closure system on the carrier. -/
+noncomputable def carrierOrderIso {X : Type v} (C₀ : Set X) (C : Set (Set X))
+    (hC : IsAlgebraicClosureSystemOnCarrier X C₀ C) : C ≃o carrierImage C₀ C where
+  toFun F := ⟨Subtype.val ⁻¹' F.1, by
+    show (Subtype.val '' (Subtype.val ⁻¹' F.1)) ∈ C
+    rw [Set.image_preimage_eq_range_inter, Subtype.range_coe,
+      Set.inter_eq_right.mpr (hC.2.1 F.1 F.2)]
+    exact F.2⟩
+  invFun T := ⟨Subtype.val '' T.1, T.2⟩
+  left_inv F := by
+    apply Subtype.ext
+    show Subtype.val '' (Subtype.val ⁻¹' F.1) = F.1
+    rw [Set.image_preimage_eq_range_inter, Subtype.range_coe,
+      Set.inter_eq_right.mpr (hC.2.1 F.1 F.2)]
+  right_inv T := by
+    apply Subtype.ext
+    show Subtype.val ⁻¹' (Subtype.val '' T.1) = T.1
+    exact Set.preimage_image_eq T.1 Subtype.val_injective
+  map_rel_iff' := by
+    intro F G
+    constructor
+    · intro h x hx
+      have hx₀ : x ∈ C₀ := hC.2.1 F.1 F.2 hx
+      exact h (show (⟨x, hx₀⟩ : C₀) ∈ Subtype.val ⁻¹' F.1 from hx)
+    · intro h x hx
+      exact h hx
+
 end Mslang
