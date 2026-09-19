@@ -2720,6 +2720,72 @@
         "hash": "2f89369af37b528f84c8ef8545eaf6424c42e81311dd32476e93274fae1d3868"
       }
     },
+    "B-P035": {
+      "decls": [
+        "Mslang.isBPSLanguageFormation_of_isRegularLanguageFormation",
+        "Mslang.isRegularLanguageFormation_of_isBPSLanguageFormation"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.ClosesUnderEtl",
+          "Mslang.ClosesUnderTl",
+          "Mslang.FiniteSSet",
+          "Mslang.IsAlgHom",
+          "Mslang.IsBPSLanguageFormation",
+          "Mslang.IsCongruence",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.IsRegularLanguage",
+          "Mslang.IsRegularLanguageFormation",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Term",
+          "Mslang.TlGen",
+          "Mslang.charEqv",
+          "Mslang.closesUnderEtl_of_closesUnderTl",
+          "Mslang.closesUnderEtl_of_isCongruence",
+          "Mslang.closesUnderTl_of_closesUnderEtl",
+          "Mslang.congCogenerated",
+          "Mslang.congCogenerated_isCongruence",
+          "Mslang.congCogenerated_le_charEqv",
+          "Mslang.congruence_of_closesUnderEtl",
+          "Mslang.deltaSub",
+          "Mslang.finOp",
+          "Mslang.inverseImage",
+          "Mslang.isCongruence_iff_closesUnderEtl",
+          "Mslang.isSat_iff_le_congCogenerated",
+          "Mslang.isSat_iff_sortedEqvLe_charEqv",
+          "Mslang.ker",
+          "Mslang.le_congCogenerated_of_isCongruence",
+          "Mslang.prAlg",
+          "Mslang.pullbackEqv",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.regularLanguages",
+          "Mslang.sat",
+          "Mslang.sat_idem",
+          "Mslang.sortedEqvInf_self",
+          "Mslang.sortedEqvLe_antisymm",
+          "Mslang.termAlg",
+          "Mslang.transPreimage",
+          "Mslang.wordProd"
+        ],
+        "hash": "0ae7547a1d469a200e84bc3ed1557d6585695e7303f43dabe562622faac68bf3"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "9a8842ccedd533812378ceaa82adbdef70ad2521f4f9396710b0cc550d7a1e1b"
+      },
+      "formal_statement": {
+        "hash": "dcef97d0121748cb1aa0daf5969b738658259458c3ea603b18f583c092e2901b"
+      }
+    },
     "B-P037": {
       "decls": [
         "Mslang.langFormationOf_isRegularLanguageFormation"

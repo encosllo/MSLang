@@ -443,6 +443,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Mslang.isBPSLanguageFormation_of_isRegularLanguageFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.isCongruence_eq_iInf_congCogenerated": [
       "Classical.choice",
       "Quot.sound",
@@ -455,6 +460,11 @@
       "propext"
     ],
     "Mslang.isFiniteIndex_nabla": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isRegularLanguageFormation_of_isBPSLanguageFormation": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -874,7 +884,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 307,
+  "declarations_audited": 309,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

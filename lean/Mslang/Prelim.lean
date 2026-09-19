@@ -340,6 +340,13 @@ theorem mem_eqvClass {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S)
     (a b : A s) :
     b ∈ eqvClass Φ s a ↔ (Φ s).r a b := Iff.rfl
 
+/-- The class under a pointwise meet is the intersection of the classes. -/
+theorem eqvClass_sortedEqvInf {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) (s : S)
+    (a : A s) :
+    eqvClass (sortedEqvInf Φ Ψ) s a = eqvClass Φ s a ∩ eqvClass Ψ s a := by
+  ext b
+  rfl
+
 /-- Bridge `quot_class_bridge` (element level): classes are equal iff their
 representatives are related. -/
 theorem eqvClass_eq_iff {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S)

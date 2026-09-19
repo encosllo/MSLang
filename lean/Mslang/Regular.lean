@@ -1430,4 +1430,277 @@ theorem cogClassSets_deltaSub_isSat {S : Type u} (Sig : Signature S)
   unfold transPreimage
   exact (congrArg (fun Z => deltaSub s (T ⁻¹' Z)) hss).symm
 
+/-! ### `B-P035` (converse): the class atoms and the assembly. -/
+
+/-- A `δ^{t,T⁻¹[X_s]}` coming from a translation preimage is a language of
+`L(A)`. -/
+theorem deltaSub_transPreimage_mem {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X : Sub (Term Sig A)} (hX : X ∈ L A)
+    {t s : S} {T : Term Sig A t → Term Sig A s}
+    (hT : TlGen Sig (termAlg Sig A) t s T) :
+    deltaSub t (T ⁻¹' (X s)) ∈ L A := by
+  have h := bpsLanguageFormation_transPreimage Sig hL A hT hX
+  simpa only [transPreimage] using h
+
+/-- A `δ^{t,T⁻¹[X_s]}` coming from a translation preimage is `Ω(X)`-saturated. -/
+theorem deltaSub_transPreimage_isSat {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    {X : Sub A.1} {t s : S} {T : A.1 t → A.1 s} (hT : TlGen Sig A t s T) :
+    IsSat (congCogenerated Sig A X) (deltaSub t (T ⁻¹' (X s))) := by
+  have hU : IsSat (congCogenerated Sig A X) (deltaSub s (X s)) :=
+    isSat_deltaSub_of_isSat (isSat_congCogenerated Sig A X) s
+  have htrans := isSat_transPreimage Sig A hT
+    (congCogenerated_isCongruence Sig A X) hU
+  convert htrans using 1
+  unfold transPreimage
+  rw [deltaSub_self]
+
+/-- For a finite-index `Ω(X)`, any family of translation preimages of `X` (a
+subset of `Sub(A_t)`) is finite, because `δ^{t,·}` injects it into the finitely
+many `Ω(X)`-saturated subsets. -/
+theorem covClass_finite {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    (X : Sub A.1) (hX : IsFiniteIndex (congCogenerated Sig A X)) (t : S)
+    {P : Set (Set (A.1 t))}
+    (hP : ∀ Y ∈ P, ∃ (s : S) (T : A.1 t → A.1 s),
+      TlGen Sig A t s T ∧ Y = T ⁻¹' (X s)) :
+    P.Finite := by
+  classical
+  haveI : Finite {N : Sub A.1 // IsSat (congCogenerated Sig A X) N} :=
+    finite_satSets (congCogenerated Sig A X) hX
+  refine Finite.of_injective
+    (fun Y : P => (⟨deltaSub t Y.1, ?_⟩ :
+      {N : Sub A.1 // IsSat (congCogenerated Sig A X) N})) ?_
+  · obtain ⟨s, T, hT, hYeq⟩ := hP Y.1 Y.2
+    rw [hYeq]
+    exact deltaSub_transPreimage_isSat Sig A hT
+  · intro Y Z h
+    apply Subtype.ext
+    have h2 := congrFun (congrArg Subtype.val h) t
+    simpa only [deltaSub_self] using h2
+
+/-- `cogClassSets` is finite when `Ω(X)` has finite index. -/
+theorem cogClassSets_finite {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    (L : Sub A.1) (h : IsFiniteIndex (congCogenerated Sig A L)) (t : S) (a : A.1 t) :
+    (cogClassSets Sig A L t a).Finite :=
+  covClass_finite Sig A L h t (fun Y hY => by
+    obtain ⟨s, T, hT, hYeq, _⟩ := hY
+    exact ⟨s, T, hT, hYeq⟩)
+
+/-- `cogClassSetsCompl` is finite when `Ω(X)` has finite index. -/
+theorem cogClassSetsCompl_finite {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    (L : Sub A.1) (h : IsFiniteIndex (congCogenerated Sig A L)) (t : S) (a : A.1 t) :
+    (cogClassSetsCompl Sig A L t a).Finite :=
+  covClass_finite Sig A L h t (fun Y hY => by
+    obtain ⟨s, T, hT, hYeq, _⟩ := hY
+    exact ⟨s, T, hT, hYeq⟩)
+
+/-- A finite intersection of `δ^{t,·}` of languages is a language. -/
+theorem bpsLanguageFormation_sInter {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {t : S}
+    {𝒳 : Set (Set (Term Sig A t))} (hfin : 𝒳.Finite)
+    (hmem : ∀ Y ∈ 𝒳, deltaSub t Y ∈ L A) :
+    deltaSub t (⋂₀ 𝒳) ∈ L A := by
+  classical
+  by_cases hne : 𝒳.Nonempty
+  · haveI : Finite 𝒳 := hfin
+    have key := bpsLanguageFormation_iInter_finite Sig hL A
+      (fun Y : 𝒳 => deltaSub t Y.1) (fun Y => hmem Y.1 Y.2)
+    have heq : deltaSub t (⋂₀ 𝒳) = fun u => ⋂ Y : 𝒳, deltaSub t Y.1 u := by
+      rw [deltaSub_iInter t 𝒳 hne]
+      funext u
+      rw [Set.sInter_image, Set.biInter_eq_iInter]
+    rw [heq]
+    exact key
+  · rw [Set.not_nonempty_iff_eq_empty.mp hne, Set.sInter_empty]
+    exact hL.2.1 A _ (isSat_nabla_deltaSub_univ (A := Term Sig A) t)
+
+/-- A finite union of `δ^{t,·}` of languages is a language. -/
+theorem bpsLanguageFormation_sUnion {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S) {t : S}
+    {𝒳 : Set (Set (Term Sig A t))} (hfin : 𝒳.Finite)
+    (hmem : ∀ Y ∈ 𝒳, deltaSub t Y ∈ L A) :
+    deltaSub t (⋃₀ 𝒳) ∈ L A := by
+  classical
+  haveI : Finite 𝒳 := hfin
+  have key := bpsLanguageFormation_iUnion_finite Sig hL A
+    (fun Y : 𝒳 => deltaSub t Y.1) (fun Y => hmem Y.1 Y.2)
+  have heq : deltaSub t (⋃₀ 𝒳) = fun u => ⋃ Y : 𝒳, deltaSub t Y.1 u := by
+    rw [deltaSub_sUnion t 𝒳]
+    funext u
+    rw [Set.sUnion_image, Set.biUnion_eq_iUnion]
+  rw [heq]
+  exact key
+
+/-- `B-P035` (converse atom claim): if `X ∈ L(A)`, then the concentrated class
+`δ^{t,[P]_{Ω(X)_t}}` is a language of `L(A)`. The class is written by `B-P029`
+as an intersection-minus-union of translation preimages; the family is finite
+because `Ω(X)` has finite index, and BPS Boolean closure concludes. -/
+theorem atom_deltaSub_mem {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X : Sub (Term Sig A)} (hX : X ∈ L A) (t : S) (P : Term Sig A t) :
+    deltaSub t (eqvClass (congCogenerated Sig (termAlg Sig A) X) t P) ∈ L A := by
+  classical
+  have hfinidx : IsFiniteIndex (congCogenerated Sig (termAlg Sig A) X) := hL.1 A hX
+  have hfinA : (cogClassSets Sig (termAlg Sig A) X t P).Finite :=
+    cogClassSets_finite Sig (termAlg Sig A) X hfinidx t P
+  have hfinB : (cogClassSetsCompl Sig (termAlg Sig A) X t P).Finite :=
+    cogClassSetsCompl_finite Sig (termAlg Sig A) X hfinidx t P
+  have hI : deltaSub t (⋂₀ cogClassSets Sig (termAlg Sig A) X t P) ∈ L A :=
+    bpsLanguageFormation_sInter Sig hL A hfinA (fun Y hY => by
+      obtain ⟨s, T, hT, hYeq, _⟩ := hY
+      subst hYeq
+      exact deltaSub_transPreimage_mem Sig hL A hX hT)
+  have hU : deltaSub t (⋃₀ cogClassSetsCompl Sig (termAlg Sig A) X t P) ∈ L A :=
+    bpsLanguageFormation_sUnion Sig hL A hfinB (fun Y hY => by
+      obtain ⟨s, T, hT, hYeq, _⟩ := hY
+      subst hYeq
+      exact deltaSub_transPreimage_mem Sig hL A hX hT)
+  have hc := bpsLanguageFormation_inter Sig hL A hI
+    (bpsLanguageFormation_compl Sig hL A hU)
+  have hgoal : deltaSub t (⋂₀ cogClassSets Sig (termAlg Sig A) X t P
+        \ ⋃₀ cogClassSetsCompl Sig (termAlg Sig A) X t P)
+      = fun u => deltaSub t (⋂₀ cogClassSets Sig (termAlg Sig A) X t P) u
+          ∩ complA (deltaSub t (⋃₀ cogClassSetsCompl Sig (termAlg Sig A) X t P)) u := by
+    rw [deltaSub_sdiff]
+    funext u
+    ext x
+    simp [complA, Set.sdiff_eq]
+  rw [eqvClass_congCogenerated Sig (termAlg Sig A) X t P, hgoal]
+  exact hc
+
+/-- `B-P035` (converse, `Def1FRL` clause 2): if `X, Y ∈ L(A)` and `N` is
+`(Ω(X) ∩ Ω(Y))`-saturated, then `N ∈ L(A)`. `N` is a finite union of `Φ`-classes
+over the finite quotient `T_Σ(A)/Φ`; each class atom is a language by
+`atom_deltaSub_mem`. -/
+theorem bps_sat_inf_mem {S : Type u} (Sig : Signature S)
+    {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) (A : SSet S)
+    {X Y : Sub (Term Sig A)} (hX : X ∈ L A) (hY : Y ∈ L A) {N : Sub (Term Sig A)}
+    (hN : IsSat (sortedEqvInf (congCogenerated Sig (termAlg Sig A) X)
+      (congCogenerated Sig (termAlg Sig A) Y)) N) : N ∈ L A := by
+  classical
+  set Φ : SortedEqv (Term Sig A) := sortedEqvInf (congCogenerated Sig (termAlg Sig A) X)
+    (congCogenerated Sig (termAlg Sig A) Y) with hΦdef
+  have hΦfin : IsFiniteIndex Φ := by
+    rw [hΦdef]
+    exact IsFiniteIndex_inf (hL.1 A hX) (hL.1 A hY)
+  haveI : Finite (Sigma (fun u => Quotient (Φ u))) := hΦfin
+  have hNmem : ∀ {u : S} {a b : Term Sig A u}, (Φ u).r a b → a ∈ N u → b ∈ N u := by
+    intro u a b hab ha
+    have hb : b ∈ sat Φ N u := ⟨a, ha, hab⟩
+    rw [hΦdef] at hb
+    rwa [hN] at hb
+  have hdecomp : N = fun u => ⋃ p : Sigma (fun u => Quotient (Φ u)),
+      deltaSub p.1 (if (Quotient.out p.2 : Term Sig A p.1) ∈ N p.1
+        then eqvClass Φ p.1 (Quotient.out p.2) else ∅) u := by
+    funext u
+    ext a
+    constructor
+    · intro ha
+      refine Set.mem_iUnion.mpr ⟨⟨u, Quotient.mk (Φ u) a⟩, ?_⟩
+      have hout : (Quotient.out (Quotient.mk (Φ u) a) : Term Sig A u) ∈ N u :=
+        hNmem ((Φ u).symm (Quotient.exact (Quotient.out_eq (Quotient.mk (Φ u) a)))) ha
+      have hrel : a ∈ eqvClass Φ u (Quotient.out (Quotient.mk (Φ u) a)) :=
+        Quotient.exact (Quotient.out_eq (Quotient.mk (Φ u) a))
+      simp only [hout, if_true, deltaSub_self]
+      exact hrel
+    · intro ha
+      rcases Set.mem_iUnion.mp ha with ⟨p, hp⟩
+      by_cases hpN : (Quotient.out p.2 : Term Sig A p.1) ∈ N p.1
+      · simp only [hpN, if_true] at hp
+        by_cases hup : u = p.1
+        · subst hup
+          rw [deltaSub_self] at hp
+          exact hNmem hp hpN
+        · rw [deltaSub_of_ne hup] at hp
+          exact absurd hp (by simp)
+      · simp only [hpN, if_false] at hp
+        rw [deltaSub_empty] at hp
+        simp at hp
+  rw [hdecomp]
+  apply bpsLanguageFormation_iUnion_finite Sig hL A
+  intro p
+  by_cases hpN : (Quotient.out p.2 : Term Sig A p.1) ∈ N p.1
+  · simp only [hpN, if_true]
+    have hclass : eqvClass Φ p.1 (Quotient.out p.2)
+        = eqvClass (congCogenerated Sig (termAlg Sig A) X) p.1 (Quotient.out p.2)
+          ∩ eqvClass (congCogenerated Sig (termAlg Sig A) Y) p.1 (Quotient.out p.2) :=
+      eqvClass_sortedEqvInf _ _ _ _
+    rw [hclass, deltaSub_inter]
+    exact bpsLanguageFormation_inter Sig hL A
+      (atom_deltaSub_mem Sig hL A hX p.1 (Quotient.out p.2))
+      (atom_deltaSub_mem Sig hL A hY p.1 (Quotient.out p.2))
+  · simp only [hpN, if_false, deltaSub_empty]
+    exact bpsLanguageFormation_empty Sig hL A
+
+/-- `B-P035`: the two definitions of a formation of regular languages
+(`Def1FRL` and `Def2FRL`) are equivalent; this is the converse direction
+`Def2FRL ⇒ Def1FRL`. Clause 2 is `bps_sat_inf_mem`; clause 3 reduces the kernel
+closure to that by saturating the direct image of the saturated language. -/
+theorem isRegularLanguageFormation_of_isBPSLanguageFormation {S : Type u}
+    (Sig : Signature S) {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (hL : IsBPSLanguageFormation Sig L) :
+    IsRegularLanguageFormation Sig L := by
+  classical
+  refine ⟨hL.1, hL.2.1,
+    fun A X Y hX hY N hN => bps_sat_inf_mem Sig hL A hX hY hN, ?_⟩
+  intro A B M hM f hf hsurj N hN
+  set ΩM := congCogenerated Sig (termAlg Sig B) M with hΩM
+  let N' : Sub (Term Sig B) := sat ΩM (fun s => f s '' (N s))
+  have hN'sat : IsSat ΩM N' := by
+    show sat ΩM N' = N'
+    exact sat_idem ΩM (fun s => f s '' (N s))
+  have hN'mem : N' ∈ L B :=
+    bps_sat_inf_mem Sig hL B hM hM (by rw [sortedEqvInf_self]; exact hN'sat)
+  have hker_eq : ker (fun s => prAlg Sig (termAlg Sig B).2 ΩM
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M) s ∘ f s)
+      = pullbackEqv f ΩM := by
+    funext s
+    apply Setoid.ext
+    intro x y
+    change (Quotient.mk (ΩM s) (f s x) = Quotient.mk (ΩM s) (f s y))
+      ↔ (ΩM s).r (f s x) (f s y)
+    exact ⟨fun h => Quotient.exact h, fun h => Quotient.sound h⟩
+  have hNsat : ∀ {u : S} {b a : Term Sig A u},
+      (ker (fun s => prAlg Sig (termAlg Sig B).2 ΩM
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M) s ∘ f s) u).r b a →
+      b ∈ N u → a ∈ N u := by
+    intro u b a hba hb
+    have ha : a ∈ sat (ker (fun s => prAlg Sig (termAlg Sig B).2 ΩM
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M) s ∘ f s)) N u :=
+      ⟨b, hb, hba⟩
+    rwa [hN] at ha
+  have hN'eq : inverseImage f N' = N := by
+    funext u
+    ext a
+    constructor
+    · intro ha
+      rcases ha with ⟨c, hc, hca⟩
+      rcases hc with ⟨b, hb, hbc⟩
+      have hpb : (ΩM u).r (f u b) (f u a) := hbc ▸ hca
+      have hkerrel : (ker (fun s => prAlg Sig (termAlg Sig B).2 ΩM
+          (congCogenerated_isCongruence Sig (termAlg Sig B) M) s ∘ f s) u).r b a := by
+        rw [hker_eq]
+        exact hpb
+      exact hNsat hkerrel hb
+    · intro ha
+      exact ⟨f u a, ⟨a, ha, rfl⟩, (ΩM u).refl (f u a)⟩
+  have hsurj' : ∀ s, Function.Surjective (fun x => prAlg Sig (termAlg Sig B).2
+        (congCogenerated Sig (termAlg Sig B) N')
+        (congCogenerated_isCongruence Sig (termAlg Sig B) N') s (f s x)) := by
+    have hle : sortedEqvLe ΩM (congCogenerated Sig (termAlg Sig B) N') :=
+      (isSat_iff_le_congCogenerated Sig (termAlg Sig B) N'
+        (congCogenerated_isCongruence Sig (termAlg Sig B) M)).mp hN'sat
+    intro s y
+    induction y using Quotient.inductionOn with
+    | _ b =>
+      obtain ⟨x, hx⟩ := hsurj s (Quotient.mk (ΩM s) b)
+      exact ⟨x, Quotient.sound (hle s (f s x) b (Quotient.exact hx))⟩
+  have hfin := hL.2.2.2.2 A B N' hN'mem f hf hsurj'
+  rwa [hN'eq] at hfin
+
 end Mslang

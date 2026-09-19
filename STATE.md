@@ -4891,6 +4891,79 @@ residuals.
 
 ---
 
+## Session 102 -- 2026-09-19 -- B-P035 completed (Def1FRL ⇔ Def2FRL)
+
+**Goal.** Finish the Session 101 WIP: prove the converse of `B-P035` and map
+the block. The dirty tree at session start was the unverified scrape of the
+atom claim; a targeted `lake build Mslang.Regular` had six to eight elaboration
+errors.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean`: the converse
+  `isRegularLanguageFormation_of_isBPSLanguageFormation` (`Def2FRL ⇒ Def1FRL`),
+  assembled from:
+  - `finite_satSets` -- a finite-index `Φ` has only finitely many `Φ`-saturated
+    componentwise subsets (injection into `(Σ(quot Φ)) → Bool`);
+  - BPS closure `bpsLanguageFormation_sInter`/`_sUnion` (finite `δ^{t,·}`
+    intersections/unions) via `bpsLanguageFormation_iInter_finite`/
+    `_iUnion_finite`, generic in the finite **subtype** index `𝒳` -- the earlier
+    `hfin.coe_toFinset` route was replaced because the Finset-vs-Set coercion
+    could not be found by `rw` at low transparency;
+  - `deltaSub_transPreimage_mem`/`_isSat`, `covClass_finite`,
+    `cogClassSets_finite`/`cogClassSetsCompl_finite` -- the `B-P029` class
+    families are finite when `Ω(X)` has finite index;
+  - `atom_deltaSub_mem` -- the class atom `δ^{t,[P]_{Ω(X)}} ∈ L(A)` for
+    `X ∈ L(A)`, writing the class (`B-P029`) as intersection-minus-union of
+    translation preimages and applying the BPS Boolean closure; the pointwise
+    `\` vs `∩ ᶜ` mismatch was closed by an explicit function equality using
+    `Set.sdiff_eq`, not `convert`;
+  - `bps_sat_inf_mem` -- `Def1FRL` clause 2: a `(Ω(X) ∩ Ω(Y))`-saturated `N` is
+    a finite union of `Φ`-class atoms over the finite quotient
+    `Σ(termAlg/Φ)`, each a language by `atom_deltaSub_mem` applied to `X` and
+    `Y` separately plus `eqvClass_sortedEqvInf`; `Φ` carries an explicit
+    `SortedEqv (Term Sig A)` ascription so the finite-union decomposition
+    typechecks;
+  - clause 3 (kernel saturation along `Ω(M)`-epimorphisms) reduces to clause 2
+    by saturating the direct image and pulling back
+    (`inverseImage f (sat ΩM (f '' N)) = N`).
+- `lean/Mslang/Prelim.lean`: `eqvClass_sortedEqvInf` (class under a pointwise
+  meet = intersection of classes). `lean/Mslang/Translation.lean`:
+  `deltaSub_self`/`_of_ne`/`_empty`.
+- **Tooling fix.** `Mslang.termAlg` marked `@[reducible]` (`Term.lean`): Lean
+  would not reduce `(termAlg Sig A).1` to `Term Sig A` at the transparency
+  `rw`/`simp` use, so the `Sub (Term Sig A)` vs `Sub (termAlg Sig A).1` defeq was
+  invisible to tactics. The attribute is not part of the extracted declaration
+  text (attributes are boundaries in `lean_facets.py`), so **no facet hash
+  changed** -- verified by a pure-addition diff of `blocks/formal.json`.
+- `lean/declarations.json` maps `B-P035` to both directions; facets regenerated.
+  `blocks/lean_audit.json`: **309 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**; both new declarations use `[propext, Classical.choice,
+  Quot.sound]`.
+- Evidence **`E-000213`** (verification, `build_ok`) and **`E-000214`**
+  (correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P035-correspondence.md`); `B-P035` consequently has no
+  `fail` layer. Journal `EV-000110`. Frontier unmapped **27 → 26**. Views and
+  bundle regenerated. Fast gate: **40 passed, 0 failed**.
+
+**Honest caveats.** Same-model audit as always: the correspondence verdict is
+independent-context but shares `deepseek-v4.1-flash` and inherits the
+pilot-encoding residuals (`carrier-model`, `small-large`, `univalence-missing`).
+The `@[reducible]` on `termAlg` is a proof-engineering accommodation, not a
+mathematical change; it is recorded here because it is a Lean-source edit, but
+it is attribute-only and hash-neutral.
+
+**Prioritized next steps.**
+
+1. The lattice structures: `B-C005`/`B-C011` (from `B-P018`/`B-P033` plus an
+   algebraic-closure-system-to-algebraic-lattice bridge and a `CompleteLattice`
+   instance), then `B-C006`/`B-C012`/`B-C013` by transport along the
+   `B-P020`/`B-P034`/`B-P039` order isomorphisms, and `B-P014`/`B-P032`/`B-P036`.
+2. `B-P006` (`Φ-Sat(A)` is a complete atomic Boolean algebra).
+3. `B-P001` (support properties).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

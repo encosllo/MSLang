@@ -63,6 +63,24 @@ noncomputable def deltaSub {S : Type u} {A : SSet S} (s : S) (Y : Set (A s)) :
     Sub A :=
   by classical exact Function.update (fun u => (∅ : Set (A u))) s Y
 
+theorem deltaSub_self {S : Type u} {A : SSet S} (s : S) (Y : Set (A s)) :
+    deltaSub s Y s = Y := by
+  classical
+  simp [deltaSub, Function.update_self]
+
+theorem deltaSub_of_ne {S : Type u} {A : SSet S} {s u : S} (h : u ≠ s)
+    (Y : Set (A s)) : deltaSub s Y u = (∅ : Set (A u)) := by
+  classical
+  simp [deltaSub, Function.update_of_ne h]
+
+theorem deltaSub_empty {S : Type u} {A : SSet S} (s : S) :
+    deltaSub s (∅ : Set (A s)) = fun u => (∅ : Set (A u)) := by
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu; simp [deltaSub, Function.update_self]
+  · simp [deltaSub, Function.update_of_ne hu]
+
 theorem deltaSub_sdiff {S : Type u} {A : SSet S} (s : S) (E F : Set (A s)) :
     deltaSub s (E \ F) = fun u => deltaSub s E u \ deltaSub s F u := by
   classical

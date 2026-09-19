@@ -31,6 +31,7 @@ inductive Term (Sig : Signature S) (X : SSet S) : S → Type u
 
 /-- `B-D027`: `Term_Σ(X)` as a `Σ`-algebra; the operation `σ` is the `op`
 constructor. -/
+@[reducible]
 def termAlg {S : Type u} (Sig : Signature S) (X : SSet S) : Alg Sig :=
   ⟨Term Sig X, fun p σ a => Term.op p σ a⟩
 

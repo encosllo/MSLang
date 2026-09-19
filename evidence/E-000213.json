@@ -1,0 +1,36 @@
+{
+  "block": "B-P035",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000213",
+  "findings": [
+    "B-P035 (Def1FRL <-> Def2FRL), both directions. Forward: isBPSLanguageFormation_of_isRegularLanguageFormation. Converse: isRegularLanguageFormation_of_isBPSLanguageFormation, whose clause 2 (Omega(L)cap Omega(L')-saturation) is proved by decomposing a saturated language into finitely many class atoms eqvClass_congCogenerated, each a language by atom_deltaSub_mem (B-P029 + finite_satSets + BPS Boolean/finite closure), and whose clause 3 (kernel saturation along Omega(M)-epimorphisms) reduces to clause 2 by saturating the direct image. Axioms within the permitted set (lean_audit: 309 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P035/formal_proof",
+      "hash": "9a8842ccedd533812378ceaa82adbdef70ad2521f4f9396710b0cc550d7a1e1b"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T10:13:41Z"
+}
