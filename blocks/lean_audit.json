@@ -250,6 +250,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.algebraFormations_isCompact_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.bpsLanguageFormations": [
       "Classical.choice",
       "Quot.sound",
@@ -959,7 +964,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 324,
+  "declarations_audited": 325,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

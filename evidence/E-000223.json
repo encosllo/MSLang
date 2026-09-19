@@ -1,0 +1,38 @@
+{
+  "block": "B-C005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000223",
+  "findings": [
+    "B-C005 (revised): Form_Alg(Sigma) is an algebraic lattice AND F is compact iff F = Fmg_Sigma(M) for some finite M. Generic lemmas in Algebra.lean: closure_finite_character, closure_finite_compact, closure_sSup_finite, isAlgebraicLattice_of_isAlgebraicClosureOperator, isCompact_iff_exists_finite_closure. Applied in Formation.lean: algebraFormationsClosureOperator, algebraFormationsCompleteLattice, algebraFormations_isAlgebraicLattice, algebraFormations_isCompact_iff. Axioms within the permitted set (lean_audit: 325 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C005/formal_proof",
+      "hash": "b0a42391bbead5e698991ac7fd992b833e169da5c7103a993a2727873617d3c8"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000221",
+  "timestamp": "2026-09-19T13:03:56Z"
+}

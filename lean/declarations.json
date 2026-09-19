@@ -795,7 +795,8 @@
       "decls": [
         "Mslang.algebraFormationsClosureOperator",
         "Mslang.algebraFormationsCompleteLattice",
-        "Mslang.algebraFormations_isAlgebraicLattice"
+        "Mslang.algebraFormations_isAlgebraicLattice",
+        "Mslang.algebraFormations_isCompact_iff"
       ],
       "file": "lean/Mslang/Formation.lean"
     },

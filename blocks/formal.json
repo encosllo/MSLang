@@ -117,7 +117,8 @@
       "decls": [
         "Mslang.algebraFormationsClosureOperator",
         "Mslang.algebraFormationsCompleteLattice",
-        "Mslang.algebraFormations_isAlgebraicLattice"
+        "Mslang.algebraFormations_isAlgebraicLattice",
+        "Mslang.algebraFormations_isCompact_iff"
       ],
       "definition_closure": {
         "decls": [
@@ -147,10 +148,10 @@
       },
       "file": "lean/Mslang/Formation.lean",
       "formal_proof": {
-        "hash": "09c21ec9525de0803b16d5be79c85badb5b1c468b2af25d3734902f8c6ff5a10"
+        "hash": "b0a42391bbead5e698991ac7fd992b833e169da5c7103a993a2727873617d3c8"
       },
       "formal_statement": {
-        "hash": "912cae01cd26d6c5878f116ef945087bacd03f1b2fbcbf59d01c1f032858874a"
+        "hash": "06edd331397d82a7c44e7ff172d8559853f8d3db32d8173e985b657e2ff30449"
       }
     },
     "B-C007": {

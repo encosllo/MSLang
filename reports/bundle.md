@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `6aabd57aed2d642297c050a98e194975e173eba29628122cdbc2ea262c3de127` |
+| `blocks/formal.json` | `42bd448189e839de402a47799f3072413d03af99b35fc93d565f06ec84373974` |
 | `blocks/formal_graph.json` | `5e95b88730ee404a6ffc7af8d85ff0db2f42e5d2bc3b7b225b11611a43bbde0c` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
-| `blocks/lean_audit.json` | `8805378dad2ab1ef84c935fd3ba01b23a12a14b1b15ddbf519c42b3cc622a6c4` |
+| `blocks/lean_audit.json` | `e9a599b46b07b942a84bd8828a47f3c6de11f7e73ecebec0f5da78ed23266084` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
@@ -248,7 +248,9 @@ repository.
 | `evidence/E-000220.json` | `56c49b224a830cc08fd5c6292bf3c73ee2f4a5f3498fcee1cbe300d6bb3a8d0b` |
 | `evidence/E-000221.json` | `830ebc0d17881dbd4fddf09d5ff5875d87722c7ab534c08c675eb8c6bed27b7e` |
 | `evidence/E-000222.json` | `4a295945d063d77dc4be27c8da76f91b5172ef6ce25b91e2e968ff43aeb5a023` |
-| `journal/events.jsonl` | `88110d3ac87173acfd6364c44804c31418c9642937209b394931c081fab6df56` |
+| `evidence/E-000223.json` | `87aa02c8167de6c77c4fa20b990bc8d2ffaeba9b78cdd6de2abec1a427437cda` |
+| `evidence/E-000224.json` | `4bebe89fa3bee1b1383aa5021ad565488b876ed27ecf3cfca5ba77a20e99a91e` |
+| `journal/events.jsonl` | `4b97ce524308dfcc7a891c48e530b49850aef54f45e9140c35489e60807fdfaf` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
@@ -268,8 +270,8 @@ repository.
 | `B-C002` | verification | pass | 2 | 0 |
 | `B-C004` | correspondence | provisional | 1 | 0 |
 | `B-C004` | verification | pass | 1 | 0 |
-| `B-C005` | correspondence | fail | 1 | 0 |
-| `B-C005` | verification | pass | 1 | 0 |
+| `B-C005` | correspondence | provisional | 1 | 1 |
+| `B-C005` | verification | pass | 1 | 1 |
 | `B-C007` | correspondence | provisional | 1 | 0 |
 | `B-C007` | verification | pass | 1 | 0 |
 | `B-C008` | correspondence | provisional | 1 | 0 |
@@ -10124,6 +10126,112 @@ repository.
 }
 ```
 
+### E-000223
+
+```json
+{
+  "block": "B-C005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000223",
+  "findings": [
+    "B-C005 (revised): Form_Alg(Sigma) is an algebraic lattice AND F is compact iff F = Fmg_Sigma(M) for some finite M. Generic lemmas in Algebra.lean: closure_finite_character, closure_finite_compact, closure_sSup_finite, isAlgebraicLattice_of_isAlgebraicClosureOperator, isCompact_iff_exists_finite_closure. Applied in Formation.lean: algebraFormationsClosureOperator, algebraFormationsCompleteLattice, algebraFormations_isAlgebraicLattice, algebraFormations_isCompact_iff. Axioms within the permitted set (lean_audit: 325 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C005/formal_proof",
+      "hash": "b0a42391bbead5e698991ac7fd992b833e169da5c7103a993a2727873617d3c8"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000221",
+  "timestamp": "2026-09-19T13:03:56Z"
+}
+```
+
+### E-000224
+
+```json
+{
+  "block": "B-C005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000224",
+  "findings": [
+    "Stage 2 returned equivalent: both clauses of B-C005 (algebraic lattice; F compact iff F = Fmg_Sigma(M) for finite M) match. Supersedes the earlier formal_weaker round (E-000222) recorded before the compact characterization was stated. Transcript blocks/audits/B-C005-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded. Inherits representation residuals carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "B-C005/definition_closure",
+      "hash": "de92fdaf8c7a7e6bd3b7bd34273748435cd93e560f37c2b58308d6d983215dca"
+    },
+    {
+      "artifact": "B-C005/formal_statement",
+      "hash": "06edd331397d82a7c44e7ff172d8559853f8d3db32d8173e985b657e2ff30449"
+    },
+    {
+      "artifact": "B-C005/informal_statement",
+      "hash": "de1da0349ac97a0b390b27c221cf7f0e513096b2be62b58f073a6f018f0f9401"
+    },
+    {
+      "artifact": "B-D034/informal_statement",
+      "hash": "8e9ff35783ee6af727d2007b9635410194a814a948b7bc9b5283ab718619ac35"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000222",
+  "timestamp": "2026-09-19T13:03:56Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -10135,7 +10243,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 108
-- Evidence records: 222
+- Evidence records: 224
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -10151,7 +10259,7 @@ assertion).
 | `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | fail | pass | none | - |
+| `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
@@ -11076,7 +11184,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-C002` | correspondence | provisional | 1 | 3 |
 | `B-C002` | review | provisional | 1 | 1 |
 | `B-C004` | correspondence | provisional | 1 | 0 |
-| `B-C005` | correspondence | fail | 1 | 0 |
+| `B-C005` | correspondence | provisional | 1 | 1 |
 | `B-C007` | correspondence | provisional | 1 | 0 |
 | `B-C008` | correspondence | provisional | 1 | 0 |
 | `B-C009` | correspondence | provisional | 1 | 0 |

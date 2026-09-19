@@ -5194,6 +5194,50 @@ the gap is recorded rather than dropped.
 
 ---
 
+## Session 107 -- 2026-09-19 -- `B-C005` compact characterization (gap closed)
+
+**Goal.** Execute Session 106 step 1: close the `formal_weaker` correspondence
+gap on `B-C005` by stating the corollary's compact characterization.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Algebra.lean`: the generic proof was **refactored** into exposed,
+  reusable lemmas:
+  - `closure_finite_character` (finite character of an algebraic closure
+    operator);
+  - `closure_finite_compact` (`c F` is compact for finite `F`);
+  - `closure_sSup_finite` (every closed set is the supremum of the closures of
+    its finite subsets; needs no algebraicness);
+  - `isAlgebraicLattice_of_isAlgebraicClosureOperator` (now a short assembly);
+  - **`isCompact_iff_exists_finite_closure`** -- the compact characterization:
+    `F` compact iff `F = c M` for some finite `M`.
+- `lean/Mslang/Formation.lean`: `algebraFormations_isCompact_iff` -- for
+  `Form_Alg(Σ)`, `F` is compact iff `F = Fmg_Σ(M)` for some finite `M`
+  (`= (algebraFormationsClosureOperator Sig).toCloseds M`).
+- `lean/declarations.json` maps the new declaration under `B-C005`; facets
+  regenerated. `blocks/lean_audit.json`: **325 declarations, 0 warnings,
+  0 unpermitted, 0 `sorry`**.
+- Evidence **`E-000223`** (verification; supersedes `E-000221`) and
+  **`E-000224`** (correspondence, two-stage blind, **`equivalent`**; supersedes
+  the earlier `formal_weaker` `E-000222`). Transcript rewritten
+  (`blocks/audits/B-C005-correspondence.md`, which records both audit rounds).
+  Journal `EV-000115`. Views and bundle regenerated. Fast gate: **40 passed,
+  0 failed**.
+
+**Caveat.** Same-model audit as always; inherits the pilot-encoding residuals.
+
+**Prioritized next steps.**
+
+1. `B-C006` (`Form_Cgr` algebraic via the `B-P020` order iso): needs an
+   order-isomorphism-preserves-`IsAlgebraicLattice` lemma plus reconciliation of
+   the transported `CompleteLattice` instance with `B-P014`'s (which is built
+   independently via `completeLatticeOfInf`).
+2. `B-C011` (`Form_Alg_f`): the carrier variant of the generic bridge
+   (`IsAlgebraicClosureSystemOnCarrier` from `B-P033`).
+3. `B-C012`/`B-C013` by transport along `B-P034`/`B-P039`, and `B-P006`.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
