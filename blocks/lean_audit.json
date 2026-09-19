@@ -396,6 +396,26 @@
     "Mslang.finiteIndexCongruenceFormations": [
       "Classical.choice"
     ],
+    "Mslang.finiteIndexCongruenceFormationsCompleteLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteIndexCongruenceFormationsInf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteIndexCongruenceFormationsTop": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteIndexCongruenceFormations_isGLB_sInf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.finiteSSet_iff": [
       "Classical.choice",
       "Quot.sound",
@@ -490,6 +510,11 @@
     ],
     "Mslang.isCongruence_iInf": [],
     "Mslang.isCongruence_iff_closesUnderEtl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.isFiniteIndex_ker_of_finite": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -919,7 +944,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 316,
+  "declarations_audited": 321,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

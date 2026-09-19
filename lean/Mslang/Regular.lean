@@ -1810,4 +1810,135 @@ theorem finiteAlgebraFormations_isAlgebraicClosureSystem {S : Type u} [Finite S]
       obtain ⟨G, hG, hFG⟩ := hF
       exact (hD hG).2 hFG
 
+/-! ### `B-P032`: `Form_Cgr_fi(Σ)` is a complete lattice. -/
+
+/-- `B-P032` finiteness input: the kernel of a sorted map into a finite `S`-set
+has finite index (the first isomorphism theorem for the finite-index half of
+`Form_Cgr_fi`). -/
+theorem isFiniteIndex_ker_of_finite {S : Type u} {A B : SSet S}
+    (f : SortedMap A B) (hB : FiniteSSet B) :
+    IsFiniteIndex (ker f) := by
+  change Finite (Sigma (quot (ker f)))
+  haveI : Finite (Sigma B) := hB
+  let φ : SortedMap (quot (ker f)) B := quotLift (ker f) f (fun _ _ _ h => h)
+  have hφ : ∀ (s : S) (a : A s), φ s (Quotient.mk (ker f s) a) = f s a :=
+    fun _ _ => rfl
+  refine Finite.of_injective
+    (fun p : Sigma (quot (ker f)) => (⟨p.1, φ p.1 p.2⟩ : Sigma B)) ?_
+  rintro ⟨s, q⟩ ⟨t, r⟩ hpq
+  have h1 : s = t := (Sigma.mk.inj_iff.mp hpq).1
+  subst h1
+  have h2 : φ s q = φ s r := eq_of_heq (Sigma.mk.inj_iff.mp hpq).2
+  induction q using Quotient.inductionOn with
+  | _ a =>
+    induction r using Quotient.inductionOn with
+    | _ b =>
+      have hab : f s a = f s b := by rw [← hφ s a, ← hφ s b]; exact h2
+      exact Sigma.ext rfl (heq_of_eq (Quotient.sound hab))
+
+/-- `B-P032`: the greatest finite-index congruence formation,
+`A ↦ Cgr_fi(T_Σ(A))`; it is the top of `Form_Cgr_fi(Σ)`. -/
+noncomputable def finiteIndexCongruenceFormationsTop {S : Type u} [Finite S]
+    (Sig : Signature S) : finiteIndexCongruenceFormations Sig :=
+  ⟨fun A => congFi Sig (termAlg Sig A).2, by
+    constructor
+    · constructor
+      · intro A
+        refine ⟨⟨nabla (Term Sig A), nabla_isCongruence Sig (termAlg Sig A).2,
+          isFiniteIndex_nabla (Term Sig A) ?_⟩, ?_, ?_, ?_⟩
+        · exact (Set.finite_univ (α := S)).subset (Set.subset_univ _)
+        · intro Φ hΦ
+          exact hΦ.1
+        · intro Φ hΦ Ψ hΨ
+          exact ⟨IsCongruence_inf Sig (termAlg Sig A).2 hΦ.1 hΨ.1,
+            IsFiniteIndex_inf hΦ.2 hΨ.2⟩
+        · intro Φ hΦ Ψ hΨ hle
+          exact ⟨hΨ, IsFiniteIndex_of_le hle hΦ.2⟩
+      · intro A B Θ hΘ hΘF f hf _
+        have hcomp : IsAlgHom Sig (termAlg Sig A).2
+            (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2
+            (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) := by
+          intro p σ a
+          simp only [Function.comp_apply]
+          rw [hf p σ a]
+          exact isAlgHom_prAlg Sig (termAlg Sig B).2 Θ hΘ p σ
+            (fun i => f (p.1.get i) (a i))
+        exact ⟨ker_isCongruence Sig (termAlg Sig A).2
+            (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2
+            (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) hcomp,
+          isFiniteIndex_ker_of_finite
+            (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) hΘF.2⟩
+    · intro A Φ hΦ
+      exact hΦ⟩
+
+/-- `B-P032`: the pointwise infimum of a family of finite-index congruence
+formations, with the top formation inserted so the family is never empty. This
+is the greatest lower bound in `Form_Cgr_fi(Σ)`. -/
+noncomputable def finiteIndexCongruenceFormationsInf {S : Type u} [Finite S]
+    (Sig : Signature S) (T : Set (finiteIndexCongruenceFormations Sig)) :
+    finiteIndexCongruenceFormations Sig :=
+  ⟨fun A => ⋂ G ∈ insert (finiteIndexCongruenceFormationsTop Sig) T, G.1 A, by
+    constructor
+    · constructor
+      · intro A
+        refine ⟨?_, ?_, ?_, ?_⟩
+        · refine ⟨nabla (Term Sig A), ?_⟩
+          refine Set.mem_iInter₂.mpr ?_
+          intro G _
+          obtain ⟨Φ₀, hΦ₀⟩ := (G.2.1.1 A).1
+          exact (G.2.1.1 A).2.2.2 Φ₀ hΦ₀ (nabla (Term Sig A))
+            (nabla_isCongruence Sig (termAlg Sig A).2) (fun _ _ _ _ => trivial)
+        · intro Φ hΦ
+          exact ((finiteIndexCongruenceFormationsTop Sig).2.1.1 A).2.1 Φ
+            (Set.mem_iInter₂.mp hΦ _ (Set.mem_insert_iff.mpr (Or.inl rfl)))
+        · intro Φ hΦ Ψ hΨ
+          refine Set.mem_iInter₂.mpr ?_
+          intro G hG
+          exact (G.2.1.1 A).2.2.1 Φ (Set.mem_iInter₂.mp hΦ G hG)
+            Ψ (Set.mem_iInter₂.mp hΨ G hG)
+        · intro Φ hΦ Ψ hΨ hle
+          refine Set.mem_iInter₂.mpr ?_
+          intro G hG
+          exact (G.2.1.1 A).2.2.2 Φ (Set.mem_iInter₂.mp hΦ G hG) Ψ hΨ hle
+      · intro A B Θ hΘ hΘF f hf hsurj
+        refine Set.mem_iInter₂.mpr ?_
+        intro G hG
+        exact (G.2.1.2 A B Θ hΘ (Set.mem_iInter₂.mp hΘF G hG) f hf hsurj)
+    · intro A Φ hΦ
+      exact (finiteIndexCongruenceFormationsTop Sig).2.2 A
+        (Set.mem_iInter₂.mp hΦ _ (Set.mem_insert_iff.mpr (Or.inl rfl)))⟩
+
+/-- The infimum operation on `Form_Cgr_fi(Σ)` (`B-P032`). -/
+noncomputable instance finiteIndexCongruenceFormationsInfSet {S : Type u} [Finite S]
+    (Sig : Signature S) : InfSet (finiteIndexCongruenceFormations Sig) :=
+  ⟨fun T => finiteIndexCongruenceFormationsInf Sig T⟩
+
+/-- `B-P032`: the pointwise infimum of a family of finite-index congruence
+formations is its greatest lower bound, so `Form_Cgr_fi(Σ)` is a complete
+lattice. -/
+theorem finiteIndexCongruenceFormations_isGLB_sInf {S : Type u} [Finite S]
+    (Sig : Signature S) (T : Set (finiteIndexCongruenceFormations Sig)) :
+    IsGLB T (finiteIndexCongruenceFormationsInf Sig T) := by
+  refine ⟨?_, ?_⟩
+  · intro G hG A x hx
+    exact Set.biInter_subset_of_mem (Set.mem_insert_of_mem _ hG) hx
+  · intro B hB A x hx
+    have hB' : ∀ G ∈ T, B ≤ G := hB
+    refine Set.mem_iInter₂.mpr ?_
+    intro G hG
+    rcases Set.mem_insert_iff.mp hG with rfl | hGT
+    · change x ∈ congFi Sig (termAlg Sig A).2
+      exact B.2.2 A hx
+    · have hBG : B.1 ≤ G.1 := hB' G hGT
+      exact hBG A hx
+
+/-- `B-P032`: `Form_Cgr_fi(Σ)`, ordered by pointwise inclusion, is a complete
+lattice (infimum = pointwise intersection, supremum = intersection of upper
+bounds). -/
+@[instance_reducible]
+noncomputable def finiteIndexCongruenceFormationsCompleteLattice {S : Type u} [Finite S]
+    (Sig : Signature S) : CompleteLattice (finiteIndexCongruenceFormations Sig) :=
+  completeLatticeOfInf (finiteIndexCongruenceFormations Sig)
+    (finiteIndexCongruenceFormations_isGLB_sInf Sig)
+
 end Mslang

@@ -1,0 +1,36 @@
+{
+  "block": "B-P032",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000219",
+  "findings": [
+    "B-P032: Form_Cgr_fi(Sigma) is a complete lattice (pointwise inclusion) under B-A001 [Finite S]. isFiniteIndex_ker_of_finite (a sorted map into a finite S-set has finite-index kernel, via the injective descent quot(ker f) -> B); finiteIndexCongruenceFormationsTop (A |-> Cgr_fi(T_Sigma(A)), nonempty via nabla finite index, meet via IsFiniteIndex_inf, up-closure via IsFiniteIndex_of_le, kernel via the above); finiteIndexCongruenceFormationsInf (pointwise intersection with top inserted); finiteIndexCongruenceFormations_isGLB_sInf; finiteIndexCongruenceFormationsCompleteLattice via completeLatticeOfInf. Axioms within the permitted set (lean_audit: 321 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P032/formal_proof",
+      "hash": "b93d72302f31f0668527562c64e8569321a4553b37d654d82e876ef93fe863d3"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T11:51:36Z"
+}

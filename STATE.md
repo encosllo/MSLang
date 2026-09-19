@@ -5083,6 +5083,59 @@ Mathlib closure-system instance.
 
 ---
 
+## Session 105 -- 2026-09-19 -- B-P032 (`Form_Cgr_fi(Σ)` is a complete lattice)
+
+**Goal.** Extend the lattice cluster to the finite-index case, reusing the
+`B-P014` bespoke pattern and the `B-A001` (`S` finite) standing assumption.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean`:
+  - `isFiniteIndex_ker_of_finite` -- a sorted map `f : A → B` into a finite
+    `S`-set `B` has finite-index kernel `ker f`. The descent
+    `quot (ker f) → B` (via `quotLift`) is injective (the witness
+    `⟨s, [a]⟩ ↦ ⟨s, f s a⟩` is injective), so `Σ quot(ker f)` embeds in the
+    finite `Σ B`. Notably **surjectivity is not needed**: finiteness of the
+    codomain alone suffices, so the kernel clause of `IsCongruenceFormation`
+    upgrades to finite index with no extra hypothesis.
+  - `finiteIndexCongruenceFormationsTop` -- `A ↦ Cgr_fi(T_Σ(A))`, the greatest
+    finite-index congruence formation (nonempty via `nabla` with
+    `isFiniteIndex_nabla` under `[Finite S]`; meet via `IsCongruence_inf` +
+    `IsFiniteIndex_inf`; up-closure via `IsFiniteIndex_of_le`; kernel via the
+    lemma above).
+  - `finiteIndexCongruenceFormationsInf` (pointwise intersection with the top
+    inserted so the family is nonempty), `finiteIndexCongruenceFormationsInfSet`,
+    `finiteIndexCongruenceFormations_isGLB_sInf`, and
+    `finiteIndexCongruenceFormationsCompleteLattice` via `completeLatticeOfInf`
+    (`@[instance_reducible]`).
+- `lean/declarations.json` maps `B-P032`; facets regenerated.
+  `blocks/lean_audit.json`: **321 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**; the five new declarations use `[propext, Classical.choice,
+  Quot.sound]`.
+- Evidence **`E-000219`** (verification, `build_ok`) and **`E-000220`**
+  (correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P032-correspondence.md`). Journal `EV-000113`. Frontier
+  unmapped **24 → 23**. Views and bundle regenerated. Fast gate: **40 passed,
+  0 failed**.
+
+**Honest caveats.** Same-model audit as always. All declarations carry
+`[Finite S]` (`B-A001`), which the top's nonemptiness (`nabla` finite index)
+genuinely needs. No representation change; existing hashes untouched.
+
+**Prioritized next steps.**
+
+1. `B-C005`/`B-C006`/`B-C011`/`B-C012`/`B-C013` (the **algebraic** lattice
+   statements): the complete-lattice halves now exist for `Form_Cgr` (`B-P014`)
+   and `Form_Cgr_fi` (`B-P032`); the missing ingredient across all five is the
+   finite-character/compactness argument (compact elements `Fmg_Σ(M)`,
+   `M` finite; equivalently `Fmg_Σ(M) = ⋃_{M₀ ⊆ M finite} Fmg_Σ(M₀)`). This is
+   the multi-session blocker.
+2. `B-P006` (`Φ-Sat(A)` is a complete atomic Boolean algebra).
+3. `B-P001` (support properties; componentwise union/intersection/difference of
+   `S`-sorted sets have no dependent-type analogue — an encoding question).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

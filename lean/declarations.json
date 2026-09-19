@@ -790,6 +790,16 @@
         "Mslang.congruenceFormationsCompleteLattice"
       ],
       "file": "lean/Mslang/Formation.lean"
+    },
+    "B-P032": {
+      "decls": [
+        "Mslang.isFiniteIndex_ker_of_finite",
+        "Mslang.finiteIndexCongruenceFormationsTop",
+        "Mslang.finiteIndexCongruenceFormationsInf",
+        "Mslang.finiteIndexCongruenceFormations_isGLB_sInf",
+        "Mslang.finiteIndexCongruenceFormationsCompleteLattice"
+      ],
+      "file": "lean/Mslang/Regular.lean"
     }
   }
 }

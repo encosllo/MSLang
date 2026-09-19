@@ -2663,6 +2663,61 @@
         "hash": "cb49ab9f02426b8fbe32f8d0fd5be7e53407eda1befe831862f66a6a520fda5a"
       }
     },
+    "B-P032": {
+      "decls": [
+        "Mslang.isFiniteIndex_ker_of_finite",
+        "Mslang.finiteIndexCongruenceFormationsTop",
+        "Mslang.finiteIndexCongruenceFormationsInf",
+        "Mslang.finiteIndexCongruenceFormations_isGLB_sInf",
+        "Mslang.finiteIndexCongruenceFormationsCompleteLattice"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.FiniteSSet",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruenceFormation",
+          "Mslang.IsCongruence_inf",
+          "Mslang.IsFiniteIndex",
+          "Mslang.IsFiniteIndexCongruenceFormation",
+          "Mslang.IsFiniteIndex_inf",
+          "Mslang.IsFiniteIndex_of_le",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.congFi",
+          "Mslang.finOp",
+          "Mslang.finiteIndexCongruenceFormations",
+          "Mslang.isAlgHom_prAlg",
+          "Mslang.isFiniteIndex_nabla",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.nabla_isCongruence",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotLe",
+          "Mslang.quotLe_mk",
+          "Mslang.quotLift",
+          "Mslang.quotOp",
+          "Mslang.quotOp_mk",
+          "Mslang.supp",
+          "Mslang.termAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "1863ee131a8f96036f4d8075eb82ad01f9c8b71572f93efbbfb8056b795b5eb0"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "b93d72302f31f0668527562c64e8569321a4553b37d654d82e876ef93fe863d3"
+      },
+      "formal_statement": {
+        "hash": "16abac44282a4be0eea97d0ed7627e15f8d6ef6dc4303a429b969650639dfd1e"
+      }
+    },
     "B-P033": {
       "decls": [
         "Mslang.algebraFinite_closed_HOperator",
