@@ -290,6 +290,19 @@ def IsAlgebraicClosureSystemOn (X : Type v) (C : Set (Set X)) : Prop :=
     (∀ D : Set (Set X), D ⊆ C → D.Nonempty →
       (∀ A ∈ D, ∀ B ∈ D, ∃ E ∈ D, A ⊆ E ∧ B ⊆ E) → ⋃₀ D ∈ C)
 
+/-- An algebraic closure system on a plain type `X` with a fixed **carrier**
+`C₀` (the instance needed by `B-P033`, where the ambient class is the *finite*
+algebras `Alg_f(Σ)` rather than all of `Alg(Σ)`): a family `C` of subsets of
+`C₀`, containing `C₀`, closed under nonempty intersections and nonempty directed
+unions. -/
+def IsAlgebraicClosureSystemOnCarrier (X : Type v) (C₀ : Set X) (C : Set (Set X)) :
+    Prop :=
+  C₀ ∈ C ∧
+    (∀ F ∈ C, F ⊆ C₀) ∧
+    (∀ D : Set (Set X), D ⊆ C → D.Nonempty → ⋂₀ D ∈ C) ∧
+    (∀ D : Set (Set X), D ⊆ C → D.Nonempty →
+      (∀ A ∈ D, ∀ B ∈ D, ∃ E ∈ D, A ⊆ E ∧ B ⊆ E) → ⋃₀ D ∈ C)
+
 /-- `B-D011`: a compact element of a complete lattice. -/
 def IsCompact {L : Type u} [CompleteLattice L] (a : L) : Prop :=
   ∀ X : Set L, a ≤ sSup X → ∃ Y : Set L, Y ⊆ X ∧ Y.Finite ∧ a ≤ sSup Y

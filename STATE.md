@@ -4964,6 +4964,67 @@ it is attribute-only and hash-neutral.
 
 ---
 
+## Session 103 -- 2026-09-19 -- B-P033 (`Form_Alg_f(Σ)` is an algebraic closure system)
+
+**Goal.** Continue the frontier (Session 102 step 1) into the finite-algebra
+lattice cluster, starting with `B-P033`, the top-ranked unmapped block and the
+direct finite analogue of `B-P018`.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Algebra.lean`: `IsAlgebraicClosureSystemOnCarrier` -- an
+  algebraic closure system on a type `X` with a fixed carrier `C₀` (unmapped
+  infrastructure, like `IsAlgebraicClosureSystemOn`). This is the encoding the
+  block needs because the ambient class is the **finite** algebras `Alg_f(Σ)`,
+  not all of `Alg(Σ)`: `Set.univ` is not a member of
+  `finiteAlgebraFormations`, so `IsAlgebraicClosureSystemOn` does not apply.
+- `lean/Mslang/Regular.lean`:
+  - `algebraFinite_closed_HOperator`: a homomorphic image of a finite
+    `Σ`-algebra is finite (a componentwise surjection of the disjoint unions,
+    `Finite.of_surjective`).
+  - `algebraFinite_closed_PFsdOperator` (under `[Finite S]`, i.e. `B-A001`): a
+    finite subdirect product of finite algebras is finite. The product's support
+    is the finite intersection `⋂ supp(C i)` (finite because `S` is) and each
+    support-component is a finite pi; this is exactly where `B-A001` is needed
+    (the empty product is the final algebra `1`, with support all of `S`).
+    Finiteness is checked through `B-R003` (`finiteSSet_iff`).
+  - `finiteAlgebraFormations_isAlgebraicClosureSystem`: `Alg_f(Σ)` is a
+    formation of finite algebras; a nonempty intersection and a nonempty
+    directed union of formations of finite algebras are formations of finite
+    algebras contained in `Alg_f(Σ)`. The formation half reuses the argument of
+    `B-P018` (each `H`/`P_fsd` witness lands in every family member; the
+    finitely many `P_fsd` witnesses are combined by directedness via
+    `exists_mem_superset_finset`), with `IsFormation` extracted from the
+    `IsFiniteAlgebraFormation` conjunction.
+- `lean/declarations.json` maps `B-P033`; facets regenerated.
+  `blocks/lean_audit.json`: **312 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**; the three new declarations use `[propext, Classical.choice,
+  Quot.sound]`.
+- Evidence **`E-000215`** (verification, `build_ok`) and **`E-000216`**
+  (correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P033-correspondence.md`). Journal `EV-000111`. Frontier
+  unmapped **26 → 25**. Views and bundle regenerated. Fast gate: **40 passed,
+  0 failed**.
+
+**Honest caveats.** Same-model audit as always (independent-context, shares
+`deepseek-v4.1-flash`, inherits the pilot-encoding residuals). The block's Lean
+statement carries `[Finite S]` for `B-A001`; the `P_fsd` half would be false
+without it. The adjacency `IsAlgebraicClosureSystemOnCarrier` is new
+infrastructure whose hash is not tracked in any mapped block (as with
+`IsAlgebraicClosureSystemOn` itself).
+
+**Prioritized next steps.**
+
+1. `B-C011` (`Form_Alg_f(Σ)` is an algebraic lattice): the missing piece is the
+   algebraic-closure-system-to-algebraic-lattice bridge plus a `CompleteLattice`
+   instance on the carrier. Then `B-C005`/`B-C006` (`Form_Alg`/`Form_Cgr`
+   algebraic lattices), `B-P014`/`B-P032` (complete lattices).
+2. The `B-C012`/`B-C013` transports along the `B-P020`/`B-P034`/`B-P039` order
+   isomorphisms.
+3. `B-P006` (`Φ-Sat(A)` is a complete atomic Boolean algebra).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

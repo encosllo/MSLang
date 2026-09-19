@@ -171,6 +171,16 @@
     "Mslang.Word": [],
     "Mslang.XElem": [],
     "Mslang.algebraFinite": [],
+    "Mslang.algebraFinite_closed_HOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.algebraFinite_closed_PFsdOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.algebraFormationOfCongruenceFormation": [
       "Classical.choice"
     ],
@@ -354,6 +364,11 @@
     "Mslang.finalAlg": [],
     "Mslang.finalSorted": [],
     "Mslang.finiteAlgebraFormations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.finiteAlgebraFormations_isAlgebraicClosureSystem": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -884,7 +899,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 309,
+  "declarations_audited": 312,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

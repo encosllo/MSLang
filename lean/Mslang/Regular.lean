@@ -1703,4 +1703,111 @@ theorem isRegularLanguageFormation_of_isBPSLanguageFormation {S : Type u}
   have hfin := hL.2.2.2.2 A B N' hN'mem f hf hsurj'
   rwa [hN'eq] at hfin
 
+/-! ### `B-P033`: `Form_Alg_f(Σ)` is an algebraic closure system. -/
+
+/-- `B-P033` (`H`-operator half): a homomorphic image of a finite `Σ`-algebra is
+finite. -/
+theorem algebraFinite_closed_HOperator {S : Type u} (Sig : Signature S) :
+    HOperator Sig (algebraFinite Sig) ⊆ algebraFinite Sig := by
+  rintro A ⟨B, hB, f, hf⟩
+  haveI : Finite (Sigma B.1) := hB
+  exact Finite.of_surjective
+    (fun p : Sigma B.1 => (⟨p.1, f p.1 p.2⟩ : Sigma A.1))
+    (fun q => by
+      obtain ⟨s, a⟩ := q
+      obtain ⟨x, hx⟩ := hf.2 s a
+      exact ⟨⟨s, x⟩, by show (⟨s, f s x⟩ : Sigma A.1) = ⟨s, a⟩; rw [hx]⟩)
+
+/-- `B-P033` (`P_fsd`-operator half): a finite subdirect product of finite
+`Σ`-algebras is finite. This is where `B-A001` (`S` finite) is used: the empty
+product is the final algebra `1`, whose support is all of `S`. -/
+theorem algebraFinite_closed_PFsdOperator {S : Type u} [Finite S] (Sig : Signature S) :
+    PFsdOperator Sig (algebraFinite Sig) ⊆ algebraFinite Sig := by
+  classical
+  rintro A ⟨ι, hι, C, hC, f, hf⟩
+  haveI : Fintype ι := hι
+  have hinj : Function.Injective
+      (fun p : Sigma A.1 => (⟨p.1, f p.1 p.2⟩ : Sigma (iAlg Sig C).1)) := by
+    rintro ⟨s, a⟩ ⟨t, b⟩ hpq
+    have h1 : s = t := (Sigma.mk.inj_iff.mp hpq).1
+    subst h1
+    have h2 : f s a = f s b := eq_of_heq (Sigma.mk.inj_iff.mp hpq).2
+    have h3 : a = b := hf.1.2 s h2
+    subst h3
+    rfl
+  have hprod : FiniteSSet (iAlg Sig C).1 := by
+    rw [finiteSSet_iff]
+    refine ⟨?_, ?_⟩
+    · exact (Set.finite_univ (α := S)).subset (Set.subset_univ _)
+    · intro s hs
+      have hsupp : s ∈ suppAlg (iAlg Sig C) := hs
+      rw [suppAlg_iAlg] at hsupp
+      haveI : ∀ i, Finite ((C i).1 s) := fun i =>
+        ((finiteSSet_iff (C i).1).mp (hC i)).2 s (hsupp i)
+      haveI : ∀ i, Fintype ((C i).1 s) := fun i => Fintype.ofFinite ((C i).1 s)
+      show Finite (∀ i, (C i).1 s)
+      exact Finite.of_fintype (∀ i, (C i).1 s)
+  haveI : Finite (Sigma (iAlg Sig C).1) := hprod
+  exact Finite.of_injective _ hinj
+
+/-- `B-P033`: `Form_Alg_f(Σ) ⊆ Sub(Alg_f(Σ))` is an algebraic closure system.
+`Alg_f(Σ)` is a formation of finite algebras (`H`/`P_fsd` closure above); a
+nonempty intersection and a nonempty directed union of formations of finite
+algebras are again formations of finite algebras (as in `B-P018`) and stay
+inside `Alg_f(Σ)` because every member does. -/
+theorem finiteAlgebraFormations_isAlgebraicClosureSystem {S : Type u} [Finite S]
+    (Sig : Signature S) :
+    IsAlgebraicClosureSystemOnCarrier (Alg Sig) (algebraFinite Sig)
+      (finiteAlgebraFormations Sig) := by
+  constructor
+  · exact ⟨⟨algebraFinite_closed_HOperator Sig,
+      algebraFinite_closed_PFsdOperator Sig⟩, subset_rfl⟩
+  constructor
+  · intro F hF
+    exact hF.2
+  constructor
+  · intro D hD hne
+    have hform : ∀ G ∈ D, IsAlgebraFormation Sig G := fun G hG => (hD hG).1
+    constructor
+    · constructor
+      · intro A hA
+        rw [Set.mem_sInter]
+        intro G hG
+        exact (hform G hG).1
+          (HOperator_mono Sig (fun B hB => Set.mem_sInter.mp hB G hG) hA)
+      · intro A hA
+        rw [Set.mem_sInter]
+        intro G hG
+        exact (hform G hG).2
+          (PFsdOperator_mono Sig (fun B hB => Set.mem_sInter.mp hB G hG) hA)
+    · intro F hF
+      rw [Set.mem_sInter] at hF
+      obtain ⟨G, hG⟩ := hne
+      exact (hD hG).2 (Set.mem_sInter.mp hF G hG)
+  · intro D hD hne hdir
+    have hform : ∀ G ∈ D, IsAlgebraFormation Sig G := fun G hG => (hD hG).1
+    constructor
+    · constructor
+      · intro A hA
+        rw [Set.mem_sUnion]
+        obtain ⟨B, hB, f, hf⟩ := hA
+        obtain ⟨F, hF, hBF⟩ := Set.mem_sUnion.mp hB
+        exact ⟨F, hF, (hform F hF).1 (⟨B, hBF, f, hf⟩ : A ∈ HOperator Sig F)⟩
+      · intro A hA
+        rw [Set.mem_sUnion]
+        obtain ⟨ι, hιfin, C, hC, f, hf⟩ := hA
+        have hCF : ∀ i, ∃ F ∈ D, C i ∈ F := fun i => Set.mem_sUnion.mp (hC i)
+        let Fi : ι → Set (Alg Sig) := fun i => Classical.choose (hCF i)
+        have hFiD : ∀ i, Fi i ∈ D := fun i => (Classical.choose_spec (hCF i)).1
+        have hCFi : ∀ i, C i ∈ Fi i := fun i => (Classical.choose_spec (hCF i)).2
+        obtain ⟨G, hG, hFG⟩ :=
+          exists_mem_superset_finset Sig hne hdir Finset.univ Fi (fun i _ => hFiD i)
+        have hCG : ∀ i, C i ∈ G := fun i => hFG i (Finset.mem_univ i) (hCFi i)
+        exact ⟨G, hG, (hform G hG).2
+          (⟨ι, hιfin, C, hCG, f, hf⟩ : A ∈ PFsdOperator Sig G)⟩
+    · intro F hF
+      rw [Set.mem_sUnion] at hF
+      obtain ⟨G, hG, hFG⟩ := hF
+      exact (hD hG).2 hFG
+
 end Mslang

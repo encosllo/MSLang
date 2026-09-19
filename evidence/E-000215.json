@@ -1,0 +1,36 @@
+{
+  "block": "B-P033",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000215",
+  "findings": [
+    "B-P033 (FormAlgAlgLat, finite variant): Form_Alg_f(Sigma) is an algebraic closure system with carrier Alg_f(Sigma). algebraFinite_closed_HOperator: a homomorphic image of a finite Sigma-algebra is finite. algebraFinite_closed_PFsdOperator: a finite subdirect product of finite Sigma-algebras is finite (uses [Finite S], B-A001, for the empty product/final algebra via finiteSSet_iff). finiteAlgebraFormations_isAlgebraicClosureSystem: Alg_f(Sigma) is a formation of finite algebras, and nonempty intersections and nonempty directed unions of formations of finite algebras are formations of finite algebras contained in Alg_f(Sigma) (adapting B-P018). Axioms within the permitted set (lean_audit: 312 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P033/formal_proof",
+      "hash": "f43587cb1b1fa62a172b313e2241abdce8f532f57de764fb5e0f719efde585b0"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T10:41:36Z"
+}

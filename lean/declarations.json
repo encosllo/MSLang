@@ -773,6 +773,14 @@
         "Mslang.isRegularLanguageFormation_of_isBPSLanguageFormation"
       ],
       "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P033": {
+      "decls": [
+        "Mslang.algebraFinite_closed_HOperator",
+        "Mslang.algebraFinite_closed_PFsdOperator",
+        "Mslang.finiteAlgebraFormations_isAlgebraicClosureSystem"
+      ],
+      "file": "lean/Mslang/Regular.lean"
     }
   }
 }
