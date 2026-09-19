@@ -1,0 +1,36 @@
+{
+  "block": "B-P014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000217",
+  "findings": [
+    "B-P014: Form_Cgr(Sigma) is a complete lattice (pointwise inclusion). congruenceFormationsTop is the greatest formation (A |-> all congruences on T_Sigma(A)); congruenceFormationsInf T is the pointwise intersection of T with the top formation inserted (so the family is nonempty and empty T gives the top); congruenceFormations_isGLB_sInf proves it is the greatest lower bound; congruenceFormationsCompleteLattice assembles the CompleteLattice. Axioms within the permitted set (lean_audit: 316 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P014/formal_proof",
+      "hash": "890fee22fbaf92524ee2d961898ccc5ad6516187e5bac783d84fea6befe50daa"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T11:26:55Z"
+}

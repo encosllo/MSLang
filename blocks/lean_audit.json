@@ -308,6 +308,26 @@
     "Mslang.congruenceFormations": [
       "Classical.choice"
     ],
+    "Mslang.congruenceFormationsCompleteLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congruenceFormationsInf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congruenceFormationsTop": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congruenceFormations_isGLB_sInf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.congruence_of_closesUnderEtl": [
       "Classical.choice",
       "Quot.sound",
@@ -899,7 +919,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 312,
+  "declarations_audited": 316,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -5025,6 +5025,64 @@ infrastructure whose hash is not tracked in any mapped block (as with
 
 ---
 
+## Session 104 -- 2026-09-19 -- B-P014 (`Form_Cgr(Σ)` is a complete lattice)
+
+**Goal.** Continue the lattice cluster with the first completable block, after
+the user chose the **bespoke construction** (no representation change) over the
+C6 re-encoding of formations as subsets of `Cgr`.
+
+**Why bespoke.** The existing formations are `Set`-valued on
+`Set (SortedEqv …)` / `Set (Alg …)`, whose ambient top (`univ`) is *not* a
+member (not every sorted equivalence is a congruence). So the standard
+closure-operator → `CompleteLattice` bridge does not apply; the infimum must be
+built with the top formation folded in. Doing this directly leaves every
+existing `formal_*` hash untouched.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Formation.lean`:
+  - `congruenceFormationsTop` -- the greatest congruence formation,
+    `A ↦ {Φ | Φ a congruence on T_Σ(A)}` (nonempty via `nabla_isCongruence`,
+    meet-closed via `IsCongruence_inf`, kernel-closed via `ker_isCongruence` on
+    the composite homomorphism, proved inline since `isAlgHom_comp` lives in
+    `Translation.lean`).
+  - `congruenceFormationsInf` -- for a set `T` of formations, the pointwise
+    intersection `A ↦ ⋂ G ∈ insert congruenceFormationsTop T, G A`. The top is
+    inserted so the family is nonempty; this is the pointwise intersection for
+    nonempty `T` and the top for empty `T`. Its formation proof uses the
+    pointwise-filter and kernel clauses of each member.
+  - `congruenceFormationsInfSet` (the `InfSet` instance),
+    `congruenceFormations_isGLB_sInf` (it is the greatest lower bound; the
+    "greatest" half unfolds `B ∈ lowerBounds T`), and
+    `congruenceFormationsCompleteLattice` via `completeLatticeOfInf`
+    (`@[instance_reducible]`, since its type is a class).
+- `lean/declarations.json` maps `B-P014`; facets regenerated.
+  `blocks/lean_audit.json`: **316 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**; the four new declarations use `[propext, Classical.choice,
+  Quot.sound]`.
+- Evidence **`E-000217`** (verification, `build_ok`) and **`E-000218`**
+  (correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-P014-correspondence.md`). Journal `EV-000112`. Frontier
+  unmapped **25 → 24**. Views and bundle regenerated. Fast gate: **40 passed,
+  0 failed**.
+
+**Honest caveats.** Same-model audit as always. `congruenceFormationsInfSet` is
+an unnamed `InfSet` instance (infrastructure); `B-P014` is mapped to the four
+named declarations. The `CompleteLattice` instance is the bespoke one, not a
+Mathlib closure-system instance.
+
+**Prioritized next steps.**
+
+1. `B-C005`/`B-C006` (`Form_Alg`/`Form_Cgr` are **algebraic** lattices): the
+   complete-lattice half for `Form_Cgr` is now `B-P014`; the algebraic half
+   needs the finite-character/compactness argument (compact elements are
+   `Fmg_Σ(M)`, `M` finite).
+2. `B-P032` (`Form_Cgr_fi` complete lattice, needs `B-A001 [Finite S]`) and
+   `B-C011` (`Form_Alg_f`), then the `B-C012`/`B-C013` transports.
+3. `B-P006` (`Φ-Sat(A)` is a complete atomic Boolean algebra).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

@@ -1062,4 +1062,96 @@ def formAlgFormCgrIso {S : Type u} (Sig : Signature S) :
     · intro h
       exact congruenceFormationOf_mono Sig h
 
+/-! ### `B-P014`: `Form_Cgr(Σ)` is a complete lattice. -/
+
+/-- `B-P014`: the greatest congruence formation, `A ↦ {Φ | Φ a congruence}`; it
+is the top of `Form_Cgr(Σ)`. -/
+noncomputable def congruenceFormationsTop {S : Type u} (Sig : Signature S) :
+    congruenceFormations Sig :=
+  ⟨fun A => {Φ | IsCongruence Sig (termAlg Sig A).2 Φ}, by
+    constructor
+    · intro A
+      refine ⟨⟨nabla (Term Sig A), nabla_isCongruence Sig (termAlg Sig A).2⟩, ?_, ?_, ?_⟩
+      · intro Φ hΦ
+        exact hΦ
+      · intro Φ hΦ Ψ hΨ
+        exact IsCongruence_inf Sig (termAlg Sig A).2 hΦ hΨ
+      · intro _ _ Ψ hΨ _
+        exact hΨ
+    · intro A B Θ hΘ _ f hf _
+      have hcomp : IsAlgHom Sig (termAlg Sig A).2
+          (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2
+          (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) := by
+        intro p σ a
+        simp only [Function.comp_apply]
+        rw [hf p σ a]
+        exact isAlgHom_prAlg Sig (termAlg Sig B).2 Θ hΘ p σ
+          (fun i => f (p.1.get i) (a i))
+      exact ker_isCongruence Sig (termAlg Sig A).2 (quotAlg Sig (termAlg Sig B).2 Θ hΘ).2
+        (fun s => prAlg Sig (termAlg Sig B).2 Θ hΘ s ∘ f s) hcomp⟩
+
+/-- `B-P014`: the pointwise infimum of a family of congruence formations, with
+the top formation inserted so the family is never empty. This is the greatest
+lower bound in `Form_Cgr(Σ)`. -/
+noncomputable def congruenceFormationsInf {S : Type u} (Sig : Signature S)
+    (T : Set (congruenceFormations Sig)) : congruenceFormations Sig :=
+  ⟨fun A => ⋂ G ∈ insert (congruenceFormationsTop Sig) T, G.1 A, by
+    constructor
+    · intro A
+      refine ⟨?_, ?_, ?_, ?_⟩
+      · refine ⟨nabla (Term Sig A), ?_⟩
+        refine Set.mem_iInter₂.mpr ?_
+        intro G _
+        obtain ⟨Φ₀, hΦ₀⟩ := (G.2.1 A).1
+        exact (G.2.1 A).2.2.2 Φ₀ hΦ₀ (nabla (Term Sig A))
+          (nabla_isCongruence Sig (termAlg Sig A).2) (fun _ _ _ _ => trivial)
+      · intro Φ hΦ
+        exact ((congruenceFormationsTop Sig).2.1 A).2.1 Φ
+          (Set.mem_iInter₂.mp hΦ (congruenceFormationsTop Sig)
+            (Set.mem_insert_iff.mpr (Or.inl rfl)))
+      · intro Φ hΦ Ψ hΨ
+        refine Set.mem_iInter₂.mpr ?_
+        intro G hG
+        exact (G.2.1 A).2.2.1 Φ (Set.mem_iInter₂.mp hΦ G hG)
+          Ψ (Set.mem_iInter₂.mp hΨ G hG)
+      · intro Φ hΦ Ψ hΨ hle
+        refine Set.mem_iInter₂.mpr ?_
+        intro G hG
+        exact (G.2.1 A).2.2.2 Φ (Set.mem_iInter₂.mp hΦ G hG) Ψ hΨ hle
+    · intro A B Θ hΘ hΘT f hf hsurj
+      refine Set.mem_iInter₂.mpr ?_
+      intro G hG
+      exact (G.2.2 A B Θ hΘ (Set.mem_iInter₂.mp hΘT G hG) f hf hsurj)⟩
+
+/-- The infimum operation on `Form_Cgr(Σ)` (`B-P014`). -/
+noncomputable instance congruenceFormationsInfSet {S : Type u} (Sig : Signature S) :
+    InfSet (congruenceFormations Sig) :=
+  ⟨fun T => congruenceFormationsInf Sig T⟩
+
+/-- `B-P014`: the pointwise infimum of a family of congruence formations is its
+greatest lower bound, so `Form_Cgr(Σ)` is a complete lattice. -/
+theorem congruenceFormations_isGLB_sInf {S : Type u} (Sig : Signature S)
+    (T : Set (congruenceFormations Sig)) :
+    IsGLB T (congruenceFormationsInf Sig T) := by
+  refine ⟨?_, ?_⟩
+  · intro G hG A x hx
+    exact Set.biInter_subset_of_mem (Set.mem_insert_of_mem _ hG) hx
+  · intro B hB A x hx
+    have hB' : ∀ G ∈ T, B ≤ G := hB
+    refine Set.mem_iInter₂.mpr ?_
+    intro G hG
+    rcases Set.mem_insert_iff.mp hG with rfl | hGT
+    · change IsCongruence Sig (termAlg Sig A).2 x
+      exact (B.2.1 A).2.1 x hx
+    · have hBG : B.1 ≤ G.1 := hB' G hGT
+      exact hBG A hx
+
+/-- `B-P014`: `Form_Cgr(Σ)`, ordered by pointwise inclusion, is a complete
+lattice (infimum = pointwise intersection, supremum = intersection of upper
+bounds). -/
+@[instance_reducible]
+noncomputable def congruenceFormationsCompleteLattice {S : Type u} (Sig : Signature S) :
+    CompleteLattice (congruenceFormations Sig) :=
+  completeLatticeOfInf (congruenceFormations Sig) (congruenceFormations_isGLB_sInf Sig)
+
 end Mslang

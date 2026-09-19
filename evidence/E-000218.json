@@ -1,0 +1,56 @@
+{
+  "block": "B-P014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000218",
+  "findings": [
+    "Stage 2 returned equivalent: pointwise-inclusion order, all-congruences top, pointwise-intersection infimum (top inserted for the empty family), and supremum as meet of upper bounds all match B-P014. Transcript blocks/audits/B-P014-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded. Inherits representation residuals carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "B-D029/informal_statement",
+      "hash": "d94459f966336ff3a5f0cad89c75cc9ae134d1d4ed1c743fb9a65ae2c712adde"
+    },
+    {
+      "artifact": "B-P014/definition_closure",
+      "hash": "4e98cd290936f8c15cd4c107947a97ae96210340569b2a6ca9651231dc6639d1"
+    },
+    {
+      "artifact": "B-P014/formal_statement",
+      "hash": "563dc24a45e0789cdd17de369c11e52ed4d6c80fc718ec3851a8e4c011dd285b"
+    },
+    {
+      "artifact": "B-P014/informal_statement",
+      "hash": "e33de47fafecfaef6440691ff8ec1542a9772edd92c71b4217594df01ba66dc4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-19T11:27:00Z"
+}

@@ -1864,6 +1864,49 @@
         "hash": "5618db677da6abc0518370a51511f69faf97b368e3a523944c08fc5b37c2afe5"
       }
     },
+    "B-P014": {
+      "decls": [
+        "Mslang.congruenceFormationsTop",
+        "Mslang.congruenceFormationsInf",
+        "Mslang.congruenceFormations_isGLB_sInf",
+        "Mslang.congruenceFormationsCompleteLattice"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.IsAlgHom",
+          "Mslang.IsCongruence",
+          "Mslang.IsCongruenceFormation",
+          "Mslang.IsCongruence_inf",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.SortedMap",
+          "Mslang.Term",
+          "Mslang.congruenceFormations",
+          "Mslang.finOp",
+          "Mslang.isAlgHom_prAlg",
+          "Mslang.ker",
+          "Mslang.ker_isCongruence",
+          "Mslang.nabla_isCongruence",
+          "Mslang.prAlg",
+          "Mslang.quot",
+          "Mslang.quotAlg",
+          "Mslang.quotOp",
+          "Mslang.quotOp_mk",
+          "Mslang.termAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "4e98cd290936f8c15cd4c107947a97ae96210340569b2a6ca9651231dc6639d1"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "890fee22fbaf92524ee2d961898ccc5ad6516187e5bac783d84fea6befe50daa"
+      },
+      "formal_statement": {
+        "hash": "563dc24a45e0789cdd17de369c11e52ed4d6c80fc718ec3851a8e4c011dd285b"
+      }
+    },
     "B-P015": {
       "decls": [
         "Mslang.algebraFormationOfCongruenceFormation",

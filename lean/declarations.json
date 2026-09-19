@@ -781,6 +781,15 @@
         "Mslang.finiteAlgebraFormations_isAlgebraicClosureSystem"
       ],
       "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P014": {
+      "decls": [
+        "Mslang.congruenceFormationsTop",
+        "Mslang.congruenceFormationsInf",
+        "Mslang.congruenceFormations_isGLB_sInf",
+        "Mslang.congruenceFormationsCompleteLattice"
+      ],
+      "file": "lean/Mslang/Formation.lean"
     }
   }
 }
