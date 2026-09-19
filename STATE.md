@@ -5136,6 +5136,64 @@ genuinely needs. No representation change; existing hashes untouched.
 
 ---
 
+## Session 106 -- 2026-09-19 -- B-C005 (`Form_Alg(Σ)` algebraic lattice)
+
+**Goal.** Break the multi-session blocker: the compactness/finite-character half
+of the algebraic-lattice cluster.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Algebra.lean`: **`isAlgebraicLattice_of_isAlgebraicClosureOperator`**
+  -- the generic bridge. For a closure operator `c` on `Set X` whose closed sets
+  are closed under directed unions (`halg`), the closed sets `c.Closeds` (with
+  the `CompleteLattice` from `c.gi.liftCompleteLattice`) form an algebraic
+  lattice in the project's `IsAlgebraicLattice` sense. The proof:
+  - **finite character** of `c`: `x ∈ c U → ∃ F finite ⊆ U, x ∈ c F`. The family
+    `D = {c F | F finite ⊆ U}` is directed, its union is closed by `halg`, and
+    contains `U`; hence `c U ⊆ ⋃₀ D`.
+  - **`c.toCloseds F` is compact for finite `F`**: given `c F ≤ sSup S`, choose
+    finitely many `c Fₓ` (finite character) and finitely many members of `S`
+    covering the union, and take the finite subfamily.
+  - every closed set is the supremum of the closures of its finite subsets.
+  (This is the standard "algebraic closure operator ↦ algebraic lattice" result,
+  proved directly rather than via Mathlib's compactly-generated API.)
+- `lean/Mslang/Formation.lean`:
+  - `algebraFormationsClosureOperator` -- `ofCompletePred` from `B-P018`
+    (`univ` + arbitrary intersections of formations are formations; the empty
+    intersection is handled separately).
+  - `algebraFormationsCompleteLattice` -- `c.gi.liftCompleteLattice`.
+  - `algebraFormations_isAlgebraicLattice` -- the generic bridge applied to
+    `B-P018`'s directed-union clause. Statement uses the explicit instance
+    `@IsAlgebraicLattice … (algebraFormationsCompleteLattice Sig)` (the
+    instance-transport problem is why the statement is `@`-pinned).
+- `lean/declarations.json` maps `B-C005`; facets regenerated.
+  `blocks/lean_audit.json`: **324 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**.
+- Evidence **`E-000221`** (verification, `build_ok`) and **`E-000222`**
+  (correspondence, two-stage blind, **`formal_weaker`**; transcript
+  `blocks/audits/B-C005-correspondence.md`). Journal `EV-000114`. Frontier
+  unmapped **23 → 22**. Views and bundle regenerated. Fast gate: **40 passed,
+  0 failed**.
+
+**Honest finding (review queue).** The correspondence audit is `formal_weaker`:
+`B-C005` also asserts the **compact characterization** "`F` compact iff
+`F = Fmg_Σ(M)` for some finite `M`", which was not stated. It is provable from
+the same construction (compact elements are `c.toCloseds M` for finite `M`);
+the gap is recorded rather than dropped.
+
+**Prioritized next steps.**
+
+1. Close the `B-C005` gap by stating the compact characterization (extract
+   `closure_finite_compact` from the generic proof and add the `iff`), then
+   re-run the correspondence to move `formal_weaker` → `equivalent`.
+2. `B-C006` (`Form_Cgr` algebraic, via the `B-P020` order iso) — needs an
+   order-iso preservation lemma for `IsAlgebraicLattice` plus reconciliation of
+   the transported instance with `B-P014`'s.
+3. `B-C011` (`Form_Alg_f`, the carrier variant), then `B-C012`/`B-C013`, and
+   `B-P006`.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

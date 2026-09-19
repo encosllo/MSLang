@@ -12,6 +12,10 @@ namespace Mslang
 
 variable {S : Type u}
 
+-- `letI` installs the `CompleteLattice` instance consumed by the proof below;
+-- the style linter's `let` suggestion would not register it as an instance.
+set_option linter.style.haveILetI false
+
 
 /-! ### `B-D016`: `S`-sorted signatures. -/
 
@@ -321,5 +325,114 @@ def IsUniform {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
 def IsUniformAlgebraicClosureOperator {S : Type u} {A : SSet S}
     (c : Sub A → Sub A) : Prop :=
   IsAlgebraic c ∧ IsUniform c
+
+/-- The bridge used by `B-C005`/`B-C011`: the closed sets of an **algebraic**
+closure operator (one whose closed sets are closed under directed unions) form an
+algebraic lattice. The compact elements are the closures `c F` of finite sets
+`F`. The key input is the finite character of `c` (an element of `c U` lies in
+`c F` for some finite `F ⊆ U`), which follows from directed-union closure, and
+the fact that every closed set is the supremum of the closures of its finite
+subsets. -/
+theorem isAlgebraicLattice_of_isAlgebraicClosureOperator {X : Type v}
+    (c : ClosureOperator (Set X))
+    (halg : ∀ s : Set (Set X), (∀ a ∈ s, c.IsClosed a) → s.Nonempty →
+      (∀ a ∈ s, ∀ b ∈ s, ∃ d ∈ s, a ⊆ d ∧ b ⊆ d) → c.IsClosed (⋃₀ s)) :
+    letI := c.gi.liftCompleteLattice
+    IsAlgebraicLattice c.Closeds := by
+  letI := c.gi.liftCompleteLattice
+  have hsSup_val : ∀ s : Set c.Closeds, (sSup s).1 = c (⋃₀ (Subtype.val '' s)) := by
+    intro s
+    show c (sSup (Subtype.val '' s)) = c (⋃₀ (Subtype.val '' s))
+    rfl
+  have finite_character : ∀ {U : Set X} {x : X}, x ∈ c U →
+      ∃ F : Set X, F.Finite ∧ F ⊆ U ∧ x ∈ c F := by
+    intro U x hx
+    let D : Set (Set X) := {T | c.IsClosed T ∧ ∃ F : Set X, F.Finite ∧ F ⊆ U ∧ T = c F}
+    have hDsub : D ⊆ {T | c.IsClosed T} := fun T hT => hT.1
+    have hDne : D.Nonempty :=
+      ⟨c ∅, c.isClosed_closure ∅, ∅, Set.finite_empty, Set.empty_subset U, rfl⟩
+    have hDdir : ∀ A ∈ D, ∀ B ∈ D, ∃ E ∈ D, A ⊆ E ∧ B ⊆ E := by
+      rintro A ⟨-, FA, hFA, hFAU, rfl⟩ B ⟨-, FB, hFB, hFBU, rfl⟩
+      refine ⟨c (FA ∪ FB), ⟨c.isClosed_closure _, FA ∪ FB, hFA.union hFB,
+        Set.union_subset hFAU hFBU, rfl⟩, ?_, ?_⟩
+      · intro y hy; exact c.monotone Set.subset_union_left hy
+      · intro y hy; exact c.monotone Set.subset_union_right hy
+    have hUnionClosed : c.IsClosed (⋃₀ D) := halg D hDsub hDne hDdir
+    have hUsub : U ⊆ ⋃₀ D := by
+      intro y hy
+      exact ⟨c {y}, ⟨c.isClosed_closure {y}, {y}, Set.finite_singleton y,
+        Set.singleton_subset_iff.mpr hy, rfl⟩, c.le_closure {y} (Set.mem_singleton y)⟩
+    have hcU : c U ⊆ ⋃₀ D := c.closure_min hUsub hUnionClosed
+    obtain ⟨T, hTD, hxT⟩ := hcU hx
+    obtain ⟨-, F, hFfin, hFU, rfl⟩ := hTD
+    exact ⟨F, hFfin, hFU, hxT⟩
+  have compact_closure : ∀ F : Set X, F.Finite → IsCompact (c.toCloseds F) := by
+    intro F hF S hSF
+    classical
+    change c F ≤ c (⋃₀ (Subtype.val '' S)) at hSF
+    have hFU : F ⊆ c (⋃₀ (Subtype.val '' S)) := fun x hx => hSF (c.le_closure F hx)
+    have hchoice : ∀ x ∈ F, ∃ G : Set X, G.Finite ∧ G ⊆ ⋃₀ (Subtype.val '' S) ∧ x ∈ c G :=
+      fun x hx => finite_character (hFU hx)
+    let Fx : X → Set X := fun x => if hx : x ∈ F then Classical.choose (hchoice x hx) else ∅
+    have hFxfin : ∀ x ∈ F, (Fx x).Finite := by
+      intro x hx
+      have := (Classical.choose_spec (hchoice x hx)).1
+      simpa only [Fx, dif_pos hx] using this
+    have hFxsub : ∀ x ∈ F, Fx x ⊆ ⋃₀ (Subtype.val '' S) := by
+      intro x hx
+      have := (Classical.choose_spec (hchoice x hx)).2.1
+      simpa only [Fx, dif_pos hx] using this
+    have hxFx : ∀ x ∈ F, x ∈ c (Fx x) := by
+      intro x hx
+      have := (Classical.choose_spec (hchoice x hx)).2.2
+      simpa only [Fx, dif_pos hx] using this
+    let F' : Set X := ⋃ x ∈ F, Fx x
+    have hF'fin : F'.Finite := hF.biUnion hFxfin
+    have hF'sub : F' ⊆ ⋃₀ (Subtype.val '' S) := by
+      intro y hy
+      rcases Set.mem_iUnion.mp hy with ⟨x, hy⟩
+      rcases Set.mem_iUnion.mp hy with ⟨hx, hyx⟩
+      exact hFxsub x hx hyx
+    have hFsub : F ⊆ c F' := by
+      intro x hx
+      exact c.monotone (fun y hy => Set.mem_iUnion.mpr ⟨x, Set.mem_iUnion.mpr ⟨hx, hy⟩⟩)
+        (hxFx x hx)
+    have hcFF' : c F ⊆ c F' := c.closure_min hFsub (c.isClosed_closure F')
+    have hSy : ∀ y ∈ F', ∃ B ∈ S, y ∈ B.1 := by
+      intro y hy
+      rcases Set.mem_sUnion.mp (hF'sub hy) with ⟨T, ⟨B, hB, rfl⟩, hyT⟩
+      exact ⟨B, hB, hyT⟩
+    let g : X → c.Closeds :=
+      fun y => if hy : y ∈ F' then Classical.choose (hSy y hy) else c.toCloseds ∅
+    let Y : Set c.Closeds := g '' F'
+    have hYfin : Y.Finite := hF'fin.image g
+    have hYsub : Y ⊆ S := by
+      rintro B ⟨y, hy, rfl⟩
+      simp only [g, dif_pos hy]
+      exact (Classical.choose_spec (hSy y hy)).1
+    refine ⟨Y, hYsub, hYfin, ?_⟩
+    change c F ≤ c (⋃₀ (Subtype.val '' Y))
+    refine hcFF'.trans (c.monotone ?_)
+    intro y hy
+    refine Set.mem_sUnion.mpr ⟨(g y).1, ⟨g y, Set.mem_image_of_mem g hy, rfl⟩, ?_⟩
+    simp only [g, dif_pos hy]
+    exact (Classical.choose_spec (hSy y hy)).2
+  intro A
+  refine ⟨{B : c.Closeds | ∃ F : Set X, F.Finite ∧ F ⊆ A.1 ∧ B = c.toCloseds F}, ?_, ?_⟩
+  · rintro B ⟨F, hF, -, rfl⟩
+    exact compact_closure F hF
+  · apply Subtype.ext
+    change A.1 = c (⋃₀ (Subtype.val '' {B : c.Closeds | ∃ F : Set X,
+      F.Finite ∧ F ⊆ A.1 ∧ B = c.toCloseds F}))
+    apply le_antisymm
+    · intro x hx
+      exact c.le_closure _ (Set.mem_sUnion.mpr ⟨c {x},
+        ⟨c.toCloseds {x}, ⟨{x}, Set.finite_singleton x,
+          (fun y hy => by rw [Set.mem_singleton_iff] at hy; subst hy; exact hx), rfl⟩, rfl⟩,
+        c.le_closure {x} (Set.mem_singleton x)⟩)
+    · apply c.closure_min _ A.2
+      intro y hy
+      rcases Set.mem_sUnion.mp hy with ⟨_, ⟨B, ⟨F, hF, hFA, rfl⟩, rfl⟩, hyB⟩
+      exact c.closure_min hFA A.2 hyB
 
 end Mslang

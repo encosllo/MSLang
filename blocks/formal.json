@@ -113,6 +113,46 @@
         "hash": "ed20820c54de7b816cf91776c79433ba1cf13e54fadc2a3cd62b6b2480775b9c"
       }
     },
+    "B-C005": {
+      "decls": [
+        "Mslang.algebraFormationsClosureOperator",
+        "Mslang.algebraFormationsCompleteLattice",
+        "Mslang.algebraFormations_isAlgebraicLattice"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.AlgStruct",
+          "Mslang.HOperator",
+          "Mslang.HOperator_mono",
+          "Mslang.IsAlgHom",
+          "Mslang.IsAlgebraFormation",
+          "Mslang.IsAlgebraicLattice",
+          "Mslang.IsCompact",
+          "Mslang.IsEpiAlg",
+          "Mslang.IsMonoAlg",
+          "Mslang.IsSubdirectEmbedding",
+          "Mslang.PFsdOperator",
+          "Mslang.PFsdOperator_mono",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedMap",
+          "Mslang.algebraFormations",
+          "Mslang.algebraFormations_isAlgebraicClosureSystem",
+          "Mslang.exists_mem_superset_finset",
+          "Mslang.finOp",
+          "Mslang.iAlg",
+          "Mslang.wordProd"
+        ],
+        "hash": "de92fdaf8c7a7e6bd3b7bd34273748435cd93e560f37c2b58308d6d983215dca"
+      },
+      "file": "lean/Mslang/Formation.lean",
+      "formal_proof": {
+        "hash": "09c21ec9525de0803b16d5be79c85badb5b1c468b2af25d3734902f8c6ff5a10"
+      },
+      "formal_statement": {
+        "hash": "912cae01cd26d6c5878f116ef945087bacd03f1b2fbcbf59d01c1f032858874a"
+      }
+    },
     "B-C007": {
       "decls": [
         "Mslang.langFormationOf_transPreimage"

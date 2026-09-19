@@ -1,0 +1,36 @@
+{
+  "block": "B-C005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000221",
+  "findings": [
+    "B-C005: Form_Alg(Sigma) is an algebraic lattice. New generic bridge isAlgebraicLattice_of_isAlgebraicClosureOperator (Algebra.lean): the closed sets of an algebraic closure operator on Set X form an algebraic lattice, with compact elements the closures c(F) of finite F (finite character from directed-union closure; every closed set is the sup of the closures of its finite subsets). Applied to algebraFormations Sig: algebraFormationsClosureOperator (ofCompletePred from B-P018), algebraFormationsCompleteLattice (GaloisInsertion.liftCompleteLattice), and algebraFormations_isAlgebraicLattice. Axioms within the permitted set (lean_audit: 324 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C005/formal_proof",
+      "hash": "09c21ec9525de0803b16d5be79c85badb5b1c468b2af25d3734902f8c6ff5a10"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T12:36:00Z"
+}
