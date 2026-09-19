@@ -1,0 +1,52 @@
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000226",
+  "findings": [
+    "Stage 2 returned equivalent: Form_Cgr(Sigma) is an algebraic lattice, matching B-C006 (transported from B-C005 along the B-P020 order iso). Transcript blocks/audits/B-C006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded. Inherits representation residuals carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "B-C006/definition_closure",
+      "hash": "d9a4f8e1180fa3deff5308c1fc119d5fdb51cdf4d85805db44f7d9f5e974e0eb"
+    },
+    {
+      "artifact": "B-C006/formal_statement",
+      "hash": "7890a0d251d79f7d38620aa29a775ab0501cf17592301314aeadd6f9dd17d2cc"
+    },
+    {
+      "artifact": "B-C006/informal_statement",
+      "hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-19T13:28:09Z"
+}

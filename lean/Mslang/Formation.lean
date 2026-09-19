@@ -1210,4 +1210,17 @@ theorem algebraFormations_isCompact_iff {S : Type u} (Sig : Signature S)
       F = (algebraFormationsClosureOperator Sig).toCloseds M at hF
   exact hF
 
+/-! ### `B-C006`: `Form_Cgr(Σ)` is an algebraic lattice. -/
+
+/-- `B-C006`: `Form_Cgr(Σ)`, ordered by pointwise inclusion, is an algebraic
+lattice, by transport of `B-C005` along the order isomorphism `B-P020`. -/
+theorem congruenceFormations_isAlgebraicLattice {S : Type u} (Sig : Signature S) :
+    @IsAlgebraicLattice (congruenceFormations Sig) (congruenceFormationsCompleteLattice Sig) := by
+  letI := congruenceFormationsCompleteLattice Sig
+  letI := algebraFormationsCompleteLattice Sig
+  have h := isAlgebraicLattice_of_orderIso (formAlgFormCgrIso Sig)
+    (algebraFormations_isAlgebraicLattice Sig)
+  change @IsAlgebraicLattice (congruenceFormations Sig) (congruenceFormationsCompleteLattice Sig)
+  exact h
+
 end Mslang

@@ -1,0 +1,36 @@
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000225",
+  "findings": [
+    "B-C006: Form_Cgr(Sigma) is an algebraic lattice. New generic transport lemmas in Algebra.lean (isCompact_of_orderIso_apply / isCompact_of_orderIso / isAlgebraicLattice_of_orderIso): an order isomorphism preserves compactness and algebraicness, using OrderIso.map_sSup. Applied in Formation.lean: congruenceFormations_isAlgebraicLattice transports B-C005 across formAlgFormCgrIso (B-P020). Axioms within the permitted set (lean_audit: 326 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C006/formal_proof",
+      "hash": "b67c89227df876afeb6e8d7337991095d34bdbb57435bd9de61695d340c1189d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T13:28:09Z"
+}

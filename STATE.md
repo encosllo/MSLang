@@ -5238,6 +5238,51 @@ gap on `B-C005` by stating the corollary's compact characterization.
 
 ---
 
+## Session 108 -- 2026-09-19 -- B-C006 (`Form_Cgr(Σ)` algebraic lattice)
+
+**Goal.** Session 107 step 1: transport `B-C005` to `Form_Cgr(Σ)` along
+`B-P020`.
+
+**Insight that removed the blocker.** The instance-reconciliation worry was
+moot: state the transport lemma abstractly over *any* two `CompleteLattice`
+instances and an `OrderIso`. `IsCompact`/`IsAlgebraicLattice` use only `≤` and
+`sSup`, and an `OrderIso` preserves `sSup` (`OrderIso.map_sSup`), so the result
+holds for whichever complete-lattice structures are in scope — no need to prove
+the transported instance is *defeq* to `B-P014`'s.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Algebra.lean`: `isCompact_of_orderIso_apply` (an order iso maps a
+  compact element to a compact element: pull `sSup` back and push the finite
+  subfamily forward), `isCompact_of_orderIso`, and
+  `isAlgebraicLattice_of_orderIso`.
+- `lean/Mslang/Formation.lean`: `congruenceFormations_isAlgebraicLattice`, via
+  `letI`-installing `congruenceFormationsCompleteLattice` (`B-P014`) and
+  `algebraFormationsCompleteLattice` (`B-C005`) and applying the transport to
+  `formAlgFormCgrIso` (`B-P020`). The statement is `@`-pinned to `B-P014`'s
+  instance.
+- `lean/declarations.json` maps `B-C006`; facets regenerated.
+  `blocks/lean_audit.json`: **326 declarations, 0 warnings, 0 unpermitted,
+  0 `sorry`**.
+- Evidence **`E-000225`** (verification, `build_ok`) and **`E-000226`**
+  (correspondence, two-stage blind, **`equivalent`**; transcript
+  `blocks/audits/B-C006-correspondence.md`). Journal `EV-000116`. Frontier
+  unmapped **22 → 21**. Fast gate: **40 passed, 0 failed**.
+
+**Caveat.** Same-model audit; inherits the pilot-encoding residuals.
+
+**Prioritized next steps.**
+
+1. `B-C011` (`Form_Alg_f` algebraic): the **carrier** variant of the generic
+   bridge, from `IsAlgebraicClosureSystemOnCarrier` (`B-P033`). The ambient
+   `Set C₀` has `univ ↦ C₀ ∈ C`, so the plain `ofCompletePred` route applies
+   once the closure system is transported to `Set C₀`.
+2. `B-C012` (transport of `B-C011` along `B-P034`) and `B-C013` (along
+   `B-P039`), reusing `isAlgebraicLattice_of_orderIso`.
+3. `B-P006` (CABA on `Φ-Sat`).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

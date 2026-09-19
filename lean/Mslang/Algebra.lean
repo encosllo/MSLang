@@ -505,4 +505,42 @@ theorem isCompact_iff_exists_finite_closure {X : Type v} (c : ClosureOperator (S
   · rintro ⟨M, hMfin, rfl⟩
     exact closure_finite_compact c halg M hMfin
 
+/-- An order isomorphism sends compact elements to compact elements. -/
+theorem isCompact_of_orderIso_apply {L M : Type*} [CompleteLattice L] [CompleteLattice M]
+    (e : L ≃o M) {a : L} (ha : IsCompact a) : IsCompact (e a) := by
+  intro X hX
+  have hmap : e.symm (sSup X) = sSup (e.symm '' X) := by
+    rw [OrderIso.map_sSup, sSup_image]
+  have haX₀ : a ≤ e.symm (sSup X) := (e.le_iff_le).mp (by simpa using hX)
+  have haX : a ≤ sSup (e.symm '' X) := by rwa [hmap] at haX₀
+  obtain ⟨Y, hYsub, hYfin, haY⟩ := ha _ haX
+  refine ⟨e '' Y, ?_, hYfin.image e, ?_⟩
+  · rintro _ ⟨y, hy, rfl⟩
+    obtain ⟨x, hx, rfl⟩ := hYsub hy
+    simpa using hx
+  · have hmap2 : e (sSup Y) = sSup (e '' Y) := by
+      rw [OrderIso.map_sSup, sSup_image]
+    rw [← hmap2]
+    exact e.monotone haY
+
+/-- An order isomorphism preserves compactness. -/
+theorem isCompact_of_orderIso {L M : Type*} [CompleteLattice L] [CompleteLattice M]
+    (e : L ≃o M) (a : L) : IsCompact a ↔ IsCompact (e a) :=
+  ⟨fun ha => isCompact_of_orderIso_apply e ha, fun ha => by
+    have := isCompact_of_orderIso_apply e.symm ha
+    rwa [e.symm_apply_apply] at this⟩
+
+/-- An order isomorphism preserves algebraicness of a complete lattice. -/
+theorem isAlgebraicLattice_of_orderIso {L M : Type*} [CompleteLattice L] [CompleteLattice M]
+    (e : L ≃o M) (h : IsAlgebraicLattice L) : IsAlgebraicLattice M := by
+  intro m
+  obtain ⟨X, hXc, hm⟩ := h (e.symm m)
+  refine ⟨e '' X, ?_, ?_⟩
+  · rintro _ ⟨x, hx, rfl⟩
+    exact (isCompact_of_orderIso e x).mp (hXc x hx)
+  · have hmap : e (sSup X) = sSup (e '' X) := by
+      rw [OrderIso.map_sSup, sSup_image]
+    rw [← hmap, ← hm]
+    exact (e.apply_symm_apply m).symm
+
 end Mslang

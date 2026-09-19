@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `42bd448189e839de402a47799f3072413d03af99b35fc93d565f06ec84373974` |
-| `blocks/formal_graph.json` | `5e95b88730ee404a6ffc7af8d85ff0db2f42e5d2bc3b7b225b11611a43bbde0c` |
+| `blocks/formal.json` | `9751cf2dfec63b161911dfd70a1196487541f23d2b7790bc9726892404dfbc40` |
+| `blocks/formal_graph.json` | `db9a589648f3a910d5707c417edd1b875b5693cb512a27e2d8e16ac4def5a631` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
-| `blocks/lean_audit.json` | `e9a599b46b07b942a84bd8828a47f3c6de11f7e73ecebec0f5da78ed23266084` |
+| `blocks/lean_audit.json` | `076681090f03b27531b274de3f2497335cd86dd1c2f0689f8fd86f87f85b35c0` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
@@ -250,7 +250,9 @@ repository.
 | `evidence/E-000222.json` | `4a295945d063d77dc4be27c8da76f91b5172ef6ce25b91e2e968ff43aeb5a023` |
 | `evidence/E-000223.json` | `87aa02c8167de6c77c4fa20b990bc8d2ffaeba9b78cdd6de2abec1a427437cda` |
 | `evidence/E-000224.json` | `4bebe89fa3bee1b1383aa5021ad565488b876ed27ecf3cfca5ba77a20e99a91e` |
-| `journal/events.jsonl` | `4b97ce524308dfcc7a891c48e530b49850aef54f45e9140c35489e60807fdfaf` |
+| `evidence/E-000225.json` | `c121dc03cb63a217bd79296d343f3cc0a0052933d9bc098dd0798b427dcaa973` |
+| `evidence/E-000226.json` | `23dc031abb521df954e5338306700898bbe8022593babdac5c75e5a7c7b680c6` |
+| `journal/events.jsonl` | `37cfca9563448aeb6887fc47ed91bf81956c702a1e70cca574b83f0f7948bdfd` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
@@ -272,6 +274,8 @@ repository.
 | `B-C004` | verification | pass | 1 | 0 |
 | `B-C005` | correspondence | provisional | 1 | 1 |
 | `B-C005` | verification | pass | 1 | 1 |
+| `B-C006` | correspondence | provisional | 1 | 0 |
+| `B-C006` | verification | pass | 1 | 0 |
 | `B-C007` | correspondence | provisional | 1 | 0 |
 | `B-C007` | verification | pass | 1 | 0 |
 | `B-C008` | correspondence | provisional | 1 | 0 |
@@ -10232,6 +10236,104 @@ repository.
 }
 ```
 
+### E-000225
+
+```json
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000225",
+  "findings": [
+    "B-C006: Form_Cgr(Sigma) is an algebraic lattice. New generic transport lemmas in Algebra.lean (isCompact_of_orderIso_apply / isCompact_of_orderIso / isAlgebraicLattice_of_orderIso): an order isomorphism preserves compactness and algebraicness, using OrderIso.map_sSup. Applied in Formation.lean: congruenceFormations_isAlgebraicLattice transports B-C005 across formAlgFormCgrIso (B-P020). Axioms within the permitted set (lean_audit: 326 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C006/formal_proof",
+      "hash": "b67c89227df876afeb6e8d7337991095d34bdbb57435bd9de61695d340c1189d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-19T13:28:09Z"
+}
+```
+
+### E-000226
+
+```json
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000226",
+  "findings": [
+    "Stage 2 returned equivalent: Form_Cgr(Sigma) is an algebraic lattice, matching B-C006 (transported from B-C005 along the B-P020 order iso). Transcript blocks/audits/B-C006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded. Inherits representation residuals carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "B-C006/definition_closure",
+      "hash": "d9a4f8e1180fa3deff5308c1fc119d5fdb51cdf4d85805db44f7d9f5e974e0eb"
+    },
+    {
+      "artifact": "B-C006/formal_statement",
+      "hash": "7890a0d251d79f7d38620aa29a775ab0501cf17592301314aeadd6f9dd17d2cc"
+    },
+    {
+      "artifact": "B-C006/informal_statement",
+      "hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-19T13:28:09Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -10242,8 +10344,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 108
-- Evidence records: 224
+- Blocks with any evidence: 109
+- Evidence records: 226
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -10260,6 +10362,7 @@ assertion).
 | `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
@@ -10365,7 +10468,7 @@ assertion).
 | `B-R023` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
-21 block(s) have no evidence.
+20 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -10475,9 +10578,9 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`, `B-R022`, `B-R023`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P007`, `B-P008`, `B-P009`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R017`, `B-R018`, `B-R020`, `B-R021`, `B-R022`, `B-R023`
 
-## Undecided edges (537)
+## Undecided edges (542)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -10505,6 +10608,11 @@ the review queue.
 | `B-C005` | `B-D016` |
 | `B-C005` | `B-D032` |
 | `B-C005` | `B-P018` |
+| `B-C006` | `B-C005` |
+| `B-C006` | `B-D011` |
+| `B-C006` | `B-D016` |
+| `B-C006` | `B-P014` |
+| `B-C006` | `B-P020` |
 | `B-C007` | `B-D005` |
 | `B-C007` | `B-D016` |
 | `B-C007` | `B-D030` |
@@ -11185,6 +11293,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-C002` | review | provisional | 1 | 1 |
 | `B-C004` | correspondence | provisional | 1 | 0 |
 | `B-C005` | correspondence | provisional | 1 | 1 |
+| `B-C006` | correspondence | provisional | 1 | 0 |
 | `B-C007` | correspondence | provisional | 1 | 0 |
 | `B-C008` | correspondence | provisional | 1 | 0 |
 | `B-C009` | correspondence | provisional | 1 | 0 |
@@ -11250,23 +11359,23 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Unmapped blocks (22)
+## Unmapped blocks (21)
 
 Scope triage (Sections 16.4, 17); an unrecorded block is undecided, not
 assumed worth formalizing.
 
 | disposition | count |
 |---|---|
-| worth-formalizing | 7 |
+| worth-formalizing | 6 |
 | deferred | 15 |
 | out-of-scope | 0 |
 | undecided | 0 |
 
-### Open obligations (22)
+### Open obligations (21)
 
 Unmapped blocks not marked `out-of-scope`.
 
-`B-A001`, `B-C003`, `B-C006`, `B-C011`, `B-C012`, `B-C013`, `B-P001`, `B-P006`, `B-P010`, `B-P036`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
+`B-A001`, `B-C003`, `B-C011`, `B-C012`, `B-C013`, `B-P001`, `B-P006`, `B-P010`, `B-P036`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R016`, `B-R019`, `B-R024`, `B-R025`, `B-R026`, `B-R027`, `B-X001`, `B-X002`
 
 ## Open author decisions
 

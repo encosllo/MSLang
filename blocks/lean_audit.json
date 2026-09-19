@@ -343,6 +343,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.congruenceFormations_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.congruenceFormations_isGLB_sInf": [
       "Classical.choice",
       "Quot.sound",
@@ -964,7 +969,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 325,
+  "declarations_audited": 326,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

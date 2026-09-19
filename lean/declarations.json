@@ -800,6 +800,12 @@
       ],
       "file": "lean/Mslang/Formation.lean"
     },
+    "B-C006": {
+      "decls": [
+        "Mslang.congruenceFormations_isAlgebraicLattice"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
     "B-P032": {
       "decls": [
         "Mslang.isFiniteIndex_ker_of_finite",
