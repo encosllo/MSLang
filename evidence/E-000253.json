@@ -1,0 +1,36 @@
+{
+  "block": "B-R026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000253",
+  "findings": [
+    "B-R026: an algebra of finite support can have an infinite regular language. Witness in Regular.lean: the one-sort algebra on N with the empty signature; L = A is regular (Omega^A(A) = nabla, finite index via isFiniteIndex_nabla) and infinite (L = univ at N). New: exists_regular_infinite_language. lean_audit: 366 declarations, 0 warnings, 0 unpermitted, 0 sorry."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R026/formal_proof",
+      "hash": "6ec3165d96614cc8ea770eca0b59b78bda4488b2f3e8a04ed28bcb0db76d7c72"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T19:11:53Z"
+}

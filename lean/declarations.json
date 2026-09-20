@@ -911,6 +911,10 @@
     "B-P036": {
       "decl": "Mslang.regularLanguageFormations_completeLattice",
       "file": "lean/Mslang/Regular.lean"
+    },
+    "B-R026": {
+      "decl": "Mslang.exists_regular_infinite_language",
+      "file": "lean/Mslang/Regular.lean"
     }
   }
 }

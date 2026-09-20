@@ -145,6 +145,49 @@ theorem congFi_nonempty_of_finite_sorts {S : Type u} (Sig : Signature S) [Finite
     (A : Alg Sig) : (congFi Sig A.2).Nonempty :=
   (congFi_nonempty_iff Sig A).mpr (Set.finite_univ.subset (Set.subset_univ _))
 
+/-! ### `B-R026`: a finite-support algebra can have an infinite regular language. -/
+
+/-- The empty signature on one sort. -/
+private abbrev r026Sig : Signature PUnit.{1} := fun _ => PEmpty.{1}
+
+/-- The one-sort carrier, constantly `ℕ`. -/
+private abbrev r026Carrier : SSet PUnit.{1} := fun _ => ℕ
+
+/-- The one-sort algebra with carrier `ℕ` and no operations. -/
+private abbrev r026A : Alg r026Sig := ⟨r026Carrier, fun _ e => e.elim⟩
+
+/-- `B-R026`: an algebra of finite support can have a regular language that is
+not finite. Witness: the one-sort algebra on `ℕ` with the empty signature (its
+support is the single sort, hence finite); the full language `L = A` is regular
+because `Ω^A(A) = ∇^A` has finite index, and `L` is infinite. -/
+theorem exists_regular_infinite_language :
+    ∃ (S : Type) (Sig : Signature S) (A : Alg Sig) (L : Sub A.1),
+      (supp A.1).Finite ∧ IsRegularLanguage Sig A L ∧ ¬ FiniteSub L := by
+  have hsupp : (supp r026Carrier).Finite := by
+    rw [show supp r026Carrier = Set.univ by
+      ext s
+      exact ⟨fun _ => trivial, fun _ => ⟨(0 : ℕ)⟩⟩]
+    exact Set.finite_univ
+  refine ⟨PUnit.{1}, r026Sig, r026A, (fun _ => Set.univ), hsupp, ?_, ?_⟩
+  · unfold IsRegularLanguage
+    have hcong : congCogenerated r026Sig r026A (fun _ => Set.univ) = nabla r026A.1 := by
+      funext t
+      apply Setoid.ext
+      intro x y
+      unfold congCogenerated
+      simp [Set.mem_univ]
+    rw [hcong]
+    exact isFiniteIndex_nabla r026A.1 hsupp
+  · intro h
+    haveI : Finite (Sigma (fun s : PUnit.{1} =>
+        {b : ℕ // b ∈ (fun _ => Set.univ) s})) := h
+    have hinj : Function.Injective
+        (fun n : ℕ => (⟨PUnit.unit, ⟨n, Set.mem_univ n⟩⟩ :
+          Sigma (fun s : PUnit.{1} => {b : ℕ // b ∈ (fun _ => Set.univ) s}))) :=
+      fun m n hmn => congrArg (fun z => z.2.1) hmn
+    have hfin : Finite ℕ := Finite.of_injective _ hinj
+    exact (not_finite_iff_infinite.mpr (inferInstance : Infinite ℕ)) hfin
+
 /-- `IsFiniteIndex` is up-closed under refinement. -/
 theorem IsFiniteIndex_of_le {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
     (h : sortedEqvLe Φ Ψ) (hΦ : IsFiniteIndex Φ) : IsFiniteIndex Ψ := by

@@ -5675,6 +5675,42 @@ layers; inherits the pilot-encoding residuals (`carrier-model`, `small-large`,
 
 ---
 
+## Session 116 -- 2026-09-20 -- B-R026 (an infinite regular language)
+
+**Goal.** Author-directed: formalize `B-R026`, the last content-bearing deferred
+block.
+
+**What was established (closed, and mapped).**
+
+- `B-R026` in `Regular.lean`: `exists_regular_infinite_language`, with the
+  concrete witness (one sort `PUnit`, the empty signature, carrier `ℕ`, and
+  `L = A`). `supp(A)` is the single sort (finite); `Ω^A(A) = ∇^A` has finite
+  index (`isFiniteIndex_nabla`), so `L` is regular; and `L = A` is infinite.
+  Evidence `E-000253` / `E-000254` (correspondence **`equivalent`**).
+- `lean_audit`: **366 declarations** (was 365), 0 warnings, 0 unpermitted, 0
+  `sorry`. Fast gate **40 passed, 0 failed**; slow gate **43 passed, 0 failed**.
+  Journal `EV-000124`. Frontier unmapped **8 → 7**.
+
+**Frontier now.** The 7 unmapped blocks are all content-free meta/future-work
+remarks (`B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`) plus
+`B-C003` (the adjunction, needing category-theoretic infrastructure).
+
+**Honest caveats.** Same-model audit (`deepseek-v4.1-flash`); `provisional`
+layers; inherits the pilot-encoding residuals (`carrier-model`, `small-large`,
+`univalence-missing`). The witness lives at universe 0 (`S = PUnit`, carrier
+`ℕ`); the contract's existence claim is universe-agnostic.
+
+**Prioritized next steps.**
+
+1. Author: the `B-P001` representation decision (Session 114 brief); the
+   `B-C003` scope decision.
+2. The frontier is now exhausted of content-bearing blocks: the remaining 7 are
+   meta-remarks with no formal content, or the category-theoretic `B-C003`.
+3. Independent representation audit; a second model for the calibration suite; a
+   `light` treatment-tier pass to clear `provisional` layers.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

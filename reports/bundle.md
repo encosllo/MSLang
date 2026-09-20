@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `d298461334ff635d4a5d92a9dcf857a7b252b2c4900164b655f1bc22372e809e` |
-| `blocks/formal_graph.json` | `132c4ad2664504de136439d2090284a436b0e645aa704b62754a61de26843958` |
+| `blocks/formal.json` | `eeb3d20ac4154b435a30398505a5afd2bd6baee77dd55ad5d2115a1ba3464901` |
+| `blocks/formal_graph.json` | `dbcbd6d851c893171e401bde72a51b7c86bfa5a9d0359f687c09bff959e08b6a` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
-| `blocks/lean_audit.json` | `ccd3408978f5931c531efae22a1cf63faabda4f7fb3111c1e2900cf98ade84dc` |
+| `blocks/lean_audit.json` | `f3cb72d46e565209f4dff8a130c470d1835445b886faf9b396d5bcad05d034ad` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
@@ -278,7 +278,9 @@ repository.
 | `evidence/E-000250.json` | `a7d87105b5dff3f93732fbde4d63e46e65d90d816699c61d546ad6a5759a23dc` |
 | `evidence/E-000251.json` | `5090efa429e32cb93b095e609a8a0bb18abc638652ce321b118717f747bc45a8` |
 | `evidence/E-000252.json` | `f989136b478eaa4e48517320ed7d0401ba66fcb54eb5b08b7baecdfe4173d745` |
-| `journal/events.jsonl` | `8e330a366619a33436b4023387eca51eb69a6d3792bf35a45ddb934d4a6e245d` |
+| `evidence/E-000253.json` | `151c382b665ed62408e5b472148e3ade43e929c91770bafb5195e8d76a1f90f9` |
+| `evidence/E-000254.json` | `e7304b2f174c0d5d16b24047016f8ff58dc8c736dcadd5cde2f8a9b69e6c2c99` |
+| `journal/events.jsonl` | `ae8c4f8e7898e18de20a60a85d75ea7f707ae3f7b7be236bcf18fba9f2c1f6a6` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
@@ -484,6 +486,8 @@ repository.
 | `B-R023` | verification | pass | 1 | 0 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |
+| `B-R026` | correspondence | provisional | 1 | 0 |
+| `B-R026` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | fail | 1 | 0 |
 | `B-X001` | verification | provisional | 1 | 0 |
 | `B-X002` | correspondence | provisional | 1 | 0 |
@@ -11644,6 +11648,100 @@ repository.
 }
 ```
 
+### E-000253
+
+```json
+{
+  "block": "B-R026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000253",
+  "findings": [
+    "B-R026: an algebra of finite support can have an infinite regular language. Witness in Regular.lean: the one-sort algebra on N with the empty signature; L = A is regular (Omega^A(A) = nabla, finite index via isFiniteIndex_nabla) and infinite (L = univ at N). New: exists_regular_infinite_language. lean_audit: 366 declarations, 0 warnings, 0 unpermitted, 0 sorry."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R026/formal_proof",
+      "hash": "6ec3165d96614cc8ea770eca0b59b78bda4488b2f3e8a04ed28bcb0db76d7c72"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T19:11:53Z"
+}
+```
+
+### E-000254
+
+```json
+{
+  "block": "B-R026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000254",
+  "findings": [
+    "Stage 2 returned equivalent: the contract is an existence claim ('L can be regular and not finite'); the read-back's existential over S, Sigma, A, L with finite support, regularity (finite-index Omega^A(L)), and infinitude (not FiniteSub) is exactly that witness. Transcript blocks/audits/B-R026-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R026/definition_closure",
+      "hash": "02ff84fb17e28d37d2fe0409dedf26eae9e4374be0569817686f2b2d036e37c0"
+    },
+    {
+      "artifact": "B-R026/formal_statement",
+      "hash": "8de0684c9f22311338abe372d833afe8ac0d59eea774ac75c8b0bcda76f4013a"
+    },
+    {
+      "artifact": "B-R026/informal_statement",
+      "hash": "90a5fbcd492f0fb0b1ea5df236c737c725f0541ff39d7f8fa47cea501458f428"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T19:11:53Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -11654,8 +11752,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 129
-- Blocks with any evidence: 122
-- Evidence records: 252
+- Blocks with any evidence: 123
+- Evidence records: 254
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -11787,11 +11885,12 @@ assertion).
 | `B-R022` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R023` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R024` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
+| `B-R026` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-X001` | examples | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | fail | provisional | none | - |
 | `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
-7 block(s) have no evidence.
+6 block(s) have no evidence.
 
 ## reports/trust_boundary.md
 
@@ -11901,9 +12000,9 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P008`, `B-P009`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-X001`, `B-X002`
+Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P008`, `B-P009`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R026`, `B-X001`, `B-X002`
 
-## Undecided edges (614)
+## Undecided edges (621)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -12468,6 +12567,13 @@ the review queue.
 | `B-R024` | `B-D009` |
 | `B-R024` | `B-D016` |
 | `B-R024` | `B-D027` |
+| `B-R026` | `B-D005` |
+| `B-R026` | `B-D008` |
+| `B-R026` | `B-D009` |
+| `B-R026` | `B-D016` |
+| `B-R026` | `B-D038` |
+| `B-R026` | `B-D044` |
+| `B-R026` | `B-P031` |
 | `B-X001` | `B-D005` |
 | `B-X001` | `B-D007` |
 | `B-X001` | `B-D008` |
@@ -12768,6 +12874,8 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R021` | correspondence | provisional | 1 | 0 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |
+| `B-R026` | correspondence | provisional | 1 | 0 |
+| `B-R026` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | fail | 1 | 0 |
 | `B-X001` | verification | provisional | 1 | 0 |
 | `B-X002` | correspondence | provisional | 1 | 0 |
@@ -12780,7 +12888,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|
 | _none_ | |
 
-## Unmapped blocks (8)
+## Unmapped blocks (7)
 
 Scope triage (Sections 16.4, 17); an unrecorded block is undecided, not
 assumed worth formalizing.
@@ -12788,15 +12896,15 @@ assumed worth formalizing.
 | disposition | count |
 |---|---|
 | worth-formalizing | 0 |
-| deferred | 8 |
+| deferred | 7 |
 | out-of-scope | 0 |
 | undecided | 0 |
 
-### Open obligations (8)
+### Open obligations (7)
 
 Unmapped blocks not marked `out-of-scope`.
 
-`B-C003`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R026`, `B-R027`
+`B-C003`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`
 
 ## Open author decisions
 

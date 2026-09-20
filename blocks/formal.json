@@ -4532,6 +4532,37 @@
         "hash": "7b4438fd7263bfc256092996a0aabba298c67358088da669410ff037a4bac4ef"
       }
     },
+    "B-R026": {
+      "decls": [
+        "Mslang.exists_regular_infinite_language"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.FiniteSSet",
+          "Mslang.FiniteSub",
+          "Mslang.IsElemTranslation",
+          "Mslang.IsFiniteIndex",
+          "Mslang.IsRegularLanguage",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.TlGen",
+          "Mslang.congCogenerated",
+          "Mslang.isFiniteIndex_nabla",
+          "Mslang.quot",
+          "Mslang.supp"
+        ],
+        "hash": "02ff84fb17e28d37d2fe0409dedf26eae9e4374be0569817686f2b2d036e37c0"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "6ec3165d96614cc8ea770eca0b59b78bda4488b2f3e8a04ed28bcb0db76d7c72"
+      },
+      "formal_statement": {
+        "hash": "8de0684c9f22311338abe372d833afe8ac0d59eea774ac75c8b0bcda76f4013a"
+      }
+    },
     "B-X001": {
       "decls": [
         "Mslang.IsCyclicSub",

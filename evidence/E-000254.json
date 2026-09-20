@@ -1,0 +1,48 @@
+{
+  "block": "B-R026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000254",
+  "findings": [
+    "Stage 2 returned equivalent: the contract is an existence claim ('L can be regular and not finite'); the read-back's existential over S, Sigma, A, L with finite support, regularity (finite-index Omega^A(L)), and infinitude (not FiniteSub) is exactly that witness. Transcript blocks/audits/B-R026-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R026/definition_closure",
+      "hash": "02ff84fb17e28d37d2fe0409dedf26eae9e4374be0569817686f2b2d036e37c0"
+    },
+    {
+      "artifact": "B-R026/formal_statement",
+      "hash": "8de0684c9f22311338abe372d833afe8ac0d59eea774ac75c8b0bcda76f4013a"
+    },
+    {
+      "artifact": "B-R026/informal_statement",
+      "hash": "90a5fbcd492f0fb0b1ea5df236c737c725f0541ff39d7f8fa47cea501458f428"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T19:11:53Z"
+}
