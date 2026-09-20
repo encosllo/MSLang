@@ -3,7 +3,7 @@
 Operational rules for working in this repo. They exist to keep sessions fast.
 `STATE.md` (its safe-restart checklist) remains the ground-truth process; this
 file is the operational restatement of `Architecture.md` Section 15.6
-(Revision 4), which is the normative source for the Lean-gate cost model.
+(Revision 6), which is the normative source for the Lean-gate cost model.
 
 ## Rules
 

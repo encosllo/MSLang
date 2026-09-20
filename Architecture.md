@@ -1,21 +1,32 @@
 # Architecture: Concurrent Mathematical Development and Formal Verification (Local-First)
 
-> **Status: normative, revision 2 (pilot-hardened).** This is the single
+> **Status: normative, revision 6 (program-complete).** This is the single
 > normative specification. `Consolidated.md` is a superseded summary retained
 > only for history; where the two differ, this document governs.
 >
-> Revision 2 folds in what was learned by running revision 1 end to end on a
-> real pilot. The substantive additions are: the formal *representation* is an
-> audited artifact with its own layer (Section 11.5); evidence inputs are
-> computed from the dependency graph rather than authored (Sections 7.2,
-> 12.3); dependency extraction is strengthened by symbol usage and prose-name
-> detection (Section 12.1); Lean statement and proof facets are hashed
-> separately so proof irrelevance holds on the formal side too (Sections 6,
-> 13.1); reconstructing informal proofs from formal ones is a first-class
-> deliverable (Section 11a.5); process intensity is tiered so the default path
-> is light (Sections 6, 17.2); and model diversity is scheduled rather than
-> merely disclosed (Sections 9, 11.4). A running change log is at the end
-> (Section 25).
+> Revisions 2-5 folded in what was learned by running the architecture end to
+> end: an audited *representation* layer (Section 11.5), computed evidence
+> closures (Sections 7.2, 12.3), symbol/prose dependency extraction (Section
+> 12.1), separately hashed Lean statement/proof facets (Sections 6, 13.1),
+> proof reconstruction as a first-class deliverable (Section 11a.5), tiered
+> scrutiny (Sections 6, 17.2), computed independence and `provisional` status
+> (Sections 8.1, 9), the mechanical Lean gate and its cost model (Section
+> 15.6), and the tiered fast/slow gate (Sections 13.3, 21).
+>
+> **Revision 6 records the completed run.** The architecture was carried from
+> bootstrap to an exhausted formalization frontier on a published
+> many-sorted universal-algebra manuscript (the first and second Eilenberg
+> theorems) in about 116 sessions: 122 of 129 blocks mapped, 366 audited Lean
+> declarations, 254 evidence records, all three designated headline theorems
+> formalized, and every content-bearing deferred block discharged. Revision 6
+> adds no new mechanism; it adds **Section 25, "Field notes from the completed
+> formalization"**, which states the end state, the caveats the run could not
+> remove (chief among them: with one available model every audit is
+> `same_model` and every positive layer is `provisional`), the findings the
+> run produced about the mathematics, the carrier-model tension that is the
+> document's deepest lesson, and the operational lessons to carry forward.
+> Sections 1, 21, 22, and 24 are updated for completion. A running change log
+> is at the end (Section 26).
 
 ## 1. Executive Summary
 
@@ -69,6 +80,22 @@ last two added by running the first five on a real pilot:
    evidence record cannot silently omit a dependency (Sections 7.2, 12.3); and
    the default treatment is light, with full adversarial treatment reserved
    for a small cabinet of load-bearing blocks (Sections 6, 17.2).
+
+**The architecture has been run to completion once.** On a published
+many-sorted universal-algebra manuscript (the first and second Eilenberg
+theorems), the workspace went from bootstrap to an exhausted formalization
+frontier: all three headline theorems formalized, every content-bearing
+deferred block discharged, a clean, `sorry`-free, axiom-audited Lean
+development of 366 declarations, and a complete evidence trail. The
+mechanisms that carried the most weight were typed correspondence (which
+caught the two paper-level findings), the representation audit (which
+produced the project's largest caveat), and computed closures (which made
+re-baselines mechanical rather than error-prone). The one guarantee the run
+could not establish is *independence*: with a single available model, every
+audit is `same_model` and every positive layer reports `provisional` rather
+than `pass`. Section 25 records the full end state, the caveats, and the
+lessons; it is the section to read first if the goal is to plan a future
+project rather than to understand the mechanisms.
 
 ## 2. Problem and Motivation
 
@@ -228,7 +255,11 @@ own content hash, and is audited against the paper's foundation (Section 11.5),
 because a statement audit is only meaningful *relative to an accepted
 representation*. A single encoding choice can silently determine the outcome
 of many statement audits; that is why it is audited once, centrally, rather
-than rediscovered block by block.
+than rediscovered block by block. In the completed run the representation was
+audited once and returned `faithful-with-caveat` with three residuals
+(`carrier-model`, `small-large`, `univalence-missing`), propagated into the
+trust boundary of every covered block; Section 25.4 explains why that residual
+is structural rather than a defect to be fixed.
 
 **Closure.** The set of artifacts an evidence record actually examined,
 computed from the dependency graph (Section 12.3): a block's own relevant
@@ -641,10 +672,11 @@ The pilot's layout, coarse to fine along the dependency chain, with the umbrella
 | `Mslang/Congruence.lean` | congruences and the quotient `Σ`-algebra (`B-D024`, `B-D025`, `B-P009`) |
 | `Mslang/Subfinal.lean` | the final algebra `1`, algebra isomorphisms, the subfinal results (`B-D023`, `B-P008`, `B-R011`, `B-R012`) |
 | `Mslang/Free.lean` | `Σ`-rows `W_Σ(X)` (`B-D026`) and the row presentation of the free `Σ`-algebra (`genSet`, `TAlg`, `etaX`) |
-| `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor, adopted as the free-algebra encoding of `B-D027`: the free universal property (`B-P011`), projectivity (`term_projective`, `B-P012`), the evaluation onto an algebra (`termEval_surjective`, `B-P013`), and the comparison map `toT : Term_Σ(X) → T_Σ(X)` (surjective; injectivity is the open `B-P010`) |
+| `Mslang/Term.lean` | `Term_Σ(X)` as an inductive `Type` with a recursor, adopted as the free-algebra encoding of `B-D027`: the free universal property (`B-P011`), projectivity (`term_projective`, `B-P012`), the evaluation onto an algebra (`termEval_surjective`, `B-P013`), and the comparison map `toT : Term_Σ(X) → T_Σ(X)` — surjective, and injective by `B-P010` (unique parsing), proved with a fuel-bounded parser in the same module |
 | `Mslang/Formation.lean` | monomorphisms/epimorphisms and subdirect products (`B-D028`), formations of congruences (`B-D030`) and of algebras (`B-D032`, `B-D033`), `Form_Alg(Σ)` as an algebraic closure system (`B-P018`), `𝔉_F` (`B-P019`) and `F_𝔉` (`B-P015`), and the `B-P020` isomorphism `Form_Alg(Σ) ≃o Form_Cgr(Σ)` |
 | `Mslang/Translation.lean` | elementary translations and translations (`B-D035`, `B-D036`), the actions `T[·]`/`T⁻¹[·]` and the cogenerated congruence (`B-D037`, `B-D038`), and the congruence characterization (`B-P021`) |
-| `Mslang/Regular.lean` | the second Eilenberg theorem layer: finite-index congruences (`B-D040`, `B-D041`), finite algebras (`B-D042`, `B-D043`), regular languages (`B-D044`), `Cgr_fi(A)` as a filter (`B-P031`), the language formation `L_𝔉` (`B-P030`), and `Form_Alg_f(Σ) ≃o Form_Cgr_fi(Σ)` (`B-P034`) |
+| `Mslang/Regular.lean` | the second Eilenberg theorem layer: finite-index congruences (`B-D040`, `B-D041`), finite algebras (`B-D042`, `B-D043`), regular languages (`B-D044`), `Cgr_fi(A)` as a filter (`B-P031`), the language formation `L_𝔉` (`B-P030`), `Form_Alg_f(Σ) ≃o Form_Cgr_fi(Σ)` (`B-P034`), `Form_Cgr_fi(Σ) ≃o Form_Lang_r(Σ)` (`B-P039`), the algebraic-lattice results (`B-C011`–`B-C013`), the CABA on `Φ-Sat(A)` (`B-P006`), and the periodic-algebra and infinite-regular-language examples (`B-X001`, `B-X002`, `B-R026`) |
+| `Mslang/Sanity.lean` | the Section 11.3 formal sanity checks on a concrete two-sort model: non-vacuity, a convention check, and a negation probe |
 
 Modules are per *dependency layer*, not per block: coarse enough to avoid import
 churn, fine enough that frontier edits stay local. Splitting a module is itself
@@ -907,6 +939,131 @@ after the fact and cheap to prevent before it.
     safe-restart checklist once, at the start, rather than leaving it to be
     reconstructed from memory the first time something breaks.
 
+### 10.7 The Toolchain (Script Inventory)
+
+The workspace is driven by a set of small, single-purpose scripts under
+`scripts/`. Each is deterministic, and each writer is idempotent (a re-run
+produces byte-identical output or a `--check` drift failure). This subsection
+is the map of the toolchain: what each script is for, what it reads and writes,
+and where it sits in the pipeline. The scripts are grouped by pipeline stage;
+the canonical regeneration order and the gate are at the end. Most scripts are
+exercised by `check_all.sh` (Section 10.8) directly or through a `*_test.py`
+sibling; the few that are not (`closure.py`, `evidence.py`, and the one-shot
+bootstrap/hook scripts) are either covered by the tests of the scripts that
+consume their output or are run once at bootstrap, and none of them is run "by
+hand and trusted" for a fact the gate could derive.
+
+**Environment and build.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `env.sh` | Pins the project environment: `ELAN_HOME`, `MATHLIB_CACHE_DIR`, `LEAN_VERSION` (`v4.33.1`), `MATHLIB_REV` (`0df444a…`), and the manuscript `TEXINPUTS`/`BIBINPUTS`. Sourced by every other shell script. | Reads nothing; exports only. |
+| `build_manuscript.sh` | Exit-code-checked `latexmk` wrapper (Section 13.3 item 3). Runs the non-ASCII scan first, then builds, then reports the numeric exit code - never the log text alone. | Reads `manuscript/MSEilenberg.tex`; writes `manuscript/MSEilenberg.pdf` and TeX byproducts (gitignored). |
+| `install_hooks.sh` | One-time `git config core.hooksPath scripts/hooks` and `chmod +x`. | Reads nothing; changes git config. |
+| `check_evidence_immutability.sh` | Rejects any staged `M`/`D`/`R`/`C` under `evidence/` (pure additions allowed). Standalone, or as the pre-commit hook. | Reads the git index. |
+| `hooks/pre-commit` | Thin wrapper that `exec`s the immutability check. | As above. |
+
+**Manuscript ingestion and hashing.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `ingest.py` | The TeX importer (Section 14). Parses the latin1 manuscript, builds the symbol registry and the confirmed block registry, and extracts the informal dependency graph (explicit, symbol, prose). | Reads `manuscript/MSEilenberg.tex`, `manuscript/MSEilenberg.aux`, `blocks/edge_decisions.json`, `blocks/explanations/`. Writes `reports/inventory.md`, `reports/gap_report.md`, `reports/pilot_candidates.md`, `blocks/registry.json`, `blocks/symbols.json`, `blocks/graph.json`, `blocks/notation.json`. `--check` for drift. |
+| `hash_blocks.py` | Anchor-based hasher (labels, `\blockid`, `\begin{proof}` pairs) for the manuscript. | Reads `manuscript/MSEilenberg.tex`; writes `blocks/hashes.json`. `--out`, `--check`. |
+| `nonascii_scan.py` | Flags valid UTF-8 sequences in the latin1 source (a silent-drop guard). | Reads a TeX file; exit code only. |
+| `check_crossrefs.py` | `--audit` reports undefined/unused `\ref`/`\cref` and cross-section refs; `--who NAME` prints a name's blast radius. | Reads the manuscript. |
+| `notation.py` | Stores and validates notation resolutions (ambiguous tokens to a chosen definition). | Reads/writes `blocks/notation.json`; `--check`. |
+
+**Formalization facets and the Lean gate.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `lean_facets.py` | Extracts each mapped declaration's signature, proof, and transitive definition closure from Lean source, normalizes, and hashes. | Reads `lean/declarations.json` and the Lean sources; writes `blocks/formal.json`, `blocks/formal_graph.json`. `--check`. |
+| `lean_audit.py` | The mechanical Lean gate (Section 15.6): one `lake build` with the full diagnostic stream, `#print axioms` for every mapped declaration against the permitted set, and a project-wide `sorry` scan. | Reads `lean/declarations.json`; writes `blocks/lean_audit.json`. `--check` verifies the stored artifact; `--skip-build` is a mid-edit probe that fails `--check`. |
+
+**Evidence engine.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `closure.py` | Computes an evidence record's input closure (Section 12.3): the layer's own facets plus the transitive *statement* closure, keyed on declaration identity, plus the representation hash. Fail-closed. | Reads `blocks/registry.json`, `blocks/formal.json`, `blocks/graph.json`; prints the closure or a blocker. `--block`, `--layer`, `--representation`, `--include-unconfirmed`. |
+| `evidence.py` | Writes an evidence record whose inputs are computed by `closure.py`, validates it against the schema, and (only with `--write`) persists it as `evidence/E-XXXXXX.json`. Refuses to write when the closure is blocked. | Reads the registry/graph and the closure; writes `evidence/`. |
+| `status.py` | Derives, per block and layer, `none`/`in_progress`/`pass`/`fail`/`blocked`/`stale`/`provisional` by comparing each record's inputs to the current facet hashes. Never authors evidence. | Reads `evidence/` and the facets; prints. `--representation`, `--block`. |
+| `validate_records.py` | Dependency-free JSON-Schema-subset validator for `evidence/*.json` and `journal/events.jsonl` (no `jsonschema`/`PyYAML` dependency). `--self-test` exercises the rejection paths. | Reads `schemas/` and the records. |
+| `models.py` | The model registry and independence routing (Section 9): declares available models; routes independence-requiring stages to a second family where one exists; rejects an undeclared recorded model. | Reads/writes `calibration/models.json`; `--check`. |
+| `trust.py` | Propagates a representation audit's residuals to every covered block, reusing `status.record_is_current` so a stale audit fails the boundary closed. | Reads the representation records and `representation/coverage.json`. |
+| `tiers.py` | The treatment-tier store (`light`/`cabinet`), author-reserved. | Reads/writes `blocks/treatment_tiers.json`; `--check`. |
+
+**Audit and calibration.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `calibration.py` | Corpus self-check (controls equal their base read-back, mutations differ, ids unique), blind verdict ingestion, per-mutation-type detection rates and control false positives. | Reads `calibration/seeded.json`, `calibration/verdicts*.json`; writes `reports/calibration.md`. `--self-test`, `--check-baseline`, `--verdicts`, `--check-report`. |
+| `mutations.py` | Named, deterministic mutation operators used to generate the calibration corpus. | Library; imported by `calibration.py`. |
+
+**Dependency, propagation, and ranking.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `impact.py` | Non-destructive change-impact analysis: simulate a facet change in memory, apply the validity rule to the committed evidence, and report the records that would go stale and the transitive downstream users. | Reads the graph, formal graph, and evidence; writes `reports/impact.md`. `--artifact`, `--report`/`--check-report`. |
+| `discrepancy.py` | The informal-vs-formal dependency-graph diff (Section 12.2), with typed dispositions and a reviewer-notes section. | Reads `blocks/graph.json`, `blocks/formal_graph.json`, `blocks/discrepancy_decisions.json`, `blocks/discrepancy_notes.json`; writes `reports/discrepancy.md`. `--check-dispositions`, `--check-report`. |
+| `ranking.py` | Goal-directed PageRank ranking of the frontier, conditioned on the author's designated goal set. Advisory only; sets no scope or tier. | Reads the graph, `blocks/ranking.json`; writes `reports/ranking.md`. `--check`, `--check-report`. |
+
+**Views and reports.**
+
+| Script | Role | Reads / writes |
+|---|---|---|
+| `report.py` | Renders the per-layer status views: `reports/coverage.md`, `reports/trust_boundary.md`, `reports/staleness.md`. | Reads the registry, evidence, and coverage; `--check`. |
+| `bundle.py` | The self-contained third-party evidence bundle (Section 23): a sha256 manifest of the durable artifacts, the per-block status vector, the full evidence records, and the current views. | Reads everything durable; writes `reports/bundle.md`. `--check-report`. |
+| `frontier.py` | Open obligations across the project: layers not passing, open representation bridges, and the unmapped blocks grouped by scope disposition. | Reads the scope store, status, and trust; writes `reports/frontier.md`. `--check-report`. |
+| `decisions.py` | The author decision queue: standing reserved decisions merged with open journal `escalation_opened` events. | Reads `decisions/standing.json` and the journal; writes `reports/decisions.md`. `--check-report`. |
+| `scope.py` | The scope-disposition store for unmapped blocks (author-reserved). | Reads/writes `blocks/scope_decisions.json`. `--list`, `--check`, `set`. |
+| `reconcile.py` | The manuscript-reconciliation catalogue (Section 11a.5): formalization-produced proposals with an acceptance state. | Reads `reconciliation/proposals.json`; writes `reports/reconciliation.md`. `--check-report`. |
+| `sanity.py` | Reports the formal sanity checks (Section 11.3). | Reads `blocks/sanity.json` and the Lean sources; writes `reports/sanity.md`. `--check-report`. |
+
+**Tests.** Every non-test script has a `*_test.py` sibling that seeds the
+failure modes and asserts the mechanism catches them: `notation_test.py`,
+`ingest_test.py`, `hygiene_test.py`, `propagation_test.py`, `status_test.py`,
+`trust_test.py`, `models_test.py`, `lean_facets_test.py`, `lean_audit_test.py`,
+`calibration_test.py`, `impact_test.py`, `discrepancy_test.py`, `scope_test.py`,
+`tiers_test.py`, `decisions_test.py`, `reconcile_test.py`, `ranking_test.py`.
+They are all run by `check_all.sh`.
+
+**Canonical regeneration order.** Derived views have dependencies among
+themselves, so they must be regenerated in this order (the journal event is
+appended after the reports that do not embed it, and before the ones that do):
+
+```text
+report.py
+calibration.py --report
+impact.py --report
+discrepancy.py --report
+sanity.py --report
+frontier.py --report
+reconcile.py --report
+<journal event>
+decisions.py --report
+bundle.py            # always last: it embeds the journal and the other reports
+```
+
+### 10.8 The Gate (`check_all.sh`)
+
+One entry point, two tiers (Sections 13.3, 15.6, 21):
+
+- **`check_all.sh --fast`** runs every check that needs neither Lean
+  compilation nor a PDF build (40 checks, seconds). It prints the Lean audit
+  and the manuscript build as `DEFERRED`, never as passes, so a fast run can
+  never be mistaken for the artifact of record.
+- **`check_all.sh`** (no flag) is the full gate: the fast checks plus the Lean
+  audit tests, the mechanical Lean gate (`lean_audit.py --check`, which reloads
+  the Mathlib olean graph), and the manuscript build (43 checks). It is the
+  artifact of record and is run **once per session**, at close.
+
+Each check is a `PASS`/`FAIL` line; a failure prints only that check's captured
+output, so the reader fixes one thing rather than scanning a wall of logs. The
+gate exits non-zero if any check failed. The cost discipline behind the
+two-tier split - one `lean_audit.py` write and one full `check_all.sh` per
+session - is normative in Section 15.6 and restated operationally in
+`AGENTS.md`.
+
 ## 11. Correspondence Audit Protocol
 
 The audit is the most fragile part of the system, so it is specified in
@@ -1034,8 +1191,19 @@ statement audits that depend on it.
 
 Only `faithful` or `faithful-with-caveat` lets statement audits proceed; on
 `faithful-with-caveat` the caveat is propagated into every dependent block's
-trust boundary, so the compromise is visible where a reader will see it rather
-than buried in a source comment.
+trust boundary, so the compromise is visible where a reader will see it
+rather than buried in a source comment.
+
+**The completed run's encoding audit.** On the pilot the audit returned
+`faithful-with-caveat` with three residuals: `carrier-model` (dependent-type
+carriers have no fixed ambient, so arbitrary unions/intersections/differences
+of sorted sets are not expressible - the direct cause of `B-P001`'s
+`formal_weaker` verdict), `small-large` (universe/smallness bookkeeping), and
+`univalence-missing` (no univalence, so isomorphic types are not identified).
+It covered 15 blocks and is the single artifact a future representation change
+would have to re-audit first (class C6). The design brief for the one candidate
+revision is `representation/p001-representation-brief.md`; Section 25.4 states
+the general lesson.
 
 ## 11a. Informal Proof Audit Protocol
 
@@ -1859,7 +2027,20 @@ consistent while the dependencies and the encoding it records are wrong.
 | 4. Mechanical hygiene tooling | Automated hash resync, cross-reference blast-radius check, encoding scanner, exit-code-checked build script, and the tiered gate (fast per edit, full at session close) | Every edit runs the fast gate automatically; the full gate, including the Lean mechanical audit and the manuscript build, is the session-close artifact of record |
 | 5. Workspace and continuity | Side-by-side interface, project views, evidence bundles, `STATE.md`-style continuity file with a safe-restart checklist, treatment-tier scheduling (Section 17.2) | Evidence bundle for the pilot produced and usable by a third party; a new session can resume correctly from the continuity file alone |
 
-## 22. Success Criteria
+**Status: all five phases reached their exit criteria.** The pilot's evidence
+for each: Phase 0 - a representation record, an audited definition change
+propagated end to end, and two reconstructed-and-adversarially-read proofs
+(`B-C001`, `B-C002`); Phase 1 - re-ingestion preserves block identity,
+anchor-based hashing is line-shift stable, and the calibration suite is stood
+up; Phase 2 - seeded propagation tests pass for every class including C6, and
+closures fail closed; Phase 3 - all three audit protocols (statement, informal
+proof, encoding) are implemented and have produced verdicts; Phase 4 - the
+fast/slow tiered gate runs on every edit and at session close; Phase 5 - the
+evidence bundle is produced and a fresh session resumes from `STATE.md` alone.
+The two exit criteria the run did *not* fully satisfy are resource-bound, not
+design-bound: cross-model detection rates (no second model was available) and
+a per-mutation-type calibration `n` above one (the suite was never grown). Both
+are named in Section 25.3.
 
 The system is successful when, on the pilot:
 
@@ -1887,7 +2068,21 @@ The system is successful when, on the pilot:
     reconstructed from its formal counterpart, adversarial-read, and accepted
     (Section 11a.5).
 
-## 23. Expected Outcome
+**How the completed run scored.** Criteria 1, 2, 4-7, 9, and 11 were met
+outright: the journal plus git reconstruct any past state; seeded propagation
+tests pass; the coverage/trust/staleness views answer the per-block question at
+every moment; formalization produced accepted findings (the reconstructed
+proofs, the `B-P002` simplification, the `B-X001` gap); the local build is
+clean, `sorry`-free, and axiom-checked; a fresh session resumes from `STATE.md`
+and the records; computed closures match the reviewed closures; and two
+reconstructed proofs were accepted. Criterion 3 is met only in the weak sense
+the architecture already flags: detection rates exist and are reported, but at
+`n = 1` per mutation type and with no cross-model pair. Criterion 10 is met
+with a visible caveat: the representation passed its audit as
+`faithful-with-caveat`, and the residual is propagated to the trust boundary of
+every covered block rather than hidden. Criterion 8 (author overhead judged
+acceptable) is an author judgment; the decision queue was emptied and no
+escalation was left open at the end, which is the system-side proxy for it.
 
 The author supplies a manuscript and a research direction. The system
 returns:
@@ -1950,7 +2145,305 @@ tooling, with no dependency on any external platform.
     splitting or merging a block) still leak into content hashes (Section
     13.2)?
 
-## 25. Change Log
+**Resolved by the completed run.** Questions 1 and 2 are project-specific and
+were settled at bootstrap (the manuscript and pilot were chosen). Question 4
+was *not* resolved - no second model was ever available, so the correlation of
+errors between same-model agents remains unmeasured; this is the run's largest
+open question (Section 25.3, item 1). Question 8 was resolved in the negative
+for the hard cases: `faithful-with-caveat` is the honest steady state for a
+set-theoretic paper in a type-theoretic prover, and the residual is structural
+(Section 25.4). Question 11 remains open and is the named target state
+(source-level facets were never replaced by elaborated ones). Question 12 was
+resolved: declaration-keyed closures make remaps free, and the only residual
+leak is a genuine post-hoc declaration *addition* to an already-verified block,
+which is handled by the same-session re-issue rule (Section 13.3, item 4).
+Questions 3, 5, 6, 7, 9, and 10 remain open but were not blocking.
+
+**Raised by the completed run.** (13) Should the carrier model be chosen
+against a *staged* subobject presentation from the start, so the
+union-vs-quotient tension is resolved before the first block rather than at a
+C6 revision (Section 25.4)? (14) Can the empty-product edge of a
+formation-closure claim be checked mechanically as part of the closure test
+suite, given that it silently changed the truth value of `B-X001`? (15) Is
+there a cheap way to detect the same-model `provisional` ceiling early enough
+that a project does not accumulate a large body of evidence that is structurally
+incapable of exceeding it?
+
+## 25. Field Notes from the Completed Formalization
+
+This section is the empirical counterweight to the normative sections above. It
+records what happened when the whole architecture was run to completion on one
+real manuscript, so that a future project can plan against evidence rather than
+intent. Nothing here overrides Sections 1-24; where a mechanism behaved
+differently from its specification, the divergence is named rather than hidden.
+Read this section as the answer to "we built it once, start to finish - what
+should the next person know?"
+
+### 25.1 The end state
+
+The pilot manuscript (many-sorted universal algebra; the first and second
+Eilenberg theorems) was carried from bootstrap to an exhausted formalization
+frontier in about 116 recorded sessions. At the final commit:
+
+| Quantity | Value |
+|---|---|
+| Confirmed blocks in the registry | 129 |
+| Blocks mapped to Lean declarations | 122 |
+| Unmapped blocks (all content-free meta-remarks, or category-theoretic) | 7 |
+| Lean declarations audited (`blocks/lean_audit.json`) | 366 |
+| Evidence records | 254 (140 verification, 106 correspondence, 5 review, 3 representation) |
+| Journal events | 124 |
+| Lean warnings / unpermitted axioms / `sorry` | 0 / 0 / 0 |
+| Fast gate / slow gate | 40 / 43 checks, 0 failures |
+
+All three designated headline results were formalized and mapped: the first
+Eilenberg theorem (`B-P020`, `Form_Alg(Σ) ≃o Form_Cgr(Σ)`) and both halves of
+the second (`B-P034`, `Form_Alg_f(Σ) ≃o Form_Cgr_fi(Σ)`; `B-P039`,
+`Form_Cgr_fi(Σ) ≃o Form_Lang_r(Σ)`), together with the lattice results they
+depend on (`Form_Cgr(Σ)`, `Form_Alg(Σ)`, `Form_Alg_f(Σ)`, `Form_Cgr_fi(Σ)`,
+`Form_Lang_r(Σ)` are algebraic lattices; `Φ-Sat(A)` is a complete atomic
+Boolean algebra) and the formation, translation, free-algebra, and
+regular-language machinery underneath. The `worth-formalizing` frontier is
+empty; the only unmapped blocks are meta-remarks with no formal content and the
+one category-theoretic corollary (`B-C003`, the adjunction `T_Σ ⊣ G_Σ`) whose
+statement needs infrastructure the encoding does not provide.
+
+### 25.2 What the evidence model actually produced
+
+The mechanisms that carried weight, in rough order of value delivered:
+
+- **Typed correspondence caught the two genuinely important findings.** Both
+  are non-`equivalent` verdicts that a single "matches / does not match" flag
+  would have collapsed into one bucket. `B-P001` returned `formal_weaker`
+  because three of its clauses (the arbitrary union `supp(⋃ᵢ Aⁱ) = ⋃ᵢ supp(Aⁱ)`,
+  and the intersection/difference clauses for unrelated carriers) cannot even be
+  *stated* in the adopted encoding; `B-X001` returned `formal_weaker` because
+  the Lean proof needs `[Finite S]` that the manuscript does not state. The
+  type distinction (`formal_weaker` vs `incomparable` vs `ill_posed`) is what
+  told the author these were representation/statement findings rather than
+  ordinary proof gaps. All-time: 97 `equivalent`, 5 `formal_stronger`, 3
+  `formal_weaker`, 1 `incomparable` (the last resolved by a representation
+  change, below).
+- **The representation (encoding) audit is where the project's largest caveat
+  lives.** It ran once, returned `faithful-with-caveat`, and left three
+  residuals (`carrier-model`, `small-large`, `univalence-missing`) that are
+  propagated into the trust boundary of all 15 covered blocks. It is the audit
+  that would have to be redone first if the encoding ever changed (class C6).
+- **Computed closures and hash invalidation worked as specified.** A change to
+  a definition's statement or body propagated to exactly its formal dependents;
+  a proof rewrite staled only that block's verification; a declaration remap
+  (class C5) was free once the closure was keyed on declaration identity rather
+  than block membership. This was exercised by real re-baselines, not only
+  seeded tests.
+- **The discrepancy report produced a real mathematical finding.** An
+  informal-only edge `B-P002 -> B-D006` (the manuscript's converse proof builds
+  a test family with `δ^{s,[a]_{Ψ_s}}`) turned out to be a
+  formalization-produced *simplification*: the Lean proof uses a plain
+  singleton family and does not need `δ` at all. This is the Section 12.2
+  payoff - formalization improving the mathematics - appearing in practice.
+- **The reconstruction protocol produced proofs the manuscript did not have.**
+  Two omitted proofs (`B-C001`, `B-C002`) were reconstructed from their formal
+  counterparts and adversarially read; both are author-accepted and now in the
+  manuscript. The `B-C002` reconstruction also surfaced that the manuscript's
+  stated `Ψ`-saturation hypothesis is never used - a proof-redundant
+  hypothesis, recorded rather than silently dropped.
+- **The tiered gate and the cost model held.** No session ran `lake build` as a
+  standalone step after the discipline was adopted, and the fast/slow split kept
+  per-edit latency to seconds while the slow tier stayed the artifact of record.
+
+### 25.3 The caveats the run could not remove
+
+These are honest limitations, not backlog items. A future project should assume
+them and budget for them explicitly.
+
+1. **Same-model evidence is the dominant limitation.** Exactly one model
+   (`deepseek-v4.1-flash`) was ever registered in `calibration/models.json`, so
+   *every* correspondence, review, and encoding audit is `same_model`. Every
+   positive layer therefore reports `provisional`, never `pass` (Section 8.1);
+   the two-stage blind protocol buys context independence, not model
+   independence. This is the single largest gap between the architecture's
+   intent and the pilot's evidence, and it is a *resource* gap, not a design
+   defect: the moment a second model family is available, the routing in
+   Section 9 turns on and the same records would classify as `cross_model`.
+2. **The representation residual is structural, not a defect to be fixed.**
+   `B-P001`'s union/intersection/difference clauses are not expressible in the
+   dependent-type carrier model, and no amount of proof work changes that. The
+   gap is closed only by a representation revision (class C6), and Section 25.4
+   explains why that revision trades one set of residuals for another. Leaving
+   it recorded as `formal_weaker` is the honest steady state.
+3. **Formal facets are source-level, not elaborated.** `formal_statement`,
+   `definition_closure`, and `formal_proof` are hashes of declaration *text*,
+   normalized for whitespace and comments, not of the elaborated type or proof
+   term. This was stable under every edit that mattered (statement vs proof,
+   module moves, remaps), but it is not a canonical representation: two
+   surface-different but elaborator-identical statements hash differently.
+   Deriving facets from the elaborated environment remains the named target
+   state (Section 12.1, Section 24 item 11).
+4. **Calibration is n = 1 per mutation type.** The suite has 11 cases (4
+   controls, 7 mutations, one per type) and reports 7/7 detection with 0/4
+   control false positives - an initial point estimate, not a stable per-type
+   rate. Batching changed the *typed label* on 2 of 7 mutations while leaving
+   the detection rate unchanged, so the per-type labels are less stable than
+   the rate. Growing each type to n ≥ 3 is mechanical and was never done.
+5. **The empty-product edge of formation closure is easy to miss.** A formation
+   is closed under finite subdirect products *including the empty product*,
+   which is the final algebra `1`. This is exactly the edge that makes `B-X001`
+   fail for infinite `S` (Section 25.5), and it is worth checking deliberately
+   on any closure claim of the form "the algebras satisfying P form a
+   formation".
+
+### 25.4 The representation tension (the single deepest lesson)
+
+The project's hardest recurring decision was not a theorem; it was the carrier
+model. The paper's foundation is a Grothendieck universe `𝒰` with sorted sets
+as elements of `𝒰^S` - i.e. *subobjects of a fixed ambient*, on which
+componentwise union, intersection, and difference are immediate. The
+formalization adopted a **dependent-type carrier** (`SSet S := S → Type u`),
+which has no fixed ambient, because the fixed-ambient model cannot present
+quotients, products, and complements without leaving the object class (`1^S`
+becomes the whole ambient rather than a singleton; `A/Φ` is a set of classes,
+not a subset of the ambient).
+
+The two requirements pull in opposite directions:
+
+- **unions / intersections / differences** want a fixed ambient `U` and
+  `A : S → Set U`;
+- **quotients / products** want closure of the object class under
+  `Quotient` / `Π`, which in Lean raises the universe (`Set U : Type (u+1)`).
+
+A Grothendieck universe resolves this only because it is closed under powersets
+and quotients - a closure property Lean's universe polymorphism does not give
+for free. The pilot chose the dependent-type model (Session 29, class C6),
+accepting `B-P001`'s union gap in exchange for `R-delta`/`R-quotient`/
+`R-product`/`R-complement`; the alternative was tried first and produced an
+`incomparable` verdict on `B-D004` (`finalSorted = Set.univ` is not the paper's
+constant-singleton `1^S`). A design brief (`representation/p001-representation-brief.md`)
+records the four options and recommends a staged *subobject presentation* on top
+of the dependent-type primary - the only option that adds the missing operations
+without re-introducing the residuals the dependent-type model was chosen to fix.
+The general lesson: **choose the carrier model against the full set of
+operations the paper uses, not against the first few blocks**, because a C6
+revision stales every correspondence and review record (the one revision the
+pilot performed re-issued 13 verification and 2 review records and staled the
+7 correspondence records, and every later record binds to the new
+representation hash) and is never routine.
+
+### 25.5 Findings about the mathematics
+
+Formalization is most valuable as a falsification tool, and it produced a
+steady trickle of findings. The two paper-level ones are worth stating
+explicitly because they are the kind of result that justifies the whole
+exercise:
+
+- **`B-X001` is false as stated for infinite `S`.** The manuscript (Section 5)
+  claims the periodic `Σ`-algebras form a formation, before the later `[Finite
+  S]` assumption. The subdirect-product definition includes the empty product,
+  whose value is the final algebra `1`; `1` embeds subdirectly in itself, so
+  `1 ∈ P_fsd(F_p)` for any `F_p`, forcing `1 ∈ F_p`. But `1` need not be
+  periodic: with `S` infinite and operations `σ_n : () → n`, the cyclic
+  subalgebra `Sg_1(δ^{t,*})` reaches every sort and is infinite. The
+  formalization proves the true statement (under `[Finite S]`) and records the
+  gap as `formal_weaker`; the two-stage blind comparator independently
+  reproduced the counterexample.
+- **`B-P001`'s union/intersection/difference clauses are not expressible in the
+  encoding** (Section 25.4), a representation-level finding rather than a
+  mathematical error in the paper.
+
+Smaller findings, each recorded in the discrepancy report or a correspondence
+verdict: the manuscript's `B-P002` converse uses `δ` unnecessarily (a
+formalization-produced simplification); `B-C001` has a direct proof simpler
+than the manuscript's route through `B-P002`; `B-C002`'s second hypothesis is
+proof-redundant; and `B-D004`'s terminal object exposed the fixed-ambient
+carrier defect that drove the C6 revision.
+
+### 25.6 Operational lessons (Lean and tooling)
+
+Concrete, transferable lessons that cost real time to learn:
+
+- **Hand-trace before coding** (Section 16.2) is not advice; it is the
+  difference between one pass and several rolled-back attempts on novel
+  structural recursion. The hardest single proof in the pilot (unique parsing
+  of term rows, `B-P010`) was completed only after the mutual induction and its
+  fuel invariant were worked out on paper first.
+- **The Lean extractor must fail closed** (Section 12.1). It was hardened three
+  times, once per silent gap: a leading attribute line leaking into the previous
+  declaration's block, `noncomputable def` not matching the declaration regex,
+  and `inductive`/`structure` forms. Each was found only because a mapping
+  visibly failed; the regression tests exist because of these.
+- **Universe and finiteness plumbing is where Lean time goes, not mathematics.**
+  A concrete single-sort witness needs `PUnit.{u+1}` (not `PUnit.{u}`) to land
+  in `Type u`; `Finite (∀ i, β i)` comes from `Fintype.ofFinite`, not a
+  `Finite.pi`; a finite product of finite algebras needs an explicit
+  `Finite S` for the empty product; and dependent-`Sigma` equality is extracted
+  with `Sigma.mk.injEq` + `eq_of_heq`, not `cases`. None of these is
+  mathematically interesting, and all of them dominate wall-clock time.
+- **The cost model is process start-up, not work** (Section 15.6). Any `lake`
+  invocation that imports Mathlib reloads the whole olean graph (~2.5 min
+  measured), independent of how little changed. Batching commands and never
+  re-running a captured command is the highest-leverage operational rule.
+- **`formal_stronger` is a positive result worth recording, not noise.**
+  `B-P005` returned `formal_stronger` because the formal meet-inclusion holds
+  for every index type, dropping the manuscript's nonempty-index hypothesis.
+  Recording the typed divergence (rather than folding it into `equivalent`)
+  preserves exactly the information a reader needs.
+- **The decision-brief format** (Section 16.4) - keynote, artifact, consequences,
+  numbered options - was adopted after the first decision queue was presented as
+  a raw list, and it made author decisions fast and unambiguous.
+
+### 25.7 What a future project should carry forward
+
+A short, opinionated checklist distilled from the run, in priority order:
+
+1. **Secure a second model before starting the audit pipeline.** Everything
+   else in this document is cheap next to the fact that a single-model run can
+   never report more than `provisional`. Independence is a resource decision
+   made at project start, not a tooling feature added later.
+2. **Stand up the calibration suite and the encoding audit before the first
+   proof**, as the roadmap already says. The encoding audit is the highest
+   leverage and the hardest to retrofit; the calibration suite is what makes
+   "the audits detect mismatches" a measured claim.
+3. **Decide the carrier model against the paper's full operation set**, and
+   write the decision brief (Section 16.4) at the first non-`equivalent`
+   verdict rather than patching block by block.
+4. **Keep the declaration-keyed definition closure and the source-level facet
+   split.** They are what make module moves and remaps free; retrofitting them
+   after a long history is painful.
+5. **Treat the extractor as fail-closed from day one**, with a regression test
+   per supported declaration form, and derive facets from the elaborated
+   environment if the budget allows.
+6. **Budget one `lean_audit.py` write and one slow `check_all` per session**,
+   and narrate the session live (Section 16.1). These two habits kept a
+   116-session project resumable by a fresh context every time.
+
+## 26. Change Log
+
+### Revision 6 - program-complete
+
+Added after the architecture was run to completion on one manuscript, from
+bootstrap to an exhausted formalization frontier (~116 sessions). Revision 6
+adds no new mechanism; it records what the mechanisms produced and what they
+could not, so the document can serve as a plan for a future project rather than
+only as a specification. The substantive additions:
+
+- **Section 25, "Field notes from the completed formalization"**: the end-state
+  statistics; which mechanisms carried weight (typed correspondence, the
+  encoding audit, computed closures, the discrepancy report, proof
+  reconstruction); the five caveats the run could not remove (same-model
+  evidence and `provisional` status, the structural representation residual,
+  source-level facets, calibration at n = 1, the empty-product edge); the
+  carrier-model tension and the C6 cost; the paper-level findings (`B-X001`
+  false for infinite `S`, `B-P001` not expressible, `B-P002`'s unnecessary
+  `δ`); and the operational lessons (hand-trace first, fail-closed extraction,
+  universe plumbing, the process-start-up cost model).
+- **Status banner and roadmap/success criteria** updated to reflect completion
+  (Sections 1, 21, 22); **open questions** resolved or replaced by the concrete
+  ones the run raised (Section 24).
+- **Section 10.7, "The Toolchain (Script Inventory)"**: a detailed map of every
+  script under `scripts/` - environment and build, manuscript ingestion and
+  hashing, formalization facets and the Lean gate, the evidence engine, audit
+  and calibration, dependency/propagation/ranking, and the views - with what
+  each reads and writes; the canonical regeneration order; and **Section 10.8**,
+  the two-tier gate (`check_all.sh`).
 
 ### Revision 5 - evidence-hardened
 

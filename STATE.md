@@ -5771,12 +5771,16 @@ layers; inherits the pilot-encoding residuals (`carrier-model`, `small-large`,
     (Architecture.md Section 16.4): a plain-language keynote, the concrete
     artifact to audit, the consequences, and numbered options. Mechanical
     decisions are the coordinator's to take and report, never to escalate.
-12. `Architecture.md` is at **Revision 3 (frontier-hardened)** (Session 48,
-    `EV-000053`). Implemented since: the `§15.6` mechanical Lean gate
-    (`scripts/lean_audit.py` + `blocks/lean_audit.json`, in `check_all`), the
-    `§7.2`/`§8.1` supersession vocabulary, and the `§6`/`§12.3`
-    `definition_closure` facet split. All Revision 3 gaps are now built; keep
-    the sections as normative spec.
+12. `Architecture.md` is at **Revision 6 (program-complete)**. Revisions 3-5
+    built the `§15.6` mechanical Lean gate (`scripts/lean_audit.py` +
+    `blocks/lean_audit.json`, in `check_all`), the `§7.2`/`§8.1` supersession
+    vocabulary, the `§6`/`§12.3` `definition_closure` facet split, computed
+    independence and `provisional` status, and the tiered fast/slow gate.
+    Revision 6 adds `§25` "Field notes from the completed formalization": the
+    end state, the caveats (chiefly same-model evidence), the carrier-model
+    tension, the paper-level findings, and the operational lessons. Keep the
+    sections as normative spec; read `§25` first when planning a future
+    project.
 13. **Narrate the session as it runs** (`Architecture.md` §16.1; adopted by the
     author in Session 56, default level "step lines + rationale"): open with a
     banner (number, goal, numbered plan), emit a `step k/n: <action> -> <result>`
