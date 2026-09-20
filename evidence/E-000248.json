@@ -1,0 +1,48 @@
+{
+  "block": "B-X002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000248",
+  "findings": [
+    "Stage 2 returned equivalent: finite-index = finite total quotient carrier; quotienting preserves support, so Cgr_fi(A) nonempty iff supp(A) finite; the finite-S corollary matches the contract's 'therefore' clause. Transcript blocks/audits/B-X002-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-X002/definition_closure",
+      "hash": "1fc260d71e363be21fef238b9d1c936913e7dd0c9e9867174cc8353bc61aba81"
+    },
+    {
+      "artifact": "B-X002/formal_statement",
+      "hash": "1997687100e5bc52c44ff199b94da203517955523ef67c30600541f7676093fa"
+    },
+    {
+      "artifact": "B-X002/informal_statement",
+      "hash": "79921edf0932f6e16f9ff04db896700559a7a3665c42e2b248bd31aa5834673f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T18:36:50Z"
+}

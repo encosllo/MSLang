@@ -1,0 +1,36 @@
+{
+  "block": "B-R019",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000249",
+  "findings": [
+    "B-R019: the syntactic congruence is the cogenerated one. New in Translation.lean: syntacticCongruence_eq_congCogenerated (definitional, since B-D039 defines syntacticCongruence as an abbrev for congCogenerated). lean_audit: 365 declarations, 0 warnings, 0 unpermitted, 0 sorry."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R019/formal_proof",
+      "hash": "34c31cb1259b37cdb646886488474099af1444d454a9d92fa9c25ce911061dce"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T18:36:50Z"
+}

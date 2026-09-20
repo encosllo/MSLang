@@ -1,0 +1,48 @@
+{
+  "block": "B-P036",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000252",
+  "findings": [
+    "Stage 2 returned equivalent: the read-back asserts exactly a CompleteLattice instance on Form_Lang_r under [Finite S], the same content as the contract in the finite-index section; reusing a structure that also yields algebraicity (B-C013) does not change the completeness claim. Transcript blocks/audits/B-P036-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P036/definition_closure",
+      "hash": "1c5e7631bbab3206f2f30db3a8c603426d91cfb6c2ac4f8ab4fced2de1c1b5a5"
+    },
+    {
+      "artifact": "B-P036/formal_statement",
+      "hash": "4357145c38762a586f5eafbe69e9959f7d3805f4127073f3365caa9bbc6cf598"
+    },
+    {
+      "artifact": "B-P036/informal_statement",
+      "hash": "1d421719f7b83fd600224b60201e3df15390dbe1698351f82adf2ddf4805885c"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T18:36:50Z"
+}

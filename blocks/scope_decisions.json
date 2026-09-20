@@ -166,9 +166,9 @@
       "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
     },
     "B-P036": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "No-proof lattice statement, likely subsumed by the surrounding algebraic-lattice results; author scope triage Session 82."
+      "decided_by": "author:session115",
+      "disposition": "worth-formalizing",
+      "rationale": "Author re-tiered from deferred: content-bearing (B-X002: Cgr_fi nonempty iff finite support; B-R019: syntactic = cogenerated, definitional; B-P036: Form_Lang_r complete lattice, subsumed by B-C013); Session 115 author-directed."
     },
     "B-P037": {
       "decided_by": "author:session82",
@@ -211,9 +211,9 @@
       "rationale": "Author re-tiered from deferred: the subfinal algebras forming a formation is a real theorem, formalizable from subfinalAlg_iff; Session 114 author-directed long run."
     },
     "B-R019": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session115",
+      "disposition": "worth-formalizing",
+      "rationale": "Author re-tiered from deferred: content-bearing (B-X002: Cgr_fi nonempty iff finite support; B-R019: syntactic = cogenerated, definitional; B-P036: Form_Lang_r complete lattice, subsumed by B-C013); Session 115 author-directed."
     },
     "B-R022": {
       "decided_by": "author:session82",
@@ -246,9 +246,9 @@
       "rationale": "Author re-tiered from deferred: the periodic algebras forming a formation is a real theorem; formalized under [Finite S], which the empty product requires (Session 114 finding)."
     },
     "B-X002": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session115",
+      "disposition": "worth-formalizing",
+      "rationale": "Author re-tiered from deferred: content-bearing (B-X002: Cgr_fi nonempty iff finite support; B-R019: syntactic = cogenerated, definitional; B-P036: Form_Lang_r complete lattice, subsumed by B-C013); Session 115 author-directed."
     }
   },
   "note": "Scope dispositions for confirmed blocks with no Lean counterpart (Architecture.md Sections 16.4, 17, 19). Author-reserved: a disposition is set only by an author decision (decided_by must begin with 'author:'). A block absent here is undecided, not assumed worth formalizing. Allowed values: worth-formalizing, deferred, out-of-scope."

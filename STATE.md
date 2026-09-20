@@ -5632,6 +5632,49 @@ proposes no change; the representation revision remains author-reserved.
 
 ---
 
+## Session 115 -- 2026-09-20 -- B-X002, B-R019, B-P036 (content-bearing deferred batch)
+
+**Goal.** Author-directed: formalize the last three content-bearing deferred
+blocks. Author re-tiered them from `deferred` to `worth-formalizing`
+(`scope_decisions.json`, `author:session115`).
+
+**What was established (closed, and mapped).**
+
+- `B-X002` in `Regular.lean`: `congFi_nonempty_iff` (`Cgr_fi(A) ≠ ∅ ↔ supp(A)`
+  finite; forward via `supp_quot`/`finiteSSet_iff`, backward via
+  `nabla_isCongruence`/`isFiniteIndex_nabla`) and
+  `congFi_nonempty_of_finite_sorts` (`[Finite S]` ⇒ nonempty). Evidence
+  `E-000247` / `E-000248` (**`equivalent`**).
+- `B-R019` in `Translation.lean`:
+  `syntacticCongruence_eq_congCogenerated` (definitional, since `B-D039` names
+  `congCogenerated` the syntactic congruence). Evidence `E-000249` /
+  `E-000250` (**`equivalent`**).
+- `B-P036` in `Regular.lean`: `regularLanguageFormations_completeLattice`, the
+  `CompleteLattice` part of `B-C013` (which also gives algebraicity). Evidence
+  `E-000251` / `E-000252` (**`equivalent`**).
+- `lean_audit`: **365 declarations** (was 361), 0 warnings, 0 unpermitted, 0
+  `sorry`. Fast gate **40 passed, 0 failed**; slow gate **43 passed, 0 failed**.
+  Journal `EV-000123`. Frontier unmapped **11 → 8**.
+
+**Frontier now.** The 8 unmapped blocks are: content-free meta/future-work
+remarks (`B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`), the small
+`B-R026` (existence of an infinite regular language), and `B-C003` (the
+adjunction, needing category-theoretic infrastructure).
+
+**Honest caveats.** Same-model audit (`deepseek-v4.1-flash`); `provisional`
+layers; inherits the pilot-encoding residuals (`carrier-model`, `small-large`,
+`univalence-missing`).
+
+**Prioritized next steps.**
+
+1. Author: the `B-P001` representation decision (Session 114 brief); the
+   `B-C003` scope decision.
+2. Optional: `B-R026` (infinite regular language) and a `light` treatment-tier
+   pass to clear `provisional` layers.
+3. Independent representation audit; a second model for the calibration suite.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

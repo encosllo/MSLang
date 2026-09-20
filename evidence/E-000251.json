@@ -1,0 +1,36 @@
+{
+  "block": "B-P036",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000251",
+  "findings": [
+    "B-P036: Form_Lang_r(Sigma) is a complete lattice. New in Regular.lean: regularLanguageFormations_completeLattice, the CompleteLattice part of B-C013's regularLanguageFormationsCompleteLattice, under [Finite S]. lean_audit: 365 declarations, 0 warnings, 0 unpermitted, 0 sorry."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P036/formal_proof",
+      "hash": "664013a3a1521fd9a43648db385c7b84c6e7be24474fb96e7bd9df24bcbc39e7"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T18:36:50Z"
+}

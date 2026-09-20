@@ -124,6 +124,27 @@ theorem isFiniteIndex_nabla {S : Type u} (A : SSet S) (h : (supp A).Finite) :
     refine ⟨⟨s, ⟨a⟩⟩, ?_⟩
     exact Sigma.mk.inj_iff.mpr ⟨rfl, heq_of_eq (Quotient.sound trivial)⟩
 
+/-! ### `B-X002`: `Cgr_fi(A)` is nonempty iff `supp(A)` is finite. -/
+
+/-- `B-X002`: `Cgr_fi(A) ≠ ∅` if and only if `supp(A)` is finite. Forward: a
+finite-index congruence `Φ` has `A/Φ` finite, and `supp(A/Φ) = supp(A)`
+(`B-R005`), so `supp(A)` is finite. Backward: `∇^A` is a congruence of finite
+index when `supp(A)` is finite (`isFiniteIndex_nabla`). -/
+theorem congFi_nonempty_iff {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    (congFi Sig A.2).Nonempty ↔ (supp A.1).Finite := by
+  constructor
+  · rintro ⟨Φ, hcong, hfin⟩
+    rw [← supp_quot Φ]
+    exact (finiteSSet_iff (quot Φ)).mp hfin |>.1
+  · intro h
+    exact ⟨nabla A.1, nabla_isCongruence Sig A.2, isFiniteIndex_nabla A.1 h⟩
+
+/-- `B-X002` (second part): if the sort set `S` is finite, then `Cgr_fi(A) ≠ ∅`
+for every `Σ`-algebra `A`, since `supp(A) ⊆ S` is then finite. -/
+theorem congFi_nonempty_of_finite_sorts {S : Type u} (Sig : Signature S) [Finite S]
+    (A : Alg Sig) : (congFi Sig A.2).Nonempty :=
+  (congFi_nonempty_iff Sig A).mpr (Set.finite_univ.subset (Set.subset_univ _))
+
 /-- `IsFiniteIndex` is up-closed under refinement. -/
 theorem IsFiniteIndex_of_le {S : Type u} {A : SSet S} {Φ Ψ : SortedEqv A}
     (h : sortedEqvLe Φ Ψ) (hΦ : IsFiniteIndex Φ) : IsFiniteIndex Ψ := by
@@ -2051,6 +2072,17 @@ theorem regularLanguageFormations_isAlgebraicLattice {S : Type u} [Finite S]
   change @IsAlgebraicLattice (regularLanguageFormations Sig)
     (regularLanguageFormationsCompleteLattice Sig)
   exact h
+
+/-! ### `B-P036`: `Form_Lang_r(Σ)` is a complete lattice. -/
+
+/-- `B-P036`: `Form_Lang_r(Σ)` is a complete lattice -- the `CompleteLattice`
+part of `B-C013` (`regularLanguageFormationsCompleteLattice`), which also gives
+algebraicity. Stated separately because `B-P036` is a proposition about
+completeness alone. -/
+@[instance_reducible]
+noncomputable def regularLanguageFormations_completeLattice {S : Type u} [Finite S]
+    (Sig : Signature S) : CompleteLattice (regularLanguageFormations Sig) :=
+  regularLanguageFormationsCompleteLattice Sig
 
 /-! ### `B-P006`: `Φ-Sat(A)` is a complete atomic Boolean algebra. -/
 

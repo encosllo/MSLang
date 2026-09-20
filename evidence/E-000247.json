@@ -1,0 +1,36 @@
+{
+  "block": "B-X002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000247",
+  "findings": [
+    "B-X002: Cgr_fi(A) nonempty iff supp(A) finite. New in Regular.lean: congFi_nonempty_iff (forward via supp_quot B-R005 and finiteSSet_iff B-R003; backward via nabla_isCongruence and isFiniteIndex_nabla) and congFi_nonempty_of_finite_sorts ([Finite S] corollary). lean_audit: 365 declarations, 0 warnings, 0 unpermitted, 0 sorry."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-X002/formal_proof",
+      "hash": "eddc75a3ea3da25100dc7441e13d52b512379d1947eca64a61c279c27ec3bf3c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T18:36:50Z"
+}

@@ -317,6 +317,16 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.congFi_nonempty_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congFi_nonempty_of_finite_sorts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.congruenceFormationOf": [
       "Classical.choice"
     ],
@@ -846,6 +856,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.regularLanguageFormations_completeLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.regularLanguageFormations_isAlgebraicLattice": [
       "Classical.choice",
       "Quot.sound",
@@ -1031,6 +1046,7 @@
       "propext"
     ],
     "Mslang.syntacticCongruence": [],
+    "Mslang.syntacticCongruence_eq_congCogenerated": [],
     "Mslang.termAlg": [],
     "Mslang.termEta": [],
     "Mslang.termEval": [],
@@ -1108,7 +1124,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 361,
+  "declarations_audited": 365,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

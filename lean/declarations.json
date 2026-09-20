@@ -896,6 +896,21 @@
         "Mslang.periodicAlgebras_isAlgebraFormation"
       ],
       "file": "lean/Mslang/Regular.lean"
+    },
+    "B-X002": {
+      "decls": [
+        "Mslang.congFi_nonempty_iff",
+        "Mslang.congFi_nonempty_of_finite_sorts"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-R019": {
+      "decl": "Mslang.syntacticCongruence_eq_congCogenerated",
+      "file": "lean/Mslang/Translation.lean"
+    },
+    "B-P036": {
+      "decl": "Mslang.regularLanguageFormations_completeLattice",
+      "file": "lean/Mslang/Regular.lean"
     }
   }
 }
