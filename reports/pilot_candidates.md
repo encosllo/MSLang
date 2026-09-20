@@ -9,37 +9,37 @@ A target plus its transitive upstream closure (its dependencies). Pick one to ha
 
 ### `B-C011` — corollary (closure size 2)
 
-- $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. (line 2097)
+- $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. (line 2207)
 - definitions in closure: `B-D042`
 - members: `B-C011`, `B-D042`
 
 ### `B-P004` — proposition (closure size 2)
 
-- Preliminaries. (line 572)
+- Preliminaries. (line 597)
 - definitions in closure: `B-D014`
 - members: `B-P004`, `B-D014`
 
 ### `B-P017` — proposition (closure size 2)
 
-- $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. (line 1285)
+- $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. (line 1352)
 - definitions in closure: `B-D015`
 - members: `B-P017`, `B-D015`
 
 ### `B-C006` — corollary (closure size 3)
 
-- $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. (line 1416)
+- $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. (line 1490)
 - definitions in closure: `B-D014`, `B-D024`
 - members: `B-C006`, `B-D014`, `B-D024`
 
 ### `B-P001` — proposition (closure size 3)
 
-- Preliminaries. (line 347)
+- Preliminaries. (line 359)
 - definitions in closure: `B-D002`, `B-D009`
 - members: `B-P001`, `B-D002`, `B-D009`
 
 ### `B-P002` — proposition (closure size 3)
 
-- Preliminaries. (line 518)
+- Preliminaries. (line 538)
 - definitions in closure: `B-D006`, `B-D014`
 - members: `B-P002`, `B-D006`, `B-D014`
 

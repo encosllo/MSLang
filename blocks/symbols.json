@@ -730,7 +730,7 @@
     {
       "arity": "[1]",
       "defining_block": "<preamble>",
-      "definition": "",
+      "definition": "\\par\\noindent\\parbox{\\linewidth}{\\raggedright\\footnotesize\\texttt{#1}}\\par",
       "kind": "providecommand",
       "lean": null,
       "name": "lean"

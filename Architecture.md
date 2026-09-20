@@ -2344,7 +2344,10 @@ exercise:
   subalgebra `Sg_1(δ^{t,*})` reaches every sort and is infinite. The
   formalization proves the true statement (under `[Finite S]`) and records the
   gap as `formal_weaker`; the two-stage blind comparator independently
-  reproduced the counterexample.
+  reproduced the counterexample. The manuscript was subsequently corrected
+  (Session 117): the claim now reads "**If `S` is finite**, then `F_p` is a
+  formation", highlighted in red with a red note on the empty-product
+  counterexample, and the correspondence re-audit returned `equivalent`.
 - **`B-P001`'s union/intersection/difference clauses are not expressible in the
   encoding** (Section 25.4), a representation-level finding rather than a
   mathematical error in the paper.

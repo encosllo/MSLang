@@ -5711,6 +5711,54 @@ layers; inherits the pilot-encoding residuals (`carrier-model`, `small-large`,
 
 ---
 
+## Session 117 -- 2026-09-21 -- manuscript Lean pointers and the B-X001 correction
+
+**Goal.** Author-directed manuscript update: add a visible pointer to the Lean
+code next to every formalized block, and correct the statements the
+formalization found false, highlighting the changes in red.
+
+**What was established (closed).**
+
+- **Lean pointers.** All 122 mapped blocks now carry `\lean{...}` (listing their
+  mapped declaration names) on the line *before* `\blockid{...}`, rendered as a
+  small monospace tag. The placement is deliberate: `hash_blocks.py` and
+  `ingest.py` key the anchor to the `\blockid` immediately preceding
+  `\begin{...}` and hash the environment body, so a pointer between `\blockid`
+  and `\begin` would break the anchor, and one inside the environment would
+  change the body hash. Placed before `\blockid`, the pointer changes **no**
+  body hash (verified: only `B-X001` moved).
+- **`B-X001` corrected in red.** The claim "the set `F_p` is a formation" is
+  false for infinite `S` (Section 25.5). It now reads "**If `S` is finite,**
+  then the set `F_p` is a formation", with a red note explaining the
+  empty-product counterexample. `B-D033` had already been corrected in red
+  (Session 71).
+- **Evidence re-baseline.** Only `B-X001`'s `informal_statement` hash moved; its
+  correspondence record was re-audited against the corrected contract and
+  returned `equivalent` (**`E-000255`** supersedes `E-000246`). Its
+  correspondence layer is now `provisional` (was `fail`). No other record
+  staled.
+- Manuscript build: exit 0, **55 pages** (was 49; the 122 pointer lines add ~6
+  pages), 0 LaTeX warnings, 3 overfull hboxes (the baseline). Fast gate
+  **40 passed, 0 failed**; slow gate **43 passed, 0 failed**. Journal
+  `EV-000125`.
+
+**Renderer choice (a gotcha worth recording).** A margin note (`\marginpar`)
+overflowed the narrow margin on long declaration names and collided (10 margin
+warnings at 122 blocks); an inline `\path`/`\detokenize` tag would not break at
+the comma-spaces. The working form is a full-width
+`\parbox{\linewidth}{\raggedright\footnotesize\texttt{...}}` with each name in
+its own `\detokenize{...}`, which breaks at the inter-name spaces and keeps the
+overfull count at the baseline 3.
+
+**Prioritized next steps.**
+
+1. Author: the `B-P001` representation decision (Session 114 brief); the
+   `B-C003` scope decision.
+2. Optional: extend the `\lean` pointers with the Lean *file* per block; a
+   `light` treatment-tier pass to clear `provisional` layers.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
@@ -5724,7 +5772,11 @@ layers; inherits the pilot-encoding residuals (`carrier-model`, `small-large`,
     the retired `~/Desktop/MathForm` (7.6 GiB) was deleted; it had fallen to
     128 MiB, at which point Lean work must stop until space is reclaimed.
 3. Verify the manuscript baseline still holds: `./scripts/build_manuscript.sh`
-   should exit 0 with a 49-page PDF.
+   should exit 0 with a **55-page** PDF, 0 LaTeX warnings, 3 overfull hboxes
+   (was 49 pages before the Session 117 `\lean` pointers). Each mapped block
+   carries a `\lean{...}` pointer on the line *before* its `\blockid{...}`;
+   never move a pointer between `\blockid` and `\begin` (it would break the
+   anchor) or inside the environment (it would change the body hash).
 4. Before editing the manuscript, run
    `python3 scripts/nonascii_scan.py manuscript/MSEilenberg.tex`.
 5. After *every* manuscript edit, re-run

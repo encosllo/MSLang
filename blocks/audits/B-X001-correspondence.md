@@ -55,3 +55,16 @@ fails as stated for infinite `S`. The formalization proves the true statement
 
 The record inherits the pilot-encoding residuals (`carrier-model`,
 `small-large`, `univalence-missing`).
+
+## Correction re-audit (Session 117)
+
+The manuscript was corrected (author-directed): the claim "the set `F_p` is a
+formation" now reads "**If `S` is finite**, then the set `F_p` is a formation",
+with a red note that the hypothesis is necessary (for infinite `S` the empty
+subdirect product is the final algebra `1`, which need not be periodic). The
+Lean declarations are unchanged (they already carry `[Finite S]`), so the
+stage-1 read-back above still applies. A fresh stage-2 comparator was run
+against the corrected contract and returned **`equivalent`**: the definitions
+match, the corrected contract now carries the same `S finite` hypothesis as the
+Lean, and the formation claim is the same. The prior record (`E-000246`,
+`formal_weaker`) is superseded by `E-000255` (`equivalent`).

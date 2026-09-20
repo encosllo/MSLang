@@ -13,11 +13,11 @@ repository.
 | `blocks/formal.json` | `eeb3d20ac4154b435a30398505a5afd2bd6baee77dd55ad5d2115a1ba3464901` |
 | `blocks/formal_graph.json` | `dbcbd6d851c893171e401bde72a51b7c86bfa5a9d0359f687c09bff959e08b6a` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
-| `blocks/hashes.json` | `a5dc6016ef015bd3557a7af0ccd429cfd961158166996ab2442a983bf317f215` |
+| `blocks/hashes.json` | `7a30927b7d511e1f04e44eb228ebf6ad0a31b21aa48679f5acfc70bed03c7659` |
 | `blocks/lean_audit.json` | `f3cb72d46e565209f4dff8a130c470d1835445b886faf9b396d5bcad05d034ad` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
-| `blocks/registry.json` | `f7a31fe44c3c83a863f7d1091957a1e827c5d27b1d97cebb4612ea70b03d89a8` |
+| `blocks/registry.json` | `6269ad1438d51e435713969f2f448ddf77c93671fd4e310c280b86fe08785fd1` |
 | `blocks/scope_decisions.json` | `6a414a4f65d96bd74b8925b392ad950c3c46c565ba1f38cd322aa44c34679948` |
 | `blocks/treatment_tiers.json` | `6542301a4c092696fda9b1925825685f9890c2dedf6c077d49bb782da24d2158` |
 | `calibration/baseline.json` | `c10a03ea904ab834070a8da546e88da7b18e91f5241486e07c5297bb9f3dbe2e` |
@@ -280,10 +280,11 @@ repository.
 | `evidence/E-000252.json` | `f989136b478eaa4e48517320ed7d0401ba66fcb54eb5b08b7baecdfe4173d745` |
 | `evidence/E-000253.json` | `151c382b665ed62408e5b472148e3ade43e929c91770bafb5195e8d76a1f90f9` |
 | `evidence/E-000254.json` | `e7304b2f174c0d5d16b24047016f8ff58dc8c736dcadd5cde2f8a9b69e6c2c99` |
-| `journal/events.jsonl` | `ae8c4f8e7898e18de20a60a85d75ea7f707ae3f7b7be236bcf18fba9f2c1f6a6` |
+| `evidence/E-000255.json` | `46c69c2b540c15bce873c51fed44391b0222ee98f47c7448017f7f7ccfc91265` |
+| `journal/events.jsonl` | `e28b25ec034b465eef32634c4052334a932a0f46200c32995bf3827d73dcb4bb` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
-| `manuscript/MSEilenberg.tex` | `ed769549cc7a7e7edd5de58f581b5dac508b1b764e45a74083804a588f99859e` |
+| `manuscript/MSEilenberg.tex` | `1acf4d3d91e8f026fcf34afaeda2f14926460f499dda19816628a371f2c9fcea` |
 | `reconciliation/proposals.json` | `cad78706a93883a409b94262b40fa06e3a1eec3d680abe1aab0645c038cccabd` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
 | `schemas/evidence.schema.json` | `c6cca4d570f1ff68ed94ab9b38efad979074c6e2ce3bf5db1f663aa379550449` |
@@ -488,7 +489,7 @@ repository.
 | `B-R024` | verification | provisional | 1 | 0 |
 | `B-R026` | correspondence | provisional | 1 | 0 |
 | `B-R026` | verification | provisional | 1 | 0 |
-| `B-X001` | correspondence | fail | 1 | 0 |
+| `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
 | `B-X002` | correspondence | provisional | 1 | 0 |
 | `B-X002` | verification | provisional | 1 | 0 |
@@ -11742,6 +11743,77 @@ repository.
 }
 ```
 
+### E-000255
+
+```json
+{
+  "block": "B-X001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000255",
+  "findings": [
+    "Correction re-audit (Session 117): the manuscript statement B-X001 was corrected to 'If S is finite, then F_p is a formation' (the original was false for infinite S). The Lean declarations are unchanged ([Finite S]); a fresh stage-2 comparator against the corrected contract returned equivalent. Supersedes E-000246 (formal_weaker). Transcript blocks/audits/B-X001-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "B-X001/definition_closure",
+      "hash": "d6e56c38a589fa81018c9c4ac89bf17b3335e1fbee7783ae34ef0f3e0db6d719"
+    },
+    {
+      "artifact": "B-X001/formal_statement",
+      "hash": "45432353ccda36c9417817fe3f7695cfe15512503dde270dde786c8189693415"
+    },
+    {
+      "artifact": "B-X001/informal_statement",
+      "hash": "d526824911b4d7846141375851ab560f720ceae1d665d40c1b859ddd8978e015"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000246",
+  "timestamp": "2026-09-20T19:48:37Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -11753,7 +11825,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 123
-- Evidence records: 254
+- Evidence records: 255
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -11886,7 +11958,7 @@ assertion).
 | `B-R023` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R024` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-R026` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-X001` | examples | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | fail | provisional | none | - |
+| `B-X001` | examples | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
@@ -12876,7 +12948,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R024` | verification | provisional | 1 | 0 |
 | `B-R026` | correspondence | provisional | 1 | 0 |
 | `B-R026` | verification | provisional | 1 | 0 |
-| `B-X001` | correspondence | fail | 1 | 0 |
+| `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
 | `B-X002` | correspondence | provisional | 1 | 0 |
 | `B-X002` | verification | provisional | 1 | 0 |
