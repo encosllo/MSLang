@@ -835,6 +835,18 @@
         "Mslang.finiteIndexCongruenceFormationsCompleteLattice"
       ],
       "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P006": {
+      "decls": [
+        "Mslang.satOfFamily",
+        "Mslang.familyOf",
+        "Mslang.satSetsFamilyEquiv",
+        "Mslang.satSetsCABA",
+        "Mslang.familyOf_atomRep",
+        "Mslang.satSets_isAtom_iff",
+        "Mslang.satSets_eq_sSup_atoms"
+      ],
+      "file": "lean/Mslang/Regular.lean"
     }
   }
 }

@@ -1,0 +1,36 @@
+{
+  "block": "B-P006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000233",
+  "findings": [
+    "B-P006: Phi-Sat(A) is a complete atomic Boolean algebra. New CABA section in Regular.lean: SatSet Phi = {X // sat Phi X = X}, the order bijection satSetsFamilyEquiv : SatSet Phi ~= QuotFamily Phi (familyOf/satOfFamily, via surjectivity of pr and sat_eq_preimage), the transported satSetsCABA = (satSetsFamilyEquiv Phi).completeAtomicBooleanAlgebra, and the atom/join theorems satSets_isAtom_iff (atoms = Kronecker deltas, via Pi.isAtom_iff_eq_single and familyOf_atomRep) and satSets_eq_sSup_atoms. Axioms within the permitted set (lean_audit: 338 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P006/formal_proof",
+      "hash": "220d66e8323458c2f8c1d2dda226d73bf47fdaff1bd6f8923d23767776fbc275"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T07:42:00Z"
+}

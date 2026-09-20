@@ -2172,6 +2172,33 @@
         "hash": "b6ab2d4be98c50a964e722e983203f705fc8bc4040632b951b70eb3e8a701757"
       }
     },
+    "B-P006": {
+      "decls": [
+        "Mslang.satOfFamily",
+        "Mslang.familyOf",
+        "Mslang.satSetsFamilyEquiv",
+        "Mslang.satSetsCABA",
+        "Mslang.familyOf_atomRep",
+        "Mslang.satSets_isAtom_iff",
+        "Mslang.satSets_eq_sSup_atoms"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.deltaSub"
+        ],
+        "hash": "a7c8af09b79e48cfaa8d91c22f043cf4afe8e79f7fff17dcd285d76e2267f4b6"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "220d66e8323458c2f8c1d2dda226d73bf47fdaff1bd6f8923d23767776fbc275"
+      },
+      "formal_statement": {
+        "hash": "8b2a8bd8e73b973c5da68b4e82ab3e6dfebbf25935d9cdf7684ba40b4d11dcdc"
+      }
+    },
     "B-P007": {
       "decls": [
         "Mslang.quotLift",

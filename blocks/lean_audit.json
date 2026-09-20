@@ -405,6 +405,12 @@
     "Mslang.exists_unique_termLift": [
       "Quot.sound"
     ],
+    "Mslang.familyOf": [],
+    "Mslang.familyOf_atomRep": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.finOp": [],
     "Mslang.finalAlg": [],
     "Mslang.finalSorted": [],
@@ -806,12 +812,33 @@
     ],
     "Mslang.regularLanguages": [],
     "Mslang.sat": [],
+    "Mslang.satOfFamily": [],
     "Mslang.satSets": [],
+    "Mslang.satSetsCABA": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.satSetsFamilyEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.satSets_antitone": [
       "Quot.sound",
       "propext"
     ],
+    "Mslang.satSets_eq_sSup_atoms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.satSets_fix": [],
+    "Mslang.satSets_isAtom_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.sat_antitone": [
       "Quot.sound",
       "propext"
@@ -994,7 +1021,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 331,
+  "declarations_audited": 338,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

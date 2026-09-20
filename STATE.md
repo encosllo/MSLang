@@ -5394,6 +5394,71 @@ decision was taken.
 
 ---
 
+## Session 111 -- 2026-09-20 -- `B-P006` (`Φ-Sat(A)` is a complete atomic Boolean algebra)
+
+**Goal.** Session 110 step 1: the CABA on `Φ-Sat(A)`. No author-reserved
+decision was taken.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean`, new `CABA` section:
+  - `SatSet Φ = {X : Sub A // sat Φ X = X}` (the type of `satSets Φ`), with the
+    order bijection `satSetsFamilyEquiv Φ : SatSet Φ ≃ QuotFamily Φ`, where
+    `QuotFamily Φ = ∀ s, Set (A_s/Φ_s)` and `familyOf Φ X s = pr Φ s '' X_s`,
+    inverse `satOfFamily`. The two round-trips rest on surjectivity of
+    `pr Φ s` (`B-R006`, `sat_eq_preimage`).
+  - `satSetsCABA Φ : CompleteAtomicBooleanAlgebra (SatSet Φ)`, the structure
+    transported from the product of powersets across that bijection.
+  - `familyOf_deltaSub`, `familyOf_atomRep`: `familyOf` sends the Kronecker
+    delta `δ^{s,Y}` to the singleton update `⊥`-family `Function.update ⊥ s
+    (pr Φ s '' Y)`.
+  - `satSets_isAtom_iff`: the atoms of `Φ-Sat(A)` are exactly the deltas
+    `δ^{s,[x]_Φ}`, i.e. one per class per sort (`Σ_{s∈S} A_s/Φ_s`), via
+    `OrderIso`-free use of `Pi.isAtom_iff_eq_single` and `Set.isAtom_singleton`.
+  - `satSets_eq_sSup_atoms`: every saturated `X` is the join of the atoms below
+    it (`le_iff_atom_le_imp` + `le_sSup` / `sSup_le`).
+- `lean/declarations.json` maps `B-P006`. `blocks/lean_audit.json`:
+  **338 declarations** (was 331), 0 warnings, 0 unpermitted, 0 `sorry`.
+- Evidence **`E-000233`** (verification) / **`E-000234`** (correspondence,
+  two-stage blind, **`equivalent`**). Transcript
+  `blocks/audits/B-P006-correspondence.md`. Journal `EV-000119`. Frontier
+  unmapped **18 → 17**. Fast gate: **40 passed, 0 failed**; slow gate:
+  **43 passed, 0 failed**.
+
+**Findings / notes.**
+
+- **Packaging (honest):** the atom and join facts are stated on
+  `familyOf Φ X` in `QuotFamily Φ`, not directly on `X : SatSet Φ`. This is a
+  Lean instance-synthesis limitation, not a mathematical weakening:
+  `familyOf` is an `OrderIso`-grade bijection (it preserves and reflects
+  inclusion), so atoms, joins and the CABA structure transfer exactly. The
+  independent two-stage comparator returned `equivalent` and explicitly
+  reasoned that the packaging does not change strength. The transported
+  instance `satSetsCABA` itself is a plain `def` (the extractor does not index
+  `instance`s). If a later session wants the facts stated directly on
+  `SatSet Φ`, the route is an explicit `OrderIso` on the transported order.
+- A naive attempt to install `satSetsCABA` as a global `instance` made
+  `IsAtom X` fail to synthesize `OrderBot ↥(SatSet Φ)`: instance search unifies
+  the *whnf*'d subtype of `X`'s type against the instance's folded `SatSet Φ`
+  and fails. Working around it via `letI`/`SatSetIsAtom` predicates was also
+  rejected (`change` could not see the `let`-bound instance as defeq). Hence the
+  family-level statements above.
+- Same-model audit; inherits the pilot-encoding residuals (`carrier-model`,
+  `small-large`, `univalence-missing`).
+
+**Prioritized next steps.**
+
+1. `B-P001` (support properties of sorted sets) -- the last `worth-formalizing`
+   block besides the `B-A001` assumption; note that the literal *union* item
+   `supp(⋃_i A^i)` needs a universe/subset encoding (the type-level encoding
+   only has `iCoprod`), so parts may be `formal_weaker`/`formal_stronger`.
+2. `B-P036` (`Form_Lang_r` complete lattice) is already subsumed by `B-C013`'s
+   `regularLanguageFormationsCompleteLattice`; if mapped, it should cite that
+   instance rather than reprove.
+3. Independent representation audit; the author-reserved decisions.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

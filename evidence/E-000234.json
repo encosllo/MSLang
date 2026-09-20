@@ -1,0 +1,56 @@
+{
+  "block": "B-P006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000234",
+  "findings": [
+    "Stage 2 returned equivalent: Phi-Sat(A) is a complete atomic Boolean algebra with atoms the Kronecker deltas, every saturated subset the join of atoms below it. Atoms/joins are stated on the order-isomorphic quotient family QuotFamily Phi; the transfer is via satSetsFamilyEquiv. Transcript blocks/audits/B-P006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P006/definition_closure",
+      "hash": "a7c8af09b79e48cfaa8d91c22f043cf4afe8e79f7fff17dcd285d76e2267f4b6"
+    },
+    {
+      "artifact": "B-P006/formal_statement",
+      "hash": "8b2a8bd8e73b973c5da68b4e82ab3e6dfebbf25935d9cdf7684ba40b4d11dcdc"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T07:42:04Z"
+}

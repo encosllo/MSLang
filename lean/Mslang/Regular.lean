@@ -2025,4 +2025,151 @@ theorem regularLanguageFormations_isAlgebraicLattice {S : Type u} [Finite S]
     (regularLanguageFormationsCompleteLattice Sig)
   exact h
 
+/-! ### `B-P006`: `Φ-Sat(A)` is a complete atomic Boolean algebra. -/
+
+section CABA
+variable {S : Type u} {A : SSet S}
+
+/-- `Φ-Sat(A)` as a type: the `Φ`-saturated componentwise subsets of `A`. -/
+abbrev SatSet (Φ : SortedEqv A) := {X : Sub A // sat Φ X = X}
+
+/-- The quotient family `(A_s/Φ_s)_{s∈S}`, a complete atomic Boolean algebra
+under pointwise inclusion (a Pi of powersets). -/
+abbrev QuotFamily (Φ : SortedEqv A) := ∀ s, Set (Quotient (Φ s))
+
+/-- The `Φ`-saturated subset induced by a family of quotient subsets:
+`X_s = pr_{Φ_s}^{-1}(Y_s)`. -/
+def satOfFamily (Φ : SortedEqv A) (Y : QuotFamily Φ) : Sub A :=
+  fun s => (pr Φ s) ⁻¹' (Y s)
+
+/-- Every induced subset is `Φ`-saturated (`B-R006`). -/
+theorem isSat_satOfFamily (Φ : SortedEqv A) (Y : QuotFamily Φ) :
+    IsSat Φ (satOfFamily Φ Y) := by
+  rw [IsSat, sat_eq_preimage]
+  funext s
+  simp only [satOfFamily]
+  rw [(pr_surjective Φ s).image_preimage (Y s)]
+
+/-- The quotient family of a `Φ`-saturated subset. -/
+def familyOf (Φ : SortedEqv A) (X : SatSet Φ) : QuotFamily Φ :=
+  fun s => pr Φ s '' X.1 s
+
+theorem familyOf_satOfFamily (Φ : SortedEqv A) (Y : QuotFamily Φ) :
+    familyOf Φ ⟨satOfFamily Φ Y, isSat_satOfFamily Φ Y⟩ = Y := by
+  funext s
+  exact (pr_surjective Φ s).image_preimage (Y s)
+
+theorem satOfFamily_familyOf (Φ : SortedEqv A) (X : SatSet Φ) :
+    satOfFamily Φ (familyOf Φ X) = X.1 := by
+  funext s
+  have h := congrFun (sat_eq_preimage Φ X.1) s
+  have hX := congrFun X.2 s
+  simp only [satOfFamily, familyOf]
+  rw [← h, hX]
+
+/-- `Φ-Sat(A)` is in bijection with the quotient family `(A_s/Φ_s)_s`. -/
+noncomputable def satSetsFamilyEquiv (Φ : SortedEqv A) :
+    SatSet Φ ≃ QuotFamily Φ where
+  toFun := familyOf Φ
+  invFun Y := ⟨satOfFamily Φ Y, isSat_satOfFamily Φ Y⟩
+  left_inv X := Subtype.ext (satOfFamily_familyOf Φ X)
+  right_inv Y := familyOf_satOfFamily Φ Y
+
+/-- `B-P006`: the complete atomic Boolean algebra structure on `Φ-Sat(A)`,
+transported from the quotient family along the saturation bijection. -/
+@[instance_reducible]
+noncomputable def satSetsCABA (Φ : SortedEqv A) :
+    CompleteAtomicBooleanAlgebra (SatSet Φ) :=
+  (satSetsFamilyEquiv Φ).completeAtomicBooleanAlgebra
+
+/-- `familyOf` is an order embedding (preimages/quotients preserve inclusion). -/
+theorem familyOf_subset_iff (Φ : SortedEqv A) (X Y : SatSet Φ) :
+    familyOf Φ X ≤ familyOf Φ Y ↔ X.1 ≤ Y.1 := by
+  constructor
+  · intro h s a ha
+    have hX : X.1 s = (pr Φ s) ⁻¹' (familyOf Φ X s) := by
+      have h1 := congrFun (sat_eq_preimage Φ X.1) s
+      have h2 := congrFun X.2 s
+      simp only [familyOf]
+      rw [← h1, h2]
+    have hY : Y.1 s = (pr Φ s) ⁻¹' (familyOf Φ Y s) := by
+      have h1 := congrFun (sat_eq_preimage Φ Y.1) s
+      have h2 := congrFun Y.2 s
+      simp only [familyOf]
+      rw [← h1, h2]
+    rw [hX] at ha
+    rw [hY]
+    exact h s ha
+  · intro h s
+    exact Set.image_mono (h s)
+
+/-- The image in the quotient family of a delta `δ^{s,Y}` is the singleton at
+sort `s` of the class-set `pr_{Φ_s}(Y)`. -/
+theorem familyOf_deltaSub (Φ : SortedEqv A) [DecidableEq S] (s : S) (Y : Set (A s))
+    (hY : IsSat Φ (deltaSub s Y)) :
+    familyOf Φ ⟨deltaSub s Y, hY⟩ =
+      Function.update (⊥ : QuotFamily Φ) s (pr Φ s '' Y) := by
+  funext t
+  by_cases ht : t = s
+  · subst t
+    show pr Φ s '' deltaSub s Y s = Function.update (⊥ : QuotFamily Φ) s (pr Φ s '' Y) s
+    rw [deltaSub_self, Function.update_self]
+  · show pr Φ t '' deltaSub s Y t = Function.update (⊥ : QuotFamily Φ) s (pr Φ s '' Y) t
+    rw [deltaSub_of_ne ht Y, Set.image_empty, Function.update_of_ne ht]
+    rfl
+
+/-- The atom of `Φ-Sat(A)` associated with a quotient element `q` is the
+Kronecker delta `δ^{s,[out q]_Φ}`. -/
+theorem familyOf_atomRep (Φ : SortedEqv A) [DecidableEq S] (s : S)
+    (q : Quotient (Φ s)) :
+    familyOf Φ ⟨deltaSub s (eqvClass Φ s (Quotient.out q)),
+        isSat_atomRep Φ s (Quotient.out q)⟩ =
+      Function.update (⊥ : QuotFamily Φ) s ({q} : Set (Quotient (Φ s))) := by
+  rw [familyOf_deltaSub Φ s (eqvClass Φ s (Quotient.out q))
+    (isSat_atomRep Φ s (Quotient.out q))]
+  have hset : pr Φ s '' eqvClass Φ s (Quotient.out q) = ({q} : Set (Quotient (Φ s))) := by
+    ext r
+    constructor
+    · rintro ⟨a, ha, rfl⟩
+      rw [Set.mem_singleton_iff]
+      exact (Quotient.sound ha).symm.trans (Quotient.out_eq q)
+    · intro hr
+      rw [Set.mem_singleton_iff] at hr
+      rw [hr]
+      exact ⟨Quotient.out q, (Φ s).refl (Quotient.out q), Quotient.out_eq q⟩
+  rw [hset]
+
+/-- `B-P006`: the atoms of `Φ-Sat(A)` are exactly the Kronecker deltas
+`δ^{s,[x]_Φ}` for `s ∈ S` and `x ∈ A_s`. Stated in the quotient family, to
+which `Φ-Sat(A)` is order-isomorphic via `familyOf` (`B-R006`). -/
+theorem satSets_isAtom_iff (Φ : SortedEqv A) (X : SatSet Φ) :
+    IsAtom (familyOf Φ X) ↔ ∃ s : S, ∃ q : Quotient (Φ s),
+      X = ⟨deltaSub s (eqvClass Φ s (Quotient.out q)),
+        isSat_atomRep Φ s (Quotient.out q)⟩ := by
+  classical
+  constructor
+  · intro h
+    rw [Pi.isAtom_iff_eq_single] at h
+    obtain ⟨s, a, ha, hfa⟩ := h
+    rw [Set.isAtom_iff] at ha
+    obtain ⟨q, rfl⟩ := ha
+    refine ⟨s, q, ?_⟩
+    apply (satSetsFamilyEquiv Φ).injective
+    exact hfa.trans (familyOf_atomRep Φ s q).symm
+  · rintro ⟨s, q, rfl⟩
+    rw [Pi.isAtom_iff_eq_single]
+    exact ⟨s, {q}, Set.isAtom_singleton q, familyOf_atomRep Φ s q⟩
+
+/-- `B-P006`: every `Φ`-saturated subset is the join of the atoms below it.
+Stated in the quotient family, where `sSup` is pointwise union. -/
+theorem satSets_eq_sSup_atoms (Φ : SortedEqv A) (X : SatSet Φ) :
+    familyOf Φ X = sSup {Y : QuotFamily Φ | IsAtom Y ∧ Y ≤ familyOf Φ X} := by
+  apply le_antisymm
+  · rw [le_iff_atom_le_imp]
+    intro a ha haX
+    exact le_sSup ⟨ha, haX⟩
+  · exact sSup_le fun Y hY => hY.2
+
+end CABA
+
 end Mslang

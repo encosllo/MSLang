@@ -8,7 +8,7 @@ record is **superseded** when a current record names it through
 `supersedes`; otherwise it is **awaiting** re-audit. Only awaiting
 records represent outstanding work.
 
-49 of 232 record(s) are stale (49 superseded, 0 awaiting):
+49 of 234 record(s) are stale (49 superseded, 0 awaiting):
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
