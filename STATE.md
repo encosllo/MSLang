@@ -5577,6 +5577,61 @@ vacuous.
 
 ---
 
+## Session 114 -- 2026-09-20 -- B-R016, B-X001, and a B-P001 representation brief
+
+**Goal.** Author-directed long run: formalize the two deferred blocks with real
+content (`B-R016`, `B-X001`) and write the `B-P001` representation design brief.
+Author re-tiered `B-R016`/`B-X001` from `deferred` to `worth-formalizing`
+(`scope_decisions.json`, `author:session114`).
+
+**What was established (closed, and mapped).**
+
+- `B-R016` in `Formation.lean`: `subfinalAlgebras` (`Sf(1)`) and
+  `subfinalAlgebras_isAlgebraFormation`. Both closure conditions reduce through
+  `B-P008` (`subfinalAlg_iff`: subfinal = componentwise subsingleton). Evidence
+  `E-000243` / `E-000244` (correspondence **`equivalent`**).
+- `B-X001` in `Regular.lean`: `IsCyclicSub`, `IsPeriodicAlg`,
+  `periodicAlgebras`, the infrastructure `directImage_Sg`,
+  `directImage_deltaSub`, `finiteSSet_iAlg`, `finiteSSet_of_injective`, and the
+  `H`-/`P_fsd`-closure lemmas, giving `periodicAlgebras_isAlgebraFormation`
+  **under `[Finite S]`**. Evidence `E-000245` / `E-000246` (correspondence
+  **`formal_weaker`**).
+- `representation/p001-representation-brief.md`: a decision brief (PROPOSED,
+  unaudited) analysing why `B-P001` is `formal_weaker`, the union-vs-quotient
+  tension, the re-baseline cost of any C6 revision, and four options.
+- `lean_audit`: **361 declarations** (was 353), 0 warnings, 0 unpermitted, 0
+  `sorry`. Fast gate **40 passed, 0 failed**; slow gate **43 passed, 0 failed**.
+  Journal `EV-000122`. Frontier unmapped **13 → 11**.
+
+**Finding (a gap in the paper, not in the Lean).** `B-X001` -- `F_p` is a
+formation -- is **false as stated for infinite `S`**. The subdirect-product
+definition includes `n = 0`, whose empty product is the final algebra `1`; `1`
+embeds subdirectly in itself, so `1 ∈ P_fsd(F_p)` for any `F_p`, forcing
+`1 ∈ F_p`. But `1` need not be periodic: with `S` infinite and operations
+`σ_n : () → n`, the cyclic subalgebra `Sg_1(δ^{t,*})` reaches every sort and is
+infinite. The paper states `B-X001` in Section 5, before the `[Finite S]`
+assumption `B-A001` (Section 7). The two-stage blind comparator independently
+returned `formal_weaker` and reproduced the argument. The formalization proves
+the true statement under `[Finite S]`; the gap is recorded, not hidden.
+
+**Honest caveats.** (1) Same-model audit as always (`deepseek-v4.1-flash`);
+`provisional` layers; inherits the pilot-encoding residuals (`carrier-model`,
+`small-large`, `univalence-missing`). (2) `B-X001`'s Lean proof is more elaborate
+than the paper's, needing `directImage_Sg` (generation commutes with direct
+image) and the empty-product finiteness handled explicitly. (3) The brief
+proposes no change; the representation revision remains author-reserved.
+
+**Prioritized next steps.**
+
+1. Author: the `B-P001` representation decision (brief above); the `B-C003`
+   scope decision.
+2. Remaining unmapped (11): all deferred illustrative remarks/examples
+   (`B-C003`, `B-P036`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R019`,
+   `B-R025`–`B-R027`, `B-X002`).
+3. Independent representation audit; a second model for the calibration suite.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

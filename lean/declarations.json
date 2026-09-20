@@ -878,6 +878,24 @@
         "Mslang.term_shape"
       ],
       "file": "lean/Mslang/Term.lean"
+    },
+    "B-R016": {
+      "decls": [
+        "Mslang.subfinalAlgebras",
+        "Mslang.subfinalAlgebras_isAlgebraFormation"
+      ],
+      "file": "lean/Mslang/Formation.lean"
+    },
+    "B-X001": {
+      "decls": [
+        "Mslang.IsCyclicSub",
+        "Mslang.IsPeriodicAlg",
+        "Mslang.periodicAlgebras",
+        "Mslang.periodicAlgebras_closed_HOperator",
+        "Mslang.periodicAlgebras_closed_PFsdOperator",
+        "Mslang.periodicAlgebras_isAlgebraFormation"
+      ],
+      "file": "lean/Mslang/Regular.lean"
     }
   }
 }

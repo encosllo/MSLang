@@ -3296,6 +3296,31 @@
       "to": "B-D031"
     },
     {
+      "from": "B-R016",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-R016",
+      "kind": "formal_uses",
+      "to": "B-D022"
+    },
+    {
+      "from": "B-R016",
+      "kind": "formal_uses",
+      "to": "B-D023"
+    },
+    {
+      "from": "B-R016",
+      "kind": "formal_uses",
+      "to": "B-D032"
+    },
+    {
+      "from": "B-R016",
+      "kind": "formal_uses",
+      "to": "B-P008"
+    },
+    {
       "from": "B-R017",
       "kind": "formal_uses",
       "to": "B-D004"
@@ -3524,6 +3549,71 @@
       "from": "B-R024",
       "kind": "formal_uses",
       "to": "B-D027"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D005"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D007"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D008"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D015"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D016"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D019"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D020"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D021"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D022"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D023"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D031"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D032"
+    },
+    {
+      "from": "B-X001",
+      "kind": "formal_uses",
+      "to": "B-D037"
     }
   ],
   "note": "Declared (formal) dependencies among mapped blocks, extracted from source by whole-identifier occurrence (Architecture.md Section 12.1)."

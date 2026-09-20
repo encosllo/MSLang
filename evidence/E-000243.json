@@ -1,0 +1,36 @@
+{
+  "block": "B-R016",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000243",
+  "findings": [
+    "B-R016: the subfinal Sigma-algebras form a formation. New in Formation.lean: subfinalAlgebras (Sf(1)) and subfinalAlgebras_isAlgebraFormation. Both closure conditions reduce through B-P008 (subfinalAlg_iff: subfinal = componentwise subsingleton): a surjective image of a subsingleton is a subsingleton, and a subobject of a product of subsingletons is a subsingleton. lean_audit: 361 declarations, 0 warnings, 0 unpermitted, 0 sorry; axioms within the permitted set."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R016/formal_proof",
+      "hash": "899924732697e48daceeb3e040f316dd6fd7d701d744e518fc035d09b52f4953"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T18:02:27Z"
+}

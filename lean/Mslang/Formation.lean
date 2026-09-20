@@ -172,6 +172,42 @@ theorem formation_nonempty {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}
     exact ⟨⟨fun _ _ _ => rfl, fun _ _ _ h => h⟩, fun i => i.elim⟩
   exact ⟨iAlg (ι := PEmpty.{u+1}) Sig C, hP hmem⟩
 
+/-! ### `B-R016`: the subfinal `Σ`-algebras form a formation. -/
+
+/-- `B-R016`: `Sf(1)`, the set of subfinal `Σ`-algebras (those isomorphic to a
+subalgebra of the final algebra `1`). -/
+def subfinalAlgebras {S : Type u} (Sig : Signature S) : Set (Alg Sig) :=
+  {A | SubfinalAlg Sig A}
+
+/-- `B-R016`: `Sf(1)` is a formation of `Σ`-algebras. Both closure conditions
+reduce, through `B-P008` (`subfinalAlg_iff`: a `Σ`-algebra is subfinal iff each
+component is a subsingleton), to the corresponding fact for subsingletons: a
+surjective image of a subsingleton is a subsingleton, and a subobject of a
+product of subsingletons is a subsingleton. -/
+theorem subfinalAlgebras_isAlgebraFormation {S : Type u} (Sig : Signature S) :
+    IsAlgebraFormation Sig (subfinalAlgebras Sig) := by
+  constructor
+  · rintro A ⟨B, hB, f, hf⟩
+    simp only [subfinalAlgebras, Set.mem_ofPred_eq] at hB ⊢
+    rw [subfinalAlg_iff] at hB ⊢
+    intro s
+    haveI : Subsingleton (B.1 s) := hB s
+    exact ⟨fun x y => by
+      obtain ⟨x', rfl⟩ := hf.2 s x
+      obtain ⟨y', rfl⟩ := hf.2 s y
+      exact congrArg (f s) (Subsingleton.elim x' y')⟩
+  · rintro A ⟨ι, _hι, C, hC, f, hf⟩
+    simp only [subfinalAlgebras, Set.mem_ofPred_eq] at hC ⊢
+    rw [subfinalAlg_iff] at ⊢
+    intro s
+    haveI : Subsingleton ((iAlg Sig C).1 s) := by
+      constructor
+      intro x y
+      funext i
+      haveI : Subsingleton ((C i).1 s) := ((subfinalAlg_iff Sig (C i)).mp (hC i)) s
+      exact Subsingleton.elim (x i) (y i)
+    exact ⟨fun x y => hf.1.2 s (Subsingleton.elim (f s x) (f s y))⟩
+
 /-! ### `B-P016`: a formation satisfies the `B-D033` intersection closure. -/
 
 theorem formation_congInf {S : Type u} (Sig : Signature S) {F : Set (Alg Sig)}

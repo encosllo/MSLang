@@ -66,6 +66,11 @@
       "propext"
     ],
     "Mslang.IsCongruence_inf": [],
+    "Mslang.IsCyclicSub": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsElemTranslation": [],
     "Mslang.IsEpiAlg": [],
     "Mslang.IsFiniteAlgebraFormation": [
@@ -90,6 +95,11 @@
     "Mslang.IsGenerating": [],
     "Mslang.IsLatticeFilter": [],
     "Mslang.IsMonoAlg": [],
+    "Mslang.IsPeriodicAlg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.IsRegularLanguage": [],
     "Mslang.IsRegularLanguageFormation": [
       "Classical.choice",
@@ -746,6 +756,26 @@
       "propext"
     ],
     "Mslang.pairAlgFamily": [],
+    "Mslang.periodicAlgebras": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.periodicAlgebras_closed_HOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.periodicAlgebras_closed_PFsdOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.periodicAlgebras_isAlgebraFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.prAlg": [
       "Classical.choice"
     ],
@@ -931,6 +961,12 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.subfinalAlgebras": [],
+    "Mslang.subfinalAlgebras_isAlgebraFormation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.subset_Sg": [],
     "Mslang.supp": [],
     "Mslang.suppAlg": [],
@@ -1072,7 +1108,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 353,
+  "declarations_audited": 361,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

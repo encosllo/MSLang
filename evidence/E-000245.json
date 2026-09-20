@@ -1,0 +1,36 @@
+{
+  "block": "B-X001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000245",
+  "findings": [
+    "B-X001: the periodic Sigma-algebras form a formation, under [Finite S]. New in Regular.lean: IsCyclicSub, IsPeriodicAlg, periodicAlgebras, the infrastructure directImage_Sg, directImage_deltaSub, finiteSSet_iAlg, finiteSSet_of_injective, and periodicAlgebras_closed_HOperator / periodicAlgebras_closed_PFsdOperator / periodicAlgebras_isAlgebraFormation. The [Finite S] hypothesis is required by the empty subdirect product (the final algebra 1 is finite iff S is). lean_audit: 361 declarations, 0 warnings, 0 unpermitted, 0 sorry."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-X001/formal_proof",
+      "hash": "459b4502548f70e6b152a15930ab8a390f6c1e1119a440e0f90f601ec70b1af6"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T18:02:27Z"
+}

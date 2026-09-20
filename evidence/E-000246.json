@@ -1,0 +1,64 @@
+{
+  "block": "B-X001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000246",
+  "findings": [
+    "Stage 2 returned formal_weaker: cyclic/periodic definitions match, but the contract states F_p is a formation for arbitrary S with no hypothesis, while the Lean requires [Finite S]. The empty product (n=0) always puts the final algebra 1 in P_fsd(F_p), and 1 need not be periodic for infinite S (operations sigma_n : () -> n make Sg_1(delta^{t,*}) infinite), so the unrestricted claim can fail. FINDING: B-X001 is false as stated for infinite S; the paper states it (Section 5) before the [Finite S] assumption B-A001. Transcript blocks/audits/B-X001-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "B-X001/definition_closure",
+      "hash": "d6e56c38a589fa81018c9c4ac89bf17b3335e1fbee7783ae34ef0f3e0db6d719"
+    },
+    {
+      "artifact": "B-X001/formal_statement",
+      "hash": "45432353ccda36c9417817fe3f7695cfe15512503dde270dde786c8189693415"
+    },
+    {
+      "artifact": "B-X001/informal_statement",
+      "hash": "1cbc15be08e5cec0bd390ae15228f9f1f385fa66d3eba9a0e41d6104be83df31"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T18:02:27Z"
+}

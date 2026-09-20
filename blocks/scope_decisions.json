@@ -206,9 +206,9 @@
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
     },
     "B-R016": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session114",
+      "disposition": "worth-formalizing",
+      "rationale": "Author re-tiered from deferred: the subfinal algebras forming a formation is a real theorem, formalizable from subfinalAlg_iff; Session 114 author-directed long run."
     },
     "B-R019": {
       "decided_by": "author:session82",
@@ -241,9 +241,9 @@
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
     },
     "B-X001": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session114",
+      "disposition": "worth-formalizing",
+      "rationale": "Author re-tiered from deferred: the periodic algebras forming a formation is a real theorem; formalized under [Finite S], which the empty product requires (Session 114 finding)."
     },
     "B-X002": {
       "decided_by": "author:session82",
