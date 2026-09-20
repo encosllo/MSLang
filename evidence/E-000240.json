@@ -1,0 +1,48 @@
+{
+  "block": "B-R024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000240",
+  "findings": [
+    "Stage 2 returned equivalent: the read-back states the same TFAE (1) every free algebra Term_Sigma(A) has finite support and (2) S is finite; the quantifier over A is universal in both, and the contract's witness A = 1 is an instance of that quantifier, a packaging difference. Transcript blocks/audits/B-R024-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R024/definition_closure",
+      "hash": "5b90dd6bfe470f0ec986c8a5845b21f7f63c9dffb739674702d8a96f1158b9da"
+    },
+    {
+      "artifact": "B-R024/formal_statement",
+      "hash": "7b4438fd7263bfc256092996a0aabba298c67358088da669410ff037a4bac4ef"
+    },
+    {
+      "artifact": "B-R024/informal_statement",
+      "hash": "038601a3c9071365c37a27dfc7ef7d3ffd50a2d34f15e7145615910e14779256"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T14:29:49Z"
+}

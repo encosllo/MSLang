@@ -18,6 +18,33 @@ namespace Mslang
 
 variable {S : Type u}
 
+/-! ### `B-A001`: the standing finiteness hypothesis. -/
+
+/-- `B-A001`: the standing hypothesis of the finite-index section, that the sort
+set `S` is finite. Naming it records the assumption as a mapped object; the
+section's declarations (`B-P032`, `B-P033`, `B-P034`, `B-P039`, ...) carry it as
+the `[Finite S]` typeclass hypothesis. -/
+def FiniteSorts (S : Type u) : Prop := Finite S
+
+/-! ### `B-R024`: finiteness of the free algebras' supports. -/
+
+/-- `B-R024`: for every `S`-sorted set `A`, the support of the free `Σ`-algebra
+`T_Σ(A)` is finite **if and only if** `S` is finite. The backward direction is
+`supp ⊆ univ`; the forward direction instantiates `A = 1` (the terminal sorted
+set), whose free algebra is inhabited at every sort (`Term.var`), so its support
+is all of `S`. -/
+theorem finite_supp_term_iff {S : Type u} (Sig : Signature S) :
+    (∀ A : SSet S, (supp (Term Sig A)).Finite) ↔ Finite S := by
+  constructor
+  · intro h
+    have hsupp : supp (Term Sig (finalSorted S)) = Set.univ := by
+      ext s
+      exact ⟨fun _ => trivial, fun _ => ⟨Term.var PUnit.unit⟩⟩
+    exact Finite.of_finite_univ (hsupp ▸ h (finalSorted S))
+  · intro hS A
+    haveI := hS
+    exact Set.finite_univ.subset (Set.subset_univ _)
+
 /-! ### `B-D040`: congruences of finite index. -/
 
 /-- `B-D040`: a congruence `Φ` on a `Σ`-algebra `A` is of *finite index* when the

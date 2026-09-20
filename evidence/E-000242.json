@@ -1,0 +1,52 @@
+{
+  "block": "B-P010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000242",
+  "findings": [
+    "Stage 2 returned equivalent: the definitions build W_Sigma(X) and its generated subalgebra T_Sigma(X); toT is the unique homomorphism and, being generated, onto, so toT_injective makes it a bijection and the term-level three-form decomposition transfers to rows. The case-3 uniqueness (splitting a concatenation into the family (P_i)) follows from toT injectivity plus constructor injectivity. Transcript blocks/audits/B-P010-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P010/definition_closure",
+      "hash": "95ea69c603e6825d8d6139066904cce9469e42930cc22f942738e83bff63521d"
+    },
+    {
+      "artifact": "B-P010/formal_statement",
+      "hash": "95d4b2e6cd4d1a9d627725d26662e147a322d447f32a80546f0129a27bd3f585"
+    },
+    {
+      "artifact": "B-P010/informal_statement",
+      "hash": "b1e1a8c47711bb1dbc78ca419447a468e3699a50bd810692cc3a5a4b069c5618"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T16:41:49Z"
+}

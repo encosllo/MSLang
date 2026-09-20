@@ -207,4 +207,210 @@ theorem term_projective {S : Type u} (Sig : Signature S) (X : SSet S)
     _ = termLift Sig X FC g0 := hfl_eq
     _ = g := hgl.symm
 
+/-! ### `B-P010`: unique parsing of term rows. -/
+
+/-- The underlying word of a term, i.e. the row encoding `(toT t).1`, defined by
+recursion on the term so the parser can reason about its shape. -/
+def rowOf {S : Type u} (Sig : Signature S) (X : SSet S) :
+    (s : S) → Term Sig X s → List (RowAlpha Sig X)
+  | _, .var x => [Sum.inr ⟨_, x⟩]
+  | _, .op p σ a =>
+      Sum.inl ⟨p, σ⟩ :: (List.ofFn (fun i => rowOf Sig X _ (a i))).flatten
+
+/-- `(toT t).1` is the recursively defined row `rowOf t`. -/
+theorem toT_apply {S : Type u} (Sig : Signature S) (X : SSet S) :
+    ∀ (s : S) (t : Term Sig X s), (toT Sig X s t).1 = rowOf Sig X s t := by
+  intro s t
+  induction t with
+  | var x => rfl
+  | op p σ a ih =>
+      show Sum.inl ⟨p, σ⟩ :: (List.ofFn (fun i => (toT Sig X _ (a i)).1)).flatten =
+        Sum.inl ⟨p, σ⟩ :: (List.ofFn (fun i => rowOf Sig X _ (a i))).flatten
+      have h : (fun i => (toT Sig X _ (a i)).1) = fun i => rowOf Sig X _ (a i) := by
+        funext i
+        exact ih i
+      rw [h]
+
+mutual
+  /-- Parse one term row off the front of a word, returning the term and the
+  remaining suffix. `fuel` bounds the length of the input. -/
+  def parseRow {S : Type u} [DecidableEq S] (Sig : Signature S) (X : SSet S) :
+      (fuel : ℕ) → List (RowAlpha Sig X) →
+      Option (Σ s : S, Term Sig X s × List (RowAlpha Sig X))
+    | 0, _ => none
+    | _ + 1, [] => none
+    | _ + 1, Sum.inr ⟨s, x⟩ :: rest => some ⟨s, Term.var x, rest⟩
+    | fuel + 1, Sum.inl ⟨(w, s), σ⟩ :: rest =>
+        match parseFam Sig X fuel w rest with
+        | some (a, rest') => some ⟨s, Term.op (w, s) σ a, rest'⟩
+        | none => none
+
+  /-- Parse `sorts.length` term rows off the front of a word, returning the
+  dependent family of terms and the remaining suffix. `fuel` bounds the length
+  of the input. -/
+  def parseFam {S : Type u} [DecidableEq S] (Sig : Signature S) (X : SSet S) :
+      (fuel : ℕ) → (sorts : List S) → List (RowAlpha Sig X) →
+      Option (((i : Fin sorts.length) → Term Sig X (sorts.get i)) ×
+        List (RowAlpha Sig X))
+    | _, [], rest => some (fun i => i.elim0, rest)
+    | 0, _ :: _, _ => none
+    | fuel + 1, s :: ss, rest =>
+        match parseRow Sig X fuel rest with
+        | some ⟨s', t, rest'⟩ =>
+            if h : s' = s then
+              match parseFam Sig X fuel ss rest' with
+              | some (a, rest'') =>
+                  some (fun i => Fin.cases (h ▸ t) (fun j => a j) i, rest'')
+              | none => none
+            else none
+        | none => none
+end
+
+/-- A term row is never empty. -/
+theorem rowOf_length_pos {S : Type u} (Sig : Signature S) (X : SSet S) :
+    ∀ (s : S) (t : Term Sig X s), 0 < (rowOf Sig X s t).length := by
+  intro s t
+  cases t <;> simp [rowOf]
+
+/-- Correctness of the parser. `parseRow` recovers a term from its row and
+`parseFam` recovers a family of terms from the concatenation of their rows,
+returning the untouched suffix. The `2 * length` slack absorbs the two fuel
+decrements (one in `parseRow`'s operation case, one in `parseFam`'s cons case)
+per consumed symbol. -/
+private theorem parse_correct {S : Type u} [DecidableEq S] (Sig : Signature S) (X : SSet S) :
+    ∀ f,
+      (∀ (s : S) (t : Term Sig X s) (r : List (RowAlpha Sig X)),
+        2 * (rowOf Sig X s t ++ r).length ≤ f →
+        parseRow Sig X f (rowOf Sig X s t ++ r) = some ⟨s, t, r⟩) ∧
+      (∀ (sorts : List S) (a : (i : Fin sorts.length) → Term Sig X (sorts.get i))
+          (r : List (RowAlpha Sig X)),
+        2 * ((List.ofFn (fun i => rowOf Sig X (sorts.get i) (a i))).flatten ++ r).length + 1 ≤ f →
+        parseFam Sig X f sorts
+            ((List.ofFn (fun i => rowOf Sig X (sorts.get i) (a i))).flatten ++ r)
+          = some (a, r)) := by
+  intro f
+  induction f with
+  | zero =>
+      refine ⟨?_, ?_⟩
+      · intro s t r h
+        have := rowOf_length_pos Sig X s t
+        simp only [List.length_append] at h
+        omega
+      · intro sorts a r h
+        simp only [List.length_append] at h
+        omega
+  | succ f ih =>
+      obtain ⟨ihP, ihQ⟩ := ih
+      refine ⟨?_, ?_⟩
+      · intro s t r h
+        cases t with
+        | var x => rfl
+        | op p σ a =>
+            have hrow : rowOf Sig X p.2 (Term.op p σ a) =
+                Sum.inl ⟨p, σ⟩ ::
+                  (List.ofFn (fun i => rowOf Sig X (p.1.get i) (a i))).flatten := rfl
+            rw [hrow] at h ⊢
+            simp only [List.cons_append] at h ⊢
+            have hlen : 2 * ((List.ofFn (fun i => rowOf Sig X (p.1.get i) (a i))).flatten ++ r).length + 1 ≤ f := by
+              simp only [List.length_append, List.length_cons] at h ⊢
+              omega
+            have hfam := ihQ p.1 a r hlen
+            simp only [parseRow]
+            rw [hfam]
+      · intro sorts a r h
+        cases sorts with
+        | nil =>
+            have hnil : (List.ofFn (fun i : Fin ([]).length =>
+                rowOf Sig X (([]).get i) (a i))).flatten ++ r = r := by simp
+            rw [hnil]
+            show some (fun i => i.elim0, r) = some (a, r)
+            simp only [Option.some.injEq, Prod.mk.injEq]
+            refine ⟨?_, trivial⟩
+            funext i
+            exact i.elim0
+        | cons s ss =>
+            have hofn : (List.ofFn (fun i : Fin (s :: ss).length =>
+                  rowOf Sig X ((s :: ss).get i) (a i))).flatten
+                = rowOf Sig X s (a 0) ++
+                  (List.ofFn (fun i : Fin ss.length =>
+                    rowOf Sig X (ss.get i) (a i.succ))).flatten := by
+              rw [List.ofFn_succ, List.flatten_cons]
+              simp only [List.get_cons_zero, List.get_cons_succ']
+            have hlen1 : 2 * (rowOf Sig X s (a 0) ++
+                ((List.ofFn (fun i : Fin ss.length =>
+                    rowOf Sig X (ss.get i) (a i.succ))).flatten ++ r)).length ≤ f := by
+              rw [hofn, List.append_assoc] at h
+              simp only [List.length_append] at h ⊢
+              omega
+            have hP := ihP s (a 0)
+              ((List.ofFn (fun i : Fin ss.length =>
+                  rowOf Sig X (ss.get i) (a i.succ))).flatten ++ r) hlen1
+            have hlen2 : 2 * ((List.ofFn (fun i : Fin ss.length =>
+                    rowOf Sig X (ss.get i) (a i.succ))).flatten ++ r).length + 1 ≤ f := by
+              have hpos := rowOf_length_pos Sig X s (a 0)
+              simp only [List.length_append] at hlen1 ⊢
+              omega
+            have hQ := ihQ ss (fun i : Fin ss.length => a i.succ) r hlen2
+            rw [hofn, List.append_assoc]
+            simp only [parseFam]
+            rw [hP]
+            dsimp only
+            rw [hQ]
+            rw [dif_pos rfl]
+            dsimp only
+            simp only [Option.some.injEq, Prod.mk.injEq]
+            refine ⟨?_, trivial⟩
+            funext i
+            induction i using Fin.cases with
+            | zero => rfl
+            | succ j => simp
+
+/-- `B-P010` (unique parsing): the comparison map `toT : Term_Σ(X) → T_Σ(X)`
+is injective, so the row presentation `T_Σ(X)` and the inductive presentation
+`Term_Σ(X)` of the free `Σ`-algebra agree. -/
+theorem toT_injective {S : Type u} (Sig : Signature S) (X : SSet S) (s : S) :
+    Function.Injective (toT Sig X s) := by
+  classical
+  intro t u h
+  have hrow : rowOf Sig X s t = rowOf Sig X s u := by
+    have h' : (toT Sig X s t).1 = (toT Sig X s u).1 := congrArg Subtype.val h
+    rw [toT_apply, toT_apply] at h'
+    exact h'
+  have hP := parse_correct (S := S) (Sig := Sig) (X := X)
+  have ht : parseRow Sig X (2 * (rowOf Sig X s t).length) (rowOf Sig X s t ++ []) =
+      some ⟨s, t, []⟩ := (hP (2 * (rowOf Sig X s t).length)).1 s t [] (by simp)
+  have hu' : parseRow Sig X (2 * (rowOf Sig X s u).length) (rowOf Sig X s u ++ []) =
+      some ⟨s, u, []⟩ := (hP (2 * (rowOf Sig X s u).length)).1 s u [] (by simp)
+  have hu : parseRow Sig X (2 * (rowOf Sig X s t).length) (rowOf Sig X s t ++ []) =
+      some ⟨s, u, []⟩ := by
+    rw [hrow]
+    exact hu'
+  have hsame : (⟨s, t, []⟩ : Σ s : S, Term Sig X s × List (RowAlpha Sig X)) =
+      ⟨s, u, []⟩ := Option.some.inj (ht.symm.trans hu)
+  cases hsame
+  rfl
+
+/-- `B-P010`: every term is a variable `x`, or a nullary operation `σ`
+(`σ ∈ Σ_{λ,s}`), or an operation `σ(P₀,…,P_{|w|-1})` with `w ≠ λ`; the
+decomposition is unique (uniqueness of parsing is `toT_injective`) and the three
+cases are mutually exclusive (they are different constructors). -/
+theorem term_shape {S : Type u} (Sig : Signature S) (X : SSet S) :
+    ∀ (s : S) (t : Term Sig X s),
+      (∃ x : X s, t = Term.var x) ∨
+      (∃ σ : Sig ([], s), t = Term.op ([], s) σ (fun i => i.elim0)) ∨
+      (∃ (w : List S) (_ : w ≠ []) (σ : Sig (w, s))
+          (a : (i : Fin w.length) → Term Sig X (w.get i)),
+          t = Term.op (w, s) σ a) := by
+  intro s t
+  cases t with
+  | var x => exact Or.inl ⟨x, rfl⟩
+  | op p σ a =>
+      obtain ⟨w, r⟩ := p
+      by_cases hw : w = []
+      · subst hw
+        refine Or.inr (Or.inl ⟨σ, ?_⟩)
+        have ha : a = fun i => i.elim0 := by funext i; exact i.elim0
+        rw [ha]
+      · exact Or.inr (Or.inr ⟨w, hw, σ, a, rfl⟩)
+
 end Mslang

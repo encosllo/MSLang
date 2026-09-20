@@ -1,10 +1,5 @@
 {
   "dispositions": {
-    "B-A001": {
-      "decided_by": "author:session82",
-      "disposition": "worth-formalizing",
-      "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
-    },
     "B-C003": {
       "decided_by": "author:session82",
       "disposition": "deferred",
@@ -99,11 +94,6 @@
       "decided_by": "author:session82",
       "disposition": "worth-formalizing",
       "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
-    },
-    "B-P010": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
     },
     "B-P011": {
       "decided_by": "author:session82",
@@ -231,11 +221,6 @@
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
     },
     "B-R023": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
-    },
-    "B-R024": {
       "decided_by": "author:session82",
       "disposition": "deferred",
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."

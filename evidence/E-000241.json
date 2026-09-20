@@ -1,0 +1,36 @@
+{
+  "block": "B-P010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000241",
+  "findings": [
+    "B-P010: unique parsing. New in Term.lean: rowOf (the row encoding of a term), the fuel-bounded parser parseRow/parseFam, parse_correct (recovers a term / a family of terms from its row, returning the untouched suffix, via a 2*length fuel invariant), rowOf_length_pos, toT_injective (the row presentation T_Sigma(X) and the inductive presentation Term_Sigma(X) agree), and term_shape (every term is a variable, a nullary operation, or an operation of nonempty arity). lean_audit: 353 declarations, 0 warnings, 0 unpermitted, 0 sorry; axioms within the permitted set."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P010/formal_proof",
+      "hash": "327d4c3c3a3f3582e3f0b9d9016e0b74e2d2274f18b64214b783904a9e51c6bd"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T16:41:49Z"
+}

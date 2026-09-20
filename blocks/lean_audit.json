@@ -32,6 +32,7 @@
     "Mslang.Etl": [],
     "Mslang.FiniteAlg": [],
     "Mslang.FiniteSSet": [],
+    "Mslang.FiniteSorts": [],
     "Mslang.FiniteSub": [],
     "Mslang.HOperator": [],
     "Mslang.HOperator_mono": [],
@@ -473,6 +474,11 @@
       "propext"
     ],
     "Mslang.finiteSubsets": [],
+    "Mslang.finite_supp_term_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.formAlgFFormCgrFiIso": [
       "Classical.choice",
       "Quot.sound",
@@ -1006,6 +1012,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Mslang.term_shape": [
+      "Quot.sound"
+    ],
     "Mslang.thetaSigma": [
       "Classical.choice",
       "Quot.sound",
@@ -1028,6 +1037,11 @@
     ],
     "Mslang.tlEndMonoid": [
       "Quot.sound"
+    ],
+    "Mslang.toT_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
     "Mslang.transImage": [
       "Classical.choice",
@@ -1058,7 +1072,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 349,
+  "declarations_audited": 353,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

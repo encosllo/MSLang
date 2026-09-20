@@ -5509,6 +5509,74 @@ assumption. Outcome is an honest `formal_weaker` correspondence.
 
 ---
 
+## Session 113 -- 2026-09-20 -- B-A001, B-R024, B-P010 (worth-formalizing frontier emptied)
+
+**Goal.** Author-directed long run: formalize the last `worth-formalizing` block
+(`B-A001`) and probe the deferred free-algebra cluster (`B-C003`, `B-P010`). No
+author-reserved decision was taken beyond the scope updates below.
+
+**What was established (closed, and mapped).**
+
+- `B-A001` (the standing assumption that `S` is finite) is named
+  `Mslang.FiniteSorts (S : Type u) : Prop := Finite S` (`Regular.lean`); the
+  finite-index section's declarations carry it as the `[Finite S]` typeclass
+  hypothesis. Evidence `E-000237` (verification) / `E-000239` (correspondence,
+  `equivalent`).
+- `B-R024` formalized as `Mslang.finite_supp_term_iff` (`Regular.lean`):
+  `(∀ A : SSet S, (supp (Term Sig A)).Finite) ↔ Finite S`. The forward direction
+  instantiates the terminal sorted set `finalSorted S` (whose free algebra is
+  inhabited at every sort, so its support is `univ`); the backward direction is
+  `supp ⊆ univ`. Evidence `E-000238` / `E-000240` (`equivalent`).
+- `B-P010` (unique parsing) formalized in `Term.lean`:
+  - `rowOf` (the row of a term) and `toT_apply` (`(toT t).1 = rowOf t`);
+  - a fuel-bounded parser `parseRow`/`parseFam` with correctness `parse_correct`
+    (recovers a term / a family of terms from its row, returning the untouched
+    suffix; a `2 * length` fuel invariant absorbs the two fuel decrements per
+    consumed symbol), proved by induction on the fuel;
+  - `toT_injective`: the row presentation `T_Σ(X)` and the inductive
+    presentation `Term_Σ(X)` agree — the open bridge flagged in Sessions 87/111;
+  - `term_shape`: every term is a variable, a nullary operation, or an operation
+    of nonempty arity.
+  Evidence `E-000241` (verification) / `E-000242` (correspondence,
+  `equivalent`; the comparator verified that case-3 uniqueness follows from
+  `toT_injective` plus constructor injectivity). Transcript
+  `blocks/audits/B-P010-correspondence.md`.
+- Scope dispositions for `B-A001`, `B-R024`, `B-P010` removed (now mapped); the
+  earlier `deferred` rationales for `B-R024`/`B-P010` are superseded by the
+  author-directed probe.
+- `lean_audit`: **353 declarations** (was 349), 0 warnings, 0 unpermitted, 0
+  `sorry`. Fast gate: **40 passed, 0 failed**; slow gate: **43 passed, 0 failed**.
+  Journal `EV-000121`. Frontier unmapped **16 → 13**; `worth-formalizing`
+  **1 → 0**.
+
+**Probe result (B-C003).** The corollary `T_Σ ⊣ G_Σ` (the free-algebra functor is
+left adjoint to the forgetful functor) needs the categories `Alg(Σ)`/`Set^S`, the
+functor `T_Σ`, and a natural bijection of hom-sets; the encoding has no category
+or functor infrastructure. It is a scope/representation decision, not a proof
+gap, and remains deferred.
+
+**Honest caveats.** (1) Same-model audit as always: all correspondence verdicts
+are independent-context but share `deepseek-v4.1-flash`, and inherit the
+pilot-encoding residuals (`carrier-model`, `small-large`, `univalence-missing`).
+(2) `B-A001` is an assumption; naming it (`FiniteSorts`) records it as a mapped
+object without pretending it is proved. Its companion `B-R024` shows the
+hypothesis is equivalent to the free-support-finiteness property, so it is not
+vacuous.
+
+**Prioritized next steps.**
+
+1. Author: the `B-P001` representation revision (class C6: S-sorted sets as
+   subobjects of a universe) to close its `formal_weaker` gap; and the `B-C003`
+   scope decision.
+2. The 13 remaining unmapped blocks are all deferred illustrative remarks /
+   examples (`B-C003`, `B-P036`, `B-R002`, `B-R004`, `B-R013`, `B-R015`,
+   `B-R016`, `B-R019`, `B-R025`–`B-R027`, `B-X001`, `B-X002`). `B-R016` (the
+   subfinal algebras form a formation) and `B-X001` (periodic algebras form a
+   formation) carry genuine theorem content if the author re-tiers them.
+3. Independent representation audit; a second model for the calibration suite.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

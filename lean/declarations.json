@@ -863,6 +863,21 @@
         "Mslang.suppSub_sdiff_subset"
       ],
       "file": "lean/Mslang/Prelim.lean"
+    },
+    "B-A001": {
+      "decl": "Mslang.FiniteSorts",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-R024": {
+      "decl": "Mslang.finite_supp_term_iff",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P010": {
+      "decls": [
+        "Mslang.toT_injective",
+        "Mslang.term_shape"
+      ],
+      "file": "lean/Mslang/Term.lean"
     }
   }
 }

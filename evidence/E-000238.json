@@ -1,0 +1,36 @@
+{
+  "block": "B-R024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000238",
+  "findings": [
+    "B-R024: (forall A : SSet S, (supp (Term Sig A)).Finite) <-> Finite S, as Mslang.finite_supp_term_iff (Regular.lean). Forward direction instantiates A = finalSorted S (the terminal sorted set), whose free algebra is inhabited at every sort (Term.var PUnit.unit), so supp(T_Sigma(1)) = univ; backward is supp subset univ under [Finite S]. Axioms within the permitted set."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R024/formal_proof",
+      "hash": "d04b582391e8b4def0ed07aad2029009f3344a6fcedab6a902f233433200ffe5"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T14:29:49Z"
+}

@@ -1,5 +1,21 @@
 {
   "blocks": {
+    "B-A001": {
+      "decls": [
+        "Mslang.FiniteSorts"
+      ],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "1196a344bfa515dd5f35f34d3050a24103e429a8a5fbd78557d655110156d002"
+      },
+      "formal_statement": {
+        "hash": "5ac295cd5488a12e682a4deb2adf5ffa117faaf197a6d44dc86f37ddb772ea12"
+      }
+    },
     "B-C001": {
       "decls": [
         "Mslang.sat_antitone"
@@ -2333,6 +2349,30 @@
         "hash": "3da6d505a20d5224b6435eda37bb9f1ab16370143f64d23baa6ee149f1a14a0d"
       }
     },
+    "B-P010": {
+      "decls": [
+        "Mslang.toT_injective",
+        "Mslang.term_shape"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.RowAlpha",
+          "Mslang.SSet",
+          "Mslang.SigElem",
+          "Mslang.Signature",
+          "Mslang.Term",
+          "Mslang.XElem"
+        ],
+        "hash": "95ea69c603e6825d8d6139066904cce9469e42930cc22f942738e83bff63521d"
+      },
+      "file": "lean/Mslang/Term.lean",
+      "formal_proof": {
+        "hash": "327d4c3c3a3f3582e3f0b9d9016e0b74e2d2274f18b64214b783904a9e51c6bd"
+      },
+      "formal_statement": {
+        "hash": "95d4b2e6cd4d1a9d627725d26662e147a322d447f32a80546f0129a27bd3f585"
+      }
+    },
     "B-P011": {
       "decls": [
         "Mslang.termLift",
@@ -4293,6 +4333,28 @@
       },
       "formal_statement": {
         "hash": "683aefb83440b3d03ed64f7cb2320887aa45eb97bf6934450905b81864d2315d"
+      }
+    },
+    "B-R024": {
+      "decls": [
+        "Mslang.finite_supp_term_iff"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.Term",
+          "Mslang.finalSorted",
+          "Mslang.supp"
+        ],
+        "hash": "5b90dd6bfe470f0ec986c8a5845b21f7f63c9dffb739674702d8a96f1158b9da"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "d04b582391e8b4def0ed07aad2029009f3344a6fcedab6a902f233433200ffe5"
+      },
+      "formal_statement": {
+        "hash": "7b4438fd7263bfc256092996a0aabba298c67358088da669410ff037a4bac4ef"
       }
     }
   },
