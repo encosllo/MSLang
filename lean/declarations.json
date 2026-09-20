@@ -813,6 +813,19 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-C012": {
+      "decls": [
+        "Mslang.finiteIndexCongruenceFormations_isAlgebraicLattice"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-C013": {
+      "decls": [
+        "Mslang.regularLanguageFormationsCompleteLattice",
+        "Mslang.regularLanguageFormations_isAlgebraicLattice"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-P032": {
       "decls": [
         "Mslang.isFiniteIndex_ker_of_finite",

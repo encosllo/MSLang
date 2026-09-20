@@ -1,0 +1,36 @@
+{
+  "block": "B-C012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000229",
+  "findings": [
+    "B-C012: Form_Cgr_fi(Sigma) is an algebraic lattice. Transports B-C011 (finiteAlgebraFormations_isAlgebraicLattice) across the B-P034 order isomorphism formAlgFFormCgrFiIso using isAlgebraicLattice_of_orderIso, under B-A001 [Finite S]. Axioms within the permitted set (lean_audit: 331 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-C012/formal_proof",
+      "hash": "213e73f7aacef25c64ac99d734c20fdb06ecd167938d5005d206ccd3772b2477"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T06:43:27Z"
+}

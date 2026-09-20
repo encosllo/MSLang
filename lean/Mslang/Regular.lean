@@ -1977,4 +1977,52 @@ theorem finiteAlgebraFormations_isAlgebraicLattice {S : Type u} [Finite S]
     (finiteAlgebraFormationsCompleteLattice Sig)
   exact h
 
+/-! ### `B-C012`: `Form_Cgr_fi(Σ)` is an algebraic lattice. -/
+
+/-- `B-C012` (`FormCgrfiAlg`): `Form_Cgr_fi(Σ)`, ordered by pointwise
+inclusion, is an algebraic lattice, transported from `Form_Alg_f(Σ)`
+(`B-C011`) across the order isomorphism `B-P034`. -/
+theorem finiteIndexCongruenceFormations_isAlgebraicLattice {S : Type u} [Finite S]
+    (Sig : Signature S) :
+    @IsAlgebraicLattice (finiteIndexCongruenceFormations Sig)
+      (finiteIndexCongruenceFormationsCompleteLattice Sig) := by
+  letI : CompleteLattice (finiteAlgebraFormations Sig) :=
+    finiteAlgebraFormationsCompleteLattice Sig
+  letI : CompleteLattice (finiteIndexCongruenceFormations Sig) :=
+    finiteIndexCongruenceFormationsCompleteLattice Sig
+  have h := isAlgebraicLattice_of_orderIso (formAlgFFormCgrFiIso Sig)
+    (finiteAlgebraFormations_isAlgebraicLattice Sig)
+  change @IsAlgebraicLattice (finiteIndexCongruenceFormations Sig)
+    (finiteIndexCongruenceFormationsCompleteLattice Sig)
+  exact h
+
+/-! ### `B-C013`: `Form_Lang_r(Σ)` is an algebraic lattice. -/
+
+/-- `B-C013`: `Form_Lang_r(Σ)`, ordered by pointwise inclusion, is a complete
+lattice, as the order-isomorphic image of `Form_Cgr_fi(Σ)` (`B-P032`) across
+`B-P039`. -/
+@[instance_reducible]
+noncomputable def regularLanguageFormationsCompleteLattice {S : Type u} [Finite S]
+    (Sig : Signature S) : CompleteLattice (regularLanguageFormations Sig) :=
+  letI : CompleteLattice (finiteIndexCongruenceFormations Sig) :=
+    finiteIndexCongruenceFormationsCompleteLattice Sig
+  (formCgrFiFormLangRIso Sig).toGaloisInsertion.liftCompleteLattice
+
+/-- `B-C013`: `Form_Lang_r(Σ)`, ordered by inclusion, is an algebraic lattice,
+transported from `Form_Cgr_fi(Σ)` (`B-C012`) across the order isomorphism
+`B-P039`. -/
+theorem regularLanguageFormations_isAlgebraicLattice {S : Type u} [Finite S]
+    (Sig : Signature S) :
+    @IsAlgebraicLattice (regularLanguageFormations Sig)
+      (regularLanguageFormationsCompleteLattice Sig) := by
+  letI : CompleteLattice (finiteIndexCongruenceFormations Sig) :=
+    finiteIndexCongruenceFormationsCompleteLattice Sig
+  letI : CompleteLattice (regularLanguageFormations Sig) :=
+    regularLanguageFormationsCompleteLattice Sig
+  have h := isAlgebraicLattice_of_orderIso (formCgrFiFormLangRIso Sig)
+    (finiteIndexCongruenceFormations_isAlgebraicLattice Sig)
+  change @IsAlgebraicLattice (regularLanguageFormations Sig)
+    (regularLanguageFormationsCompleteLattice Sig)
+  exact h
+
 end Mslang

@@ -446,6 +446,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.finiteIndexCongruenceFormations_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.finiteIndexCongruenceFormations_isGLB_sInf": [
       "Classical.choice",
       "Quot.sound",
@@ -789,6 +794,16 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.regularLanguageFormationsCompleteLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.regularLanguageFormations_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.regularLanguages": [],
     "Mslang.sat": [],
     "Mslang.satSets": [],
@@ -979,7 +994,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 328,
+  "declarations_audited": 331,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

@@ -1,0 +1,48 @@
+{
+  "block": "B-C012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000230",
+  "findings": [
+    "Stage 2 returned equivalent: Form_Cgr_fi(Sigma) is an algebraic lattice, matching B-C012 (transport of B-C011 across the B-P034 order iso formAlgFFormCgrFiIso). Transcript blocks/audits/B-C012-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: two-stage-blind. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C012/definition_closure",
+      "hash": "71cf335f9b208edfe50997b9730b1d9aeb172ac8385c8f3dfa1ab7f6a21b4bc0"
+    },
+    {
+      "artifact": "B-C012/formal_statement",
+      "hash": "691adf45f737af8c4946a974048094e5a4476dca515f992bdade9705d32856b1"
+    },
+    {
+      "artifact": "B-C012/informal_statement",
+      "hash": "9764124f72bb25c0a3f980e3f79468c748f2caae3cda35e8686846dbde4fc072"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-20T06:43:33Z"
+}

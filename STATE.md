@@ -5334,6 +5334,66 @@ algebraic and the target derived), so `.symm` is required on both uses.
 
 ---
 
+## Session 110 -- 2026-09-20 -- `B-C012`/`B-C013` (the Eilenberg algebraic lattices)
+
+**Goal.** Session 109 step 1: complete the chain of algebraic-lattice results by
+transport along the two Eilenberg order isomorphisms. No author-reserved
+decision was taken.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Regular.lean`:
+  - `finiteIndexCongruenceFormations_isAlgebraicLattice` (**`B-C012`**,
+    `FormCgrfiAlg`): transports `B-C011`'s
+    `finiteAlgebraFormations_isAlgebraicLattice` across the `B-P034` order
+    isomorphism `formAlgFFormCgrFiIso` with the generic
+    `isAlgebraicLattice_of_orderIso`, under `B-A001` `[Finite S]`. No new
+    complete-lattice instance is needed: `B-P032`'s
+    `finiteIndexCongruenceFormationsCompleteLattice` already supplies it.
+  - `regularLanguageFormationsCompleteLattice` + `regularLanguageFormations_isAlgebraicLattice`
+    (**`B-C013`**): a `CompleteLattice` instance for `Form_Lang_r(Σ)` obtained by
+    `liftCompleteLattice` along the Galois insertion of the `B-P039` order
+    isomorphism `formCgrFiFormLangRIso`, then `B-C012` transported across that
+    isomorphism. `Form_Lang_r(Σ)` had no lattice instance before; this session
+    mints one.
+- `lean/declarations.json` maps both blocks. `blocks/lean_audit.json`:
+  **331 declarations** (was 328), 0 warnings, 0 unpermitted, 0 `sorry`. Every
+  new axiom set is within the permitted `[propext, Classical.choice, Quot.sound]`.
+- Evidence **`E-000229`/`E-000230`** (`B-C012` verification / correspondence) and
+  **`E-000231`/`E-000232`** (`B-C013` verification / correspondence; both
+  two-stage blind, **`equivalent`**). Transcripts
+  `blocks/audits/B-C012-correspondence.md`, `B-C013-correspondence.md`. Journal
+  `EV-000118`. Frontier unmapped **20 → 18**. Fast gate: **40 passed, 0 failed**;
+  slow gate: **43 passed, 0 failed**.
+
+**Findings / notes.**
+
+- The transport pattern is now uniform: `isAlgebraicLattice_of_orderIso` needs
+  the source instance algebraic and the target's `CompleteLattice` derived; for
+  `B-C012` both complete lattices already exist (`B-P032`, `B-C011`) and only a
+  local `letI` plus `change` is needed to reconcile instances, exactly as in
+  `B-C011`. `B-C013` additionally had to mint the target instance, since
+  `Form_Lang_r(Σ)` (a plain `Set` of choice functions) had none.
+- Both new `CompleteLattice` defs are plain (non-instance) defs; the theorems
+  install them with `letI` and close with `change` to the explicit instance, so
+  no global instance diamonds are introduced.
+- `B-C012`/`B-C013` have **no informal proof** and no `Explanation`, so their
+  **review** layer still fails closed; only correspondence + verification were
+  produced. They keep the other blocks in this family's state (algebraic-lattice
+  facts are cited, not reproved, in the manuscript).
+- Same-model audit; inherits the pilot-encoding residuals (`carrier-model`,
+  `small-large`, `univalence-missing`).
+
+**Prioritized next steps.**
+
+1. `B-P006` (CABA on `Φ-Sat`).
+2. The remaining `worth-formalizing` unmapped blocks (`B-C003`) and the deferred
+   set; the definition-block declarations of `B-D002`/`B-D014` if wanted.
+3. Independent representation audit; the author-reserved decisions (Explanation
+   acceptance, JSON/YAML record format).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
