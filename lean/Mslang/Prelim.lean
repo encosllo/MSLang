@@ -721,4 +721,102 @@ theorem delta_iso_coprod {S : Type u} (t : S) (X : Type u) :
     SortedIso (deltaT t X) (iCoprod (fun _ : X => delta t)) :=
   ⟨fun s => (deltaEquiv t X s).toFun, fun s => (deltaEquiv t X s).bijective⟩
 
+/-! ### `B-P001`: supports of sorted sets.
+
+The type-level encoding has no ambient universe, so the *set-theoretic* union,
+intersection and difference of unrelated sorted sets are not available; the
+coproduct `iCoprod` plays the role of the union (their support formulas
+coincide), and the intersection/difference items are stated for componentwise
+subsets of a common sorted set (the encoding's fixed-ambient carrier model,
+`representation/pilot-encoding.md` D2). -/
+
+/-- `B-P001`(1): there is a sorted map `A → B` if and only if
+`supp_S(A) ⊆ supp_S(B)`. -/
+theorem nonempty_sortedMap_iff {S : Type u} (A B : SSet S) :
+    Nonempty (SortedMap A B) ↔ supp A ⊆ supp B := by
+  classical
+  constructor
+  · rintro ⟨f⟩ s ⟨a⟩
+    exact ⟨f s a⟩
+  · intro h
+    refine ⟨fun s a => ?_⟩
+    by_cases hs : Nonempty (A s)
+    · exact Classical.choice (h hs)
+    · exact (hs ⟨a⟩).elim
+
+/-- `B-P001`(1): if `A` embeds in `B` componentwise, then
+`supp_S(A) ⊆ supp_S(B)`. -/
+theorem supp_mono_of_injective {S : Type u} {A B : SSet S} (f : SortedMap A B) :
+    supp A ⊆ supp B :=
+  fun s ⟨a⟩ => ⟨f s a⟩
+
+/-- `B-P001`(1): for `X ⊆ A`, `supp_S(X) = supp_S(f[X])`. -/
+theorem suppSub_directImage {S : Type u} {A B : SSet S} (f : SortedMap A B) (X : Sub A) :
+    suppSub (directImage f X) = suppSub X := by
+  ext s
+  constructor
+  · rintro ⟨_b, ⟨a, ha, _⟩⟩
+    exact ⟨a, ha⟩
+  · rintro ⟨a, ha⟩
+    exact ⟨f s a, ⟨a, ha, rfl⟩⟩
+
+/-- `B-P001`(2): a componentwise-surjective sorted map has equal support. -/
+theorem supp_eq_of_surjective {S : Type u} {A B : SSet S} (f : SortedMap A B)
+    (hf : ∀ s, Function.Surjective (f s)) : supp A = supp B := by
+  apply Set.Subset.antisymm
+  · intro s ⟨a⟩
+    exact ⟨f s a⟩
+  · intro s ⟨b⟩
+    obtain ⟨a, -⟩ := hf s b
+    exact ⟨a⟩
+
+/-- `B-P001`(2): for a componentwise-surjective map, `supp_S(Y) =
+supp_S(f^{-1}[Y])`. -/
+theorem suppSub_inverseImage {S : Type u} {A B : SSet S} (f : SortedMap A B)
+    (hf : ∀ s, Function.Surjective (f s)) (Y : Sub B) :
+    suppSub (inverseImage f Y) = suppSub Y := by
+  ext s
+  constructor
+  · rintro ⟨a, ha⟩
+    exact ⟨f s a, ha⟩
+  · rintro ⟨b, hb⟩
+    obtain ⟨a, rfl⟩ := hf s b
+    exact ⟨a, hb⟩
+
+/-- `B-P001`(3): `supp_S(∐_i A^i) = ⋃_i supp_S(A^i)`. (The coproduct carries the
+support formula of the set-theoretic union, which the type encoding lacks.) -/
+theorem supp_iCoprod {S : Type u} {ι : Type u} (A : ι → SSet S) :
+    supp (iCoprod A) = ⋃ i, supp (A i) := by
+  ext s
+  constructor
+  · rintro ⟨⟨i, a⟩⟩
+    exact Set.mem_iUnion.mpr ⟨i, ⟨a⟩⟩
+  · intro hs
+    rcases Set.mem_iUnion.mp hs with ⟨i, ⟨a⟩⟩
+    exact ⟨⟨i, a⟩⟩
+
+/-- `B-P001`(3): `supp_S(∏_i A^i) = ⋂_i supp_S(A^i)`. -/
+theorem supp_iProd {S : Type u} {ι : Type u} (A : ι → SSet S) :
+    supp (iProd A) = ⋂ i, supp (A i) := by
+  ext s
+  constructor
+  · rintro ⟨f⟩
+    exact Set.mem_iInter.mpr fun i => ⟨f i⟩
+  · intro hs
+    exact ⟨fun i => Classical.choice (Set.mem_iInter.mp hs i)⟩
+
+/-- `B-P001`(3): for componentwise subsets of a common `A`,
+`supp_S(⋂_i B^i) ⊆ ⋂_i supp_S(B^i)`. -/
+theorem suppSub_iInter_subset {S : Type u} {A : SSet S} {ι : Type u} (B : ι → Sub A) :
+    suppSub (fun s => ⋂ i, B i s) ⊆ ⋂ i, suppSub (B i) := by
+  rintro s ⟨a, ha⟩
+  exact Set.mem_iInter.mpr fun i => ⟨a, Set.mem_iInter.mp ha i⟩
+
+/-- `B-P001`(3): for componentwise subsets of a common `A`,
+`supp_S(X) - supp_S(Y) ⊆ supp_S(X - Y)`. -/
+theorem suppSub_sdiff_subset {S : Type u} {A : SSet S} (X Y : Sub A) :
+    suppSub X \ suppSub Y ⊆ suppSub (fun s => X s \ Y s) := by
+  rintro s ⟨⟨a, ha⟩, hYs⟩
+  exact ⟨a, ha, fun hb => hYs ⟨a, hb⟩⟩
+
 end Mslang

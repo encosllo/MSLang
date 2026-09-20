@@ -2068,6 +2068,44 @@
         "hash": "5bf5ee8ddb3912b1ffe643ca6ef280df6c98680aff3cc00ea7f87a95c34c7e77"
       }
     },
+    "B-P001": {
+      "decls": [
+        "Mslang.nonempty_sortedMap_iff",
+        "Mslang.supp_mono_of_injective",
+        "Mslang.suppSub_directImage",
+        "Mslang.supp_eq_of_surjective",
+        "Mslang.suppSub_inverseImage",
+        "Mslang.supp_initialSorted",
+        "Mslang.supp_finalSorted",
+        "Mslang.supp_iCoprod",
+        "Mslang.supp_iProd",
+        "Mslang.suppSub_iInter_subset",
+        "Mslang.suppSub_sdiff_subset"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.SSet",
+          "Mslang.SortedMap",
+          "Mslang.Sub",
+          "Mslang.Subset",
+          "Mslang.directImage",
+          "Mslang.finalSorted",
+          "Mslang.iCoprod",
+          "Mslang.iProd",
+          "Mslang.initialSorted",
+          "Mslang.inverseImage",
+          "Mslang.supp"
+        ],
+        "hash": "8b5fc73cfa52dad3c98e9c5e309fe020d3171148ec7946c8673af43a4dfc5ef8"
+      },
+      "file": "lean/Mslang/Prelim.lean",
+      "formal_proof": {
+        "hash": "fb74ede836035119e927b138effd3fb45f4c321584123045e416c54624cb07e4"
+      },
+      "formal_statement": {
+        "hash": "f64f957e56b7195d85729d81de0dec56e4919e33aac03865ec2ecb4c374ecbb2"
+      }
+    },
     "B-P002": {
       "decls": [
         "Mslang.prop_incSat"

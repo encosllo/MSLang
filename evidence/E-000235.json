@@ -1,0 +1,36 @@
+{
+  "block": "B-P001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000235",
+  "findings": [
+    "B-P001: support properties of sorted sets. New section in Prelim.lean: nonempty_sortedMap_iff (Hom(A,B) ne empty iff supp A subset supp B), supp_mono_of_injective, suppSub_directImage, supp_eq_of_surjective, suppSub_inverseImage, supp_initialSorted/supp_finalSorted, supp_iCoprod, supp_iProd, and the Sub-valued suppSub_iInter_subset/suppSub_sdiff_subset. Axioms within the permitted set (lean_audit: 349 declarations, 0 warnings, 0 unpermitted, 0 sorry)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-P001/formal_proof",
+      "hash": "fb74ede836035119e927b138effd3fb45f4c321584123045e416c54624cb07e4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "timestamp": "2026-09-20T08:36:34Z"
+}

@@ -5459,6 +5459,56 @@ decision was taken.
 
 ---
 
+## Session 112 -- 2026-09-20 -- `B-P001` (support properties; `formal_weaker`)
+
+**Goal.** Formalize the last `worth-formalizing` block besides the `B-A001`
+assumption. Outcome is an honest `formal_weaker` correspondence.
+
+**What was established (closed, and mapped).**
+
+- `lean/Mslang/Prelim.lean`, new `B-P001` section:
+  - `nonempty_sortedMap_iff : Nonempty (SortedMap A B) ↔ supp A ⊆ supp B`.
+  - `supp_mono_of_injective`, `suppSub_directImage`, `supp_eq_of_surjective`,
+    `suppSub_inverseImage`.
+  - `supp_initialSorted`, `supp_finalSorted` (now mapped here).
+  - `supp_iCoprod`, `supp_iProd`.
+  - `suppSub_iInter_subset`, `suppSub_sdiff_subset` (for componentwise subsets
+    of a common carrier).
+- `lean/declarations.json` maps `B-P001`. `blocks/lean_audit.json`:
+  **349 declarations** (was 338), 0 warnings, 0 unpermitted, 0 `sorry`.
+- Evidence **`E-000235`** (verification) / **`E-000236`** (correspondence,
+  two-stage blind, **`formal_weaker`**). Transcript
+  `blocks/audits/B-P001-correspondence.md`. Journal `EV-000120`. Frontier
+  unmapped **17 → 16** (`worth-formalizing` 2 → 1, only `B-A001` left). Fast
+  gate: **40 passed, 0 failed**; slow gate: **43 passed, 0 failed**.
+
+**Findings (the gap is representational, not a proof gap).**
+
+- Three clauses of `B-P001` are **not expressible** in the type-level encoding:
+  `supp(⋃_i A^i)` (a set-theoretic union of arbitrary sorted sets; the encoding
+  only has the coproduct `iCoprod`, whose support formula coincides), and the
+  intersection/difference clauses `supp(⋂_i A^i) ⊆ ⋂_i supp(A^i)` and
+  `supp(A) - supp(B) ⊆ supp(A - B)`, which are stated only for componentwise
+  subsets of a **common** carrier. This is exactly the pilot representation's
+  declared D2 residual (fixed-ambient carrier model). The independent comparator
+  returned `formal_weaker`, clause by clause, and explicitly attributed the gap
+  to the missing union operation and the carrier restriction.
+- Consequence: `B-P001`'s correspondence layer is recorded **negative**
+  (`fail`). Closing it to `equivalent` needs a representation revision
+  (S-sorted sets as subobjects of a universe, class **C6**), which would stale
+  every current record — an author-reserved decision, not a mechanical one.
+  Recorded honestly rather than hidden or papered over.
+
+**Prioritized next steps.**
+
+1. Author: decide whether to revise the representation to a universe/subobject
+   model to close `B-P001`; that is a class-C6 representation change.
+2. The remaining frontier is otherwise `B-A001` (the `[Finite S]` assumption)
+   plus the 15 deferred blocks; `B-P036` is already subsumed by `B-C013`.
+3. Independent representation audit; the author-reserved decisions.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

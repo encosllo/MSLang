@@ -734,6 +734,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.nonempty_sortedMap_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.pairAlgFamily": [],
     "Mslang.prAlg": [
       "Classical.choice"
@@ -938,10 +943,42 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.suppSub_directImage": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.suppSub_iInter_subset": [],
+    "Mslang.suppSub_inverseImage": [
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.suppSub_sat": [
       "Quot.sound",
       "propext"
     ],
+    "Mslang.suppSub_sdiff_subset": [],
+    "Mslang.supp_eq_of_surjective": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supp_finalSorted": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supp_iCoprod": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supp_iProd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supp_initialSorted": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.supp_mono_of_injective": [],
     "Mslang.supp_quot": [
       "Quot.sound",
       "propext"
@@ -1021,7 +1058,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 338,
+  "declarations_audited": 349,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

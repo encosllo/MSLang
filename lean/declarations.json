@@ -847,6 +847,22 @@
         "Mslang.satSets_eq_sSup_atoms"
       ],
       "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P001": {
+      "decls": [
+        "Mslang.nonempty_sortedMap_iff",
+        "Mslang.supp_mono_of_injective",
+        "Mslang.suppSub_directImage",
+        "Mslang.supp_eq_of_surjective",
+        "Mslang.suppSub_inverseImage",
+        "Mslang.supp_initialSorted",
+        "Mslang.supp_finalSorted",
+        "Mslang.supp_iCoprod",
+        "Mslang.supp_iProd",
+        "Mslang.suppSub_iInter_subset",
+        "Mslang.suppSub_sdiff_subset"
+      ],
+      "file": "lean/Mslang/Prelim.lean"
     }
   }
 }
