@@ -170,3 +170,7 @@ Unmapped blocks not marked `out-of-scope`.
 
 | id | category |
 |---|---|
+| `EV-000132` | escalation |
+| `EV-000133` | escalation |
+| `EV-000134` | escalation |
+| `EV-000135` | escalation |

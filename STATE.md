@@ -6000,6 +6000,23 @@ verification evidence (all definitions except `B-R022`/`B-R023`). New records
   `A/∇^A ≅` subalgebra-of-`1` isomorphism), `B-X002` (category examples). All are
   author-facing or need new formalization, not mechanical cleanup.
 
+**Part 5 -- frontier escalated to the author (`EV-000132`--`EV-000135`).**
+
+With the mechanical debt cleared and the tractable formalization cluster closed,
+the remaining frontier is reserved to the author; no agent-decidable work
+remains. Four escalations were opened (queue: `reports/decisions.md`) and the
+agent stopped rather than decide scope:
+
+| escalation | block | decision |
+|---|---|---|
+| `EV-000132` | `B-P001` | accept the pilot encoding (scope the carrier operations) or revise the carrier model (C6) at `representation/p001-representation-brief.md` |
+| `EV-000133` | `B-D002` | formalize `Set^S` as a category or scope the category clause out |
+| `EV-000134` | `B-C003` | reclassify the 7 unmapped blocks (`B-C003`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`) |
+| `EV-000135` | `B-R001` | formalize or scope out the residual prose clauses of `B-R001`, `B-R012`, `B-X002` |
+
+Fast gate **40 passed, 0 failed**; `reports/decisions.md` and
+`reports/frontier.md` regenerated, bundle updated.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**
