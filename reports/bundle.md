@@ -417,7 +417,10 @@ repository.
 | `evidence/E-000389.json` | `2230f21b971f3ad586ea8e2d648eab2de2d82192084ffe5fa1f70a3b19fdda89` |
 | `evidence/E-000390.json` | `9b88b556ae80bd68c453ae5a92fa712c436ab49ad4918bf1b760694c140624ba` |
 | `evidence/E-000391.json` | `8f8f92a820b9f6bb72c3e9393b27be8dcea9f833b8de122b536ece429fe79327` |
-| `journal/events.jsonl` | `ce35d838ecdd0703fd37c8a506f98d220e1ed77c20f0c1bf933405d014fc27e3` |
+| `evidence/E-000392.json` | `e76a00e43a23ef212175e7cbd850078e836a137fe304f680bc815cf42bd94a91` |
+| `evidence/E-000393.json` | `abfa378b59816c96fe3a79f483b9c08b8f2d094679011616e56ae91925e11f56` |
+| `evidence/E-000394.json` | `9ef0035253d92acf3c40176ecaf7518f769e3275b10a8c52380827ad5e5593b0` |
+| `journal/events.jsonl` | `171ac6c2b8d78a61f2327465e2385f21d06e4ee1d97bc95ef8998366d13dcdae` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `4c0b7e7d79286eb2d03a6ba50e545b7e238facae1d636d0a7cf2454d2d16d258` |
@@ -618,7 +621,7 @@ repository.
 | `B-P032` | verification | pass | 1 | 0 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
 | `B-P033` | verification | pass | 1 | 0 |
-| `B-P034` | correspondence | provisional | 1 | 1 |
+| `B-P034` | correspondence | pass | 4 | 1 |
 | `B-P034` | verification | pass | 1 | 0 |
 | `B-P035` | correspondence | provisional | 1 | 1 |
 | `B-P035` | verification | pass | 1 | 0 |
@@ -19604,6 +19607,206 @@ repository.
 }
 ```
 
+### E-000392
+
+```json
+{
+  "block": "B-P034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000392",
+  "findings": [
+    "Cross-model two-stage blind correspondence audit (blocks/audits/B-P034-correspondence-crossmodel-claude.md), both stages fresh isolated agents on claude-sonnet-5, independent of every deepseek-v4.1-flash stage on this project (no prior B-P034 correspondence transcript existed). Stage 1 saw only the Lean declarations and their 84-declaration definition closure (statements only); stage 2 saw only stage 1's read-back and the manuscript contract (B-P034 plus B-D040/B-A001/B-D041/B-D042/B-D043 and a summary of B-P020's role in the proof).",
+    "Verdict: equivalent -- formAlgFFormCgrFiIso is an order isomorphism between finiteAlgebraFormations Sig and finiteIndexCongruenceFormations Sig under inclusion, matching the contract's isomorphic complete lattices Form_Alg_f(Sigma)/Form_Cgr_fi(Sigma); the two supporting lemmas (congruenceFormationOf_isFiniteIndex, algebraFormationOfCongruenceFormation_isFiniteAlgebra) mirror the manuscript's two proof steps exactly, stated slightly more generally but collapsing to the target once combined."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "B-P034/definition_closure",
+      "hash": "dfa6c31510a7bcd77a0f9f77048e839111ce14e200c1d273ab05f8991e686553"
+    },
+    {
+      "artifact": "B-P034/formal_statement",
+      "hash": "2f89369af37b528f84c8ef8545eaf6424c42e81311dd32476e93274fae1d3868"
+    },
+    {
+      "artifact": "B-P034/informal_statement",
+      "hash": "552cbc5a40cc06eb4393d3a4e957d140b93219075fe163a75a5f7e8b2d468d36"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:41:18Z"
+}
+```
+
+### E-000393
+
+```json
+{
+  "block": "B-P034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000393",
+  "findings": [
+    "Corrects E-000392: the original claude-sonnet-5 stage-2 verdict (equivalent) noted the absence of a Finite S hypothesis but judged it inconsequential. A second independent cross-model run (reusing the deepseek-v4.1-flash stage-1 read-back) flagged the same absence as formal_stronger; the coordinator verified directly against lean/Mslang/Regular.lean that none of finiteSSet_of_isAlgIso, congruenceFormationOf_isFiniteIndex, algebraFormationOfCongruenceFormation_isFiniteAlgebra, or formAlgFFormCgrFiIso take a Finite S hypothesis, while the manuscript's B-P034 sits under standing Assumption B-A001 (S finite) for the whole section.",
+    "Verdict: formal_stronger -- the Lean order isomorphism formAlgFFormCgrFiIso matches the contract's isomorphic complete lattices Form_Alg_f(Sigma)/Form_Cgr_fi(Sigma) term for term, but proves it for arbitrary S, not just finite S as the manuscript's section-wide Assumption B-A001 requires; a genuine, source-verified generalization."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "B-P034/definition_closure",
+      "hash": "dfa6c31510a7bcd77a0f9f77048e839111ce14e200c1d273ab05f8991e686553"
+    },
+    {
+      "artifact": "B-P034/formal_statement",
+      "hash": "2f89369af37b528f84c8ef8545eaf6424c42e81311dd32476e93274fae1d3868"
+    },
+    {
+      "artifact": "B-P034/informal_statement",
+      "hash": "552cbc5a40cc06eb4393d3a4e957d140b93219075fe163a75a5f7e8b2d468d36"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000392",
+  "timestamp": "2026-09-21T19:44:39Z"
+}
+```
+
+### E-000394
+
+```json
+{
+  "block": "B-P034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000394",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P034-correspondence-crossmodel-mixed.md), reusing the Session-119 deepseek-v4.1-flash stage-1 read-back verbatim and pairing it with a fresh claude-sonnet-5 stage-2 comparator. Verified against the Lean source (lean/Mslang/Regular.lean): no Finite S hypothesis anywhere, while the manuscript's B-P034 sits under standing Assumption B-A001 (S finite).",
+    "Verdict: formal_stronger -- formAlgFFormCgrFiIso's order isomorphism matches the contract's isomorphic complete lattices Form_Alg_f(Sigma)/Form_Cgr_fi(Sigma), but for arbitrary S rather than finite S as the manuscript assumes for this whole section; a genuine generalization, confirmed by direct inspection of the Lean source."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "B-P034/definition_closure",
+      "hash": "dfa6c31510a7bcd77a0f9f77048e839111ce14e200c1d273ab05f8991e686553"
+    },
+    {
+      "artifact": "B-P034/formal_statement",
+      "hash": "2f89369af37b528f84c8ef8545eaf6424c42e81311dd32476e93274fae1d3868"
+    },
+    {
+      "artifact": "B-P034/informal_statement",
+      "hash": "552cbc5a40cc06eb4393d3a4e957d140b93219075fe163a75a5f7e8b2d468d36"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:44:47Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -19615,7 +19818,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 125
-- Evidence records: 391
+- Evidence records: 394
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -19721,7 +19924,7 @@ assertion).
 | `B-P031` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P032` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P033` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P036` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-P037` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
@@ -20762,7 +20965,6 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-P031` | correspondence | provisional | 1 | 1 |
 | `B-P032` | correspondence | provisional | 1 | 1 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
-| `B-P034` | correspondence | provisional | 1 | 1 |
 | `B-P035` | correspondence | provisional | 1 | 1 |
 | `B-P036` | correspondence | provisional | 1 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
