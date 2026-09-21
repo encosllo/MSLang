@@ -6019,6 +6019,76 @@ Fast gate **40 passed, 0 failed**; `reports/decisions.md` and
 
 ---
 
+## Session 120 -- 2026-09-21 -- author decision pass on the four open escalations
+
+**Goal.** Clear the author-decision frontier escalated at the end of Session 119
+(`EV-000132`--`EV-000135`). The user decided all four interactively; each was
+recorded as an `escalation_resolved` journal event with a rationale, the affected
+reports were regenerated, and the fast gate re-run after each. No author-reserved
+decision was taken by the agent.
+
+**What was established (closed).**
+
+- **`EV-000132` (`B-P001`).** Author chose **Option 1**: accept the dependent-type
+  encoding and keep `B-P001`'s arbitrary union/intersection/difference clauses as
+  an accepted `formal_weaker` under the carrier-model/`D2` residual. No C6
+  revision, no re-baseline. Rationale: the missing clauses are an instance of the
+  already-declared `R-universe` residual (the Grothendieck-universe closure Lean
+  cannot reproduce), and `B-P001` is a leaf (2 outbound symbol edges, no
+  dependents), so no downstream fidelity is lost. Recorded `EV-000136`.
+- **`EV-000133` (`B-D002`).** Author chose **Option 1**: scope out the closing
+  clause "`Set^S` is the category of `S`-sorted sets and `S`-sorted mappings" and
+  accept the `formal_weaker`; the definitional core (`SSet`/`SortedMap`/`Hom`) is
+  faithful and machine-checked and no `CategoryTheory` layer is built. Recorded
+  `EV-000137`. This is deliberately coupled with `EV-000134`: both category-theoretic
+  items were declined together.
+- **`EV-000134` (7 unmapped blocks).** Author accepted the recommended triage
+  (`EV-000138`, resolution `EV-000139`): **out-of-scope** for `B-C003` and `B-R002`
+  (category-theoretic; same declined infrastructure), `B-R013`/`B-R025` (pure
+  forward references already discharged by the mapped `B-C006`/`B-C012`), and
+  `B-R015` (Grothendieck-universe size bookkeeping); **worth-formalizing** for
+  `B-R004` (single-sorted uniformity is automatic) and `B-R027` ((BPS1) follows
+  from (BPS2)+(BPS3)). The frontier's open-obligation list is now exactly those two
+  blocks.
+- **`EV-000135` (`B-R001`/`B-R012`/`B-X002`).** Author accepted the recommendation
+  to **scope out** all three residual prose clauses as illustrations (`EV-000140`,
+  resolution `EV-000141`): `B-R001`'s categorical clauses (generating set
+  `{δ^s}`, atoms of `Sub(1^S)`, `Sub(1^S) ≅ Sub(S)`, projectivity/monomorphisms)
+  and `B-X002`'s example categories (`Sgr/Mon/Grp-Act`, `Mod`) need the declined
+  `CategoryTheory` layer; `B-R012`'s `Sub(1)` classification is left as prose,
+  recorded as the only non-category residual and a possible later small
+  formalization.
+
+**State after the pass.**
+
+- Journal `EV-000136`--`EV-000141`; `decisions/standing.json` empty and
+  **0 open escalations** (was 4). `blocks/scope_decisions.json` now
+  **2 worth-formalizing / 0 deferred / 5 out-of-scope** over the 7 unmapped
+  blocks. `reports/decisions.md`, `reports/frontier.md`, `reports/bundle.md`
+  regenerated.
+- The frontier's remaining non-passing layers are all **`provisional`**
+  (same-model evidence, the dominant caveat of Architecture §25.3) plus the five
+  **accepted** `formal_weaker`/scoped findings (`B-P001`, `B-D002`, `B-R001`,
+  `B-R012`, `B-X002`). These are recorded steady states, not open obligations:
+  the evidence records still read `formal_weaker`, which the author has accepted
+  at the representation/scope level. No layer status was changed (a scope
+  disposition is not evidence).
+- Decision work committed as `d42c457`; slow gate (**43 passed, 0 failed**)
+  re-run after the commit as the artifact of record.
+
+**Prioritized next steps.**
+
+1. Formalize the two `worth-formalizing` blocks: `B-R004` (single-sorted
+   uniformity is automatic) and `B-R027` ((BPS1) redundant given (BPS2)+(BPS3)),
+   each with fresh verification/correspondence evidence records.
+2. Independent (cross-model) audit of the representation and of the positive
+   layers, if a second model family becomes available -- the one caveat the
+   project cannot remove with the current resources (Architecture §25.3 item 1).
+3. No other agent-decidable work: the remaining frontier is the accepted scope
+   decisions above.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
