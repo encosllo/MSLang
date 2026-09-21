@@ -6089,6 +6089,74 @@ decision was taken by the agent.
 
 ---
 
+## Session 121 -- 2026-09-21 -- formalize the two worth-formalizing blocks
+
+**Goal.** Execute the only agent work created by the Session 120 decision pass:
+formalize the two blocks the author marked `worth-formalizing`, `B-R004` and
+`B-R027`, each with fresh verification/correspondence evidence.
+
+**What was established (closed).**
+
+- **`B-R004` (single-sorted uniformity is automatic).** Added
+  `Mslang.isUniform_of_subsingleton_sorts` (`lean/Mslang/Algebra.lean`): over a
+  `Subsingleton` sort type every extensive `S`-closure operator is uniform,
+  because `suppSub X = ∅` forces `X` to be the empty subobject and extensivity
+  carries a nonempty component to a nonempty component. Mapped in
+  `lean/declarations.json`; manuscript `\lean` pointer added. Evidence
+  **`E-000383`** (verification, `build_ok`) and **`E-000384`** (correspondence,
+  **`formal_stronger`**: the Lean statement also covers the degenerate empty-sort
+  case). Journal `EV-000142`.
+- **`B-R027` (BPS1 redundant given BPS2+BPS3).** Added
+  `Mslang.nabla_sat_mem_of_transPreimage_boolean` (`lean/Mslang/Regular.lean`):
+  for finite `S` and nonempty `L(A)`, translation-preimage closure (BPS2) and
+  Boolean closure (BPS3) imply that every `∇`-saturated subobject lies in `L(A)`
+  (BPS1). The proof: `X ∈ L(A)` gives the full language by Boolean closure, the
+  identity translation's preimage of the full language is the concentrated
+  saturated language `δ^{t,*}`, and finite unions of the `δ^{t,*}` give every
+  `∇`-saturated language. Evidence **`E-000385`** (verification, `build_ok`) and
+  **`E-000386`** (correspondence, **`equivalent`**). Journal `EV-000143`.
+
+**Finding (the empty-family subtlety, resolved in the paper's favour).**
+
+- A first reading suggested `B-R027` was false: the constant family
+  `L(A) = {∅, full}` looked like a model of (BPS2)+(BPS3) that omits the
+  intermediate `∇`-saturated languages. That reading was wrong -- `{∅,full}` is
+  not closed under translation preimages (`T⁻¹[full] = δ^{t,*}`, concentrated at
+  the domain sort). The real edge is the **empty** family `L(A) = ∅`, which
+  satisfies the closure clauses vacuously. The manuscript's (BPS3) says `L(A)` is
+  a *Boolean subalgebra*, which contains `⊤`/`⊥` and hence is nonempty; the Lean
+  hypothesis `hne` is exactly the formal counterpart of that containment, and the
+  blind comparator judged the correspondence `equivalent` on that basis. No
+  manuscript correction is needed.
+- **Numbering note (still worth a future cleanup):** the Lean
+  `IsBPSLanguageFormation` counts the preamble *regularity* clause as "BPS 1"
+  (`Regular.lean`, comment at the forward direction), shifting the manuscript's
+  (BPS1-4) to its clauses 2-5. `B-R027` refers to the manuscript's (BPS1), which
+  is the `∇`-saturated clause (Lean clause 2).
+
+**State after the session.**
+
+- The frontier's open obligations are now **empty**: the 5 remaining unmapped
+  blocks are all `out-of-scope` (`B-C003`, `B-R002`, `B-R013`, `B-R015`,
+  `B-R025`). The non-passing layers are the `provisional` same-model layers plus
+  the five accepted `formal_weaker`/scoped findings from Session 120.
+- Lean gate **412 declarations, 0 `sorry`, 0 unpermitted, 0 warnings**; manuscript
+  **55 pages** (0 errors, 0 warnings, 3 overfull hboxes). Fast gate **40/0**;
+  slow gate **43/0**. Commits `595cfbb`, `1e08db6` (`B-R004`), `4aec128`
+  (`B-R027`).
+
+**Prioritized next steps.**
+
+1. Independent (cross-model) audit of the representation and of the positive
+   layers, if a second model family becomes available -- the one caveat the
+   project cannot remove with the current resources (Architecture §25.3 item 1).
+2. Optional cleanup: reconcile the BPS clause numbering between the manuscript
+   and the Lean comments.
+3. No other agent-decidable work: all four Session 120 decisions are recorded and
+   the two resulting formalizations are closed.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
