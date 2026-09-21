@@ -190,11 +190,6 @@
       "disposition": "out-of-scope",
       "rationale": "Category-theoretic finitariness in the topos Set^S (finite <=> finitary <=> strongly finitary); needs the category/filtered-colimit infrastructure declined in EV-000133. Out of scope."
     },
-    "B-R004": {
-      "decided_by": "author:session120",
-      "disposition": "worth-formalizing",
-      "rationale": "Substantive but small, not category-theoretic: in the single-sorted case uniformity is automatic (every operator on a set is uniform). Worth formalizing."
-    },
     "B-R013": {
       "decided_by": "author:session120",
       "disposition": "out-of-scope",

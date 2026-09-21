@@ -709,6 +709,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.isUniform_of_subsingleton_sorts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.ker": [],
     "Mslang.ker_isCongruence": [
       "Quot.sound"
@@ -1245,7 +1250,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 410,
+  "declarations_audited": 411,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

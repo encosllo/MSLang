@@ -371,7 +371,7 @@
       "id": "B-R004",
       "kind": "remark",
       "label": "UAClSp = AClSp",
-      "line": 487,
+      "line": 488,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -392,7 +392,7 @@
       "id": "B-D014",
       "kind": "definition",
       "label": null,
-      "line": 504,
+      "line": 505,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -413,7 +413,7 @@
       "id": "B-R005",
       "kind": "remark",
       "label": null,
-      "line": 525,
+      "line": 526,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -434,7 +434,7 @@
       "id": "B-R006",
       "kind": "remark",
       "label": null,
-      "line": 531,
+      "line": 532,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -447,7 +447,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@545",
+          "anchor": "proof@546",
           "hash": "dda07413349a7081ce0b5e4921c0337b970702d7376d9e096ae88ff48d49c4a6"
         },
         "informal_statement": {
@@ -458,8 +458,8 @@
       "id": "B-P002",
       "kind": "proposition",
       "label": "PropIncSat",
-      "line": 538,
-      "proof_line": 545,
+      "line": 539,
+      "proof_line": 546,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -474,7 +474,7 @@
           "path": "blocks/explanations/B-C001.md"
         },
         "informal_proof": {
-          "anchor": "proof@557",
+          "anchor": "proof@558",
           "hash": "322ecc7991e556a10e73fb1972457abdb639b4dcde0482280139b2166bb51cf9"
         },
         "informal_statement": {
@@ -485,8 +485,8 @@
       "id": "B-C001",
       "kind": "corollary",
       "label": "IncSat",
-      "line": 553,
-      "proof_line": 557,
+      "line": 554,
+      "proof_line": 558,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -506,7 +506,7 @@
       "id": "B-R007",
       "kind": "remark",
       "label": null,
-      "line": 573,
+      "line": 574,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -519,7 +519,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@583",
+          "anchor": "proof@584",
           "hash": "bcec216ebb8dcefaec58a1ae0f5f3aee518b9a92454546c47917bb9086da3789"
         },
         "informal_statement": {
@@ -530,8 +530,8 @@
       "id": "B-P003",
       "kind": "proposition",
       "label": "NablaSat",
-      "line": 579,
-      "proof_line": 583,
+      "line": 580,
+      "proof_line": 584,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -551,7 +551,7 @@
       "id": "B-R008",
       "kind": "remark",
       "label": null,
-      "line": 591,
+      "line": 592,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -564,7 +564,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@602",
+          "anchor": "proof@603",
           "hash": "29eea9211a335ca7c60f4b2658a7f8fb5eff4a2a4ec858279ae69b8f6a0e93c9"
         },
         "informal_statement": {
@@ -575,8 +575,8 @@
       "id": "B-P004",
       "kind": "proposition",
       "label": null,
-      "line": 597,
-      "proof_line": 602,
+      "line": 598,
+      "proof_line": 603,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -591,7 +591,7 @@
           "path": "blocks/explanations/B-C002.md"
         },
         "informal_proof": {
-          "anchor": "proof@612",
+          "anchor": "proof@613",
           "hash": "09bb9b804619d95fe0163e3da9bab3b71032f4abeb0396223deb5981ebee65a6"
         },
         "informal_statement": {
@@ -602,8 +602,8 @@
       "id": "B-C002",
       "kind": "corollary",
       "label": null,
-      "line": 608,
-      "proof_line": 612,
+      "line": 609,
+      "proof_line": 613,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -623,7 +623,7 @@
       "id": "B-P005",
       "kind": "proposition",
       "label": "SatOperator",
-      "line": 639,
+      "line": 640,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -636,7 +636,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@663",
+          "anchor": "proof@664",
           "hash": "1f9279983874d7b6aa78c3e5dcb463bfd06849fe90e96e720aeb946c9b501dfa"
         },
         "informal_statement": {
@@ -647,8 +647,8 @@
       "id": "B-P006",
       "kind": "proposition",
       "label": "CABA Saturades",
-      "line": 658,
-      "proof_line": 663,
+      "line": 659,
+      "proof_line": 664,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -668,7 +668,7 @@
       "id": "B-D015",
       "kind": "definition",
       "label": null,
-      "line": 672,
+      "line": 673,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -689,7 +689,7 @@
       "id": "B-P007",
       "kind": "proposition",
       "label": null,
-      "line": 678,
+      "line": 679,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -710,7 +710,7 @@
       "id": "B-D016",
       "kind": "definition",
       "label": "$S$-sorted signature",
-      "line": 698,
+      "line": 699,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -731,7 +731,7 @@
       "id": "B-D017",
       "kind": "definition",
       "label": null,
-      "line": 710,
+      "line": 711,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -752,7 +752,7 @@
       "id": "B-D018",
       "kind": "definition",
       "label": null,
-      "line": 725,
+      "line": 726,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -773,7 +773,7 @@
       "id": "B-R009",
       "kind": "remark",
       "label": null,
-      "line": 731,
+      "line": 732,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -794,7 +794,7 @@
       "id": "B-D019",
       "kind": "definition",
       "label": null,
-      "line": 737,
+      "line": 738,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -815,7 +815,7 @@
       "id": "B-D020",
       "kind": "definition",
       "label": "Subalg",
-      "line": 767,
+      "line": 768,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -836,7 +836,7 @@
       "id": "B-D021",
       "kind": "definition",
       "label": null,
-      "line": 773,
+      "line": 774,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -857,7 +857,7 @@
       "id": "B-R010",
       "kind": "remark",
       "label": null,
-      "line": 780,
+      "line": 781,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -878,7 +878,7 @@
       "id": "B-D022",
       "kind": "definition",
       "label": null,
-      "line": 789,
+      "line": 790,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -899,7 +899,7 @@
       "id": "B-D023",
       "kind": "definition",
       "label": null,
-      "line": 817,
+      "line": 818,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -912,7 +912,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@827",
+          "anchor": "proof@828",
           "hash": "fceba493d05c492fe00b425c5ff6daf974c1f762ba035331d2101ca42e0e7479"
         },
         "informal_statement": {
@@ -923,8 +923,8 @@
       "id": "B-P008",
       "kind": "proposition",
       "label": "CharSubfinAlg",
-      "line": 823,
-      "proof_line": 827,
+      "line": 824,
+      "proof_line": 828,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -944,7 +944,7 @@
       "id": "B-R011",
       "kind": "remark",
       "label": null,
-      "line": 833,
+      "line": 834,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -965,7 +965,7 @@
       "id": "B-D024",
       "kind": "definition",
       "label": null,
-      "line": 841,
+      "line": 842,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -986,7 +986,7 @@
       "id": "B-D025",
       "kind": "definition",
       "label": null,
-      "line": 856,
+      "line": 857,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1007,7 +1007,7 @@
       "id": "B-P009",
       "kind": "proposition",
       "label": null,
-      "line": 870,
+      "line": 871,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1028,7 +1028,7 @@
       "id": "B-R012",
       "kind": "remark",
       "label": null,
-      "line": 890,
+      "line": 891,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1049,7 +1049,7 @@
       "id": "B-D026",
       "kind": "definition",
       "label": null,
-      "line": 899,
+      "line": 900,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1070,7 +1070,7 @@
       "id": "B-D027",
       "kind": "definition",
       "label": null,
-      "line": 937,
+      "line": 938,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1091,7 +1091,7 @@
       "id": "B-P010",
       "kind": "proposition",
       "label": "rut",
-      "line": 960,
+      "line": 961,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1104,7 +1104,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@990",
+          "anchor": "proof@991",
           "hash": "71a716d9c7ef20de81a7eaff4bbf03c0f63639a74d99f0540f1433aeb9482197"
         },
         "informal_statement": {
@@ -1115,8 +1115,8 @@
       "id": "B-P011",
       "kind": "proposition",
       "label": null,
-      "line": 984,
-      "proof_line": 990,
+      "line": 985,
+      "proof_line": 991,
       "scope": null,
       "section": "Preliminaries.",
       "status": "confirmed",
@@ -1136,7 +1136,7 @@
       "id": "B-C003",
       "kind": "corollary",
       "label": "FladjG",
-      "line": 1009,
+      "line": 1010,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1157,7 +1157,7 @@
       "id": "B-L001",
       "kind": "lemma",
       "label": null,
-      "line": 1026,
+      "line": 1027,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1178,7 +1178,7 @@
       "id": "B-P012",
       "kind": "proposition",
       "label": "FreeProj",
-      "line": 1032,
+      "line": 1033,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1199,7 +1199,7 @@
       "id": "B-P013",
       "kind": "proposition",
       "label": "AlgIsoQuotFree",
-      "line": 1038,
+      "line": 1039,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1220,7 +1220,7 @@
       "id": "B-D028",
       "kind": "definition",
       "label": "Sdprod",
-      "line": 1046,
+      "line": 1047,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries.",
@@ -1241,7 +1241,7 @@
       "id": "B-D029",
       "kind": "definition",
       "label": null,
-      "line": 1073,
+      "line": 1074,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1262,7 +1262,7 @@
       "id": "B-D030",
       "kind": "definition",
       "label": "DefFormCgr",
-      "line": 1089,
+      "line": 1090,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1275,7 +1275,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1116",
+          "anchor": "proof@1117",
           "hash": "82ba76e44886ba34ade63ba48b5fa3b2248e6943f337119db9fa02c29d49402b"
         },
         "informal_statement": {
@@ -1286,8 +1286,8 @@
       "id": "B-P014",
       "kind": "proposition",
       "label": null,
-      "line": 1112,
-      "proof_line": 1116,
+      "line": 1113,
+      "proof_line": 1117,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1307,7 +1307,7 @@
       "id": "B-R013",
       "kind": "remark",
       "label": null,
-      "line": 1141,
+      "line": 1142,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1328,7 +1328,7 @@
       "id": "B-D031",
       "kind": "definition",
       "label": null,
-      "line": 1149,
+      "line": 1150,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1341,7 +1341,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1182",
+          "anchor": "proof@1183",
           "hash": "384bf0cdaab47fc8cd767f177af14f4fe36aef29eba07eeecd82cc2ab7764926"
         },
         "informal_statement": {
@@ -1352,8 +1352,8 @@
       "id": "B-P015",
       "kind": "proposition",
       "label": null,
-      "line": 1162,
-      "proof_line": 1182,
+      "line": 1163,
+      "proof_line": 1183,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1373,7 +1373,7 @@
       "id": "B-D032",
       "kind": "definition",
       "label": "DefFormAlg",
-      "line": 1214,
+      "line": 1215,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1394,7 +1394,7 @@
       "id": "B-R014",
       "kind": "remark",
       "label": null,
-      "line": 1231,
+      "line": 1232,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1415,7 +1415,7 @@
       "id": "B-R015",
       "kind": "remark",
       "label": null,
-      "line": 1236,
+      "line": 1237,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1436,7 +1436,7 @@
       "id": "B-R016",
       "kind": "remark",
       "label": null,
-      "line": 1242,
+      "line": 1243,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1457,7 +1457,7 @@
       "id": "B-X001",
       "kind": "examples",
       "label": null,
-      "line": 1248,
+      "line": 1249,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1478,7 +1478,7 @@
       "id": "B-R017",
       "kind": "remark",
       "label": null,
-      "line": 1298,
+      "line": 1299,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1499,7 +1499,7 @@
       "id": "B-D033",
       "kind": "definition",
       "label": "ShSkFormAlg",
-      "line": 1321,
+      "line": 1322,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1512,7 +1512,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1341",
+          "anchor": "proof@1342",
           "hash": "2954cab98dfad79c985a519963b4be31dd241e0f38cb0439a837702e728abc53"
         },
         "informal_statement": {
@@ -1523,8 +1523,8 @@
       "id": "B-P016",
       "kind": "proposition",
       "label": "FormAlgentailsShSk",
-      "line": 1337,
-      "proof_line": 1341,
+      "line": 1338,
+      "proof_line": 1342,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1536,7 +1536,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1356",
+          "anchor": "proof@1357",
           "hash": "3a08cd85400ad8f19d96f487330c2e64ee8dd91ebc04bef56205c99fc1d6e253"
         },
         "informal_statement": {
@@ -1547,8 +1547,8 @@
       "id": "B-P017",
       "kind": "proposition",
       "label": null,
-      "line": 1352,
-      "proof_line": 1356,
+      "line": 1353,
+      "proof_line": 1357,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1568,7 +1568,7 @@
       "id": "B-C004",
       "kind": "corollary",
       "label": null,
-      "line": 1362,
+      "line": 1363,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1581,7 +1581,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1376",
+          "anchor": "proof@1377",
           "hash": "a8320c9ca6de314ae3586fdb71067133657b9ad4e76ecf8781dd804b38314be9"
         },
         "informal_statement": {
@@ -1592,8 +1592,8 @@
       "id": "B-P018",
       "kind": "proposition",
       "label": "FormAlgAlgLat",
-      "line": 1372,
-      "proof_line": 1376,
+      "line": 1373,
+      "proof_line": 1377,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1613,7 +1613,7 @@
       "id": "B-D034",
       "kind": "definition",
       "label": null,
-      "line": 1390,
+      "line": 1391,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1634,7 +1634,7 @@
       "id": "B-C005",
       "kind": "corollary",
       "label": null,
-      "line": 1405,
+      "line": 1406,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1647,7 +1647,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1423",
+          "anchor": "proof@1424",
           "hash": "f6fa7261fa096bd9566fa0a346d33f91d4258d61ab18ce85263ef8cb171de58b"
         },
         "informal_statement": {
@@ -1658,8 +1658,8 @@
       "id": "B-P019",
       "kind": "proposition",
       "label": null,
-      "line": 1415,
-      "proof_line": 1423,
+      "line": 1416,
+      "proof_line": 1424,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1671,7 +1671,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1437",
+          "anchor": "proof@1438",
           "hash": "e1cd495c4c702d290e7f20e8aafa1b16e0bd62351e237ca7fc08bb1b59bc8247"
         },
         "informal_statement": {
@@ -1682,8 +1682,8 @@
       "id": "B-P020",
       "kind": "proposition",
       "label": "FormAlgFormCgrIso",
-      "line": 1433,
-      "proof_line": 1437,
+      "line": 1434,
+      "proof_line": 1438,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -1703,7 +1703,7 @@
       "id": "B-C006",
       "kind": "corollary",
       "label": null,
-      "line": 1490,
+      "line": 1491,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-congruence formations, $\\Sigma$-algebra formations, and an Eilenberg type theorem for them.",
@@ -1724,7 +1724,7 @@
       "id": "B-D035",
       "kind": "definition",
       "label": null,
-      "line": 1513,
+      "line": 1514,
       "proof_line": null,
       "scope": null,
       "section": "Elementary translations and translations.",
@@ -1745,7 +1745,7 @@
       "id": "B-D036",
       "kind": "definition",
       "label": null,
-      "line": 1520,
+      "line": 1521,
       "proof_line": null,
       "scope": null,
       "section": "Elementary translations and translations.",
@@ -1766,7 +1766,7 @@
       "id": "B-R018",
       "kind": "remark",
       "label": null,
-      "line": 1527,
+      "line": 1528,
       "proof_line": null,
       "scope": null,
       "section": "Elementary translations and translations.",
@@ -1787,7 +1787,7 @@
       "id": "B-D037",
       "kind": "definition",
       "label": "DAntiTrans",
-      "line": 1552,
+      "line": 1553,
       "proof_line": null,
       "scope": null,
       "section": "Elementary translations and translations.",
@@ -1800,7 +1800,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1576",
+          "anchor": "proof@1577",
           "hash": "ebbc9e9018b9dd7367b2df38216f2f3f2d0dd71e75368a9eb2a1d39f5d2b9bb4"
         },
         "informal_statement": {
@@ -1811,8 +1811,8 @@
       "id": "B-P021",
       "kind": "proposition",
       "label": "CharacCong",
-      "line": 1566,
-      "proof_line": 1576,
+      "line": 1567,
+      "proof_line": 1577,
       "scope": null,
       "section": "Elementary translations and translations.",
       "status": "confirmed",
@@ -1832,7 +1832,7 @@
       "id": "B-D038",
       "kind": "definition",
       "label": null,
-      "line": 1641,
+      "line": 1642,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -1845,7 +1845,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1668",
+          "anchor": "proof@1669",
           "hash": "e58875294e47e1937250342d8600ee4657219e05c23ae5e0c5eccc32df36ceda"
         },
         "informal_statement": {
@@ -1856,8 +1856,8 @@
       "id": "B-P022",
       "kind": "proposition",
       "label": "CharacCogenCong",
-      "line": 1656,
-      "proof_line": 1668,
+      "line": 1657,
+      "proof_line": 1669,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
       "status": "confirmed",
@@ -1877,7 +1877,7 @@
       "id": "B-D039",
       "kind": "definition",
       "label": null,
-      "line": 1675,
+      "line": 1676,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -1898,7 +1898,7 @@
       "id": "B-R019",
       "kind": "remark",
       "label": null,
-      "line": 1702,
+      "line": 1703,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -1911,7 +1911,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1712",
+          "anchor": "proof@1713",
           "hash": "25b5021024bea356b6579f86a745852911d647f1030a8467d1d49496355b623a"
         },
         "informal_statement": {
@@ -1922,8 +1922,8 @@
       "id": "B-P023",
       "kind": "proposition",
       "label": "CharacSatCCog",
-      "line": 1708,
-      "proof_line": 1712,
+      "line": 1709,
+      "proof_line": 1713,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
       "status": "confirmed",
@@ -1935,7 +1935,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1732",
+          "anchor": "proof@1733",
           "hash": "ba6111f7679fe0696007f931f496962f90a9b95d74e1b745b114d6732caca656"
         },
         "informal_statement": {
@@ -1946,8 +1946,8 @@
       "id": "B-P024",
       "kind": "proposition",
       "label": "RepCongInterCCogKroneckerDelta",
-      "line": 1724,
-      "proof_line": 1732,
+      "line": 1725,
+      "proof_line": 1733,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
       "status": "confirmed",
@@ -1967,7 +1967,7 @@
       "id": "B-R020",
       "kind": "remark",
       "label": null,
-      "line": 1740,
+      "line": 1741,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -1988,7 +1988,7 @@
       "id": "B-P025",
       "kind": "proposition",
       "label": "Compl",
-      "line": 1750,
+      "line": 1751,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -2001,7 +2001,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1760",
+          "anchor": "proof@1761",
           "hash": "165d8154599440cb9e24351348c66bd347bca248ff5e37bb00184115714ffe4a"
         },
         "informal_statement": {
@@ -2012,8 +2012,8 @@
       "id": "B-P026",
       "kind": "proposition",
       "label": "InterCCog and CCogInter",
-      "line": 1756,
-      "proof_line": 1760,
+      "line": 1757,
+      "proof_line": 1761,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
       "status": "confirmed",
@@ -2033,7 +2033,7 @@
       "id": "B-P027",
       "kind": "proposition",
       "label": "TAntiTrans",
-      "line": 1766,
+      "line": 1767,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -2054,7 +2054,7 @@
       "id": "B-P028",
       "kind": "proposition",
       "label": "TAntiHom",
-      "line": 1772,
+      "line": 1773,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -2075,7 +2075,7 @@
       "id": "B-R021",
       "kind": "remark",
       "label": null,
-      "line": 1816,
+      "line": 1817,
       "proof_line": null,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
@@ -2088,7 +2088,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1883",
+          "anchor": "proof@1884",
           "hash": "15d619d3fc9ea934e4464ae3abfd6e8826ebfc824cc5e5b2a33022b2263504ca"
         },
         "informal_statement": {
@@ -2099,8 +2099,8 @@
       "id": "B-P029",
       "kind": "proposition",
       "label": "DesClasCog",
-      "line": 1859,
-      "proof_line": 1883,
+      "line": 1860,
+      "proof_line": 1884,
       "scope": null,
       "section": "Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\\Sigma$-algebra.",
       "status": "confirmed",
@@ -2112,7 +2112,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2019",
+          "anchor": "proof@2020",
           "hash": "0e93a4e7a7c6705a2a7b8fff2d03ba92e9571d07070a206085ee6ea30b56e474"
         },
         "informal_statement": {
@@ -2123,8 +2123,8 @@
       "id": "B-P030",
       "kind": "proposition",
       "label": "Cong2LangBasic",
-      "line": 1992,
-      "proof_line": 2019,
+      "line": 1993,
+      "proof_line": 2020,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2144,7 +2144,7 @@
       "id": "B-R022",
       "kind": "remark",
       "label": null,
-      "line": 2036,
+      "line": 2037,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2165,7 +2165,7 @@
       "id": "B-R023",
       "kind": "remark",
       "label": null,
-      "line": 2042,
+      "line": 2043,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2178,7 +2178,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2052",
+          "anchor": "proof@2053",
           "hash": "d5455463cbcc7d08b9bab7aa8a2eed0cd586ebe4bab48391373ac6ff0f5aeda5"
         },
         "informal_statement": {
@@ -2189,8 +2189,8 @@
       "id": "B-C007",
       "kind": "corollary",
       "label": null,
-      "line": 2048,
-      "proof_line": 2052,
+      "line": 2049,
+      "proof_line": 2053,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2202,7 +2202,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2063",
+          "anchor": "proof@2064",
           "hash": "2093647fe42c49ab415e596d299a44e4899b1c595526c65d812cf0fc99d0b8d5"
         },
         "informal_statement": {
@@ -2213,8 +2213,8 @@
       "id": "B-C008",
       "kind": "corollary",
       "label": "CorolariAlgebraBooleana",
-      "line": 2059,
-      "proof_line": 2063,
+      "line": 2060,
+      "proof_line": 2064,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2226,7 +2226,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2073",
+          "anchor": "proof@2074",
           "hash": "85bbb9896bff7ad5def54b3b7538cc8c9ddf5aa9708698b825d28c9b820586bc"
         },
         "informal_statement": {
@@ -2237,8 +2237,8 @@
       "id": "B-C009",
       "kind": "corollary",
       "label": "CorolariAtoms",
-      "line": 2069,
-      "proof_line": 2073,
+      "line": 2070,
+      "proof_line": 2074,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2250,7 +2250,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2088",
+          "anchor": "proof@2089",
           "hash": "3a606acd36e3cdda28e48c89ea51062a91031e3f943eeeb532b5a02e4e282716"
         },
         "informal_statement": {
@@ -2261,8 +2261,8 @@
       "id": "B-C010",
       "kind": "corollary",
       "label": "CorolariAntiimatge",
-      "line": 2082,
-      "proof_line": 2088,
+      "line": 2083,
+      "proof_line": 2089,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2282,7 +2282,7 @@
       "id": "B-D040",
       "kind": "definition",
       "label": null,
-      "line": 2093,
+      "line": 2094,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2303,7 +2303,7 @@
       "id": "B-X002",
       "kind": "examples",
       "label": null,
-      "line": 2099,
+      "line": 2100,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2316,7 +2316,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2109",
+          "anchor": "proof@2110",
           "hash": "83e1ce37666b81d85486825b268ff7fc139e854a360b82f13e9d91028d36fb03"
         },
         "informal_statement": {
@@ -2327,8 +2327,8 @@
       "id": "B-P031",
       "kind": "proposition",
       "label": null,
-      "line": 2105,
-      "proof_line": 2109,
+      "line": 2106,
+      "proof_line": 2110,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2348,7 +2348,7 @@
       "id": "B-R024",
       "kind": "remark",
       "label": null,
-      "line": 2118,
+      "line": 2119,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2369,7 +2369,7 @@
       "id": "B-A001",
       "kind": "assumption",
       "label": null,
-      "line": 2124,
+      "line": 2125,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2390,7 +2390,7 @@
       "id": "B-D041",
       "kind": "definition",
       "label": null,
-      "line": 2130,
+      "line": 2131,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2403,7 +2403,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2147",
+          "anchor": "proof@2148",
           "hash": "889c5e603413eb0d40a680c359a2949a6ab97ba1edf1d1a4fc28c7332f48779a"
         },
         "informal_statement": {
@@ -2414,8 +2414,8 @@
       "id": "B-P032",
       "kind": "proposition",
       "label": null,
-      "line": 2143,
-      "proof_line": 2147,
+      "line": 2144,
+      "proof_line": 2148,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2435,7 +2435,7 @@
       "id": "B-R025",
       "kind": "remark",
       "label": null,
-      "line": 2171,
+      "line": 2172,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2456,7 +2456,7 @@
       "id": "B-D042",
       "kind": "definition",
       "label": null,
-      "line": 2181,
+      "line": 2182,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2477,7 +2477,7 @@
       "id": "B-D043",
       "kind": "definition",
       "label": null,
-      "line": 2187,
+      "line": 2188,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2490,7 +2490,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2201",
+          "anchor": "proof@2202",
           "hash": "9e4d4dfa40c871e6617115e15541ba9401ab67747e55127590374fa517cdf279"
         },
         "informal_statement": {
@@ -2501,8 +2501,8 @@
       "id": "B-P033",
       "kind": "proposition",
       "label": null,
-      "line": 2197,
-      "proof_line": 2201,
+      "line": 2198,
+      "proof_line": 2202,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2522,7 +2522,7 @@
       "id": "B-C011",
       "kind": "corollary",
       "label": null,
-      "line": 2207,
+      "line": 2208,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2535,7 +2535,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2217",
+          "anchor": "proof@2218",
           "hash": "1c8abaf569dce0fa276c0be8575fb874f8681002e013b7899d7720d4c608257c"
         },
         "informal_statement": {
@@ -2546,8 +2546,8 @@
       "id": "B-P034",
       "kind": "proposition",
       "label": null,
-      "line": 2213,
-      "proof_line": 2217,
+      "line": 2214,
+      "proof_line": 2218,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2567,7 +2567,7 @@
       "id": "B-C012",
       "kind": "corollary",
       "label": "FormCgrfiAlg",
-      "line": 2242,
+      "line": 2243,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2588,7 +2588,7 @@
       "id": "B-D044",
       "kind": "definition",
       "label": null,
-      "line": 2264,
+      "line": 2265,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2609,7 +2609,7 @@
       "id": "B-R026",
       "kind": "remark",
       "label": null,
-      "line": 2269,
+      "line": 2270,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2630,7 +2630,7 @@
       "id": "B-D045",
       "kind": "definition",
       "label": "Def1FRL",
-      "line": 2275,
+      "line": 2276,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2651,7 +2651,7 @@
       "id": "B-D046",
       "kind": "definition",
       "label": "Def2FRL",
-      "line": 2304,
+      "line": 2305,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2672,7 +2672,7 @@
       "id": "B-R027",
       "kind": "remark",
       "label": null,
-      "line": 2326,
+      "line": 2327,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2696,8 +2696,8 @@
       "id": "B-P035",
       "kind": "proposition",
       "label": null,
-      "line": 2332,
-      "proof_line": 2336,
+      "line": 2333,
+      "proof_line": 2337,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2717,7 +2717,7 @@
       "id": "B-P036",
       "kind": "proposition",
       "label": null,
-      "line": 2414,
+      "line": 2415,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2730,7 +2730,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2431",
+          "anchor": "proof@2432",
           "hash": "c4649bcb6b1b7d06b86bec73573ee9551e98fbe002e512890fb34ad214040f2e"
         },
         "informal_statement": {
@@ -2741,8 +2741,8 @@
       "id": "B-P037",
       "kind": "proposition",
       "label": "Cong2LangEnFinit",
-      "line": 2423,
-      "proof_line": 2431,
+      "line": 2424,
+      "proof_line": 2432,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2754,7 +2754,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2445",
+          "anchor": "proof@2446",
           "hash": "12e3bb8ed8ef5c70679a752be29c51abd0e3dee751587e199ef483cab2125ae9"
         },
         "informal_statement": {
@@ -2765,8 +2765,8 @@
       "id": "B-P038",
       "kind": "proposition",
       "label": "Lang2CongEnFinit",
-      "line": 2437,
-      "proof_line": 2445,
+      "line": 2438,
+      "proof_line": 2446,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2778,7 +2778,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2477",
+          "anchor": "proof@2478",
           "hash": "a73d85ebc5edd2b5e839796bec935c39bda089b2ca4b64eb25faad71bdafd7db"
         },
         "informal_statement": {
@@ -2789,8 +2789,8 @@
       "id": "B-P039",
       "kind": "proposition",
       "label": null,
-      "line": 2473,
-      "proof_line": 2477,
+      "line": 2474,
+      "proof_line": 2478,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2810,7 +2810,7 @@
       "id": "B-C013",
       "kind": "corollary",
       "label": null,
-      "line": 2515,
+      "line": 2516,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
