@@ -1,0 +1,60 @@
+{
+  "block": "B-D037",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000361",
+  "findings": [
+    "First blind correspondence audit (Session 119 verification-only batch): formal_stronger. every notation clause has a Lean counterpart with the Transcript blocks/audits/B-D037-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-D037/definition_closure",
+      "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+    },
+    {
+      "artifact": "B-D037/formal_statement",
+      "hash": "81603ce384e006dfad080104816d4c9741f8ab806643c927393fc19d82abe6a4"
+    },
+    {
+      "artifact": "B-D037/informal_statement",
+      "hash": "2a7c293f55806e4f1171f351897208baae1eb58cf7f8ab996ef93e2dcae46345"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T12:40:51Z"
+}

@@ -1,0 +1,60 @@
+{
+  "block": "B-R023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000372",
+  "findings": [
+    "First blind correspondence audit (Session 119 verification-only batch): formal_stronger. Lean proves the conclusion for an arbitrary sorted Transcript blocks/audits/B-R023-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "B-R023/definition_closure",
+      "hash": "95b62c481dfecf1fc25e21eb96f35a174d5afa365d78b5fbe18584a58d1ced6e"
+    },
+    {
+      "artifact": "B-R023/formal_statement",
+      "hash": "683aefb83440b3d03ed64f7cb2320887aa45eb97bf6934450905b81864d2315d"
+    },
+    {
+      "artifact": "B-R023/informal_statement",
+      "hash": "19f59c8e1092f498f316cc914c55256ebcd0a58cd2251a79fc3a4d380a70b90e"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T12:40:51Z"
+}

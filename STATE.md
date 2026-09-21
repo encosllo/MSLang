@@ -5941,6 +5941,40 @@ newest stale record of each block.
    `B-X002`, plus `B-D002`/`B-P001`): formalize or scope-triage each.
 3. First-ever correspondence audits for the 43 mapped verification-only blocks.
 
+**Part 3 -- first correspondence audits for the verification-only blocks (`EV-000130`).**
+
+Same batch protocol as Part 2, for the **42** mapped blocks that had only
+verification evidence (all definitions except `B-R022`/`B-R023`). New records
+`E-000331`--`E-000372`; transcripts written.
+
+- **Verdicts:** 34 `equivalent`; `formal_weaker` for `B-D010`, `B-D012`
+  (the closure-operator half of the definition has no Lean counterpart),
+  `B-D013` (the bundled `IsUniformAlgebraicClosureOperator` drops the
+  closure-operator axioms), and `B-D021` (the finitary/algebraic clause of `Sg`
+  is unmapped); `formal_stronger` for `B-D037` (drops `T ∈ Tl_t(A)_s`),
+  `B-D038` (bundles `Ω^A(L)` as a `Setoid`), `B-D044` (`IsRegularLanguage`
+  drops support-finiteness), and `B-R023` (drops the congruence hypothesis on
+  `Ψ`).
+- **The four `formal_weaker` verdicts cluster on one thing:** the manuscript's
+  explicit `ClOp(A)`/`AClOp(A)` closure-operator notion is not formalized as a
+  predicate. A single `IsClosureOperator`/Mathlib-`ClosureOperator` mapping
+  (or a `B-D011`-level closure-operator block) would close `B-D010`/`B-D012`/
+  `B-D013`; `B-D021` additionally needs the finitary characterization of `Sg`.
+- Every block now has correspondence evidence except the **7 unmapped**
+  (`B-C003`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`) and
+  the **5 `fail`** layers (`B-D002`, `B-P001`, `B-R001`, `B-R012`, `B-X002`).
+- Fast gate **40 passed, 0 failed**; reports regenerated, journal `EV-000130`.
+
+**Prioritized next steps (after Part 3).**
+
+1. Close the closure-operator cluster: formalize `ClOp(A)`/`AClOp(A)` (or map
+   Mathlib's `ClosureOperator`) and the finitary `Sg` clause; re-audit
+   `B-D010`, `B-D012`, `B-D013`, `B-D021`.
+2. Author decisions: `B-P001` representation brief; `B-D002` `Set^S` category
+   scope; unmapped-frontier reclassification (`B-R002`, `B-R004`, `B-R015`,
+   `B-R027`, `B-C003`).
+3. Scope-triage or formalize `B-R001`, `B-R012`, `B-X002`.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**
