@@ -4138,6 +4138,28 @@
         "hash": "dff498bbdf9ed3685979e82037c6082061f08ef643f6bea7bd08aaf821dc6b95"
       }
     },
+    "B-R004": {
+      "decls": [
+        "Mslang.isUniform_of_subsingleton_sorts"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsClosureOperator",
+          "Mslang.IsUniform",
+          "Mslang.SSet",
+          "Mslang.Sub",
+          "Mslang.Subset"
+        ],
+        "hash": "aba12b70335d9829835bd7dcce0457f955e114925e2c2fa81f15f2cd6d9b1403"
+      },
+      "file": "lean/Mslang/Algebra.lean",
+      "formal_proof": {
+        "hash": "eae1a8a83103c938c14a4491fd3a31409625c614ec4f54775f8b3e82881b9992"
+      },
+      "formal_statement": {
+        "hash": "90207d9dc67983e51902b554944f4d4aa453f2b0568b56bd19daf32042b77158"
+      }
+    },
     "B-R005": {
       "decls": [
         "Mslang.supp_quot"

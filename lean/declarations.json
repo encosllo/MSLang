@@ -312,6 +312,10 @@
       ],
       "file": "lean/Mslang/Algebra.lean"
     },
+    "B-R004": {
+      "decl": "Mslang.isUniform_of_subsingleton_sorts",
+      "file": "lean/Mslang/Algebra.lean"
+    },
     "B-D010": {
       "decls": [
         "Mslang.IsClosureSystem",

@@ -372,6 +372,39 @@ depends only on the support of its argument. -/
 def IsUniform {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
   ∀ X Y : Sub A, suppSub X = suppSub Y → suppSub (c X) = suppSub (c Y)
 
+/-- `B-R004`: in the single-sorted case the uniformity condition is vacuous.
+Over a `Subsingleton` sort type there are only two possible supports (empty and
+full), `suppSub X = ∅` forces `X` to be the empty subobject, and an extensive
+operator carries a nonempty component to a nonempty component. Hence every
+`S`-closure operator is uniform. -/
+theorem isUniform_of_subsingleton_sorts {S : Type u} [Subsingleton S] {A : SSet S}
+    {c : Sub A → Sub A} (hc : IsClosureOperator c) : IsUniform c := by
+  intro X Y hXY
+  by_cases hX : suppSub X = ∅
+  · have hX0 : X = fun t => (∅ : Set (A t)) := by
+      funext t
+      rw [← Set.not_nonempty_iff_eq_empty]
+      intro ht
+      have : t ∉ suppSub X := by rw [hX]; simp
+      exact this (show t ∈ suppSub X from ht)
+    have hY0 : Y = fun t => (∅ : Set (A t)) := by
+      have hY : suppSub Y = ∅ := by rw [← hXY, hX]
+      funext t
+      rw [← Set.not_nonempty_iff_eq_empty]
+      intro ht
+      have : t ∉ suppSub Y := by rw [hY]; simp
+      exact this (show t ∈ suppSub Y from ht)
+    rw [hX0, hY0]
+  · have hne : ∀ (Z : Sub A), suppSub Z ≠ ∅ → suppSub (c Z) = Set.univ := by
+      intro Z hZ
+      rw [Set.eq_univ_iff_forall]
+      intro t
+      obtain ⟨s, hs⟩ := Set.nonempty_iff_ne_empty.mpr hZ
+      have ht : t ∈ suppSub Z := by rwa [Subsingleton.elim s t] at hs
+      obtain ⟨a, ha⟩ := ht
+      exact ⟨a, hc.1 Z t ha⟩
+    rw [hne X hX, hne Y (by rw [← hXY]; exact hX)]
+
 /-- `B-D013`: a uniform algebraic `S`-closure operator: an `S`-closure operator
 (extensive, isotone, idempotent), algebraic (finitary), and uniform. -/
 def IsUniformAlgebraicClosureOperator {S : Type u} {A : SSet S}
