@@ -155,22 +155,18 @@ assumed worth formalizing.
 
 | disposition | count |
 |---|---|
-| worth-formalizing | 0 |
-| deferred | 7 |
-| out-of-scope | 0 |
+| worth-formalizing | 2 |
+| deferred | 0 |
+| out-of-scope | 5 |
 | undecided | 0 |
 
-### Open obligations (7)
+### Open obligations (2)
 
 Unmapped blocks not marked `out-of-scope`.
 
-`B-C003`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`
+`B-R004`, `B-R027`
 
 ## Open author decisions
 
 | id | category |
 |---|---|
-| `EV-000132` | escalation |
-| `EV-000133` | escalation |
-| `EV-000134` | escalation |
-| `EV-000135` | escalation |

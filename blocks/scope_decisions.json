@@ -1,9 +1,9 @@
 {
   "dispositions": {
     "B-C003": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Free-algebra cluster: needs the term characterization / unique-parsing result before it can be formalized; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "out-of-scope",
+      "rationale": "Category-theoretic adjunction T_Sigma -| G_Sigma; needs a CategoryTheory layer, which the author declined in EV-000133. Out of scope for this project."
     },
     "B-C005": {
       "decided_by": "author:session82",
@@ -186,24 +186,24 @@
       "rationale": "Load-bearing for the two Eilenberg theorems (formation-lattice iso and the finite-index/regular-language iso) and their preliminary support; author scope triage Session 82."
     },
     "B-R002": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "out-of-scope",
+      "rationale": "Category-theoretic finitariness in the topos Set^S (finite <=> finitary <=> strongly finitary); needs the category/filtered-colimit infrastructure declined in EV-000133. Out of scope."
     },
     "B-R004": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "worth-formalizing",
+      "rationale": "Substantive but small, not category-theoretic: in the single-sorted case uniformity is automatic (every operator on a set is uniform). Worth formalizing."
     },
     "B-R013": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "out-of-scope",
+      "rationale": "Pure forward reference; the promised algebraicity of Form_Cgr(Sigma) is formalized in B-C006. Nothing separate to formalize. Out of scope."
     },
     "B-R015": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "out-of-scope",
+      "rationale": "Foundational size bookkeeping under the Grothendieck universe (Form_Alg(Sigma) is a legitimate set); same R-universe residual already declared out of scope. Out of scope."
     },
     "B-R016": {
       "decided_by": "author:session114",
@@ -226,9 +226,9 @@
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
     },
     "B-R025": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "out-of-scope",
+      "rationale": "Pure forward reference; the promised algebraicity of Form_Cgr_fi(Sigma) is formalized in B-C012. Nothing separate to formalize. Out of scope."
     },
     "B-R026": {
       "decided_by": "author:session82",
@@ -236,9 +236,9 @@
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
     },
     "B-R027": {
-      "decided_by": "author:session82",
-      "disposition": "deferred",
-      "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
+      "decided_by": "author:session120",
+      "disposition": "worth-formalizing",
+      "rationale": "Substantive redundancy claim: (BPS1) follows from (BPS2)+(BPS3). Small, not category-theoretic. Worth formalizing."
     },
     "B-X001": {
       "decided_by": "author:session114",

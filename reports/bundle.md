@@ -18,7 +18,7 @@ repository.
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `6269ad1438d51e435713969f2f448ddf77c93671fd4e310c280b86fe08785fd1` |
-| `blocks/scope_decisions.json` | `6a414a4f65d96bd74b8925b392ad950c3c46c565ba1f38cd322aa44c34679948` |
+| `blocks/scope_decisions.json` | `48a6a4b1802de4694071e8cebc9ecfa76a0a747f2123bcef08785e145bbbd47e` |
 | `blocks/treatment_tiers.json` | `6542301a4c092696fda9b1925825685f9890c2dedf6c077d49bb782da24d2158` |
 | `calibration/baseline.json` | `c10a03ea904ab834070a8da546e88da7b18e91f5241486e07c5297bb9f3dbe2e` |
 | `calibration/generated.json` | `f404e40777743c210acc102f2955720cda2bbf955acf4fd32696c5cc652ec16d` |
@@ -408,7 +408,7 @@ repository.
 | `evidence/E-000380.json` | `ef330f27a869e84e3986adbe2a7a58fd53acacbcd263f1949d18c26f9323c329` |
 | `evidence/E-000381.json` | `0b34a07e334db78a9d4f96ac714073634427b9834e28313ac99c3d89b2dd0a63` |
 | `evidence/E-000382.json` | `0896bb06b120c755a054d14cddf44076d14a8efeb5d41dfa7462336643af5f5e` |
-| `journal/events.jsonl` | `2479a7c0cacc3c79cda414594c6312bb8b7fd8c7515fa600edce47fc550848c6` |
+| `journal/events.jsonl` | `1a94d4e236a83836fbbe8140a507ae703501019fa09a44c83e5208170257b067` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `7ffd3b493c2c2a0f3e40356081ab0a406f327adc54f28165b5b9d3d6ef084884` |
@@ -20301,25 +20301,21 @@ assumed worth formalizing.
 
 | disposition | count |
 |---|---|
-| worth-formalizing | 0 |
-| deferred | 7 |
-| out-of-scope | 0 |
+| worth-formalizing | 2 |
+| deferred | 0 |
+| out-of-scope | 5 |
 | undecided | 0 |
 
-### Open obligations (7)
+### Open obligations (2)
 
 Unmapped blocks not marked `out-of-scope`.
 
-`B-C003`, `B-R002`, `B-R004`, `B-R013`, `B-R015`, `B-R025`, `B-R027`
+`B-R004`, `B-R027`
 
 ## Open author decisions
 
 | id | category |
 |---|---|
-| `EV-000132` | escalation |
-| `EV-000133` | escalation |
-| `EV-000134` | escalation |
-| `EV-000135` | escalation |
 
 ## reports/ranking.md
 
@@ -20406,7 +20402,4 @@ agents present options and stop.
 
 | event | block | class | summary |
 |---|---|---|---|
-| EV-000132 | `B-P001` | C6 | Reserved representation decision (brief: representation/p001-representation-brief.md, Session 114). The pilot encoding (SSet := S → Type u, single fixed universe) cannot state arbitrary unions/intersections/differences of unrelated sorted-set carriers, so B-P001 (CarrierOperations) is formal_weaker (E-000236). Author to accept the encoding and scope the clause, or revise the carrier model (C6) and re-audit. Blast radius: representation/encoding and every correspondence record that resolves through it. |
-| EV-000133 | `B-D002` | C4 | Scope decision: B-D002 (S-sorted set) is formal_weaker (E-000274) only on its closing clause 'Set^S is the category of S-sorted sets and S-sorted mappings'. The Lean development has no CategoryTheory formalization of Set^S. Author to formalize Set^S as a category or scope the category clause out (accepted formal_weaker). |
-| EV-000134 | `B-C003` | C4 | Scope-triage decision for the 7 unmapped blocks, all currently dispositioned 'deferred': B-C003, B-R002, B-R004, B-R013, B-R015, B-R025, B-R027. The independent Codex report flags B-R002, B-R004, B-R015, B-R027 as content-bearing and B-C003 as a substantive adjunction theorem; B-R013 and B-R025 look like forward references. Author to reclassify each as worth-formalizing / deferred / out-of-scope. |
-| EV-000135 | `B-R001` | C4 | Scope decision for the residual prose clauses in three remarks that are formal_weaker: B-R001 (E-000265) lacks the claims that {δ^s} generates Set^S, the atoms of Sub(1^S), Sub(1^S) ≅ Sub(S), and that each δ^s is projective with monic maps out; B-R012 (E-000327) lacks the single-sorted Sub(1)={∅,1} and the many-sorted classification inside Sub(1); B-X002 (E-000330) lacks the Sgr/Mon/Grp-Act and Mod category examples. Author to formalize these or scope them out as prose illustrations. |
+| _none_ | | | |
