@@ -45,6 +45,16 @@ def main():
     check("real B-C001 uses B-D014 formally",
           ("B-C001", "B-D014") in set(real_formal))
 
+    # The mapped universe comes from formal declarations, so a mapped block
+    # with no `formal_uses` edge still counts as mapped (Section 12.3).
+    real_mapped = discrepancy.load_mapped_blocks(ROOT / "blocks" / "formal.json")
+    check("mapped universe includes isolated mapped blocks",
+          {"B-A001", "B-D001", "B-D029"} <= set(real_mapped), str(real_mapped))
+    rd_mapped = discrepancy.compare(real_informal, real_formal, real_mapped)
+    check("isolated mapped blocks enter the compared universe",
+          {"B-A001", "B-D001", "B-D029"} <= set(rd_mapped["universe"]),
+          str(rd_mapped["universe"]))
+
     notes = json.loads((ROOT / "blocks" / "discrepancy_notes.json").read_text(encoding="utf-8"))["notes"]
     check("the informal-only edge is annotated",
           "B-P002->B-D006" in notes, str(sorted(notes)))

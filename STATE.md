@@ -5759,6 +5759,81 @@ overfull count at the baseline 3.
 
 ---
 
+## Session 118 -- 2026-09-21 -- B-R001 record correction and two derived-report fixes
+
+**Goal.** Mechanical follow-up to the two independent block-by-block reports
+(`Report_Claude.md`, `Report_Codex.md`): close the one audit defect they agree
+on, and fix the derived-report defects Codex documented.
+
+**What was established (closed).**
+
+- **`B-R001` record corrected.** `E-000113` (`equivalent`) had a two-stage
+  transcript that read back only the opening assertion
+  `δ^{t,X} ≅ ∐_{x∈X} δ^t`. The same remark (line 289) also asserts that
+  `{δ^s}` generates `Set^S`, that it is the set of atoms of `Sub(1^S)`, that
+  `Sub(1^S) ≅ Sub(S)`, that each `δ^s` is projective, and that every map out of
+  a `δ^s` is monic; none is mapped. Superseded by **`E-000256`**
+  (`formal_weaker`, partial coverage); `blocks/audits/B-R001-correspondence.md`
+  gained a "Full-block correction (Session 118)" section. `B-R001`
+  correspondence layer is now `fail` (was `provisional`).
+- **Trust boundary fixed.** `scripts/report.py` now reads
+  `blocks/bridges.json` and excludes discharged obligations from the "Unproved
+  bridge obligations" section (it had listed all five, which `bridges.json`
+  marks proved). `frontier.py` already reported 0 open; the two now agree.
+- **Discrepancy mapped universe fixed.** `scripts/discrepancy.py` derives the
+  mapped universe from `blocks/formal.json` declarations
+  (`load_mapped_blocks`) instead of formal-graph endpoints, so isolated mapped
+  blocks `B-A001`, `B-D001`, `B-D029` are included. Universe 119→122;
+  informal-only 38→40; unmapped 3→1; undecided 621→623 (the two new
+  informal-only edges `B-D030→B-D029` and `B-P014→B-D029` enter the review
+  queue). `load_mapped_blocks` has two new `discrepancy_test.py` checks.
+- Reports regenerated in the Section 15.6 order; journal **`EV-000126`**. Fast
+  gate **40 passed, 0 failed**; slow gate **43 passed, 0 failed** (Lean audit
+  unchanged: 366 declarations, 0 `sorry`).
+
+**Part 2 -- the five partial-map blocks audited (`EV-000127`).**
+
+- **Ownership repaired (class C5).** `SortedMap` (`B-D015`→`B-D002`), `iCoprod`
+  (`B-R001`→`B-D003`), `deltaT` (`B-R001`→`B-D006`), `quot` (`B-R005`→`B-D014`),
+  `satSets` (`B-R007`→`B-D014`), `Sub_iUnion`/`Sub_iInter`
+  (`B-D012`/`B-D010`→`B-D003`); and formerly unowned declarations claimed:
+  `complA` (B-D003), `pr`, `eqvClass`, `nabla`, `sortedEqvLe`, `sortedEqvInf`,
+  `sortedEqv_iInf` (B-D014). Deps' `definition_closure` is declaration-keyed, so
+  these moves stale no dependent; affected verification/correspondence records
+  were re-issued with `reissue_reason: remap`.
+- **Cheap gaps formalized** in `lean/Mslang/Prelim.lean`: `Hom` (B-D002);
+  `prod2`, `coprod2`, `iPair_unique`, `Sub_union`, `Sub_inter`, `Sub_sdiff`
+  (B-D003); `deltaSingleton`, `delta_eq_deltaT_punit` (B-D006). Lean audit now
+  **382 declarations**, 0 `sorry`, 0 unpermitted axioms.
+- **Two-stage blind audits** (new transcripts under `blocks/audits/`):
+  - `B-D003` **`equivalent`** (`E-000275`), `B-D006` **`equivalent`**
+    (`E-000276`).
+  - `B-D002` **`formal_weaker`** (`E-000274`): only the closing `Set^S`
+    category clause is unmapped -- the same `CategoryTheory` blocker as
+    `B-C003`, and a scope-decision candidate.
+  - `B-D014` **`formal_weaker`** (`E-000277`): `Eqv(A)`, its
+    algebraic-closure-system/algebraic-lattice structure, and `Delta^A` are
+    unmapped (substantive).
+  - `B-D024` **`formal_weaker`** (`E-000278`): `IsCongruence` faithfully
+    generalizes the defining clause (drops the nonempty-arity restriction,
+    `formal_stronger` there), but the `Cgr(A)` closure-system/lattice claims and
+    `nabla^A`/`Delta^A` are unmapped (substantive).
+- Fast gate **40 passed, 0 failed**; slow gate **43 passed, 0 failed**.
+
+**Prioritized next steps.**
+
+1. Formalize the `SortedEqv(A)` and `Cgr(A)` algebraic-closure-system/algebraic-
+   lattice results (B-D014/B-D024) -- the remaining substantive correspondence
+   gaps among the former partial-map blocks.
+2. Author: scope decision for the `Set^S` category clause in `B-D002`; the
+   `B-P001` representation decision (Session 114 brief); reclassify the unmapped
+   frontier (`B-R002`, `B-R004`, `B-R015`, `B-R027` are content-bearing) and
+   refresh `B-C003`'s rationale.
+3. Add correspondence audits for the remaining 42 verification-only blocks.
+4. Review the 604 undecided dependency edges by impact.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

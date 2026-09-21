@@ -92,7 +92,9 @@ def render_coverage(registry, records, coverage, boundary, vector):
     return "\n".join(lines)
 
 
-def render_trust_boundary(registry, coverage, representations, boundary, records):
+def render_trust_boundary(registry, coverage, representations, boundary, records,
+                          proved_bridges=None):
+    proved_bridges = set(proved_bridges or ())
     lines = [
         "# Trust boundary report (Sections 6, 7.5, 11.5)",
         "",
@@ -151,15 +153,18 @@ def render_trust_boundary(registry, coverage, representations, boundary, records
         "## Unproved bridge obligations",
         "",
         "Bridge obligations turn an encoding judgment into formal evidence",
-        "(Section 7.4); until proved they sit in the trust boundary.",
+        "(Section 7.4); until proved they sit in the trust boundary. Obligations",
+        "discharged in `blocks/bridges.json` are excluded here.",
         "",
     ]
     for name, rb in sorted(representations.items()):
-        obligations = rb.get("bridge_obligations", [])
+        obligations = [o for o in rb.get("bridge_obligations", [])
+                       if o not in proved_bridges]
         if obligations:
             lines.append(f"- `{name}`: " + ", ".join(f"`{o}`" for o in obligations))
-    if not any(rb.get("bridge_obligations") for rb in representations.values()):
-        lines.append("- none declared")
+    if not any(o for rb in representations.values()
+               for o in rb.get("bridge_obligations", []) if o not in proved_bridges):
+        lines.append("- none open")
     lines += [
         "",
         "## Statement-only / out-of-scope",
@@ -250,13 +255,19 @@ def build(root: Path, representation_path=None, representation_name="encoding"):
     if representation_path:
         rep[representation_name] = trust.hash_file(root / representation_path)
     representations, boundary = trust.compute(registry, coverage, records, rep)
+    bridges_path = root / "blocks" / "bridges.json"
+    proved_bridges = []
+    if bridges_path.exists():
+        proved_bridges = list(
+            json.loads(bridges_path.read_text(encoding="utf-8")).get("proved", {})
+        )
     vector = block_status_vector(registry, records, rep, tiers=status.load_default_tiers())
     return {
         "reports/coverage.md": render_coverage(
             registry, records, coverage, boundary, vector
         ),
         "reports/trust_boundary.md": render_trust_boundary(
-            registry, coverage, representations, boundary, records
+            registry, coverage, representations, boundary, records, proved_bridges
         ),
         "reports/staleness.md": render_staleness(registry, records, rep),
     }

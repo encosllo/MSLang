@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `eeb3d20ac4154b435a30398505a5afd2bd6baee77dd55ad5d2115a1ba3464901` |
-| `blocks/formal_graph.json` | `dbcbd6d851c893171e401bde72a51b7c86bfa5a9d0359f687c09bff959e08b6a` |
+| `blocks/formal.json` | `88a32bbb07846b63e31aef7af8b82c131628d7c74b17e1ae5c462a01ccf8eba4` |
+| `blocks/formal_graph.json` | `dcfd8a0cc13333295b08ff3f6f20612be0dc4d6184b2c05983036e1108a5ab88` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `7a30927b7d511e1f04e44eb228ebf6ad0a31b21aa48679f5acfc70bed03c7659` |
-| `blocks/lean_audit.json` | `f3cb72d46e565209f4dff8a130c470d1835445b886faf9b396d5bcad05d034ad` |
+| `blocks/lean_audit.json` | `6b2b69a89276db0871a9bdbf8461b8a7092583a891ee9dbc029583ea362cfe0d` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `6269ad1438d51e435713969f2f448ddf77c93671fd4e310c280b86fe08785fd1` |
@@ -281,10 +281,33 @@ repository.
 | `evidence/E-000253.json` | `151c382b665ed62408e5b472148e3ade43e929c91770bafb5195e8d76a1f90f9` |
 | `evidence/E-000254.json` | `e7304b2f174c0d5d16b24047016f8ff58dc8c736dcadd5cde2f8a9b69e6c2c99` |
 | `evidence/E-000255.json` | `46c69c2b540c15bce873c51fed44391b0222ee98f47c7448017f7f7ccfc91265` |
-| `journal/events.jsonl` | `e28b25ec034b465eef32634c4052334a932a0f46200c32995bf3827d73dcb4bb` |
+| `evidence/E-000256.json` | `c12293f8ac54397dfabbd327c07b22073335449621f8da057a7ce261884b3eb4` |
+| `evidence/E-000257.json` | `eee0ff92f2103b196d7f49388be04c785f8995a8b094a71f7c4c4567cbc38ed8` |
+| `evidence/E-000258.json` | `10ea285840904ac3d200b43fbb3d959582202fdfaad4dc247420198e7f1c0217` |
+| `evidence/E-000259.json` | `c9e82e331d31a057f2fff89bb99de9093329ed3f4e2976b7777a0c610cf5f5b5` |
+| `evidence/E-000260.json` | `1e3c5b7cfb20ae3f9bf0a7a920a540a358152dc805e8f268eb75b1269731a2b3` |
+| `evidence/E-000261.json` | `4c0d8caab9177e9bbf4e2e678bcf8fce47b133b1a8cbba0d199ca99364371754` |
+| `evidence/E-000262.json` | `3d749e7e794291a43f1cc381d3d8e6fe4be761ce336468b886ebfc8e8bb552a3` |
+| `evidence/E-000263.json` | `14cc13e4fd5803678ffbbdafcd7860e39c0dbd130d33a8a689478b17ce07f138` |
+| `evidence/E-000264.json` | `1c7f75c8a84cdd798a0bfd282f722a73a7e73f4fd9ce86e292c679dab89cd2cb` |
+| `evidence/E-000265.json` | `0aaf0ca0e8e43575c32d33d02d8e0c4dfd64d0c53e8ad50dbf94b888ccf3fbdd` |
+| `evidence/E-000266.json` | `ab417666ce4510e1065f37da3e4faebb48c88f2da525a49732c149b6d6d386ca` |
+| `evidence/E-000267.json` | `9ccc8ebd3c7145e373f3b03379e3dcb109e758ca7df2a45ebb6e0db9f0e360fe` |
+| `evidence/E-000268.json` | `b508e8ed5b222809d70a81e3572e17a371c0c72de44d352075083e0e7e14b67f` |
+| `evidence/E-000269.json` | `fa74fadf0381b3ddc42a1066c729386b9fbee98d30ccda5f1799d3b71090a7c5` |
+| `evidence/E-000270.json` | `d8da2d61d5f0085198e1da9ef715abdde4aa2461c205f3e82e4e0a01499f46b6` |
+| `evidence/E-000271.json` | `1c0d5f8baae3a076669530e73caab4c895bee8fa0d08ef6868bf8427f4fa5518` |
+| `evidence/E-000272.json` | `7aa0423c5c45c5d857f81cd4aa41df10f728c5844a9ea9311c3f50f28f969070` |
+| `evidence/E-000273.json` | `e447cf1e8f3edd036f58a9620f61bf5ed58bf5303eb33e42ebff7b9e7fced6e6` |
+| `evidence/E-000274.json` | `eaf377b9ff41286e85ea572d82b6a8a9b90599187e75af3475e95903022f46a9` |
+| `evidence/E-000275.json` | `f721c85d10ebc4c3570b90ee54d5f348a0482af093818eb512300ec14f08e807` |
+| `evidence/E-000276.json` | `b2be4c6abeb7a2c68a396d7cbde0923d351116dcfe6fc375b6a607571dad9d98` |
+| `evidence/E-000277.json` | `c30e779453b276361909154c42db556b88706a1a56da2cc9daf411ff095d2777` |
+| `evidence/E-000278.json` | `7ef2c1886281d6513c348deecbad8e613ce397d64accc71496d227d71aa499ee` |
+| `journal/events.jsonl` | `69e639ce158c36831e498276c06e25d63394b794dbf0d1031270146124cd7e1e` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
-| `manuscript/MSEilenberg.tex` | `1acf4d3d91e8f026fcf34afaeda2f14926460f499dda19816628a371f2c9fcea` |
+| `manuscript/MSEilenberg.tex` | `55403967e635652d4eb4a44e16883c17a95507b7e92091e0432fc76d7072a87a` |
 | `reconciliation/proposals.json` | `cad78706a93883a409b94262b40fa06e3a1eec3d680abe1aab0645c038cccabd` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
 | `schemas/evidence.schema.json` | `c6cca4d570f1ff68ed94ab9b38efad979074c6e2ce3bf5db1f663aa379550449` |
@@ -295,48 +318,52 @@ repository.
 |---|---|---|---|---|
 | `B-A001` | correspondence | provisional | 1 | 0 |
 | `B-A001` | verification | provisional | 1 | 0 |
-| `B-C001` | correspondence | provisional | 1 | 3 |
+| `B-C001` | correspondence | stale | 0 | 4 |
 | `B-C001` | review | provisional | 1 | 1 |
 | `B-C001` | verification | pass | 2 | 0 |
-| `B-C002` | correspondence | provisional | 1 | 3 |
+| `B-C002` | correspondence | stale | 0 | 4 |
 | `B-C002` | review | provisional | 1 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
-| `B-C004` | correspondence | provisional | 1 | 0 |
+| `B-C004` | correspondence | stale | 0 | 1 |
 | `B-C004` | verification | pass | 1 | 0 |
 | `B-C005` | correspondence | provisional | 1 | 1 |
 | `B-C005` | verification | pass | 1 | 1 |
-| `B-C006` | correspondence | provisional | 1 | 0 |
+| `B-C006` | correspondence | stale | 0 | 1 |
 | `B-C006` | verification | pass | 1 | 0 |
-| `B-C007` | correspondence | provisional | 1 | 0 |
+| `B-C007` | correspondence | stale | 0 | 1 |
 | `B-C007` | verification | pass | 1 | 0 |
-| `B-C008` | correspondence | provisional | 1 | 0 |
+| `B-C008` | correspondence | stale | 0 | 1 |
 | `B-C008` | verification | pass | 1 | 1 |
-| `B-C009` | correspondence | provisional | 1 | 0 |
+| `B-C009` | correspondence | stale | 0 | 1 |
 | `B-C009` | verification | pass | 1 | 0 |
-| `B-C010` | correspondence | provisional | 1 | 0 |
+| `B-C010` | correspondence | stale | 0 | 1 |
 | `B-C010` | verification | pass | 1 | 0 |
 | `B-C011` | correspondence | provisional | 1 | 0 |
 | `B-C011` | verification | pass | 1 | 0 |
-| `B-C012` | correspondence | provisional | 1 | 0 |
+| `B-C012` | correspondence | stale | 0 | 1 |
 | `B-C012` | verification | pass | 1 | 0 |
-| `B-C013` | correspondence | provisional | 1 | 0 |
+| `B-C013` | correspondence | stale | 0 | 1 |
 | `B-C013` | verification | pass | 1 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
-| `B-D002` | verification | pass | 1 | 0 |
-| `B-D003` | verification | pass | 1 | 0 |
+| `B-D002` | correspondence | fail | 1 | 0 |
+| `B-D002` | verification | pass | 1 | 2 |
+| `B-D003` | correspondence | provisional | 1 | 0 |
+| `B-D003` | verification | pass | 1 | 3 |
 | `B-D004` | correspondence | provisional | 1 | 2 |
 | `B-D004` | verification | pass | 1 | 1 |
 | `B-D005` | verification | pass | 1 | 0 |
-| `B-D006` | verification | pass | 1 | 1 |
+| `B-D006` | correspondence | provisional | 1 | 0 |
+| `B-D006` | verification | pass | 1 | 3 |
 | `B-D007` | verification | pass | 1 | 0 |
 | `B-D008` | verification | pass | 1 | 0 |
 | `B-D009` | verification | pass | 1 | 0 |
-| `B-D010` | verification | pass | 1 | 0 |
+| `B-D010` | verification | pass | 1 | 1 |
 | `B-D011` | verification | pass | 1 | 0 |
-| `B-D012` | verification | pass | 1 | 0 |
+| `B-D012` | verification | pass | 1 | 1 |
 | `B-D013` | verification | pass | 1 | 0 |
-| `B-D014` | verification | pass | 1 | 0 |
-| `B-D015` | verification | pass | 1 | 1 |
+| `B-D014` | correspondence | fail | 1 | 0 |
+| `B-D014` | verification | pass | 1 | 1 |
+| `B-D015` | verification | pass | 1 | 2 |
 | `B-D016` | verification | pass | 1 | 0 |
 | `B-D017` | verification | pass | 1 | 0 |
 | `B-D018` | verification | pass | 1 | 0 |
@@ -345,6 +372,7 @@ repository.
 | `B-D021` | verification | pass | 1 | 0 |
 | `B-D022` | verification | pass | 1 | 0 |
 | `B-D023` | verification | pass | 1 | 0 |
+| `B-D024` | correspondence | fail | 1 | 0 |
 | `B-D024` | verification | pass | 1 | 0 |
 | `B-D025` | verification | pass | 1 | 0 |
 | `B-D026` | verification | pass | 1 | 0 |
@@ -372,22 +400,22 @@ repository.
 | `B-L001` | verification | pass | 1 | 1 |
 | `B-P001` | correspondence | fail | 1 | 0 |
 | `B-P001` | verification | pass | 1 | 0 |
-| `B-P002` | correspondence | provisional | 1 | 3 |
+| `B-P002` | correspondence | stale | 0 | 4 |
 | `B-P002` | verification | pass | 1 | 1 |
-| `B-P003` | correspondence | provisional | 1 | 3 |
+| `B-P003` | correspondence | stale | 0 | 4 |
 | `B-P003` | verification | pass | 1 | 1 |
-| `B-P004` | correspondence | provisional | 1 | 1 |
+| `B-P004` | correspondence | stale | 0 | 2 |
 | `B-P004` | review | provisional | 1 | 0 |
 | `B-P004` | verification | pass | 1 | 0 |
-| `B-P005` | correspondence | provisional | 1 | 1 |
+| `B-P005` | correspondence | stale | 0 | 2 |
 | `B-P005` | verification | pass | 1 | 1 |
-| `B-P006` | correspondence | provisional | 1 | 0 |
+| `B-P006` | correspondence | stale | 0 | 1 |
 | `B-P006` | verification | pass | 1 | 0 |
-| `B-P007` | correspondence | provisional | 1 | 1 |
+| `B-P007` | correspondence | stale | 0 | 2 |
 | `B-P007` | verification | pass | 1 | 0 |
 | `B-P008` | correspondence | provisional | 1 | 0 |
 | `B-P008` | verification | pass | 1 | 0 |
-| `B-P009` | correspondence | provisional | 1 | 1 |
+| `B-P009` | correspondence | stale | 0 | 2 |
 | `B-P009` | verification | pass | 1 | 0 |
 | `B-P010` | correspondence | provisional | 1 | 0 |
 | `B-P010` | verification | provisional | 1 | 0 |
@@ -397,69 +425,69 @@ repository.
 | `B-P012` | verification | pass | 1 | 0 |
 | `B-P013` | correspondence | provisional | 1 | 0 |
 | `B-P013` | verification | pass | 1 | 0 |
-| `B-P014` | correspondence | provisional | 1 | 0 |
+| `B-P014` | correspondence | stale | 0 | 1 |
 | `B-P014` | verification | pass | 1 | 0 |
-| `B-P015` | correspondence | provisional | 1 | 0 |
+| `B-P015` | correspondence | stale | 0 | 1 |
 | `B-P015` | verification | pass | 1 | 0 |
-| `B-P016` | correspondence | provisional | 1 | 0 |
+| `B-P016` | correspondence | stale | 0 | 1 |
 | `B-P016` | verification | pass | 1 | 0 |
-| `B-P017` | correspondence | provisional | 1 | 1 |
+| `B-P017` | correspondence | stale | 0 | 2 |
 | `B-P017` | verification | pass | 1 | 0 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
 | `B-P018` | verification | pass | 1 | 0 |
-| `B-P019` | correspondence | provisional | 1 | 0 |
+| `B-P019` | correspondence | stale | 0 | 1 |
 | `B-P019` | verification | pass | 1 | 0 |
-| `B-P020` | correspondence | provisional | 1 | 0 |
+| `B-P020` | correspondence | stale | 0 | 1 |
 | `B-P020` | verification | pass | 1 | 0 |
 | `B-P021` | correspondence | provisional | 1 | 0 |
 | `B-P021` | verification | pass | 1 | 0 |
-| `B-P022` | correspondence | provisional | 1 | 0 |
+| `B-P022` | correspondence | stale | 0 | 1 |
 | `B-P022` | verification | pass | 1 | 0 |
-| `B-P023` | correspondence | provisional | 1 | 0 |
+| `B-P023` | correspondence | stale | 0 | 1 |
 | `B-P023` | verification | pass | 1 | 0 |
-| `B-P024` | correspondence | provisional | 1 | 0 |
+| `B-P024` | correspondence | stale | 0 | 1 |
 | `B-P024` | verification | pass | 1 | 0 |
-| `B-P025` | correspondence | provisional | 1 | 0 |
+| `B-P025` | correspondence | stale | 0 | 1 |
 | `B-P025` | verification | pass | 1 | 0 |
-| `B-P026` | correspondence | provisional | 1 | 0 |
+| `B-P026` | correspondence | stale | 0 | 1 |
 | `B-P026` | verification | pass | 1 | 0 |
-| `B-P027` | correspondence | provisional | 1 | 0 |
+| `B-P027` | correspondence | stale | 0 | 1 |
 | `B-P027` | verification | pass | 1 | 0 |
-| `B-P028` | correspondence | provisional | 1 | 0 |
+| `B-P028` | correspondence | stale | 0 | 1 |
 | `B-P028` | verification | pass | 1 | 0 |
-| `B-P029` | correspondence | provisional | 1 | 0 |
+| `B-P029` | correspondence | stale | 0 | 1 |
 | `B-P029` | verification | pass | 1 | 0 |
-| `B-P030` | correspondence | provisional | 1 | 0 |
+| `B-P030` | correspondence | stale | 0 | 1 |
 | `B-P030` | verification | pass | 1 | 0 |
-| `B-P031` | correspondence | provisional | 1 | 0 |
+| `B-P031` | correspondence | stale | 0 | 1 |
 | `B-P031` | verification | pass | 1 | 0 |
-| `B-P032` | correspondence | provisional | 1 | 0 |
+| `B-P032` | correspondence | stale | 0 | 1 |
 | `B-P032` | verification | pass | 1 | 0 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
 | `B-P033` | verification | pass | 1 | 0 |
-| `B-P034` | correspondence | provisional | 1 | 0 |
+| `B-P034` | correspondence | stale | 0 | 1 |
 | `B-P034` | verification | pass | 1 | 0 |
-| `B-P035` | correspondence | provisional | 1 | 0 |
+| `B-P035` | correspondence | stale | 0 | 1 |
 | `B-P035` | verification | pass | 1 | 0 |
-| `B-P036` | correspondence | provisional | 1 | 0 |
+| `B-P036` | correspondence | stale | 0 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
-| `B-P037` | correspondence | provisional | 1 | 0 |
+| `B-P037` | correspondence | stale | 0 | 1 |
 | `B-P037` | verification | pass | 1 | 0 |
-| `B-P038` | correspondence | provisional | 1 | 0 |
+| `B-P038` | correspondence | stale | 0 | 1 |
 | `B-P038` | verification | pass | 1 | 0 |
-| `B-P039` | correspondence | provisional | 1 | 0 |
+| `B-P039` | correspondence | stale | 0 | 1 |
 | `B-P039` | verification | pass | 1 | 0 |
-| `B-R001` | correspondence | provisional | 1 | 0 |
-| `B-R001` | verification | pass | 1 | 0 |
+| `B-R001` | correspondence | fail | 1 | 2 |
+| `B-R001` | verification | pass | 1 | 1 |
 | `B-R003` | correspondence | provisional | 1 | 1 |
 | `B-R003` | verification | pass | 1 | 0 |
-| `B-R005` | correspondence | provisional | 1 | 1 |
-| `B-R005` | verification | pass | 1 | 0 |
-| `B-R006` | correspondence | provisional | 1 | 2 |
+| `B-R005` | correspondence | provisional | 1 | 2 |
+| `B-R005` | verification | pass | 1 | 1 |
+| `B-R006` | correspondence | stale | 0 | 3 |
 | `B-R006` | verification | pass | 2 | 0 |
-| `B-R007` | correspondence | provisional | 1 | 1 |
-| `B-R007` | verification | pass | 1 | 0 |
-| `B-R008` | correspondence | provisional | 1 | 2 |
+| `B-R007` | correspondence | provisional | 1 | 2 |
+| `B-R007` | verification | pass | 1 | 1 |
+| `B-R008` | correspondence | stale | 0 | 3 |
 | `B-R008` | verification | pass | 2 | 0 |
 | `B-R009` | correspondence | provisional | 1 | 2 |
 | `B-R009` | verification | pass | 1 | 1 |
@@ -467,7 +495,7 @@ repository.
 | `B-R010` | verification | pass | 1 | 0 |
 | `B-R011` | correspondence | provisional | 1 | 0 |
 | `B-R011` | verification | pass | 1 | 0 |
-| `B-R012` | correspondence | provisional | 1 | 0 |
+| `B-R012` | correspondence | stale | 0 | 1 |
 | `B-R012` | verification | pass | 1 | 0 |
 | `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R014` | verification | pass | 1 | 0 |
@@ -479,19 +507,19 @@ repository.
 | `B-R018` | verification | pass | 1 | 0 |
 | `B-R019` | correspondence | provisional | 1 | 0 |
 | `B-R019` | verification | provisional | 1 | 0 |
-| `B-R020` | correspondence | provisional | 1 | 0 |
+| `B-R020` | correspondence | stale | 0 | 1 |
 | `B-R020` | verification | pass | 1 | 0 |
-| `B-R021` | correspondence | provisional | 1 | 0 |
+| `B-R021` | correspondence | stale | 0 | 1 |
 | `B-R021` | verification | pass | 1 | 1 |
 | `B-R022` | verification | pass | 1 | 0 |
 | `B-R023` | verification | pass | 1 | 0 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |
-| `B-R026` | correspondence | provisional | 1 | 0 |
+| `B-R026` | correspondence | stale | 0 | 1 |
 | `B-R026` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
-| `B-X002` | correspondence | provisional | 1 | 0 |
+| `B-X002` | correspondence | stale | 0 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
 | `representation/encoding` | representation | provisional | 1 | 2 |
 
@@ -11814,6 +11842,1105 @@ repository.
 }
 ```
 
+### E-000256
+
+```json
+{
+  "block": "B-R001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000256",
+  "findings": [
+    "Full-block re-contrast (Session 118): prior record E-000113 returned equivalent but its transcript reads back only the opening assertion delta^{t,X} iso coprod_X delta^t (delta_iso_coprod). The remark also asserts that {delta^s} generates Set^S, that it is the set of atoms of Sub(1^S), that Sub(1^S) iso Sub(S), that each delta^s is projective, and that every map out of a delta^s is monic; none is mapped (declared map: SortedIso, iCoprod, deltaT, sigmaPUnitEquiv, deltaEquiv, delta_iso_coprod). Full-block verdict formal_weaker (partial coverage); the formalized first clause is faithful. Transcript blocks/audits/B-R001-correspondence.md. Supersedes E-000113."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R001/definition_closure",
+      "hash": "6f2fcad3bb43d6c8489df14af5e69463ec0d9c77f841f807c472f9e99e9048d6"
+    },
+    {
+      "artifact": "B-R001/formal_statement",
+      "hash": "b82bbebb18fccd6692b7795332e516b59ca65b72af1c36d609044bf03d9c39b8"
+    },
+    {
+      "artifact": "B-R001/informal_statement",
+      "hash": "f484f8cbd19e657f544001ce88b2737b274c9ff8e4e31cc0f049e5ecffed4110"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000113",
+  "timestamp": "2026-09-21T06:34:54Z"
+}
+```
+
+### E-000257
+
+```json
+{
+  "block": "B-D002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000257",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D002/formal_proof",
+      "hash": "48311097387a59e603c4dc47c3e277dcffa08065fbfe6d71b87073c112fe3973"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000258
+
+```json
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000258",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D003/formal_proof",
+      "hash": "f4ee6acf05b9ee53ce4813401ae7cd0720be337a09635854ae2b97ebacdfc5c4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000259
+
+```json
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000259",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D006/formal_proof",
+      "hash": "5e8329f91985058a7c0d386479d4dd61e85b9fe22e89a1b2ac41414cb4fcf142"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000260
+
+```json
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000260",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D014/formal_proof",
+      "hash": "8f4d1b67e1ffc0f8b2e76cfc76efb0b64760877a22f96577de2be6f76cf9ad04"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000261
+
+```json
+{
+  "block": "B-D015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000261",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D015/formal_proof",
+      "hash": "4978e68a0b8c38e2c1225d580a9234efb11a6320ae473124595df6056c2178a4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000262
+
+```json
+{
+  "block": "B-R001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000262",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R001/formal_proof",
+      "hash": "27a0d6f0e8b8de27285920c4bc64edeb62601171dbcfbc6b7bbeca372f60871f"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000263
+
+```json
+{
+  "block": "B-R005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000263",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R005/formal_proof",
+      "hash": "44ed59195b6c14c270ce966bd740576761afc3eeaada864790f80d0bc4765b54"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000264
+
+```json
+{
+  "block": "B-R007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000264",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R007/formal_proof",
+      "hash": "01f7efa567624adef75c338f5b8de29a7cb0622f9081bfc99c0d212926487f9d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}
+```
+
+### E-000265
+
+```json
+{
+  "block": "B-R001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000265",
+  "findings": [
+    "Re-bound after a class C5 declaration remap (iCoprod re-registered under B-D003, deltaT under B-D006); the verdict is unchanged from E-000256 (full-block formal_weaker: only the coproduct-iso clause is mapped). Transcript blocks/audits/B-R001-correspondence.md kept."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R001/definition_closure",
+      "hash": "a7d08431761ad5193bf44ccf7674772eb5d7393f6a78a99ecd318918724c4bc5"
+    },
+    {
+      "artifact": "B-R001/formal_statement",
+      "hash": "35ac0966f58fed19ecd66a85fbfc0ea1e93261af0adcb6223252cafd5572f035"
+    },
+    {
+      "artifact": "B-R001/informal_statement",
+      "hash": "f484f8cbd19e657f544001ce88b2737b274c9ff8e4e31cc0f049e5ecffed4110"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000256",
+  "timestamp": "2026-09-21T06:45:20Z"
+}
+```
+
+### E-000266
+
+```json
+{
+  "block": "B-R005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000266",
+  "findings": [
+    "Re-bound after a class C5 declaration remap (quot re-registered under B-D014; supp_quot remains under B-R005). Verdict unchanged (equivalent); transcript blocks/audits/B-R005-correspondence.md kept."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "B-R005/definition_closure",
+      "hash": "74af86ca9debfd991faa32670d67d55b9e5ac08cde62d0403b217971b9b527de"
+    },
+    {
+      "artifact": "B-R005/formal_statement",
+      "hash": "55a3c502524d3e51c810ee271b4da3d8e7ef0e6962f594ca6350ea038f6dfbdf"
+    },
+    {
+      "artifact": "B-R005/informal_statement",
+      "hash": "820f452e01eadd59d00d2fc94a1218c49c45c30a59ba05ca9941ced72e54858d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000093",
+  "timestamp": "2026-09-21T06:45:20Z"
+}
+```
+
+### E-000267
+
+```json
+{
+  "block": "B-R007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000267",
+  "findings": [
+    "Re-bound after a class C5 declaration remap (satSets re-registered under B-D014; satSets_antitone remains under B-R007). Verdict unchanged (equivalent); transcript blocks/audits/B-R007-correspondence.md kept."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R007/definition_closure",
+      "hash": "798ace5bb40870547dfbb83a92bc4d9da0323821de8afb9a0f77c72161d0a38c"
+    },
+    {
+      "artifact": "B-R007/formal_statement",
+      "hash": "62f88613457d857844e41029288bc025714bce6a541ccd03912eb539db1a579f"
+    },
+    {
+      "artifact": "B-R007/informal_statement",
+      "hash": "b168aac9c69c08a1d21e3a38bebd3b62a54071374bcb019de22ad5e5642a0ad8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000091",
+  "timestamp": "2026-09-21T06:45:20Z"
+}
+```
+
+### E-000268
+
+```json
+{
+  "block": "B-D002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000268",
+  "findings": [
+    "Verification re-issued after the B-D002 missing-clause formalization (Hom added); targeted lake build Mslang.Prelim clean."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D002/formal_proof",
+      "hash": "77c3bad88a2060b5a1203fd5d073ad56fc643108e022115c21b23a038f8f810c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000257",
+  "timestamp": "2026-09-21T06:55:35Z"
+}
+```
+
+### E-000269
+
+```json
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000269",
+  "findings": [
+    "Verification re-issued after the B-D003 missing-clause formalization (binary ops, pairing uniqueness); targeted lake build Mslang.Prelim clean."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D003/formal_proof",
+      "hash": "2d2c7ab280badf5fc917b31aab357fdd3c8607880bae174b89c480165a3b5faa"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000258",
+  "timestamp": "2026-09-21T06:55:35Z"
+}
+```
+
+### E-000270
+
+```json
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000270",
+  "findings": [
+    "Verification re-issued after the B-D006 missing-clause formalization (singleton delta, delta = deltaT PUnit); targeted lake build Mslang.Prelim clean."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D006/formal_proof",
+      "hash": "829e956a1f5e823e46a8c7bd595ac615b073d28058837ef49f99b3158518351d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000259",
+  "timestamp": "2026-09-21T06:55:35Z"
+}
+```
+
+### E-000271
+
+```json
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000271",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap: Sub_iUnion/Sub_iInter (bigcup/bigcap) re-registered from B-D010/B-D012 to B-D003."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D003/formal_proof",
+      "hash": "03c831a1fd6b0a96b6b569a55b3e8ca65c81619ca5283e46cadf2c9f6609f0ff"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000269",
+  "timestamp": "2026-09-21T06:56:52Z"
+}
+```
+
+### E-000272
+
+```json
+{
+  "block": "B-D010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000272",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap: Sub_iInter re-registered to B-D003; IsClosureSystem remains."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D010/formal_proof",
+      "hash": "57ef02cfe4ba355209aa26210d7f46c1a1db1b4497bcc429349f07801e7619c3"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000099",
+  "timestamp": "2026-09-21T06:56:52Z"
+}
+```
+
+### E-000273
+
+```json
+{
+  "block": "B-D012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000273",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap: Sub_iUnion re-registered to B-D003; IsAlgebraicClosureSystem remains."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D012/formal_proof",
+      "hash": "244107b40cee4ae356040baab4d57f918be02b1ce054954dc5c37dbb3fb318a5"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000101",
+  "timestamp": "2026-09-21T06:56:52Z"
+}
+```
+
+### E-000274
+
+```json
+{
+  "block": "B-D002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000274",
+  "findings": [
+    "Full-block two-stage audit: the definitional core SSet/SortedMap/Hom is faithful, but the closing 'Set^S is the category of S-sorted sets and mappings' clause has no Lean counterpart (no CategoryTheory layer; same blocker as B-C003), so the block is formal_weaker (partial coverage). Transcript blocks/audits/B-D002-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D002/definition_closure",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "artifact": "B-D002/formal_statement",
+      "hash": "e2d2213208c33af6d120984fc77b48204c7a27cdce098ed77124513f21e9a25c"
+    },
+    {
+      "artifact": "B-D002/informal_statement",
+      "hash": "5124c9867712a4275a724869a47b9df6b9142d91a0aa9c9d77097629557ee981"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}
+```
+
+### E-000275
+
+```json
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000275",
+  "findings": [
+    "Full-block two-stage audit after the B-D003 declaration remap/formalization: family product/projection/pairing+uniqueness, binary product and coproduct, family coproduct, complement, and componentwise binary and indexed union/intersection/difference all correspond; equivalent. Transcript blocks/audits/B-D003-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D003/definition_closure",
+      "hash": "0c8f3c617f82d04e6f2a15604c87ffac7ff2ba9a25ab0b4b634b008745e3dfdc"
+    },
+    {
+      "artifact": "B-D003/formal_statement",
+      "hash": "0321c79cf2cca69b5b27313466efcb2c74e661c3f6752757a5abbdab8dc4a361"
+    },
+    {
+      "artifact": "B-D003/informal_statement",
+      "hash": "a20272a06436ba4c027ff29c600e1421662dc67bb1a8b7fe7c88aad67a597cf5"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}
+```
+
+### E-000276
+
+```json
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000276",
+  "findings": [
+    "Full-block two-stage audit after the B-D006 remap/formalization: delta (\u03b4^t), deltaT (\u03b4^{t,X}), deltaSingleton (\u03b4^{t,x}), and the identification \u03b4^t = \u03b4^{t,1} (delta_eq_deltaT_punit) all correspond; equivalent. Transcript blocks/audits/B-D006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/definition_closure",
+      "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+    },
+    {
+      "artifact": "B-D006/formal_statement",
+      "hash": "548750898232489ba6d6b0b02f42853d40e392b46d31683588a25bec809dc0dc"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}
+```
+
+### E-000277
+
+```json
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000277",
+  "findings": [
+    "Full-block two-stage audit: the per-sort definitions (SortedEqv, sat, IsSat, quot, pr, eqvClass, nabla, satSets, sortedEqvLe/Inf/iInf) are faithful, but the reified set Eqv(A), its algebraic-closure-system and algebraic-lattice structure, and the least element Delta^A have no Lean counterpart; formal_weaker (partial coverage). Transcript blocks/audits/B-D014-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/definition_closure",
+      "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+    },
+    {
+      "artifact": "B-D014/formal_statement",
+      "hash": "d32895ec92ec07ce0d37cc142a6c9d33865d015ef1ac34e2a906405117d4c006"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}
+```
+
+### E-000278
+
+```json
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000278",
+  "findings": [
+    "Full-block two-stage audit: IsCongruence is faithful and strictly generalizes the defining clause (drops the manuscript's nonempty-arity restriction, formal_stronger there), but the Cgr(A) algebraic-closure-system/algebraic-lattice claims and the greatest/least congruence elements nabla^A/Delta^A have no Lean counterpart; formal_weaker (partial coverage). Transcript blocks/audits/B-D024-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D024/definition_closure",
+      "hash": "1c97b62dcccadfe96150897a72934270aefa206d1da08c054d3f1b8842541e74"
+    },
+    {
+      "artifact": "B-D024/formal_statement",
+      "hash": "2238cbab49a69fabbfb44a95103069cf4c13943a82c59817905604a1170bb0fd"
+    },
+    {
+      "artifact": "B-D024/informal_statement",
+      "hash": "3998573186134411b3b9e27a39fd078db150cc290b798c44c78b192fa979bf31"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -11825,7 +12952,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 123
-- Evidence records: 255
+- Evidence records: 278
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -11839,24 +12966,24 @@ assertion).
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
 | `B-A001` | assumption | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C001` | corollary | Preliminaries. | provisional | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C002` | corollary | Preliminaries. | provisional | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
 | `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C010` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C010` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
 | `B-C011` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
 | `B-D001` | definition | Preliminaries. | none | none | pass | none | - |
-| `B-D002` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D003` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D002` | definition | Preliminaries. | none | fail | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D003` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D004` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D005` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D006` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D006` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D007` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D008` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D009` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
@@ -11864,7 +12991,7 @@ assertion).
 | `B-D011` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D012` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D013` | definition | Preliminaries. | none | none | pass | none | - |
-| `B-D014` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D014` | definition | Preliminaries. | none | fail | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D016` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D017` | definition | Preliminaries. | none | none | pass | none | - |
@@ -11874,7 +13001,7 @@ assertion).
 | `B-D021` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D022` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D023` | definition | Preliminaries. | none | none | pass | none | - |
-| `B-D024` | definition | Preliminaries. | none | none | pass | none | - |
+| `B-D024` | definition | Preliminaries. | none | fail | pass | none | - |
 | `B-D025` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D026` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D027` | definition | Preliminaries. | none | none | pass | none | - |
@@ -11899,67 +13026,67 @@ assertion).
 | `B-D046` | definition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-L001` | lemma | Preliminaries. | none | provisional | pass | none | - |
 | `B-P001` | proposition | Preliminaries. | none | fail | pass | none | - |
-| `B-P002` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P003` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P004` | proposition | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P005` | proposition | Preliminaries. | none | provisional | pass | none | - |
-| `B-P006` | proposition | Preliminaries. | none | provisional | pass | none | - |
-| `B-P007` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P002` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P003` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P004` | proposition | Preliminaries. | provisional | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P005` | proposition | Preliminaries. | none | stale | pass | none | - |
+| `B-P006` | proposition | Preliminaries. | none | stale | pass | none | - |
+| `B-P007` | proposition | Preliminaries. | none | stale | pass | none | - |
 | `B-P008` | proposition | Preliminaries. | none | provisional | pass | none | - |
-| `B-P009` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P009` | proposition | Preliminaries. | none | stale | pass | none | - |
 | `B-P010` | proposition | Preliminaries. | none | provisional | provisional | none | - |
 | `B-P011` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P012` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P013` | proposition | Preliminaries. | none | provisional | pass | none | - |
-| `B-P014` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P015` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P014` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P015` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
 | `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P019` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P020` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P019` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P020` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
 | `B-P021` | proposition | Elementary translations and translations. | none | provisional | pass | none | - |
-| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P029` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-P030` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P031` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P032` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P029` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-P030` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P031` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P032` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
 | `B-P033` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P036` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-P037` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P038` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P039` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-R001` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P036` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | provisional | none | - |
+| `B-P037` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P038` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P039` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-R001` | remark | Preliminaries. | none | fail | pass | none | - |
 | `B-R003` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R005` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R006` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
 | `B-R007` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R008` | remark | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
 | `B-R009` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R010` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R011` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R012` | remark | Preliminaries. | none | provisional | pass | none | - |
+| `B-R012` | remark | Preliminaries. | none | stale | pass | none | - |
 | `B-R014` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-R016` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-R017` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-R018` | remark | Elementary translations and translations. | none | provisional | pass | none | - |
 | `B-R019` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | provisional | none | - |
-| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
 | `B-R022` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R023` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R024` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-R026` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
+| `B-R026` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | provisional | none | - |
 | `B-X001` | examples | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
+| `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | provisional | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
 6 block(s) have no evidence.
@@ -12007,9 +13134,10 @@ boundary (Section 11.5).
 ## Unproved bridge obligations
 
 Bridge obligations turn an encoding judgment into formal evidence
-(Section 7.4); until proved they sit in the trust boundary.
+(Section 7.4); until proved they sit in the trust boundary. Obligations
+discharged in `blocks/bridges.json` are excluded here.
 
-- `encoding`: `sat_eq_preimage`, `setoid_le_iff`, `sat_antitone`, `card_le_one_iff`, `delta_support`
+- none open
 
 ## Statement-only / out-of-scope
 
@@ -12072,9 +13200,9 @@ formal counterpart (the mapped universe); `formal_uses` edges are
 extracted from Lean source, informal edges are confirmed `\ref`/`\uses`
 and symbol/prose edges.
 
-Mapped blocks: `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P008`, `B-P009`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R026`, `B-X001`, `B-X002`
+Mapped blocks: `B-A001`, `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D001`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P008`, `B-P009`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R026`, `B-X001`, `B-X002`
 
-## Undecided edges (621)
+## Undecided edges (604)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -12115,6 +13243,7 @@ the review queue.
 | `B-C007` | `B-P023` |
 | `B-C007` | `B-P030` |
 | `B-C007` | `B-P039` |
+| `B-C008` | `B-D003` |
 | `B-C008` | `B-D005` |
 | `B-C008` | `B-D014` |
 | `B-C008` | `B-D016` |
@@ -12159,18 +13288,18 @@ the review queue.
 | `B-C013` | `B-D045` |
 | `B-C013` | `B-P032` |
 | `B-C013` | `B-P039` |
-| `B-D003` | `B-D015` |
+| `B-D003` | `B-D005` |
 | `B-D007` | `B-D005` |
-| `B-D007` | `B-D015` |
 | `B-D008` | `B-D005` |
+| `B-D010` | `B-D003` |
 | `B-D010` | `B-D005` |
+| `B-D012` | `B-D003` |
 | `B-D012` | `B-D005` |
 | `B-D012` | `B-D010` |
 | `B-D013` | `B-D005` |
 | `B-D013` | `B-P005` |
 | `B-D014` | `B-D005` |
 | `B-D015` | `B-D014` |
-| `B-D017` | `B-D015` |
 | `B-D017` | `B-D016` |
 | `B-D018` | `B-D009` |
 | `B-D018` | `B-D016` |
@@ -12184,12 +13313,10 @@ the review queue.
 | `B-D021` | `B-D017` |
 | `B-D021` | `B-D020` |
 | `B-D021` | `B-P005` |
-| `B-D022` | `B-D015` |
 | `B-D022` | `B-D016` |
 | `B-D022` | `B-D017` |
 | `B-D023` | `B-D004` |
 | `B-D023` | `B-D005` |
-| `B-D023` | `B-D015` |
 | `B-D023` | `B-D016` |
 | `B-D023` | `B-D017` |
 | `B-D023` | `B-D020` |
@@ -12197,19 +13324,15 @@ the review queue.
 | `B-D024` | `B-D016` |
 | `B-D024` | `B-D017` |
 | `B-D025` | `B-D014` |
-| `B-D025` | `B-D015` |
 | `B-D025` | `B-D016` |
 | `B-D025` | `B-D017` |
 | `B-D025` | `B-D024` |
-| `B-D025` | `B-R005` |
 | `B-D026` | `B-D016` |
 | `B-D027` | `B-D005` |
-| `B-D027` | `B-D015` |
 | `B-D027` | `B-D016` |
 | `B-D027` | `B-D021` |
 | `B-D027` | `B-D023` |
 | `B-D027` | `B-D026` |
-| `B-D028` | `B-D015` |
 | `B-D028` | `B-D016` |
 | `B-D028` | `B-D017` |
 | `B-D028` | `B-D022` |
@@ -12220,7 +13343,6 @@ the review queue.
 | `B-D030` | `B-D024` |
 | `B-D030` | `B-D025` |
 | `B-D030` | `B-D027` |
-| `B-D031` | `B-D015` |
 | `B-D031` | `B-D016` |
 | `B-D031` | `B-D022` |
 | `B-D032` | `B-D016` |
@@ -12249,7 +13371,6 @@ the review queue.
 | `B-D040` | `B-D016` |
 | `B-D040` | `B-D017` |
 | `B-D040` | `B-D024` |
-| `B-D040` | `B-R005` |
 | `B-D041` | `B-D014` |
 | `B-D041` | `B-D016` |
 | `B-D041` | `B-D027` |
@@ -12269,9 +13390,9 @@ the review queue.
 | `B-D045` | `B-D038` |
 | `B-D045` | `B-D044` |
 | `B-D045` | `B-P022` |
+| `B-D046` | `B-D003` |
 | `B-D046` | `B-D005` |
 | `B-D046` | `B-D007` |
-| `B-D046` | `B-D015` |
 | `B-D046` | `B-D016` |
 | `B-D046` | `B-D017` |
 | `B-D046` | `B-D025` |
@@ -12279,7 +13400,6 @@ the review queue.
 | `B-D046` | `B-D038` |
 | `B-D046` | `B-D044` |
 | `B-D046` | `B-P022` |
-| `B-L001` | `B-D015` |
 | `B-L001` | `B-D016` |
 | `B-L001` | `B-D017` |
 | `B-L001` | `B-D027` |
@@ -12289,16 +13409,13 @@ the review queue.
 | `B-P001` | `B-D005` |
 | `B-P001` | `B-D007` |
 | `B-P001` | `B-D009` |
-| `B-P001` | `B-D015` |
-| `B-P001` | `B-R001` |
 | `B-P002` | `B-D005` |
 | `B-P003` | `B-D005` |
 | `B-P004` | `B-D005` |
+| `B-P005` | `B-D003` |
 | `B-P005` | `B-D005` |
-| `B-P005` | `B-R007` |
 | `B-P006` | `B-D005` |
 | `B-P006` | `B-D037` |
-| `B-P007` | `B-R005` |
 | `B-P008` | `B-D004` |
 | `B-P008` | `B-D005` |
 | `B-P008` | `B-D016` |
@@ -12310,24 +13427,21 @@ the review queue.
 | `B-P009` | `B-D024` |
 | `B-P009` | `B-D025` |
 | `B-P009` | `B-P007` |
-| `B-P009` | `B-R005` |
 | `B-P010` | `B-D016` |
 | `B-P010` | `B-D026` |
-| `B-P011` | `B-D015` |
 | `B-P011` | `B-D016` |
 | `B-P011` | `B-D017` |
 | `B-P011` | `B-L001` |
-| `B-P012` | `B-D015` |
 | `B-P012` | `B-D016` |
 | `B-P012` | `B-D017` |
 | `B-P012` | `B-D027` |
 | `B-P012` | `B-L001` |
 | `B-P012` | `B-P011` |
-| `B-P013` | `B-D015` |
 | `B-P013` | `B-D016` |
 | `B-P013` | `B-D017` |
 | `B-P013` | `B-D027` |
 | `B-P013` | `B-P011` |
+| `B-P014` | `B-D014` |
 | `B-P014` | `B-D016` |
 | `B-P014` | `B-D017` |
 | `B-P014` | `B-D024` |
@@ -12360,6 +13474,7 @@ the review queue.
 | `B-P016` | `B-D033` |
 | `B-P016` | `B-P007` |
 | `B-P016` | `B-P009` |
+| `B-P017` | `B-D014` |
 | `B-P017` | `B-D016` |
 | `B-P017` | `B-D017` |
 | `B-P017` | `B-D022` |
@@ -12425,6 +13540,7 @@ the review queue.
 | `B-P024` | `B-D037` |
 | `B-P024` | `B-D038` |
 | `B-P024` | `B-P021` |
+| `B-P025` | `B-D003` |
 | `B-P025` | `B-D005` |
 | `B-P025` | `B-D016` |
 | `B-P025` | `B-D038` |
@@ -12436,17 +13552,18 @@ the review queue.
 | `B-P026` | `B-D038` |
 | `B-P026` | `B-P022` |
 | `B-P027` | `B-D005` |
+| `B-P027` | `B-D014` |
 | `B-P027` | `B-D016` |
 | `B-P027` | `B-D037` |
 | `B-P027` | `B-D038` |
 | `B-P028` | `B-D005` |
 | `B-P028` | `B-D007` |
 | `B-P028` | `B-D014` |
-| `B-P028` | `B-D015` |
 | `B-P028` | `B-D016` |
 | `B-P028` | `B-D017` |
 | `B-P028` | `B-D038` |
 | `B-P029` | `B-D005` |
+| `B-P029` | `B-D014` |
 | `B-P029` | `B-D016` |
 | `B-P029` | `B-D038` |
 | `B-P030` | `B-D005` |
@@ -12465,15 +13582,14 @@ the review queue.
 | `B-P031` | `B-D008` |
 | `B-P031` | `B-D009` |
 | `B-P031` | `B-D014` |
-| `B-P031` | `B-D015` |
 | `B-P031` | `B-D016` |
 | `B-P031` | `B-D017` |
 | `B-P031` | `B-D024` |
 | `B-P031` | `B-D033` |
 | `B-P031` | `B-D040` |
-| `B-P031` | `B-R005` |
 | `B-P031` | `B-R012` |
 | `B-P032` | `B-D008` |
+| `B-P032` | `B-D014` |
 | `B-P032` | `B-D015` |
 | `B-P032` | `B-D016` |
 | `B-P032` | `B-D017` |
@@ -12485,7 +13601,6 @@ the review queue.
 | `B-P032` | `B-P007` |
 | `B-P032` | `B-P009` |
 | `B-P032` | `B-P031` |
-| `B-P032` | `B-R005` |
 | `B-P032` | `B-R012` |
 | `B-P033` | `B-D008` |
 | `B-P033` | `B-D016` |
@@ -12499,7 +13614,6 @@ the review queue.
 | `B-P033` | `B-R009` |
 | `B-P034` | `B-D008` |
 | `B-P034` | `B-D014` |
-| `B-P034` | `B-D015` |
 | `B-P034` | `B-D016` |
 | `B-P034` | `B-D017` |
 | `B-P034` | `B-D023` |
@@ -12548,7 +13662,6 @@ the review queue.
 | `B-P038` | `B-P023` |
 | `B-P038` | `B-P031` |
 | `B-P038` | `B-P034` |
-| `B-P038` | `B-R005` |
 | `B-P038` | `B-R012` |
 | `B-P039` | `B-D005` |
 | `B-P039` | `B-D016` |
@@ -12562,15 +13675,13 @@ the review queue.
 | `B-P039` | `B-P030` |
 | `B-P039` | `B-P037` |
 | `B-P039` | `B-P038` |
-| `B-P039` | `B-R005` |
 | `B-P039` | `B-R021` |
-| `B-R001` | `B-D015` |
+| `B-R001` | `B-D003` |
 | `B-R003` | `B-D008` |
 | `B-R003` | `B-D009` |
 | `B-R005` | `B-D009` |
 | `B-R006` | `B-D005` |
 | `B-R007` | `B-C001` |
-| `B-R007` | `B-D005` |
 | `B-R008` | `B-P003` |
 | `B-R009` | `B-D016` |
 | `B-R009` | `B-D018` |
@@ -12579,18 +13690,17 @@ the review queue.
 | `B-R010` | `B-D016` |
 | `B-R010` | `B-D017` |
 | `B-R010` | `B-D021` |
-| `B-R011` | `B-D015` |
 | `B-R011` | `B-D016` |
 | `B-R011` | `B-D017` |
 | `B-R011` | `B-D023` |
 | `B-R011` | `B-P008` |
+| `B-R012` | `B-D014` |
 | `B-R012` | `B-D016` |
 | `B-R012` | `B-D017` |
 | `B-R012` | `B-D023` |
 | `B-R012` | `B-D024` |
 | `B-R012` | `B-D025` |
 | `B-R012` | `B-P008` |
-| `B-R014` | `B-D015` |
 | `B-R014` | `B-D016` |
 | `B-R014` | `B-D022` |
 | `B-R014` | `B-D023` |
@@ -12615,7 +13725,6 @@ the review queue.
 | `B-R021` | `B-D005` |
 | `B-R021` | `B-D007` |
 | `B-R021` | `B-D014` |
-| `B-R021` | `B-D015` |
 | `B-R021` | `B-D016` |
 | `B-R021` | `B-D017` |
 | `B-R021` | `B-D038` |
@@ -12623,7 +13732,6 @@ the review queue.
 | `B-R022` | `B-D016` |
 | `B-R022` | `B-D030` |
 | `B-R022` | `B-P030` |
-| `B-R022` | `B-R007` |
 | `B-R023` | `B-C001` |
 | `B-R023` | `B-C004` |
 | `B-R023` | `B-D005` |
@@ -12642,6 +13750,7 @@ the review queue.
 | `B-R026` | `B-D005` |
 | `B-R026` | `B-D008` |
 | `B-R026` | `B-D009` |
+| `B-R026` | `B-D014` |
 | `B-R026` | `B-D016` |
 | `B-R026` | `B-D038` |
 | `B-R026` | `B-D044` |
@@ -12649,7 +13758,6 @@ the review queue.
 | `B-X001` | `B-D005` |
 | `B-X001` | `B-D007` |
 | `B-X001` | `B-D008` |
-| `B-X001` | `B-D015` |
 | `B-X001` | `B-D016` |
 | `B-X001` | `B-D019` |
 | `B-X001` | `B-D020` |
@@ -12659,6 +13767,7 @@ the review queue.
 | `B-X001` | `B-D032` |
 | `B-X001` | `B-D037` |
 | `B-X002` | `B-D009` |
+| `B-X002` | `B-D014` |
 | `B-X002` | `B-D016` |
 | `B-X002` | `B-D040` |
 | `B-X002` | `B-P031` |
@@ -12668,11 +13777,13 @@ the review queue.
 | `B-C005` | `B-D034` |
 | `B-C008` | `B-P006` |
 | `B-C009` | `B-D006` |
+| `B-D030` | `B-D029` |
 | `B-D032` | `B-D028` |
 | `B-D037` | `B-D006` |
 | `B-D037` | `B-D036` |
 | `B-P006` | `B-D006` |
 | `B-P008` | `B-P001` |
+| `B-P014` | `B-D029` |
 | `B-P015` | `B-D028` |
 | `B-P019` | `B-D023` |
 | `B-P022` | `B-D015` |
@@ -12707,7 +13818,7 @@ the review queue.
 
 | disposition | count |
 |---|---|
-| type-carrier | 76 |
+| type-carrier | 81 |
 
 ## Reviewed dispositions
 
@@ -12804,7 +13915,7 @@ the review queue.
 
 ## Not yet mapped (informal edges with no formal counterpart)
 
-3 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
+1 edge(s); these blocks have no Lean declaration in `lean/declarations.json`, so no formal edge can exist yet.
 
 ## reports/impact.md
 
@@ -12819,34 +13930,16 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 24
+- evidence records that would go stale: 6
 
 | record | block | layer |
 |---|---|---|
 | E-000038 | `B-C001` | review |
 | E-000039 | `B-C002` | review |
 | E-000050 | `B-P004` | review |
-| E-000083 | `B-C001` | correspondence |
-| E-000084 | `B-C002` | correspondence |
-| E-000086 | `B-P002` | correspondence |
-| E-000087 | `B-P003` | correspondence |
-| E-000088 | `B-R006` | correspondence |
-| E-000089 | `B-R008` | correspondence |
-| E-000090 | `B-P004` | correspondence |
-| E-000091 | `B-R007` | correspondence |
-| E-000092 | `B-P005` | correspondence |
-| E-000093 | `B-R005` | correspondence |
-| E-000094 | `B-P007` | correspondence |
-| E-000149 | `B-P023` | correspondence |
-| E-000191 | `B-P030` | correspondence |
-| E-000195 | `B-P037` | correspondence |
-| E-000197 | `B-P038` | correspondence |
-| E-000199 | `B-P039` | correspondence |
-| E-000207 | `B-C007` | correspondence |
-| E-000208 | `B-C008` | correspondence |
-| E-000209 | `B-C009` | correspondence |
-| E-000214 | `B-P035` | correspondence |
-| E-000234 | `B-P006` | correspondence |
+| E-000266 | `B-R005` | correspondence |
+| E-000267 | `B-R007` | correspondence |
+| E-000277 | `B-D014` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -12867,74 +13960,79 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|---|---|---|
 | `B-A001` | correspondence | provisional | 1 | 0 |
 | `B-A001` | verification | provisional | 1 | 0 |
-| `B-C001` | correspondence | provisional | 1 | 3 |
+| `B-C001` | correspondence | stale | 0 | 4 |
 | `B-C001` | review | provisional | 1 | 1 |
-| `B-C002` | correspondence | provisional | 1 | 3 |
+| `B-C002` | correspondence | stale | 0 | 4 |
 | `B-C002` | review | provisional | 1 | 1 |
-| `B-C004` | correspondence | provisional | 1 | 0 |
+| `B-C004` | correspondence | stale | 0 | 1 |
 | `B-C005` | correspondence | provisional | 1 | 1 |
-| `B-C006` | correspondence | provisional | 1 | 0 |
-| `B-C007` | correspondence | provisional | 1 | 0 |
-| `B-C008` | correspondence | provisional | 1 | 0 |
-| `B-C009` | correspondence | provisional | 1 | 0 |
-| `B-C010` | correspondence | provisional | 1 | 0 |
+| `B-C006` | correspondence | stale | 0 | 1 |
+| `B-C007` | correspondence | stale | 0 | 1 |
+| `B-C008` | correspondence | stale | 0 | 1 |
+| `B-C009` | correspondence | stale | 0 | 1 |
+| `B-C010` | correspondence | stale | 0 | 1 |
 | `B-C011` | correspondence | provisional | 1 | 0 |
-| `B-C012` | correspondence | provisional | 1 | 0 |
-| `B-C013` | correspondence | provisional | 1 | 0 |
+| `B-C012` | correspondence | stale | 0 | 1 |
+| `B-C013` | correspondence | stale | 0 | 1 |
+| `B-D002` | correspondence | fail | 1 | 0 |
+| `B-D003` | correspondence | provisional | 1 | 0 |
 | `B-D004` | correspondence | provisional | 1 | 2 |
+| `B-D006` | correspondence | provisional | 1 | 0 |
+| `B-D014` | correspondence | fail | 1 | 0 |
+| `B-D024` | correspondence | fail | 1 | 0 |
 | `B-L001` | correspondence | provisional | 1 | 1 |
 | `B-P001` | correspondence | fail | 1 | 0 |
-| `B-P002` | correspondence | provisional | 1 | 3 |
-| `B-P003` | correspondence | provisional | 1 | 3 |
-| `B-P004` | correspondence | provisional | 1 | 1 |
+| `B-P002` | correspondence | stale | 0 | 4 |
+| `B-P003` | correspondence | stale | 0 | 4 |
+| `B-P004` | correspondence | stale | 0 | 2 |
 | `B-P004` | review | provisional | 1 | 0 |
-| `B-P005` | correspondence | provisional | 1 | 1 |
-| `B-P006` | correspondence | provisional | 1 | 0 |
-| `B-P007` | correspondence | provisional | 1 | 1 |
+| `B-P005` | correspondence | stale | 0 | 2 |
+| `B-P006` | correspondence | stale | 0 | 1 |
+| `B-P007` | correspondence | stale | 0 | 2 |
 | `B-P008` | correspondence | provisional | 1 | 0 |
-| `B-P009` | correspondence | provisional | 1 | 1 |
+| `B-P009` | correspondence | stale | 0 | 2 |
 | `B-P010` | correspondence | provisional | 1 | 0 |
 | `B-P010` | verification | provisional | 1 | 0 |
 | `B-P011` | correspondence | provisional | 1 | 0 |
 | `B-P012` | correspondence | provisional | 1 | 0 |
 | `B-P013` | correspondence | provisional | 1 | 0 |
-| `B-P014` | correspondence | provisional | 1 | 0 |
-| `B-P015` | correspondence | provisional | 1 | 0 |
-| `B-P016` | correspondence | provisional | 1 | 0 |
-| `B-P017` | correspondence | provisional | 1 | 1 |
+| `B-P014` | correspondence | stale | 0 | 1 |
+| `B-P015` | correspondence | stale | 0 | 1 |
+| `B-P016` | correspondence | stale | 0 | 1 |
+| `B-P017` | correspondence | stale | 0 | 2 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
-| `B-P019` | correspondence | provisional | 1 | 0 |
-| `B-P020` | correspondence | provisional | 1 | 0 |
+| `B-P019` | correspondence | stale | 0 | 1 |
+| `B-P020` | correspondence | stale | 0 | 1 |
 | `B-P021` | correspondence | provisional | 1 | 0 |
-| `B-P022` | correspondence | provisional | 1 | 0 |
-| `B-P023` | correspondence | provisional | 1 | 0 |
-| `B-P024` | correspondence | provisional | 1 | 0 |
-| `B-P025` | correspondence | provisional | 1 | 0 |
-| `B-P026` | correspondence | provisional | 1 | 0 |
-| `B-P027` | correspondence | provisional | 1 | 0 |
-| `B-P028` | correspondence | provisional | 1 | 0 |
-| `B-P029` | correspondence | provisional | 1 | 0 |
-| `B-P030` | correspondence | provisional | 1 | 0 |
-| `B-P031` | correspondence | provisional | 1 | 0 |
-| `B-P032` | correspondence | provisional | 1 | 0 |
+| `B-P022` | correspondence | stale | 0 | 1 |
+| `B-P023` | correspondence | stale | 0 | 1 |
+| `B-P024` | correspondence | stale | 0 | 1 |
+| `B-P025` | correspondence | stale | 0 | 1 |
+| `B-P026` | correspondence | stale | 0 | 1 |
+| `B-P027` | correspondence | stale | 0 | 1 |
+| `B-P028` | correspondence | stale | 0 | 1 |
+| `B-P029` | correspondence | stale | 0 | 1 |
+| `B-P030` | correspondence | stale | 0 | 1 |
+| `B-P031` | correspondence | stale | 0 | 1 |
+| `B-P032` | correspondence | stale | 0 | 1 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
-| `B-P034` | correspondence | provisional | 1 | 0 |
-| `B-P035` | correspondence | provisional | 1 | 0 |
-| `B-P036` | correspondence | provisional | 1 | 0 |
+| `B-P034` | correspondence | stale | 0 | 1 |
+| `B-P035` | correspondence | stale | 0 | 1 |
+| `B-P036` | correspondence | stale | 0 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
-| `B-P037` | correspondence | provisional | 1 | 0 |
-| `B-P038` | correspondence | provisional | 1 | 0 |
-| `B-P039` | correspondence | provisional | 1 | 0 |
-| `B-R001` | correspondence | provisional | 1 | 0 |
+| `B-P037` | correspondence | stale | 0 | 1 |
+| `B-P038` | correspondence | stale | 0 | 1 |
+| `B-P039` | correspondence | stale | 0 | 1 |
+| `B-R001` | correspondence | fail | 1 | 2 |
 | `B-R003` | correspondence | provisional | 1 | 1 |
-| `B-R005` | correspondence | provisional | 1 | 1 |
-| `B-R006` | correspondence | provisional | 1 | 2 |
-| `B-R007` | correspondence | provisional | 1 | 1 |
-| `B-R008` | correspondence | provisional | 1 | 2 |
+| `B-R005` | correspondence | provisional | 1 | 2 |
+| `B-R006` | correspondence | stale | 0 | 3 |
+| `B-R007` | correspondence | provisional | 1 | 2 |
+| `B-R008` | correspondence | stale | 0 | 3 |
 | `B-R009` | correspondence | provisional | 1 | 2 |
 | `B-R010` | correspondence | provisional | 1 | 1 |
 | `B-R011` | correspondence | provisional | 1 | 0 |
-| `B-R012` | correspondence | provisional | 1 | 0 |
+| `B-R012` | correspondence | stale | 0 | 1 |
 | `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R016` | correspondence | provisional | 1 | 0 |
 | `B-R016` | verification | provisional | 1 | 0 |
@@ -12942,15 +14040,15 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R018` | correspondence | provisional | 1 | 0 |
 | `B-R019` | correspondence | provisional | 1 | 0 |
 | `B-R019` | verification | provisional | 1 | 0 |
-| `B-R020` | correspondence | provisional | 1 | 0 |
-| `B-R021` | correspondence | provisional | 1 | 0 |
+| `B-R020` | correspondence | stale | 0 | 1 |
+| `B-R021` | correspondence | stale | 0 | 1 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |
-| `B-R026` | correspondence | provisional | 1 | 0 |
+| `B-R026` | correspondence | stale | 0 | 1 |
 | `B-R026` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
-| `B-X002` | correspondence | provisional | 1 | 0 |
+| `B-X002` | correspondence | stale | 0 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
 | `representation/encoding` | representation | provisional | 1 | 2 |
 

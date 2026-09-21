@@ -39,9 +39,10 @@ boundary (Section 11.5).
 ## Unproved bridge obligations
 
 Bridge obligations turn an encoding judgment into formal evidence
-(Section 7.4); until proved they sit in the trust boundary.
+(Section 7.4); until proved they sit in the trust boundary. Obligations
+discharged in `blocks/bridges.json` are excluded here.
 
-- `encoding`: `sat_eq_preimage`, `setoid_le_iff`, `sat_antitone`, `card_le_one_iff`, `delta_support`
+- none open
 
 ## Statement-only / out-of-scope
 

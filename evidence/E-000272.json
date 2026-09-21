@@ -1,0 +1,38 @@
+{
+  "block": "B-D010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000272",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap: Sub_iInter re-registered to B-D003; IsClosureSystem remains."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D010/formal_proof",
+      "hash": "57ef02cfe4ba355209aa26210d7f46c1a1db1b4497bcc429349f07801e7619c3"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000099",
+  "timestamp": "2026-09-21T06:56:52Z"
+}

@@ -1,0 +1,38 @@
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000271",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap: Sub_iUnion/Sub_iInter (bigcup/bigcap) re-registered from B-D010/B-D012 to B-D003."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D003/formal_proof",
+      "hash": "03c831a1fd6b0a96b6b569a55b3e8ca65c81619ca5283e46cadf2c9f6609f0ff"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000269",
+  "timestamp": "2026-09-21T06:56:52Z"
+}

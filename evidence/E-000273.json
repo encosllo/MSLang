@@ -1,0 +1,38 @@
+{
+  "block": "B-D012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000273",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap: Sub_iUnion re-registered to B-D003; IsAlgebraicClosureSystem remains."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D012/formal_proof",
+      "hash": "244107b40cee4ae356040baab4d57f918be02b1ce054954dc5c37dbb3fb318a5"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000101",
+  "timestamp": "2026-09-21T06:56:52Z"
+}

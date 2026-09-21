@@ -9,34 +9,16 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 24
+- evidence records that would go stale: 6
 
 | record | block | layer |
 |---|---|---|
 | E-000038 | `B-C001` | review |
 | E-000039 | `B-C002` | review |
 | E-000050 | `B-P004` | review |
-| E-000083 | `B-C001` | correspondence |
-| E-000084 | `B-C002` | correspondence |
-| E-000086 | `B-P002` | correspondence |
-| E-000087 | `B-P003` | correspondence |
-| E-000088 | `B-R006` | correspondence |
-| E-000089 | `B-R008` | correspondence |
-| E-000090 | `B-P004` | correspondence |
-| E-000091 | `B-R007` | correspondence |
-| E-000092 | `B-P005` | correspondence |
-| E-000093 | `B-R005` | correspondence |
-| E-000094 | `B-P007` | correspondence |
-| E-000149 | `B-P023` | correspondence |
-| E-000191 | `B-P030` | correspondence |
-| E-000195 | `B-P037` | correspondence |
-| E-000197 | `B-P038` | correspondence |
-| E-000199 | `B-P039` | correspondence |
-| E-000207 | `B-C007` | correspondence |
-| E-000208 | `B-C008` | correspondence |
-| E-000209 | `B-C009` | correspondence |
-| E-000214 | `B-P035` | correspondence |
-| E-000234 | `B-P006` | correspondence |
+| E-000266 | `B-R005` | correspondence |
+| E-000267 | `B-R007` | correspondence |
+| E-000277 | `B-D014` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

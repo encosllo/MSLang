@@ -1,0 +1,38 @@
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000270",
+  "findings": [
+    "Verification re-issued after the B-D006 missing-clause formalization (singleton delta, delta = deltaT PUnit); targeted lake build Mslang.Prelim clean."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D006/formal_proof",
+      "hash": "829e956a1f5e823e46a8c7bd595ac615b073d28058837ef49f99b3158518351d"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000259",
+  "timestamp": "2026-09-21T06:55:35Z"
+}

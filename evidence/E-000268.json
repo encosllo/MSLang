@@ -1,0 +1,38 @@
+{
+  "block": "B-D002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000268",
+  "findings": [
+    "Verification re-issued after the B-D002 missing-clause formalization (Hom added); targeted lake build Mslang.Prelim clean."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D002/formal_proof",
+      "hash": "77c3bad88a2060b5a1203fd5d073ad56fc643108e022115c21b23a038f8f810c"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000257",
+  "timestamp": "2026-09-21T06:55:35Z"
+}

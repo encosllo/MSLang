@@ -1,0 +1,54 @@
+{
+  "block": "B-R007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000267",
+  "findings": [
+    "Re-bound after a class C5 declaration remap (satSets re-registered under B-D014; satSets_antitone remains under B-R007). Verdict unchanged (equivalent); transcript blocks/audits/B-R007-correspondence.md kept."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R007/definition_closure",
+      "hash": "798ace5bb40870547dfbb83a92bc4d9da0323821de8afb9a0f77c72161d0a38c"
+    },
+    {
+      "artifact": "B-R007/formal_statement",
+      "hash": "62f88613457d857844e41029288bc025714bce6a541ccd03912eb539db1a579f"
+    },
+    {
+      "artifact": "B-R007/informal_statement",
+      "hash": "b168aac9c69c08a1d21e3a38bebd3b62a54071374bcb019de22ad5e5642a0ad8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000091",
+  "timestamp": "2026-09-21T06:45:20Z"
+}

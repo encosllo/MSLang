@@ -1,0 +1,48 @@
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000275",
+  "findings": [
+    "Full-block two-stage audit after the B-D003 declaration remap/formalization: family product/projection/pairing+uniqueness, binary product and coproduct, family coproduct, complement, and componentwise binary and indexed union/intersection/difference all correspond; equivalent. Transcript blocks/audits/B-D003-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D003/definition_closure",
+      "hash": "0c8f3c617f82d04e6f2a15604c87ffac7ff2ba9a25ab0b4b634b008745e3dfdc"
+    },
+    {
+      "artifact": "B-D003/formal_statement",
+      "hash": "0321c79cf2cca69b5b27313466efcb2c74e661c3f6752757a5abbdab8dc4a361"
+    },
+    {
+      "artifact": "B-D003/informal_statement",
+      "hash": "a20272a06436ba4c027ff29c600e1421662dc67bb1a8b7fe7c88aad67a597cf5"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}

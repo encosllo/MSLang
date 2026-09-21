@@ -1,0 +1,48 @@
+{
+  "block": "B-D006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000276",
+  "findings": [
+    "Full-block two-stage audit after the B-D006 remap/formalization: delta (\u03b4^t), deltaT (\u03b4^{t,X}), deltaSingleton (\u03b4^{t,x}), and the identification \u03b4^t = \u03b4^{t,1} (delta_eq_deltaT_punit) all correspond; equivalent. Transcript blocks/audits/B-D006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/definition_closure",
+      "hash": "6b9fdda3ea6fe3d14d7c7c6e265abd4f4f4b923955ffb58f41774d72f0f362fc"
+    },
+    {
+      "artifact": "B-D006/formal_statement",
+      "hash": "548750898232489ba6d6b0b02f42853d40e392b46d31683588a25bec809dc0dc"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}

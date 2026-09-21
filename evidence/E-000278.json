@@ -1,0 +1,48 @@
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000278",
+  "findings": [
+    "Full-block two-stage audit: IsCongruence is faithful and strictly generalizes the defining clause (drops the manuscript's nonempty-arity restriction, formal_stronger there), but the Cgr(A) algebraic-closure-system/algebraic-lattice claims and the greatest/least congruence elements nabla^A/Delta^A have no Lean counterpart; formal_weaker (partial coverage). Transcript blocks/audits/B-D024-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D024/definition_closure",
+      "hash": "1c97b62dcccadfe96150897a72934270aefa206d1da08c054d3f1b8842541e74"
+    },
+    {
+      "artifact": "B-D024/formal_statement",
+      "hash": "2238cbab49a69fabbfb44a95103069cf4c13943a82c59817905604a1170bb0fd"
+    },
+    {
+      "artifact": "B-D024/informal_statement",
+      "hash": "3998573186134411b3b9e27a39fd078db150cc290b798c44c78b192fa979bf31"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T06:58:14Z"
+}

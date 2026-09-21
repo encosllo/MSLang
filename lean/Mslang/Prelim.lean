@@ -273,6 +273,15 @@ theorem complA_bridge {S : Type u} {A : SSet S} (X : Sub A) (s : S) (a : A s) :
     a ∈ complA X s ↔ a ∉ X s := by
   simp [complA]
 
+/-- `B-D003`: binary union of componentwise subsets of a common `A`. -/
+def Sub_union {S : Type u} {A : SSet S} (X Y : Sub A) : Sub A := fun s => X s ∪ Y s
+
+/-- `B-D003`: binary intersection of componentwise subsets of a common `A`. -/
+def Sub_inter {S : Type u} {A : SSet S} (X Y : Sub A) : Sub A := fun s => X s ∩ Y s
+
+/-- `B-D003`: difference of componentwise subsets of a common `A`. -/
+def Sub_sdiff {S : Type u} {A : SSet S} (X Y : Sub A) : Sub A := fun s => X s \ Y s
+
 /-- Projection `pr^Φ`, sortwise. -/
 def pr {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S) :
     A s → Quotient (Φ s) :=
@@ -367,6 +376,9 @@ theorem eqvClass_eq_iff {S : Type u} {A : SSet S} (Φ : SortedEqv A) (s : S)
 
 /-- An `S`-sorted mapping `f : A → B` (Definition `B-D002`). -/
 abbrev SortedMap {S : Type u} (A B : SSet S) := ∀ s, A s → B s
+
+/-- `B-D002`: `Hom(A,B)`, the set of `S`-sorted mappings from `A` to `B`. -/
+abbrev Hom {S : Type u} (A B : SSet S) : Type u := SortedMap A B
 
 /-- Definition `B-D015`: the kernel of an `S`-sorted mapping. -/
 @[instance_reducible]
@@ -632,6 +644,20 @@ def iPair {S : Type u} {ι : Type u} {B : SSet S} (A : ι → SSet S)
     (f : ∀ i, SortedMap B (A i)) : SortedMap B (iProd A) :=
   fun s b i => f i s b
 
+/-- `B-D003`: the binary product `A × B`. -/
+abbrev prod2 {S : Type u} (A B : SSet S) : SSet S := fun s => A s × B s
+
+/-- `B-D003`: the binary coproduct `A ⨿ B`. -/
+abbrev coprod2 {S : Type u} (A B : SSet S) : SSet S := fun s => A s ⊕ B s
+
+/-- `B-D003`: the pairing is the unique map with `pr^i ∘ g = f^i`. -/
+theorem iPair_unique {S : Type u} {ι : Type u} {B : SSet S} (A : ι → SSet S)
+    (f : ∀ i, SortedMap B (A i)) (g : SortedMap B (iProd A))
+    (hg : ∀ (i : ι) (s : S) (b : B s), iProj A i s (g s b) = f i s b) :
+    g = iPair A f := by
+  funext s b i
+  exact hg i s b
+
 /-! ### `B-D008`: finite sorted sets. -/
 
 /-- `B-D008`: an `S`-sorted set is finite when its disjoint union
@@ -694,6 +720,16 @@ abbrev iCoprod {S : Type u} {ι : Type u} (A : ι → SSet S) : SSet S :=
 elsewhere. -/
 noncomputable def deltaT {S : Type u} (t : S) (X : Type u) : SSet S :=
   by classical exact fun s => if s = t then X else PEmpty.{u+1}
+
+/-- `B-D006`: the singleton delta `δ^{t,x} = δ^{t,{x}}`, a one-element carrier
+at `t`. -/
+abbrev deltaSingleton {S : Type u} (t : S) : SSet S := deltaT t PUnit
+
+/-- `B-D006`: `δ^t` is `δ^{t,1}`; the Kronecker delta is the case `X = 1`. -/
+theorem delta_eq_deltaT_punit {S : Type u} (t : S) :
+    delta (S := S) t = deltaT t PUnit := by
+  funext s
+  by_cases h : s = t <;> simp [delta, deltaT, h]
 
 /-- `(Σ _ : X, PUnit) ≃ X`. -/
 def sigmaPUnitEquiv (X : Type u) : (Σ _ : X, PUnit.{u+1}) ≃ X where

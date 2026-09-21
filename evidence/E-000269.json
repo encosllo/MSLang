@@ -1,0 +1,38 @@
+{
+  "block": "B-D003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000269",
+  "findings": [
+    "Verification re-issued after the B-D003 missing-clause formalization (binary ops, pairing uniqueness); targeted lake build Mslang.Prelim clean."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D003/formal_proof",
+      "hash": "2d2c7ab280badf5fc917b31aab357fdd3c8607880bae174b89c480165a3b5faa"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000258",
+  "timestamp": "2026-09-21T06:55:35Z"
+}

@@ -43,3 +43,24 @@ The correspondence is `equivalent` relative to the pilot encoding
 (`representation/pilot-encoding.md`, independently audited in `E-000040`,
 residuals `carrier-model`, `small-large`, `univalence-missing`). Those residuals
 are inherited by this verdict; a representation change (class C6) stales it.
+
+## Full-block correction (Session 118)
+
+The two-stage verdict above is `equivalent` for the *opening assertion only*:
+`δ^{t,X} ≅ ∐_{x∈X} δ^t` (`delta_iso_coprod`). The remark does not stop there.
+The same manuscript paragraph (line 289) also asserts: (1) that
+`{δ^s | s ∈ S}` is a generating (separating) set for `Set^S`; (2) that it is the
+set of atoms of the Boolean algebra `Sub(1^S)`; (3) that `Sub(1^S) ≅ Sub(S)`;
+(4) that every `δ^s` is projective; and (5) that every map out of a `δ^s` is a
+monomorphism. The declared map for `B-R001`
+(`Mslang.SortedIso`, `iCoprod`, `deltaT`, `sigmaPUnitEquiv`, `deltaEquiv`,
+`delta_iso_coprod`) contains no counterpart to any of (1)-(5), and a source
+search finds none elsewhere.
+
+The record `E-000113` (`equivalent`) therefore covers only the first claim of a
+multi-claim block and is superseded by a full-block verdict of `formal_weaker`
+(partial coverage): the formalized clause is faithful, the remaining assertions
+are unformalized. This is a coverage/ownership defect in the *record*, not a
+mathematical error in the Lean. Remediation is either to formalize clauses
+(1)-(5) or to split the remark so the coproduct isomorphism stands as its own
+block. Superseded by `E-000256`.

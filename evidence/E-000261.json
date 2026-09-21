@@ -1,0 +1,37 @@
+{
+  "block": "B-D015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000261",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap touching this block's map; Lean source and pinned build unchanged, only ownership moved."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D015/formal_proof",
+      "hash": "4978e68a0b8c38e2c1225d580a9234efb11a6320ae473124595df6056c2178a4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "timestamp": "2026-09-21T06:45:14Z"
+}

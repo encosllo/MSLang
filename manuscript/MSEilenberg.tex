@@ -225,13 +225,13 @@ The \emph{free monoid on} $S$, denoted by $\mathbf{S}^{\star}$, is $(S^{\star},\
 and $\lambda$, the \emph{empty word on} $S$, is the unique mapping from $0 = \varnothing$ to $S$.
 \end{definition}
 
-\lean{\detokenize{Mslang.SSet}}
+\lean{\detokenize{Mslang.SSet}, \detokenize{Mslang.SortedMap}, \detokenize{Mslang.Hom}}
 \blockid{B-D002}
 \begin{definition}
 An $S$-\emph{sorted set} is a mapping $A = (A_{s})_{s\in S}$ from $S$ to $\ensuremath{\boldsymbol{\mathcal{U}}}$. If $A$ and $B$ are $S$-sorted sets, an $S$-\emph{sorted mapping from} $A$ \emph{to} $B$ is an $S$-indexed family $f = (f_{s})_{s\in S}$, where, for every $s$ in $S$, $f_{s}$ is a mapping from $A_{s}$ to  $B_{s}$. Thus, an $S$-sorted mapping from $A$ to $B$ is an element of $\prod_{s\in S}\mathrm{Hom}(A_{s}, B_{s})$, where, for every $s\in S$, $\mathrm{Hom}(A_{s}, B_{s})$ is the set of all mappings from $A_{s}$ to $B_{s}$. We denote by $\mathrm{Hom}(A,B)$ the set of all $S$-sorted mappings from $A$ to $B$. From now on, $\mathbf{Set}^{S}$ stands for the category of $S$-sorted sets and $S$-sorted mappings.
 \end{definition}
 
-\lean{\detokenize{Mslang.iProd}, \detokenize{Mslang.iProj}, \detokenize{Mslang.iPair}}
+\lean{\detokenize{Mslang.iProd}, \detokenize{Mslang.iProj}, \detokenize{Mslang.iPair}, \detokenize{Mslang.iPair_unique}, \detokenize{Mslang.prod2}, \detokenize{Mslang.coprod2}, \detokenize{Mslang.iCoprod}, \detokenize{Mslang.complA}, \detokenize{Mslang.Sub_iUnion}, \detokenize{Mslang.Sub_iInter}, \detokenize{Mslang.Sub_union}, \detokenize{Mslang.Sub_inter}, \detokenize{Mslang.Sub_sdiff}}
 \blockid{B-D003}
 \begin{definition}
 Let $I$ be a set in $\ensuremath{\boldsymbol{\mathcal{U}}}$ and $(A^{i})_{i\in I}$ an $I$-indexed family of $S$-sorted sets. Then the \emph{product} of $(A^{i})_{i\in I}$, denoted by $\prod_{i\in I}A^{i}$, is the $S$-sorted set defined, for every $s\in S$, as $\left(\prod\nolimits_{i\in I}A^{i}\right)_{s} = \prod\nolimits_{i\in I}A^{i}_{s}$. Moreover, for every $i\in I$, the \emph{i-th canonical projection}, $\mathrm{pr}^{i} = (\mathrm{pr}^{i}_{s})_{s\in S}$, is the $S$-sorted mapping from  $\prod_{i\in I}A^{i}$ to $A^{i}$ which, for every $s\in S$, sends $(a_{i})_{i\in I}$ in $\prod_{i\in I}A^{i}_{s}$ to $a_{i}$ in $A^{i}_{s}$.
@@ -261,7 +261,7 @@ An $S$-sorted set $A$ is \emph{subfinal} if $\mathrm{card}(A_{s})\leq 1$, for ev
 If $A$ and $B$ are $S$-sorted sets, then we will say that $A$ is a \emph{subset} of $B$, denoted by $A\subseteq B$, if, for every $s\in S$, $A_{s}\subseteq B_{s}$. We denote by $\mathrm{Sub}(A)$ the set of all $S$-sorted sets $X$ such that $X\subseteq A$.
 \end{definition}
 
-\lean{\detokenize{Mslang.delta}}
+\lean{\detokenize{Mslang.delta}, \detokenize{Mslang.deltaT}, \detokenize{Mslang.deltaSingleton}, \detokenize{Mslang.delta_eq_deltaT_punit}}
 \blockid{B-D006}
 \begin{definition}
 Given a sort $t\in S$ we call \emph{delta of Kronecker in} $t$, the $S$-sorted set $\delta^{t} = (\delta^{t}_{s})_{s\in S}$ defined, for every $s\in S$, as follows: $\delta^{t}_{s} = 1$, if $s = t$; $\delta^{t}_{s} = \varnothing$, otherwise.
@@ -284,7 +284,7 @@ Let $t$ be a sort in $S$ and $X$ a set, then we denote by $\delta^{t,X}$ the $S$
 Let us notice that $\delta^{t}$ is $\delta^{t,1}$, i.e., the deltas of Kronecker, are particular cases of the $S$-sorted sets $\delta^{t,X}$ (however, see the remark immediately below). Therefore we will use indistinctly  $\delta^{t}$ or $\delta^{t,1}$.
 \end{definition}
 
-\lean{\detokenize{Mslang.SortedIso}, \detokenize{Mslang.iCoprod}, \detokenize{Mslang.deltaT}, \detokenize{Mslang.sigmaPUnitEquiv}, \detokenize{Mslang.deltaEquiv}, \detokenize{Mslang.delta_iso_coprod}}
+\lean{\detokenize{Mslang.SortedIso}, \detokenize{Mslang.sigmaPUnitEquiv}, \detokenize{Mslang.deltaEquiv}, \detokenize{Mslang.delta_iso_coprod}}
 \blockid{B-R001}
 \begin{remark}
 For a sort $t\in S$ and a set $X$, the $S$-sorted set $\delta^{t,X}$ is isomorphic to the $S$-sorted set $\coprod_{x\in X}\delta^{t}$, i.e., to the coproduct of the family $(\delta^{t})_{x\in X}$.
@@ -499,7 +499,7 @@ Unlike what it happens in the many-sorted case, the concept of uniformity does n
 %See~\cite{cs10}.
 %\end{proof}
 
-\lean{\detokenize{Mslang.SortedEqv}, \detokenize{Mslang.sat}, \detokenize{Mslang.IsSat}}
+\lean{\detokenize{Mslang.SortedEqv}, \detokenize{Mslang.sat}, \detokenize{Mslang.IsSat}, \detokenize{Mslang.quot}, \detokenize{Mslang.pr}, \detokenize{Mslang.eqvClass}, \detokenize{Mslang.nabla}, \detokenize{Mslang.satSets}, \detokenize{Mslang.sortedEqvLe}, \detokenize{Mslang.sortedEqvInf}, \detokenize{Mslang.sortedEqv_iInf}}
 \blockid{B-D014}
 \begin{definition}
 An $S$-\emph{sorted equivalence relation on} (or, to abbreviate, an $S$-\emph{sorted equivalence on}) an $S$-sorted set $A$ is an $S$-sorted relation $\Phi$ on $A$, i.e., a subset $\Phi = (\Phi_{s})_{s\in S}$ of the cartesian product $A\times A = (A_{s}\times A_{s})_{s\in S}$ such that, for every $s\in S$, $\Phi_{s}$ is an equivalence relation on $A_{s}$. We denote by $\mathrm{Eqv}(A)$ the set of all $S$-sorted equivalences on $A$ (which is an algebraic closure system on $A\times A$), by $\mathbf{Eqv}(A)$ the algebraic lattice  $(\mathrm{Eqv}(A),\subseteq)$, by $\nabla^{A}$ the greatest element of $\mathbf{Eqv}(A)$, and by $\Delta^{A}$ the least element of $\mathbf{Eqv}(A)$.
@@ -520,7 +520,7 @@ $$
 Let $X$ be a subset of $A$ and $\Phi\in\mathrm{Eqv}(A)$. Then we say that $X$ is $\Phi$-\emph{saturated} if, and only if, $X = [X]^{\Phi}$. We will denote by $\Phi\!-\!\mathrm{Sat}(A)$ the subset of $\mathrm{Sub}(A)$ defined as $\Phi\!-\!\mathrm{Sat}(A) = \{X\in \mathrm{Sub}(A)\mid X = [X]^{\Phi}\}$.
 \end{definition}
 
-\lean{\detokenize{Mslang.quot}, \detokenize{Mslang.supp_quot}}
+\lean{\detokenize{Mslang.supp_quot}}
 \blockid{B-R005}
 \begin{remark}
 Let $A$ be an $S$-sorted set and $\Phi\in\mathrm{Eqv}(A)$. Then, by Proposition~\ref{propssupport}, $\mathrm{supp}_{S}(A) = \mathrm{supp}_{S}(A/\Phi)$.
@@ -568,7 +568,7 @@ $\Psi\!-\!\mathrm{Sat}(A)$, we conclude
 $\Psi\!-\!\mathrm{Sat}(A)\subseteq\Phi\!-\!\mathrm{Sat}(A)$.
 \end{proof}
 
-\lean{\detokenize{Mslang.satSets}, \detokenize{Mslang.satSets_antitone}}
+\lean{\detokenize{Mslang.satSets_antitone}}
 \blockid{B-R007}
 \begin{remark}
 If, for an $S$-sorted set $A$, we denote by $(\cdot)\!-\!\mathrm{Sat}(A)$ the mapping from $\mathrm{Eqv}(A)$ to $\mathrm{Sub}(\mathrm{Sub}(A))$ which sends $\Phi$ to $\Phi\!-\!\mathrm{Sat}(A)$, then the above corollary means that $(\cdot)\!-\!\mathrm{Sat}(A)$ is an antitone ($\equiv$ order-reversing) mapping from the ordered set $(\mathrm{Eqv}(A),\subseteq)$ to the ordered set $(\mathrm{Sub}(\mathrm{Sub}(A)),\subseteq)$.
@@ -667,7 +667,7 @@ The proof is straightforward and we leave it to the reader. We only point out th
 We next recall the concept of kernel of an $S$-sorted mapping and the universal property of the $S$-sorted quotient set of an $S$-sorted set by an $S$-sorted equivalence on it
 %(which are at the basis of those of kernel of a $\Sigma$-homomorphism and of the universal property of the quotient $\Sigma$-algebra of a $\Sigma$-algebra by a congruence on it, respectively).
 
-\lean{\detokenize{Mslang.SortedMap}, \detokenize{Mslang.ker}}
+\lean{\detokenize{Mslang.ker}}
 \blockid{B-D015}
 \begin{definition}
 Let $f\colon A\mor B$ be an $S$-sorted mapping. Then the \emph{kernel} of $f$, denoted by  $\mathrm{Ker}(f)$, is the $S$-sorted relation defined, for every $s\in S$, as $\mathrm{Ker}(f)_{s} = \mathrm{Ker}(f_{s})$ (i.e., as the kernel pair of $f_{s}$).

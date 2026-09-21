@@ -11,21 +11,38 @@
     },
     "B-R007": {
       "decls": [
-        "Mslang.satSets",
         "Mslang.satSets_antitone"
       ],
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-D002": {
-      "decl": "Mslang.SSet",
+      "decls": [
+        "Mslang.SSet",
+        "Mslang.SortedMap",
+        "Mslang.Hom"
+      ],
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-D003": {
       "decls": [
         "Mslang.iProd",
         "Mslang.iProj",
-        "Mslang.iPair"
+        "Mslang.iPair",
+        "Mslang.iPair_unique",
+        "Mslang.prod2",
+        "Mslang.coprod2",
+        "Mslang.iCoprod",
+        "Mslang.complA",
+        "Mslang.Sub_iUnion",
+        "Mslang.Sub_iInter",
+        "Mslang.Sub_union",
+        "Mslang.Sub_inter",
+        "Mslang.Sub_sdiff"
       ],
+      "decl_files": {
+        "Mslang.Sub_iUnion": "lean/Mslang/Algebra.lean",
+        "Mslang.Sub_iInter": "lean/Mslang/Algebra.lean"
+      },
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-D001": {
@@ -84,7 +101,12 @@
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-D006": {
-      "decl": "Mslang.delta",
+      "decls": [
+        "Mslang.delta",
+        "Mslang.deltaT",
+        "Mslang.deltaSingleton",
+        "Mslang.delta_eq_deltaT_punit"
+      ],
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-P002": {
@@ -128,7 +150,15 @@
       "decls": [
         "Mslang.SortedEqv",
         "Mslang.sat",
-        "Mslang.IsSat"
+        "Mslang.IsSat",
+        "Mslang.quot",
+        "Mslang.pr",
+        "Mslang.eqvClass",
+        "Mslang.nabla",
+        "Mslang.satSets",
+        "Mslang.sortedEqvLe",
+        "Mslang.sortedEqvInf",
+        "Mslang.sortedEqv_iInf"
       ],
       "file": "lean/Mslang/Prelim.lean"
     },
@@ -149,7 +179,6 @@
     },
     "B-R005": {
       "decls": [
-        "Mslang.quot",
         "Mslang.supp_quot"
       ],
       "file": "lean/Mslang/Prelim.lean"
@@ -173,7 +202,6 @@
     },
     "B-D015": {
       "decls": [
-        "Mslang.SortedMap",
         "Mslang.ker"
       ],
       "file": "lean/Mslang/Prelim.lean"
@@ -250,7 +278,6 @@
     },
     "B-D010": {
       "decls": [
-        "Mslang.Sub_iInter",
         "Mslang.IsClosureSystem"
       ],
       "file": "lean/Mslang/Algebra.lean"
@@ -264,7 +291,6 @@
     },
     "B-D012": {
       "decls": [
-        "Mslang.Sub_iUnion",
         "Mslang.IsAlgebraicClosureSystem"
       ],
       "file": "lean/Mslang/Algebra.lean"
@@ -330,8 +356,6 @@
     "B-R001": {
       "decls": [
         "Mslang.SortedIso",
-        "Mslang.iCoprod",
-        "Mslang.deltaT",
         "Mslang.sigmaPUnitEquiv",
         "Mslang.deltaEquiv",
         "Mslang.delta_iso_coprod"

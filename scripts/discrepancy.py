@@ -63,8 +63,22 @@ def load_edges(path, kinds=None):
     return out
 
 
-def compare(informal, formal):
+def load_mapped_blocks(path=None):
+    """The mapped universe: blocks with a formal counterpart (Sections 12.3, 19).
+
+    Derived from ``blocks/formal.json`` declaration lists, not from the formal
+    graph, so a mapped block with no ``formal_uses`` edge (an isolated
+    definition, e.g. ``B-D001``) still counts as mapped.
+    """
+    p = Path(path) if path else ROOT / "blocks" / "formal.json"
+    doc = json.loads(p.read_text(encoding="utf-8"))
+    return sorted(b for b, e in doc.get("blocks", {}).items() if e.get("decls"))
+
+
+def compare(informal, formal, mapped=None):
     universe = {b for e in formal for b in e}
+    if mapped is not None:
+        universe |= set(mapped)
     fset = set(formal)
     iset = {(a, b) for (a, b) in informal if a in universe and b in universe}
     unmapped = sorted({(a, b) for (a, b) in informal if a not in universe or b not in universe})
@@ -204,6 +218,7 @@ def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     ap.add_argument("--informal", default=str(ROOT / "blocks" / "graph.json"))
     ap.add_argument("--formal", default=str(ROOT / "blocks" / "formal_graph.json"))
+    ap.add_argument("--mapped", default=str(ROOT / "blocks" / "formal.json"))
     ap.add_argument("--decisions", default=str(ROOT / "blocks" / "discrepancy_decisions.json"))
     ap.add_argument("--legacy-notes", default=str(ROOT / "blocks" / "discrepancy_notes.json"))
     ap.add_argument("--json", action="store_true")
@@ -214,7 +229,7 @@ def main(argv):
 
     informal = load_edges(args.informal, DEPENDENCY_KINDS)
     formal = load_edges(args.formal)
-    d = compare(informal, formal)
+    d = compare(informal, formal, load_mapped_blocks(args.mapped))
     decisions = load_decisions(args.decisions, args.legacy_notes)
     errors = validate_decisions(decisions)
 
