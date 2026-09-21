@@ -310,7 +310,53 @@ repository.
 | `evidence/E-000282.json` | `cbd06bf80d3da6fea2f3642fa05acbd4c5d7ff074bc4ccbdc259970942469a64` |
 | `evidence/E-000283.json` | `31fc655c59016719940b36d53be59c5f43005da5151a9ef023181a5a443c52ec` |
 | `evidence/E-000284.json` | `6afe64e84f851b8225fd9207265b35ed9dcdfba508c1218709433e5b938fd4f6` |
-| `journal/events.jsonl` | `8a438ff5efba120298d5e101e80b1e48ed1fab3f5d8b20532d0cc1bd01d1a6cc` |
+| `evidence/E-000285.json` | `57d1eeea62fe8dc75e62c702ed8197e3074e291a1d77ca39e677fd956165ec4c` |
+| `evidence/E-000286.json` | `1aeb9501120c3f8959b31d6fa5a254716b6ed4562e84136f571f8608110426d8` |
+| `evidence/E-000287.json` | `23bdae3a2e3427d1d86b752e4b422141bcd1ba33fce8c4b41065047b202394e2` |
+| `evidence/E-000288.json` | `c169e79ea169a1445e63de559ac04667a544cd522714a5777578d100d1632054` |
+| `evidence/E-000289.json` | `ef1433d4c37084ed63d7536514a6e5e29e93520e36ebc8464cc3f8b59940779f` |
+| `evidence/E-000290.json` | `125376d324d238b16a219d1fd52e74925e3c10fcee3a3c94fe8d208119531b61` |
+| `evidence/E-000291.json` | `ec6983bd4021900a2acc1c87e6d87b6e1b56138937fbec54351881900204dbd7` |
+| `evidence/E-000292.json` | `9ead7f9f50b830f2785b47d42aeb9cee2bb64037d2351e12b92889d659e9e360` |
+| `evidence/E-000293.json` | `7d1d6ab6320a3e8937710a709c4f2f64979c0e65c9e1690c6b55a83b70fd1705` |
+| `evidence/E-000294.json` | `9226efc02aef28fcae612c690af55530869eb4c7eee40495019353cc76bee494` |
+| `evidence/E-000295.json` | `2dc83364984aa3d2a7b45fa6e652ba80abc1a6b43540a43e129cc2976163dbbe` |
+| `evidence/E-000296.json` | `9f1b5fab09fdc7825cddc24ea08d07e656e8d7d844f0a0ce5d90c550ea80cf0a` |
+| `evidence/E-000297.json` | `6fdccae1113b228ab90030c49b3c6eaee3eb0252071624a4d6debabe22c498d9` |
+| `evidence/E-000298.json` | `3965cb78e294ff56224f4564285eba6bf572d98092137da82c964182af746f34` |
+| `evidence/E-000299.json` | `4f626efb2a6656a5038394da55e38a32604c92d76512e907a59cd64c54367a50` |
+| `evidence/E-000300.json` | `28ec59286756518bb80dff10c775e11db3894f6549d8a27c5fc09252b159242f` |
+| `evidence/E-000301.json` | `f2f9c6def4cbfe15ff002bc503a8d63b501dcdbb80b321cefdda38e2f68bbc17` |
+| `evidence/E-000302.json` | `ed047e126c37fefeeb060fb5b7e54eff2eaf47e7be0f91b4d8ad4d2b0e7e8ae8` |
+| `evidence/E-000303.json` | `a23299ba88da277f350cdfb9e1dcfb3f4e8c96751d36ab2ce6fdeaa446cccd8b` |
+| `evidence/E-000304.json` | `2ab6b737ea13141a6f28645e6afe1015541c2d14f4b6533f6f54e1a50adbc5ab` |
+| `evidence/E-000305.json` | `105e7449b54c72bbece7b506a189df885557d991e419c04318e24b6686c39516` |
+| `evidence/E-000306.json` | `fd20279f068b5610c2deb19504400d273fd5acc9453693b899999e71501d9200` |
+| `evidence/E-000307.json` | `1204e1feac2dbf0d96cf38996e5e5906b7d9555d295ef5f9aa4443f7e9137092` |
+| `evidence/E-000308.json` | `a1551385a2a1375c18b6cb01fb1c848381ac3d719b66760a1f0acdcca9178ba3` |
+| `evidence/E-000309.json` | `fe62bcb84412628e3a2269f83f818e87ee3eece83c13e85724bc253ea7489022` |
+| `evidence/E-000310.json` | `a5d9a37b399da675a5ed1c78360ee5433b72951ae631718ef90d5a8a35c164d9` |
+| `evidence/E-000311.json` | `94109c531650b5cd6432b4abc89f8eb2f8c90b602597dd0151f13fa2b1757529` |
+| `evidence/E-000312.json` | `52bea60c666d0fe4abdfc60f470790598e9c4f8c6118908a5bb3a5a6b0f10597` |
+| `evidence/E-000313.json` | `536e1f698b8e44ffc502b33a337531fc312573d4fe94e2fc41862f9a005c710e` |
+| `evidence/E-000314.json` | `128c91175b8ac53426831048366320a7c344e5808761cb69901fb6205d3bb1b2` |
+| `evidence/E-000315.json` | `7a8ae6fb24b5a5be2c3669fe3e5a6214999c22d338e501cd2b767bc25243e88e` |
+| `evidence/E-000316.json` | `a0289802f3d7156ae4b6c4f1c58515216272880ad3ec52e62f886d46205a2f5a` |
+| `evidence/E-000317.json` | `70c285a5ae4dc123310c0602f538e1f5504c36c38d5163cbc8f6695f06416f75` |
+| `evidence/E-000318.json` | `80732750e59a3308069dccce9ae575fdb38b46a053eb43b5ebad13ec618287cd` |
+| `evidence/E-000319.json` | `4ece40f878d7dafc531786754560e5bf2eebff20cbdee9409c53d235699f0d5b` |
+| `evidence/E-000320.json` | `b7c70eab3862ed383b526a0daed93a6275e7f9953e2c3139d167548c9a6a763c` |
+| `evidence/E-000321.json` | `f1a2413164c2e244fa047ac2b2555ebb13b5d2192db19c417472550b7ebcf556` |
+| `evidence/E-000322.json` | `56adae0bca5503a0e8b1fec1bb227fc3ac5b646f7dbaf75d8ba0d28eda78b228` |
+| `evidence/E-000323.json` | `8f92aeaa2b482a468531e3b75d1b0cdab41481bc21229ac6cc4bc57733834511` |
+| `evidence/E-000324.json` | `48ee5d22b0566f67c9c712fd3babb26df42c3a6dd739daa71fe7a0896c751d72` |
+| `evidence/E-000325.json` | `f114785fb4088c95ba77f85da767b8b13bed6885b41869a15f13451aac0fd83a` |
+| `evidence/E-000326.json` | `34f880ed6dd4b2f761cf08768c3a77cfbef9cb14b42e7b48f4657a63940ab3db` |
+| `evidence/E-000327.json` | `b01a5ac751bb8642d23eef073390f4577c5f0852da4e2d72a8c43e38bd07f14b` |
+| `evidence/E-000328.json` | `66b37825fb79b907ef9ed948129a8c01fa8794a7a5426db6e71979f7f13d0d7f` |
+| `evidence/E-000329.json` | `8ae2ae0cec62236e6da40519f2f874f1071ef0440f047d9c8b4d0b22c0bba321` |
+| `evidence/E-000330.json` | `424cae2ec03f457eb82d3e1762a77328ce46d7d3a1da931d51717b4adf5b585d` |
+| `journal/events.jsonl` | `5236b68aabdaa731c9dc6b1a5349f5ed05ae233f59c2f6f8625a1c26b368ca40` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `13b527ff84f195359ee07d42ad90cdd1df61727ed93caf24b899b3b038e73822` |
@@ -324,31 +370,31 @@ repository.
 |---|---|---|---|---|
 | `B-A001` | correspondence | provisional | 1 | 0 |
 | `B-A001` | verification | provisional | 1 | 0 |
-| `B-C001` | correspondence | stale | 0 | 4 |
+| `B-C001` | correspondence | provisional | 1 | 4 |
 | `B-C001` | review | provisional | 1 | 1 |
 | `B-C001` | verification | pass | 2 | 0 |
-| `B-C002` | correspondence | stale | 0 | 4 |
+| `B-C002` | correspondence | provisional | 1 | 4 |
 | `B-C002` | review | provisional | 1 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
-| `B-C004` | correspondence | stale | 0 | 1 |
+| `B-C004` | correspondence | provisional | 1 | 1 |
 | `B-C004` | verification | pass | 1 | 0 |
 | `B-C005` | correspondence | provisional | 1 | 1 |
 | `B-C005` | verification | pass | 1 | 1 |
-| `B-C006` | correspondence | stale | 0 | 1 |
+| `B-C006` | correspondence | provisional | 1 | 1 |
 | `B-C006` | verification | pass | 1 | 0 |
-| `B-C007` | correspondence | stale | 0 | 1 |
+| `B-C007` | correspondence | provisional | 1 | 1 |
 | `B-C007` | verification | pass | 1 | 0 |
-| `B-C008` | correspondence | stale | 0 | 1 |
+| `B-C008` | correspondence | provisional | 1 | 1 |
 | `B-C008` | verification | pass | 1 | 1 |
-| `B-C009` | correspondence | stale | 0 | 1 |
+| `B-C009` | correspondence | provisional | 1 | 1 |
 | `B-C009` | verification | pass | 1 | 0 |
-| `B-C010` | correspondence | stale | 0 | 1 |
+| `B-C010` | correspondence | provisional | 1 | 1 |
 | `B-C010` | verification | pass | 1 | 0 |
 | `B-C011` | correspondence | provisional | 1 | 0 |
 | `B-C011` | verification | pass | 1 | 0 |
-| `B-C012` | correspondence | stale | 0 | 1 |
+| `B-C012` | correspondence | provisional | 1 | 1 |
 | `B-C012` | verification | pass | 1 | 0 |
-| `B-C013` | correspondence | stale | 0 | 1 |
+| `B-C013` | correspondence | provisional | 1 | 1 |
 | `B-C013` | verification | pass | 1 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
 | `B-D002` | correspondence | fail | 1 | 0 |
@@ -406,22 +452,22 @@ repository.
 | `B-L001` | verification | pass | 1 | 1 |
 | `B-P001` | correspondence | fail | 1 | 0 |
 | `B-P001` | verification | pass | 1 | 0 |
-| `B-P002` | correspondence | stale | 0 | 4 |
+| `B-P002` | correspondence | provisional | 1 | 4 |
 | `B-P002` | verification | pass | 1 | 1 |
-| `B-P003` | correspondence | stale | 0 | 4 |
+| `B-P003` | correspondence | provisional | 1 | 4 |
 | `B-P003` | verification | pass | 1 | 1 |
-| `B-P004` | correspondence | stale | 0 | 2 |
+| `B-P004` | correspondence | provisional | 1 | 2 |
 | `B-P004` | review | provisional | 1 | 0 |
 | `B-P004` | verification | pass | 1 | 0 |
-| `B-P005` | correspondence | stale | 0 | 2 |
+| `B-P005` | correspondence | provisional | 1 | 2 |
 | `B-P005` | verification | pass | 1 | 1 |
-| `B-P006` | correspondence | stale | 0 | 1 |
+| `B-P006` | correspondence | provisional | 1 | 1 |
 | `B-P006` | verification | pass | 1 | 0 |
-| `B-P007` | correspondence | stale | 0 | 2 |
+| `B-P007` | correspondence | provisional | 1 | 2 |
 | `B-P007` | verification | pass | 1 | 0 |
 | `B-P008` | correspondence | provisional | 1 | 0 |
 | `B-P008` | verification | pass | 1 | 0 |
-| `B-P009` | correspondence | stale | 0 | 2 |
+| `B-P009` | correspondence | provisional | 1 | 2 |
 | `B-P009` | verification | pass | 1 | 0 |
 | `B-P010` | correspondence | provisional | 1 | 0 |
 | `B-P010` | verification | provisional | 1 | 0 |
@@ -431,57 +477,57 @@ repository.
 | `B-P012` | verification | pass | 1 | 0 |
 | `B-P013` | correspondence | provisional | 1 | 0 |
 | `B-P013` | verification | pass | 1 | 0 |
-| `B-P014` | correspondence | stale | 0 | 1 |
+| `B-P014` | correspondence | provisional | 1 | 1 |
 | `B-P014` | verification | pass | 1 | 0 |
-| `B-P015` | correspondence | stale | 0 | 1 |
+| `B-P015` | correspondence | provisional | 1 | 1 |
 | `B-P015` | verification | pass | 1 | 0 |
-| `B-P016` | correspondence | stale | 0 | 1 |
+| `B-P016` | correspondence | provisional | 1 | 1 |
 | `B-P016` | verification | pass | 1 | 0 |
-| `B-P017` | correspondence | stale | 0 | 2 |
+| `B-P017` | correspondence | provisional | 1 | 2 |
 | `B-P017` | verification | pass | 1 | 0 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
 | `B-P018` | verification | pass | 1 | 0 |
-| `B-P019` | correspondence | stale | 0 | 1 |
+| `B-P019` | correspondence | provisional | 1 | 1 |
 | `B-P019` | verification | pass | 1 | 0 |
-| `B-P020` | correspondence | stale | 0 | 1 |
+| `B-P020` | correspondence | provisional | 1 | 1 |
 | `B-P020` | verification | pass | 1 | 0 |
 | `B-P021` | correspondence | provisional | 1 | 0 |
 | `B-P021` | verification | pass | 1 | 0 |
-| `B-P022` | correspondence | stale | 0 | 1 |
+| `B-P022` | correspondence | provisional | 1 | 1 |
 | `B-P022` | verification | pass | 1 | 0 |
-| `B-P023` | correspondence | stale | 0 | 1 |
+| `B-P023` | correspondence | provisional | 1 | 1 |
 | `B-P023` | verification | pass | 1 | 0 |
-| `B-P024` | correspondence | stale | 0 | 1 |
+| `B-P024` | correspondence | provisional | 1 | 1 |
 | `B-P024` | verification | pass | 1 | 0 |
-| `B-P025` | correspondence | stale | 0 | 1 |
+| `B-P025` | correspondence | provisional | 1 | 1 |
 | `B-P025` | verification | pass | 1 | 0 |
-| `B-P026` | correspondence | stale | 0 | 1 |
+| `B-P026` | correspondence | provisional | 1 | 1 |
 | `B-P026` | verification | pass | 1 | 0 |
-| `B-P027` | correspondence | stale | 0 | 1 |
+| `B-P027` | correspondence | provisional | 1 | 1 |
 | `B-P027` | verification | pass | 1 | 0 |
-| `B-P028` | correspondence | stale | 0 | 1 |
+| `B-P028` | correspondence | provisional | 1 | 1 |
 | `B-P028` | verification | pass | 1 | 0 |
-| `B-P029` | correspondence | stale | 0 | 1 |
+| `B-P029` | correspondence | provisional | 1 | 1 |
 | `B-P029` | verification | pass | 1 | 0 |
-| `B-P030` | correspondence | stale | 0 | 1 |
+| `B-P030` | correspondence | provisional | 1 | 1 |
 | `B-P030` | verification | pass | 1 | 0 |
-| `B-P031` | correspondence | stale | 0 | 1 |
+| `B-P031` | correspondence | provisional | 1 | 1 |
 | `B-P031` | verification | pass | 1 | 0 |
-| `B-P032` | correspondence | stale | 0 | 1 |
+| `B-P032` | correspondence | provisional | 1 | 1 |
 | `B-P032` | verification | pass | 1 | 0 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
 | `B-P033` | verification | pass | 1 | 0 |
-| `B-P034` | correspondence | stale | 0 | 1 |
+| `B-P034` | correspondence | provisional | 1 | 1 |
 | `B-P034` | verification | pass | 1 | 0 |
-| `B-P035` | correspondence | stale | 0 | 1 |
+| `B-P035` | correspondence | provisional | 1 | 1 |
 | `B-P035` | verification | pass | 1 | 0 |
-| `B-P036` | correspondence | stale | 0 | 1 |
+| `B-P036` | correspondence | provisional | 1 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
-| `B-P037` | correspondence | stale | 0 | 1 |
+| `B-P037` | correspondence | provisional | 1 | 1 |
 | `B-P037` | verification | pass | 1 | 0 |
-| `B-P038` | correspondence | stale | 0 | 1 |
+| `B-P038` | correspondence | provisional | 1 | 1 |
 | `B-P038` | verification | pass | 1 | 0 |
-| `B-P039` | correspondence | stale | 0 | 1 |
+| `B-P039` | correspondence | provisional | 1 | 1 |
 | `B-P039` | verification | pass | 1 | 0 |
 | `B-R001` | correspondence | fail | 1 | 2 |
 | `B-R001` | verification | pass | 1 | 1 |
@@ -489,11 +535,11 @@ repository.
 | `B-R003` | verification | pass | 1 | 0 |
 | `B-R005` | correspondence | provisional | 1 | 2 |
 | `B-R005` | verification | pass | 1 | 1 |
-| `B-R006` | correspondence | stale | 0 | 3 |
+| `B-R006` | correspondence | provisional | 1 | 3 |
 | `B-R006` | verification | pass | 2 | 0 |
 | `B-R007` | correspondence | provisional | 1 | 2 |
 | `B-R007` | verification | pass | 1 | 1 |
-| `B-R008` | correspondence | stale | 0 | 3 |
+| `B-R008` | correspondence | provisional | 1 | 3 |
 | `B-R008` | verification | pass | 2 | 0 |
 | `B-R009` | correspondence | provisional | 1 | 2 |
 | `B-R009` | verification | pass | 1 | 1 |
@@ -501,7 +547,7 @@ repository.
 | `B-R010` | verification | pass | 1 | 0 |
 | `B-R011` | correspondence | provisional | 1 | 0 |
 | `B-R011` | verification | pass | 1 | 0 |
-| `B-R012` | correspondence | stale | 0 | 1 |
+| `B-R012` | correspondence | fail | 1 | 1 |
 | `B-R012` | verification | pass | 1 | 0 |
 | `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R014` | verification | pass | 1 | 0 |
@@ -515,17 +561,17 @@ repository.
 | `B-R019` | verification | provisional | 1 | 0 |
 | `B-R020` | correspondence | provisional | 1 | 1 |
 | `B-R020` | verification | pass | 1 | 1 |
-| `B-R021` | correspondence | stale | 0 | 1 |
+| `B-R021` | correspondence | provisional | 1 | 1 |
 | `B-R021` | verification | pass | 1 | 1 |
 | `B-R022` | verification | pass | 1 | 0 |
 | `B-R023` | verification | pass | 1 | 0 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |
-| `B-R026` | correspondence | stale | 0 | 1 |
+| `B-R026` | correspondence | provisional | 1 | 1 |
 | `B-R026` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
-| `B-X002` | correspondence | stale | 0 | 1 |
+| `B-X002` | correspondence | fail | 1 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
 | `representation/encoding` | representation | provisional | 1 | 2 |
 
@@ -13243,6 +13289,2890 @@ repository.
 }
 ```
 
+### E-000285
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000285",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000083. Transcript blocks/audits/B-C001-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/definition_closure",
+      "hash": "d5d21df97655adfce35a02d3f9e4f33f0e3d91ced69feeeacd11deccedce13d2"
+    },
+    {
+      "artifact": "B-C001/formal_statement",
+      "hash": "34650019f58b085459587eb30ed322b61e33cc574d522dc254b7488f377c1d09"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000083",
+  "timestamp": "2026-09-21T12:31:41Z"
+}
+```
+
+### E-000286
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000286",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000084. Transcript blocks/audits/B-C002-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C002/definition_closure",
+      "hash": "09d6aced4fba52214c294b4058c6fde65e5eaa42068a7b454820436e8b690430"
+    },
+    {
+      "artifact": "B-C002/formal_statement",
+      "hash": "ba1671b98acf19a084bfba2d865c3ed93e22a6d1ff12420a0f16dc49a6163d22"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000084",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000287
+
+```json
+{
+  "block": "B-C004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000287",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000133. Transcript blocks/audits/B-C004-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C004/definition_closure",
+      "hash": "b13e927c9043bd37e62cb8a7873a0cbfcd5ade9b3902ff9a41e4d2d9b27e9fbf"
+    },
+    {
+      "artifact": "B-C004/formal_statement",
+      "hash": "ed20820c54de7b816cf91776c79433ba1cf13e54fadc2a3cd62b6b2480775b9c"
+    },
+    {
+      "artifact": "B-C004/informal_statement",
+      "hash": "fa2574178629800ed9b56f3f09881f5e2e3da178ab304961efdc05938eab39db"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-D032/informal_statement",
+      "hash": "13989db2084380124bafd2c68452df7a98dc7d1535c2dbc80a9d3b0c84b3d96d"
+    },
+    {
+      "artifact": "B-D033/informal_statement",
+      "hash": "7c8fdb59b7e6eac51e933505ccc27227372a32e1107b69527e16e226f6a6a71d"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000133",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000288
+
+```json
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000288",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000226. Transcript blocks/audits/B-C006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C006/definition_closure",
+      "hash": "4b41871bdf2e4c3ddd30d63f0bf264cdc4ed3d7a7679837504b456ebb485d485"
+    },
+    {
+      "artifact": "B-C006/formal_statement",
+      "hash": "7890a0d251d79f7d38620aa29a775ab0501cf17592301314aeadd6f9dd17d2cc"
+    },
+    {
+      "artifact": "B-C006/informal_statement",
+      "hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000226",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000289
+
+```json
+{
+  "block": "B-C007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000289",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000207. Transcript blocks/audits/B-C007-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C007/definition_closure",
+      "hash": "bd144be212db615896082060f8c94e680aed13e9d5433e26d8374f642207d03c"
+    },
+    {
+      "artifact": "B-C007/formal_statement",
+      "hash": "871491a6acacbe5abea543233a353afa6c52c5514dd60b12046b1380aa825054"
+    },
+    {
+      "artifact": "B-C007/informal_statement",
+      "hash": "eb98b1c4bc73f498267ee3b0ed439fe2e95affb96524f482f1bc11c8a735a5ca"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P027/informal_statement",
+      "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000207",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000290
+
+```json
+{
+  "block": "B-C008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000290",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000208. Transcript blocks/audits/B-C008-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-C008/definition_closure",
+      "hash": "224f7d9449c93bed43a12d81b88b4a8e8a39b8ec3854ec64160fd148727dd788"
+    },
+    {
+      "artifact": "B-C008/formal_statement",
+      "hash": "62075bbb38e59737113b0de7d795c39d4e9118b37f70cd27778aa57a6bf96606"
+    },
+    {
+      "artifact": "B-C008/informal_statement",
+      "hash": "7138798478a58ef49a378b7654937a4b9313d4db126668d1fb29531726346014"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000208",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000291
+
+```json
+{
+  "block": "B-C009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000291",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): formal_stronger. the closure statement is obtained for arbitrary sorted equivalences, not only congruences. Supersedes E-000209. Transcript blocks/audits/B-C009-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-C008/informal_statement",
+      "hash": "7138798478a58ef49a378b7654937a4b9313d4db126668d1fb29531726346014"
+    },
+    {
+      "artifact": "B-C009/definition_closure",
+      "hash": "fe1f5e7109d19e9e55127742d32665d5c44800947d8ee2e33e662786bdad8de9"
+    },
+    {
+      "artifact": "B-C009/formal_statement",
+      "hash": "34d60f0c711969499700373e284a4d563ea59eaaae737a701e60272d1d2bf934"
+    },
+    {
+      "artifact": "B-C009/informal_statement",
+      "hash": "bc37a6a073a0da240cdd44bab212b14ac1c1b4377c8c4a71ad581ee7a2417689"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000209",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000292
+
+```json
+{
+  "block": "B-C010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000292",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000210. Transcript blocks/audits/B-C010-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C010/definition_closure",
+      "hash": "ece0be6d1c1c1d6fb67c45c7d9bbe34a0ac7e6cadf5806d22a05711a2b564fca"
+    },
+    {
+      "artifact": "B-C010/formal_statement",
+      "hash": "44f943bc8847aff4fdfa40c457504f0089af6b6911a16ece26cf5415deab462b"
+    },
+    {
+      "artifact": "B-C010/informal_statement",
+      "hash": "974dba1ed0e33d7225ae286c6d1a5a560bc095dbf090e27539869f06cb9f03ad"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000210",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000293
+
+```json
+{
+  "block": "B-C012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000293",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000230. Transcript blocks/audits/B-C012-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C012/definition_closure",
+      "hash": "bb24a2e07e62bf6e54468804fab77937e9b71dcab44c5cf60923b24fc1cf1fde"
+    },
+    {
+      "artifact": "B-C012/formal_statement",
+      "hash": "691adf45f737af8c4946a974048094e5a4476dca515f992bdade9705d32856b1"
+    },
+    {
+      "artifact": "B-C012/informal_statement",
+      "hash": "9764124f72bb25c0a3f980e3f79468c748f2caae3cda35e8686846dbde4fc072"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000230",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000294
+
+```json
+{
+  "block": "B-C013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000294",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000232. Transcript blocks/audits/B-C013-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C013/definition_closure",
+      "hash": "860bf0d7d89e6b8ea99617c6f6a8676ff7967f04adeba98b47ff51ee45a95d67"
+    },
+    {
+      "artifact": "B-C013/formal_statement",
+      "hash": "84b503930a8c97fc91c56cd8ea8d38ff52bc28319b33d83f33a1a262856c49c3"
+    },
+    {
+      "artifact": "B-C013/informal_statement",
+      "hash": "155bdf5d39e42e941e775135e47829a7753e4b2823f646bd5c4c5c606c5fb672"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000232",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000295
+
+```json
+{
+  "block": "B-P002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000295",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000086. Transcript blocks/audits/B-P002-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P002/definition_closure",
+      "hash": "a5d99024575b3af8f14ab385528b34240a308fcf9ffa67b9da360e9f5694d410"
+    },
+    {
+      "artifact": "B-P002/formal_statement",
+      "hash": "5ba46d9330406801816e6d72ac276062ebc80fd7d1fff77a0e16651927efaba4"
+    },
+    {
+      "artifact": "B-P002/informal_statement",
+      "hash": "f87df78e66a8656c7c50648a26d7cc6df74b483e0500e42f258384cd9c142eb4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000086",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000296
+
+```json
+{
+  "block": "B-P003",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000296",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000087. Transcript blocks/audits/B-P003-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P003/definition_closure",
+      "hash": "e97cb06ba73495e18bc8c55514579a05ef5879d88b3b105161b9b6e096d09986"
+    },
+    {
+      "artifact": "B-P003/formal_statement",
+      "hash": "10b8dd63daaf87bc3a052e4e7fd1c4b516df1ed850039e1c96ef38fcb3fbba52"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000087",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000297
+
+```json
+{
+  "block": "B-P004",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000297",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000090. Transcript blocks/audits/B-P004-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P004/definition_closure",
+      "hash": "6fa7f25f464adbc5b6b0d0bf9f36f6ed51121d0583f76f7b6a7415b647f37cac"
+    },
+    {
+      "artifact": "B-P004/formal_statement",
+      "hash": "77e67bbee5ad6c50104824562345258950cbe869d9c6b7a436260bdff8d2886d"
+    },
+    {
+      "artifact": "B-P004/informal_statement",
+      "hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000090",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000298
+
+```json
+{
+  "block": "B-P005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000298",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000092. Transcript blocks/audits/B-P005-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P005/definition_closure",
+      "hash": "c6010e857294bd450217c5bef0e36e3b92be157c028084e38d648146684e86cb"
+    },
+    {
+      "artifact": "B-P005/formal_statement",
+      "hash": "b6ab2d4be98c50a964e722e983203f705fc8bc4040632b951b70eb3e8a701757"
+    },
+    {
+      "artifact": "B-P005/informal_statement",
+      "hash": "3539061a9c80562edadafb63d85cc37964072e1fffd0a51d0ba11c7ff63964e2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000092",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000299
+
+```json
+{
+  "block": "B-P006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000299",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000234. Transcript blocks/audits/B-P006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P006/definition_closure",
+      "hash": "717a5de1749552a8c54ede3e67ab0b1bb443a4292c720825ce9a777ffd8724ee"
+    },
+    {
+      "artifact": "B-P006/formal_statement",
+      "hash": "8b2a8bd8e73b973c5da68b4e82ab3e6dfebbf25935d9cdf7684ba40b4d11dcdc"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000234",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000300
+
+```json
+{
+  "block": "B-P007",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000300",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000094. Transcript blocks/audits/B-P007-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P007/definition_closure",
+      "hash": "fc36200960f2bdb75cf1ea6973a45f948c41e7aeb5707b8b1c49a6689e4dba41"
+    },
+    {
+      "artifact": "B-P007/formal_statement",
+      "hash": "b2a96d8de422df131b00de513ed79f5401fb4177f089688a55ee86938a1624b8"
+    },
+    {
+      "artifact": "B-P007/informal_statement",
+      "hash": "94a73f9f3674e6d1d4f456c654a55e9a2d651aa0af22008a0ed028116e55032b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000094",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000301
+
+```json
+{
+  "block": "B-P009",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000301",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000096. Transcript blocks/audits/B-P009-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P009/definition_closure",
+      "hash": "70fa8d0af5febfbf5840bcb7f4cc60f6b83be168a504badb7044a57aaa7b92ea"
+    },
+    {
+      "artifact": "B-P009/formal_statement",
+      "hash": "3da6d505a20d5224b6435eda37bb9f1ab16370143f64d23baa6ee149f1a14a0d"
+    },
+    {
+      "artifact": "B-P009/informal_statement",
+      "hash": "980c6a9ffa63681c1be82677d3ebe921676f9458773507480e4886c574aefaf6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000096",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000302
+
+```json
+{
+  "block": "B-P014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000302",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000218. Transcript blocks/audits/B-P014-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D029/informal_statement",
+      "hash": "d94459f966336ff3a5f0cad89c75cc9ae134d1d4ed1c743fb9a65ae2c712adde"
+    },
+    {
+      "artifact": "B-P014/definition_closure",
+      "hash": "bcbcf492a66a72c7d4e2d91906890d3112da2b117a2e521130dc7c0c1f025da1"
+    },
+    {
+      "artifact": "B-P014/formal_statement",
+      "hash": "563dc24a45e0789cdd17de369c11e52ed4d6c80fc718ec3851a8e4c011dd285b"
+    },
+    {
+      "artifact": "B-P014/informal_statement",
+      "hash": "e33de47fafecfaef6440691ff8ec1542a9772edd92c71b4217594df01ba66dc4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000218",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000303
+
+```json
+{
+  "block": "B-P015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000303",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000178. Transcript blocks/audits/B-P015-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P012/informal_statement",
+      "hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd"
+    },
+    {
+      "artifact": "B-P013/informal_statement",
+      "hash": "081db99883818eb31f60d358ebf66dfd15187b01259997eb736a37a2343e9d39"
+    },
+    {
+      "artifact": "B-P015/definition_closure",
+      "hash": "124a2d8e6ec5e8dacb986bbd60f89261ce149450ba360f4d938b8f70bedd64d6"
+    },
+    {
+      "artifact": "B-P015/formal_statement",
+      "hash": "2077cad0a191dec642dd16cd13c0f509d709ea3d2b6a3c434e766d64158d2025"
+    },
+    {
+      "artifact": "B-P015/informal_statement",
+      "hash": "ffc11c4898e2fe38d2b33daf244f2bfc44c120dcb33f8e779e63315d27bc4721"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000178",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000304
+
+```json
+{
+  "block": "B-P016",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000304",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000125. Transcript blocks/audits/B-P016-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P016/definition_closure",
+      "hash": "92f357e1a99674603adb44f106492ad073c32ac0acf88043102b4853b0204970"
+    },
+    {
+      "artifact": "B-P016/formal_statement",
+      "hash": "2da30f9e7ccd0e6068f81f1c6af625553ad3808b8a13cf88d37aed3b708fa5db"
+    },
+    {
+      "artifact": "B-P016/informal_statement",
+      "hash": "7f242a782cda7d9267328a798e6254b19f62b58caf0fbc6d05e9861e85107d86"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000125",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000305
+
+```json
+{
+  "block": "B-P017",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000305",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000131. Transcript blocks/audits/B-P017-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P017/definition_closure",
+      "hash": "8c730432525b72543547b8c4c88fed8b41444875a2f7f6445f05cb148e63f4f2"
+    },
+    {
+      "artifact": "B-P017/formal_statement",
+      "hash": "6003fcb5e57ae5419ede447b01d3263c586a3023a85e838b8041ce668dad409d"
+    },
+    {
+      "artifact": "B-P017/informal_statement",
+      "hash": "42498e3efd831bf80ebd6c1f5c9bfeae7067b7c8d3495f52c7a3782f66b2d694"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000131",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000306
+
+```json
+{
+  "block": "B-P019",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000306",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000176. Transcript blocks/audits/B-P019-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D023/informal_statement",
+      "hash": "2b5f1c2dcc1918a867d4748a54648615e27ff9af876bba478b06c665383a9548"
+    },
+    {
+      "artifact": "B-P016/informal_statement",
+      "hash": "7f242a782cda7d9267328a798e6254b19f62b58caf0fbc6d05e9861e85107d86"
+    },
+    {
+      "artifact": "B-P019/definition_closure",
+      "hash": "f6a4bb4dd327628386032f72cecaffc82ca27094a5cb7e27ce0754f585e58ee0"
+    },
+    {
+      "artifact": "B-P019/formal_statement",
+      "hash": "543e5faf569bb346ea79cfee802ebf37529ff5181fead56907a40d6dd4dccb7d"
+    },
+    {
+      "artifact": "B-P019/informal_statement",
+      "hash": "ac82952aac8ba6caee30fc36859095699426353a484f26c8df3db41723b2b64e"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000176",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000307
+
+```json
+{
+  "block": "B-P020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000307",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000180. Transcript blocks/audits/B-P020-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/definition_closure",
+      "hash": "d898f7d0ffccb3450297e81093e8383db40c8037337c667d3bc80ef5a74aeb12"
+    },
+    {
+      "artifact": "B-P020/formal_statement",
+      "hash": "e858567726d3badf1ff359954435bb477bf6883392532eb3d624fe47b7669f17"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000180",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
+```
+
+### E-000308
+
+```json
+{
+  "block": "B-P022",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000308",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000141. Transcript blocks/audits/B-P022-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P021/informal_statement",
+      "hash": "19d545be8fe07afd30a62685f8fc23e7e7fd1c57e1f0a415c5d00fb4dd9aa6a2"
+    },
+    {
+      "artifact": "B-P022/definition_closure",
+      "hash": "3cc1ed3da8e002eda9c19d6bf3b91a05a2faeb6b9c3f938d73f43efc328e6c8c"
+    },
+    {
+      "artifact": "B-P022/formal_statement",
+      "hash": "28e06a28aacd5615c9319938a6d7aa0115c1b9c6a5daa9ad2ebd5aee8da89878"
+    },
+    {
+      "artifact": "B-P022/informal_statement",
+      "hash": "8a4642103c383d7eab19e6a9bce07c11f491a7cc28771aae732a97e45dd769dc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000141",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000309
+
+```json
+{
+  "block": "B-P023",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000309",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000149. Transcript blocks/audits/B-P023-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P023/definition_closure",
+      "hash": "4f9350be9e9feee2e79a8dbfed3dc8d81de13dea7f2ec7dce1c7373e7e73d303"
+    },
+    {
+      "artifact": "B-P023/formal_statement",
+      "hash": "e09b08f70b8c34d4a936a2c845bf8d0aa0edade73d0de6af1e9dc9e78b04109d"
+    },
+    {
+      "artifact": "B-P023/informal_statement",
+      "hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000149",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000310
+
+```json
+{
+  "block": "B-P024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000310",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000159. Transcript blocks/audits/B-P024-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P024/definition_closure",
+      "hash": "15c0d9ec0b3182934b578bc739df2aa9cf1da21fa5ff878c7fa2608fd7f46dde"
+    },
+    {
+      "artifact": "B-P024/formal_statement",
+      "hash": "d38273735c9faf10c60d189414176723a4f789e31faaeaeea995dd0d2e52dd97"
+    },
+    {
+      "artifact": "B-P024/informal_statement",
+      "hash": "9362eb3721fbbe559cdac4f6b3cdb815d827ec58c181f224c52ca3b8c76b4a57"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000159",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000311
+
+```json
+{
+  "block": "B-P025",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000311",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000151. Transcript blocks/audits/B-P025-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P025/definition_closure",
+      "hash": "03eaa22557b8b51bf60331c6e98787618263e0256bfc77b1be6e7b2363bc6a25"
+    },
+    {
+      "artifact": "B-P025/formal_statement",
+      "hash": "971d7fbcc07fd624d34c84e3c22d10310a20f5eec6626f9f336d9c288f492ed4"
+    },
+    {
+      "artifact": "B-P025/informal_statement",
+      "hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000151",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000312
+
+```json
+{
+  "block": "B-P026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000312",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): formal_stronger. the same inclusion is proved without the contract's nonemptiness hypothesis on `J`. Supersedes E-000153. Transcript blocks/audits/B-P026-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P026/definition_closure",
+      "hash": "0fb6c8eeacb350462aa5e1a931664d7d008e88bb85200d308f5f1e3b72208de7"
+    },
+    {
+      "artifact": "B-P026/formal_statement",
+      "hash": "4119087ef6d0593a76b4d656ea55d8a24ab58d4fa1205c0810e4fed628704b57"
+    },
+    {
+      "artifact": "B-P026/informal_statement",
+      "hash": "6dcfe895d8ad96290cce776bab759d6904ad9eb967b8814f38677967a328c3f2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000153",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000313
+
+```json
+{
+  "block": "B-P027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000313",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000155. Transcript blocks/audits/B-P027-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P027/definition_closure",
+      "hash": "d021b2533afd3947de3b404895cc221620537c2b965ec3dafc17d8b547cff9ce"
+    },
+    {
+      "artifact": "B-P027/formal_statement",
+      "hash": "ebbb9c4f88fbfa059355a1e84b3aac22401e4d3bc39362fa301b7310333dba8e"
+    },
+    {
+      "artifact": "B-P027/informal_statement",
+      "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000155",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000314
+
+```json
+{
+  "block": "B-P028",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000314",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000161. Transcript blocks/audits/B-P028-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P028/definition_closure",
+      "hash": "24417c1848e9fbcc148b9facb348292f7ee5cfa072aaca4ea3081e0854503f71"
+    },
+    {
+      "artifact": "B-P028/formal_statement",
+      "hash": "b5e91e5e49564144f94d0b43e0e131b0fa1a8977f59bb235fc4760bdc45c9de1"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000161",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000315
+
+```json
+{
+  "block": "B-P029",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000315",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000212. Transcript blocks/audits/B-P029-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-P029/definition_closure",
+      "hash": "d8a4104213141213b37bd4a7996a6fdaa5e2d66b71497b89cb0fadf387e41718"
+    },
+    {
+      "artifact": "B-P029/formal_statement",
+      "hash": "f78744137fb86d299c1be52455810f584d5ad65e845345e755e2db4f6cc43b81"
+    },
+    {
+      "artifact": "B-P029/informal_statement",
+      "hash": "252933542d27431d303f68b1008214d1a7ce0895a56cb16f01b45249b177079a"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000212",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000316
+
+```json
+{
+  "block": "B-P030",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000316",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000191. Transcript blocks/audits/B-P030-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P030/definition_closure",
+      "hash": "1a97d83b0e76e04d196afff8983a86d2539549006447f566af6d5b7e14d007e4"
+    },
+    {
+      "artifact": "B-P030/formal_statement",
+      "hash": "2b5c2649d0e34cb48e8f02b501ac83f80225a725312c4192ffdd5e1127ff8d9f"
+    },
+    {
+      "artifact": "B-P030/informal_statement",
+      "hash": "76d3b9e5e6cc1a979318f93011faa66e496d3ff10b4025fc5982d7afe7bf1179"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000191",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000317
+
+```json
+{
+  "block": "B-P031",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000317",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000187. Transcript blocks/audits/B-P031-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P031/definition_closure",
+      "hash": "de173082d83e883e82429016be6dfc2e8b78a049f09f039ca4bed69c866ad157"
+    },
+    {
+      "artifact": "B-P031/formal_statement",
+      "hash": "cb49ab9f02426b8fbe32f8d0fd5be7e53407eda1befe831862f66a6a520fda5a"
+    },
+    {
+      "artifact": "B-P031/informal_statement",
+      "hash": "61cac439b3b903541c6ca29b6c52c1fa4d5d09c77e218523f5147257fbb66a0f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000187",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000318
+
+```json
+{
+  "block": "B-P032",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000318",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000220. Transcript blocks/audits/B-P032-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P032/definition_closure",
+      "hash": "602110d14feb5c000abeba8e9e3338ab5fa4d023cbfe75621126808cb4994a2a"
+    },
+    {
+      "artifact": "B-P032/formal_statement",
+      "hash": "16abac44282a4be0eea97d0ed7627e15f8d6ef6dc4303a429b969650639dfd1e"
+    },
+    {
+      "artifact": "B-P032/informal_statement",
+      "hash": "82a7a9e2cd8a3a752404f966eca8ff9f6dcdeef0436cb05888a2f95675b98bed"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000220",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000319
+
+```json
+{
+  "block": "B-P034",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000319",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000189. Transcript blocks/audits/B-P034-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "B-P034/definition_closure",
+      "hash": "dfa6c31510a7bcd77a0f9f77048e839111ce14e200c1d273ab05f8991e686553"
+    },
+    {
+      "artifact": "B-P034/formal_statement",
+      "hash": "2f89369af37b528f84c8ef8545eaf6424c42e81311dd32476e93274fae1d3868"
+    },
+    {
+      "artifact": "B-P034/informal_statement",
+      "hash": "552cbc5a40cc06eb4393d3a4e957d140b93219075fe163a75a5f7e8b2d468d36"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000189",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000320
+
+```json
+{
+  "block": "B-P035",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000320",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000214. Transcript blocks/audits/B-P035-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-D037/informal_statement",
+      "hash": "2a7c293f55806e4f1171f351897208baae1eb58cf7f8ab996ef93e2dcae46345"
+    },
+    {
+      "artifact": "B-D045/informal_statement",
+      "hash": "d3e9eec0eb46ca33b71222ecfb86d63b57343d1bf441247972887c489ca3d839"
+    },
+    {
+      "artifact": "B-D046/informal_statement",
+      "hash": "11b3962c31606fb3d359f158ccb94dff50bc0344f8da0ba9c773bf1e3f1c40ae"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "B-P023/informal_statement",
+      "hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed"
+    },
+    {
+      "artifact": "B-P027/informal_statement",
+      "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "B-P029/informal_statement",
+      "hash": "252933542d27431d303f68b1008214d1a7ce0895a56cb16f01b45249b177079a"
+    },
+    {
+      "artifact": "B-P035/definition_closure",
+      "hash": "ba4540bafd52703bdd91bafc26dcef87855a68c0b082d808b3de97ecccf29f69"
+    },
+    {
+      "artifact": "B-P035/formal_statement",
+      "hash": "dcef97d0121748cb1aa0daf5969b738658259458c3ea603b18f583c092e2901b"
+    },
+    {
+      "artifact": "B-P035/informal_statement",
+      "hash": "4d8937d25627231abbf4d9d91148538c378be4bf8d395013b089f59604416579"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000214",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000321
+
+```json
+{
+  "block": "B-P036",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000321",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000252. Transcript blocks/audits/B-P036-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P036/definition_closure",
+      "hash": "e77db271a57c3e87b01e0683d7f3cce139e250bba9cfa3420b38bfa0a5384a0b"
+    },
+    {
+      "artifact": "B-P036/formal_statement",
+      "hash": "4357145c38762a586f5eafbe69e9959f7d3805f4127073f3365caa9bbc6cf598"
+    },
+    {
+      "artifact": "B-P036/informal_statement",
+      "hash": "1d421719f7b83fd600224b60201e3df15390dbe1698351f82adf2ddf4805885c"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000252",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000322
+
+```json
+{
+  "block": "B-P037",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000322",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000195. Transcript blocks/audits/B-P037-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P030/informal_statement",
+      "hash": "76d3b9e5e6cc1a979318f93011faa66e496d3ff10b4025fc5982d7afe7bf1179"
+    },
+    {
+      "artifact": "B-P037/definition_closure",
+      "hash": "7d69d36cb7a49779622734e92ae7a2652204b6b9111fa1ce450e047a31e0bc00"
+    },
+    {
+      "artifact": "B-P037/formal_statement",
+      "hash": "70efde19436a84bb5b0a836bf84a5e4632367ab5b546559dd87134199efc6bc3"
+    },
+    {
+      "artifact": "B-P037/informal_statement",
+      "hash": "6d93dc747a1c244534ad3c6d8b52c51a8530852ae9cb8a217f2d605e00bde802"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000195",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000323
+
+```json
+{
+  "block": "B-P038",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000323",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000197. Transcript blocks/audits/B-P038-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-C008/informal_statement",
+      "hash": "7138798478a58ef49a378b7654937a4b9313d4db126668d1fb29531726346014"
+    },
+    {
+      "artifact": "B-C009/informal_statement",
+      "hash": "bc37a6a073a0da240cdd44bab212b14ac1c1b4377c8c4a71ad581ee7a2417689"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "B-P038/definition_closure",
+      "hash": "14ae643eefc7543f40561d318ff1289c4748beb7e6619e4c0b8c5ff0cebff7ec"
+    },
+    {
+      "artifact": "B-P038/formal_statement",
+      "hash": "34c54df56afba95edee2e7f5a9002a68dc30cfd20173a95dbb19b0ea90b82375"
+    },
+    {
+      "artifact": "B-P038/informal_statement",
+      "hash": "36bad3a3e3ca49f6c7a8d002a78c7c440217ce7bdaa6649cd3ea56e5c693cec5"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000197",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000324
+
+```json
+{
+  "block": "B-P039",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000324",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000199. Transcript blocks/audits/B-P039-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P024/informal_statement",
+      "hash": "9362eb3721fbbe559cdac4f6b3cdb815d827ec58c181f224c52ca3b8c76b4a57"
+    },
+    {
+      "artifact": "B-P039/definition_closure",
+      "hash": "841f9a39355d287a1f6dc04402c40cef64d63cb46916b6ad6b3d3d36d01204c8"
+    },
+    {
+      "artifact": "B-P039/formal_statement",
+      "hash": "e776f4bddb4e006117dbc831f0e8e7d053dc43de912862e3d702c8a4c45583b8"
+    },
+    {
+      "artifact": "B-P039/informal_statement",
+      "hash": "64968ffc9b11d27291f5ecdafd9d94a21884bc21d3d046589181b587db6b9eab"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000199",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000325
+
+```json
+{
+  "block": "B-R006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000325",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000088. Transcript blocks/audits/B-R006-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R006/definition_closure",
+      "hash": "4594d739887fbaef410d4f62a439f4a5a63c4eed0383e46953e1fb9bfb0401e1"
+    },
+    {
+      "artifact": "B-R006/formal_statement",
+      "hash": "51f8cd27444a76c2f9092ff865d6106814e0db1d144058d231f5ec71fd80c1be"
+    },
+    {
+      "artifact": "B-R006/informal_statement",
+      "hash": "1e3f64cb9f99390f83bd6aac3caac45d2fac51692f7b023adcaea9cc570c278e"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000088",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000326
+
+```json
+{
+  "block": "B-R008",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000326",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000089. Transcript blocks/audits/B-R008-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-R008/definition_closure",
+      "hash": "393fc660895690dd8ba25055f5a0de249578d910c81d7be088e61d2fa0d80472"
+    },
+    {
+      "artifact": "B-R008/formal_statement",
+      "hash": "6e0192380e18addc70309e28dafd7f1c246f5c8158b9c6dabf64f6c2d48f0e40"
+    },
+    {
+      "artifact": "B-R008/informal_statement",
+      "hash": "454d794d1386dd4b539909cbbca700ca6312f640dacba3a029d4fe85f85b3508"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000089",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000327
+
+```json
+{
+  "block": "B-R012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000327",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): formal_weaker. the headline isomorphism is captured (even sharpened by `subfinalAlg_iff`), but three explicit content clauses of the remark are not formalised. Supersedes E-000107. Transcript blocks/audits/B-R012-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R012/definition_closure",
+      "hash": "5b6523de4ff1788fe37dee932c10cb655a547f58f50c2f8a84d8ef783aa01203"
+    },
+    {
+      "artifact": "B-R012/formal_statement",
+      "hash": "9bddc1c02c1acc6132bfc901a965efffaec67faf5df6311f1df5ca7cfe084e36"
+    },
+    {
+      "artifact": "B-R012/informal_statement",
+      "hash": "edd6debca60a7279a56d663461f450418cc26afccc6a129ffe9b7510039d3ca0"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000107",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000328
+
+```json
+{
+  "block": "B-R021",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000328",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000164. Transcript blocks/audits/B-R021-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-R021/definition_closure",
+      "hash": "e7bd462d97816650c40120ae66cbe50c8c79b04ca01a6b13c36c7620084529f2"
+    },
+    {
+      "artifact": "B-R021/formal_statement",
+      "hash": "bd47c0ed74656c384391d8dd212ca84ca8397541dc7bf7a35f555764cb38d97c"
+    },
+    {
+      "artifact": "B-R021/informal_statement",
+      "hash": "1155ca40e15c2b9bea59bb21e7670bc5b486735587a6ec664bb4b4fce1e5c5a6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000164",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000329
+
+```json
+{
+  "block": "B-R026",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000329",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000254. Transcript blocks/audits/B-R026-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R026/definition_closure",
+      "hash": "51164b91f4e039cc071c2ad20ce6003de50c1c9a4d90f8a35143e2a8f64d9aa2"
+    },
+    {
+      "artifact": "B-R026/formal_statement",
+      "hash": "8de0684c9f22311338abe372d833afe8ac0d59eea774ac75c8b0bcda76f4013a"
+    },
+    {
+      "artifact": "B-R026/informal_statement",
+      "hash": "90a5fbcd492f0fb0b1ea5df236c737c725f0541ff39d7f8fa47cea501458f428"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000254",
+  "timestamp": "2026-09-21T12:31:43Z"
+}
+```
+
+### E-000330
+
+```json
+{
+  "block": "B-X002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000330",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): formal_weaker. the general iff and the finite-sort corollary are formalised, but the category-theoretic examples the block is built around are absent. Supersedes E-000248. Transcript blocks/audits/B-X002-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-X002/definition_closure",
+      "hash": "2113846a179f705e46c2dbccd7767a47cee299fadaae8e7b9a2759c4faef7cb8"
+    },
+    {
+      "artifact": "B-X002/formal_statement",
+      "hash": "1997687100e5bc52c44ff199b94da203517955523ef67c30600541f7676093fa"
+    },
+    {
+      "artifact": "B-X002/informal_statement",
+      "hash": "79921edf0932f6e16f9ff04db896700559a7a3665c42e2b248bd31aa5834673f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000248",
+  "timestamp": "2026-09-21T12:31:44Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -13254,7 +16184,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 123
-- Evidence records: 284
+- Evidence records: 330
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -13268,18 +16198,18 @@ assertion).
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
 | `B-A001` | assumption | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-C001` | corollary | Preliminaries. | provisional | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C002` | corollary | Preliminaries. | provisional | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-C010` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C010` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C011` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-D001` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D002` | definition | Preliminaries. | none | fail | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D003` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
@@ -13328,67 +16258,67 @@ assertion).
 | `B-D046` | definition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-L001` | lemma | Preliminaries. | none | provisional | pass | none | - |
 | `B-P001` | proposition | Preliminaries. | none | fail | pass | none | - |
-| `B-P002` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P003` | proposition | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P004` | proposition | Preliminaries. | provisional | stale | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P005` | proposition | Preliminaries. | none | stale | pass | none | - |
-| `B-P006` | proposition | Preliminaries. | none | stale | pass | none | - |
-| `B-P007` | proposition | Preliminaries. | none | stale | pass | none | - |
+| `B-P002` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P003` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P004` | proposition | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P005` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P006` | proposition | Preliminaries. | none | provisional | pass | none | - |
+| `B-P007` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P008` | proposition | Preliminaries. | none | provisional | pass | none | - |
-| `B-P009` | proposition | Preliminaries. | none | stale | pass | none | - |
+| `B-P009` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P010` | proposition | Preliminaries. | none | provisional | provisional | none | - |
 | `B-P011` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P012` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P013` | proposition | Preliminaries. | none | provisional | pass | none | - |
-| `B-P014` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P015` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P014` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P015` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P016` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P019` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P020` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P019` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P020` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P021` | proposition | Elementary translations and translations. | none | provisional | pass | none | - |
-| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P029` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
-| `B-P030` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P031` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P032` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P024` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P025` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P026` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P027` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P028` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P029` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
+| `B-P030` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P031` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P032` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P033` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P036` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | provisional | none | - |
-| `B-P037` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P038` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
-| `B-P039` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | pass | none | - |
+| `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P036` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
+| `B-P037` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P038` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P039` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-R001` | remark | Preliminaries. | none | fail | pass | none | - |
 | `B-R003` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R005` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R006` | remark | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-R007` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | stale | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R008` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-R009` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R010` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R011` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R012` | remark | Preliminaries. | none | stale | pass | none | - |
+| `B-R012` | remark | Preliminaries. | none | fail | pass | none | - |
 | `B-R014` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-R016` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-R017` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-R018` | remark | Elementary translations and translations. | none | provisional | pass | none | - |
 | `B-R019` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | provisional | none | - |
 | `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
-| `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
 | `B-R022` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R023` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R024` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-R026` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | provisional | none | - |
+| `B-R026` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-X001` | examples | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | stale | provisional | none | - |
+| `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | fail | provisional | none | - |
 | `representation/encoding` | - | - | none | none | none | provisional | - |
 
 6 block(s) have no evidence.
@@ -14234,7 +17164,7 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 6
+- evidence records that would go stale: 25
 
 | record | block | layer |
 |---|---|---|
@@ -14244,6 +17174,25 @@ rework.
 | E-000266 | `B-R005` | correspondence |
 | E-000267 | `B-R007` | correspondence |
 | E-000279 | `B-D014` | correspondence |
+| E-000285 | `B-C001` | correspondence |
+| E-000286 | `B-C002` | correspondence |
+| E-000289 | `B-C007` | correspondence |
+| E-000290 | `B-C008` | correspondence |
+| E-000291 | `B-C009` | correspondence |
+| E-000295 | `B-P002` | correspondence |
+| E-000296 | `B-P003` | correspondence |
+| E-000297 | `B-P004` | correspondence |
+| E-000298 | `B-P005` | correspondence |
+| E-000299 | `B-P006` | correspondence |
+| E-000300 | `B-P007` | correspondence |
+| E-000309 | `B-P023` | correspondence |
+| E-000316 | `B-P030` | correspondence |
+| E-000320 | `B-P035` | correspondence |
+| E-000322 | `B-P037` | correspondence |
+| E-000323 | `B-P038` | correspondence |
+| E-000324 | `B-P039` | correspondence |
+| E-000325 | `B-R006` | correspondence |
+| E-000326 | `B-R008` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -14264,20 +17213,20 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 |---|---|---|---|---|
 | `B-A001` | correspondence | provisional | 1 | 0 |
 | `B-A001` | verification | provisional | 1 | 0 |
-| `B-C001` | correspondence | stale | 0 | 4 |
+| `B-C001` | correspondence | provisional | 1 | 4 |
 | `B-C001` | review | provisional | 1 | 1 |
-| `B-C002` | correspondence | stale | 0 | 4 |
+| `B-C002` | correspondence | provisional | 1 | 4 |
 | `B-C002` | review | provisional | 1 | 1 |
-| `B-C004` | correspondence | stale | 0 | 1 |
+| `B-C004` | correspondence | provisional | 1 | 1 |
 | `B-C005` | correspondence | provisional | 1 | 1 |
-| `B-C006` | correspondence | stale | 0 | 1 |
-| `B-C007` | correspondence | stale | 0 | 1 |
-| `B-C008` | correspondence | stale | 0 | 1 |
-| `B-C009` | correspondence | stale | 0 | 1 |
-| `B-C010` | correspondence | stale | 0 | 1 |
+| `B-C006` | correspondence | provisional | 1 | 1 |
+| `B-C007` | correspondence | provisional | 1 | 1 |
+| `B-C008` | correspondence | provisional | 1 | 1 |
+| `B-C009` | correspondence | provisional | 1 | 1 |
+| `B-C010` | correspondence | provisional | 1 | 1 |
 | `B-C011` | correspondence | provisional | 1 | 0 |
-| `B-C012` | correspondence | stale | 0 | 1 |
-| `B-C013` | correspondence | stale | 0 | 1 |
+| `B-C012` | correspondence | provisional | 1 | 1 |
+| `B-C013` | correspondence | provisional | 1 | 1 |
 | `B-D002` | correspondence | fail | 1 | 0 |
 | `B-D003` | correspondence | provisional | 1 | 0 |
 | `B-D004` | correspondence | provisional | 1 | 2 |
@@ -14286,57 +17235,57 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-D024` | correspondence | provisional | 1 | 1 |
 | `B-L001` | correspondence | provisional | 1 | 1 |
 | `B-P001` | correspondence | fail | 1 | 0 |
-| `B-P002` | correspondence | stale | 0 | 4 |
-| `B-P003` | correspondence | stale | 0 | 4 |
-| `B-P004` | correspondence | stale | 0 | 2 |
+| `B-P002` | correspondence | provisional | 1 | 4 |
+| `B-P003` | correspondence | provisional | 1 | 4 |
+| `B-P004` | correspondence | provisional | 1 | 2 |
 | `B-P004` | review | provisional | 1 | 0 |
-| `B-P005` | correspondence | stale | 0 | 2 |
-| `B-P006` | correspondence | stale | 0 | 1 |
-| `B-P007` | correspondence | stale | 0 | 2 |
+| `B-P005` | correspondence | provisional | 1 | 2 |
+| `B-P006` | correspondence | provisional | 1 | 1 |
+| `B-P007` | correspondence | provisional | 1 | 2 |
 | `B-P008` | correspondence | provisional | 1 | 0 |
-| `B-P009` | correspondence | stale | 0 | 2 |
+| `B-P009` | correspondence | provisional | 1 | 2 |
 | `B-P010` | correspondence | provisional | 1 | 0 |
 | `B-P010` | verification | provisional | 1 | 0 |
 | `B-P011` | correspondence | provisional | 1 | 0 |
 | `B-P012` | correspondence | provisional | 1 | 0 |
 | `B-P013` | correspondence | provisional | 1 | 0 |
-| `B-P014` | correspondence | stale | 0 | 1 |
-| `B-P015` | correspondence | stale | 0 | 1 |
-| `B-P016` | correspondence | stale | 0 | 1 |
-| `B-P017` | correspondence | stale | 0 | 2 |
+| `B-P014` | correspondence | provisional | 1 | 1 |
+| `B-P015` | correspondence | provisional | 1 | 1 |
+| `B-P016` | correspondence | provisional | 1 | 1 |
+| `B-P017` | correspondence | provisional | 1 | 2 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
-| `B-P019` | correspondence | stale | 0 | 1 |
-| `B-P020` | correspondence | stale | 0 | 1 |
+| `B-P019` | correspondence | provisional | 1 | 1 |
+| `B-P020` | correspondence | provisional | 1 | 1 |
 | `B-P021` | correspondence | provisional | 1 | 0 |
-| `B-P022` | correspondence | stale | 0 | 1 |
-| `B-P023` | correspondence | stale | 0 | 1 |
-| `B-P024` | correspondence | stale | 0 | 1 |
-| `B-P025` | correspondence | stale | 0 | 1 |
-| `B-P026` | correspondence | stale | 0 | 1 |
-| `B-P027` | correspondence | stale | 0 | 1 |
-| `B-P028` | correspondence | stale | 0 | 1 |
-| `B-P029` | correspondence | stale | 0 | 1 |
-| `B-P030` | correspondence | stale | 0 | 1 |
-| `B-P031` | correspondence | stale | 0 | 1 |
-| `B-P032` | correspondence | stale | 0 | 1 |
+| `B-P022` | correspondence | provisional | 1 | 1 |
+| `B-P023` | correspondence | provisional | 1 | 1 |
+| `B-P024` | correspondence | provisional | 1 | 1 |
+| `B-P025` | correspondence | provisional | 1 | 1 |
+| `B-P026` | correspondence | provisional | 1 | 1 |
+| `B-P027` | correspondence | provisional | 1 | 1 |
+| `B-P028` | correspondence | provisional | 1 | 1 |
+| `B-P029` | correspondence | provisional | 1 | 1 |
+| `B-P030` | correspondence | provisional | 1 | 1 |
+| `B-P031` | correspondence | provisional | 1 | 1 |
+| `B-P032` | correspondence | provisional | 1 | 1 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
-| `B-P034` | correspondence | stale | 0 | 1 |
-| `B-P035` | correspondence | stale | 0 | 1 |
-| `B-P036` | correspondence | stale | 0 | 1 |
+| `B-P034` | correspondence | provisional | 1 | 1 |
+| `B-P035` | correspondence | provisional | 1 | 1 |
+| `B-P036` | correspondence | provisional | 1 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
-| `B-P037` | correspondence | stale | 0 | 1 |
-| `B-P038` | correspondence | stale | 0 | 1 |
-| `B-P039` | correspondence | stale | 0 | 1 |
+| `B-P037` | correspondence | provisional | 1 | 1 |
+| `B-P038` | correspondence | provisional | 1 | 1 |
+| `B-P039` | correspondence | provisional | 1 | 1 |
 | `B-R001` | correspondence | fail | 1 | 2 |
 | `B-R003` | correspondence | provisional | 1 | 1 |
 | `B-R005` | correspondence | provisional | 1 | 2 |
-| `B-R006` | correspondence | stale | 0 | 3 |
+| `B-R006` | correspondence | provisional | 1 | 3 |
 | `B-R007` | correspondence | provisional | 1 | 2 |
-| `B-R008` | correspondence | stale | 0 | 3 |
+| `B-R008` | correspondence | provisional | 1 | 3 |
 | `B-R009` | correspondence | provisional | 1 | 2 |
 | `B-R010` | correspondence | provisional | 1 | 1 |
 | `B-R011` | correspondence | provisional | 1 | 0 |
-| `B-R012` | correspondence | stale | 0 | 1 |
+| `B-R012` | correspondence | fail | 1 | 1 |
 | `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R016` | correspondence | provisional | 1 | 0 |
 | `B-R016` | verification | provisional | 1 | 0 |
@@ -14345,14 +17294,14 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R019` | correspondence | provisional | 1 | 0 |
 | `B-R019` | verification | provisional | 1 | 0 |
 | `B-R020` | correspondence | provisional | 1 | 1 |
-| `B-R021` | correspondence | stale | 0 | 1 |
+| `B-R021` | correspondence | provisional | 1 | 1 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |
-| `B-R026` | correspondence | stale | 0 | 1 |
+| `B-R026` | correspondence | provisional | 1 | 1 |
 | `B-R026` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
-| `B-X002` | correspondence | stale | 0 | 1 |
+| `B-X002` | correspondence | fail | 1 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
 | `representation/encoding` | representation | provisional | 1 | 2 |
 

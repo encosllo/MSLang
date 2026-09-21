@@ -1,0 +1,49 @@
+{
+  "block": "B-R012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000327",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): formal_weaker. the headline isomorphism is captured (even sharpened by `subfinalAlg_iff`), but three explicit content clauses of the remark are not formalised. Supersedes E-000107. Transcript blocks/audits/B-R012-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R012/definition_closure",
+      "hash": "5b6523de4ff1788fe37dee932c10cb655a547f58f50c2f8a84d8ef783aa01203"
+    },
+    {
+      "artifact": "B-R012/formal_statement",
+      "hash": "9bddc1c02c1acc6132bfc901a965efffaec67faf5df6311f1df5ca7cfe084e36"
+    },
+    {
+      "artifact": "B-R012/informal_statement",
+      "hash": "edd6debca60a7279a56d663461f450418cc26afccc6a129ffe9b7510039d3ca0"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000107",
+  "timestamp": "2026-09-21T12:31:43Z"
+}

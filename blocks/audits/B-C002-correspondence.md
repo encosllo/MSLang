@@ -1,53 +1,63 @@
 # Correspondence audit transcript -- `B-C002`
 
-Protocol: Architecture.md Section 11.2, two-stage blind. Both stages were run by
-fresh subagents with isolated contexts; neither was told the expected answer.
-Stage 1 saw only the Lean declaration and its definitions (no manuscript, no
-project history). Stage 2 saw only the stage 1 read-back and the contract.
+Protocol: Architecture.md Section 11.2, two-stage blind. Run in Session 119 as a
+batched re-audit of the stale correspondence layer: several blocks shared one
+stage-batch agent, so the stages for different blocks in a batch had a common
+context; no agent was told the expected answer or shown the prior verdict. Stage 1
+saw only the Lean declarations and their definitions; stage 2 saw only the stage 1
+read-back and the contract.
 
-- **Lean declaration:** `Mslang.sat_inf` (`lean/Mslang/Pilot.lean`)
-- **Contract:** Corollary `B-C002`
+- **Lean declarations:** `Mslang.sat_inf` (`lean/Mslang/Prelim.lean`)
+- **Contract:** Corollary `B-C002`, section "Preliminaries.".
 - **Outcome:** `equivalent`
-- **Recorded as:** `E-000042`
-- **Encoding:** dependent-type carrier model (`representation/pilot-encoding.md`);
-  re-run after the Session 29 representation change.
-- **Independence:** both stages share this session's underlying model
+- **Recorded as:** `E-000286` (supersedes `E-000084`)
+- **Encoding:** dependent-type carrier model, `representation/pilot-encoding.md`.
+- **Independence:** the stage agents share this session's underlying model
   (`deepseek-v4.1-flash`); shared blind spots are not excluded.
 
 ## Stage 1 -- read-back (fresh agent, Lean only)
 
-> Fix a type `S` of sorts. An `S`-sorted set `A` assigns a type `A s` to each
-> sort `s`; a componentwise subset `X` assigns a set `X s ⊆ A s` per sort; a
-> sorted equivalence `Φ` assigns a setoid on `A s` per sort. Saturation
-> `sat Φ X` is the family whose `s`-component collects every `a : A s` that is
-> `Φ s`-equivalent to some element of `X s`; `IsSat Φ X` means `sat Φ X = X`.
-> The theorem `sat_inf` states, for arbitrary `Φ`, `Ψ`, `X`: if `X` is
-> `Φ`-saturated **and** `X` is `Ψ`-saturated, **then** `X` is saturated under
-> the meet `sortedEqvInf Φ Ψ`. This is one-directional (not an equivalence). The
-> meet `sortedEqvInf Φ Ψ` relates `x, y` iff both `x ∼_Φ y` and `x ∼_Ψ y`
-> (componentwise intersection). The second hypothesis is unused in the proof;
-> saturation under `Φ` alone already suffices, since the meet-relation implies
-> the `Φ`-relation. Degenerate cases: empty `S` makes everything vacuous; an
-> empty `X s` contributes trivially.
+> # Read-back of B-C002.lean
+>
+> ## Ambient setting
+>
+> Fix a type `S`. An `SSet S` is a structure `A` giving a fiber `A s` for each index `s : S`. A `Sub A` is a sorted subset, i.e. a family of subsets `X s ⊆ A s`. A `SortedEqv A` is a sorted equivalence: a family `Φ` of equivalence relations, one on each fiber `A s`, written `Φ s x y`. The opaque definitions reused here are:
+>
+> - `sat Φ X`: the saturation of `X` by `Φ`, so that `a ∈ sat Φ X s` iff some `x ∈ X s` satisfies `Φ s x a`.
+> - `IsSat Φ X`: `X` is saturated by `Φ`, i.e. `sat Φ X = X` pointwise.
+> - `sortedEqvLe Φ Ψ`: the preorder on sorted equivalences, meaning pointwise relation-inclusion: `Φ s x y → Ψ s x y` for all `s, x, y`.
+> - `sortedEqvInf Φ Ψ`: the binary infimum (meet) of `Φ` and `Ψ` in this preorder.
+> - `sortedEqvInf_le_left Φ Ψ`: the left projection of the meet, i.e. `sortedEqvLe (sortedEqvInf Φ Ψ) Φ` (the meet is below / finer than `Φ`). This is used as a previously established fact.
+>
+> The file also restates the theorem `sat_antitone`: if `Φ ≤ Ψ` and `X` is `Ψ`-saturated then `X` is `Φ`-saturated.
+>
+> ## The theorem: `sat_inf`
+>
+> Statement. For any `S`, any `A : SSet S`, any sorted equivalences `Φ`, `Ψ`, and any sorted subset `X : Sub A`, if `hΦ` asserts `IsSat Φ X` and `hΨ` asserts `IsSat Ψ X`, then `IsSat (sortedEqvInf Φ Ψ) X` holds.
+>
+> Quantifier scoping. `S`, `A`, `Φ`, `Ψ`, `X` are all fixed as parameters; the result is the implication `IsSat Φ X → IsSat Ψ X → IsSat (sortedEqvInf Φ Ψ) X`. The hypothesis `hΨ` is *not used* in the proof (it is named with a leading underscore, marking it as deliberately unused). The theorem remains valid with only `hΦ`.
+>
+> ## How the proof proceeds (informal content)
+>
+> By `sortedEqvInf_le_left`, the meet `sortedEqvInf Φ Ψ` is below `Φ` in the refinement order. Apply `sat_antitone` with `h := sortedEqvInf_le_left Φ Ψ` to the hypothesis `hΦ : IsSat Φ X`: since `X` is saturated by `Φ` and the meet is finer than `Φ`, `X` is saturated by the meet. Hence `IsSat (sortedEqvInf Φ Ψ) X`.
+>
+> ## Summary
+>
+> B-C002 says that the infimum (meet) of two sorted equivalences still saturates any set that is saturated by one of them; because the meet is finer than each factor, antitonicity of saturation gives the result. The second saturation hypothesis is stated but mathematically redundant.
 
 ## Stage 2 -- comparison (fresh agent, read-back + contract only)
 
-> **Outcome: equivalent.**
+> # B-C002 verdict
 >
-> The theorem's statement matches the contract exactly: for arbitrary `S`-sorted
-> `A`, `Φ`, `Ψ`, and componentwise subset `X`, if `X` is `Φ`-saturated and `X`
-> is `Ψ`-saturated then `X` is saturated under the meet `Φ ∩ Ψ`. Quantifier
-> domains agree (all `Φ`, `Ψ`, `X`), the meet is componentwise intersection
-> (`x ∼_Φ y ∧ x ∼_Ψ y`), and saturation is defined precisely as `sat Φ X = X`.
-> The relation is one-directional, matching the `⊆` contract.
+> ## Clause-by-clause
 >
-> The remark that the second hypothesis is unused is a proof-level observation,
-> not a change to the theorem's content: the stated proposition still assumes
-> both hypotheses, so it is neither stronger nor weaker than the contract.
-> Degenerate cases (empty `S` vacuous, empty `X s` trivial) are handled
-> symmetrically, with no direction or domain mismatch.
+> 1. **Ambient data** — Contract: `A` an `S`-sorted set, `Φ, Ψ ∈ Eqv(A)`. Lean: `S`, `A : SSet S`, `Φ Ψ : SortedEqv A`. Faithful.
+> 2. **Object `Φ ∩ Ψ`** — Contract: the pointwise intersection of the two equivalence relations (the meet of `Φ, Ψ` in the refinement order). Lean: `sortedEqvInf Φ Ψ`, read-back states it is the binary infimum in the preorder of pointwise relation-inclusion. In that order the infimum is pointwise relation intersection, so `Φ ∩ Ψ` is matched. Faithful.
+> 3. **Left side** — Contract: `Φ-Sat(A) ∩ Ψ-Sat(A)`, the collection of subsets saturated by both, i.e. `X` with `IsSat Φ X` and `IsSat Ψ X`. Lean hypotheses: `hΦ : IsSat Φ X` and `hΨ : IsSat Ψ X`, both present in the statement. Faithful.
+> 4. **Conclusion** — Contract: `(Φ∩Ψ)-Sat(A)`, i.e. `IsSat (Φ∩Ψ) X`. Lean conclusion: `IsSat (sortedEqvInf Φ Ψ) X`. Faithful.
+> 5. **Shape** — Contract asserts containment of collections; Lean asserts the corresponding pointwise implication over `X`. The Lean proof uses only `hΦ` (the `hΨ` hypothesis is named `_hΨ`), but the *statement* still carries both hypotheses, so no hypothesis is dropped from the contract.
+>
+> Contract clauses with no Lean counterpart: none
+>
+> Verdict: equivalent — the statement `IsSat Φ X → IsSat Ψ X → IsSat (sortedEqvInf Φ Ψ) X` is exactly the membership form of `Φ-Sat(A) ∩ Ψ-Sat(A) ⊆ (Φ∩Ψ)-Sat(A)`; the unused second hypothesis is a proof economy, not a change to the claimed proposition.
 
-## Residual note
-
-Inherits the pilot encoding's residuals (see `E-000040`); a representation change
-(class C6) stales this verdict.

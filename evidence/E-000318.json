@@ -1,0 +1,49 @@
+{
+  "block": "B-P032",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000318",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000220. Transcript blocks/audits/B-P032-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P032/definition_closure",
+      "hash": "602110d14feb5c000abeba8e9e3338ab5fa4d023cbfe75621126808cb4994a2a"
+    },
+    {
+      "artifact": "B-P032/formal_statement",
+      "hash": "16abac44282a4be0eea97d0ed7627e15f8d6ef6dc4303a429b969650639dfd1e"
+    },
+    {
+      "artifact": "B-P032/informal_statement",
+      "hash": "82a7a9e2cd8a3a752404f966eca8ff9f6dcdeef0436cb05888a2f95675b98bed"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000220",
+  "timestamp": "2026-09-21T12:31:43Z"
+}

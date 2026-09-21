@@ -1,0 +1,49 @@
+{
+  "block": "B-X002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000330",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): formal_weaker. the general iff and the finite-sort corollary are formalised, but the category-theoretic examples the block is built around are absent. Supersedes E-000248. Transcript blocks/audits/B-X002-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-X002/definition_closure",
+      "hash": "2113846a179f705e46c2dbccd7767a47cee299fadaae8e7b9a2759c4faef7cb8"
+    },
+    {
+      "artifact": "B-X002/formal_statement",
+      "hash": "1997687100e5bc52c44ff199b94da203517955523ef67c30600541f7676093fa"
+    },
+    {
+      "artifact": "B-X002/informal_statement",
+      "hash": "79921edf0932f6e16f9ff04db896700559a7a3665c42e2b248bd31aa5834673f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000248",
+  "timestamp": "2026-09-21T12:31:44Z"
+}

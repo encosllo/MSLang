@@ -5904,6 +5904,43 @@ algebraic closure systems / algebraic lattices with their extremal elements
 2. Add correspondence audits for the remaining verification-only blocks.
 3. Review the undecided dependency edges by impact.
 
+**Part 2 -- correspondence backlog cleared (`EV-000129`).**
+
+Author-directed: re-audit the 46 blocks whose correspondence layer had gone
+stale (the "mechanical debt"). All 46 were re-run through the two-stage blind
+protocol in section batches; new records `E-000285`--`E-000330` supersede the
+newest stale record of each block.
+
+- **Verdicts:** 42 `equivalent`; `formal_stronger` for `B-C009` and `B-P026`
+  (both drop a hypothesis); `formal_weaker` for `B-R012` (`Sub(1)` arithmetic and
+  the `A/∇^A ≅` subalgebra-of-`1` isomorphism unmapped) and `B-X002` (the
+  category examples `Sgr-Act`, `Mon-Act`, `Grp-Act`, `Mod` unmapped).
+- **Staleness ledger:** 120 stale, **all superseded, 0 awaiting** (was 67
+  awaiting). Correspondence status: 75 `provisional`, 5 `fail`
+  (`B-D002`, `B-P001`, `B-R001`, `B-R012`, `B-X002`), 43 blocks with no
+  correspondence layer.
+- **Verdict moves vs the prior records:** `B-P005`, `B-P015` `formal_stronger`
+  -> `equivalent`; `B-C007` -> `equivalent` (re-read with definition bodies);
+  `B-R012`, `B-X002` -> `formal_weaker`.
+- **Method caveat (recorded honestly).** Two extraction defects were caught and
+  corrected mid-batch: (i) contracts taken from the block text alone omitted the
+  section's standing Assumption `B-A001` (`S` finite), producing four false
+  `formal_weaker` verdicts (`B-P032`, `B-P036`, `B-P038`, `B-P039`; re-compared
+  with the assumption, all four are `equivalent`); (ii) the first excerpts showed
+  supporting *definitions* statement-only, hiding their bodies, which flipped
+  `B-C007`; the five non-`equivalent` blocks were re-read with full definition
+  bodies. The batch protocol shares one stage agent across the blocks of a
+  section, and all stages remain same-model (`provisional`).
+
+**Prioritized next steps (after Part 2).**
+
+1. Author decisions: `B-P001` representation brief; `B-D002` `Set^S` category
+   scope; unmapped-frontier reclassification (`B-R002`, `B-R004`, `B-R015`,
+   `B-R027`, `B-C003`).
+2. The four remaining substantive correspondence gaps (`B-R001`, `B-R012`,
+   `B-X002`, plus `B-D002`/`B-P001`): formalize or scope-triage each.
+3. First-ever correspondence audits for the 43 mapped verification-only blocks.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**

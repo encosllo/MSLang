@@ -1,31 +1,170 @@
 # Correspondence audit transcript -- `B-C007`
 
-Protocol: Architecture.md Section 11.2, two-stage blind; both stages fresh and
-isolated. Stage 1 saw only the Lean declaration and definitions; stage 2 only the
+Protocol: Architecture.md Section 11.2, two-stage blind. Run in Session 119 as a
+batched re-audit of the stale correspondence layer: several blocks shared one
+stage-batch agent, so the stages for different blocks in a batch had a common
+context; no agent was told the expected answer or shown the prior verdict. Stage 1
+saw only the Lean declarations and their definitions; stage 2 saw only the stage 1
 read-back and the contract.
 
-- **Lean declaration:** `Mslang.langFormationOf_transPreimage`
-  (`lean/Mslang/Regular.lean`)
-- **Contract:** Corollary `B-C007`.
+- **Lean declarations:** `Mslang.langFormationOf_transPreimage` (`lean/Mslang/Regular.lean`)
+- **Contract:** Corollary `B-C007`, section "$\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them.".
 - **Outcome:** `equivalent`
-- **Independence:** same model (`deepseek-v4.1-flash`); shared blind spots not
-  excluded.
+- **Recorded as:** `E-000289` (supersedes `E-000207`)
+- **Encoding:** dependent-type carrier model, `representation/pilot-encoding.md`.
+- **Independence:** the stage agents share this session's underlying model
+  (`deepseek-v4.1-flash`); shared blind spots are not excluded.
 
-## Stage 1 -- read-back
+## Stage 1 -- read-back (fresh agent, Lean only)
 
-> For a congruence formation `G` and `L_𝔉(A) = {L | Ω(L) ∈ G A}`: if
-> `T : T_Σ(A)_t → T_Σ(A)_s` is a generated translation (`TlGen`) and
-> `L ∈ L_𝔉(A)`, then the concentrated preimage `T^{-1}[L] = δ^{t,T^{-1}[L_s]}`
-> lies in `L_𝔉(A)`. No converse; only generated translations.
+> # Read-back: B-C007.lean2
+>
+> Fixed ambient data: a type `S : Type u`. `Setoid` is bundled equivalence; `(Φ s).r x y`
+> is the relation. Throughout, `Alg Sig` (used with `.1`, `.2`) is referenced but
+> not defined in this file.
+>
+> ## Notational abbreviations
+>
+> - `SSet S := S → Type u`; `Signature S := List S × S → Type u`.
+> - `SortedEqv A := ∀ s, Setoid (A s)`; `SortedMap A B := ∀ s, A s → B s`;
+>   `Sub A := ∀ s, Set (A s)`.
+> - `wordProd A w := (i : Fin w.length) → A (w.get i)`.
+> - `finOp A w s := wordProd A w → A s`.
+> - `AlgStruct Sig A := (p : List S × S) → Sig p → finOp A p.1 p.2`.
+>
+> ## Core definitions
+>
+> - `Term Sig X : S → Type u` (inductive over `X : SSet S`): either
+>   `var x` for `x : X s`, or `op p σ a` where `a : (i : Fin p.1.length) → Term Sig X (p.1.get i)`.
+>   (Note the constructor argument is indexed by `Fin p.1.length`, matching
+>   `wordProd`.)
+> - `IsElemTranslation Sig A t s T`: `T : A.1 t → A.1 s` is an *elementary
+>   translation*: there are a word `w`, a position `i : Fin w.length` with
+>   `w.get i = t`, a symbol `σ : Sig (w, s)`, and fixed arguments
+>   `a k : A.1 (w.get k)` for `k ≠ i`, such that for every `x : A.1 t`,
+>   `T x = A.2 (w,s) σ` applied to the tuple that is `x` in slot `i` (transported
+>   along `hwit`) and `a k` elsewhere. Informally: `T` substitutes its input into
+>   one argument slot of a single operation with the other slots fixed.
+> - `TlGen Sig A : (t s : S) → (A.1 t → A.1 s) → Prop` (inductive):
+>   `refl t : TlGen A t t id`; `elem h : IsElemTranslation ... → TlGen ...`;
+>   `comp : TlGen A t u T → TlGen A u s U → TlGen A t s (U ∘ T)`.
+>   So translations are generated from identities and elementary translations by
+>   composition.
+> - `IsCongruence Sig F Φ := ∀ p σ a b, (∀ i, (Φ (p.1.get i)).r (a i) (b i)) →
+>    (Φ p.2).r (F p σ a) (F p σ b)`.
+> - `ClosesUnderEtl Sig A Φ := ∀ t s x y T, IsElemTranslation Sig A t s T →
+>    (Φ t).r x y → (Φ s).r (T x) (T y)`.
+> - `ClosesUnderTl Sig A Φ := ∀ t s T, TlGen Sig A t s T → ∀ x y,
+>    (Φ t).r x y → (Φ s).r (T x) (T y)`.
+> - `IsAlgHom Sig FA FB f := ∀ p σ a, f p.2 (FA p σ a) = FB p σ (fun i => f (p.1.get i) (a i))`.
+> - `IsCongruenceFormation Sig F` (with `F : (A : SSet S) → Set (SortedEqv (Term Sig A))`)
+>   is the conjunction of:
+>   1. for every `A`: `(F A).Nonempty`; every `Φ ∈ F A` is a congruence for the
+>      term algebra `termAlg Sig A`; `F A` is closed under `sortedEqvInf`; and for
+>      every congruence `Ψ` of the term algebra, `Φ ∈ F A` and `sortedEqvLe Φ Ψ`
+>      implies `Ψ ∈ F A` (upward closure among congruences);
+>   2. for every `A B`, every congruence `Θ` of `termAlg Sig B` with `Θ ∈ F B`,
+>      every algebra hom `f : Term Sig A → Term Sig B` whose composite with the
+>      projection `prAlg Sig (termAlg B).2 Θ hΘ` is surjective sortwise, the kernel
+>      `ker (fun s => prAlg ... ∘ f s)` belongs to `F A`.
+>   (`termAlg`, `prAlg`, `ker`, `sortedEqvLe`, `sortedEqvInf` are defined below.)
+> - `charEqv L : SortedEqv A` is the equivalence "same membership in `L`":
+>   `fun s => ⟨fun x y => x ∈ L s ↔ y ∈ L s, ...⟩`.
+> - `congCogenerated Sig A L : SortedEqv A.1` is the equivalence
+>   `fun t => ⟨fun x y => ∀ (s : S) (T : A.1 t → A.1 s),
+>      TlGen Sig A t s T → (T x ∈ L s ↔ T y ∈ L s), ...⟩`:
+>   two elements are related iff they cannot be separated by pushing them along any
+>   generated translation into any sort and testing membership in `L`. (Congruence
+>   cogenerated by the language `L`.)
+> - `congCogenerated_...`: membership equivalences with trivially verified
+>   reflexivity/symmetry/transitivity.
+> - `sat Φ X := fun s => {a | ∃ x ∈ X s, (Φ s).r x a}`: the saturation of `X`
+>   under `Φ`. `IsSat Φ X := sat Φ X = X` (fixed by the relation).
+> - `quot Φ := fun s => Quotient (Φ s)`;
+>   `quotOp Sig F Φ p σ a := Quotient.mk (Φ p.2) (F p σ (fun i => Quotient.out (a i)))`;
+>   `quotAlg Sig F Φ _hΦ := ⟨quot Φ, fun p σ => quotOp Sig F Φ p σ⟩`.
+> - `pr Φ s x := Quotient.mk (Φ s) x`; `prAlg Sig F Φ _hΦ := pr Φ` (a `SortedMap` into the quotient).
+> - `termAlg Sig X := ⟨Term Sig X, fun p σ a => Term.op p σ a⟩`.
+> - `deltaSub s Y := Function.update (fun u => ∅) s Y`: the `Sub A` that is `Y` at
+>   sort `s` and empty at all other sorts.
+> - `transPreimage T L := deltaSub t (Set.preimage T (L s))`: its only nonempty
+>   sort is `t`, where it is `{x | T x ∈ L s}`.
+> - `sortedEqvInf Φ Ψ := fun s => ⟨fun x y => (Φ s).r x y ∧ (Ψ s).r x y, ...⟩`
+>   (pointwise intersection of relations).
+> - `sortedEqvLe Φ Ψ := ∀ s x y, (Φ s).r x y → (Ψ s).r x y` (Φ is finer than Ψ,
+>   i.e. Φ implies Ψ; note: this is inclusion of relations `Φ ⊆ Ψ`).
+> - `ker f := fun s => ⟨fun x y => f s x = f s y, ...⟩` (kernel equivalence of a
+>   sorted map).
+> - `langFormationOf G A := {L : Sub (Term Sig A) | congCogenerated Sig (termAlg Sig A) L ∈ G A}`:
+>   a language (subfamily of the term algebra) belongs if its cogenerated
+>   congruence lies in the given family `G A`.
+>
+> ## Theorems
+>
+> Only the first declaration below has a proof body in the file; the rest are
+> stated without bodies (assertions only).
+>
+> 1. `langFormationOf_transPreimage` (has proof): given
+>    `hG : IsCongruenceFormation Sig G`, `A : SSet S`, `t s : S`,
+>    `T : Term Sig A t → Term Sig A s` with `hT : TlGen Sig (termAlg Sig A) t s T`,
+>    and `L : Sub (Term Sig A)` with `hL : L ∈ langFormationOf Sig G A`,
+>    concludes `transPreimage T L ∈ langFormationOf Sig G A`.
+>    I.e. the language family is closed under taking the preimage of a member under
+>    any generated translation, as a (delta-)subfamily. Proof: from `hL`, the
+>    cogenerated congruence lies in `G A`; `congCogenerated_le_transPreimage`
+>    gives `congCogenerated L ≤ congCogenerated (transPreimage T L)`, and since
+>    `congCogenerated L` is a congruence, `isSat_iff_le_congCogenerated` yields
+>    `IsSat (congCogenerated L) (transPreimage T L)`; then `langFormationOf_inf`
+>    with `L = L'` and `N = transPreimage T L` (using `sortedEqvInf_self`) closes
+>    the goal. Note the conclusion stays at the *same* `A` (variables are not
+>    reindexed).
+> 2. `IsCongruence_inf`: if `Φ` and `Ψ` are congruences for `F` then
+>    `sortedEqvInf Φ Ψ` is a congruence.
+> 3. `closesUnderEtl_of_closesUnderTl`: `ClosesUnderTl Sig A Φ → ClosesUnderEtl Sig A Φ`.
+> 4. `closesUnderEtl_of_isCongruence`: `IsCongruence Sig A.2 Φ → ClosesUnderEtl Sig A Φ`.
+> 5. `closesUnderTl_of_closesUnderEtl`: `ClosesUnderEtl Sig A Φ → ClosesUnderTl Sig A Φ`.
+> 6. `congCogenerated_isCongruence`: `IsCongruence Sig A.2 (congCogenerated Sig A L)`.
+> 7. `congCogenerated_le_charEqv`: `sortedEqvLe (congCogenerated Sig A L) (charEqv L)`.
+> 8. `congCogenerated_le_transPreimage`: if `hT : TlGen Sig A t s T` then
+>    `sortedEqvLe (congCogenerated Sig A L) (congCogenerated Sig A (transPreimage T L))`.
+>    I.e. pushing along a translation can only make the cogenerated congruence
+>    coarser (fewer distinctions).
+> 9. `congruence_of_closesUnderEtl`: `ClosesUnderEtl Sig A Φ → IsCongruence Sig A.2 Φ`.
+> 10. `isCongruence_iff_closesUnderEtl`: `IsCongruence Sig A.2 Φ ↔ ClosesUnderEtl Sig A Φ`.
+> 11. `isSat_iff_le_congCogenerated`: for a congruence `hΦ`, `IsSat Φ L ↔ sortedEqvLe Φ (congCogenerated Sig A L)`.
+>     (Fixed-by-L iff finer than the cogenerated congruence.)
+> 12. `isSat_iff_sortedEqvLe_charEqv`: `IsSat Φ L ↔ sortedEqvLe Φ (charEqv L)` (no
+>     congruence hypothesis).
+> 13. `langFormationOf_inf`: given `hG`, `A`, and `L L' ∈ langFormationOf Sig G A`,
+>     for every `N : Sub (Term Sig A)`,
+>     `IsSat (sortedEqvInf (congCogenerated L) (congCogenerated L')) N → N ∈ langFormationOf Sig G A`.
+>     So the family is closed under anything fixed by the inf of the two
+>     cogenerated congruences.
+> 14. `le_congCogenerated_of_isCongruence`: for a congruence `hΦ` with
+>     `sortedEqvLe Φ (charEqv L)`, conclude `sortedEqvLe Φ (congCogenerated Sig A L)`
+>     (maximality of `congCogenerated` among congruences below `charEqv L`).
+> 15. `sortedEqvInf_self`: `sortedEqvInf Φ Φ = Φ` (definitional/idempotence).
+> 16. `sortedEqvLe_antisymm`: `sortedEqvLe Φ Ψ → sortedEqvLe Ψ Φ → Φ = Ψ`
+>     (antisymmetry, i.e. mutual inclusion of relations gives equality).
 
-## Stage 2 -- comparison
+## Stage 2 -- comparison (fresh agent, read-back + contract only)
 
-> **Outcome: `equivalent`.** The conclusion is exactly the contract's closure
-> under translation preimages; the restriction to generated translations matches
-> `Tl_t(T_Σ(A))_s`; the `Ω(L)-Sat ⊆ L_𝔉(A)` premise is the derivation context,
-> not added strength.
+> # B-C007 verdict
+>
+> - Clause "for every s,t∈S, every translation T, and every L∈L_F(A), T^{-1}[L]∈L_F(A), i.e. L_F is closed under inverse images of translations": matched by `langFormationOf_transPreimage`, whose conclusion is `transPreimage T L ∈ langFormationOf Sig G A` for `hT : TlGen Sig (termAlg Sig A) t s T` and `hL : L ∈ langFormationOf Sig G A`.
+> - Translation range: contract `T ∈ Tl_t(T_Σ(A))_s` = Lean `TlGen Sig (termAlg Sig A) t s T`.
+> - Inverse image: contract `T^{-1}[L]` = Lean `transPreimage T L` (delta-subfamily at `t`); the sort-`t` component is `Set.preimage T (L s)`, matching.
+> - Premise: the contract's condition Ω^{T_Σ(A)}(L)−Sat(T_Σ(A)) ⊆ L_F(A) corresponds to the Lean hypothesis `hG : IsCongruenceFormation Sig G`.
+> - Lean keeps the conclusion at the same base `A` (variables not reindexed), matching the contract.
+>
+> Contract clauses with no Lean counterpart: none.
+>
+> Verdict: equivalent — the closure-under-inverse-image statement and its quantifiers match the contract.
+>
+> Justification: the Lean theorem formalises exactly the corollary's conclusion for generated translations, with the formation hypothesis standing in for the contract's premise.
 
-## Residual note
+## Note
 
-Relative to `representation/pilot-encoding.md` (`E-000040`; residuals
-`carrier-model`, `small-large`, `univalence-missing`), inherited by this verdict.
+Re-read with the bodies of the supporting definitions included (the first pass
+had shown definition statements only). See the Session 119 `STATE.md` entry.
+

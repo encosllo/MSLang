@@ -1,0 +1,69 @@
+{
+  "block": "B-P015",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000303",
+  "findings": [
+    "Two-stage blind correspondence audit (Session 119 stale-layer re-run): equivalent. Supersedes E-000178. Transcript blocks/audits/B-P015-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D028/informal_statement",
+      "hash": "58be45b0032f0b7eb6ffd685f23d3d16e2f9fc2f162878dbc19fc2c73a6d0446"
+    },
+    {
+      "artifact": "B-D031/informal_statement",
+      "hash": "61589284004073ac170425c0f0b0065688aee1354a079cae40a7b658d58ae394"
+    },
+    {
+      "artifact": "B-P012/informal_statement",
+      "hash": "6d724741de75a02333c45d92825c7195e90a01f879c6d8fd4a2f4e9c444217cd"
+    },
+    {
+      "artifact": "B-P013/informal_statement",
+      "hash": "081db99883818eb31f60d358ebf66dfd15187b01259997eb736a37a2343e9d39"
+    },
+    {
+      "artifact": "B-P015/definition_closure",
+      "hash": "124a2d8e6ec5e8dacb986bbd60f89261ce149450ba360f4d938b8f70bedd64d6"
+    },
+    {
+      "artifact": "B-P015/formal_statement",
+      "hash": "2077cad0a191dec642dd16cd13c0f509d709ea3d2b6a3c434e766d64158d2025"
+    },
+    {
+      "artifact": "B-P015/informal_statement",
+      "hash": "ffc11c4898e2fe38d2b33daf244f2bfc44c120dcb33f8e779e63315d27bc4721"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000178",
+  "timestamp": "2026-09-21T12:31:42Z"
+}
