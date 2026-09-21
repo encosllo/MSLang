@@ -116,4 +116,124 @@ theorem quotAlgLift_unique {S : Type u} (Sig : Signature S) {A B : SSet S}
     p = quotLift Φ f h :=
   quotLift_unique Φ f h p hp
 
+/-! ### `B-D024`: `Cgr(A)` is an algebraic closure system and algebraic lattice. -/
+
+/-- `B-D024`: the diagonal `Δ^A` is a congruence (equality respects operations). -/
+theorem deltaEqv_isCongruence {S : Type u} (Sig : Signature S) {A : SSet S}
+    (F : AlgStruct Sig A) : IsCongruence Sig F (deltaEqv A) := by
+  intro p σ a b h
+  exact congrArg (F p σ) (funext fun i => h i)
+
+/-- `B-D024`: `Cgr(A)`, the congruences on `A`, as per-sort relations on the
+total space `A × A`. -/
+def CongOn {S : Type u} (Sig : Signature S) (A : Alg Sig) : Set (Set (PairSpace A.1)) :=
+  {P | P ∈ EqvOn A.1 ∧
+    ∀ (p : List S × S) (σ : Sig p) (a b : wordProd A.1 p.1),
+      (∀ i, (⟨p.1.get i, a i, b i⟩ : PairSpace A.1) ∈ P) →
+      (⟨p.2, A.2 p σ a, A.2 p σ b⟩ : PairSpace A.1) ∈ P}
+
+theorem sInter_mem_CongOn {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    {D : Set (Set (PairSpace A.1))} (hD : D ⊆ CongOn Sig A) :
+    ⋂₀ D ∈ CongOn Sig A := by
+  refine ⟨sInter_mem_EqvOn A.1 fun P hP => (hD hP).1, ?_⟩
+  intro p σ a b h
+  refine Set.mem_sInter.mpr fun Q hQ => ?_
+  exact (hD hQ).2 p σ a b fun i => Set.mem_sInter.mp (h i) Q hQ
+
+theorem sUnion_mem_CongOn {S : Type u} (Sig : Signature S) (A : Alg Sig)
+    {D : Set (Set (PairSpace A.1))} (hD : D ⊆ CongOn Sig A) (hne : D.Nonempty)
+    (hdir : ∀ P ∈ D, ∀ Q ∈ D, ∃ R ∈ D, P ⊆ R ∧ Q ⊆ R) :
+    ⋃₀ D ∈ CongOn Sig A := by
+  classical
+  refine ⟨sUnion_mem_EqvOn A.1 (fun P hP => (hD hP).1) hne hdir, ?_⟩
+  intro p σ a b h
+  let f : Fin p.1.length → Set (PairSpace A.1) := fun i => Classical.choose (h i)
+  have hfD : ∀ i, f i ∈ D := fun i => (Classical.choose_spec (h i)).1
+  have hfp : ∀ i, (⟨p.1.get i, a i, b i⟩ : PairSpace A.1) ∈ f i :=
+    fun i => (Classical.choose_spec (h i)).2
+  have hfin : ∀ t : Finset (Fin p.1.length), ∃ R ∈ D, ∀ i ∈ t, f i ⊆ R := by
+    intro t
+    induction t using Finset.induction with
+    | empty =>
+        obtain ⟨R₀, hR₀⟩ := hne
+        exact ⟨R₀, hR₀, by simp⟩
+    | insert i t _ ih =>
+        obtain ⟨R, hR, hRt⟩ := ih
+        obtain ⟨Z, hZ, hfZ, hRZ⟩ := hdir (f i) (hfD i) R hR
+        refine ⟨Z, hZ, ?_⟩
+        intro j hj
+        rw [Finset.mem_insert] at hj
+        rcases hj with rfl | hj
+        · exact hfZ
+        · exact (hRt j hj).trans hRZ
+  obtain ⟨R, hR, hRall⟩ := hfin Finset.univ
+  exact Set.mem_sUnion.mpr
+    ⟨R, hR, (hD hR).2 p σ a b fun i => hRall i (Finset.mem_univ i) (hfp i)⟩
+
+/-- `B-D024`: `Cgr(A)` is an algebraic closure system on `A × A`. -/
+theorem CongOn_isAlgebraicClosureSystemOn {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    IsAlgebraicClosureSystemOn (PairSpace A.1) (CongOn Sig A) :=
+  ⟨⟨univ_mem_EqvOn A.1, fun _ _ _ _ _ => trivial⟩,
+   fun _D hD _ => sInter_mem_CongOn Sig A hD,
+   fun _D hD hne hdir => sUnion_mem_CongOn Sig A hD hne hdir⟩
+
+/-- The closure operator whose closed sets are `Cgr(A)`. -/
+noncomputable def congClosureOperator {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    ClosureOperator (Set (PairSpace A.1)) :=
+  ClosureOperator.ofCompletePred (CongOn Sig A) fun D hD => by
+    show ⋂₀ D ∈ CongOn Sig A
+    exact sInter_mem_CongOn Sig A fun P hP => hD P hP
+
+/-- `B-D024`: the lattice `(Cgr(A), ⊆)` is algebraic. -/
+theorem congClosedSets_isAlgebraicLattice {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    @IsAlgebraicLattice (congClosureOperator Sig A).Closeds
+      (congClosureOperator Sig A).gi.liftCompleteLattice :=
+  isAlgebraicLattice_of_isAlgebraicClosureOperator (congClosureOperator Sig A)
+    fun _D hD hne hdir => sUnion_mem_CongOn Sig A (fun P hP => hD P hP) hne hdir
+
+/-- `B-D024`: the algebraic lattice `(Cgr(A), ⊆)`, transported to the
+congruences. -/
+noncomputable def congOrderIso {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    (congClosureOperator Sig A).Closeds ≃o
+      {Φ : SortedEqv A.1 // IsCongruence Sig A.2 Φ} where
+  toFun P := ⟨setToEqv P.2.1, P.2.2⟩
+  invFun Φ := ⟨eqvToSet Φ.1, eqvToSet_mem_EqvOn Φ.1, fun p σ a b h => Φ.2 p σ a b h⟩
+  left_inv _P := by
+    apply Subtype.ext
+    apply Set.ext
+    intro p
+    rcases p with ⟨s, x, y⟩
+    exact Iff.rfl
+  right_inv _Φ := by
+    apply Subtype.ext
+    funext s
+    apply Setoid.ext
+    intro x y
+    exact Iff.rfl
+  map_rel_iff' := by
+    intro _ _
+    constructor
+    · intro h p hp
+      rcases p with ⟨s, x, y⟩
+      exact h s hp
+    · intro h s x y hxy
+      exact h hxy
+
+/-- `B-D024`: the congruences carry the complete-lattice structure of `Cgr(A)`. -/
+@[instance_reducible]
+noncomputable def congSubtypeCompleteLattice {S : Type u} (Sig : Signature S)
+    (A : Alg Sig) : CompleteLattice {Φ : SortedEqv A.1 // IsCongruence Sig A.2 Φ} :=
+  letI := (congClosureOperator Sig A).gi.liftCompleteLattice
+  (congOrderIso Sig A).toGaloisInsertion.liftCompleteLattice
+
+attribute [instance] congSubtypeCompleteLattice
+
+/-- `B-D024`: `Cgr(A)` under inclusion is an algebraic lattice. -/
+theorem Cgr_isAlgebraicLattice {S : Type u} (Sig : Signature S) (A : Alg Sig) :
+    IsAlgebraicLattice {Φ : SortedEqv A.1 // IsCongruence Sig A.2 Φ} :=
+  @isAlgebraicLattice_of_orderIso _ _
+    ((congClosureOperator Sig A).gi.liftCompleteLattice)
+    (congSubtypeCompleteLattice Sig A)
+    (congOrderIso Sig A) (@congClosedSets_isAlgebraicLattice S Sig A)
+
 end Mslang

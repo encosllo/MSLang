@@ -5834,6 +5834,78 @@ on, and fix the derived-report defects Codex documented.
 
 ---
 
+## Session 119 -- 2026-09-21 -- Eqv(A)/Cgr(A) algebraic closure systems and lattices
+
+**Goal.** Close the last substantive correspondence gaps among the former
+partial-map blocks (Session 118 step 1): formalize `Eqv(A)` and `Cgr(A)` as
+algebraic closure systems / algebraic lattices with their extremal elements
+`Δ`/`∇`, then re-audit the two blocks. No author-reserved decision was taken.
+
+**What was established (closed).**
+
+- `lean/Mslang/Prelim.lean` -- `deltaEqv` (moved here from `Translation.lean` /
+  `B-R020`), `le_nabla`, `deltaEqv_le`, `PairSpace` (the Σ-encoded sorted product
+  `A×A`), `EqvOn`, `univ_mem_EqvOn`, `sInter_mem_EqvOn`, `sUnion_mem_EqvOn`,
+  `eqvToSet`, `eqvToSet_mem_EqvOn`, `setToEqv`, `eqvToSet_subset_iff`.
+- `lean/Mslang/Algebra.lean` -- `EqvOn_isAlgebraicClosureSystemOn`,
+  `eqvClosureOperator`, `eqvClosedSets_isAlgebraicLattice`, `eqvOrderIso`,
+  `SortedEqv_isAlgebraicLattice` (the transport of the lattice across the
+  inclusion/refinement order isomorphism).
+- `lean/Mslang/Congruence.lean` -- `deltaEqv_isCongruence`, `CongOn`,
+  `sInter_mem_CongOn`, `sUnion_mem_CongOn`, `CongOn_isAlgebraicClosureSystemOn`,
+  `congClosureOperator`, `congClosedSets_isAlgebraicLattice`, `congOrderIso`,
+  `congSubtypeCompleteLattice`, `Cgr_isAlgebraicLattice`.
+- `lean/declarations.json`: `B-D014` gains 17 declarations, `B-D024` gains 10,
+  `B-R020` loses `deltaEqv` (a class C5 ownership move to its natural block).
+- Lean gate: **408 declarations, 0 `sorry`, 0 unpermitted axioms**.
+- **Two-stage blind re-audits return `equivalent` for both blocks**:
+  `B-D014` (`E-000279`, supersedes the Session 118 `formal_weaker` `E-000277`)
+  and `B-D024` (`E-000280`, supersedes `E-000278`). Transcripts
+  `blocks/audits/B-D014-correspondence.md`, `B-D024-correspondence.md`.
+- Verification/correspondence re-issued for the moved/unblocked facets:
+  `E-000281` (`B-D014` verification), `E-000282` (`B-D024` verification),
+  `E-000283`/`E-000284` (`B-R020` verification/correspondence, `remap`).
+- Manuscript `\lean` pointers extended for `B-D014`/`B-D024` and trimmed for
+  `B-R020` to match `declarations.json`; the pointers sit before `\blockid`, so
+  anchors and importer artifacts are unchanged (`hash_blocks --check`,
+  `ingest --check` both current).
+- Reports regenerated in the Section 15.6 order; journal **`EV-000128`**. Fast
+  gate **40 passed, 0 failed**; slow gate **43 passed, 0 failed**.
+
+**Findings.**
+
+- `EqvOn` is the Σ-encoding of the S-sorted product `A×A`; `eqvOrderIso` /
+  `eqvToSet_subset_iff` are the bridge between inclusion of pair-sets and the
+  refinement order on `SortedEqv A`. This is the same `carrier-model` tension
+  recorded for `B-P001` (D2), faithful under the pilot encoding.
+- `B-D024`'s `IsCongruence` quantifies over **all** finite arities, including the
+  empty word, whereas the manuscript restricts to `S* − {λ}`. The re-audit judged
+  the difference **vacuous** (the nullary hypothesis is empty and the conclusion
+  is reflexivity), so the block is `equivalent` without a scope decision -- in
+  contrast to `B-D002`'s `Set^S` category clause, which remains a genuine gap.
+- `deltaEqv` is now owned by `B-D014`, the block that introduces it as the least
+  element of `Eqv(A)`; `B-R020` keeps `deltaEqv_eq_iInf_congCogenerated`.
+- **Lean-gate caveat (audit determinism).** The previous session's
+  `blocks/lean_audit.json` recorded `ok: false` on a
+  `congSubtypeCompleteLattice ... semireducible` warning emitted while the module
+  was being compiled; the warning is gone now that the declaration carries
+  `@[instance_reducible]`. Because `lake build` only emits a module's warnings
+  when it actually recompiles it, an incremental audit can silently show zero
+  warnings. The Session 119 audit was re-run after deleting the module's olean so
+  that the (clean) result is a *measured* one. Worth folding into the Section
+  15.6 cost model: a `build_ok` audit should force-recompile the touched module,
+  or the recorded warning set is only as fresh as the olean cache.
+
+**Prioritized next steps.**
+
+1. Author: scope decision for the `Set^S` category clause in `B-D002` (the last
+   former partial-map gap); the `B-P001` representation decision (Session 114
+   brief); reclassify the unmapped frontier and refresh `B-C003`'s rationale.
+2. Add correspondence audits for the remaining verification-only blocks.
+3. Review the undecided dependency edges by impact.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

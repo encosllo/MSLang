@@ -1,0 +1,49 @@
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000279",
+  "findings": [
+    "Full-block two-stage audit re-run after Session 119 formalized the Eqv(A) structure (deltaEqv, le_nabla, deltaEqv_le, EqvOn, EqvOn_isAlgebraicClosureSystemOn, eqvClosureOperator, eqvClosedSets_isAlgebraicLattice, eqvOrderIso, SortedEqv_isAlgebraicLattice). Stage 2 returned equivalent: the per-sort definitions, Eqv(A) as an algebraic closure system on A x A, the algebraic lattice (Eqv(A), subseteq), and the greatest/least elements nabla^A/Delta^A all have faithful counterparts. Supersedes the partial-coverage E-000277. Transcript blocks/audits/B-D014-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/definition_closure",
+      "hash": "734c53cf1b8db2b99015adc9c3b715719ca20b260452d73fa8677ec2d5a9576e"
+    },
+    {
+      "artifact": "B-D014/formal_statement",
+      "hash": "59af29d20eb2959414e8f757d97cac28fa7247175636589af164d0f6cce84c2c"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000277",
+  "timestamp": "2026-09-21T10:59:28Z"
+}

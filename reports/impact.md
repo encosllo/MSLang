@@ -18,7 +18,7 @@ rework.
 | E-000050 | `B-P004` | review |
 | E-000266 | `B-R005` | correspondence |
 | E-000267 | `B-R007` | correspondence |
-| E-000277 | `B-D014` | correspondence |
+| E-000279 | `B-D014` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

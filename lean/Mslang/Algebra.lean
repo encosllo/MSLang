@@ -628,4 +628,58 @@ noncomputable def carrierOrderIso {X : Type v} (C₀ : Set X) (C : Set (Set X))
     · intro h x hx
       exact h hx
 
+/-! ### `B-D014`: `Eqv(A)` is an algebraic closure system and algebraic lattice. -/
+
+/-- `B-D014`: `Eqv(A)` is an algebraic closure system on `A × A`. -/
+theorem EqvOn_isAlgebraicClosureSystemOn {S : Type u} (A : SSet S) :
+    IsAlgebraicClosureSystemOn (PairSpace A) (EqvOn A) :=
+  ⟨univ_mem_EqvOn A, fun _D hD _ => sInter_mem_EqvOn A hD,
+   fun _D hD hne hdir => sUnion_mem_EqvOn A hD hne hdir⟩
+
+/-- The closure operator whose closed sets are `Eqv(A)`. -/
+noncomputable def eqvClosureOperator {S : Type u} (A : SSet S) :
+    ClosureOperator (Set (PairSpace A)) :=
+  ClosureOperator.ofCompletePred (EqvOn A) fun D hD => by
+    show ⋂₀ D ∈ EqvOn A
+    exact sInter_mem_EqvOn A hD
+
+/-- `B-D014`: the lattice `(Eqv(A), ⊆)` is algebraic. -/
+theorem eqvClosedSets_isAlgebraicLattice {S : Type u} (A : SSet S) :
+    @IsAlgebraicLattice (eqvClosureOperator A).Closeds
+      (eqvClosureOperator A).gi.liftCompleteLattice :=
+  isAlgebraicLattice_of_isAlgebraicClosureOperator (eqvClosureOperator A)
+    fun _D hD hne hdir => sUnion_mem_EqvOn A (fun P hP => hD P hP) hne hdir
+
+/-- `B-D014`: the algebraic lattice `(Eqv(A), ⊆)`, transported to the sorted
+equivalences. -/
+noncomputable def eqvOrderIso {S : Type u} (A : SSet S) :
+    (eqvClosureOperator A).Closeds ≃o SortedEqv A where
+  toFun P := setToEqv P.2
+  invFun Φ := ⟨eqvToSet Φ, eqvToSet_mem_EqvOn Φ⟩
+  left_inv _P := by
+    apply Subtype.ext
+    apply Set.ext
+    intro p
+    rcases p with ⟨s, x, y⟩
+    exact Iff.rfl
+  right_inv _Φ := by
+    funext s
+    apply Setoid.ext
+    intro x y
+    exact Iff.rfl
+  map_rel_iff' := by
+    intro _ _
+    constructor
+    · intro h p hp
+      rcases p with ⟨s, x, y⟩
+      exact h s hp
+    · intro h s x y hxy
+      exact h hxy
+
+/-- `B-D014`: `Eqv(A)` under inclusion is an algebraic lattice. -/
+theorem SortedEqv_isAlgebraicLattice {S : Type u} (A : SSet S) :
+    IsAlgebraicLattice (SortedEqv A) := by
+  letI := (eqvClosureOperator A).gi.liftCompleteLattice
+  exact isAlgebraicLattice_of_orderIso (eqvOrderIso A) (eqvClosedSets_isAlgebraicLattice A)
+
 end Mslang

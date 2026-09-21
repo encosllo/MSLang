@@ -1,0 +1,38 @@
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000281",
+  "findings": [
+    "Verification re-issued after the Session 119 formalization added the Eqv(A) algebraic-closure-system/algebraic-lattice declarations to this block's map; lake build clean, 0 sorry, axioms within the permitted set (blocks/lean_audit.json)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D014/formal_proof",
+      "hash": "5c82697c94d11e058e39d9bfe93a9fb7df2b5ec591bc905d1c5cb3bb91eae879"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000260",
+  "timestamp": "2026-09-21T10:59:36Z"
+}

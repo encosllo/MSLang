@@ -1,0 +1,38 @@
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000282",
+  "findings": [
+    "Verification re-issued after the Session 119 formalization added the Cgr(A) algebraic-closure-system/algebraic-lattice declarations to this block's map; lake build clean, 0 sorry, axioms within the permitted set (blocks/lean_audit.json)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D024/formal_proof",
+      "hash": "19249074c8d326e2cb8efe9f7b9307e8121024b98022d1168001a8c19c447e53"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000070",
+  "timestamp": "2026-09-21T10:59:36Z"
+}

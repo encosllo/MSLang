@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/formal.json` | `88a32bbb07846b63e31aef7af8b82c131628d7c74b17e1ae5c462a01ccf8eba4` |
-| `blocks/formal_graph.json` | `dcfd8a0cc13333295b08ff3f6f20612be0dc4d6184b2c05983036e1108a5ab88` |
+| `blocks/formal.json` | `647978a69c78e9c2c6971169e5a2ade60634178dd3c7ce5770460a008d9e667e` |
+| `blocks/formal_graph.json` | `ec6fc9b18e1708f529d627a4b284ea79045125ebd0513564a0624176d0c8a798` |
 | `blocks/graph.json` | `81091516c7aa6c6b30db4c9a595db58dcd5fead4a03646b13539d911f7e4863b` |
 | `blocks/hashes.json` | `7a30927b7d511e1f04e44eb228ebf6ad0a31b21aa48679f5acfc70bed03c7659` |
-| `blocks/lean_audit.json` | `6b2b69a89276db0871a9bdbf8461b8a7092583a891ee9dbc029583ea362cfe0d` |
+| `blocks/lean_audit.json` | `faeffdd584ce28562d18ba7d173bdfcc3e6fe1ee9d6aa336cee3efbe16158fe8` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/registry.json` | `6269ad1438d51e435713969f2f448ddf77c93671fd4e310c280b86fe08785fd1` |
@@ -304,10 +304,16 @@ repository.
 | `evidence/E-000276.json` | `b2be4c6abeb7a2c68a396d7cbde0923d351116dcfe6fc375b6a607571dad9d98` |
 | `evidence/E-000277.json` | `c30e779453b276361909154c42db556b88706a1a56da2cc9daf411ff095d2777` |
 | `evidence/E-000278.json` | `7ef2c1886281d6513c348deecbad8e613ce397d64accc71496d227d71aa499ee` |
-| `journal/events.jsonl` | `69e639ce158c36831e498276c06e25d63394b794dbf0d1031270146124cd7e1e` |
+| `evidence/E-000279.json` | `b1922588520f718f6d69a56209d23088c0128bb0abfd0e615885787257aca3a5` |
+| `evidence/E-000280.json` | `38150285d023fb2550fa56e799ed89ea00f0c681af1bd2fca6d75fe55fcf01df` |
+| `evidence/E-000281.json` | `900db622fcec9c88e21060862a2eec9ff054d3720daa8d83199f391fe953a678` |
+| `evidence/E-000282.json` | `cbd06bf80d3da6fea2f3642fa05acbd4c5d7ff074bc4ccbdc259970942469a64` |
+| `evidence/E-000283.json` | `31fc655c59016719940b36d53be59c5f43005da5151a9ef023181a5a443c52ec` |
+| `evidence/E-000284.json` | `6afe64e84f851b8225fd9207265b35ed9dcdfba508c1218709433e5b938fd4f6` |
+| `journal/events.jsonl` | `8a438ff5efba120298d5e101e80b1e48ed1fab3f5d8b20532d0cc1bd01d1a6cc` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
-| `manuscript/MSEilenberg.tex` | `55403967e635652d4eb4a44e16883c17a95507b7e92091e0432fc76d7072a87a` |
+| `manuscript/MSEilenberg.tex` | `13b527ff84f195359ee07d42ad90cdd1df61727ed93caf24b899b3b038e73822` |
 | `reconciliation/proposals.json` | `cad78706a93883a409b94262b40fa06e3a1eec3d680abe1aab0645c038cccabd` |
 | `representation/pilot-encoding.md` | `96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1` |
 | `schemas/evidence.schema.json` | `c6cca4d570f1ff68ed94ab9b38efad979074c6e2ce3bf5db1f663aa379550449` |
@@ -361,8 +367,8 @@ repository.
 | `B-D011` | verification | pass | 1 | 0 |
 | `B-D012` | verification | pass | 1 | 1 |
 | `B-D013` | verification | pass | 1 | 0 |
-| `B-D014` | correspondence | fail | 1 | 0 |
-| `B-D014` | verification | pass | 1 | 1 |
+| `B-D014` | correspondence | provisional | 1 | 1 |
+| `B-D014` | verification | pass | 1 | 2 |
 | `B-D015` | verification | pass | 1 | 2 |
 | `B-D016` | verification | pass | 1 | 0 |
 | `B-D017` | verification | pass | 1 | 0 |
@@ -372,8 +378,8 @@ repository.
 | `B-D021` | verification | pass | 1 | 0 |
 | `B-D022` | verification | pass | 1 | 0 |
 | `B-D023` | verification | pass | 1 | 0 |
-| `B-D024` | correspondence | fail | 1 | 0 |
-| `B-D024` | verification | pass | 1 | 0 |
+| `B-D024` | correspondence | provisional | 1 | 1 |
+| `B-D024` | verification | pass | 1 | 1 |
 | `B-D025` | verification | pass | 1 | 0 |
 | `B-D026` | verification | pass | 1 | 0 |
 | `B-D027` | verification | pass | 1 | 1 |
@@ -507,8 +513,8 @@ repository.
 | `B-R018` | verification | pass | 1 | 0 |
 | `B-R019` | correspondence | provisional | 1 | 0 |
 | `B-R019` | verification | provisional | 1 | 0 |
-| `B-R020` | correspondence | stale | 0 | 1 |
-| `B-R020` | verification | pass | 1 | 0 |
+| `B-R020` | correspondence | provisional | 1 | 1 |
+| `B-R020` | verification | pass | 1 | 1 |
 | `B-R021` | correspondence | stale | 0 | 1 |
 | `B-R021` | verification | pass | 1 | 1 |
 | `B-R022` | verification | pass | 1 | 0 |
@@ -12941,6 +12947,302 @@ repository.
 }
 ```
 
+### E-000279
+
+```json
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000279",
+  "findings": [
+    "Full-block two-stage audit re-run after Session 119 formalized the Eqv(A) structure (deltaEqv, le_nabla, deltaEqv_le, EqvOn, EqvOn_isAlgebraicClosureSystemOn, eqvClosureOperator, eqvClosedSets_isAlgebraicLattice, eqvOrderIso, SortedEqv_isAlgebraicLattice). Stage 2 returned equivalent: the per-sort definitions, Eqv(A) as an algebraic closure system on A x A, the algebraic lattice (Eqv(A), subseteq), and the greatest/least elements nabla^A/Delta^A all have faithful counterparts. Supersedes the partial-coverage E-000277. Transcript blocks/audits/B-D014-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/definition_closure",
+      "hash": "734c53cf1b8db2b99015adc9c3b715719ca20b260452d73fa8677ec2d5a9576e"
+    },
+    {
+      "artifact": "B-D014/formal_statement",
+      "hash": "59af29d20eb2959414e8f757d97cac28fa7247175636589af164d0f6cce84c2c"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000277",
+  "timestamp": "2026-09-21T10:59:28Z"
+}
+```
+
+### E-000280
+
+```json
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000280",
+  "findings": [
+    "Full-block two-stage audit re-run after Session 119 formalized the Cgr(A) structure (deltaEqv_isCongruence, CongOn, CongOn_isAlgebraicClosureSystemOn, congClosureOperator, congClosedSets_isAlgebraicLattice, congOrderIso, congSubtypeCompleteLattice, Cgr_isAlgebraicLattice). Stage 2 returned equivalent: the compatibility clause, Cgr(A) as an algebraic closure system on A x A, the algebraic lattice (Cgr(A), subseteq), and the top/bottom elements nabla^A/Delta^A all have faithful counterparts; the only deviation is that Lean quantifies over nullary arities too, which is vacuous (the nullary clause reduces to reflexivity), not additional content. Supersedes the partial-coverage E-000278. Transcript blocks/audits/B-D024-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D024/definition_closure",
+      "hash": "172650c8f53a32943f387cb2c8366b87c1b7ba41b634fd2975bce1e44aa4b052"
+    },
+    {
+      "artifact": "B-D024/formal_statement",
+      "hash": "973b182c696bc9deec2dabe17bb4144917420c38fa1e000a6eb810c9d595715d"
+    },
+    {
+      "artifact": "B-D024/informal_statement",
+      "hash": "3998573186134411b3b9e27a39fd078db150cc290b798c44c78b192fa979bf31"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000278",
+  "timestamp": "2026-09-21T10:59:31Z"
+}
+```
+
+### E-000281
+
+```json
+{
+  "block": "B-D014",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000281",
+  "findings": [
+    "Verification re-issued after the Session 119 formalization added the Eqv(A) algebraic-closure-system/algebraic-lattice declarations to this block's map; lake build clean, 0 sorry, axioms within the permitted set (blocks/lean_audit.json)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D014/formal_proof",
+      "hash": "5c82697c94d11e058e39d9bfe93a9fb7df2b5ec591bc905d1c5cb3bb91eae879"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000260",
+  "timestamp": "2026-09-21T10:59:36Z"
+}
+```
+
+### E-000282
+
+```json
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000282",
+  "findings": [
+    "Verification re-issued after the Session 119 formalization added the Cgr(A) algebraic-closure-system/algebraic-lattice declarations to this block's map; lake build clean, 0 sorry, axioms within the permitted set (blocks/lean_audit.json)."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D024/formal_proof",
+      "hash": "19249074c8d326e2cb8efe9f7b9307e8121024b98022d1168001a8c19c447e53"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000070",
+  "timestamp": "2026-09-21T10:59:36Z"
+}
+```
+
+### E-000283
+
+```json
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000283",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap (deltaEqv moved to B-D014, where it is the least element of Eqv(A)); the pinned build is unchanged apart from declaration ownership."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R020/formal_proof",
+      "hash": "fa254a205057e5e4e6bb6419ad8df3ec489a497d4d5521fb461471ed6a6724d4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000156",
+  "timestamp": "2026-09-21T10:59:36Z"
+}
+```
+
+### E-000284
+
+```json
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000284",
+  "findings": [
+    "Re-bound after a class C5 declaration remap (deltaEqv re-registered under B-D014; deltaEqv_eq_iInf_congCogenerated remains under B-R020). Verdict unchanged (equivalent); transcript blocks/audits/B-R020-correspondence.md kept."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R020/definition_closure",
+      "hash": "f0d3ec0c13bda38a677334c0dafe0069097dce4dfc7e3ed7cfe0e2c6f0fa59e9"
+    },
+    {
+      "artifact": "B-R020/formal_statement",
+      "hash": "2ef4b1ef17fafe1645d668340b478a810eb4e151b4d230ee8525d2cd1d8aa5dd"
+    },
+    {
+      "artifact": "B-R020/informal_statement",
+      "hash": "d57fad93f6634aba4d75d8dbe6774721b77d9a090f39abfd91a1348b239e849b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000157",
+  "timestamp": "2026-09-21T10:59:36Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -12952,7 +13254,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 123
-- Evidence records: 278
+- Evidence records: 284
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -12991,7 +13293,7 @@ assertion).
 | `B-D011` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D012` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D013` | definition | Preliminaries. | none | none | pass | none | - |
-| `B-D014` | definition | Preliminaries. | none | fail | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D014` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D015` | definition | Preliminaries. | none | none | pass | none | carrier-model; small-large; univalence-missing |
 | `B-D016` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D017` | definition | Preliminaries. | none | none | pass | none | - |
@@ -13001,7 +13303,7 @@ assertion).
 | `B-D021` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D022` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D023` | definition | Preliminaries. | none | none | pass | none | - |
-| `B-D024` | definition | Preliminaries. | none | fail | pass | none | - |
+| `B-D024` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D025` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D026` | definition | Preliminaries. | none | none | pass | none | - |
 | `B-D027` | definition | Preliminaries. | none | none | pass | none | - |
@@ -13079,7 +13381,7 @@ assertion).
 | `B-R017` | remark | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-R018` | remark | Elementary translations and translations. | none | provisional | pass | none | - |
 | `B-R019` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | provisional | none | - |
-| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
+| `B-R020` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
 | `B-R021` | remark | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | stale | pass | none | - |
 | `B-R022` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
 | `B-R023` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | none | pass | none | - |
@@ -13202,7 +13504,7 @@ and symbol/prose edges.
 
 Mapped blocks: `B-A001`, `B-C001`, `B-C002`, `B-C004`, `B-C005`, `B-C006`, `B-C007`, `B-C008`, `B-C009`, `B-C010`, `B-C011`, `B-C012`, `B-C013`, `B-D001`, `B-D002`, `B-D003`, `B-D004`, `B-D005`, `B-D006`, `B-D007`, `B-D008`, `B-D009`, `B-D010`, `B-D011`, `B-D012`, `B-D013`, `B-D014`, `B-D015`, `B-D016`, `B-D017`, `B-D018`, `B-D019`, `B-D020`, `B-D021`, `B-D022`, `B-D023`, `B-D024`, `B-D025`, `B-D026`, `B-D027`, `B-D028`, `B-D029`, `B-D030`, `B-D031`, `B-D032`, `B-D033`, `B-D034`, `B-D035`, `B-D036`, `B-D037`, `B-D038`, `B-D039`, `B-D040`, `B-D041`, `B-D042`, `B-D043`, `B-D044`, `B-D045`, `B-D046`, `B-L001`, `B-P001`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P008`, `B-P009`, `B-P010`, `B-P011`, `B-P012`, `B-P013`, `B-P014`, `B-P015`, `B-P016`, `B-P017`, `B-P018`, `B-P019`, `B-P020`, `B-P021`, `B-P022`, `B-P023`, `B-P024`, `B-P025`, `B-P026`, `B-P027`, `B-P028`, `B-P029`, `B-P030`, `B-P031`, `B-P032`, `B-P033`, `B-P034`, `B-P035`, `B-P036`, `B-P037`, `B-P038`, `B-P039`, `B-R001`, `B-R003`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R009`, `B-R010`, `B-R011`, `B-R012`, `B-R014`, `B-R016`, `B-R017`, `B-R018`, `B-R019`, `B-R020`, `B-R021`, `B-R022`, `B-R023`, `B-R024`, `B-R026`, `B-X001`, `B-X002`
 
-## Undecided edges (604)
+## Undecided edges (606)
 
 These rows have neither a recorded disposition nor a default; they are
 the review queue.
@@ -13299,6 +13601,7 @@ the review queue.
 | `B-D013` | `B-D005` |
 | `B-D013` | `B-P005` |
 | `B-D014` | `B-D005` |
+| `B-D014` | `B-D011` |
 | `B-D015` | `B-D014` |
 | `B-D017` | `B-D016` |
 | `B-D018` | `B-D009` |
@@ -13320,6 +13623,7 @@ the review queue.
 | `B-D023` | `B-D016` |
 | `B-D023` | `B-D017` |
 | `B-D023` | `B-D020` |
+| `B-D024` | `B-D011` |
 | `B-D024` | `B-D014` |
 | `B-D024` | `B-D016` |
 | `B-D024` | `B-D017` |
@@ -13818,7 +14122,7 @@ the review queue.
 
 | disposition | count |
 |---|---|
-| type-carrier | 81 |
+| type-carrier | 80 |
 
 ## Reviewed dispositions
 
@@ -13939,7 +14243,7 @@ rework.
 | E-000050 | `B-P004` | review |
 | E-000266 | `B-R005` | correspondence |
 | E-000267 | `B-R007` | correspondence |
-| E-000277 | `B-D014` | correspondence |
+| E-000279 | `B-D014` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -13978,8 +14282,8 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-D003` | correspondence | provisional | 1 | 0 |
 | `B-D004` | correspondence | provisional | 1 | 2 |
 | `B-D006` | correspondence | provisional | 1 | 0 |
-| `B-D014` | correspondence | fail | 1 | 0 |
-| `B-D024` | correspondence | fail | 1 | 0 |
+| `B-D014` | correspondence | provisional | 1 | 1 |
+| `B-D024` | correspondence | provisional | 1 | 1 |
 | `B-L001` | correspondence | provisional | 1 | 1 |
 | `B-P001` | correspondence | fail | 1 | 0 |
 | `B-P002` | correspondence | stale | 0 | 4 |
@@ -14040,7 +14344,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R018` | correspondence | provisional | 1 | 0 |
 | `B-R019` | correspondence | provisional | 1 | 0 |
 | `B-R019` | verification | provisional | 1 | 0 |
-| `B-R020` | correspondence | stale | 0 | 1 |
+| `B-R020` | correspondence | provisional | 1 | 1 |
 | `B-R021` | correspondence | stale | 0 | 1 |
 | `B-R024` | correspondence | provisional | 1 | 0 |
 | `B-R024` | verification | provisional | 1 | 0 |

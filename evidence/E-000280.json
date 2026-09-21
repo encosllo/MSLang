@@ -1,0 +1,49 @@
+{
+  "block": "B-D024",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000280",
+  "findings": [
+    "Full-block two-stage audit re-run after Session 119 formalized the Cgr(A) structure (deltaEqv_isCongruence, CongOn, CongOn_isAlgebraicClosureSystemOn, congClosureOperator, congClosedSets_isAlgebraicLattice, congOrderIso, congSubtypeCompleteLattice, Cgr_isAlgebraicLattice). Stage 2 returned equivalent: the compatibility clause, Cgr(A) as an algebraic closure system on A x A, the algebraic lattice (Cgr(A), subseteq), and the top/bottom elements nabla^A/Delta^A all have faithful counterparts; the only deviation is that Lean quantifies over nullary arities too, which is vacuous (the nullary clause reduces to reflexivity), not additional content. Supersedes the partial-coverage E-000278. Transcript blocks/audits/B-D024-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D024/definition_closure",
+      "hash": "172650c8f53a32943f387cb2c8366b87c1b7ba41b634fd2975bce1e44aa4b052"
+    },
+    {
+      "artifact": "B-D024/formal_statement",
+      "hash": "973b182c696bc9deec2dabe17bb4144917420c38fa1e000a6eb810c9d595715d"
+    },
+    {
+      "artifact": "B-D024/informal_statement",
+      "hash": "3998573186134411b3b9e27a39fd078db150cc290b798c44c78b192fa979bf31"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000278",
+  "timestamp": "2026-09-21T10:59:31Z"
+}

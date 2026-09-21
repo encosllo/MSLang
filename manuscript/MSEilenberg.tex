@@ -499,7 +499,7 @@ Unlike what it happens in the many-sorted case, the concept of uniformity does n
 %See~\cite{cs10}.
 %\end{proof}
 
-\lean{\detokenize{Mslang.SortedEqv}, \detokenize{Mslang.sat}, \detokenize{Mslang.IsSat}, \detokenize{Mslang.quot}, \detokenize{Mslang.pr}, \detokenize{Mslang.eqvClass}, \detokenize{Mslang.nabla}, \detokenize{Mslang.satSets}, \detokenize{Mslang.sortedEqvLe}, \detokenize{Mslang.sortedEqvInf}, \detokenize{Mslang.sortedEqv_iInf}}
+\lean{\detokenize{Mslang.SortedEqv}, \detokenize{Mslang.sat}, \detokenize{Mslang.IsSat}, \detokenize{Mslang.quot}, \detokenize{Mslang.pr}, \detokenize{Mslang.eqvClass}, \detokenize{Mslang.nabla}, \detokenize{Mslang.satSets}, \detokenize{Mslang.sortedEqvLe}, \detokenize{Mslang.sortedEqvInf}, \detokenize{Mslang.sortedEqv_iInf}, \detokenize{Mslang.deltaEqv}, \detokenize{Mslang.le_nabla}, \detokenize{Mslang.deltaEqv_le}, \detokenize{Mslang.PairSpace}, \detokenize{Mslang.EqvOn}, \detokenize{Mslang.univ_mem_EqvOn}, \detokenize{Mslang.sInter_mem_EqvOn}, \detokenize{Mslang.sUnion_mem_EqvOn}, \detokenize{Mslang.eqvToSet}, \detokenize{Mslang.eqvToSet_mem_EqvOn}, \detokenize{Mslang.setToEqv}, \detokenize{Mslang.eqvToSet_subset_iff}, \detokenize{Mslang.EqvOn_isAlgebraicClosureSystemOn}, \detokenize{Mslang.eqvClosureOperator}, \detokenize{Mslang.eqvClosedSets_isAlgebraicLattice}, \detokenize{Mslang.eqvOrderIso}, \detokenize{Mslang.SortedEqv_isAlgebraicLattice}}
 \blockid{B-D014}
 \begin{definition}
 An $S$-\emph{sorted equivalence relation on} (or, to abbreviate, an $S$-\emph{sorted equivalence on}) an $S$-sorted set $A$ is an $S$-sorted relation $\Phi$ on $A$, i.e., a subset $\Phi = (\Phi_{s})_{s\in S}$ of the cartesian product $A\times A = (A_{s}\times A_{s})_{s\in S}$ such that, for every $s\in S$, $\Phi_{s}$ is an equivalence relation on $A_{s}$. We denote by $\mathrm{Eqv}(A)$ the set of all $S$-sorted equivalences on $A$ (which is an algebraic closure system on $A\times A$), by $\mathbf{Eqv}(A)$ the algebraic lattice  $(\mathrm{Eqv}(A),\subseteq)$, by $\nabla^{A}$ the greatest element of $\mathbf{Eqv}(A)$, and by $\Delta^{A}$ the least element of $\mathbf{Eqv}(A)$.
@@ -836,7 +836,7 @@ If $\mathbf{A}$ is subfinal, then, for every $\Sigma$-algebra $\mathbf{B}$, ther
 
 Our next goal is to define the concepts of congruence on a $\Sigma$-algebra and of quotient of a $\Sigma$-algebra by a congruence on it. Moreover, we recall the notion of kernel of a homomorphism between $\Sigma$-algebras and the universal property of the quotient of a $\Sigma$-algebra by a congruence on it.
 
-\lean{\detokenize{Mslang.IsCongruence}}
+\lean{\detokenize{Mslang.IsCongruence}, \detokenize{Mslang.deltaEqv_isCongruence}, \detokenize{Mslang.CongOn}, \detokenize{Mslang.sInter_mem_CongOn}, \detokenize{Mslang.sUnion_mem_CongOn}, \detokenize{Mslang.CongOn_isAlgebraicClosureSystemOn}, \detokenize{Mslang.congClosureOperator}, \detokenize{Mslang.congClosedSets_isAlgebraicLattice}, \detokenize{Mslang.congOrderIso}, \detokenize{Mslang.congSubtypeCompleteLattice}, \detokenize{Mslang.Cgr_isAlgebraicLattice}}
 \blockid{B-D024}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $\Phi$ an $S$-sorted equivalence on $A$. We say that $\Phi$ is an
@@ -1735,7 +1735,7 @@ It is straightforward to verify that, for every $s\in S$ and every $a\in A_{s}$,
 Reciprocally, let $s$ be an element of $S$ and $a$, $b\in A_{s}$. If $(a,b)\not\in \Phi_{s}$, then $(a,b)\not\in \mathrm{Ker}(\mathrm{ch}^{\delta^{s,[a]_{\Phi_{s}}}})_{s}$. Hence $(a,b)\not\in \Omega^{\mathbf{A}}(\delta^{s,[a]_{\Phi_{s}}})_{s}$. Therefore we have that $\bigcap\{\Omega^{\mathbf{A}}(\delta^{s,[a]_{\Phi_{s}}})\mid s\in S \! \And\! a\in A_{s}\}\subseteq \Phi$.
 \end{proof}
 
-\lean{\detokenize{Mslang.deltaEqv}, \detokenize{Mslang.deltaEqv_eq_iInf_congCogenerated}}
+\lean{\detokenize{Mslang.deltaEqv_eq_iInf_congCogenerated}}
 \blockid{B-R020}
 \begin{remark}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then we have that

@@ -1,0 +1,38 @@
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000283",
+  "findings": [
+    "Verification re-issued after a class C5 declaration remap (deltaEqv moved to B-D014, where it is the least element of Eqv(A)); the pinned build is unchanged apart from declaration ownership."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-R020/formal_proof",
+      "hash": "fa254a205057e5e4e6bb6419ad8df3ec489a497d4d5521fb461471ed6a6724d4"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000156",
+  "timestamp": "2026-09-21T10:59:36Z"
+}

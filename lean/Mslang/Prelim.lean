@@ -188,6 +188,85 @@ theorem le_sortedEqv_iInf {S : Type u} {A : SSet S} {ι : Type u}
     (h : ∀ i, sortedEqvLe Ψ (Φ i)) : sortedEqvLe Ψ (sortedEqv_iInf Φ) :=
   fun s x y hxy i => h i s x y hxy
 
+/-! ### `B-D014`: `Eqv(A)` is an algebraic closure system and algebraic lattice. -/
+
+/-- `B-D014`: the least sorted equivalence, the diagonal `Δ^A`. -/
+@[instance_reducible]
+def deltaEqv {S : Type u} (A : SSet S) : SortedEqv A :=
+  fun _ =>
+    ⟨fun x y => x = y,
+     ⟨fun _ => rfl, fun h => h.symm, fun h1 h2 => h1.trans h2⟩⟩
+
+/-- `B-D014`: `∇^A` is the greatest sorted equivalence. -/
+theorem le_nabla {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    sortedEqvLe Φ (nabla A) := fun _ _ _ _ => trivial
+
+/-- `B-D014`: `Δ^A` is the least sorted equivalence. -/
+theorem deltaEqv_le {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    sortedEqvLe (deltaEqv A) Φ := fun _ _ _ h => h ▸ (Φ _).refl _
+
+/-- `B-D014`: the total space `A × A` of pairs, flattened over the sorts. -/
+abbrev PairSpace {S : Type u} (A : SSet S) : Type u := Sigma (fun s => A s × A s)
+
+/-- `B-D014`: `Eqv(A)`, the set of `S`-sorted equivalences on `A`, as the
+per-sort equivalence relations on the total space `A × A`. -/
+def EqvOn {S : Type u} (A : SSet S) : Set (Set (PairSpace A)) :=
+  {P | ∀ s, Equivalence (fun x y : A s => (⟨s, x, y⟩ : PairSpace A) ∈ P)}
+
+theorem univ_mem_EqvOn {S : Type u} (A : SSet S) : Set.univ ∈ EqvOn A :=
+  fun _ => ⟨fun _ => trivial, fun _ => trivial, fun _ _ => trivial⟩
+
+theorem sInter_mem_EqvOn {S : Type u} (A : SSet S) {D : Set (Set (PairSpace A))}
+    (hD : D ⊆ EqvOn A) : ⋂₀ D ∈ EqvOn A := by
+  by_cases hne : D.Nonempty
+  · intro s
+    refine ⟨?_, ?_, ?_⟩
+    · intro x P hP
+      exact (hD hP s).refl x
+    · intro x y hxy P hP
+      exact (hD hP s).symm (hxy P hP)
+    · intro x y z hxy hyz P hP
+      exact (hD hP s).trans (hxy P hP) (hyz P hP)
+  · rw [Set.not_nonempty_iff_eq_empty.mp hne, Set.sInter_empty]
+    exact univ_mem_EqvOn A
+
+theorem sUnion_mem_EqvOn {S : Type u} (A : SSet S) {D : Set (Set (PairSpace A))}
+    (hD : D ⊆ EqvOn A) (hne : D.Nonempty)
+    (hdir : ∀ P ∈ D, ∀ Q ∈ D, ∃ R ∈ D, P ⊆ R ∧ Q ⊆ R) :
+    ⋃₀ D ∈ EqvOn A := by
+  intro s
+  obtain ⟨P₀, hP₀⟩ := hne
+  refine ⟨?_, ?_, ?_⟩
+  · intro x
+    exact ⟨P₀, hP₀, (hD hP₀ s).refl x⟩
+  · rintro x y ⟨P, hP, hxy⟩
+    exact ⟨P, hP, (hD hP s).symm hxy⟩
+  · rintro x y z ⟨P, hP, hxy⟩ ⟨Q, hQ, hyz⟩
+    obtain ⟨R, hR, hPR, hQR⟩ := hdir P hP Q hQ
+    exact ⟨R, hR, (hD hR s).trans (hPR hxy) (hQR hyz)⟩
+
+/-- `B-D014`: the flattened relation of a sorted equivalence. -/
+def eqvToSet {S : Type u} {A : SSet S} (Φ : SortedEqv A) : Set (PairSpace A) :=
+  {p | (Φ p.1).r p.2.1 p.2.2}
+
+theorem eqvToSet_mem_EqvOn {S : Type u} {A : SSet S} (Φ : SortedEqv A) :
+    eqvToSet Φ ∈ EqvOn A := fun s => (Φ s).iseqv
+
+/-- `B-D014`: a sorted equivalence read off a closed subset. -/
+@[instance_reducible]
+def setToEqv {S : Type u} {A : SSet S} {P : Set (PairSpace A)} (hP : P ∈ EqvOn A) :
+    SortedEqv A :=
+  fun s => ⟨fun x y => (⟨s, x, y⟩ : PairSpace A) ∈ P, hP s⟩
+
+theorem eqvToSet_subset_iff {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) :
+    eqvToSet Φ ⊆ eqvToSet Ψ ↔ sortedEqvLe Φ Ψ := by
+  constructor
+  · intro h s x y hxy
+    exact h (show (⟨s, x, y⟩ : PairSpace A) ∈ eqvToSet Φ from hxy)
+  · intro h p hp
+    rcases p with ⟨s, x, y⟩
+    exact h s x y hp
+
 /-- Proposition `B-P004`: saturation by a meet is contained in the meet of the
 saturations. -/
 theorem sat_inf_subset {S : Type u} {A : SSet S} (Φ Ψ : SortedEqv A) (X : Sub A) :

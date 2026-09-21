@@ -158,8 +158,32 @@
         "Mslang.satSets",
         "Mslang.sortedEqvLe",
         "Mslang.sortedEqvInf",
-        "Mslang.sortedEqv_iInf"
+        "Mslang.sortedEqv_iInf",
+        "Mslang.deltaEqv",
+        "Mslang.le_nabla",
+        "Mslang.deltaEqv_le",
+        "Mslang.PairSpace",
+        "Mslang.EqvOn",
+        "Mslang.univ_mem_EqvOn",
+        "Mslang.sInter_mem_EqvOn",
+        "Mslang.sUnion_mem_EqvOn",
+        "Mslang.eqvToSet",
+        "Mslang.eqvToSet_mem_EqvOn",
+        "Mslang.setToEqv",
+        "Mslang.eqvToSet_subset_iff",
+        "Mslang.EqvOn_isAlgebraicClosureSystemOn",
+        "Mslang.eqvClosureOperator",
+        "Mslang.eqvClosedSets_isAlgebraicLattice",
+        "Mslang.eqvOrderIso",
+        "Mslang.SortedEqv_isAlgebraicLattice"
       ],
+      "decl_files": {
+        "Mslang.EqvOn_isAlgebraicClosureSystemOn": "lean/Mslang/Algebra.lean",
+        "Mslang.eqvClosureOperator": "lean/Mslang/Algebra.lean",
+        "Mslang.eqvClosedSets_isAlgebraicLattice": "lean/Mslang/Algebra.lean",
+        "Mslang.eqvOrderIso": "lean/Mslang/Algebra.lean",
+        "Mslang.SortedEqv_isAlgebraicLattice": "lean/Mslang/Algebra.lean"
+      },
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-D004": {
@@ -207,7 +231,19 @@
       "file": "lean/Mslang/Prelim.lean"
     },
     "B-D024": {
-      "decl": "Mslang.IsCongruence",
+      "decls": [
+        "Mslang.IsCongruence",
+        "Mslang.deltaEqv_isCongruence",
+        "Mslang.CongOn",
+        "Mslang.sInter_mem_CongOn",
+        "Mslang.sUnion_mem_CongOn",
+        "Mslang.CongOn_isAlgebraicClosureSystemOn",
+        "Mslang.congClosureOperator",
+        "Mslang.congClosedSets_isAlgebraicLattice",
+        "Mslang.congOrderIso",
+        "Mslang.congSubtypeCompleteLattice",
+        "Mslang.Cgr_isAlgebraicLattice"
+      ],
       "file": "lean/Mslang/Congruence.lean"
     },
     "B-D025": {
@@ -742,7 +778,6 @@
     },
     "B-R020": {
       "decls": [
-        "Mslang.deltaEqv",
         "Mslang.deltaEqv_eq_iInf_congCogenerated"
       ],
       "file": "lean/Mslang/Translation.lean"

@@ -5,56 +5,72 @@ fresh subagents with isolated contexts; neither was told the expected answer.
 Stage 1 saw only the Lean declarations and their definitions (no manuscript, no
 project history). Stage 2 saw only the stage 1 read-back and the contract.
 
-- **Lean declarations:** `Mslang.IsCongruence` (`lean/Mslang/Congruence.lean`)
-- **Contract:** Definition `B-D024`, section "Σ-algebra formations".
-- **Outcome:** `formal_weaker` (the defining compatibility clause is faithful,
-  and in fact generalized; the `Cgr(A)` closure-system/lattice claims and the
-  greatest/least congruence elements are not formalized)
-- **Recorded as:** `E-000278`
+- **Lean declarations:** `Mslang.IsCongruence`, `Mslang.deltaEqv_isCongruence`,
+  `Mslang.CongOn`, `Mslang.sInter_mem_CongOn`, `Mslang.sUnion_mem_CongOn`,
+  `Mslang.CongOn_isAlgebraicClosureSystemOn`, `Mslang.congClosureOperator`,
+  `Mslang.congClosedSets_isAlgebraicLattice`, `Mslang.congOrderIso`,
+  `Mslang.congSubtypeCompleteLattice`, `Mslang.Cgr_isAlgebraicLattice`
+  (`lean/Mslang/Congruence.lean`)
+- **Contract:** Definition `B-D024`, section "Preliminaries".
+- **Outcome:** `equivalent` (re-run in Session 119 after the `Cgr(A)` structure
+  was formalized; supersedes the Session 118 `formal_weaker` verdict)
+- **Recorded as:** `E-000280` (supersedes `E-000278`)
 - **Encoding:** dependent-type carrier model, `representation/pilot-encoding.md`.
 - **Independence:** both stages share this session's underlying model
   (`deepseek-v4.1-flash`); shared blind spots are not excluded.
 
 ## Stage 1 -- read-back (fresh agent, Lean only)
 
-> `IsCongruence Sig F Φ` (def, `Prop`): the sorted equivalence `Φ` on the carrier
-> `A` is compatible with the algebra structure `F` for signature `Sig`. It
-> quantifies over every arity/coarity pair `p = (w, s)` (`w : List S`), every
-> operation symbol `σ : Sig p`, and every two tuples `a b : wordProd A w`.
-> Hypothesis: `∀ i, (Φ (w.get i)).r (a i) (b i)`. Conclusion:
-> `(Φ s).r (F p σ a) (F p σ b)`. The arity `w` is an arbitrary finite list of
-> sorts (the empty list included). No declaration asserts that the set of
-> congruences `Cgr(A)` is a closure system or lattice, nor states greatest/least
-> congruence elements.
+> `IsCongruence Sig F Φ`: the sorted equivalence `Φ` is compatible with the
+> algebra structure `F` for signature `Sig` -- for every arity/coarity pair
+> `p = (w, s)`, every symbol `σ : Sig p`, and all tuples `a b`, if
+> `a i ~ b i` at every position `i` then `F p σ a ~ F p σ b`. `w` is an
+> arbitrary finite list of sorts, the empty list included (there the hypothesis
+> is vacuous and the conclusion is reflexivity). `CongOn Sig A` is the same
+> condition on pair-sets in `EqvOn A.1`.
+>
+> `deltaEqv_isCongruence`: the discrete equivalence is a congruence.
+> `sInter_mem_CongOn`: congruences are closed under arbitrary intersections
+> (the empty family included). `sUnion_mem_CongOn`: closed under directed
+> unions of nonempty families. `CongOn_isAlgebraicClosureSystemOn`: the
+> congruences form an algebraic closure system on the pair space;
+> `congClosureOperator` is its closure operator;
+> `congClosedSets_isAlgebraicLattice` and `Cgr_isAlgebraicLattice` say the
+> closed sets and the bundled congruences (via `congOrderIso`, an order
+> isomorphism for inclusion vs refinement) are algebraic lattices;
+> `congSubtypeCompleteLattice` transports the complete-lattice structure.
+> Conspicuously not asserted: arbitrary-union closure, modularity/distributivity,
+> compact-element descriptions, quotient/kernel correspondences, or separately
+> named top/bottom theorems.
 
 ## Stage 2 -- comparison (fresh agent, read-back + contract only)
 
-> **Outcome: `formal_weaker` (net; mixed).**
+> **Outcome: `equivalent`.**
 >
-> The defining compatibility clause is *stronger* in Lean: `IsCongruence`
-> quantifies over all `w : List S`, including the empty arity, whereas the
-> contract restricts to `S* − {λ}`, so Lean drops the nonempty-arity hypothesis
-> (`formal_stronger` for that clause). However, the contract then asserts a
-> bundle of structural results about `Cgr(A)` — closure system, algebraic
-> lattice, greatest element `∇^A`, least element `Δ^A` — for which the read-back
-> reports no Lean counterpart.
+> The defining compatibility clause is faithful. Lean quantifies over *all*
+> finite arities, including the empty word, whereas the contract restricts to
+> `S* − {λ}`; for a nullary symbol the Lean hypothesis is vacuous and the
+> conclusion is `F σ a ~ F σ a`, satisfied by reflexivity, so the extra
+> instances do not change the set of congruences -- a vacuous generalization,
+> not additional content. `CongOn` is `Cgr(A)` and
+> `CongOn_isAlgebraicClosureSystemOn` is the contract's "algebraic closure
+> system on `A×A`"; `Cgr_isAlgebraicLattice` (with `congOrderIso`) is the
+> algebraic lattice `(Cgr(A), ⊆)`; `deltaEqv_isCongruence` and the universal
+> relation being a congruence give `Δ^𝐀`/`∇^𝐀` as the bottom/top, which the
+> algebraic-lattice structure supplies.
 >
-> **Contract clauses with no Lean counterpart:**
-> - `Cgr(A)` is an algebraic closure system on `A×A`.
-> - `Cgr(A)` is the algebraic lattice `(Cgr(A), ⊆)`.
-> - `∇^A` is the greatest element of `Cgr(A)`.
-> - `Δ^A` is the least element of `Cgr(A)`.
+> **Contract clauses with no Lean counterpart:** none.
 
-## Note on the arity hypothesis
+## Note on the arity hypothesis (Session 118, retained)
 
-The manuscript excludes the empty word via `(S* − {λ})`; Lean's
-`IsCongruence` admits `w = []` and is therefore a strict generalization
-(`formal_stronger`) on that clause — the same pattern already recorded for
-`B-P005`, `B-P015`, `B-P026`, `B-C009`. The overall verdict is `formal_weaker`
-only because the `Cgr(A)` structural claims are unmapped.
+The manuscript excludes the empty word via `(S* − {λ})`; Lean's `IsCongruence`
+admits `w = []`. The Session 118 audit called this `formal_stronger` and,
+because the `Cgr(A)` structural claims were then unmapped, reported the net
+verdict `formal_weaker`. Session 119 mapped the structural claims; the stage 2
+agent additionally judged the nullary extension *vacuous* (reflexivity), so the
+net verdict is `equivalent`.
 
 ## Residual note
 
-The blocked clauses are substantive (order/lattice theory for `Cgr(A)`), not
-notational. The record inherits the pilot-encoding residuals (`carrier-model`,
+The record inherits the pilot-encoding residuals (`carrier-model`,
 `small-large`, `univalence-missing`).

@@ -1185,21 +1185,40 @@
         "Mslang.satSets",
         "Mslang.sortedEqvLe",
         "Mslang.sortedEqvInf",
-        "Mslang.sortedEqv_iInf"
+        "Mslang.sortedEqv_iInf",
+        "Mslang.deltaEqv",
+        "Mslang.le_nabla",
+        "Mslang.deltaEqv_le",
+        "Mslang.PairSpace",
+        "Mslang.EqvOn",
+        "Mslang.univ_mem_EqvOn",
+        "Mslang.sInter_mem_EqvOn",
+        "Mslang.sUnion_mem_EqvOn",
+        "Mslang.eqvToSet",
+        "Mslang.eqvToSet_mem_EqvOn",
+        "Mslang.setToEqv",
+        "Mslang.eqvToSet_subset_iff",
+        "Mslang.EqvOn_isAlgebraicClosureSystemOn",
+        "Mslang.eqvClosureOperator",
+        "Mslang.eqvClosedSets_isAlgebraicLattice",
+        "Mslang.eqvOrderIso",
+        "Mslang.SortedEqv_isAlgebraicLattice"
       ],
       "definition_closure": {
         "decls": [
+          "Mslang.IsAlgebraicLattice",
+          "Mslang.IsCompact",
           "Mslang.SSet",
           "Mslang.Sub"
         ],
-        "hash": "00b9716fba3788f52d9e43c1211103bfb033070248e35bd2c68c3f0f9cc3b536"
+        "hash": "734c53cf1b8db2b99015adc9c3b715719ca20b260452d73fa8677ec2d5a9576e"
       },
       "file": "lean/Mslang/Prelim.lean",
       "formal_proof": {
-        "hash": "8f4d1b67e1ffc0f8b2e76cfc76efb0b64760877a22f96577de2be6f76cf9ad04"
+        "hash": "5c82697c94d11e058e39d9bfe93a9fb7df2b5ec591bc905d1c5cb3bb91eae879"
       },
       "formal_statement": {
-        "hash": "d32895ec92ec07ce0d37cc142a6c9d33865d015ef1ac34e2a906405117d4c006"
+        "hash": "59af29d20eb2959414e8f757d97cac28fa7247175636589af164d0f6cce84c2c"
       }
     },
     "B-D015": {
@@ -1420,25 +1439,46 @@
     },
     "B-D024": {
       "decls": [
-        "Mslang.IsCongruence"
+        "Mslang.IsCongruence",
+        "Mslang.deltaEqv_isCongruence",
+        "Mslang.CongOn",
+        "Mslang.sInter_mem_CongOn",
+        "Mslang.sUnion_mem_CongOn",
+        "Mslang.CongOn_isAlgebraicClosureSystemOn",
+        "Mslang.congClosureOperator",
+        "Mslang.congClosedSets_isAlgebraicLattice",
+        "Mslang.congOrderIso",
+        "Mslang.congSubtypeCompleteLattice",
+        "Mslang.Cgr_isAlgebraicLattice"
       ],
       "definition_closure": {
         "decls": [
           "Mslang.AlgStruct",
+          "Mslang.EqvOn",
+          "Mslang.IsAlgebraicLattice",
+          "Mslang.IsCompact",
+          "Mslang.PairSpace",
           "Mslang.SSet",
           "Mslang.Signature",
           "Mslang.SortedEqv",
+          "Mslang.deltaEqv",
+          "Mslang.eqvToSet",
+          "Mslang.eqvToSet_mem_EqvOn",
           "Mslang.finOp",
+          "Mslang.sInter_mem_EqvOn",
+          "Mslang.sUnion_mem_EqvOn",
+          "Mslang.setToEqv",
+          "Mslang.univ_mem_EqvOn",
           "Mslang.wordProd"
         ],
-        "hash": "1c97b62dcccadfe96150897a72934270aefa206d1da08c054d3f1b8842541e74"
+        "hash": "172650c8f53a32943f387cb2c8366b87c1b7ba41b634fd2975bce1e44aa4b052"
       },
       "file": "lean/Mslang/Congruence.lean",
       "formal_proof": {
-        "hash": "6923bc666cde1a21b7bda4e18cbb96bc230e14428dbdb6486c42cb48ad7e559e"
+        "hash": "19249074c8d326e2cb8efe9f7b9307e8121024b98022d1168001a8c19c447e53"
       },
       "formal_statement": {
-        "hash": "2238cbab49a69fabbfb44a95103069cf4c13943a82c59817905604a1170bb0fd"
+        "hash": "973b182c696bc9deec2dabe17bb4144917420c38fa1e000a6eb810c9d595715d"
       }
     },
     "B-D025": {
@@ -4477,7 +4517,6 @@
     },
     "B-R020": {
       "decls": [
-        "Mslang.deltaEqv",
         "Mslang.deltaEqv_eq_iInf_congCogenerated"
       ],
       "definition_closure": {
@@ -4489,17 +4528,18 @@
           "Mslang.Sub",
           "Mslang.TlGen",
           "Mslang.congCogenerated",
+          "Mslang.deltaEqv",
           "Mslang.deltaSub",
           "Mslang.sortedEqv_iInf"
         ],
-        "hash": "892fb790e857088fe9c951dfbd81b528f23a048080af2cef1abf63b88454ba95"
+        "hash": "f0d3ec0c13bda38a677334c0dafe0069097dce4dfc7e3ed7cfe0e2c6f0fa59e9"
       },
       "file": "lean/Mslang/Translation.lean",
       "formal_proof": {
-        "hash": "530b871aad6da0924e676afa960a5a866b29fab49adc10c32f97f90812318cfb"
+        "hash": "fa254a205057e5e4e6bb6419ad8df3ec489a497d4d5521fb461471ed6a6724d4"
       },
       "formal_statement": {
-        "hash": "431297f431e62ecc774b099c9c660f18c1fb09e8f9e688f44b187aa638071bff"
+        "hash": "2ef4b1ef17fafe1645d668340b478a810eb4e151b4d230ee8525d2cd1d8aa5dd"
       }
     },
     "B-R021": {

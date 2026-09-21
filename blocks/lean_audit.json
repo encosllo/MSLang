@@ -27,8 +27,25 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.Cgr_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.ClosesUnderEtl": [],
     "Mslang.ClosesUnderTl": [],
+    "Mslang.CongOn": [],
+    "Mslang.CongOn_isAlgebraicClosureSystemOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.EqvOn": [],
+    "Mslang.EqvOn_isAlgebraicClosureSystemOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.Etl": [],
     "Mslang.FiniteAlg": [],
     "Mslang.FiniteSSet": [],
@@ -128,6 +145,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.PairSpace": [],
     "Mslang.RowAlpha": [],
     "Mslang.SSet": [],
     "Mslang.Sg": [],
@@ -145,6 +163,11 @@
     "Mslang.SigElem": [],
     "Mslang.Signature": [],
     "Mslang.SortedEqv": [],
+    "Mslang.SortedEqv_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.SortedIso": [],
     "Mslang.SortedMap": [],
     "Mslang.Sub": [],
@@ -284,6 +307,16 @@
     "Mslang.cogClassSetsCompl": [],
     "Mslang.complA": [],
     "Mslang.concat": [],
+    "Mslang.congClosedSets_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congClosureOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.congCogenerated": [],
     "Mslang.congCogenerated_compl": [
       "Classical.choice",
@@ -328,6 +361,16 @@
       "propext"
     ],
     "Mslang.congFi_nonempty_of_finite_sorts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congOrderIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.congSubtypeCompleteLattice": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -401,6 +444,10 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.deltaEqv_isCongruence": [
+      "Quot.sound"
+    ],
+    "Mslang.deltaEqv_le": [],
     "Mslang.deltaSingleton": [
       "Classical.choice",
       "Quot.sound",
@@ -434,6 +481,24 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.eqvClosedSets_isAlgebraicLattice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.eqvClosureOperator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.eqvOrderIso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.eqvToSet": [],
+    "Mslang.eqvToSet_mem_EqvOn": [],
+    "Mslang.eqvToSet_subset_iff": [],
     "Mslang.etaX": [],
     "Mslang.exists_mem_superset_finset": [
       "Classical.choice",
@@ -762,6 +827,7 @@
     ],
     "Mslang.latticeFilters": [],
     "Mslang.le_congCogenerated_of_isCongruence": [],
+    "Mslang.le_nabla": [],
     "Mslang.mem_langFormationOf_iff": [
       "Classical.choice",
       "Quot.sound",
@@ -895,6 +961,22 @@
       "propext"
     ],
     "Mslang.regularLanguages": [],
+    "Mslang.sInter_mem_CongOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sInter_mem_EqvOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sUnion_mem_CongOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.sUnion_mem_EqvOn": [],
     "Mslang.sat": [],
     "Mslang.satOfFamily": [],
     "Mslang.satSets": [],
@@ -974,6 +1056,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.setToEqv": [],
     "Mslang.shskFormation_mem_of_subdirect": [
       "Classical.choice",
       "Quot.sound",
@@ -1146,6 +1229,7 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.univ_mem_EqvOn": [],
     "Mslang.wordProd": []
   },
   "build": {
@@ -1155,7 +1239,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 382,
+  "declarations_audited": 408,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

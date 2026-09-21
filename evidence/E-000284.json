@@ -1,0 +1,54 @@
+{
+  "block": "B-R020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000284",
+  "findings": [
+    "Re-bound after a class C5 declaration remap (deltaEqv re-registered under B-D014; deltaEqv_eq_iInf_congCogenerated remains under B-R020). Verdict unchanged (equivalent); transcript blocks/audits/B-R020-correspondence.md kept."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Audit protocol: source re-contrast. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R020/definition_closure",
+      "hash": "f0d3ec0c13bda38a677334c0dafe0069097dce4dfc7e3ed7cfe0e2c6f0fa59e9"
+    },
+    {
+      "artifact": "B-R020/formal_statement",
+      "hash": "2ef4b1ef17fafe1645d668340b478a810eb4e151b4d230ee8525d2cd1d8aa5dd"
+    },
+    {
+      "artifact": "B-R020/informal_statement",
+      "hash": "d57fad93f6634aba4d75d8dbe6774721b77d9a090f39abfd91a1348b239e849b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "remap",
+  "supersedes": "E-000157",
+  "timestamp": "2026-09-21T10:59:36Z"
+}
