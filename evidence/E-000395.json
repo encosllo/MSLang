@@ -1,0 +1,117 @@
+{
+  "block": "B-P035",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000395",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P035-correspondence-crossmodel-mixed.md), reusing the Session-119 deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator. Verified against lean/Mslang/Regular.lean: neither IsRegularLanguageFormation nor IsBPSLanguageFormation nor the two target theorems take a Finite S hypothesis, consistent with finiteness entering only via the regularLanguages typing clause shared by both definitions.",
+    "Verdict: equivalent -- the broad Def1FRL condition 3 (any N compatible with Ker(pr o f)) vs. the narrow BPS4 (only f^{-1}[M]) asymmetry in the contract is confirmed present in the Lean (IsRegularLanguageFormation's 4th conjunct is the broad \u2200N version, IsBPSLanguageFormation's 5th conjunct is the narrow inverseImage-only version), exactly matching the manuscript's own asymmetric axiomatizations; no discrepancy found."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-D037/informal_statement",
+      "hash": "2a7c293f55806e4f1171f351897208baae1eb58cf7f8ab996ef93e2dcae46345"
+    },
+    {
+      "artifact": "B-D045/informal_statement",
+      "hash": "d3e9eec0eb46ca33b71222ecfb86d63b57343d1bf441247972887c489ca3d839"
+    },
+    {
+      "artifact": "B-D046/informal_statement",
+      "hash": "11b3962c31606fb3d359f158ccb94dff50bc0344f8da0ba9c773bf1e3f1c40ae"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "B-P023/informal_statement",
+      "hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed"
+    },
+    {
+      "artifact": "B-P027/informal_statement",
+      "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "B-P029/informal_statement",
+      "hash": "252933542d27431d303f68b1008214d1a7ce0895a56cb16f01b45249b177079a"
+    },
+    {
+      "artifact": "B-P035/definition_closure",
+      "hash": "ba4540bafd52703bdd91bafc26dcef87855a68c0b082d808b3de97ecccf29f69"
+    },
+    {
+      "artifact": "B-P035/formal_statement",
+      "hash": "dcef97d0121748cb1aa0daf5969b738658259458c3ea603b18f583c092e2901b"
+    },
+    {
+      "artifact": "B-P035/informal_statement",
+      "hash": "4d8937d25627231abbf4d9d91148538c378be4bf8d395013b089f59604416579"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:48:54Z"
+}

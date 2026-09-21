@@ -420,7 +420,9 @@ repository.
 | `evidence/E-000392.json` | `e76a00e43a23ef212175e7cbd850078e836a137fe304f680bc815cf42bd94a91` |
 | `evidence/E-000393.json` | `abfa378b59816c96fe3a79f483b9c08b8f2d094679011616e56ae91925e11f56` |
 | `evidence/E-000394.json` | `9ef0035253d92acf3c40176ecaf7518f769e3275b10a8c52380827ad5e5593b0` |
-| `journal/events.jsonl` | `171ac6c2b8d78a61f2327465e2385f21d06e4ee1d97bc95ef8998366d13dcdae` |
+| `evidence/E-000395.json` | `6940d3a785193ed446509b605529f2c7109c404a8a1f50dd4062aff8952ea3a6` |
+| `evidence/E-000396.json` | `1070b009be241cc79df5c10ed243ee674310b01c3248b50f22919b105651e4ef` |
+| `journal/events.jsonl` | `0ab930317baf9e778b8b71356e5f9c4dbd221c9b9ce89a87d39fabc0cd2c58b1` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `4c0b7e7d79286eb2d03a6ba50e545b7e238facae1d636d0a7cf2454d2d16d258` |
@@ -623,7 +625,7 @@ repository.
 | `B-P033` | verification | pass | 1 | 0 |
 | `B-P034` | correspondence | pass | 4 | 1 |
 | `B-P034` | verification | pass | 1 | 0 |
-| `B-P035` | correspondence | provisional | 1 | 1 |
+| `B-P035` | correspondence | pass | 2 | 1 |
 | `B-P035` | verification | pass | 1 | 0 |
 | `B-P036` | correspondence | provisional | 1 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
@@ -631,7 +633,7 @@ repository.
 | `B-P037` | verification | pass | 1 | 0 |
 | `B-P038` | correspondence | provisional | 1 | 1 |
 | `B-P038` | verification | pass | 1 | 0 |
-| `B-P039` | correspondence | provisional | 1 | 1 |
+| `B-P039` | correspondence | pass | 2 | 1 |
 | `B-P039` | verification | pass | 1 | 0 |
 | `B-R001` | correspondence | fail | 1 | 2 |
 | `B-R001` | verification | pass | 1 | 1 |
@@ -19807,6 +19809,206 @@ repository.
 }
 ```
 
+### E-000395
+
+```json
+{
+  "block": "B-P035",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000395",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P035-correspondence-crossmodel-mixed.md), reusing the Session-119 deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator. Verified against lean/Mslang/Regular.lean: neither IsRegularLanguageFormation nor IsBPSLanguageFormation nor the two target theorems take a Finite S hypothesis, consistent with finiteness entering only via the regularLanguages typing clause shared by both definitions.",
+    "Verdict: equivalent -- the broad Def1FRL condition 3 (any N compatible with Ker(pr o f)) vs. the narrow BPS4 (only f^{-1}[M]) asymmetry in the contract is confirmed present in the Lean (IsRegularLanguageFormation's 4th conjunct is the broad \u2200N version, IsBPSLanguageFormation's 5th conjunct is the narrow inverseImage-only version), exactly matching the manuscript's own asymmetric axiomatizations; no discrepancy found."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-D035/informal_statement",
+      "hash": "6876bb06115bc8dd289b8ef1f73abcdafe92a7af410d8bc4d299331ad7565758"
+    },
+    {
+      "artifact": "B-D036/informal_statement",
+      "hash": "eb94661e6317a1a433213845cc09db4dedd3087be80c1630b9b84e3103cc73f6"
+    },
+    {
+      "artifact": "B-D037/informal_statement",
+      "hash": "2a7c293f55806e4f1171f351897208baae1eb58cf7f8ab996ef93e2dcae46345"
+    },
+    {
+      "artifact": "B-D045/informal_statement",
+      "hash": "d3e9eec0eb46ca33b71222ecfb86d63b57343d1bf441247972887c489ca3d839"
+    },
+    {
+      "artifact": "B-D046/informal_statement",
+      "hash": "11b3962c31606fb3d359f158ccb94dff50bc0344f8da0ba9c773bf1e3f1c40ae"
+    },
+    {
+      "artifact": "B-P003/informal_statement",
+      "hash": "82421312da29bf5f6d13e7a1e8b705c4e945aead462a20017c4d6da0fb5183ef"
+    },
+    {
+      "artifact": "B-P006/informal_statement",
+      "hash": "712f55b611fbe940bbdce5b94e7e3a91fd28a424acf34f05b21da7af552af0cc"
+    },
+    {
+      "artifact": "B-P023/informal_statement",
+      "hash": "0be82bd8d501143da379871ba89fdfdceb6a022a957065f4a72bad62c28bb8ed"
+    },
+    {
+      "artifact": "B-P027/informal_statement",
+      "hash": "afbed8b278287915cf524a52cb450bf43a3c1be97b00c15d5f8fea56b554d0ad"
+    },
+    {
+      "artifact": "B-P028/informal_statement",
+      "hash": "13ee3af8b8214e03f08cf848a10f17b93e7729fc80b5a50601881a37e473a9f7"
+    },
+    {
+      "artifact": "B-P029/informal_statement",
+      "hash": "252933542d27431d303f68b1008214d1a7ce0895a56cb16f01b45249b177079a"
+    },
+    {
+      "artifact": "B-P035/definition_closure",
+      "hash": "ba4540bafd52703bdd91bafc26dcef87855a68c0b082d808b3de97ecccf29f69"
+    },
+    {
+      "artifact": "B-P035/formal_statement",
+      "hash": "dcef97d0121748cb1aa0daf5969b738658259458c3ea603b18f583c092e2901b"
+    },
+    {
+      "artifact": "B-P035/informal_statement",
+      "hash": "4d8937d25627231abbf4d9d91148538c378be4bf8d395013b089f59604416579"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:48:54Z"
+}
+```
+
+### E-000396
+
+```json
+{
+  "block": "B-P039",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000396",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P039-correspondence-crossmodel-mixed.md), reusing the Session-119 deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator. Verified against lean/Mslang/Regular.lean line 1055: formCgrFiFormLangRIso takes an explicit [Finite S] instance hypothesis, matching the manuscript's standing Assumption B-A001 -- unlike the sibling proposition B-P034's formAlgFFormCgrFiIso, which was found missing it.",
+    "Verdict: equivalent -- formCgrFiFormLangRIso is an order isomorphism between finiteIndexCongruenceFormations Sig and regularLanguageFormations Sig under [Finite S], matching the contract's isomorphic complete lattices Form_Cgr_fi(Sigma)/Form_Lang_r(Sigma) exactly; the on-objects action (langFormationOf/langCongFormationOf) and mutual-inverse identities match B-P037/B-P038 term for term."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-D027/informal_statement",
+      "hash": "db951ba1d87ed49fcdeaf07e42e7d3276ce8dbd38ff9cb02c11557e5d999cf7e"
+    },
+    {
+      "artifact": "B-P024/informal_statement",
+      "hash": "9362eb3721fbbe559cdac4f6b3cdb815d827ec58c181f224c52ca3b8c76b4a57"
+    },
+    {
+      "artifact": "B-P039/definition_closure",
+      "hash": "841f9a39355d287a1f6dc04402c40cef64d63cb46916b6ad6b3d3d36d01204c8"
+    },
+    {
+      "artifact": "B-P039/formal_statement",
+      "hash": "e776f4bddb4e006117dbc831f0e8e7d053dc43de912862e3d702c8a4c45583b8"
+    },
+    {
+      "artifact": "B-P039/informal_statement",
+      "hash": "64968ffc9b11d27291f5ecdafd9d94a21884bc21d3d046589181b587db6b9eab"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:48:54Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -19818,7 +20020,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 125
-- Evidence records: 394
+- Evidence records: 396
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -19925,11 +20127,11 @@ assertion).
 | `B-P032` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P033` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P034` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
-| `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P035` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-P036` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-P037` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P038` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P039` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P039` | proposition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-R001` | remark | Preliminaries. | none | fail | pass | none | - |
 | `B-R003` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R004` | remark | Preliminaries. | none | provisional | provisional | none | - |
@@ -20816,7 +21018,7 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 30
+- evidence records that would go stale: 32
 
 | record | block | layer |
 |---|---|---|
@@ -20850,6 +21052,8 @@ rework.
 | E-000372 | `B-R023` | correspondence |
 | E-000373 | `B-P005` | correspondence |
 | E-000386 | `B-R027` | correspondence |
+| E-000395 | `B-P035` | correspondence |
+| E-000396 | `B-P039` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -20965,12 +21169,10 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-P031` | correspondence | provisional | 1 | 1 |
 | `B-P032` | correspondence | provisional | 1 | 1 |
 | `B-P033` | correspondence | provisional | 1 | 0 |
-| `B-P035` | correspondence | provisional | 1 | 1 |
 | `B-P036` | correspondence | provisional | 1 | 1 |
 | `B-P036` | verification | provisional | 1 | 0 |
 | `B-P037` | correspondence | provisional | 1 | 1 |
 | `B-P038` | correspondence | provisional | 1 | 1 |
-| `B-P039` | correspondence | provisional | 1 | 1 |
 | `B-R001` | correspondence | fail | 1 | 2 |
 | `B-R003` | correspondence | provisional | 1 | 1 |
 | `B-R004` | correspondence | provisional | 1 | 0 |
