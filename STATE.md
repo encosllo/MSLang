@@ -6157,6 +6157,116 @@ formalize the two blocks the author marked `worth-formalizing`, `B-R004` and
 
 ---
 
+## Session 122 -- 2026-09-21 -- first cross-model audits (Tier 1 of the brief)
+
+**Goal.** Item 1 of Session 121's next steps just became actionable: this
+session runs on `claude-sonnet-5` (family `claude`), a second model family.
+Execute `blocks/audits/cross-model-audit-brief.md` Tier 1: the encoding audit
+(Protocol A) and Protocol B (two-stage blind correspondence) on `B-P020`,
+`B-P034`/`B-P039` (second Eilenberg theorem), `B-P035`. Declared
+`claude-sonnet-5` in `calibration/models.json` first.
+
+**What was established (closed).**
+
+- **Encoding audit** of `representation/pilot-encoding.md`: a fresh, isolated
+  agent (no repo access) rated it `faithful-with-caveat`, confirming the four
+  named residuals (`R-universe`, `R-setoid`, `R-classical`, `R-ext`) and
+  adding one new observation not named by the document itself:
+  componentwise intersection/union of sorted subsets is not shown in the
+  encoding table (follows trivially from `Sub A := ∀ s, Set (A s)` but is
+  unevidenced), residual `R-union-inter-unevidenced`. **`E-000389`**
+  (supersedes `E-000387`/`E-000388`: fixed producer-model attribution and
+  residual-list formatting), `independence.class = cross_model` -- the
+  project's **first non-`same_model` positive record**.
+- **`B-P020` (first Eilenberg theorem, `FormAlgFormCgrIso`).** Two independent
+  cross-model runs, both `equivalent`: `E-000390` (fully fresh double-`claude`
+  stage1+stage2 redo, `same_model` since both stages ran on `claude`) and
+  `E-000391` (reuses the existing Session-119 `deepseek-v4.1-flash` stage-1
+  read-back with a fresh `claude` stage-2 comparator, per the brief's Section
+  6 ingestion pattern -- `cross_model`). Correspondence flips `provisional`
+  -> `pass`.
+- **`B-P034` (second Eilenberg theorem, finite restriction) -- self-correction.**
+  The fresh double-`claude` run (`E-000392`) first said `equivalent`, noting
+  but underrating the absence of a `Finite S` hypothesis. A second run
+  (reusing the deepseek read-back) called it `formal_stronger` instead.
+  **Verified directly against `lean/Mslang/Regular.lean`**: none of
+  `finiteSSet_of_isAlgIso`, `congruenceFormationOf_isFiniteIndex`,
+  `algebraFormationOfCongruenceFormation_isFiniteAlgebra`, or
+  `formAlgFFormCgrFiIso` take a `Finite S` hypothesis, while the manuscript's
+  `B-P034` sits under the section-wide standing Assumption `B-A001` (`S`
+  finite). This is a **real, source-confirmed generalization** the original
+  same-model deepseek audit (`E-000319`, also `equivalent`) missed too.
+  Corrected: `E-000392` superseded by `E-000393` (`same_model`,
+  `formal_stronger`); `E-000394` is the `cross_model` record (also
+  `formal_stronger`). Flagged for the author: accept the Lean's extra
+  generality, or add a `Finite S` hypothesis to match `B-A001`.
+- **`B-P035` (`Def1FRL` <=> `Def2FRL`) and `B-P039` (second Eilenberg theorem,
+  `Form_Cgr_fi(Σ)` <-> `Form_Lang_r(Σ)`).** Both audited by reusing their
+  existing deepseek stage-1 read-backs with a fresh `claude` stage-2
+  comparator; both `equivalent`, both source-verified (a lesson learned from
+  `B-P034`): `B-P035`'s two language-formation predicates need no `Finite S`
+  (finiteness enters only via the shared `regularLanguages` typing clause the
+  read-back correctly resolved a broad-vs-narrow inverse-image ambiguity
+  against), and `B-P039`'s `formCgrFiFormLangRIso` correctly carries
+  `[Finite S]`, unlike its sibling `B-P034`. `E-000395` (`B-P035`), `E-000396`
+  (`B-P039`), both `cross_model`. Both flip `provisional` -> `pass`.
+- Every stage ran as a **fresh, isolated agent** given only the pasted
+  material (no repo access), matching the brief's independence rules; a
+  Lean-side "own declarations + definition closure" package was built with a
+  small reusable Python snippet (`lean_facets.extract_declarations`) rather
+  than by hand, and manuscript contract packages were assembled by reading
+  the relevant `\blockid{...}` blocks and their prerequisite definitions
+  directly.
+
+**Lesson for future cross-model sessions.** A stage-2 agent that notices an
+absent ambient hypothesis (e.g. `Finite S`) and judges it "inconsequential"
+should be treated as a hypothesis to verify, not a conclusion to accept --
+the coordinator must grep/read the actual Lean source before trusting either
+verdict when two independent runs disagree. This caught a real discrepancy
+(`B-P034`) that both the original same-model audit and one of two cross-model
+runs got wrong.
+
+**State after the session.**
+
+- `calibration/models.json` now declares two model families:
+  `deepseek-v4.1-flash` (`deepseek`) and `claude-sonnet-5` (`claude`).
+- Tier 1 of `blocks/audits/cross-model-audit-brief.md` is **complete**:
+  representation (encoding) and `B-P020`/`B-P034`/`B-P035`/`B-P039`
+  correspondence all now carry at least one `cross_model` positive record and
+  show `pass` rather than `provisional` in `reports/coverage.md`.
+  `B-P034`'s verdict changed from `equivalent` to `formal_stronger`
+  (author-decision pending, see above); all others confirmed their prior
+  same-model verdict.
+  New audit transcripts: `blocks/audits/representation-encoding-crossmodel-claude.md`,
+  `blocks/audits/B-P020-correspondence-crossmodel-{claude,mixed}.md`,
+  `blocks/audits/B-P034-correspondence-crossmodel-{claude,mixed}.md`,
+  `blocks/audits/B-P035-correspondence-crossmodel-mixed.md`,
+  `blocks/audits/B-P039-correspondence-crossmodel-mixed.md`.
+  New evidence: `E-000387`-`E-000396` (ten records; three are supersession
+  corrections). Journal `EV-000144`-`EV-000147`.
+- Fast gate **40/0** after each step (once briefly `39/1` on a missed
+  `impact.py --report` regeneration, then `40/0`); slow gate **43/0** at
+  session close. Commits `07cf7eb` (encoding + `B-P020`), `6ab179b`
+  (`B-P034` + self-correction), `d0b1900` (`B-P035`/`B-P039`, Tier 1 done).
+
+**Prioritized next steps.**
+
+1. **Author decision pending:** `B-P034`'s Lean is `formal_stronger` than the
+   manuscript (drops the section's `Finite S` assumption) -- accept the
+   generalization, or add a `Finite S` hypothesis to `formAlgFFormCgrFiIso`
+   (and its two supporting lemmas) to match `B-A001` exactly.
+2. Continue the brief: Tier 2 (Protocol B on `B-C005`, `B-C006`, `B-C011`,
+   `B-C012`, `B-C013`), Tier 3 (Protocol C adversarial reads on `B-C001`,
+   `B-C002`), Tier 4 (re-confirm the five accepted `formal_weaker` findings
+   cross-model: `B-P001`, `B-D002`, `B-R001`, `B-R012`, `B-X002`). Each
+   correspondence block costs roughly one context-heavy session slice
+   (Lean-closure + manuscript-contract extraction, two subagent calls,
+   ingestion); budget accordingly rather than batching many per session.
+3. Optional cleanup carried over from Session 121: reconcile the BPS clause
+   numbering between the manuscript and the Lean comments.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
