@@ -1,0 +1,40 @@
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000387",
+  "findings": [
+    "Cross-model encoding audit (blocks/audits/representation-encoding-crossmodel-claude.md): faithful-with-caveat. Operation-by-operation: subset/Sub(A), componentwise product/coproduct, delta, support, saturation, quotient/projection all representable/bridgeable with proved bridge lemmas. New observation not named by the document itself: componentwise intersection/union of two sorted subsets is not shown in the encoding table (only complement and product/sum appear); follows trivially from Sub A := forall s, Set (A s) but is unevidenced in the record, so scored bridgeable-by-inference rather than audited-representable (residual R-union-inter-unevidenced). The four named residuals (R-universe, R-setoid, R-classical, R-ext) read as standard Lean/Mathlib-vs-ZFC translation gaps, not foundational mismatches."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "formalization_worker"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding_auditor"
+      }
+    ]
+  },
+  "independence_caveat": "Representation encoding audit (Section 11.5). Stages ran on distinct model families (claude, deepseek); independence is measured across models. Inherits representation residuals R-union-inter-unevidenced, carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-21T19:23:00Z"
+}

@@ -1,0 +1,45 @@
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000388",
+  "findings": [
+    "Cross-model encoding audit (blocks/audits/representation-encoding-crossmodel-claude.md), fresh isolated agent on claude-sonnet-5 given only representation/pilot-encoding.md verbatim, blind to any existing verdict or project history.",
+    "Operation-by-operation: subset/Sub(A), componentwise product/coproduct, delta, support, saturation, and quotient/projection are all judged representable or bridgeable, each backed by a proved bridge lemma. New observation not named by the document itself: componentwise intersection/union of two sorted subsets is not shown in the encoding table (only complement and product/sum appear); it follows trivially from Sub A := forall s, Set (A s) but is unevidenced in the record, so it is scored bridgeable-by-inference rather than audited-representable.",
+    "The four named residuals (R-universe, R-setoid, R-classical, R-ext) read as standard Lean/Mathlib-vs-ZFC translation gaps, not foundational mismatches.",
+    "Verdict: faithful-with-caveat with residuals R-universe, R-setoid, R-classical, R-ext, R-union-inter-unevidenced."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "formalization_worker"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding_auditor"
+      }
+    ]
+  },
+  "independence_caveat": "Representation encoding audit (Section 11.5). Stages ran on distinct model families (claude, deepseek); independence is measured across models. Inherits representation residuals R-union-inter-unevidenced, carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000387",
+  "timestamp": "2026-09-21T19:26:08Z"
+}

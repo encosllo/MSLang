@@ -22,7 +22,7 @@ repository.
 | `blocks/treatment_tiers.json` | `6542301a4c092696fda9b1925825685f9890c2dedf6c077d49bb782da24d2158` |
 | `calibration/baseline.json` | `c10a03ea904ab834070a8da546e88da7b18e91f5241486e07c5297bb9f3dbe2e` |
 | `calibration/generated.json` | `f404e40777743c210acc102f2955720cda2bbf955acf4fd32696c5cc652ec16d` |
-| `calibration/models.json` | `637456e4910e959aed35510fb9e18f616c29f96c6c78a8a49c71ae63021e3f05` |
+| `calibration/models.json` | `2baaeee200a2ca579bdd782d356de8cb51767c2502b1d351c0e3dcf7875107bc` |
 | `calibration/seeded.json` | `ce9f122e055a02698d321d150c412379893d70d8d4ed70d94be7539dc6ddbfbf` |
 | `calibration/verdicts.json` | `fa55628a0a4ffbd56c7da68d0a4fe656b027eb61b7f89469ec4741aa34d50397` |
 | `decisions/standing.json` | `03b61b27a750f6e99c78be0ba46cf46a9ad3b2c139b81b93fa5624ec4177adb8` |
@@ -412,7 +412,12 @@ repository.
 | `evidence/E-000384.json` | `60a4e8de78116ea2f35a8585f5566639f66628f03addfdc0fc638f8be7985f36` |
 | `evidence/E-000385.json` | `4575c7a468c446913d7f8de4dfd0769e4de21410f3583bb815eee82064c0e751` |
 | `evidence/E-000386.json` | `aaa3e03a86722a4c4bb36de385b287ade59dda75ed658b29a30b91edc4b0b6ec` |
-| `journal/events.jsonl` | `aa0c1329e2dbc3be6deb58bc99522251ca1f042856fa1af355ab86bea8b8eb55` |
+| `evidence/E-000387.json` | `2f724e665636d070d1e5224887d975235d36c0f18d78809e828d856bf564435b` |
+| `evidence/E-000388.json` | `79704dd76587c982101cf0d8edb2d44017a83847c0b0edfa79b2e03134c63105` |
+| `evidence/E-000389.json` | `2230f21b971f3ad586ea8e2d648eab2de2d82192084ffe5fa1f70a3b19fdda89` |
+| `evidence/E-000390.json` | `9b88b556ae80bd68c453ae5a92fa712c436ab49ad4918bf1b760694c140624ba` |
+| `evidence/E-000391.json` | `8f8f92a820b9f6bb72c3e9393b27be8dcea9f833b8de122b536ece429fe79327` |
+| `journal/events.jsonl` | `ce35d838ecdd0703fd37c8a506f98d220e1ed77c20f0c1bf933405d014fc27e3` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `4c0b7e7d79286eb2d03a6ba50e545b7e238facae1d636d0a7cf2454d2d16d258` |
@@ -585,7 +590,7 @@ repository.
 | `B-P018` | verification | pass | 1 | 0 |
 | `B-P019` | correspondence | provisional | 1 | 1 |
 | `B-P019` | verification | pass | 1 | 0 |
-| `B-P020` | correspondence | provisional | 1 | 1 |
+| `B-P020` | correspondence | pass | 3 | 1 |
 | `B-P020` | verification | pass | 1 | 0 |
 | `B-P021` | correspondence | provisional | 1 | 0 |
 | `B-P021` | verification | pass | 1 | 0 |
@@ -675,7 +680,7 @@ repository.
 | `B-X001` | verification | provisional | 1 | 0 |
 | `B-X002` | correspondence | fail | 1 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
-| `representation/encoding` | representation | provisional | 1 | 2 |
+| `representation/encoding` | representation | pass | 4 | 2 |
 
 ## Evidence records
 
@@ -19330,6 +19335,275 @@ repository.
 }
 ```
 
+### E-000387
+
+```json
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000387",
+  "findings": [
+    "Cross-model encoding audit (blocks/audits/representation-encoding-crossmodel-claude.md): faithful-with-caveat. Operation-by-operation: subset/Sub(A), componentwise product/coproduct, delta, support, saturation, quotient/projection all representable/bridgeable with proved bridge lemmas. New observation not named by the document itself: componentwise intersection/union of two sorted subsets is not shown in the encoding table (only complement and product/sum appear); follows trivially from Sub A := forall s, Set (A s) but is unevidenced in the record, so scored bridgeable-by-inference rather than audited-representable (residual R-union-inter-unevidenced). The four named residuals (R-universe, R-setoid, R-classical, R-ext) read as standard Lean/Mathlib-vs-ZFC translation gaps, not foundational mismatches."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "formalization_worker"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding_auditor"
+      }
+    ]
+  },
+  "independence_caveat": "Representation encoding audit (Section 11.5). Stages ran on distinct model families (claude, deepseek); independence is measured across models. Inherits representation residuals R-union-inter-unevidenced, carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-21T19:23:00Z"
+}
+```
+
+### E-000388
+
+```json
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000388",
+  "findings": [
+    "Cross-model encoding audit (blocks/audits/representation-encoding-crossmodel-claude.md), fresh isolated agent on claude-sonnet-5 given only representation/pilot-encoding.md verbatim, blind to any existing verdict or project history.",
+    "Operation-by-operation: subset/Sub(A), componentwise product/coproduct, delta, support, saturation, and quotient/projection are all judged representable or bridgeable, each backed by a proved bridge lemma. New observation not named by the document itself: componentwise intersection/union of two sorted subsets is not shown in the encoding table (only complement and product/sum appear); it follows trivially from Sub A := forall s, Set (A s) but is unevidenced in the record, so it is scored bridgeable-by-inference rather than audited-representable.",
+    "The four named residuals (R-universe, R-setoid, R-classical, R-ext) read as standard Lean/Mathlib-vs-ZFC translation gaps, not foundational mismatches.",
+    "Verdict: faithful-with-caveat with residuals R-universe, R-setoid, R-classical, R-ext, R-union-inter-unevidenced."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "formalization_worker"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding_auditor"
+      }
+    ]
+  },
+  "independence_caveat": "Representation encoding audit (Section 11.5). Stages ran on distinct model families (claude, deepseek); independence is measured across models. Inherits representation residuals R-union-inter-unevidenced, carrier-model, small-large, univalence-missing.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000387",
+  "timestamp": "2026-09-21T19:26:08Z"
+}
+```
+
+### E-000389
+
+```json
+{
+  "block": "representation/encoding",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000389",
+  "findings": [
+    "Cross-model encoding audit (blocks/audits/representation-encoding-crossmodel-claude.md), fresh isolated agent on claude-sonnet-5 given only representation/pilot-encoding.md verbatim, blind to any existing verdict or project history.",
+    "Operation-by-operation: subset/Sub(A), componentwise product/coproduct, delta, support, saturation, and quotient/projection are all judged representable or bridgeable, each backed by a proved bridge lemma. New observation not named by the document itself: componentwise intersection/union of two sorted subsets is not shown in the encoding table (only complement and product/sum appear); it follows trivially from Sub A := forall s, Set (A s) but is unevidenced in the record, so it is scored bridgeable-by-inference rather than audited-representable.",
+    "The four named residuals (R-universe, R-setoid, R-classical, R-ext) read as standard Lean/Mathlib-vs-ZFC translation gaps, not foundational mismatches.",
+    "Verdict: faithful-with-caveat with residuals R-universe, R-setoid, R-classical, R-ext, R-union-inter-unevidenced."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "formalization_worker"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding_auditor"
+      }
+    ]
+  },
+  "independence_caveat": "Representation encoding audit (Section 11.5). Stages ran on distinct model families (claude, deepseek); independence is measured across models. Inherits representation residuals R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000388",
+  "timestamp": "2026-09-21T19:26:26Z"
+}
+```
+
+### E-000390
+
+```json
+{
+  "block": "B-P020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000390",
+  "findings": [
+    "Cross-model two-stage blind correspondence audit (blocks/audits/B-P020-correspondence-crossmodel-claude.md), both stages fresh isolated agents on claude-sonnet-5, independent of every prior deepseek-v4.1-flash stage on this block. Stage 1 saw only the Lean declarations and their 68-declaration definition closure (statements only); stage 2 saw only stage 1's read-back and the manuscript contract (B-P020 plus B-D030/B-D031/B-D032/B-P015/B-P019).",
+    "Verdict: equivalent -- formAlgFormCgrIso is an order isomorphism between algebraFormations Sig and congruenceFormations Sig under inclusion / pointwise-inclusion, matching the contract's isomorphic complete lattices Form_Alg(Sigma)/Form_Cgr(Sigma); the extra Lean lemmas (monotonicity, mutual-inverse, congruenceFormationOf/algebraFormationOfCongruenceFormation well-definedness) are decomposition of the single contract statement, not additional content, and mirror the manuscript's own separately labeled prerequisites B-P015/B-P019."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/definition_closure",
+      "hash": "d898f7d0ffccb3450297e81093e8383db40c8037337c667d3bc80ef5a74aeb12"
+    },
+    {
+      "artifact": "B-P020/formal_statement",
+      "hash": "e858567726d3badf1ff359954435bb477bf6883392532eb3d624fe47b7669f17"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:27:30Z"
+}
+```
+
+### E-000391
+
+```json
+{
+  "block": "B-P020",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000391",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P020-correspondence-crossmodel-mixed.md), reusing the Session-119 deepseek-v4.1-flash stage-1 read-back verbatim (blocks/audits/B-P020-correspondence.md) and pairing it with a fresh claude-sonnet-5 stage-2 comparator that saw only that read-back and the manuscript contract (B-P020 plus B-D030/B-D031/B-D032/B-P015/B-P019), independent of the prior stage-2 verdict.",
+    "Verdict: equivalent -- formAlgFormCgrIso's order isomorphism (built from the mutually-inverse monotone maps thetaSigma/thetaSigmaInv) matches the contract's isomorphic complete lattices Form_Alg(Sigma)/Form_Cgr(Sigma) term for term; IsCongruenceFormation/IsAlgebraFormation as read back match B-D030/B-D032 exactly, and congruenceFormationOf/algebraFormationOfCongruenceFormation match B-P019/B-P015. Corroborates the independent double-claude redo (E-000390, same_model) and the original same-model deepseek verdict (E-000307)."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-D015/informal_statement",
+      "hash": "d261b714765b36cf3ac861c9ced3f2353a294d05b6e50d39c08f9494a24827d4"
+    },
+    {
+      "artifact": "B-P020/definition_closure",
+      "hash": "d898f7d0ffccb3450297e81093e8383db40c8037337c667d3bc80ef5a74aeb12"
+    },
+    {
+      "artifact": "B-P020/formal_statement",
+      "hash": "e858567726d3badf1ff359954435bb477bf6883392532eb3d624fe47b7669f17"
+    },
+    {
+      "artifact": "B-P020/informal_statement",
+      "hash": "bce012d4aa8831e05e94fcfd6f5492ad37773248edf1d7c29177c76ae225c2a4"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-21T19:30:32Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -19341,7 +19615,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 125
-- Evidence records: 386
+- Evidence records: 391
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -19355,8 +19629,8 @@ assertion).
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
 | `B-A001` | assumption | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
@@ -19368,20 +19642,20 @@ assertion).
 | `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-D001` | definition | Preliminaries. | none | provisional | pass | none | - |
-| `B-D002` | definition | Preliminaries. | none | fail | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D003` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D004` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D005` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D006` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D002` | definition | Preliminaries. | none | fail | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-D003` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-D004` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-D005` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-D006` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-D007` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D008` | definition | Preliminaries. | none | provisional | pass | none | - |
-| `B-D009` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D009` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-D010` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D011` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D012` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D013` | definition | Preliminaries. | none | provisional | pass | none | - |
-| `B-D014` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-D015` | definition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-D014` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-D015` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-D016` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D017` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D018` | definition | Preliminaries. | none | provisional | pass | none | - |
@@ -19415,9 +19689,9 @@ assertion).
 | `B-D046` | definition | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-L001` | lemma | Preliminaries. | none | provisional | pass | none | - |
 | `B-P001` | proposition | Preliminaries. | none | fail | pass | none | - |
-| `B-P002` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P003` | proposition | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
-| `B-P004` | proposition | Preliminaries. | provisional | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-P002` | proposition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-P003` | proposition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-P004` | proposition | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-P005` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P006` | proposition | Preliminaries. | none | provisional | pass | none | - |
 | `B-P007` | proposition | Preliminaries. | none | provisional | pass | none | - |
@@ -19433,7 +19707,7 @@ assertion).
 | `B-P017` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P018` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-P019` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-P020` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-P020` | proposition | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-P021` | proposition | Elementary translations and translations. | none | provisional | pass | none | - |
 | `B-P022` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
 | `B-P023` | proposition | Congruence cogenerated  by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra. | none | provisional | pass | none | - |
@@ -19457,9 +19731,9 @@ assertion).
 | `B-R003` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R004` | remark | Preliminaries. | none | provisional | provisional | none | - |
 | `B-R005` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R006` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R006` | remark | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-R007` | remark | Preliminaries. | none | provisional | pass | none | - |
-| `B-R008` | remark | Preliminaries. | none | provisional | pass | none | carrier-model; small-large; univalence-missing |
+| `B-R008` | remark | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-R009` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R010` | remark | Preliminaries. | none | provisional | pass | none | - |
 | `B-R011` | remark | Preliminaries. | none | provisional | pass | none | - |
@@ -19478,7 +19752,7 @@ assertion).
 | `B-R027` | remark | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-X001` | examples | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
 | `B-X002` | examples | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | fail | provisional | none | - |
-| `representation/encoding` | - | - | none | none | none | provisional | - |
+| `representation/encoding` | - | - | none | none | none | pass | - |
 
 4 block(s) have no evidence.
 
@@ -19496,7 +19770,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 15 |
+| `encoding` | `representation/pilot-encoding.md` | E-000389 | faithful-with-caveat | yes | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe | 15 |
 
 ## Residuals propagated to blocks
 
@@ -19506,21 +19780,21 @@ boundary (Section 11.5).
 
 | block | representation | outcome | residuals |
 |---|---|---|---|
-| `B-C001` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-C002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D005` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D009` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D014` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D015` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-P002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-P003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-P004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-R006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-R008` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-C001` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-C002` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D002` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D003` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D004` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D005` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D006` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D009` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D014` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D015` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-P002` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-P003` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-P004` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-R006` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-R008` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
 
 ## Unproved bridge obligations
 
@@ -20475,7 +20749,6 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-P017` | correspondence | provisional | 1 | 2 |
 | `B-P018` | correspondence | provisional | 1 | 0 |
 | `B-P019` | correspondence | provisional | 1 | 1 |
-| `B-P020` | correspondence | provisional | 1 | 1 |
 | `B-P021` | correspondence | provisional | 1 | 0 |
 | `B-P022` | correspondence | provisional | 1 | 1 |
 | `B-P023` | correspondence | provisional | 1 | 1 |
@@ -20529,7 +20802,6 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-X001` | verification | provisional | 1 | 0 |
 | `B-X002` | correspondence | fail | 1 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
-| `representation/encoding` | representation | provisional | 1 | 2 |
 
 ## Representation bridges still open
 

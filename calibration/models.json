@@ -5,6 +5,11 @@
       "id": "deepseek-v4.1-flash",
       "family": "deepseek",
       "available": true
+    },
+    {
+      "id": "claude-sonnet-5",
+      "family": "claude",
+      "available": true
     }
   ]
 }

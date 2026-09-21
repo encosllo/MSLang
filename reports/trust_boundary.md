@@ -10,7 +10,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/pilot-encoding.md` | E-000040 | faithful-with-caveat | yes | carrier-model, small-large, univalence-missing | 15 |
+| `encoding` | `representation/pilot-encoding.md` | E-000389 | faithful-with-caveat | yes | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe | 15 |
 
 ## Residuals propagated to blocks
 
@@ -20,21 +20,21 @@ boundary (Section 11.5).
 
 | block | representation | outcome | residuals |
 |---|---|---|---|
-| `B-C001` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-C002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D005` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D009` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D014` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-D015` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-P002` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-P003` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-P004` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-R006` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
-| `B-R008` | `encoding` | faithful-with-caveat | carrier-model, small-large, univalence-missing |
+| `B-C001` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-C002` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D002` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D003` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D004` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D005` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D006` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D009` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D014` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-D015` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-P002` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-P003` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-P004` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-R006` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
+| `B-R008` | `encoding` | faithful-with-caveat | R-classical, R-ext, R-setoid, R-union-inter-unevidenced, R-universe |
 
 ## Unproved bridge obligations
 
