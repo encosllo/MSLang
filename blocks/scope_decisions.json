@@ -230,11 +230,6 @@
       "disposition": "deferred",
       "rationale": "Illustrative remark or example with no theorem content; author scope triage Session 82."
     },
-    "B-R027": {
-      "decided_by": "author:session120",
-      "disposition": "worth-formalizing",
-      "rationale": "Substantive redundancy claim: (BPS1) follows from (BPS2)+(BPS3). Small, not category-theoretic. Worth formalizing."
-    },
     "B-X001": {
       "decided_by": "author:session114",
       "disposition": "worth-formalizing",

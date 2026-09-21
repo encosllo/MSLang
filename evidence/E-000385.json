@@ -1,0 +1,36 @@
+{
+  "block": "B-R027",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000385",
+  "findings": [
+    "Mslang.nabla_sat_mem_of_transPreimage_boolean builds clean (module Mslang.Regular); axiom set audited by lean_audit.py."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "formalization_worker"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-R027/formal_proof",
+      "hash": "32fd0b17a956d900ae91956f6c0a707d5a5a4e4fda086db28d88e01a1de704dd"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "formalization_worker"
+  },
+  "timestamp": "2026-09-21T18:58:33Z"
+}

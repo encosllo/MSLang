@@ -1,6 +1,6 @@
 # Source inventory
 
-Source: `manuscript/MSEilenberg.tex` (213263 chars, 2705 lines, latin1)
+Source: `manuscript/MSEilenberg.tex` (213329 chars, 2706 lines, latin1)
 
 ## Sections
 

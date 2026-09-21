@@ -699,6 +699,10 @@
       ],
       "file": "lean/Mslang/Regular.lean"
     },
+    "B-R027": {
+      "decl": "Mslang.nabla_sat_mem_of_transPreimage_boolean",
+      "file": "lean/Mslang/Regular.lean"
+    },
     "B-P037": {
       "decl": "Mslang.langFormationOf_isRegularLanguageFormation",
       "file": "lean/Mslang/Regular.lean"

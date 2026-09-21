@@ -4795,6 +4795,38 @@
         "hash": "8de0684c9f22311338abe372d833afe8ac0d59eea774ac75c8b0bcda76f4013a"
       }
     },
+    "B-R027": {
+      "decls": [
+        "Mslang.nabla_sat_mem_of_transPreimage_boolean"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsElemTranslation",
+          "Mslang.IsSat",
+          "Mslang.SSet",
+          "Mslang.Signature",
+          "Mslang.SortedEqv",
+          "Mslang.Sub",
+          "Mslang.Term",
+          "Mslang.TlGen",
+          "Mslang.complA",
+          "Mslang.deltaSub",
+          "Mslang.nabla",
+          "Mslang.nabla_sat",
+          "Mslang.sat",
+          "Mslang.termAlg",
+          "Mslang.transPreimage"
+        ],
+        "hash": "26361c4de3ae34bcc9725d0b7d203c6d3d70964eb7ccb151faf1f19cdecb7d06"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "32fd0b17a956d900ae91956f6c0a707d5a5a4e4fda086db28d88e01a1de704dd"
+      },
+      "formal_statement": {
+        "hash": "1f3c58ab886b03c87acb3170c555e41db12c4179dd8308bdfb8c745c35ba6a4d"
+      }
+    },
     "B-X001": {
       "decls": [
         "Mslang.IsCyclicSub",

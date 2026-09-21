@@ -475,6 +475,87 @@ def bpsLanguageFormations {S : Type u} (Sig : Signature S) :
     Set ((A : SSet S) → Set (Sub (Term Sig A))) :=
   {L | IsBPSLanguageFormation Sig L}
 
+/-! ### `B-R027`: `(BPS 1)` is redundant given `(BPS 2)` and `(BPS 3)`. -/
+
+/-- `B-R027` (honest form): if `S` is finite and `L(A)` is nonempty, then the
+`∇`-saturated clause `(BPS 1)` follows from the translation-preimage clause
+`(BPS 2)` and the Boolean clause `(BPS 3)`. From any `X ∈ L(A)`, Boolean closure
+gives the full language; the identity translation's preimage of the full language
+is the concentrated saturated language `δ^{t,*}`; and finite unions of the
+`δ^{t,*}` give every `∇`-saturated language.
+
+The hypotheses `[Finite S]` and `L(A) ≠ ∅` are needed: `(BPS 3)` supplies only
+finite Boolean combinations, and the empty family `L(A) = ∅` satisfies `(BPS 2)`
+and `(BPS 3)` vacuously while failing `(BPS 1)`. -/
+theorem nabla_sat_mem_of_transPreimage_boolean {S : Type u} [Finite S]
+    (Sig : Signature S) {L : (A : SSet S) → Set (Sub (Term Sig A))}
+    (htrans : ∀ A, ∀ X : Sub (Term Sig A), X ∈ L A →
+      ∀ (t s : S) (T : (Term Sig A) t → (Term Sig A) s),
+        TlGen Sig (termAlg Sig A) t s T → transPreimage T X ∈ L A)
+    (hbool : ∀ A, ∀ X : Sub (Term Sig A), X ∈ L A →
+      ∀ Y : Sub (Term Sig A), Y ∈ L A →
+        (fun s => X s ∪ Y s) ∈ L A ∧ (fun s => X s ∩ Y s) ∈ L A ∧ complA X ∈ L A)
+    (A : SSet S) (hne : (L A).Nonempty) :
+    ∀ X : Sub (Term Sig A), IsSat (nabla (Term Sig A)) X → X ∈ L A := by
+  classical
+  haveI : Fintype S := Fintype.ofFinite S
+  obtain ⟨X₀, hX₀⟩ := hne
+  have hcompl : complA X₀ ∈ L A := (hbool A X₀ hX₀ X₀ hX₀).2.2
+  have hfull : (fun s => (Set.univ : Set (Term Sig A s))) ∈ L A := by
+    have h := (hbool A X₀ hX₀ (complA X₀) hcompl).1
+    simpa [complA] using h
+  have hempty : (fun s => (∅ : Set (Term Sig A s))) ∈ L A := by
+    have h := (hbool A X₀ hX₀ (complA X₀) hcompl).2.1
+    simpa [complA] using h
+  have hdelta : ∀ t : S, deltaSub t (Set.univ : Set (Term Sig A t)) ∈ L A := by
+    intro t
+    have h := htrans A (fun s => (Set.univ : Set (Term Sig A s))) hfull t t id
+      (TlGen.refl t)
+    simpa [transPreimage] using h
+  have hunion : ∀ (F : Finset S) (f : S → Sub (Term Sig A)),
+      (∀ t ∈ F, f t ∈ L A) → (fun u => ⋃ t ∈ F, f t u) ∈ L A := by
+    intro F
+    induction F using Finset.induction_on with
+    | empty =>
+        intro f _
+        have h : (fun u => ⋃ t ∈ (∅ : Finset S), f t u)
+            = fun u => (∅ : Set (Term Sig A u)) := by
+          funext u; simp
+        rw [h]; exact hempty
+    | insert a F ha ih =>
+        intro f hf
+        have h : (fun u => ⋃ t ∈ insert a F, f t u)
+            = fun u => f a u ∪ (⋃ t ∈ F, f t u) := by
+          funext u; rw [Finset.set_biUnion_insert]
+        rw [h]
+        exact (hbool A (f a) (hf a (Finset.mem_insert_self a F))
+          (fun u => ⋃ t ∈ F, f t u)
+          (ih f (fun t ht => hf t (Finset.mem_insert.mpr (Or.inr ht))))).1
+  intro X hXsat
+  have hsat := (nabla_sat X).mp hXsat
+  let F : Finset S := Finset.univ.filter (fun t => t ∈ suppSub X)
+  have hXeq : X = fun u => ⋃ t ∈ F, deltaSub t (Set.univ : Set (Term Sig A t)) u := by
+    funext u
+    ext a
+    constructor
+    · intro ha
+      have hu : u ∈ suppSub X := ⟨a, ha⟩
+      exact Set.mem_iUnion₂.mpr
+        ⟨u, Finset.mem_filter.mpr ⟨Finset.mem_univ u, hu⟩,
+          by rw [deltaSub_self]; exact Set.mem_univ a⟩
+    · intro ha
+      rcases Set.mem_iUnion₂.mp ha with ⟨t, ht, hat⟩
+      have htmem : t ∈ suppSub X := (Finset.mem_filter.mp ht).2
+      by_cases htu : t = u
+      · subst htu
+        rw [deltaSub_self] at hat
+        rw [hsat t htmem]; exact Set.mem_univ a
+      · rw [deltaSub_of_ne (Ne.symm htu) Set.univ] at hat
+        exact absurd hat (by simp)
+  rw [hXeq]
+  exact hunion F (fun t => deltaSub t (Set.univ : Set (Term Sig A t)))
+    (fun t _ => hdelta t)
+
 /-! ### `B-P037`: `𝔉 ↦ L_𝔉` lands in regular-language formations. -/
 
 /-- `B-P037` (`Cong2LangEnFinit`): if `𝔉` is a formation of finite-index

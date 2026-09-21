@@ -859,6 +859,11 @@
       "Quot.sound",
       "propext"
     ],
+    "Mslang.nabla_sat_mem_of_transPreimage_boolean": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mslang.nabla_sat_univ": [
       "Quot.sound",
       "propext"
@@ -1250,7 +1255,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 411,
+  "declarations_audited": 412,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

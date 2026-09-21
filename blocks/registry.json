@@ -2672,7 +2672,7 @@
       "id": "B-R027",
       "kind": "remark",
       "label": null,
-      "line": 2327,
+      "line": 2328,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2696,8 +2696,8 @@
       "id": "B-P035",
       "kind": "proposition",
       "label": null,
-      "line": 2333,
-      "proof_line": 2337,
+      "line": 2334,
+      "proof_line": 2338,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2717,7 +2717,7 @@
       "id": "B-P036",
       "kind": "proposition",
       "label": null,
-      "line": 2415,
+      "line": 2416,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2730,7 +2730,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2432",
+          "anchor": "proof@2433",
           "hash": "c4649bcb6b1b7d06b86bec73573ee9551e98fbe002e512890fb34ad214040f2e"
         },
         "informal_statement": {
@@ -2741,8 +2741,8 @@
       "id": "B-P037",
       "kind": "proposition",
       "label": "Cong2LangEnFinit",
-      "line": 2424,
-      "proof_line": 2432,
+      "line": 2425,
+      "proof_line": 2433,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2754,7 +2754,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2446",
+          "anchor": "proof@2447",
           "hash": "12e3bb8ed8ef5c70679a752be29c51abd0e3dee751587e199ef483cab2125ae9"
         },
         "informal_statement": {
@@ -2765,8 +2765,8 @@
       "id": "B-P038",
       "kind": "proposition",
       "label": "Lang2CongEnFinit",
-      "line": 2438,
-      "proof_line": 2446,
+      "line": 2439,
+      "proof_line": 2447,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2778,7 +2778,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2478",
+          "anchor": "proof@2479",
           "hash": "a73d85ebc5edd2b5e839796bec935c39bda089b2ca4b64eb25faad71bdafd7db"
         },
         "informal_statement": {
@@ -2789,8 +2789,8 @@
       "id": "B-P039",
       "kind": "proposition",
       "label": null,
-      "line": 2474,
-      "proof_line": 2478,
+      "line": 2475,
+      "proof_line": 2479,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2810,7 +2810,7 @@
       "id": "B-C013",
       "kind": "corollary",
       "label": null,
-      "line": 2516,
+      "line": 2517,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
