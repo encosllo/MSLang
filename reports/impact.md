@@ -27,7 +27,6 @@ rework.
 | E-000295 | `B-P002` | correspondence |
 | E-000296 | `B-P003` | correspondence |
 | E-000297 | `B-P004` | correspondence |
-| E-000298 | `B-P005` | correspondence |
 | E-000299 | `B-P006` | correspondence |
 | E-000300 | `B-P007` | correspondence |
 | E-000309 | `B-P023` | correspondence |
@@ -42,6 +41,7 @@ rework.
 | E-000370 | `B-D046` | correspondence |
 | E-000371 | `B-R022` | correspondence |
 | E-000372 | `B-R023` | correspondence |
+| E-000373 | `B-P005` | correspondence |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 

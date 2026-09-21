@@ -1,51 +1,88 @@
 # Correspondence audit transcript -- `B-D010`
 
-Protocol: Architecture.md Section 11.2, two-stage blind. First audit of this
-block's correspondence layer, run in Session 119 in section batches (one fresh
-agent per stage-batch; no agent was told the expected answer). Stage 1 saw only
-the Lean declarations and their definitions (with definition bodies); stage 2 saw
-only the stage 1 read-back and the contract.
+Protocol: Architecture.md Section 11.2, two-stage blind. Re-audit in Session 119
+after a class C5 declaration move and/or definition revision; fresh isolated agents,
+no expected answer disclosed.
 
-- **Lean declarations:** `Mslang.IsClosureSystem` (`lean/Mslang/Algebra.lean`)
+- **Lean declarations:** `Mslang.IsClosureSystem`, `Mslang.IsClosureOperator` (`lean/Mslang/Algebra.lean`, `lean/Mslang/Prelim.lean`)
 - **Contract:** Definition `B-D010`, section "Preliminaries.".
-- **Outcome:** `formal_weaker`
-- **Recorded as:** `E-000336`
+- **Outcome:** `equivalent`
+- **Recorded as:** `E-000374` (supersedes `E-000336`)
 - **Encoding:** dependent-type carrier model, `representation/pilot-encoding.md`.
-- **Independence:** the stage agents share this session's underlying model
-  (`deepseek-v4.1-flash`); shared blind spots are not excluded.
+- **Independence:** same-model stages (`deepseek-v4.1-flash`); shared blind spots not excluded.
 
 ## Stage 1 -- read-back (fresh agent, Lean only)
 
-> # B-D010 read-back
+> # B-D010 — informal read-back
 >
-> Fix `S : Type u`.
+> ## Ambient setup
 >
-> - `SSet (S) : Type (u+1)` — abbreviation `S → Type u`.
-> - `Sub {S} (A : SSet S) : Type u` — abbreviation `∀ s, Set (A s)`.
-> - `Sub_iInter {S} {A} (D : Set (Sub A)) : Sub A` — definitionally `fun s a => ∀ X : Sub A, X ∈ D → a ∈ X s`. The **sortwise intersection** of a family `D` of sub-objects: an element `a : A s` belongs to the intersection iff it belongs to `X s` for *every* `X ∈ D`. (Empty-family behavior: if `D = ∅`, the condition is vacuous, so `Sub_iInter ∅` is the full sub-object.)
+> Fix `S : Type u`, `SSet S := S → Type u`, a fixed `A : SSet S`, and
+> `Sub A := ∀ s, Set (A s)` (many-sorted subsets). `Subset X Y := ∀ s, X s ⊆ Y s`
+> (sortwise inclusion).
 >
-> - `IsClosureSystem {S} {A} (C : Set (Sub A)) : Prop` — definitionally the conjunction of:
->   1. `(fun s => Set.univ) ∈ C`: the "full" sub-object (all of `A s` at each sort) is in `C`; and
->   2. `∀ D : Set (Sub A), D ⊆ C → D.Nonempty → Sub_iInter D ∈ C`: whenever `D` is a nonempty subfamily of `C`, the sortwise intersection of `D` is again in `C`.
+> - `Sub_iInter D`, for a family `D : Set (Sub A)` of many-sorted subsets, is the
+>   many-sorted subset
+>   `fun s a => ∀ X : Sub A, X ∈ D → a ∈ X s`,
+>   i.e. the sortwise intersection of all members of `D`: at sort `s`, `a` is in
+>   `Sub_iInter D` iff `a ∈ X s` for every `X ∈ D`. (If `D` is empty this is
+>   everywhere true, i.e. the full subobject, by vacuity.)
 >
->   So a closure system is a family of sub-objects containing the top element and closed under nonempty intersections (of subfamilies drawn from `C`). No closure operator is defined here; only the family.
+> - `IsClosureSystem C`, for `C : Set (Sub A)`, is the conjunction of:
+>   - (top) the full many-sorted subset `fun s => (Set.univ : Set (A s))` belongs
+>     to `C`;
+>   - (intersections) for every `D : Set (Sub A)` such that `D ⊆ C` (every member
+>     of `D` is in `C`) and `D.Nonempty` (i.e. `∃ X, X ∈ D`), the intersection
+>     `Sub_iInter D` again belongs to `C`.
 >
-> No theorems.
+>   Reading: `C` is a family of many-sorted subsets closed under the full
+>   subobject and under intersections of nonempty subfamilies drawn from `C`. The
+>   nonemptiness requirement avoids having to demand the top element twice.
+>
+> - `IsClosureOperator c`, for `c : Sub A → Sub A`, is the conjunction of:
+>   extensivity `∀ X, Subset X (c X)`; monotonicity
+>   `∀ X Y, Subset X Y → Subset (c X) (c Y)`; and idempotence
+>   `∀ X, c (c X) = c X`.
+>
+> ## Theorems
+>
+> There are **no theorems** in this file. It contains only the definitions above
+> (`IsClosureSystem`, `IsClosureOperator`, `SSet`, `Sub`, `Sub_iInter`, `Subset`),
+> all of which are definition bodies; no assertion is made and nothing is proven.
 
 ## Stage 2 -- comparison (fresh agent, read-back + contract only)
 
-> # B-D010 verdict
+> # B-D010 — verdict
 >
-> Contract clause (1) — closure system: `C ⊆ Sub(A)` with `A ∈ C` and, for nonempty `D ⊆ C`, `⋂D = (⋂_{D∈D} D_s)_s ∈ C`; notation `ClSy(A)`, poset `ClSy(A)`.
+> ## Clause-by-clause comparison
 >
-> - "top/full element `A ∈ C`": Lean `(fun s => Set.univ) ∈ C`. ✓
-> - "closed under nonempty sortwise intersections": Lean `∀ D, D ⊆ C → D.Nonempty → Sub_iInter D ∈ C` with `Sub_iInter D := fun s a => ∀ X ∈ D, a ∈ X s`. ✓
-> - "`ClSy(A)` and its inclusion order": not separately bundled (minor notational omission).
+> Contract: Definition, two numbered items, `A` an `S`-sorted set.
 >
-> Contract clause (2) — closure operator: a map `J : Sub(A) → Sub(A)` that is extensive (`X ⊆ J(X)`), isotone (`X ⊆ Y ⇒ J(X) ⊆ J(Y)`), and idempotent (`J(J(X)) = J(X)`); notation `ClOp(A)`, poset `ClOp(A)`.
+> | # | Contract clause | Lean counterpart | Match |
+> |---|---|---|---|
+> | 1 | `S`-**closure system on `A`**: `C ⊆ Sub(A)` with `A ∈ C` and, for any `D ⊆ C` with `D ≠ ∅`, `⋂D = (⋂_{D∈D} D_s)_{s∈S} ∈ C` | `IsClosureSystem C` = full subobject `fun s => Set.univ ∈ C` ∧ (for every `D : Set (Sub A)`, `D ⊆ C` and `D.Nonempty` → `Sub_iInter D ∈ C`) | yes |
+> | 1' | Notation `ClSy(A)` (set of closure systems), `ClSy(A)` ordered by inclusion | not bundled; the set is `{C | IsClosureSystem C}` and inclusion is immediate — notational metadata, no mathematical assertion | n/a (notation) |
+> | 2 | `S`-**closure operator on `A`**: `J : Sub(A) → Sub(A)` with extensivity `X ⊆ J(X)`, isotonicity `X ⊆ Y → J(X) ⊆ J(Y)`, idempotence `J(J(X)) = J(X)` | `IsClosureOperator c` = extensivity ∧ monotonicity ∧ idempotence | yes |
+> | 2' | Notation `ClOp(A)` and the pointwise order `J ≤ K ↔ ∀X, J(X) ⊆ K(X)` | not bundled; predicate only — notational metadata | n/a (notation) |
 >
-> - This entire clause has no Lean counterpart: the read-back contains no closure-operator definition, no extensity/isotonicity/idempotence conditions, and no `ClOp` order.
+> The two substantive definitions (closure system, closure operator) are matched
+> exactly: the top-element clause is the contract's `A ∈ C` (the full many-sorted
+> subobject), the intersection clause is the contract's nonempty-`D` intersection
+> (`Sub_iInter D s a ↔ ∀ X ∈ D, a ∈ X s`), and the three closure-operator axioms
+> line up one-for-one. The file has no theorems, matching the purely definitional
+> contract. The only content not carried by Lean is the packaging of the predicate
+> into the named sets `ClSy(A)`/`ClOp(A)` and their orders, which is notation
+> rather than an assertion.
 >
-> Contract clauses with no Lean counterpart: the closure-operator definition of clause (2) (extensivity, isotonicity, idempotence), and the `ClSy`/`ClOp` notation and orders.
-> Verdict: formal_weaker — the closure-system half of the definition is formalized, but the whole closure-operator half (clause 2) is absent.
+> Contract clauses with no Lean counterpart: none
+>
+> Verdict: equivalent
+>
+> Justification: Both the closure-system and closure-operator definitions are
+> matched clause-for-clause, the only unformalized material being notational
+> bundling of the underlying sets and their inclusion orders.
+
+## Note
+
+`IsClosureOperator` (the closure-operator clause) is now registered under this block.
 

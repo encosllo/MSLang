@@ -371,7 +371,7 @@ Let $A$ and $B$ be two $S$-sorted sets, $I$ a set in $\ensuremath{\boldsymbol{\m
 
 Since algebraic closure systems or, what is equivalent, algebraic closure operators on many-sorted sets and ordinary sets and algebraic lattices appear repeatedly in this article we next recall these concepts.
 
-\lean{\detokenize{Mslang.Sub_iInter}, \detokenize{Mslang.IsClosureSystem}}
+\lean{\detokenize{Mslang.IsClosureSystem}, \detokenize{Mslang.IsClosureOperator}}
 \blockid{B-D010}
 \begin{definition}
 Let $A$ be an $S$-sorted set.
@@ -455,7 +455,7 @@ Let $\mathbf{L}$ be a complete lattice. An element $a$ of $L$ is \emph{compact} 
 
 Now we define, for an $S$-sorted set $A$, the concepts of: algebraic $S$-closure operator on $A$, algebraic $S$-closure system on $A$, uniformity for an operator on $A$, uniform $S$-closure operator on $A$, and uniform algebraic $S$-closure operator on $A$. Moreover, as announced above, we will specify the relationship between the algebraic $S$-closure systems on an $S$-sorted set $A$ and the algebraic lattices.
 
-\lean{\detokenize{Mslang.Sub_iUnion}, \detokenize{Mslang.IsAlgebraicClosureSystem}}
+\lean{\detokenize{Mslang.IsAlgebraicClosureSystem}, \detokenize{Mslang.IsAlgebraic}}
 \blockid{B-D012}
 \begin{definition}
 Let $A$ be an $S$-sorted set.
@@ -634,7 +634,7 @@ refines $\Phi$) and the $\Phi$-saturation hypothesis.
 
 We next state that, for a set of sorts $S$, an $S$-sorted set $A$, and an $S$\nobreakdash-sorted equivalence $\Phi$ on $A$, the set $\Phi\!-\!\mathrm{Sat}(A)$ is the set of all fixed points of a suitable operator on $A$, i.e., of a mapping of $\mathrm{Sub}(A)$ into itself.
 
-\lean{\detokenize{Mslang.IsClosureOperator}, \detokenize{Mslang.IsCompletelyAdditive}, \detokenize{Mslang.IsAlgebraic}, \detokenize{Mslang.sat_extensive}, \detokenize{Mslang.sat_monotone}, \detokenize{Mslang.sat_idem}, \detokenize{Mslang.sat_isClosureOperator}, \detokenize{Mslang.sat_iUnion}, \detokenize{Mslang.sat_isCompletelyAdditive}, \detokenize{Mslang.sat_isAlgebraic}, \detokenize{Mslang.sat_iInter_subset}, \detokenize{Mslang.sat_univ}, \detokenize{Mslang.sat_compl}, \detokenize{Mslang.suppSub_sat}, \detokenize{Mslang.sat_uniform}, \detokenize{Mslang.satSets_fix}}
+\lean{\detokenize{Mslang.IsCompletelyAdditive}, \detokenize{Mslang.sat_extensive}, \detokenize{Mslang.sat_monotone}, \detokenize{Mslang.sat_idem}, \detokenize{Mslang.sat_isClosureOperator}, \detokenize{Mslang.sat_iUnion}, \detokenize{Mslang.sat_isCompletelyAdditive}, \detokenize{Mslang.sat_isAlgebraic}, \detokenize{Mslang.sat_iInter_subset}, \detokenize{Mslang.sat_univ}, \detokenize{Mslang.sat_compl}, \detokenize{Mslang.suppSub_sat}, \detokenize{Mslang.sat_uniform}, \detokenize{Mslang.satSets_fix}}
 \blockid{B-P005}
 \begin{proposition}\label{SatOperator}
 Let $A$ be an $S$-sorted set and $\Phi\in\mathrm{Eqv}(A)$. Then the mapping $[\cdot]^{\Phi}$ from $\mathrm{Sub}(A)$ to $\mathrm{Sub}(A)$ which sends $X$ in $\mathrm{Sub}(A)$ to $[\cdot]^{\Phi}(X) = [X]^{\Phi}$ in $\mathrm{Sub}(A)$
@@ -768,7 +768,7 @@ We next define when a subset $X$ of the underlying $S$-sorted set $A$ of a $\Sig
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $X\subseteq A$. Let $\sigma$ be such that $\sigma\colon w\mor s$, i.e., a formal operation in $\Sigma_{w,s}$. We say that $X$ is \emph{closed under the operation} $F_{\sigma}\colon A_{w}\mor A_{s}$ if, for every $a\in X_{w}$, $F_{\sigma}(a)\in X_{s}$. We say that $X$ is a \emph{subalgebra} of $\mathbf{A}$ if $X$ is closed under the operations of $\mathbf{A}$. We denote by $\mathrm{Sub}(\mathbf{A})$ the set of all subalgebras of $\mathbf{A}$ (which is an algebraic closure system on $A$) and by  $\mathbf{Sub}(\mathbf{A})$ the algebraic lattice $(\mathrm{Sub}(\mathbf{A}),\subseteq)$. We also say, equivalently, that a $\Sigma$-algebra $\mathbf{B}$ is a \emph{subalgebra} of $\mathbf{A}$ if $B\subseteq A$ and the canonical embedding of $B$ into $A$ determines an embedding of $\mathbf{B}$ into $\mathbf{A}$.
 \end{definition}
 
-\lean{\detokenize{Mslang.MemSg}, \detokenize{Mslang.Sg}, \detokenize{Mslang.IsGenerating}, \detokenize{Mslang.subset_Sg}, \detokenize{Mslang.Sg_isSubalgebra}, \detokenize{Mslang.Sg_least}, \detokenize{Mslang.Sg_monotone}, \detokenize{Mslang.Sg_idem}, \detokenize{Mslang.Sg_isClosureOperator}}
+\lean{\detokenize{Mslang.MemSg}, \detokenize{Mslang.Sg}, \detokenize{Mslang.IsGenerating}, \detokenize{Mslang.subset_Sg}, \detokenize{Mslang.Sg_isSubalgebra}, \detokenize{Mslang.Sg_least}, \detokenize{Mslang.Sg_monotone}, \detokenize{Mslang.Sg_idem}, \detokenize{Mslang.Sg_isClosureOperator}, \detokenize{Mslang.MemSg_mono}, \detokenize{Mslang.Sg_isAlgebraic}}
 \blockid{B-D021}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then we denote by $\mathrm{Sg}_{\mathbf{A}}$ the algebraic closure operator canonically

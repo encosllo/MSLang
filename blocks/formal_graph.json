@@ -598,7 +598,12 @@
     {
       "from": "B-D013",
       "kind": "formal_uses",
-      "to": "B-P005"
+      "to": "B-D010"
+    },
+    {
+      "from": "B-D013",
+      "kind": "formal_uses",
+      "to": "B-D012"
     },
     {
       "from": "B-D014",
@@ -688,6 +693,16 @@
     {
       "from": "B-D021",
       "kind": "formal_uses",
+      "to": "B-D010"
+    },
+    {
+      "from": "B-D021",
+      "kind": "formal_uses",
+      "to": "B-D012"
+    },
+    {
+      "from": "B-D021",
+      "kind": "formal_uses",
       "to": "B-D016"
     },
     {
@@ -699,11 +714,6 @@
       "from": "B-D021",
       "kind": "formal_uses",
       "to": "B-D020"
-    },
-    {
-      "from": "B-D021",
-      "kind": "formal_uses",
-      "to": "B-P005"
     },
     {
       "from": "B-D022",
@@ -1404,6 +1414,16 @@
       "from": "B-P005",
       "kind": "formal_uses",
       "to": "B-D005"
+    },
+    {
+      "from": "B-P005",
+      "kind": "formal_uses",
+      "to": "B-D010"
+    },
+    {
+      "from": "B-P005",
+      "kind": "formal_uses",
+      "to": "B-D012"
     },
     {
       "from": "B-P005",

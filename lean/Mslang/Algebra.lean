@@ -220,6 +220,58 @@ theorem Sg_isClosureOperator {S : Type u} (Sig : Signature S) {A : SSet S}
     (F : AlgStruct Sig A) : IsClosureOperator (Sg Sig F) :=
   ⟨subset_Sg Sig F, fun _X _Y h => Sg_monotone Sig F h, Sg_idem Sig F⟩
 
+/-- `MemSg` is monotone in the generating set. -/
+theorem MemSg_mono {S : Type u} (Sig : Signature S) {A : SSet S}
+    (F : AlgStruct Sig A) {X Y : Sub A} (h : Subset X Y) :
+    ∀ (s : S) (a : A s), MemSg Sig F X s a → MemSg Sig F Y s a
+  | _, _, .hyp s a hx => .hyp s a (h s hx)
+  | _, _, .op p σ a ha => .op p σ a fun i => MemSg_mono Sig F h _ _ (ha i)
+
+/-- `B-D021`: the generating operator `Sg_A` is algebraic (finitary): every
+element it generates already lies in `Sg_A(X')` for some componentwise-finite
+`X' ⊆ X`. -/
+theorem Sg_isAlgebraic {S : Type u} (Sig : Signature S) {A : SSet S}
+    (F : AlgStruct Sig A) : IsAlgebraic (Sg Sig F) := by
+  intro X s a ha
+  induction ha with
+  | hyp s a hx =>
+      classical
+      refine ⟨Function.update (fun u => (∅ : Set (A u))) s ({a} : Set (A s)),
+        ?_, ?_, ?_⟩
+      · intro t b hb
+        by_cases ht : t = s
+        · subst ht
+          rw [Function.update_self] at hb
+          rw [Set.mem_singleton_iff] at hb
+          subst hb
+          exact hx
+        · rw [Function.update_of_ne ht] at hb
+          simp at hb
+      · intro t
+        by_cases ht : t = s
+        · subst ht
+          rw [Function.update_self]
+          exact Set.finite_singleton a
+        · rw [Function.update_of_ne ht]
+          exact Set.finite_empty
+      · exact MemSg.hyp s a (by
+          rw [Function.update_self]
+          exact Set.mem_singleton a)
+  | op p σ a _ ih =>
+      classical
+      choose X' hX'X hX'fin hX'gen using ih
+      refine ⟨fun t => ⋃ i, X' i t, ?_, ?_, ?_⟩
+      · intro t b hb
+        rw [Set.mem_iUnion] at hb
+        obtain ⟨i, hi⟩ := hb
+        exact hX'X i t hi
+      · intro t
+        simpa using Set.Finite.biUnion (s := (Set.univ : Set (Fin p.1.length)))
+          Set.finite_univ (fun i _ => hX'fin i t)
+      · refine MemSg.op p σ a fun i => ?_
+        exact MemSg_mono Sig F
+          (fun t b hb => Set.mem_iUnion.mpr ⟨i, hb⟩) _ _ (hX'gen i)
+
 /-! ### `B-R010`: uniformity of `Sg`. -/
 
 /-- The sorts reachable from `T` by the arities of the operations: the
@@ -266,7 +318,7 @@ def Sub_iInter {S : Type u} {A : SSet S} (D : Set (Sub A)) : Sub A :=
 /-- `B-D010`: an `S`-closure system on `A` — a family of componentwise subsets
 of `A` containing `A` and closed under nonempty intersections. The
 `S`-closure *operator* half of `B-D010` (extensive, isotone, idempotent) is
-`IsClosureOperator` (`B-P005`). -/
+`IsClosureOperator`. -/
 def IsClosureSystem {S : Type u} {A : SSet S} (C : Set (Sub A)) : Prop :=
   (fun s => (Set.univ : Set (A s))) ∈ C ∧
     ∀ D : Set (Sub A), D ⊆ C → D.Nonempty → Sub_iInter D ∈ C
@@ -276,8 +328,7 @@ def Sub_iUnion {S : Type u} {A : SSet S} (D : Set (Sub A)) : Sub A :=
   fun s a => ∃ X : Sub A, X ∈ D ∧ a ∈ X s
 
 /-- `B-D012`: an algebraic `S`-closure system — a closure system closed under
-directed unions. (The algebraic *operator* half of `B-D012` is `IsAlgebraic`,
-`B-P005`.) -/
+directed unions. (The algebraic *operator* half of `B-D012` is `IsAlgebraic`.) -/
 def IsAlgebraicClosureSystem {S : Type u} {A : SSet S} (C : Set (Sub A)) : Prop :=
   IsClosureSystem C ∧
     ∀ D : Set (Sub A), D ⊆ C → D.Nonempty →
@@ -321,10 +372,11 @@ depends only on the support of its argument. -/
 def IsUniform {S : Type u} {A : SSet S} (c : Sub A → Sub A) : Prop :=
   ∀ X Y : Sub A, suppSub X = suppSub Y → suppSub (c X) = suppSub (c Y)
 
-/-- `B-D013`: a uniform algebraic `S`-closure operator. -/
+/-- `B-D013`: a uniform algebraic `S`-closure operator: an `S`-closure operator
+(extensive, isotone, idempotent), algebraic (finitary), and uniform. -/
 def IsUniformAlgebraicClosureOperator {S : Type u} {A : SSet S}
     (c : Sub A → Sub A) : Prop :=
-  IsAlgebraic c ∧ IsUniform c
+  IsClosureOperator c ∧ IsAlgebraic c ∧ IsUniform c
 
 /-- Finite character of an algebraic closure operator (`B-C005` input): a point
 of `c U` already lies in `c F` for some finite `F ⊆ U`. -/

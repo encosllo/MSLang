@@ -1,0 +1,38 @@
+{
+  "block": "B-D010",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000379",
+  "findings": [
+    "Verification re-issued after the Session 119 closure-operator/cluster change touched this block's map (C5 remap or definition revision); audit 410 declarations, 0 sorry, 0 unpermitted."
+  ],
+  "independence": {
+    "class": "build",
+    "stages": [
+      {
+        "model": "build",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Verification is the local pinned build only.",
+  "inputs": [
+    {
+      "artifact": "B-D010/formal_proof",
+      "hash": "76e18f17cd4ecd7eb6c546da03f4a42bbff58e2a6ddb61aaa5cbd2d2150b3b34"
+    }
+  ],
+  "layer": "verification",
+  "outcome": "build_ok",
+  "producer": {
+    "kind": "build",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "coordinator"
+  },
+  "reissue_reason": "other",
+  "supersedes": "E-000272",
+  "timestamp": "2026-09-21T13:22:13Z"
+}

@@ -5975,6 +5975,31 @@ verification evidence (all definitions except `B-R022`/`B-R023`). New records
    `B-R027`, `B-C003`).
 3. Scope-triage or formalize `B-R001`, `B-R012`, `B-X002`.
 
+**Part 4 -- closure-operator cluster closed (`EV-000131`).**
+
+- **Class C5 ownership remap.** `IsClosureOperator` moved `B-P005 -> B-D010` and
+  `IsAlgebraic` moved `B-P005 -> B-D012`; the Lean comments in `Algebra.lean`
+  already named them "the operator half of `B-D010`/`B-D012`". They were defined
+  in `Prelim.lean`, hence the `decl_files` override. `B-P005` keeps the `sat_*`
+  theorems about the saturation operator.
+- **Formalization.** `IsUniformAlgebraicClosureOperator` extended to
+  `IsClosureOperator c ∧ IsAlgebraic c ∧ IsUniform c` (it had omitted the
+  closure-operator axioms); `MemSg_mono` and `Sg_isAlgebraic` added so `Sg` is
+  finitary/algebraic.
+- **Re-audits.** `B-D010`, `B-D012`, `B-D013`, `B-D021` are now **`equivalent`**
+  (`E-000374`--`E-000377`, superseding the `formal_weaker` `E-000336`/`E-000338`/
+  `E-000339`/`E-000346`). `B-P005`, whose statement changed by the remap,
+  re-audits **`formal_stronger`** (`E-000373`: `sat_iInter_subset` drops the
+  contract's nonempty-index hypothesis). Verification re-issued
+  `E-000378`--`E-000382`.
+- Lean gate **410 declarations, 0 `sorry`, 0 unpermitted**; manuscript **55
+  pages**; full gate **43 passed, 0 failed**. Journal `EV-000131`.
+- **Remaining frontier is only the 5 `fail` correspondence layers:** `B-D002`
+  (`Set^S` category — scope decision), `B-P001` (carrier model — representation
+  brief), `B-R001` (partial coverage), `B-R012` (`Sub(1)` arithmetic / the
+  `A/∇^A ≅` subalgebra-of-`1` isomorphism), `B-X002` (category examples). All are
+  author-facing or need new formalization, not mechanical cleanup.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**

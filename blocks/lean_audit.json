@@ -135,6 +135,7 @@
     "Mslang.IsUniformAlgebraicClosureOperator": [],
     "Mslang.IsomorphicSubdirectEmbeddings": [],
     "Mslang.MemSg": [],
+    "Mslang.MemSg_mono": [],
     "Mslang.PFsdOperator": [
       "Classical.choice",
       "Quot.sound",
@@ -150,6 +151,11 @@
     "Mslang.SSet": [],
     "Mslang.Sg": [],
     "Mslang.Sg_idem": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.Sg_isAlgebraic": [
+      "Classical.choice",
       "Quot.sound",
       "propext"
     ],
@@ -1239,7 +1245,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 408,
+  "declarations_audited": 410,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

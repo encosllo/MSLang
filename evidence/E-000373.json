@@ -1,0 +1,53 @@
+{
+  "block": "B-P005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000373",
+  "findings": [
+    "Two-stage blind re-audit after IsClosureOperator/IsAlgebraic were moved to their natural owners (B-D010/B-D012): formal_stronger -- sat_iInter_subset drops the contract's nonempty-index hypothesis. Supersedes E-000298. Transcript blocks/audits/B-P005-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "B-P005/definition_closure",
+      "hash": "eec2bb5e2b699743a71e80ead6e607733ba25a457e65e91d14ebc68b9cd940b9"
+    },
+    {
+      "artifact": "B-P005/formal_statement",
+      "hash": "1e0524ec58ecc5283f3d1297e8b692891fd9d4bdc1d71300622719e3b26ae4ee"
+    },
+    {
+      "artifact": "B-P005/informal_statement",
+      "hash": "3539061a9c80562edadafb63d85cc37964072e1fffd0a51d0ba11c7ff63964e2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_stronger",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000298",
+  "timestamp": "2026-09-21T13:22:12Z"
+}

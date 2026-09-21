@@ -1,0 +1,49 @@
+{
+  "block": "B-D013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000376",
+  "findings": [
+    "Two-stage blind re-audit after IsUniformAlgebraicClosureOperator was extended to require IsClosureOperator: equivalent. Supersedes E-000339. Transcript blocks/audits/B-D013-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family deepseek, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D013/definition_closure",
+      "hash": "452fa7ac8ab448bcf5c059aa4f0a11da227b21c911b9c6d5e044b9e94221c736"
+    },
+    {
+      "artifact": "B-D013/formal_statement",
+      "hash": "b13ca3a616903b59b86bc6ce322762252d168c154acb5b365af7b404d7d9408d"
+    },
+    {
+      "artifact": "B-D013/informal_statement",
+      "hash": "45701656711b518e0e3164295ac7770602c8015c835ff462aac124c522ac4f9b"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "supersedes": "E-000339",
+  "timestamp": "2026-09-21T13:22:12Z"
+}

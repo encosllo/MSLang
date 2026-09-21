@@ -8,7 +8,7 @@ record is **superseded** when a current record names it through
 `supersedes`; otherwise it is **awaiting** re-audit. Only awaiting
 records represent outstanding work.
 
-120 of 372 record(s) are stale (120 superseded, 0 awaiting):
+130 of 382 record(s) are stale (130 superseded, 0 awaiting):
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
@@ -46,17 +46,19 @@ records represent outstanding work.
 | E-000049 | `B-P004` | correspondence | superseded | B-P004/formal_statement: recorded 124b9c04cf12... now 77e67bbee5ad... |
 | E-000051 | `B-R007` | verification | superseded | B-R007/formal_proof: recorded c91952d5bf1b... now 01f7efa56762... |
 | E-000052 | `B-R007` | correspondence | superseded | B-R007/formal_statement: recorded e31c9728cf85... now 62f88613457d... |
-| E-000053 | `B-P005` | verification | superseded | B-P005/formal_proof: recorded 841bacddba81... now 56a4d8c765d4... |
-| E-000054 | `B-P005` | correspondence | superseded | B-P005/formal_statement: recorded 8a722d7da630... now b6ab2d4be98c... |
+| E-000053 | `B-P005` | verification | superseded | B-P005/formal_proof: recorded 841bacddba81... now 5adf791fb72b... |
+| E-000054 | `B-P005` | correspondence | superseded | B-P005/formal_statement: recorded 8a722d7da630... now 1e0524ec58ec... |
 | E-000055 | `B-R005` | verification | superseded | B-R005/formal_proof: recorded d690f29a5f86... now 44ed59195b6c... |
 | E-000056 | `B-R005` | correspondence | superseded | B-R005/formal_statement: recorded 0b66340f658b... now 55a3c502524d... |
 | E-000058 | `B-P007` | correspondence | superseded | B-P007/formal_statement: recorded 032edc48586c... now b2a96d8de422... |
 | E-000059 | `B-D003` | verification | superseded | B-D003/formal_proof: recorded ac85adb433e2... now 03c831a1fd6b... |
 | E-000068 | `B-R003` | correspondence | superseded | B-R003/formal_statement: recorded 82ed401ee400... now dff498bbdf9e... |
+| E-000069 | `B-P005` | verification | superseded | B-P005/formal_proof: recorded 56a4d8c765d4... now 5adf791fb72b... |
 | E-000070 | `B-D024` | verification | superseded | B-D024/formal_proof: recorded 6923bc666cde... now 19249074c8d3... |
 | E-000073 | `B-P009` | correspondence | superseded | B-P009/formal_statement: recorded 993556050557... now 3da6d505a20d... |
 | E-000074 | `B-R009` | verification | superseded | B-R009/formal_proof: recorded bd3158d63a6d... now 5e441a44341c... |
 | E-000075 | `B-R009` | correspondence | superseded | B-R009/formal_statement: recorded 03cdb4115f92... now 00a5722b00f2... |
+| E-000077 | `B-D021` | verification | superseded | B-D021/formal_proof: recorded fc566de69d74... now 3d4f0115d75c... |
 | E-000079 | `B-R010` | correspondence | superseded | B-R010/formal_statement: recorded 27d451dd1012... now ff699e4002eb... |
 | E-000082 | `B-R009` | correspondence | superseded | B-R009/formal_statement: recorded 3010c2715f81... now 00a5722b00f2... |
 | E-000083 | `B-C001` | correspondence | superseded | B-C001/definition_closure: recorded 2a18cc63b7ff... now d5d21df97655... |
@@ -67,12 +69,13 @@ records represent outstanding work.
 | E-000089 | `B-R008` | correspondence | superseded | B-R008/definition_closure: recorded d40e3f1b1ae6... now 393fc6608956... |
 | E-000090 | `B-P004` | correspondence | superseded | B-P004/definition_closure: recorded c163f78b73b9... now 6fa7f25f464a... |
 | E-000091 | `B-R007` | correspondence | superseded | B-R007/definition_closure: recorded 6a6179cc665d... now 798ace5bb408...<br>B-R007/formal_statement: recorded e5819c956163... now 62f88613457d... |
-| E-000092 | `B-P005` | correspondence | superseded | B-P005/definition_closure: recorded 1d882c9b9a16... now c6010e857294... |
+| E-000092 | `B-P005` | correspondence | superseded | B-P005/definition_closure: recorded 1d882c9b9a16... now eec2bb5e2b69...<br>B-P005/formal_statement: recorded b6ab2d4be98c... now 1e0524ec58ec... |
 | E-000093 | `B-R005` | correspondence | superseded | B-R005/definition_closure: recorded d36d9154166d... now 74af86ca9deb...<br>B-R005/formal_statement: recorded 99d6eb278c8d... now 55a3c502524d... |
 | E-000094 | `B-P007` | correspondence | superseded | B-P007/definition_closure: recorded dd3c04ac932a... now fc36200960f2... |
 | E-000096 | `B-P009` | correspondence | superseded | B-P009/definition_closure: recorded 3f55a34f3cb3... now 70fa8d0af5fe... |
-| E-000099 | `B-D010` | verification | superseded | B-D010/formal_proof: recorded 0576f62e8df2... now 57ef02cfe4ba... |
-| E-000101 | `B-D012` | verification | superseded | B-D012/formal_proof: recorded c871f892eb88... now 244107b40cee... |
+| E-000099 | `B-D010` | verification | superseded | B-D010/formal_proof: recorded 0576f62e8df2... now 76e18f17cd4e... |
+| E-000101 | `B-D012` | verification | superseded | B-D012/formal_proof: recorded c871f892eb88... now 64215e179bd3... |
+| E-000102 | `B-D013` | verification | superseded | B-D013/formal_proof: recorded c36fb38311e8... now 33ef85c74ec1... |
 | E-000107 | `B-R012` | correspondence | superseded | B-R012/definition_closure: recorded 6c13238ca730... now 5b6523de4ff1... |
 | E-000111 | `B-D027` | verification | superseded | B-D027/formal_proof: recorded e52f4b6ef16e... now 0bf365ad135d... |
 | E-000112 | `B-R001` | verification | superseded | B-R001/formal_proof: recorded 58dfa9e9390f... now 27a0d6f0e8b8... |
@@ -130,5 +133,12 @@ records represent outstanding work.
 | E-000259 | `B-D006` | verification | superseded | B-D006/formal_proof: recorded 5e8329f91985... now 829e956a1f5e... |
 | E-000260 | `B-D014` | verification | superseded | B-D014/formal_proof: recorded 8f4d1b67e1ff... now 5c82697c94d1... |
 | E-000269 | `B-D003` | verification | superseded | B-D003/formal_proof: recorded 2d2c7ab280ba... now 03c831a1fd6b... |
+| E-000272 | `B-D010` | verification | superseded | B-D010/formal_proof: recorded 57ef02cfe4ba... now 76e18f17cd4e... |
+| E-000273 | `B-D012` | verification | superseded | B-D012/formal_proof: recorded 244107b40cee... now 64215e179bd3... |
 | E-000277 | `B-D014` | correspondence | superseded | B-D014/definition_closure: recorded 00b9716fba37... now 734c53cf1b8d...<br>B-D014/formal_statement: recorded d32895ec92ec... now 59af29d20eb2... |
 | E-000278 | `B-D024` | correspondence | superseded | B-D024/definition_closure: recorded 1c97b62dccca... now 172650c8f53a...<br>B-D024/formal_statement: recorded 2238cbab49a6... now 973b182c696b... |
+| E-000298 | `B-P005` | correspondence | superseded | B-P005/definition_closure: recorded c6010e857294... now eec2bb5e2b69...<br>B-P005/formal_statement: recorded b6ab2d4be98c... now 1e0524ec58ec... |
+| E-000336 | `B-D010` | correspondence | superseded | B-D010/definition_closure: recorded 80f5e0f0a17e... now 4932e5ed65da...<br>B-D010/formal_statement: recorded cdc555b185ab... now 5ced2557472a... |
+| E-000338 | `B-D012` | correspondence | superseded | B-D012/formal_statement: recorded 0b9ce0686015... now 809dadaad63e... |
+| E-000339 | `B-D013` | correspondence | superseded | B-D013/definition_closure: recorded 215bd73d6498... now 452fa7ac8ab4... |
+| E-000346 | `B-D021` | correspondence | superseded | B-D021/definition_closure: recorded ed6c08193030... now 9706cce13c0e...<br>B-D021/formal_statement: recorded c24a9f05d55a... now 9c6636b9e0d4... |

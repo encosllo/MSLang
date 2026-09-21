@@ -123,9 +123,7 @@
     },
     "B-P005": {
       "decls": [
-        "Mslang.IsClosureOperator",
         "Mslang.IsCompletelyAdditive",
-        "Mslang.IsAlgebraic",
         "Mslang.sat_extensive",
         "Mslang.sat_monotone",
         "Mslang.sat_idem",
@@ -300,7 +298,9 @@
         "Mslang.Sg_least",
         "Mslang.Sg_monotone",
         "Mslang.Sg_idem",
-        "Mslang.Sg_isClosureOperator"
+        "Mslang.Sg_isClosureOperator",
+        "Mslang.MemSg_mono",
+        "Mslang.Sg_isAlgebraic"
       ],
       "file": "lean/Mslang/Algebra.lean"
     },
@@ -314,8 +314,12 @@
     },
     "B-D010": {
       "decls": [
-        "Mslang.IsClosureSystem"
+        "Mslang.IsClosureSystem",
+        "Mslang.IsClosureOperator"
       ],
+      "decl_files": {
+        "Mslang.IsClosureOperator": "lean/Mslang/Prelim.lean"
+      },
       "file": "lean/Mslang/Algebra.lean"
     },
     "B-D011": {
@@ -327,8 +331,12 @@
     },
     "B-D012": {
       "decls": [
-        "Mslang.IsAlgebraicClosureSystem"
+        "Mslang.IsAlgebraicClosureSystem",
+        "Mslang.IsAlgebraic"
       ],
+      "decl_files": {
+        "Mslang.IsAlgebraic": "lean/Mslang/Prelim.lean"
+      },
       "file": "lean/Mslang/Algebra.lean"
     },
     "B-D013": {
