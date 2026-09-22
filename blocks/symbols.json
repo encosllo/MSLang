@@ -38,7 +38,7 @@
       ],
       "state": "block",
       "target": "B-D042",
-      "uses": 5
+      "uses": 6
     },
     {
       "candidate_edges": 3,
@@ -66,7 +66,7 @@
       ],
       "state": "block",
       "target": "B-D040",
-      "uses": 10
+      "uses": 11
     },
     {
       "candidate_edges": 0,

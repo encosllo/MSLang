@@ -1468,6 +1468,22 @@
     },
     {
       "confirmed": false,
+      "detail": "\\Alg_f",
+      "from": "B-R028",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D042"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-R028",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D040"
+    },
+    {
+      "confirmed": false,
       "detail": "\\Cgr_fi",
       "from": "B-C012",
       "kind": "uses_definition",
@@ -2569,6 +2585,10 @@
     ],
     "B-R027": [
       "BPS"
+    ],
+    "B-R028": [
+      "Alg_f",
+      "Cgr_fi"
     ],
     "B-X001": [
       "D",

@@ -58,7 +58,7 @@ In-degree counts candidate incoming edges; high in-degree means a change here ha
 | B-D027 | free | 12 |
 | B-D017 | finitary operations on | 11 |
 | B-D036 | translations of sort | 10 |
-| B-D040 | finite index | 9 |
+| B-D040 | finite index | 10 |
 
 ---
 

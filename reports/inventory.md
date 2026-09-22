@@ -1,6 +1,6 @@
 # Source inventory
 
-Source: `manuscript/MSEilenberg.tex` (213329 chars, 2706 lines, latin1)
+Source: `manuscript/MSEilenberg.tex` (213793 chars, 2711 lines, latin1)
 
 ## Sections
 
@@ -21,9 +21,9 @@ Source: `manuscript/MSEilenberg.tex` (213329 chars, 2706 lines, latin1)
 | examples | 2 |
 | lemma | 1 |
 | proposition | 39 |
-| remark | 27 |
+| remark | 28 |
 
-Blocks with a `\blockid`: **129** confirmed, **0** proposed (no id).
+Blocks with a `\blockid`: **130** confirmed, **0** proposed (no id).
 
 ## Theorem declarations
 

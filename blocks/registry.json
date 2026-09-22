@@ -2554,6 +2554,27 @@
       "term": null
     },
     {
+      "body_hash": "db27f742560a995099ccc92be5ed1be50edf79583ef75d38c56dfb8e09e926ed",
+      "body_length": 417,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "db27f742560a995099ccc92be5ed1be50edf79583ef75d38c56dfb8e09e926ed"
+        }
+      },
+      "has_proof": false,
+      "id": "B-R028",
+      "kind": "remark",
+      "label": null,
+      "line": 2242,
+      "proof_line": null,
+      "scope": null,
+      "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
+      "status": "confirmed",
+      "term": null
+    },
+    {
       "body_hash": "9764124f72bb25c0a3f980e3f79468c748f2caae3cda35e8686846dbde4fc072",
       "body_length": 98,
       "facets": {
@@ -2567,7 +2588,7 @@
       "id": "B-C012",
       "kind": "corollary",
       "label": "FormCgrfiAlg",
-      "line": 2243,
+      "line": 2248,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2588,7 +2609,7 @@
       "id": "B-D044",
       "kind": "definition",
       "label": null,
-      "line": 2265,
+      "line": 2270,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2609,7 +2630,7 @@
       "id": "B-R026",
       "kind": "remark",
       "label": null,
-      "line": 2270,
+      "line": 2275,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2630,7 +2651,7 @@
       "id": "B-D045",
       "kind": "definition",
       "label": "Def1FRL",
-      "line": 2276,
+      "line": 2281,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2651,7 +2672,7 @@
       "id": "B-D046",
       "kind": "definition",
       "label": "Def2FRL",
-      "line": 2305,
+      "line": 2310,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2672,7 +2693,7 @@
       "id": "B-R027",
       "kind": "remark",
       "label": null,
-      "line": 2328,
+      "line": 2333,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2696,8 +2717,8 @@
       "id": "B-P035",
       "kind": "proposition",
       "label": null,
-      "line": 2334,
-      "proof_line": 2338,
+      "line": 2339,
+      "proof_line": 2343,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2717,7 +2738,7 @@
       "id": "B-P036",
       "kind": "proposition",
       "label": null,
-      "line": 2416,
+      "line": 2421,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2730,7 +2751,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2433",
+          "anchor": "proof@2438",
           "hash": "c4649bcb6b1b7d06b86bec73573ee9551e98fbe002e512890fb34ad214040f2e"
         },
         "informal_statement": {
@@ -2741,8 +2762,8 @@
       "id": "B-P037",
       "kind": "proposition",
       "label": "Cong2LangEnFinit",
-      "line": 2425,
-      "proof_line": 2433,
+      "line": 2430,
+      "proof_line": 2438,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2754,7 +2775,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2447",
+          "anchor": "proof@2452",
           "hash": "12e3bb8ed8ef5c70679a752be29c51abd0e3dee751587e199ef483cab2125ae9"
         },
         "informal_statement": {
@@ -2765,8 +2786,8 @@
       "id": "B-P038",
       "kind": "proposition",
       "label": "Lang2CongEnFinit",
-      "line": 2439,
-      "proof_line": 2447,
+      "line": 2444,
+      "proof_line": 2452,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2778,7 +2799,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2479",
+          "anchor": "proof@2484",
           "hash": "a73d85ebc5edd2b5e839796bec935c39bda089b2ca4b64eb25faad71bdafd7db"
         },
         "informal_statement": {
@@ -2789,8 +2810,8 @@
       "id": "B-P039",
       "kind": "proposition",
       "label": null,
-      "line": 2475,
-      "proof_line": 2479,
+      "line": 2480,
+      "proof_line": 2484,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
       "status": "confirmed",
@@ -2810,7 +2831,7 @@
       "id": "B-C013",
       "kind": "corollary",
       "label": null,
-      "line": 2517,
+      "line": 2522,
       "proof_line": null,
       "scope": null,
       "section": "$\\Sigma$-finite index congruence formation, $\\Sigma$-regular language formation, and an Eilenberg type theorem for them.",
@@ -2819,7 +2840,7 @@
     }
   ],
   "counts": {
-    "confirmed": 129,
+    "confirmed": 130,
     "proposed": 0
   },
   "source": "manuscript/MSEilenberg.tex"
