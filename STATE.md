@@ -6267,13 +6267,16 @@ runs got wrong.
 
 ---
 
-## Session 123 -- 2026-09-22 -- Tiers 2 and 3 of the cross-model audit brief
+## Session 123 -- 2026-09-22 -- all four tiers of the cross-model audit brief
 
 **Goal.** Continue `blocks/audits/cross-model-audit-brief.md` per Session
 122's item 2: Tier 2, Protocol B (two-stage blind correspondence) on the five
 algebraic-lattice corollaries `B-C005`, `B-C006`, `B-C011`, `B-C012`,
 `B-C013`; then, on request, Tier 3, Protocol C (adversarial read of a
-reconstructed proof, Section 11a.5) on `B-C001`, `B-C002`.
+reconstructed proof, Section 11a.5) on `B-C001`, `B-C002`; then, on further
+request, Tier 4, cross-model re-confirmation of the five accepted
+`formal_weaker` correspondence findings (`B-P001`, `B-D002`, `B-R001`,
+`B-R012`, `B-X002`).
 
 **What was established (closed).**
 
@@ -6328,14 +6331,56 @@ Tier 3 (review, Protocol C -- adversarial read):
   `blocks/audits/B-C002-adversarial.md`. New evidence: `E-000402`,
   `E-000403`. Journal `EV-000149`. Commit `8cad997`.
 
+Tier 4 (correspondence, Protocol B -- re-confirm/challenge five accepted
+`formal_weaker` findings):
+
+- Same "mixed" pattern (reused `deepseek-v4.1-flash` stage-1 read-back, fresh
+  isolated `claude-sonnet-5` stage-2 comparator), but since the point was to
+  genuinely confirm-or-challenge a *negative* finding rather than rubber-stamp
+  it, each stage-2 prompt carried the **full** manuscript contract text (every
+  clause, not a paraphrase) and an explicit instruction to go clause by
+  clause and list every contract clause with no Lean counterpart. Dispatched
+  as five parallel subagents.
+- **All five verdicts: `formal_weaker`**, all confirming the existing
+  same-model findings, each independently re-deriving the identical specific
+  gap: `B-P001` (`E-000404` confirms `E-000236` -- general set-union of
+  arbitrary sorted sets unformalized; intersection/difference restricted to
+  `Sub A`), `B-D002` (`E-000405` confirms `E-000274` -- the `Set^S` category
+  clause unformalized), `B-R001` (`E-000406` confirms `E-000265` -- only the
+  delta-coproduct isomorphism formalized; generation/separation and items
+  (1)-(4) on atoms/`Sub(1^S)`/projectivity/monomorphism unformalized),
+  `B-R012` (`E-000407` confirms `E-000327` -- general subfinality theorem
+  formalized; two worked examples, an existence claim, and a refinement
+  corollary unformalized), `B-X002` (`E-000408` confirms `E-000330` -- the
+  finite-index dichotomy formalized; the four concrete-category instantiation
+  clauses `Sgr-Act`/`Mon-Act`/`Grp-Act`/`Mod` unformalized). All `cross_model`.
+- These remain representation-level gaps (the pilot encoding cannot express
+  unrelated-carrier set operations or category-theoretic structure), not
+  proof gaps; `reports/coverage.md` correctly continues to show `fail` for
+  correspondence on all five (cross-model independence confirms a negative
+  finding, it does not turn it positive) -- now cross-model-confirmed rather
+  than same-model-only.
+- New transcripts:
+  `blocks/audits/B-P001-correspondence-crossmodel-mixed.md`,
+  `blocks/audits/B-D002-correspondence-crossmodel-mixed.md`,
+  `blocks/audits/B-R001-correspondence-crossmodel-mixed.md`,
+  `blocks/audits/B-R012-correspondence-crossmodel-mixed.md`,
+  `blocks/audits/B-X002-correspondence-crossmodel-mixed.md`. New evidence:
+  `E-000404`-`E-000408`. Journal `EV-000150`. Commit `a427b81`.
+
+**All four tiers of `blocks/audits/cross-model-audit-brief.md` are now
+complete.**
+
 **State after the session.**
 
-- Both tiers complete; `reports/coverage.md` shows `pass` rather than
-  `provisional` for: correspondence on `B-C005`/`B-C006`/`B-C011`/`B-C012`/
-  `B-C013`, and review on `B-C001`/`B-C002`.
+- `reports/coverage.md` shows `pass` rather than `provisional` for:
+  correspondence on `B-C005`/`B-C006`/`B-C011`/`B-C012`/`B-C013`, and review
+  on `B-C001`/`B-C002`. It continues to show `fail` (not `provisional`) for
+  correspondence on `B-P001`/`B-D002`/`B-R001`/`B-R012`/`B-X002`, now backed
+  by `cross_model` evidence -- an honestly-recorded, cross-model-confirmed
+  representation limitation, not an open question.
 - Fast gate **40/0** after each tier's ingestion; slow gate **43/0** run once
-  after Tier 2 (Tier 3 touched no Lean/manuscript artifacts, so the deferred
-  checks were unaffected and the fast gate alone re-verified it).
+  after Tier 2 and again at session close after Tier 4.
 
 **Prioritized next steps.**
 
@@ -6344,10 +6389,12 @@ Tier 3 (review, Protocol C -- adversarial read):
    `Finite S` assumption) -- accept the generalization, or add a `Finite S`
    hypothesis to `formAlgFFormCgrFiIso` (and its two supporting lemmas) to
    match `B-A001` exactly.
-2. Continue the brief: Tier 4 (re-confirm the five accepted `formal_weaker`
-   findings cross-model: `B-P001`, `B-D002`, `B-R001`, `B-R012`, `B-X002`),
-   then the optional/large item (Protocol B on the remaining mapped blocks
-   still `provisional`; see `reports/coverage.md`).
+2. The brief's four tiers are done. Remaining work is the brief's own
+   "optional (large)" item: Protocol B on the remaining mapped blocks still
+   `provisional` in `reports/coverage.md` (most of the ~124 mapped blocks --
+   Tiers 1-4 covered only the blocks flagged as high-priority or previously
+   contentious). Budget roughly one context-heavy session slice per block, as
+   the brief itself warns.
 3. Optional cleanup carried over from Session 121: reconcile the BPS clause
    numbering between the manuscript and the Lean comments.
 
