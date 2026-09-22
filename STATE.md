@@ -6446,14 +6446,14 @@ pass exposed. No Lean or manuscript work.
 - `calibration/verdicts.json` is now a **two-run (model-pair) document**;
   `reports/calibration.md` reports **deepseek -> deepseek** and **deepseek ->
   claude**, both 19/19 detected, 0/4. `calibration/seeded.json`'s audit note
-  describes Run 4 and the operator fix. Journal `EV-000152`; commit `aad9188`.
+  describes Run 4 and the operator fix. Journal `EV-000152`; commit `a3ae806`.
 - **Prompt drift gate.** The cross-model comparator prompt had been
   hand-maintained and had gone stale against the fixed CAL-G010. It is now
   rendered deterministically from the corpus by `calibration.py --prompt`, with
   a `--check-prompt` drift check wired into `check_all` (fast tier 40 -> 41
   checks); the renderer reproduces the committed prompt byte-for-byte and
   `calibration_test.py` asserts the match. Closes the prompt/corpus drift class
-  that let the corpus bug reach a cross-model run. Commit `c653223`.
+  that let the corpus bug reach a cross-model run. Commit `d90a7f3`.
 
 **State after the session.**
 
