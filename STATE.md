@@ -6267,6 +6267,63 @@ runs got wrong.
 
 ---
 
+## Session 123 -- 2026-09-22 -- Tier 2 of the cross-model audit brief
+
+**Goal.** Continue `blocks/audits/cross-model-audit-brief.md` per Session
+122's item 2: Tier 2, Protocol B (two-stage blind correspondence) on the five
+algebraic-lattice corollaries `B-C005`, `B-C006`, `B-C011`, `B-C012`,
+`B-C013`.
+
+**What was established (closed).**
+
+- Reused the "mixed" ingestion pattern from Session 122's `B-P035`/`B-P039`
+  (existing `deepseek-v4.1-flash` stage-1 read-back, verbatim or excerpted to
+  the relevant theorem, plus a fresh, isolated `claude-sonnet-5` stage-2
+  comparator with no repo access) for all five blocks, dispatched as five
+  parallel subagents. Each stage-2 prompt for the `[Finite S]`-governed
+  blocks (`B-C011`, `B-C012`, `B-C013`) explicitly carried the standing
+  Assumption `B-A001` text and the Session-122 lesson (do not treat an
+  ambient assumption as absent just because it is not restated locally).
+- **All five verdicts: `equivalent`**, each confirming the existing
+  same-model verdict with no discrepancy: `B-C005` (`E-000397`, confirms
+  `E-000224`), `B-C006` (`E-000398`, confirms `E-000288`), `B-C011`
+  (`E-000399`, confirms `E-000228`), `B-C012` (`E-000400`, confirms
+  `E-000293`), `B-C013` (`E-000401`, confirms `E-000294`). All `cross_model`.
+- Source-verified `B-C011`/`B-C012`/`B-C013` directly against
+  `lean/Mslang/Regular.lean`: `finiteAlgebraFormationsCompleteLattice`,
+  `finiteAlgebraFormations_isAlgebraicLattice`,
+  `finiteIndexCongruenceFormations_isAlgebraicLattice`, and its complete
+  lattice instance, `regularLanguageFormationsCompleteLattice`, and
+  `regularLanguageFormations_isAlgebraicLattice` all carry `[Finite S]`,
+  matching `B-A001` -- no `B-P034`-style gap on this trio.
+- New transcripts: `blocks/audits/B-C0{05,06,11,12,13}-correspondence-crossmodel-mixed.md`.
+  New evidence: `E-000397`-`E-000401`. Journal `EV-000148`.
+- Tier 2 of the brief is **complete**; `reports/coverage.md` now shows `pass`
+  rather than `provisional` for the correspondence layer of all five blocks.
+
+**State after the session.**
+
+- Fast gate **40/0** after ingestion; slow gate **43/0** at session close.
+  Commit `67c3c5d`.
+
+**Prioritized next steps.**
+
+1. **Author decision still pending (carried from Session 122):** `B-P034`'s
+   Lean is `formal_stronger` than the manuscript (drops the section's
+   `Finite S` assumption) -- accept the generalization, or add a `Finite S`
+   hypothesis to `formAlgFFormCgrFiIso` (and its two supporting lemmas) to
+   match `B-A001` exactly.
+2. Continue the brief: Tier 3 (Protocol C adversarial reads on `B-C001`,
+   `B-C002`), Tier 4 (re-confirm the five accepted `formal_weaker` findings
+   cross-model: `B-P001`, `B-D002`, `B-R001`, `B-R012`, `B-X002`). Tier 3
+   uses Protocol C (adversarial read of a reconstructed proof, Section
+   11a.5), not Protocol B -- the coordinator supplies definitions and the
+   proposed proof from `blocks/explanations/<id>.md`, not a Lean read-back.
+3. Optional cleanup carried over from Session 121: reconcile the BPS clause
+   numbering between the manuscript and the Lean comments.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
