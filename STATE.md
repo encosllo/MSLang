@@ -6267,14 +6267,17 @@ runs got wrong.
 
 ---
 
-## Session 123 -- 2026-09-22 -- Tier 2 of the cross-model audit brief
+## Session 123 -- 2026-09-22 -- Tiers 2 and 3 of the cross-model audit brief
 
 **Goal.** Continue `blocks/audits/cross-model-audit-brief.md` per Session
 122's item 2: Tier 2, Protocol B (two-stage blind correspondence) on the five
 algebraic-lattice corollaries `B-C005`, `B-C006`, `B-C011`, `B-C012`,
-`B-C013`.
+`B-C013`; then, on request, Tier 3, Protocol C (adversarial read of a
+reconstructed proof, Section 11a.5) on `B-C001`, `B-C002`.
 
 **What was established (closed).**
+
+Tier 2 (correspondence, Protocol B):
 
 - Reused the "mixed" ingestion pattern from Session 122's `B-P035`/`B-P039`
   (existing `deepseek-v4.1-flash` stage-1 read-back, verbatim or excerpted to
@@ -6297,14 +6300,42 @@ algebraic-lattice corollaries `B-C005`, `B-C006`, `B-C011`, `B-C012`,
   `regularLanguageFormations_isAlgebraicLattice` all carry `[Finite S]`,
   matching `B-A001` -- no `B-P034`-style gap on this trio.
 - New transcripts: `blocks/audits/B-C0{05,06,11,12,13}-correspondence-crossmodel-mixed.md`.
-  New evidence: `E-000397`-`E-000401`. Journal `EV-000148`.
-- Tier 2 of the brief is **complete**; `reports/coverage.md` now shows `pass`
-  rather than `provisional` for the correspondence layer of all five blocks.
+  New evidence: `E-000397`-`E-000401`. Journal `EV-000148`. Commit `67c3c5d`.
+
+Tier 3 (review, Protocol C -- adversarial read):
+
+- Discovered en route that the brief's premise ("manuscript proof was
+  reconstructed") is now slightly stale for these two blocks: commit
+  `a76a26a` (Session ~4, 2026-09-15) already adopted the `deepseek`-authored
+  `blocks/explanations/B-C001.md`/`B-C002.md` proofs into the manuscript
+  verbatim. Used the accepted manuscript proof text as the package (it agrees
+  with the explanation files), attributing the `coordinator` stage-role to
+  `deepseek-v4.1-flash` (the original explanation author) and dispatching a
+  fresh, isolated `claude-sonnet-5` adversarial reader with no project
+  history for each block, per the brief's Section 6 adversarial-read pattern.
+- **Both `RESULT: VALID`, no gap**, both re-confirming the existing
+  same-model `pass` verdicts: `B-C001` (`E-000402`, confirms
+  `E-000001`/`E-000038`), `B-C002` (`E-000403`, confirms
+  `E-000012`/`E-000039`). Both `cross_model`.
+- `B-C002`'s fresh reader independently rediscovered, unprompted beyond a
+  general instruction to check whether every stated hypothesis is used, the
+  exact observation already flagged in the explanation's own "notes for the
+  adversarial reader": the `Ψ`-saturation hypothesis is logically unused (the
+  proof only needs `X ∈ Φ-Sat(A)`, so it actually proves the stronger
+  `Φ-Sat(A) ⊆ (Φ∩Ψ)-Sat(A)`, an immediate instance of `B-C001`/`IncSat`).
+  Convergent confirmation, not a new finding.
+- New transcripts: `blocks/audits/B-C001-adversarial.md`,
+  `blocks/audits/B-C002-adversarial.md`. New evidence: `E-000402`,
+  `E-000403`. Journal `EV-000149`. Commit `8cad997`.
 
 **State after the session.**
 
-- Fast gate **40/0** after ingestion; slow gate **43/0** at session close.
-  Commit `67c3c5d`.
+- Both tiers complete; `reports/coverage.md` shows `pass` rather than
+  `provisional` for: correspondence on `B-C005`/`B-C006`/`B-C011`/`B-C012`/
+  `B-C013`, and review on `B-C001`/`B-C002`.
+- Fast gate **40/0** after each tier's ingestion; slow gate **43/0** run once
+  after Tier 2 (Tier 3 touched no Lean/manuscript artifacts, so the deferred
+  checks were unaffected and the fast gate alone re-verified it).
 
 **Prioritized next steps.**
 
@@ -6313,12 +6344,10 @@ algebraic-lattice corollaries `B-C005`, `B-C006`, `B-C011`, `B-C012`,
    `Finite S` assumption) -- accept the generalization, or add a `Finite S`
    hypothesis to `formAlgFFormCgrFiIso` (and its two supporting lemmas) to
    match `B-A001` exactly.
-2. Continue the brief: Tier 3 (Protocol C adversarial reads on `B-C001`,
-   `B-C002`), Tier 4 (re-confirm the five accepted `formal_weaker` findings
-   cross-model: `B-P001`, `B-D002`, `B-R001`, `B-R012`, `B-X002`). Tier 3
-   uses Protocol C (adversarial read of a reconstructed proof, Section
-   11a.5), not Protocol B -- the coordinator supplies definitions and the
-   proposed proof from `blocks/explanations/<id>.md`, not a Lean read-back.
+2. Continue the brief: Tier 4 (re-confirm the five accepted `formal_weaker`
+   findings cross-model: `B-P001`, `B-D002`, `B-R001`, `B-R012`, `B-X002`),
+   then the optional/large item (Protocol B on the remaining mapped blocks
+   still `provisional`; see `reports/coverage.md`).
 3. Optional cleanup carried over from Session 121: reconcile the BPS clause
    numbering between the manuscript and the Lean comments.
 
