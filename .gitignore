@@ -41,6 +41,7 @@ manuscript/*.pdf
 .DS_Store
 *.swp
 *~
+.Rhistory
 
 # Python bytecode (mechanical hygiene scripts)
 __pycache__/
