@@ -5287,7 +5287,7 @@ the transported instance is *defeq* to `B-P014`'s.
 
 **Goal.** Session 108 step 1: the **carrier** variant of the closure-system
 bridge, from `IsAlgebraicClosureSystemOnCarrier` (`B-P033`). Resumed from the
-WIP commit `4370c77`, whose `Mslang.Regular` check had been aborted.
+WIP commit `5deafde`, whose `Mslang.Regular` check had been aborted.
 
 **What was established (closed, and mapped).**
 
@@ -6073,7 +6073,7 @@ decision was taken by the agent.
   the evidence records still read `formal_weaker`, which the author has accepted
   at the representation/scope level. No layer status was changed (a scope
   disposition is not evidence).
-- Decision work committed as `d42c457`; slow gate (**43 passed, 0 failed**)
+- Decision work committed as `8b9fac6`; slow gate (**43 passed, 0 failed**)
   re-run after the commit as the artifact of record.
 
 **Prioritized next steps.**
@@ -6142,7 +6142,7 @@ formalize the two blocks the author marked `worth-formalizing`, `B-R004` and
   the five accepted `formal_weaker`/scoped findings from Session 120.
 - Lean gate **412 declarations, 0 `sorry`, 0 unpermitted, 0 warnings**; manuscript
   **55 pages** (0 errors, 0 warnings, 3 overfull hboxes). Fast gate **40/0**;
-  slow gate **43/0**. Commits `595cfbb`, `1e08db6` (`B-R004`), `4aec128`
+  slow gate **43/0**. Commits `d622071`, `22e14f5` (`B-R004`), `4af6c86`
   (`B-R027`).
 
 **Prioritized next steps.**
@@ -6246,8 +6246,8 @@ runs got wrong.
   corrections). Journal `EV-000144`-`EV-000147`.
 - Fast gate **40/0** after each step (once briefly `39/1` on a missed
   `impact.py --report` regeneration, then `40/0`); slow gate **43/0** at
-  session close. Commits `07cf7eb` (encoding + `B-P020`), `6ab179b`
-  (`B-P034` + self-correction), `d0b1900` (`B-P035`/`B-P039`, Tier 1 done).
+  session close. Commits `83a498b` (encoding + `B-P020`), `0316e79`
+  (`B-P034` + self-correction), `ee7cac9` (`B-P035`/`B-P039`, Tier 1 done).
 
 **Prioritized next steps.**
 
@@ -6303,13 +6303,13 @@ Tier 2 (correspondence, Protocol B):
   `regularLanguageFormations_isAlgebraicLattice` all carry `[Finite S]`,
   matching `B-A001` -- no `B-P034`-style gap on this trio.
 - New transcripts: `blocks/audits/B-C0{05,06,11,12,13}-correspondence-crossmodel-mixed.md`.
-  New evidence: `E-000397`-`E-000401`. Journal `EV-000148`. Commit `67c3c5d`.
+  New evidence: `E-000397`-`E-000401`. Journal `EV-000148`. Commit `a644e12`.
 
 Tier 3 (review, Protocol C -- adversarial read):
 
 - Discovered en route that the brief's premise ("manuscript proof was
   reconstructed") is now slightly stale for these two blocks: commit
-  `a76a26a` (Session ~4, 2026-09-15) already adopted the `deepseek`-authored
+  `009152c` (Session ~4, 2026-09-15) already adopted the `deepseek`-authored
   `blocks/explanations/B-C001.md`/`B-C002.md` proofs into the manuscript
   verbatim. Used the accepted manuscript proof text as the package (it agrees
   with the explanation files), attributing the `coordinator` stage-role to
@@ -6329,7 +6329,7 @@ Tier 3 (review, Protocol C -- adversarial read):
   Convergent confirmation, not a new finding.
 - New transcripts: `blocks/audits/B-C001-adversarial.md`,
   `blocks/audits/B-C002-adversarial.md`. New evidence: `E-000402`,
-  `E-000403`. Journal `EV-000149`. Commit `8cad997`.
+  `E-000403`. Journal `EV-000149`. Commit `d0a95cc`.
 
 Tier 4 (correspondence, Protocol B -- re-confirm/challenge five accepted
 `formal_weaker` findings):
@@ -6366,7 +6366,7 @@ Tier 4 (correspondence, Protocol B -- re-confirm/challenge five accepted
   `blocks/audits/B-R001-correspondence-crossmodel-mixed.md`,
   `blocks/audits/B-R012-correspondence-crossmodel-mixed.md`,
   `blocks/audits/B-X002-correspondence-crossmodel-mixed.md`. New evidence:
-  `E-000404`-`E-000408`. Journal `EV-000150`. Commit `a427b81`.
+  `E-000404`-`E-000408`. Journal `EV-000150`. Commit `7e17a38`.
 
 **All four tiers of `blocks/audits/cross-model-audit-brief.md` are now
 complete.**
@@ -6398,7 +6398,7 @@ correctly unmapped in `reports/coverage.md`, like other prose-only remarks.
 Manuscript rebuilt: 55 pages, 0 warnings, 3 overfull hboxes, unchanged from
 baseline; high-byte histogram unchanged. `blocks/hashes.json`: **164**
 anchors (was 163); `blocks/registry.json`: **130** blocks (was 129). Journal
-`EV-000151`. Commit `7357bc4`.
+`EV-000151`. Commit `4629957`.
 
 **Prioritized next steps.**
 
@@ -6446,14 +6446,14 @@ pass exposed. No Lean or manuscript work.
 - `calibration/verdicts.json` is now a **two-run (model-pair) document**;
   `reports/calibration.md` reports **deepseek -> deepseek** and **deepseek ->
   claude**, both 19/19 detected, 0/4. `calibration/seeded.json`'s audit note
-  describes Run 4 and the operator fix. Journal `EV-000152`; commit `a3ae806`.
+  describes Run 4 and the operator fix. Journal `EV-000152`; commit `bff83c1`.
 - **Prompt drift gate.** The cross-model comparator prompt had been
   hand-maintained and had gone stale against the fixed CAL-G010. It is now
   rendered deterministically from the corpus by `calibration.py --prompt`, with
   a `--check-prompt` drift check wired into `check_all` (fast tier 40 -> 41
   checks); the renderer reproduces the committed prompt byte-for-byte and
   `calibration_test.py` asserts the match. Closes the prompt/corpus drift class
-  that let the corpus bug reach a cross-model run. Commit `d90a7f3`.
+  that let the corpus bug reach a cross-model run. Commit `4e16b9f`.
 
 **State after the session.**
 

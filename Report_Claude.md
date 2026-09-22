@@ -2,7 +2,7 @@
 
 **Author:** Claude (Sonnet 5), acting as an independent auditor of this repository, not as
 a contributor to it.
-**Date:** 2026-09-21, against commit `2c6a94c` ("session 117: manuscript Lean pointers +
+**Date:** 2026-09-21, against commit `ff31282` ("session 117: manuscript Lean pointers +
 B-X001 correction (red)").
 **Scope:** all 129 `confirmed` blocks in `blocks/registry.json`, extracted from
 `manuscript/MSEilenberg.tex`, contrasted against their Lean 4 formalizations in

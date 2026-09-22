@@ -2,7 +2,7 @@
 
 **Author:** Codex, source-and-ledger review.  
 **Date:** 2026-09-21.  
-**Repository point:** commit `2c6a94c` plus this report; the pre-existing untracked `Report_Claude.md` was not modified.  
+**Repository point:** commit `ff31282` plus this report; the pre-existing untracked `Report_Claude.md` was not modified.  
 **Scope:** all 129 confirmed blocks in `blocks/registry.json`, their maps in `lean/declarations.json` / `blocks/formal.json`, the current evidence ledger, the actual manuscript text, and targeted Lean-source checks.
 
 ## Executive result

@@ -6,7 +6,7 @@ pattern. The proof package (definitions + proposed proof) is the one
 originally authored by `deepseek-v4.1-flash` in `blocks/explanations/B-C002.md`
 (Session 3, 2026-09-14, itself reconstructed from the Lean proof
 `Mslang.sat_inf`; since adopted into the manuscript verbatim by commit
-`a76a26a`). The reader is a fresh, isolated `claude-sonnet-5` agent with no
+`009152c`). The reader is a fresh, isolated `claude-sonnet-5` agent with no
 project history and no expected answer, given only the definitions and the
 proof text below.
 

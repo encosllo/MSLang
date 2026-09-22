@@ -5,7 +5,7 @@ proof, per the cross-model audit brief's Tier 3 and Section 6 ingestion
 pattern. The proof package (definitions + proposed proof) is the one
 originally authored by `deepseek-v4.1-flash` in `blocks/explanations/B-C001.md`
 (Session 3, 2026-09-14; since adopted into the manuscript verbatim by commit
-`a76a26a`, "manuscript: add accepted B-C001/B-C002 proofs"). The reader is a
+`009152c`, "manuscript: add accepted B-C001/B-C002 proofs"). The reader is a
 fresh, isolated `claude-sonnet-5` agent with no project history and no
 expected answer, given only the definitions and the proof text below.
 
