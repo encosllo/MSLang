@@ -6382,20 +6382,33 @@ complete.**
 - Fast gate **40/0** after each tier's ingestion; slow gate **43/0** run once
   after Tier 2 and again at session close after Tier 4.
 
+**`B-P034` author decision -- resolved.** The author chose option 1 (accept
+the generalization) of the Session-122 decision brief. Resolution: minted a
+new Remark `B-R028` immediately after `B-P034`'s proof, recording in the
+manuscript that the isomorphism holds for an arbitrary set of sorts `S`, not
+just finite `S` -- the broader scope is now documented rather than left an
+undocumented discrepancy. `B-P034` itself (proposition text, proof, body
+hash) was left untouched, so its existing `formal_stronger` correspondence
+verdict (`E-000392`-`E-000394`) still stands, accurately, as a reading of
+that specific numbered proposition under the section's ambient Assumption
+`B-A001`; `B-R028` is where the wider truth now lives. `B-R028` carries no
+`\lean` pointer of its own (it cites the already-mapped
+`formAlgFFormCgrFiIso` narratively, not as new formal content), so it is
+correctly unmapped in `reports/coverage.md`, like other prose-only remarks.
+Manuscript rebuilt: 55 pages, 0 warnings, 3 overfull hboxes, unchanged from
+baseline; high-byte histogram unchanged. `blocks/hashes.json`: **164**
+anchors (was 163); `blocks/registry.json`: **130** blocks (was 129). Journal
+`EV-000151`. Commit `7357bc4`.
+
 **Prioritized next steps.**
 
-1. **Author decision still pending (carried from Session 122):** `B-P034`'s
-   Lean is `formal_stronger` than the manuscript (drops the section's
-   `Finite S` assumption) -- accept the generalization, or add a `Finite S`
-   hypothesis to `formAlgFFormCgrFiIso` (and its two supporting lemmas) to
-   match `B-A001` exactly.
-2. The brief's four tiers are done. Remaining work is the brief's own
-   "optional (large)" item: Protocol B on the remaining mapped blocks still
-   `provisional` in `reports/coverage.md` (most of the ~124 mapped blocks --
-   Tiers 1-4 covered only the blocks flagged as high-priority or previously
-   contentious). Budget roughly one context-heavy session slice per block, as
-   the brief itself warns.
-3. Optional cleanup carried over from Session 121: reconcile the BPS clause
+1. Protocol B on the remaining mapped blocks still `provisional` in
+   `reports/coverage.md` (most of the ~124 mapped blocks -- Tiers 1-4 of the
+   brief covered only the blocks flagged as high-priority or previously
+   contentious). This is the brief's own "optional (large)" item and the
+   only substantial audit work left it names. Budget roughly one
+   context-heavy session slice per block, as the brief itself warns.
+2. Optional cleanup carried over from Session 121: reconcile the BPS clause
    numbering between the manuscript and the Lean comments.
 
 ---
