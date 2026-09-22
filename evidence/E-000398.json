@@ -1,0 +1,52 @@
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000398",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C006-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back (excerpted to the relevant theorem) with a fresh claude-sonnet-5 stage-2 comparator. Verdict: equivalent -- congruenceFormations_isAlgebraicLattice matches the contract's unconditional Form_Cgr(Sigma) is an algebraic lattice, no hidden hypothesis; no discrepancy found, confirms existing verdict E-000288."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C006/definition_closure",
+      "hash": "4b41871bdf2e4c3ddd30d63f0bf264cdc4ed3d7a7679837504b456ebb485d485"
+    },
+    {
+      "artifact": "B-C006/formal_statement",
+      "hash": "7890a0d251d79f7d38620aa29a775ab0501cf17592301314aeadd6f9dd17d2cc"
+    },
+    {
+      "artifact": "B-C006/informal_statement",
+      "hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}

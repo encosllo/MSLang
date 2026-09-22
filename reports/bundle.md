@@ -422,7 +422,12 @@ repository.
 | `evidence/E-000394.json` | `9ef0035253d92acf3c40176ecaf7518f769e3275b10a8c52380827ad5e5593b0` |
 | `evidence/E-000395.json` | `6940d3a785193ed446509b605529f2c7109c404a8a1f50dd4062aff8952ea3a6` |
 | `evidence/E-000396.json` | `1070b009be241cc79df5c10ed243ee674310b01c3248b50f22919b105651e4ef` |
-| `journal/events.jsonl` | `0ab930317baf9e778b8b71356e5f9c4dbd221c9b9ce89a87d39fabc0cd2c58b1` |
+| `evidence/E-000397.json` | `8d9857aca12db3f2298e7ba5e9942a3bd752ba49d054d1a7f5f999f1283ce081` |
+| `evidence/E-000398.json` | `642fee8ae3ba5d0dfa0e05dcd0bf9c3816eba72cd96d0b306f146d6d216e815a` |
+| `evidence/E-000399.json` | `932541dec5975652bdfb3ece5d4f591d08b4a6fab77180cb0bda8716e2296349` |
+| `evidence/E-000400.json` | `f5a642cc37f8783f2f8f6c2753823d0c0c6b3f8b860f1510733baae79bb2ce0b` |
+| `evidence/E-000401.json` | `941d3193f1ece7f186954b655799406f6167b89ac6b05601c31f789210894124` |
+| `journal/events.jsonl` | `c3922bdb9ed96fe02b000eecaa08980776190eba669ff75129d9aace89b417ba` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `4c0b7e7d79286eb2d03a6ba50e545b7e238facae1d636d0a7cf2454d2d16d258` |
@@ -444,9 +449,9 @@ repository.
 | `B-C002` | verification | pass | 2 | 0 |
 | `B-C004` | correspondence | provisional | 1 | 1 |
 | `B-C004` | verification | pass | 1 | 0 |
-| `B-C005` | correspondence | provisional | 1 | 1 |
+| `B-C005` | correspondence | pass | 2 | 1 |
 | `B-C005` | verification | pass | 1 | 1 |
-| `B-C006` | correspondence | provisional | 1 | 1 |
+| `B-C006` | correspondence | pass | 2 | 1 |
 | `B-C006` | verification | pass | 1 | 0 |
 | `B-C007` | correspondence | provisional | 1 | 1 |
 | `B-C007` | verification | pass | 1 | 0 |
@@ -456,11 +461,11 @@ repository.
 | `B-C009` | verification | pass | 1 | 0 |
 | `B-C010` | correspondence | provisional | 1 | 1 |
 | `B-C010` | verification | pass | 1 | 0 |
-| `B-C011` | correspondence | provisional | 1 | 0 |
+| `B-C011` | correspondence | pass | 2 | 0 |
 | `B-C011` | verification | pass | 1 | 0 |
-| `B-C012` | correspondence | provisional | 1 | 1 |
+| `B-C012` | correspondence | pass | 2 | 1 |
 | `B-C012` | verification | pass | 1 | 0 |
-| `B-C013` | correspondence | provisional | 1 | 1 |
+| `B-C013` | correspondence | pass | 2 | 1 |
 | `B-C013` | verification | pass | 1 | 0 |
 | `B-D001` | correspondence | provisional | 1 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
@@ -20009,6 +20014,295 @@ repository.
 }
 ```
 
+### E-000397
+
+```json
+{
+  "block": "B-C005",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000397",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C005-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator. Verdict: equivalent -- both assert Form_Alg(Sigma) is an algebraic lattice with compactness iff finite generation (F = Fmg_Sigma(M)); no discrepancy found, confirms existing verdict E-000224."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C005/definition_closure",
+      "hash": "de92fdaf8c7a7e6bd3b7bd34273748435cd93e560f37c2b58308d6d983215dca"
+    },
+    {
+      "artifact": "B-C005/formal_statement",
+      "hash": "06edd331397d82a7c44e7ff172d8559853f8d3db32d8173e985b657e2ff30449"
+    },
+    {
+      "artifact": "B-C005/informal_statement",
+      "hash": "de1da0349ac97a0b390b27c221cf7f0e513096b2be62b58f073a6f018f0f9401"
+    },
+    {
+      "artifact": "B-D034/informal_statement",
+      "hash": "8e9ff35783ee6af727d2007b9635410194a814a948b7bc9b5283ab718619ac35"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}
+```
+
+### E-000398
+
+```json
+{
+  "block": "B-C006",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000398",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C006-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back (excerpted to the relevant theorem) with a fresh claude-sonnet-5 stage-2 comparator. Verdict: equivalent -- congruenceFormations_isAlgebraicLattice matches the contract's unconditional Form_Cgr(Sigma) is an algebraic lattice, no hidden hypothesis; no discrepancy found, confirms existing verdict E-000288."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C006/definition_closure",
+      "hash": "4b41871bdf2e4c3ddd30d63f0bf264cdc4ed3d7a7679837504b456ebb485d485"
+    },
+    {
+      "artifact": "B-C006/formal_statement",
+      "hash": "7890a0d251d79f7d38620aa29a775ab0501cf17592301314aeadd6f9dd17d2cc"
+    },
+    {
+      "artifact": "B-C006/informal_statement",
+      "hash": "a150932cac2ce53f39e6ae6559ebdfbbf4b28a3785a303497f51f0ef490ea025"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}
+```
+
+### E-000399
+
+```json
+{
+  "block": "B-C011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000399",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C011-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator, explicitly primed on the B-P034 lesson (do not treat an ambient standing assumption as absent). Verified against lean/Mslang/Regular.lean: both finiteAlgebraFormationsCompleteLattice and finiteAlgebraFormations_isAlgebraicLattice carry [Finite S], matching standing Assumption B-A001 -- unlike sibling B-P034's formAlgFFormCgrFiIso, no gap here. Verdict: equivalent, confirms existing verdict E-000228."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C011/definition_closure",
+      "hash": "9b4178e07cdf8bb9fb11c07844df51edd93735676cf937f86e7ee9669b18e7ce"
+    },
+    {
+      "artifact": "B-C011/formal_statement",
+      "hash": "3fe98e20c3888bc3441d924592e4a3fa5240fb2bb01b622101b02fd33311bd4a"
+    },
+    {
+      "artifact": "B-C011/informal_statement",
+      "hash": "1a7e1aa779b3f7303bc547fb7e642b607e1d1a26a309c8130b98f48bd27cf9e0"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}
+```
+
+### E-000400
+
+```json
+{
+  "block": "B-C012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000400",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C012-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back (excerpted) with a fresh claude-sonnet-5 stage-2 comparator, explicitly primed on the B-P034 lesson. Verified against lean/Mslang/Regular.lean: finiteIndexCongruenceFormations_isAlgebraicLattice and its complete-lattice instance both carry [Finite S], matching standing Assumption B-A001. Verdict: equivalent, confirms existing verdict E-000293."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C012/definition_closure",
+      "hash": "bb24a2e07e62bf6e54468804fab77937e9b71dcab44c5cf60923b24fc1cf1fde"
+    },
+    {
+      "artifact": "B-C012/formal_statement",
+      "hash": "691adf45f737af8c4946a974048094e5a4476dca515f992bdade9705d32856b1"
+    },
+    {
+      "artifact": "B-C012/informal_statement",
+      "hash": "9764124f72bb25c0a3f980e3f79468c748f2caae3cda35e8686846dbde4fc072"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}
+```
+
+### E-000401
+
+```json
+{
+  "block": "B-C013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000401",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C013-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back (excerpted) with a fresh claude-sonnet-5 stage-2 comparator, explicitly primed on the B-P034 lesson. Verified against lean/Mslang/Regular.lean: regularLanguageFormationsCompleteLattice and regularLanguageFormations_isAlgebraicLattice both carry [Finite S], matching standing Assumption B-A001. Verdict: equivalent, confirms existing verdict E-000294."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C013/definition_closure",
+      "hash": "860bf0d7d89e6b8ea99617c6f6a8676ff7967f04adeba98b47ff51ee45a95d67"
+    },
+    {
+      "artifact": "B-C013/formal_statement",
+      "hash": "84b503930a8c97fc91c56cd8ea8d38ff52bc28319b33d83f33a1a262856c49c3"
+    },
+    {
+      "artifact": "B-C013/informal_statement",
+      "hash": "155bdf5d39e42e941e775135e47829a7753e4b2823f646bd5c4c5c606c5fb672"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -20020,7 +20314,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 125
-- Evidence records: 396
+- Evidence records: 401
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -20037,15 +20331,15 @@ assertion).
 | `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-C007` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C008` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C009` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C010` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C011` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
-| `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
+| `B-C011` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-C012` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
+| `B-C013` | corollary | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-D001` | definition | Preliminaries. | none | provisional | pass | none | - |
 | `B-D002` | definition | Preliminaries. | none | fail | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-D003` | definition | Preliminaries. | none | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
@@ -21079,15 +21373,10 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-C002` | correspondence | provisional | 1 | 4 |
 | `B-C002` | review | provisional | 1 | 1 |
 | `B-C004` | correspondence | provisional | 1 | 1 |
-| `B-C005` | correspondence | provisional | 1 | 1 |
-| `B-C006` | correspondence | provisional | 1 | 1 |
 | `B-C007` | correspondence | provisional | 1 | 1 |
 | `B-C008` | correspondence | provisional | 1 | 1 |
 | `B-C009` | correspondence | provisional | 1 | 1 |
 | `B-C010` | correspondence | provisional | 1 | 1 |
-| `B-C011` | correspondence | provisional | 1 | 0 |
-| `B-C012` | correspondence | provisional | 1 | 1 |
-| `B-C013` | correspondence | provisional | 1 | 1 |
 | `B-D001` | correspondence | provisional | 1 | 0 |
 | `B-D002` | correspondence | fail | 1 | 0 |
 | `B-D003` | correspondence | provisional | 1 | 0 |

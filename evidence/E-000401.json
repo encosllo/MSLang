@@ -1,0 +1,52 @@
+{
+  "block": "B-C013",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000401",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C013-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back (excerpted) with a fresh claude-sonnet-5 stage-2 comparator, explicitly primed on the B-P034 lesson. Verified against lean/Mslang/Regular.lean: regularLanguageFormationsCompleteLattice and regularLanguageFormations_isAlgebraicLattice both carry [Finite S], matching standing Assumption B-A001. Verdict: equivalent, confirms existing verdict E-000294."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C013/definition_closure",
+      "hash": "860bf0d7d89e6b8ea99617c6f6a8676ff7967f04adeba98b47ff51ee45a95d67"
+    },
+    {
+      "artifact": "B-C013/formal_statement",
+      "hash": "84b503930a8c97fc91c56cd8ea8d38ff52bc28319b33d83f33a1a262856c49c3"
+    },
+    {
+      "artifact": "B-C013/informal_statement",
+      "hash": "155bdf5d39e42e941e775135e47829a7753e4b2823f646bd5c4c5c606c5fb672"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}

@@ -1,0 +1,52 @@
+{
+  "block": "B-C011",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000399",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-C011-correspondence-crossmodel-mixed.md), reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator, explicitly primed on the B-P034 lesson (do not treat an ambient standing assumption as absent). Verified against lean/Mslang/Regular.lean: both finiteAlgebraFormationsCompleteLattice and finiteAlgebraFormations_isAlgebraicLattice carry [Finite S], matching standing Assumption B-A001 -- unlike sibling B-P034's formAlgFFormCgrFiIso, no gap here. Verdict: equivalent, confirms existing verdict E-000228."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C011/definition_closure",
+      "hash": "9b4178e07cdf8bb9fb11c07844df51edd93735676cf937f86e7ee9669b18e7ce"
+    },
+    {
+      "artifact": "B-C011/formal_statement",
+      "hash": "3fe98e20c3888bc3441d924592e4a3fa5240fb2bb01b622101b02fd33311bd4a"
+    },
+    {
+      "artifact": "B-C011/informal_statement",
+      "hash": "1a7e1aa779b3f7303bc547fb7e642b607e1d1a26a309c8130b98f48bd27cf9e0"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:03:20Z"
+}
