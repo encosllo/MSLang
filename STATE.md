@@ -6411,6 +6411,57 @@ anchors (was 163); `blocks/registry.json`: **130** blocks (was 129). Journal
 2. Optional cleanup carried over from Session 121: reconcile the BPS clause
    numbering between the manuscript and the Lean comments.
 
+## Session 124 -- 2026-09-22 -- first cross-model calibration run (Section 11.4)
+
+**Goal.** Run the seeded-mismatch calibration suite (Section 11.4)
+cross-model for the first time -- `claude-sonnet-5` as the blind comparator,
+`deepseek-v4.1-flash` as producer -- and reconcile the corpus with what that
+pass exposed. No Lean or manuscript work.
+
+**What was established (closed).**
+
+- An independent verification of the `claude-sonnet-5` blind pass over all 23
+  cases (prompt `calibration/crossmodel-comparator-prompt.md`) confirmed
+  **19/19 mutations detected, 0/4 control false positives**, agreeing with the
+  `deepseek` per-case run on 21 of 23 cases. The two divergences, both resolved
+  in `claude`'s favour, are the substantive result:
+  - **CAL-006** (`quantifier_change`): `claude` `formal_weaker`, `deepseek`
+    per-case `formal_stronger` -- and `claude` agrees with `deepseek`'s
+    *batched* label. This cross-model run independently confirms Session 31's
+    note that the per-case *label*, not the detection, is the unstable part of
+    this case.
+  - **CAL-G010** (`saturation_order`): `claude` read `equivalent` against the
+    then-current read-back. That is the *correct* reading, and it exposed a
+    corpus bug (next item).
+- **Corpus bug found and fixed.** `op_saturation_order`
+  (`scripts/mutations.py`) swapped only the order phrase and left the
+  conclusion term, so CAL-G010 read `[[X]^Φ]^Ψ = [X]^Ψ`, which is **provably
+  equivalent** to the contract -- both sides hold iff `Φ ⊆ Ψ` (checked by
+  direct computation and exhaustively on a 3-element carrier). It was a
+  non-mutation mislabelled `expect: detected`, and the report's
+  `saturation_order` rate was a false 2/2. The operator now swaps `Φ`/`Ψ`
+  through the whole conclusion clause (`[[X]^Φ]^Ψ = [X]^Φ`), the same genuine
+  mismatch as the hand-authored CAL-005. `calibration/generated.json`
+  regenerated (only CAL-G010's read-back changed); prompt updated to match.
+- `calibration/verdicts.json` is now a **two-run (model-pair) document**;
+  `reports/calibration.md` reports **deepseek -> deepseek** and **deepseek ->
+  claude**, both 19/19 detected, 0/4. `calibration/seeded.json`'s audit note
+  describes Run 4 and the operator fix. Journal `EV-000152`; commit `aad9188`.
+
+**State after the session.**
+
+- Detection is 1.00 on every mutation type for both model pairs; the pairs
+  differ only on CAL-006's typed label. The two-family caveat is now partly
+  retired: this is the first calibration measurement across model families.
+- Fast gate **40/0**; slow gate **43/0** (run once, at close).
+
+**Prioritized next steps.**
+
+1. Grow each mutation type to `n >= a few` -- the report's own outstanding
+   caveat: the Wilson intervals are still wide at these sample sizes.
+2. Protocol B on the remaining `provisional` mapped blocks (carried over from
+   Session 123).
+
 ---
 
 **Safe-restart checklist (run before touching anything).**
