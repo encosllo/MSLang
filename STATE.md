@@ -6454,6 +6454,18 @@ pass exposed. No Lean or manuscript work.
   checks); the renderer reproduces the committed prompt byte-for-byte and
   `calibration_test.py` asserts the match. Closes the prompt/corpus drift class
   that let the corpus bug reach a cross-model run. Commit `4e16b9f`.
+- **Author identity (repo-wide).** The whole history (231 commits) was
+  re-authored to `Enric Cosme <enric.cosme@uv.es>` with
+  `git filter-branch --env-filter` (author dates preserved; tree byte-identical
+  against the pre-rewrite tip). The 16 commit-hash citations the rewrite
+  invalidated were re-mapped across `STATE.md`, `journal/events.jsonl`,
+  `Report_Claude.md`, `Report_Codex.md`, and the two adversarial transcripts;
+  the two append-only records whose prose named the old `a76a26a` (content
+  unchanged) were re-issued as `E-000409`/`E-000410` (`reissue_reason:
+  hash-move`, superseding `E-000402`/`E-000403`), and
+  `coverage`/`impact`/`staleness`/`bundle` refreshed. Journal `EV-000153`;
+  commit `08573d6`. No remote exists, so nothing was pushed; the pre-rewrite
+  history is retained at `refs/original/refs/heads/main`.
 
 **State after the session.**
 
