@@ -66,6 +66,7 @@ run "calibration corpus + tests" python3 scripts/calibration.py --self-test
 run "calibration statistics tests" python3 scripts/calibration_test.py
 run "calibration baseline" python3 scripts/calibration.py --check-baseline
 run "calibration report current" python3 scripts/calibration.py --verdicts calibration/verdicts.json --check-report
+run "calibration prompt current" python3 scripts/calibration.py --check-prompt
 run "impact tests" python3 scripts/impact_test.py
 run "impact report current" python3 scripts/impact.py --artifact B-D014/informal_statement --check-report
 run "discrepancy tests" python3 scripts/discrepancy_test.py

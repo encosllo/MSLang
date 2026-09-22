@@ -24,6 +24,8 @@ Usage:
     python3 scripts/calibration.py --verdicts calibration/verdicts.json --report
     python3 scripts/calibration.py --record-baseline
     python3 scripts/calibration.py --check-baseline
+    python3 scripts/calibration.py --prompt
+    python3 scripts/calibration.py --check-prompt
 """
 from __future__ import annotations
 
@@ -44,6 +46,7 @@ DEFAULT_GENERATED = ROOT / "calibration" / "generated.json"
 DEFAULT_VERDICTS = ROOT / "calibration" / "verdicts.json"
 DEFAULT_BASELINE = ROOT / "calibration" / "baseline.json"
 REPORT = ROOT / "reports" / "calibration.md"
+PROMPT = ROOT / "calibration" / "crossmodel-comparator-prompt.md"
 REQUIRED = {"id", "block", "type", "expect", "contract", "readback"}
 MIN_MUTATION_CASES = 2
 Z = 1.959963984540054  # 95%
@@ -213,6 +216,43 @@ def render_report(cases, bases, runs, audit_note):
     return "\n".join(lines)
 
 
+def render_prompt(cases):
+    """Render the blind cross-model comparator prompt from the corpus.
+
+    Deterministic from the case list, so the prompt cannot silently drift away
+    from ``seeded.json``/``generated.json`` (the class of bug that let a stale
+    CAL-G010 read-back survive into a cross-model run)."""
+    dash = "\u2014"
+    lines = [
+        "# Cross-model calibration comparator prompt (Section 11.4)",
+        "",
+        f"You are a blind comparator. Below are {len(cases)} pairs, each a CONTRACT (an informal",
+        "mathematical claim) and a READBACK (an informal rendering of a formal statement).",
+        "For each pair decide the correspondence verdict:",
+        "",
+        f"- `equivalent` {dash} same statement;",
+        f"- `formal_stronger` {dash} the readback assumes less / concludes more than the contract;",
+        f"- `formal_weaker` {dash} the readback assumes more / concludes less than the contract;",
+        f"- `incomparable` {dash} neither implies the other;",
+        f"- `ill_posed` {dash} the readback cannot be made precise, or is not a well-formed claim.",
+        "",
+        "Judge each pair on its own. Do not use outside knowledge, do not consult any",
+        "repository, and do not infer an expected answer.",
+        "",
+        "Report your model identifier and family first (family = first hyphen-segment of the id).",
+        "Then output exactly one line per case, in the form `<ID>: <verdict>`, using only the",
+        "five verdicts above.",
+        "",
+        "---",
+        "",
+    ]
+    for c in cases:
+        lines += [f"## {c['id']}", "",
+                  f"CONTRACT: {c['contract']}", "",
+                  f"READBACK: {c['readback']}", ""]
+    return "\n".join(lines)
+
+
 def baseline_from(cases, runs):
     run = runs[0]
     per_type, _, _ = summarize(cases, run["verdicts"])
@@ -261,6 +301,10 @@ def main(argv):
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--check-report", action="store_true")
+    ap.add_argument("--prompt", action="store_true",
+                    help="write the cross-model comparator prompt from the corpus")
+    ap.add_argument("--check-prompt", action="store_true",
+                    help="fail if the comparator prompt drifts from the corpus")
     ap.add_argument("--record-baseline", action="store_true")
     ap.add_argument("--check-baseline", action="store_true")
     args = ap.parse_args(argv)
@@ -329,6 +373,20 @@ def main(argv):
             print("calibration: report drift in reports/calibration.md")
             return 1
         print("calibration: report current")
+
+    prompt_text = render_prompt(cases)
+    if args.prompt:
+        PROMPT.write_text(prompt_text, encoding="utf-8")
+        print(f"calibration: wrote {PROMPT.relative_to(ROOT)}")
+    if args.check_prompt:
+        actual = PROMPT.read_text(encoding="utf-8") if PROMPT.exists() else None
+        if actual != prompt_text:
+            print(
+                "calibration: prompt drift in "
+                f"{PROMPT.relative_to(ROOT)} (run --prompt)"
+            )
+            return 1
+        print("calibration: prompt current")
     return 0
 
 

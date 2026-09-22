@@ -137,6 +137,16 @@ def main():
     check("report states when only one model pair was measured",
           "Only one model pair" in text)
 
+    prompt = calibration.render_prompt(cases)
+    check("prompt names every case",
+          all(c["id"] in prompt for c in cases))
+    check("prompt states the corpus size",
+          f"Below are {len(cases)} pairs" in prompt)
+    committed = (calibration.PROMPT.read_text(encoding="utf-8")
+                 if calibration.PROMPT.exists() else None)
+    check("committed comparator prompt matches the corpus (no drift)",
+          prompt == committed)
+
     print()
     if FAILURES:
         print(f"calibration_test: {len(FAILURES)} FAILED: {', '.join(FAILURES)}")
