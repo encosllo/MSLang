@@ -1,0 +1,52 @@
+{
+  "block": "B-P001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000404",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P001-correspondence-crossmodel-mixed.md), Tier 4 (re-confirm an accepted formal_weaker finding), reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator given the full three-item contract text. Verdict: formal_weaker, confirmed -- clauses 1-2 and most of clause 3 match exactly, but the general set-theoretic union of arbitrary sorted sets has no Lean counterpart (only the coproduct analogue is proved), and the intersection/difference clauses are proved only for componentwise subsets of one fixed carrier (Sub A), not arbitrary sorted sets as the contract states. Confirms existing verdict E-000236."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-P001/definition_closure",
+      "hash": "8b5fc73cfa52dad3c98e9c5e309fe020d3171148ec7946c8673af43a4dfc5ef8"
+    },
+    {
+      "artifact": "B-P001/formal_statement",
+      "hash": "f64f957e56b7195d85729d81de0dec56e4919e33aac03865ec2ecb4c374ecbb2"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}

@@ -1,0 +1,56 @@
+{
+  "block": "B-R001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000406",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-R001-correspondence-crossmodel-mixed.md), Tier 4, reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator given the full remark text (both paragraphs plus items 1-4). Verdict: formal_weaker, confirmed -- only the opening delta-coproduct isomorphism (delta_iso_coprod) has a Lean counterpart; the generation/separation claims, the general coproduct-of-copowers representation theorem, and items (1)-(4) on atoms/Sub(1^S)/projectivity/monomorphism have no Lean counterpart anywhere. Confirms existing verdict E-000265 (the Session-118 full-block correction)."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R001/definition_closure",
+      "hash": "a7d08431761ad5193bf44ccf7674772eb5d7393f6a78a99ecd318918724c4bc5"
+    },
+    {
+      "artifact": "B-R001/formal_statement",
+      "hash": "35ac0966f58fed19ecd66a85fbfc0ea1e93261af0adcb6223252cafd5572f035"
+    },
+    {
+      "artifact": "B-R001/informal_statement",
+      "hash": "f484f8cbd19e657f544001ce88b2737b274c9ff8e4e31cc0f049e5ecffed4110"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}

@@ -429,7 +429,12 @@ repository.
 | `evidence/E-000401.json` | `941d3193f1ece7f186954b655799406f6167b89ac6b05601c31f789210894124` |
 | `evidence/E-000402.json` | `a9a199627a92565796774672887681fd8188a1a4c70e3a8f9458ae8bce478ee4` |
 | `evidence/E-000403.json` | `ef3844b620e0a3c20b9f8ca9315111618f26def62d13b314a9927cd136603da6` |
-| `journal/events.jsonl` | `3baaff8cc5ddaf215eac0946f81df236eb3c7d5232a630c4e17d5ea5daed7bdc` |
+| `evidence/E-000404.json` | `ef9a2a93d41989ba5f8682676afcb7d69127678975897def98d0c7f688407138` |
+| `evidence/E-000405.json` | `4d5368a1df004eb6f393a452a1feede1833f0eae2be8ac47d5afbdda41f548c1` |
+| `evidence/E-000406.json` | `2d08c7e4ad35f2bbbd62af8ae3e86b127623c0ccf49391ded0552b8341d23caf` |
+| `evidence/E-000407.json` | `428d96823b40baaf813715cb478de0501e134da14c4e2615ba3cead83f8d6373` |
+| `evidence/E-000408.json` | `972e3949ee486a6f4c6d83421b1c326894b4e7e7cd62b832d384ae49016cf744` |
+| `journal/events.jsonl` | `64da988fdbee9bacff6fb5a9beb0e58d2b572f50efdd3b86a54b9541bec92050` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `4c0b7e7d79286eb2d03a6ba50e545b7e238facae1d636d0a7cf2454d2d16d258` |
@@ -471,7 +476,7 @@ repository.
 | `B-C013` | verification | pass | 1 | 0 |
 | `B-D001` | correspondence | provisional | 1 | 0 |
 | `B-D001` | verification | pass | 1 | 0 |
-| `B-D002` | correspondence | fail | 1 | 0 |
+| `B-D002` | correspondence | fail | 2 | 0 |
 | `B-D002` | verification | pass | 1 | 2 |
 | `B-D003` | correspondence | provisional | 1 | 0 |
 | `B-D003` | verification | pass | 1 | 3 |
@@ -563,7 +568,7 @@ repository.
 | `B-D046` | verification | pass | 1 | 0 |
 | `B-L001` | correspondence | provisional | 1 | 1 |
 | `B-L001` | verification | pass | 1 | 1 |
-| `B-P001` | correspondence | fail | 1 | 0 |
+| `B-P001` | correspondence | fail | 2 | 0 |
 | `B-P001` | verification | pass | 1 | 0 |
 | `B-P002` | correspondence | provisional | 1 | 4 |
 | `B-P002` | verification | pass | 1 | 1 |
@@ -642,7 +647,7 @@ repository.
 | `B-P038` | verification | pass | 1 | 0 |
 | `B-P039` | correspondence | pass | 2 | 1 |
 | `B-P039` | verification | pass | 1 | 0 |
-| `B-R001` | correspondence | fail | 1 | 2 |
+| `B-R001` | correspondence | fail | 2 | 2 |
 | `B-R001` | verification | pass | 1 | 1 |
 | `B-R003` | correspondence | provisional | 1 | 1 |
 | `B-R003` | verification | pass | 1 | 0 |
@@ -662,7 +667,7 @@ repository.
 | `B-R010` | verification | pass | 1 | 0 |
 | `B-R011` | correspondence | provisional | 1 | 0 |
 | `B-R011` | verification | pass | 1 | 0 |
-| `B-R012` | correspondence | fail | 1 | 1 |
+| `B-R012` | correspondence | fail | 2 | 1 |
 | `B-R012` | verification | pass | 1 | 0 |
 | `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R014` | verification | pass | 1 | 0 |
@@ -690,7 +695,7 @@ repository.
 | `B-R027` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
-| `B-X002` | correspondence | fail | 1 | 1 |
+| `B-X002` | correspondence | fail | 2 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
 | `representation/encoding` | representation | pass | 4 | 2 |
 
@@ -20429,6 +20434,295 @@ repository.
 }
 ```
 
+### E-000404
+
+```json
+{
+  "block": "B-P001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000404",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-P001-correspondence-crossmodel-mixed.md), Tier 4 (re-confirm an accepted formal_weaker finding), reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator given the full three-item contract text. Verdict: formal_weaker, confirmed -- clauses 1-2 and most of clause 3 match exactly, but the general set-theoretic union of arbitrary sorted sets has no Lean counterpart (only the coproduct analogue is proved), and the intersection/difference clauses are proved only for componentwise subsets of one fixed carrier (Sub A), not arbitrary sorted sets as the contract states. Confirms existing verdict E-000236."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-P001/definition_closure",
+      "hash": "8b5fc73cfa52dad3c98e9c5e309fe020d3171148ec7946c8673af43a4dfc5ef8"
+    },
+    {
+      "artifact": "B-P001/formal_statement",
+      "hash": "f64f957e56b7195d85729d81de0dec56e4919e33aac03865ec2ecb4c374ecbb2"
+    },
+    {
+      "artifact": "B-P001/informal_statement",
+      "hash": "7d11a63b229532f1de567ed7e50d21ab44d21f00b144b70cad2b4c290087449f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}
+```
+
+### E-000405
+
+```json
+{
+  "block": "B-D002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000405",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-D002-correspondence-crossmodel-mixed.md), Tier 4, reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator given the full contract text. Verdict: formal_weaker, confirmed -- the definitional core (SSet, SortedMap, Hom) matches exactly, but the contract's closing Set^S category clause (identities, composition, category laws) has no Lean counterpart. Confirms existing verdict E-000274."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-D002/definition_closure",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "artifact": "B-D002/formal_statement",
+      "hash": "e2d2213208c33af6d120984fc77b48204c7a27cdce098ed77124513f21e9a25c"
+    },
+    {
+      "artifact": "B-D002/informal_statement",
+      "hash": "5124c9867712a4275a724869a47b9df6b9142d91a0aa9c9d77097629557ee981"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}
+```
+
+### E-000406
+
+```json
+{
+  "block": "B-R001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000406",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-R001-correspondence-crossmodel-mixed.md), Tier 4, reusing the existing deepseek-v4.1-flash stage-1 read-back verbatim with a fresh claude-sonnet-5 stage-2 comparator given the full remark text (both paragraphs plus items 1-4). Verdict: formal_weaker, confirmed -- only the opening delta-coproduct isomorphism (delta_iso_coprod) has a Lean counterpart; the generation/separation claims, the general coproduct-of-copowers representation theorem, and items (1)-(4) on atoms/Sub(1^S)/projectivity/monomorphism have no Lean counterpart anywhere. Confirms existing verdict E-000265 (the Session-118 full-block correction)."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-D006/informal_statement",
+      "hash": "c79d2cdb9ce9931d7e872a16fa0d0931d44c8231a07273457f57634950f96abe"
+    },
+    {
+      "artifact": "B-R001/definition_closure",
+      "hash": "a7d08431761ad5193bf44ccf7674772eb5d7393f6a78a99ecd318918724c4bc5"
+    },
+    {
+      "artifact": "B-R001/formal_statement",
+      "hash": "35ac0966f58fed19ecd66a85fbfc0ea1e93261af0adcb6223252cafd5572f035"
+    },
+    {
+      "artifact": "B-R001/informal_statement",
+      "hash": "f484f8cbd19e657f544001ce88b2737b274c9ff8e4e31cc0f049e5ecffed4110"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}
+```
+
+### E-000407
+
+```json
+{
+  "block": "B-R012",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000407",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-R012-correspondence-crossmodel-mixed.md), Tier 4, reusing the existing deepseek-v4.1-flash stage-1 read-back with a fresh claude-sonnet-5 stage-2 comparator given the full remark text. Verdict: formal_weaker, confirmed -- the general subfinality theorem (nabla_isCongruence + quot_nabla_subfinal) matches exactly, but the single-sorted example, many-sorted example, intermediate-support existence claim, and the refined Sub(1)-{empty,1} corollary have no Lean counterpart. Confirms existing verdict E-000327."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-R012/definition_closure",
+      "hash": "5b6523de4ff1788fe37dee932c10cb655a547f58f50c2f8a84d8ef783aa01203"
+    },
+    {
+      "artifact": "B-R012/formal_statement",
+      "hash": "9bddc1c02c1acc6132bfc901a965efffaec67faf5df6311f1df5ca7cfe084e36"
+    },
+    {
+      "artifact": "B-R012/informal_statement",
+      "hash": "edd6debca60a7279a56d663461f450418cc26afccc6a129ffe9b7510039d3ca0"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}
+```
+
+### E-000408
+
+```json
+{
+  "block": "B-X002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000408",
+  "findings": [
+    "Cross-model correspondence audit (blocks/audits/B-X002-correspondence-crossmodel-mixed.md), Tier 4, reusing the existing deepseek-v4.1-flash stage-1 read-back with a fresh claude-sonnet-5 stage-2 comparator given the full example text. Verdict: formal_weaker, confirmed -- the finite-index dichotomy and its finite-S corollary (congFi_nonempty_iff, congFi_nonempty_of_finite_sorts) match exactly, but the four concrete-category instantiation clauses (Sgr-Act(Set), Mon-Act(Set), Grp-Act(Set), Mod=CRng-Act(AbGrp)) have no Lean counterpart. Confirms existing verdict E-000330."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "read_back_auditor"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparator"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-X002/definition_closure",
+      "hash": "2113846a179f705e46c2dbccd7767a47cee299fadaae8e7b9a2759c4faef7cb8"
+    },
+    {
+      "artifact": "B-X002/formal_statement",
+      "hash": "1997687100e5bc52c44ff199b94da203517955523ef67c30600541f7676093fa"
+    },
+    {
+      "artifact": "B-X002/informal_statement",
+      "hash": "79921edf0932f6e16f9ff04db896700559a7a3665c42e2b248bd31aa5834673f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "timestamp": "2026-09-22T05:24:32Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -20440,7 +20734,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 125
-- Evidence records: 403
+- Evidence records: 408
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -21504,7 +21798,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-C009` | correspondence | provisional | 1 | 1 |
 | `B-C010` | correspondence | provisional | 1 | 1 |
 | `B-D001` | correspondence | provisional | 1 | 0 |
-| `B-D002` | correspondence | fail | 1 | 0 |
+| `B-D002` | correspondence | fail | 2 | 0 |
 | `B-D003` | correspondence | provisional | 1 | 0 |
 | `B-D004` | correspondence | provisional | 1 | 2 |
 | `B-D005` | correspondence | provisional | 1 | 0 |
@@ -21550,7 +21844,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-D045` | correspondence | provisional | 1 | 0 |
 | `B-D046` | correspondence | provisional | 1 | 0 |
 | `B-L001` | correspondence | provisional | 1 | 1 |
-| `B-P001` | correspondence | fail | 1 | 0 |
+| `B-P001` | correspondence | fail | 2 | 0 |
 | `B-P002` | correspondence | provisional | 1 | 4 |
 | `B-P003` | correspondence | provisional | 1 | 4 |
 | `B-P004` | correspondence | provisional | 1 | 2 |
@@ -21588,7 +21882,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-P036` | verification | provisional | 1 | 0 |
 | `B-P037` | correspondence | provisional | 1 | 1 |
 | `B-P038` | correspondence | provisional | 1 | 1 |
-| `B-R001` | correspondence | fail | 1 | 2 |
+| `B-R001` | correspondence | fail | 2 | 2 |
 | `B-R003` | correspondence | provisional | 1 | 1 |
 | `B-R004` | correspondence | provisional | 1 | 0 |
 | `B-R004` | verification | provisional | 1 | 0 |
@@ -21599,7 +21893,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R009` | correspondence | provisional | 1 | 2 |
 | `B-R010` | correspondence | provisional | 1 | 1 |
 | `B-R011` | correspondence | provisional | 1 | 0 |
-| `B-R012` | correspondence | fail | 1 | 1 |
+| `B-R012` | correspondence | fail | 2 | 1 |
 | `B-R014` | correspondence | provisional | 1 | 0 |
 | `B-R016` | correspondence | provisional | 1 | 0 |
 | `B-R016` | verification | provisional | 1 | 0 |
@@ -21619,7 +21913,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-R027` | verification | provisional | 1 | 0 |
 | `B-X001` | correspondence | provisional | 1 | 1 |
 | `B-X001` | verification | provisional | 1 | 0 |
-| `B-X002` | correspondence | fail | 1 | 1 |
+| `B-X002` | correspondence | fail | 2 | 1 |
 | `B-X002` | verification | provisional | 1 | 0 |
 
 ## Representation bridges still open
