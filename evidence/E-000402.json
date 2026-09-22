@@ -1,0 +1,57 @@
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000402",
+  "findings": [
+    "Cross-model adversarial read (blocks/audits/B-C001-adversarial.md) of the accepted manuscript proof of B-C001 (IncSat), originally authored/reconstructed by deepseek-v4.1-flash (blocks/explanations/B-C001.md, since adopted into the manuscript verbatim, commit a76a26a). Fresh, isolated claude-sonnet-5 reader, no project history: RESULT VALID, no gap. Probed edge cases (empty X, empty S, Delta/nabla relations, Phi=Psi); confirms existing same-model verdicts E-000001/E-000038."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "adversarial_reader"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Independent adversarial read (Section 11a.2): a fresh reader reconstructed the argument from the definitions and proof alone, with no project history. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C001/explanation",
+      "hash": "43e2e5992a61b9ff12f223774f80a1a62c7b3a51d1c1f9346e97c1ec84eccc3e"
+    },
+    {
+      "artifact": "B-C001/informal_proof",
+      "hash": "322ecc7991e556a10e73fb1972457abdb639b4dcde0482280139b2166bb51cf9"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-22T05:18:18Z"
+}

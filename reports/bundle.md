@@ -427,7 +427,9 @@ repository.
 | `evidence/E-000399.json` | `932541dec5975652bdfb3ece5d4f591d08b4a6fab77180cb0bda8716e2296349` |
 | `evidence/E-000400.json` | `f5a642cc37f8783f2f8f6c2753823d0c0c6b3f8b860f1510733baae79bb2ce0b` |
 | `evidence/E-000401.json` | `941d3193f1ece7f186954b655799406f6167b89ac6b05601c31f789210894124` |
-| `journal/events.jsonl` | `c3922bdb9ed96fe02b000eecaa08980776190eba669ff75129d9aace89b417ba` |
+| `evidence/E-000402.json` | `a9a199627a92565796774672887681fd8188a1a4c70e3a8f9458ae8bce478ee4` |
+| `evidence/E-000403.json` | `ef3844b620e0a3c20b9f8ca9315111618f26def62d13b314a9927cd136603da6` |
+| `journal/events.jsonl` | `3baaff8cc5ddaf215eac0946f81df236eb3c7d5232a630c4e17d5ea5daed7bdc` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `4c0b7e7d79286eb2d03a6ba50e545b7e238facae1d636d0a7cf2454d2d16d258` |
@@ -442,10 +444,10 @@ repository.
 | `B-A001` | correspondence | provisional | 1 | 0 |
 | `B-A001` | verification | provisional | 1 | 0 |
 | `B-C001` | correspondence | provisional | 1 | 4 |
-| `B-C001` | review | provisional | 1 | 1 |
+| `B-C001` | review | pass | 2 | 1 |
 | `B-C001` | verification | pass | 2 | 0 |
 | `B-C002` | correspondence | provisional | 1 | 4 |
-| `B-C002` | review | provisional | 1 | 1 |
+| `B-C002` | review | pass | 2 | 1 |
 | `B-C002` | verification | pass | 2 | 0 |
 | `B-C004` | correspondence | provisional | 1 | 1 |
 | `B-C004` | verification | pass | 1 | 0 |
@@ -20303,6 +20305,130 @@ repository.
 }
 ```
 
+### E-000402
+
+```json
+{
+  "block": "B-C001",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000402",
+  "findings": [
+    "Cross-model adversarial read (blocks/audits/B-C001-adversarial.md) of the accepted manuscript proof of B-C001 (IncSat), originally authored/reconstructed by deepseek-v4.1-flash (blocks/explanations/B-C001.md, since adopted into the manuscript verbatim, commit a76a26a). Fresh, isolated claude-sonnet-5 reader, no project history: RESULT VALID, no gap. Probed edge cases (empty X, empty S, Delta/nabla relations, Phi=Psi); confirms existing same-model verdicts E-000001/E-000038."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "adversarial_reader"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Independent adversarial read (Section 11a.2): a fresh reader reconstructed the argument from the definitions and proof alone, with no project history. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C001/explanation",
+      "hash": "43e2e5992a61b9ff12f223774f80a1a62c7b3a51d1c1f9346e97c1ec84eccc3e"
+    },
+    {
+      "artifact": "B-C001/informal_proof",
+      "hash": "322ecc7991e556a10e73fb1972457abdb639b4dcde0482280139b2166bb51cf9"
+    },
+    {
+      "artifact": "B-C001/informal_statement",
+      "hash": "c7ec842b49a13dd15580ecdf7cc00064e554a3b50aa410a3b7e9b51ba39c5d0b"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-22T05:18:18Z"
+}
+```
+
+### E-000403
+
+```json
+{
+  "block": "B-C002",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-000403",
+  "findings": [
+    "Cross-model adversarial read (blocks/audits/B-C002-adversarial.md) of the accepted manuscript proof of B-C002, originally authored/reconstructed by deepseek-v4.1-flash from Mslang.sat_inf (blocks/explanations/B-C002.md, since adopted into the manuscript verbatim, commit a76a26a). Fresh, isolated claude-sonnet-5 reader, no project history: RESULT VALID, no gap. Independently rediscovered that the Psi-saturation hypothesis is unused (matching the explanation's own note to the reader) -- convergent, not a new gap. Confirms existing same-model verdicts E-000012/E-000039."
+  ],
+  "independence": {
+    "class": "cross_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "adversarial_reader"
+      },
+      {
+        "model": "deepseek-v4.1-flash",
+        "role": "coordinator"
+      }
+    ]
+  },
+  "independence_caveat": "Independent adversarial read (Section 11a.2): a fresh reader reconstructed the argument from the definitions and proof alone, with no project history. Stages ran on distinct model families (claude, deepseek); independence is measured across models.",
+  "inputs": [
+    {
+      "artifact": "B-C002/explanation",
+      "hash": "75df0cf61a860b5b26ba46d4bc6b29382d6fb55c114a127f7d3abc96c162f196"
+    },
+    {
+      "artifact": "B-C002/informal_proof",
+      "hash": "09bb9b804619d95fe0163e3da9bab3b71032f4abeb0396223deb5981ebee65a6"
+    },
+    {
+      "artifact": "B-C002/informal_statement",
+      "hash": "1c8874c1dfe45cd82384e4570e04dffb58486a66fd0f360eb330cd5f6ba4d955"
+    },
+    {
+      "artifact": "B-D014/informal_statement",
+      "hash": "1f69ac6b40f618f6620c281778fc48b3966349b78cb5090a39358cbd18e78f70"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "96171838ac26a710e6ec51562eafa2979a0b52d3bc95c7bc12e989e6a621f2d1"
+    }
+  ],
+  "layer": "review",
+  "outcome": "pass",
+  "producer": {
+    "kind": "agent",
+    "model": "deepseek-v4.1-flash",
+    "prompt_rev": "",
+    "role": "adversarial_reader"
+  },
+  "strength": "R1",
+  "timestamp": "2026-09-22T05:18:18Z"
+}
+```
+
 ## reports/coverage.md
 
 # Coverage report (Section 19)
@@ -20314,7 +20440,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 129
 - Blocks with any evidence: 125
-- Evidence records: 401
+- Evidence records: 403
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -20328,8 +20454,8 @@ assertion).
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
 | `B-A001` | assumption | $\Sigma$-finite index congruence formation, $\Sigma$-regular language formation, and an Eilenberg type theorem for them. | none | provisional | provisional | none | - |
-| `B-C001` | corollary | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
-| `B-C002` | corollary | Preliminaries. | provisional | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-C001` | corollary | Preliminaries. | pass | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
+| `B-C002` | corollary | Preliminaries. | pass | provisional | pass | none | R-classical; R-ext; R-setoid; R-union-inter-unevidenced; R-universe |
 | `B-C004` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | provisional | pass | none | - |
 | `B-C005` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
 | `B-C006` | corollary | $\Sigma$-congruence formations, $\Sigma$-algebra formations, and an Eilenberg type theorem for them. | none | pass | pass | none | - |
@@ -21312,7 +21438,7 @@ rework.
 ## Proposed change: `B-D014/informal_statement`
 
 - downstream blocks (transitive users): `B-C001`, `B-C002`, `B-C007`, `B-C008`, `B-C009`, `B-D045`, `B-D046`, `B-P002`, `B-P003`, `B-P004`, `B-P005`, `B-P006`, `B-P007`, `B-P023`, `B-P030`, `B-P035`, `B-P037`, `B-P038`, `B-P039`, `B-R005`, `B-R006`, `B-R007`, `B-R008`, `B-R022`, `B-R023`, `B-R027`
-- evidence records that would go stale: 32
+- evidence records that would go stale: 34
 
 | record | block | layer |
 |---|---|---|
@@ -21348,6 +21474,8 @@ rework.
 | E-000386 | `B-R027` | correspondence |
 | E-000395 | `B-P035` | correspondence |
 | E-000396 | `B-P039` | correspondence |
+| E-000402 | `B-C001` | review |
+| E-000403 | `B-C002` | review |
 
 ## Not staled (by the statement/proof separation, Section 13.1)
 
@@ -21369,9 +21497,7 @@ Generated by `scripts/frontier.py`: open obligations across the project.
 | `B-A001` | correspondence | provisional | 1 | 0 |
 | `B-A001` | verification | provisional | 1 | 0 |
 | `B-C001` | correspondence | provisional | 1 | 4 |
-| `B-C001` | review | provisional | 1 | 1 |
 | `B-C002` | correspondence | provisional | 1 | 4 |
-| `B-C002` | review | provisional | 1 | 1 |
 | `B-C004` | correspondence | provisional | 1 | 1 |
 | `B-C007` | correspondence | provisional | 1 | 1 |
 | `B-C008` | correspondence | provisional | 1 | 1 |
