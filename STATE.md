@@ -6447,13 +6447,20 @@ pass exposed. No Lean or manuscript work.
   `reports/calibration.md` reports **deepseek -> deepseek** and **deepseek ->
   claude**, both 19/19 detected, 0/4. `calibration/seeded.json`'s audit note
   describes Run 4 and the operator fix. Journal `EV-000152`; commit `aad9188`.
+- **Prompt drift gate.** The cross-model comparator prompt had been
+  hand-maintained and had gone stale against the fixed CAL-G010. It is now
+  rendered deterministically from the corpus by `calibration.py --prompt`, with
+  a `--check-prompt` drift check wired into `check_all` (fast tier 40 -> 41
+  checks); the renderer reproduces the committed prompt byte-for-byte and
+  `calibration_test.py` asserts the match. Closes the prompt/corpus drift class
+  that let the corpus bug reach a cross-model run. Commit `c653223`.
 
 **State after the session.**
 
 - Detection is 1.00 on every mutation type for both model pairs; the pairs
   differ only on CAL-006's typed label. The two-family caveat is now partly
   retired: this is the first calibration measurement across model families.
-- Fast gate **40/0**; slow gate **43/0** (run once, at close).
+- Fast gate **41/0**; slow gate **44/0** (run once, at close).
 
 **Prioritized next steps.**
 
@@ -6497,7 +6504,7 @@ pass exposed. No Lean or manuscript work.
    `hash_blocks.normalize`).
 7. Run the mechanical gate after any change, in tiers:
    `scripts/check_all.sh --fast` runs every check needing neither Lean
-   compilation nor a PDF build (40 checks; seconds) and prints the Lean audit,
+   compilation nor a PDF build (41 checks; seconds) and prints the Lean audit,
    `lean_audit.py`, and the manuscript build as `DEFERRED`, never as passes. At
    session close run `scripts/check_all.sh` once without `--fast`: it is the
    artifact of record and adds the Lean audit tests, the Lean mechanical gate
