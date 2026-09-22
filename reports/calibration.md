@@ -9,11 +9,25 @@ non-equivalent is a false positive. Generated cases with no verdict are
 
 Corpus: 23 case(s) over 4 base block(s).
 
-Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 hand-authored cases in a single pass. Run 2 (per-case; CAL-001..CAL-011): each case was judged in its own isolated context, blind to case type and expectation. Run 3 (generated; CAL-G001..): the 12 generated cases were judged in a single blind context that saw only contract/readback pairs. All runs use the project's one model. Detection is now 19/19 across all mutation types (hand + generated), 0/4 control false positives; generated cases are no longer unrun. Run 3 also drove an operator fix: the original encoding operator only changed 'componentwise subset' to 'subset' (not a mismatch here) and the original direction_flip produced a self-contradictory gloss; both were corrected. Remaining caveat: one model pair only (no second model available), so per-type rates are point estimates with wide intervals at these sample sizes.
-
-Only one model pair was measured (same-model run); no second model is currently available.
+Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 hand-authored cases in a single pass. Run 2 (per-case; CAL-001..CAL-011): each case was judged in its own isolated context, blind to case type and expectation. Run 3 (generated; CAL-G001..CAL-G012): the 12 generated cases were judged in a single blind context that saw only contract/readback pairs. Run 4 (cross-model; all 23 cases): the corpus was judged blind by a second model family (claude-sonnet-5, family claude), producer deepseek-v4.1-flash -- the first non-same-model calibration pass; reports/calibration.md reports both pairs. Detection is 19/19 mutations with 0/4 control false positives in both pairs; the pairs differ on one typed label only (CAL-006 quantifier_change: formal_stronger per-case deepseek vs formal_weaker claude, and claude agrees with deepseek's batched label). Session 124 also fixed the saturation_order operator: it previously swapped only the order phrase and left the conclusion [X]^Psi, yielding [[X]^Phi]^Psi = [X]^Psi, which is provably equivalent to the contract (both hold iff Phi is contained in Psi) -- a non-mutation. The cross-model pass read that CAL-G010 as equivalent, exposing the bug; the operator now swaps Phi/Psi through the whole clause ([[X]^Phi]^Psi = [X]^Phi), the same genuine mismatch as the hand-authored CAL-005. Earlier runs also drove two operator fixes: the original encoding operator only changed 'componentwise subset' to 'subset' (not a mismatch here) and the original direction_flip produced a self-contradictory gloss; both were corrected. Remaining caveat: two families now, but per-type rates are still wide-interval point estimates at these sample sizes.
 
 ## Model pair: deepseek (producer) -> deepseek (comparator)
+
+| mutation type | cases run | detected | rate | 95% interval | unrun |
+|---|---|---|---|---|---|
+| conclusion_reverse | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+| direction_flip | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| dropped_hypothesis | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| encoding | 4 | 4 | 1.00 | [0.51, 1.00] | 0 |
+| quantifier_change | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| saturation_order | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+| weakened_conclusion | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+
+Controls run: 4; false positives: 0.
+
+Mutations run: 19; detected: 19; unrun: 0.
+
+## Model pair: deepseek (producer) -> claude (comparator)
 
 | mutation type | cases run | detected | rate | 95% interval | unrun |
 |---|---|---|---|---|---|

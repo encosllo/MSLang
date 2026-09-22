@@ -96,7 +96,7 @@
       "expect": "detected",
       "id": "CAL-G010",
       "operator": "saturation_order",
-      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Then Phi refines Psi if and only if, for every componentwise subset X of A, saturating X by Phi and then by Psi equals saturating X by Psi alone.",
+      "readback": "Fix an S-sorted set A and S-sorted equivalences Phi, Psi on A. Then Phi refines Psi if and only if, for every componentwise subset X of A, saturating X by Phi and then by Psi equals saturating X by Phi alone.",
       "source": "generated",
       "type": "saturation_order"
     },

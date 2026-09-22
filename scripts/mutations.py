@@ -56,8 +56,18 @@ def op_conclusion_reverse(text):
 
 
 def op_saturation_order(text):
-    for a, b in (("by Psi and then by Phi", "by Phi and then by Psi"),
-                 ("by Phi and then by Psi", "by Psi and then by Phi")):
+    # Swap the saturation order *throughout* the conclusion clause, so
+    # ``[[X]^Psi]^Phi = [X]^Psi`` becomes ``[[X]^Phi]^Psi = [X]^Phi``.  The
+    # trailing ``alone`` term must move with the order: swapping only the order
+    # phrase yields ``[[X]^Phi]^Psi = [X]^Psi``, which is *equivalent* to the
+    # contract (both hold iff Phi is contained in Psi), i.e. a non-mutation --
+    # the generated case CAL-G010 read ``equivalent`` under the cross-model pass
+    # and exposed exactly that.  Swapping Phi/Psi through the whole clause is
+    # the genuine mismatch, matching the hand-authored CAL-005.
+    for a, b in (("by Psi and then by Phi equals saturating X by Psi alone",
+                  "by Phi and then by Psi equals saturating X by Phi alone"),
+                 ("by Phi and then by Psi equals saturating X by Phi alone",
+                  "by Psi and then by Phi equals saturating X by Psi alone")):
         if a in text:
             return text.replace(a, b)
     return None

@@ -21,10 +21,10 @@ repository.
 | `blocks/scope_decisions.json` | `8e83c9c6ee2625bda38c995eb582268eecb8adb3f0d3e2a07faea9e1d8313d49` |
 | `blocks/treatment_tiers.json` | `6542301a4c092696fda9b1925825685f9890c2dedf6c077d49bb782da24d2158` |
 | `calibration/baseline.json` | `c10a03ea904ab834070a8da546e88da7b18e91f5241486e07c5297bb9f3dbe2e` |
-| `calibration/generated.json` | `f404e40777743c210acc102f2955720cda2bbf955acf4fd32696c5cc652ec16d` |
+| `calibration/generated.json` | `f215d0a53606defc2f63b38c7f67c9c7220b813745cd2ab0803c3c175c6a1108` |
 | `calibration/models.json` | `2baaeee200a2ca579bdd782d356de8cb51767c2502b1d351c0e3dcf7875107bc` |
-| `calibration/seeded.json` | `ce9f122e055a02698d321d150c412379893d70d8d4ed70d94be7539dc6ddbfbf` |
-| `calibration/verdicts.json` | `fa55628a0a4ffbd56c7da68d0a4fe656b027eb61b7f89469ec4741aa34d50397` |
+| `calibration/seeded.json` | `0c8e7280e4b4e4f8f15519538b14a495b1b24048bccb5be8d4594bf83ac1c3ef` |
+| `calibration/verdicts.json` | `d27d351fb3ca2a52ae0ec69a389117c0e4d487d1f8ab69b9d8e7dff753abb782` |
 | `decisions/standing.json` | `03b61b27a750f6e99c78be0ba46cf46a9ad3b2c139b81b93fa5624ec4177adb8` |
 | `evidence/E-000001.json` | `3d3e19bd6a117f75c0167f8d16f6abdeebd47c5ea3a1b702b44e419eb031f1cf` |
 | `evidence/E-000002.json` | `34a2aaf9b9522512d51f2305bd32a4399f6ea46b6b827b69d855c854edb26ef5` |
@@ -434,7 +434,7 @@ repository.
 | `evidence/E-000406.json` | `2d08c7e4ad35f2bbbd62af8ae3e86b127623c0ccf49391ded0552b8341d23caf` |
 | `evidence/E-000407.json` | `428d96823b40baaf813715cb478de0501e134da14c4e2615ba3cead83f8d6373` |
 | `evidence/E-000408.json` | `972e3949ee486a6f4c6d83421b1c326894b4e7e7cd62b832d384ae49016cf744` |
-| `journal/events.jsonl` | `5a7e99bc600db03200e6cf537e8848e39eda508d14c7a2e49f4d305d8daa8fd2` |
+| `journal/events.jsonl` | `16897ca30945c23cdd13b0392cb0e750daf76844fa2954977cc8cf54f156c57a` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSEilenberg.tex` | `f953b877dd4858209dfa052c6cb18a8c91228f3ab5f5a4e665fb4906472a208a` |
@@ -20955,11 +20955,25 @@ non-equivalent is a false positive. Generated cases with no verdict are
 
 Corpus: 23 case(s) over 4 base block(s).
 
-Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 hand-authored cases in a single pass. Run 2 (per-case; CAL-001..CAL-011): each case was judged in its own isolated context, blind to case type and expectation. Run 3 (generated; CAL-G001..): the 12 generated cases were judged in a single blind context that saw only contract/readback pairs. All runs use the project's one model. Detection is now 19/19 across all mutation types (hand + generated), 0/4 control false positives; generated cases are no longer unrun. Run 3 also drove an operator fix: the original encoding operator only changed 'componentwise subset' to 'subset' (not a mismatch here) and the original direction_flip produced a self-contradictory gloss; both were corrected. Remaining caveat: one model pair only (no second model available), so per-type rates are point estimates with wide intervals at these sample sizes.
-
-Only one model pair was measured (same-model run); no second model is currently available.
+Audit runs. Run 1 (batched; retained at calibration/verdicts.batched.json): one blind comparator context processed all 11 hand-authored cases in a single pass. Run 2 (per-case; CAL-001..CAL-011): each case was judged in its own isolated context, blind to case type and expectation. Run 3 (generated; CAL-G001..CAL-G012): the 12 generated cases were judged in a single blind context that saw only contract/readback pairs. Run 4 (cross-model; all 23 cases): the corpus was judged blind by a second model family (claude-sonnet-5, family claude), producer deepseek-v4.1-flash -- the first non-same-model calibration pass; reports/calibration.md reports both pairs. Detection is 19/19 mutations with 0/4 control false positives in both pairs; the pairs differ on one typed label only (CAL-006 quantifier_change: formal_stronger per-case deepseek vs formal_weaker claude, and claude agrees with deepseek's batched label). Session 124 also fixed the saturation_order operator: it previously swapped only the order phrase and left the conclusion [X]^Psi, yielding [[X]^Phi]^Psi = [X]^Psi, which is provably equivalent to the contract (both hold iff Phi is contained in Psi) -- a non-mutation. The cross-model pass read that CAL-G010 as equivalent, exposing the bug; the operator now swaps Phi/Psi through the whole clause ([[X]^Phi]^Psi = [X]^Phi), the same genuine mismatch as the hand-authored CAL-005. Earlier runs also drove two operator fixes: the original encoding operator only changed 'componentwise subset' to 'subset' (not a mismatch here) and the original direction_flip produced a self-contradictory gloss; both were corrected. Remaining caveat: two families now, but per-type rates are still wide-interval point estimates at these sample sizes.
 
 ## Model pair: deepseek (producer) -> deepseek (comparator)
+
+| mutation type | cases run | detected | rate | 95% interval | unrun |
+|---|---|---|---|---|---|
+| conclusion_reverse | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+| direction_flip | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| dropped_hypothesis | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| encoding | 4 | 4 | 1.00 | [0.51, 1.00] | 0 |
+| quantifier_change | 3 | 3 | 1.00 | [0.44, 1.00] | 0 |
+| saturation_order | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+| weakened_conclusion | 2 | 2 | 1.00 | [0.34, 1.00] | 0 |
+
+Controls run: 4; false positives: 0.
+
+Mutations run: 19; detected: 19; unrun: 0.
+
+## Model pair: deepseek (producer) -> claude (comparator)
 
 | mutation type | cases run | detected | rate | 95% interval | unrun |
 |---|---|---|---|---|---|
