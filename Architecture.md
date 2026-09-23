@@ -729,6 +729,7 @@ the event journal.
 
 ```text
 project/
+|-- projects.yaml        # multi-manuscript registry (project id -> paths)
 |-- manuscript/          # TeX sources with block annotations
 |-- lean/                # Lake project, own pinned toolchain and Mathlib
 |-- representation/       # encoding records and foundation bridges (Section 11.5)
@@ -740,6 +741,23 @@ project/
 |-- scripts/             # ingestion, hashing, sanity-check tooling
 `-- reports/             # generated coverage, trust boundary, gap reports
 ```
+
+**The workspace carries more than one manuscript formalization.** `projects.yaml`
+is the single registry: each entry names a stable project id, the TeX source and
+its `.aux`, the block registry and hash-anchor locations, the evidence, journal,
+and report scope, and the Lean namespace/declaration map. The provenance and
+gate tooling (`ingest.py`, `hash_blocks.py`, `bundle.py`, `lean_facets.py`,
+`lean_audit.py`, `check_all.sh`) operates per project and never hardcodes a
+manuscript filename. The original project, `mslang` (`MSEilenberg.tex`), is the
+default and keeps its top-level paths; a second project is namespaced (e.g.
+`mscong` -> `blocks/mscong/`, `evidence/mscong/`, `journal/mscong.jsonl`,
+`reports/mscong/`, `lean/declarations.mscong.json`, namespace `Mscong`). Adding
+a project is a data change, not a code change. A project whose provenance has
+not been ingested yet is marked `ingested: false`, and the gate **defers** its
+source-dependent checks (never reporting them as passing) while still running
+the project's non-ASCII scan and record validation. `Mscong.*` shares this Lake
+project, toolchain, and Mathlib, importing `Mslang.*` for the shared
+foundations.
 
 **No `prove2me/`-style directory, and no dependency on a workspace shared
 with other projects.** The Lean project owns its toolchain installation and

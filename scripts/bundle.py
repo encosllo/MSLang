@@ -13,8 +13,13 @@ Renders a single tracked document, `reports/bundle.md`, that embeds:
 
 Deterministic: the same repository state yields byte-identical output.
 
+The manifest and view scope are resolved from the project registry, so a second
+manuscript project gets its own bundle; the default project's paths are
+unchanged (OpenSpec change `add-mscong-project`).
+
 Usage:
     python3 scripts/bundle.py
+    python3 scripts/bundle.py --project mscong
     python3 scripts/bundle.py --check-report
 """
 from __future__ import annotations
@@ -28,19 +33,27 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
+import projects as pj  # noqa: E402
 import status  # noqa: E402
 
 ROOT = HERE.parent
-REPORT = ROOT / "reports" / "bundle.md"
-MANIFEST_PATHS = [
-    "manuscript/MSEilenberg.tex",
-    "blocks/registry.json",
-    "blocks/hashes.json",
-    "blocks/formal.json",
-    "blocks/formal_graph.json",
-    "blocks/lean_audit.json",
-    "blocks/graph.json",
-    "representation/pilot-encoding.md",
+
+# Project-scoped manifest entries, resolved from the registry (relative to the
+# repository root) so the default project's rows are unchanged.
+PROJECT_MANIFEST_KEYS = (
+    "manuscript",
+    "registry",
+    "hashes",
+    "lean_formal",
+    "lean_formal_graph",
+    "lean_audit",
+    "graph",
+    "representation",
+    "journal",
+)
+
+# Artifacts shared by the workspace (not per project).
+SHARED_MANIFEST_PATHS = [
     "calibration/seeded.json",
     "calibration/generated.json",
     "calibration/baseline.json",
@@ -53,22 +66,21 @@ MANIFEST_PATHS = [
     "blocks/ranking.json",
     "reconciliation/proposals.json",
     "decisions/standing.json",
-    "journal/events.jsonl",
     "lean/lake-manifest.json",
     "lean/lean-toolchain",
     "schemas/evidence.schema.json",
 ]
-VIEWS = [
-    "reports/coverage.md",
-    "reports/trust_boundary.md",
-    "reports/sanity.md",
-    "reports/calibration.md",
-    "reports/discrepancy.md",
-    "reports/impact.md",
-    "reports/frontier.md",
-    "reports/ranking.md",
-    "reports/reconciliation.md",
-    "reports/decisions.md",
+VIEW_NAMES = [
+    "coverage.md",
+    "trust_boundary.md",
+    "sanity.md",
+    "calibration.md",
+    "discrepancy.md",
+    "impact.md",
+    "frontier.md",
+    "ranking.md",
+    "reconciliation.md",
+    "decisions.md",
 ]
 
 
@@ -76,21 +88,46 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def manifest():
+def project_paths(project_id: str):
+    """Resolve the bundle-relevant paths for a project from the registry."""
+    entry = pj.get(project_id)
+    blocks_dir = entry["blocks_dir"]
+    reports_dir = entry["reports_dir"]
+    return {
+        "entry": entry,
+        "registry": entry.get("registry") or blocks_dir / "registry.json",
+        "evidence_dir": entry["evidence_dir"],
+        "representation": entry.get("representation"),
+        "reports_dir": reports_dir,
+        "report": reports_dir / "bundle.md",
+        "views": [reports_dir / name for name in VIEW_NAMES],
+    }
+
+
+def manifest(paths):
     rows = []
-    for rel in MANIFEST_PATHS:
+    entry = paths["entry"]
+    for key in PROJECT_MANIFEST_KEYS:
+        p = entry.get(key)
+        if p is not None and Path(p).exists():
+            rows.append((str(Path(p).relative_to(ROOT)), sha256(p)))
+    for rel in SHARED_MANIFEST_PATHS:
         p = ROOT / rel
         if p.exists():
             rows.append((rel, sha256(p)))
-    for p in sorted((ROOT / "evidence").glob("*.json")):
-        rows.append((str(p.relative_to(ROOT)), sha256(p)))
+    evidence_dir = paths["evidence_dir"]
+    if Path(evidence_dir).is_dir():
+        for p in sorted(Path(evidence_dir).glob("*.json")):
+            rows.append((str(p.relative_to(ROOT)), sha256(p)))
     return sorted(rows)
 
 
-def status_table():
-    registry = status.load_registry(ROOT / "blocks" / "registry.json")
-    records = status.load_evidence(ROOT / "evidence")
-    rep = {"encoding": status.hash_file(ROOT / "representation" / "pilot-encoding.md")}
+def status_table(paths):
+    registry = status.load_registry(paths["registry"])
+    records = status.load_evidence(paths["evidence_dir"])
+    rep = {}
+    if paths["representation"] is not None and Path(paths["representation"]).exists():
+        rep = {"encoding": status.hash_file(paths["representation"])}
     grouped = status.group_by_block_layer(records)
     tiers = status.load_default_tiers()
     lines = ["| block | layer | status | current | stale |", "|---|---|---|---|---|"]
@@ -103,7 +140,8 @@ def status_table():
     return "\n".join(lines)
 
 
-def render():
+def render(project_id: str):
+    paths = project_paths(project_id)
     lines = [
         "# MSLang pilot -- evidence bundle",
         "",
@@ -117,36 +155,47 @@ def render():
         "| artifact | sha256 |",
         "|---|---|",
     ]
-    for rel, h in manifest():
+    for rel, h in manifest(paths):
         lines.append(f"| `{rel}` | `{h}` |")
-    lines += ["", "## Status (validity rule applied to current evidence)", "", status_table(), ""]
+    lines += ["", "## Status (validity rule applied to current evidence)", "", status_table(paths), ""]
     lines += ["## Evidence records", ""]
-    for p in sorted((ROOT / "evidence").glob("*.json")):
-        rec = json.loads(p.read_text(encoding="utf-8"))
-        lines += [f"### {rec.get('evidence_id', p.name)}", "", "```json",
-                  json.dumps(rec, indent=2, sort_keys=True), "```", ""]
-    for rel in VIEWS:
-        p = ROOT / rel
-        if p.exists():
-            lines += [f"## {rel}", "", p.read_text(encoding="utf-8").rstrip(), ""]
+    evidence_dir = Path(paths["evidence_dir"])
+    if evidence_dir.is_dir():
+        for p in sorted(evidence_dir.glob("*.json")):
+            rec = json.loads(p.read_text(encoding="utf-8"))
+            lines += [f"### {rec.get('evidence_id', p.name)}", "", "```json",
+                      json.dumps(rec, indent=2, sort_keys=True), "```", ""]
+    for p in paths["views"]:
+        if Path(p).exists():
+            lines += [
+                f"## {Path(p).relative_to(ROOT)}",
+                "",
+                Path(p).read_text(encoding="utf-8").rstrip(),
+                "",
+            ]
     return "\n".join(lines)
 
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
+    ap.add_argument("--project", default=None, help="project id (default: registry default)")
     ap.add_argument("--check-report", action="store_true")
     args = ap.parse_args(argv)
-    text = render()
+
+    project_id = args.project or pj.default_project()
+    paths = project_paths(project_id)
+    report = paths["report"]
+    text = render(project_id)
     if args.check_report:
-        actual = REPORT.read_text(encoding="utf-8") if REPORT.exists() else None
+        actual = report.read_text(encoding="utf-8") if report.exists() else None
         if actual != text:
-            print(f"bundle: drift in {REPORT.relative_to(ROOT)}")
+            print(f"bundle: drift in {report.relative_to(ROOT)}")
             return 1
         print("bundle: current")
         return 0
-    REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text(text, encoding="utf-8")
-    print(f"bundle: wrote {REPORT.relative_to(ROOT)} ({len(text)} bytes)")
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(text, encoding="utf-8")
+    print(f"bundle: wrote {report.relative_to(ROOT)} ({len(text)} bytes)")
     return 0
 
 

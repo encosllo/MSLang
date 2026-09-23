@@ -20,6 +20,8 @@ Usage:
     python3 scripts/hash_blocks.py FILE                 # print JSON map
     python3 scripts/hash_blocks.py --out blocks/hashes.json FILE
     python3 scripts/hash_blocks.py --check blocks/hashes.json FILE
+    python3 scripts/hash_blocks.py --project mslang --check
+        # source and anchors path resolved from the project registry
 """
 from __future__ import annotations
 
@@ -27,6 +29,12 @@ import hashlib
 import json
 import re
 import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+import projects as pj  # noqa: E402
 
 THEOREM_ENVS = (
     "thm",
@@ -151,6 +159,8 @@ def hash_map(text: str):
 def main(argv: list[str]) -> int:
     out = None
     check = None
+    project = None
+    registry_path = None
     files = []
     i = 0
     while i < len(argv):
@@ -159,11 +169,50 @@ def main(argv: list[str]) -> int:
             i += 1
             out = argv[i]
         elif a == "--check":
+            # Optional value: ``--check FILE`` (legacy) or a bare ``--check``
+            # with ``--project``, in which case the registry's anchors path is
+            # used.
+            nxt = argv[i + 1] if i + 1 < len(argv) else None
+            if nxt is not None and not nxt.startswith("-"):
+                i += 1
+                check = nxt
+            else:
+                check = True
+        elif a == "--project":
             i += 1
-            check = argv[i]
+            project = argv[i]
+        elif a == "--registry":
+            i += 1
+            registry_path = argv[i]
         else:
             files.append(a)
         i += 1
+
+    if project is not None:
+        try:
+            entry = (
+                pj.get(project, path=Path(registry_path))
+                if registry_path
+                else pj.get(project)
+            )
+        except (KeyError, pj.RegistryError) as exc:
+            print(f"hash_blocks: unknown project {exc}", file=sys.stderr)
+            return 2
+        if not files:
+            source = entry.get("source")
+            if source is None:
+                print(
+                    f"hash_blocks: project {project} has no ingested source",
+                    file=sys.stderr,
+                )
+                return 2
+            files = [str(source)]
+        if check is True:
+            check = str(entry["hashes"])
+
+    if check is True:
+        print("hash_blocks: --check needs a path (or --project)", file=sys.stderr)
+        return 2
     if not files:
         print(__doc__.strip(), file=sys.stderr)
         return 2

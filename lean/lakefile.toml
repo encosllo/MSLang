@@ -8,7 +8,7 @@
 # (bootstrap item 3). v4.33.1 == 0df444a360eaa60ab8c11dca51a86af692955474.
 
 name = "mslang"
-defaultTargets = ["Mslang"]
+defaultTargets = ["Mslang", "Mscong"]
 
 [[require]]
 name = "mathlib"
@@ -17,3 +17,9 @@ rev = "0df444a360eaa60ab8c11dca51a86af692955474"
 
 [[lean_lib]]
 name = "Mslang"
+
+# Second manuscript project (MSCong): shares this Lake project, toolchain, and
+# Mathlib; `Mscong.*` imports `Mslang.*` for the shared foundations
+# (OpenSpec change `add-mscong-project`).
+[[lean_lib]]
+name = "Mscong"

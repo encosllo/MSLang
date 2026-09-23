@@ -8,7 +8,13 @@
 #   (none)   the full gate: fast checks plus the Lean mechanical gate and the
 #            manuscript build; the artifact of record at session close.
 #
-# Usage: scripts/check_all.sh [--fast]
+# Multi-manuscript: source-dependent checks (non-ASCII scan, anchor hashes,
+# importer artifacts, cross-reference audit, record validation) run once per
+# registered project and name the project; a project whose provenance has not
+# been ingested yet (`ingested: false`) has those checks deferred, never
+# reported as passing (OpenSpec change `add-mscong-project`).
+#
+# Usage: scripts/check_all.sh [--fast] [--project ID]
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -17,7 +23,14 @@ cd "$ROOT" || exit 2
 . "$ROOT/scripts/env.sh"
 
 MODE="full"
-if [ "${1:-}" = "--fast" ]; then MODE="fast"; fi
+PROJECT_FILTER=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --fast) MODE="fast"; shift ;;
+    --project) PROJECT_FILTER="$2"; shift 2 ;;
+    *) echo "check_all: unknown argument: $1" >&2; exit 2 ;;
+  esac
+done
 
 TMP="$(mktemp)"
 trap 'rm -f "$TMP"' EXIT
@@ -42,18 +55,56 @@ run() {
 }
 
 defer() {
-  printf 'DEFERRED  %s (slow tier)\n' "$1"
+  printf 'DEFERRED  %s\n' "$1"
   DEFERRED=$((DEFERRED + 1))
 }
 
+project_field() { python3 scripts/projects.py --field "$1" "$2"; }
+
+project_selection() {
+  if [ -n "$PROJECT_FILTER" ]; then
+    printf '%s\n' "$PROJECT_FILTER"
+  else
+    python3 scripts/projects.py --list
+  fi
+}
+
+run_project_checks() {
+  local pid="$1"
+  local man
+  man="$(project_field "$pid" manuscript)"
+  if [ -n "$man" ]; then
+    run "non-ASCII scan [$pid]" python3 scripts/nonascii_scan.py "$man"
+  else
+    defer "non-ASCII scan [$pid] (no manuscript)"
+  fi
+  if [ "$(project_field "$pid" ingested)" = "true" ]; then
+    run "anchor hashes current [$pid]" python3 scripts/hash_blocks.py --project "$pid" --check
+    run "importer artifacts current [$pid]" python3 scripts/ingest.py --project "$pid" --check
+    run "cross-reference audit [$pid]" python3 scripts/check_crossrefs.py --audit "$(project_field "$pid" source)"
+  else
+    defer "anchor hashes/importer/crossrefs [$pid] (provenance not yet ingested)"
+  fi
+  run "record schema validation [$pid]" python3 scripts/validate_records.py \
+    --journal "$(project_field "$pid" journal)" \
+    --evidence-dir "$(project_field "$pid" evidence_dir)"
+}
+
+echo "active project: ${MSLANG_PROJECT:-mslang}"
+
 # --- fast tier: no Lean compilation, no PDF ---------------------------------
-run "non-ASCII scan" python3 scripts/nonascii_scan.py manuscript/MSEilenberg.tex
-run "anchor hashes current" python3 scripts/hash_blocks.py --check blocks/hashes.json manuscript/MSEilenberg.tex
-run "importer artifacts current" python3 scripts/ingest.py --check --aux manuscript/MSEilenberg.aux manuscript/MSEilenberg.tex
+run "project registry valid" python3 scripts/projects.py --check
+run "project registry tests" python3 scripts/projects_test.py
+run "default-project golden baseline" python3 scripts/projects.py --check-baseline
+run "cross-project identifier isolation" python3 scripts/projects.py --collisions
+
+for PID in $(project_selection); do
+  run_project_checks "$PID"
+done
+
 run "notation resolutions valid" python3 scripts/notation.py --check
 run "notation tests" python3 scripts/notation_test.py
 run "ingest tests" python3 scripts/ingest_test.py
-run "cross-reference audit" python3 scripts/check_crossrefs.py --audit manuscript/MSEilenberg.tex
 run "hygiene tests" python3 scripts/hygiene_test.py
 run "propagation tests" python3 scripts/propagation_test.py
 run "status tests" python3 scripts/status_test.py
@@ -86,14 +137,13 @@ run "frontier report current" python3 scripts/frontier.py --check-report
 run "ranking goal valid" python3 scripts/ranking.py --check
 run "ranking tests" python3 scripts/ranking_test.py
 run "ranking report current" python3 scripts/ranking.py --check-report
-run "record schema validation" python3 scripts/validate_records.py
 run "project views current" python3 scripts/report.py --check
 
 # --- slow tier: Lean mechanical gate + manuscript build ---------------------
 if [ "$MODE" = "fast" ]; then
-  defer "Lean audit tests"
-  defer "Lean mechanical gate current"
-  defer "manuscript build"
+  defer "Lean audit tests (slow tier)"
+  defer "Lean mechanical gate current (slow tier)"
+  defer "manuscript build (slow tier)"
 else
   run "Lean audit tests" python3 scripts/lean_audit_test.py
   run "Lean mechanical gate current" python3 scripts/lean_audit.py --check
@@ -102,9 +152,11 @@ fi
 
 echo
 if [ "$MODE" = "fast" ]; then
-  printf 'check_all (fast): %d passed, %d failed, %d deferred\n' "$PASS" "$FAIL" "$DEFERRED"
+  printf 'check_all (fast) project=%s: %d passed, %d failed, %d deferred\n' \
+    "${MSLANG_PROJECT:-mslang}" "$PASS" "$FAIL" "$DEFERRED"
 else
-  printf 'check_all: %d passed, %d failed\n' "$PASS" "$FAIL"
+  printf 'check_all project=%s: %d passed, %d failed\n' \
+    "${MSLANG_PROJECT:-mslang}" "$PASS" "$FAIL"
 fi
 if [ "$FAIL" -ne 0 ]; then
   printf 'failed: %s\n' "${FAILED[*]}"

@@ -1,0 +1,9 @@
+{
+  "artifacts": {
+    "blocks/hashes.json": "0330441576dc9119a5c08bf0cda6446326abd564b51c1ad433a1639dd71c544c",
+    "blocks/registry.json": "5444fb84547fe2f7e7ac8d9d421201e9a7a7c316d7edf15f457754b677aef8f9",
+    "reports/bundle.md": "831f831869e029be2d4feabb2e59ef04ca03a296a5ab11bbf5f510533eaf929f"
+  },
+  "note": "Pre-refactor golden hashes for the default project (OpenSpec change add-mscong-project, task 3.1): the registry, anchor hashes, and evidence bundle must stay byte-identical while the provenance tooling is parameterized.",
+  "project": "mslang"
+}

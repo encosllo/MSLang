@@ -41,11 +41,13 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 import lean_facets  # noqa: E402
+import projects as pj  # noqa: E402
 
 ROOT = HERE.parent
 LEAN = ROOT / "lean"
 OUT = ROOT / "blocks" / "lean_audit.json"
 ALLOWLIST = LEAN / "lean_audit_allowlist.json"
+DEFAULT_DECLARATIONS = LEAN / "declarations.json"
 
 PERMITTED_AXIOMS = ["propext", "Classical.choice", "Quot.sound"]
 
@@ -66,8 +68,8 @@ def toolchain_versions():
     return lean, mathlib
 
 
-def load_declarations():
-    data = json.loads((LEAN / "declarations.json").read_text(encoding="utf-8"))
+def load_declarations(path: Path = DEFAULT_DECLARATIONS):
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     names = []
     for spec in data.get("blocks", {}).values():
         if "decls" in spec:
@@ -129,9 +131,10 @@ def parse_axioms(text):
     return axioms
 
 
-def sorry_hits():
+def sorry_hits(namespace: str = "Mslang"):
     hits = []
-    for path in sorted((LEAN / "Mslang").glob("*.lean")) + [LEAN / "Mslang.lean"]:
+    paths = sorted((LEAN / namespace).glob("*.lean")) + [LEAN / f"{namespace}.lean"]
+    for path in paths:
         if not path.exists():
             continue
         stripped = lean_facets.strip_lean_comments(path.read_text(encoding="utf-8"))
@@ -162,10 +165,10 @@ def run_build():
     return proc.returncode, proc.stdout + proc.stderr
 
 
-def run_axioms(names):
+def run_axioms(names, module="Mslang"):
     with tempfile.TemporaryDirectory() as tmp:
         check = Path(tmp) / "lean_audit_check.lean"
-        lines = ["import Mslang"] + [
+        lines = [f"import {module}"] + [
             f"#print axioms {n}" for n in names
         ]
         check.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -179,9 +182,10 @@ def run_axioms(names):
     return proc.returncode, proc.stdout + proc.stderr
 
 
-def compute(skip_build=False):
+def compute(skip_build=False, declarations: Path = DEFAULT_DECLARATIONS,
+            namespace: str = "Mslang"):
     lean, mathlib = toolchain_versions()
-    names = load_declarations()
+    names = load_declarations(declarations)
     allow = load_allowlist()
 
     build_rc, build_out = (0, "") if skip_build else run_build()
@@ -190,7 +194,7 @@ def compute(skip_build=False):
     unexpected_warnings = [w for w in warnings if w not in allowed]
     build_ok = build_rc == 0 and not errors and not unexpected_warnings
 
-    ax_rc, ax_out = run_axioms(names)
+    ax_rc, ax_out = run_axioms(names, namespace)
     axioms = parse_axioms(ax_out)
     missing = [n for n in names if n not in axioms]
     permitted = set(PERMITTED_AXIOMS) | set(allow["axioms"])
@@ -199,7 +203,7 @@ def compute(skip_build=False):
         if any(a not in permitted for a in axs)
     }
 
-    sorry = sorry_hits()
+    sorry = sorry_hits(namespace)
 
     return {
         "note": "Mechanical Lean gate (Architecture.md Section 15.6). Derived by "
@@ -230,13 +234,28 @@ def render(audit):
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     ap.add_argument("--check", action="store_true",
-                    help="fail if blocks/lean_audit.json would change")
+                    help="fail if the audit artifact would change")
     ap.add_argument("--skip-build", action="store_true",
                     help="reuse the current oleans instead of running lake build")
-    ap.add_argument("--out", default=str(OUT))
+    ap.add_argument("--project", default=None,
+                    help="project id; declaration map, namespace, and output "
+                    "resolved from the registry")
+    ap.add_argument("--out", default=None)
     args = ap.parse_args(argv)
 
-    audit = compute(skip_build=args.skip_build)
+    declarations = DEFAULT_DECLARATIONS
+    namespace = "Mslang"
+    if args.project:
+        entry = pj.get(args.project)
+        declarations = Path(entry["lean_declarations"])
+        namespace = entry["lean_namespace"]
+        if args.out is None:
+            args.out = str(entry["lean_audit"])
+    if args.out is None:
+        args.out = str(OUT)
+
+    audit = compute(skip_build=args.skip_build, declarations=declarations,
+                    namespace=namespace)
     payload = render(audit)
     out = Path(args.out)
 

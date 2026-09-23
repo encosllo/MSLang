@@ -40,5 +40,22 @@ export MATHLIB_CACHE_DIR="$MSLANG_ROOT/.cache/mathlib"
 export TEXINPUTS="$MSLANG_ROOT/manuscript:${TEXINPUTS:-}"
 export BIBINPUTS="$MSLANG_ROOT/manuscript:${BIBINPUTS:-}"
 
-# Convenient entry points.
-export MSLANG_MANUSCRIPT="$MSLANG_ROOT/manuscript/MSEilenberg.tex"
+# --- Active project (multi-manuscript registry, OpenSpec add-mscong-project) --
+# Select a project with `MSLANG_PROJECT=<id> . scripts/env.sh` or
+# `. scripts/env.sh <id>`; the default is the registry's default project
+# (MSEilenberg).  Paths are resolved from projects.yaml, never hardcoded.
+# A leading-dash first argument (e.g. a caller's `--fast`) is ignored so that
+# sourcing from another script does not mistake its options for a project id.
+if [ -z "${MSLANG_PROJECT:-}" ] && [ -n "${1:-}" ] && [ "${1#-}" = "$1" ]; then
+  MSLANG_PROJECT="$1"
+fi
+if [ -z "${MSLANG_PROJECT:-}" ] && [ -f "$MSLANG_ROOT/projects.yaml" ]; then
+  MSLANG_PROJECT="$(python3 "$MSLANG_ROOT/scripts/projects.py" --default 2>/dev/null)"
+fi
+MSLANG_PROJECT="${MSLANG_PROJECT:-mslang}"
+export MSLANG_PROJECT
+if [ -f "$MSLANG_ROOT/projects.yaml" ]; then
+  eval "$(python3 "$MSLANG_ROOT/scripts/projects.py" --env "$MSLANG_PROJECT" 2>/dev/null)"
+fi
+# Convenient entry point (kept from before the registry; = the project source).
+export MSLANG_MANUSCRIPT="${MSLANG_MANUSCRIPT:-$MSLANG_ROOT/manuscript/MSEilenberg.tex}"

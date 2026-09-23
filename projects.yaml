@@ -1,0 +1,66 @@
+# Multi-manuscript project registry.
+#
+# One entry per formalization project.  Every provenance/gate tool reads the
+# project's source and artifact locations from here instead of hardcoding a
+# manuscript filename (OpenSpec change `add-mscong-project`; Architecture.md
+# Sections 10.4, 10.5).
+#
+# `mslang` is the default project and keeps the original top-level paths, so a
+# run with no project selection behaves exactly as before.  `mscong` is
+# scaffolded: its provenance locations exist but are empty until M1 ingests
+# `manuscript/MSCong.tex` (`ingested: false`), so the gate defers its
+# source-dependent checks rather than reporting them as passing.
+#
+# `source` may be null for a project whose provenance has not been ingested yet;
+# `manuscript` is always the TeX file the build scans.
+
+default: mslang
+
+projects:
+  mslang:
+    lean_namespace: Mslang
+    manuscript: manuscript/MSEilenberg.tex
+    source: manuscript/MSEilenberg.tex
+    aux: manuscript/MSEilenberg.aux
+    blocks_dir: blocks
+    hashes: blocks/hashes.json
+    registry: blocks/registry.json
+    graph: blocks/graph.json
+    symbols: blocks/symbols.json
+    evidence_dir: evidence
+    journal: journal/events.jsonl
+    reports_dir: reports
+    explanations_dir: blocks/explanations
+    edge_decisions: blocks/edge_decisions.json
+    notation: blocks/notation.json
+    representation: representation/pilot-encoding.md
+    lean_declarations: lean/declarations.json
+    lean_formal: blocks/formal.json
+    lean_formal_graph: blocks/formal_graph.json
+    lean_audit: blocks/lean_audit.json
+    ingested: true
+    notes: Eilenberg theorems for many-sorted formations (complete)
+
+  mscong:
+    lean_namespace: Mscong
+    manuscript: manuscript/MSCong.tex
+    source: null
+    aux: null
+    blocks_dir: blocks/mscong
+    hashes: blocks/mscong/hashes.json
+    registry: blocks/mscong/registry.json
+    graph: blocks/mscong/graph.json
+    symbols: blocks/mscong/symbols.json
+    evidence_dir: evidence/mscong
+    journal: journal/mscong.jsonl
+    reports_dir: reports/mscong
+    explanations_dir: blocks/mscong/explanations
+    edge_decisions: blocks/mscong/edge_decisions.json
+    notation: blocks/mscong/notation.json
+    representation: null
+    lean_declarations: lean/declarations.mscong.json
+    lean_formal: blocks/mscong/formal.json
+    lean_formal_graph: blocks/mscong/formal_graph.json
+    lean_audit: blocks/mscong/lean_audit.json
+    ingested: false
+    notes: Congruence based proofs of the recognizability theorems (scaffold; provenance begins at M1)

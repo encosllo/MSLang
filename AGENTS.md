@@ -43,3 +43,17 @@ file is the operational restatement of `Architecture.md` Section 15.6
    histogram is unchanged (see `STATE.md` safe-restart step 5).
 8. `evidence/` is append-only: never edit or delete; supersede with a new record
    via `python3 scripts/evidence.py new --supersedes E-XXXXXX ... --write`.
+9. **More than one manuscript project lives here; never hardcode a manuscript
+   filename.** `projects.yaml` is the registry: it names each project's TeX
+   source/`.aux`, block registry and hash anchors, evidence/journal/report
+   scope, and Lean namespace/declaration map. `mslang` (`MSEilenberg.tex`) is
+   the default and keeps its original top-level paths; `mscong`
+   (`MSCong.tex`) is namespaced (`blocks/mscong/`, `evidence/mscong/`,
+   `journal/mscong.jsonl`, `reports/mscong/`, `lean/declarations.mscong.json`).
+   Resolve paths with `python3 scripts/projects.py --field <id> <key>` (or
+   `--env <id>`); `hash_blocks.py`, `ingest.py`, `bundle.py`, `lean_facets.py`,
+   and `lean_audit.py` take `--project <id>`. `scripts/check_all.sh` runs the
+   source-dependent checks once per registered project and names it in each
+   line (`[mslang]`, `[mscong]`); a project with `ingested: false` has those
+   checks **deferred**, never reported as passing. `Mscong.*` shares this Lake
+   project and Mathlib and imports `Mslang.*`.

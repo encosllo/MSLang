@@ -25,6 +25,7 @@ but does not yet normalize equivalent surface syntaxes.
 
 Usage:
     python3 scripts/lean_facets.py
+    python3 scripts/lean_facets.py --project mscong
     python3 scripts/lean_facets.py --check
 """
 from __future__ import annotations
@@ -37,6 +38,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT / "scripts") not in sys.path:
+    sys.path.insert(0, str(ROOT / "scripts"))
+import projects as pj  # noqa: E402  (multi-project registry)
 
 DECL_RE = re.compile(
     r"(?m)^(?:(?:noncomputable|private|protected|unsafe)\s+)*"
@@ -150,7 +154,7 @@ def word_present(name: str, text: str) -> bool:
     )
 
 
-def compute(decl_map, root: Path = ROOT):
+def compute(decl_map, root: Path = ROOT, source_label: str = "lean/declarations.json"):
     """Return (blocks/formal.json content, blocks/formal_graph.json content).
 
     A block may map to several declarations (``decls``). Each declaration
@@ -263,7 +267,7 @@ def compute(decl_map, root: Path = ROOT):
         "source by whole-identifier occurrence (Architecture.md Section 12.1).",
         "edges": edges,
     }
-    return {"source": "lean/declarations.json", "blocks": blocks}, graph
+    return {"source": source_label, "blocks": blocks}, graph
 
 
 def render(formal) -> str:
@@ -272,13 +276,31 @@ def render(formal) -> str:
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
-    ap.add_argument("--declarations", default=str(ROOT / "lean" / "declarations.json"))
-    ap.add_argument("--out", default=str(ROOT / "blocks" / "formal.json"))
-    ap.add_argument("--graph-out", default=str(ROOT / "blocks" / "formal_graph.json"))
+    ap.add_argument("--project", help="project id (defaults to explicit paths)")
+    ap.add_argument("--declarations", default=None)
+    ap.add_argument("--out", default=None)
+    ap.add_argument("--graph-out", default=None)
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args(argv)
 
-    formal, graph = compute(load_map(Path(args.declarations)))
+    if args.project:
+        entry = pj.get(args.project)
+        args.declarations = args.declarations or str(entry["lean_declarations"])
+        args.out = args.out or str(entry["lean_formal"])
+        args.graph_out = args.graph_out or str(entry["lean_formal_graph"])
+    if args.declarations is None:
+        args.declarations = str(ROOT / "lean" / "declarations.json")
+    if args.out is None:
+        args.out = str(ROOT / "blocks" / "formal.json")
+    if args.graph_out is None:
+        args.graph_out = str(ROOT / "blocks" / "formal_graph.json")
+
+    decl_path = Path(args.declarations)
+    try:
+        source_label = str(decl_path.resolve().relative_to(ROOT))
+    except ValueError:
+        source_label = str(decl_path)
+    formal, graph = compute(load_map(decl_path), source_label=source_label)
     payload = render(formal)
     gpayload = render(graph)
 

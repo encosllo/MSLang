@@ -6552,10 +6552,138 @@ fate of `hjm1.cls` are now closed. `MSEilenberg.tex` still uses an inline
 
 ---
 
-**Safe-restart checklist (run before touching anything).**
+## Session 126 -- 2026-09-23 -- multi-manuscript support (add-mscong-project)
+
+**Goal.** Implement the OpenSpec change `add-mscong-project`: a declarative
+project registry, per-project operation of the provenance/gate tooling with the
+existing MSEilenberg project preserved byte-for-byte, and a `Mscong` Lean
+scaffold. Per the author's decision, `mscong` is **scaffolded now** with its
+provenance checks **deferred** (its source is not ingested yet), so the default
+gate stays green; the per-project machinery is built and tested regardless.
+
+**What was established (closed).**
+
+- **Registry.** Root `projects.yaml` (a mapping-only YAML subset, parsed
+  dependency-free by `scripts/projects.py` since `PyYAML` is not installed) with
+  `mslang` (default, original top-level paths, `ingested: true`) and `mscong`
+  (namespaced paths, `source: null`, `ingested: false`). `scripts/projects.py`
+  exposes `list_projects`, `get`, `field`, `--env` (bash `export` lines),
+  `--check` (validity + no cross-project path collision), `--collisions`
+  (block/evidence/journal id isolation) and `--check-baseline`.
+- **Tooling parameterized** (all byte-identical for `mslang`): `hash_blocks.py`
+  (`--project`, optional-valued `--check`), `ingest.py` (`--project`,
+  `--registry`, output dirs from the registry; the gap report now records the
+  relative source path so it matches regardless of how the source is named),
+  `bundle.py` (`--project`; manifest/views/evidence/journal scoped),
+  `lean_facets.py` and `lean_audit.py` (`--project`; declaration map, namespace,
+  output, and `sorry` scope), `env.sh` (selects `MSLANG_PROJECT` and evals the
+  registry `--env`), and `build_manuscript.sh` (`--project`).
+- **Golden preservation (task 3.1).** `projects.baseline.json` records the
+  pre-refactor sha256 of `blocks/registry.json`, `blocks/hashes.json`, and
+  `reports/bundle.md`; `projects.py --check-baseline` verifies them and is wired
+  into the fast gate. All three are unchanged.
+- **Gate (task 6.1).** `scripts/check_all.sh` runs the source-dependent checks
+  once per registered project and names it: `non-ASCII scan [mslang]`, `anchor
+  hashes current [mslang]`, `importer artifacts current [mslang]`,
+  `cross-reference audit [mslang]`, `record schema validation [mslang]`, and the
+  same `[mscong]` lines with the three provenance checks **deferred**
+  (`ingested: false`). New fast checks: `project registry valid`, `project
+  registry tests`, `default-project golden baseline`, `cross-project identifier
+  isolation`. `--project <id>` restricts the loop.
+- **mscong scaffold (tasks 4.x).** `blocks/mscong/{registry,hashes,graph,symbols}.json`
+  (valid empty), `blocks/mscong/{formal,formal_graph}.json` (empty, produced by
+  `lean_facets.py --project mscong`), `evidence/mscong/`, `journal/mscong.jsonl`
+  (empty), `reports/mscong/bundle.md`, and `.gitkeep` placeholders.
+- **Lean scaffold (task 5.x).** `lean/Mscong/{Recognizable,Substitution,TreeHom,Main}.lean`
+  and `lean/Mscong.lean`, namespace `Mscong`, importing `Mslang.*`;
+  `lean/lakefile.toml` gains a `Mscong` lib and `defaultTargets = ["Mslang",
+  "Mscong"]`; `lean/declarations.mscong.json` is empty. A targeted
+  `lake build Mscong.Main` completed: **8,718 jobs, 0 warnings, exit 0**.
+- **Docs (task 7.x).** `AGENTS.md` rule 9 (registry, per-project tools,
+  deferred provenance, `Mscong` shares the Lake project); this entry carries the
+  roadmap and reuse map.
+
+**Verification.**
+
+- Fast gate: `scripts/check_all.sh --fast` -> **47 passed, 0 failed, 4
+  deferred** (default `mslang`; `mscong` non-ASCII + record validation pass, its
+  three provenance checks deferred). `--project mscong` filters the loop to
+  **42 passed, 0 failed, 4 deferred**.
+- `hash_blocks.py --project mslang --check`, `ingest.py --project mslang
+  --check`, `bundle.py --check-report`, `lean_facets.py --check` all pass; the
+  golden baseline is current.
+- Per-project manuscript build: `scripts/build_manuscript.sh --project mscong`
+  -> **exit 0, 56 pages** (one non-fatal `multiply defined` label warning for
+  `TAntiHom`).
+- Task 6.1's failure-attribution is verified by `projects_test.py`'s fixture
+  test (a deliberately broken *ingested* project fails its anchor check) plus
+  the `[<id>]` label on every per-project gate line.
+
+**Roadmap (M1-M6; each is a future OpenSpec change).**
+
+- **M0** -- this change: registry + tooling parameterization + `Mscong` scaffold.
+- **M1** -- recognizability calculus (`Rec(A)`, `Rec_s(A)`, `δ^{s,L}`, Boolean/
+  product/subdirect closure, `(lf,s)`-recognition); flips `mscong.ingested` on.
+- **M2** -- basic terms (`PRecVar`/`PRecConst`/`PRecOp`).
+- **M3** -- substitution / iteration / quotient (`PRecSubs`, `PRecQ`).
+- **M4** -- tree homomorphisms (`PRecH`, `PRecLH`, `PRecILH`).
+- **M5** -- derivors and Hall algebras (decision-gated; the category-theoretic
+  content may resist the encoding, like the deferred `B-C003`).
+- **M6** -- correspondence audit for MSCong using the evidence model.
+
+**Reuse map (what `Mscong` reuses from `Mslang`).**
+
+| MSCong concept | Reused from `Mslang` |
+|---|---|
+| many-sorted sets, maps, support, products | `Prelim` |
+| signatures, algebras, homomorphisms, subalgebras | `Algebra`, `Subfinal` |
+| free algebra / terms `T_Σ(X)`, `W_Σ(X)` | `Term`, `Free` |
+| congruences, quotients, kernels | `Congruence` |
+| translations, cogenerated congruence `Ω` | `Translation` |
+| saturation `[X]^Φ` | `Prelim` (`sat`, `satSets`) |
+| recognizability (`Rec` = finite-index `Ω`-saturation) | `Regular` (`IsRegularLanguage`, `congCogenerated`, `IsFiniteIndex`) |
+
+New work in `Mscong`: the recognizability calculus; substitution, iteration, and
+quotient operators; hyperderivors and tree homomorphisms; Hall algebras and
+derivors; and the recognizability theorems.
+
+**Honest caveats.**
+
+- `mscong` provenance is **not ingested**: `blocks/mscong/*` are empty scaffolds,
+  so the gate defers (does not pass) its anchor/importer/crossref checks. This
+  is the author-approved M0 scope; flipping `ingested: true` at M1 will make
+  those checks run for real.
+- `MSCong.tex` already has one undefined `\ref{PRecIt}` (line 2911) and a
+  `multiply defined` `TAntiHom` label; both are pre-existing manuscript issues,
+  left untouched (manuscript edits are author-reserved), and are why a live
+  crossref/ingest run for `mscong` would not yet be green.
+- The full `lean_audit.py --project mscong` run (a second Mathlib elaboration)
+  was **not** spent this session; the empty declaration map is verified cheaply
+  via `lean_facets.py --project mscong`. The slow gate at close rebuilds both
+  libs (Mscong is clean).
+- `--project` currently parameterizes the *provenance* tools and the gate's
+  per-project loop; the evidence/status/view tools (calibration, discrepancy,
+  frontier, ...) remain default-project-only. Extending them is M6 work.
+
+**Prioritized next steps.**
+
+1. Begin **M1** (recognizability calculus) as its own OpenSpec change; set
+   `mscong.ingested: true` when `blocks/mscong/` is populated by the importer.
+2. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+3. Decide whether the evidence/status/view tools get a project dimension (M6)
+   or stay single-project.
+4. Archive `add-mscong-project` once the above is accepted.
+
+
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
-   trusting this file (Section 10.5).
+   trusting this file (Section 10.5). More than one manuscript project lives
+   here now: `projects.yaml` is the registry (`mslang` default, `mscong`
+   scaffolded). Resolve any path with `python3 scripts/projects.py --field <id>
+   <key>` and never hardcode a manuscript filename; `scripts/check_all.sh` runs
+   the source-dependent checks once per project and names it (`[mslang]`,
+   `[mscong]`), deferring them for a project with `ingested: false`.
 2. `. scripts/env.sh`; expect the "project-local toolchain not installed"
    warning: `ELAN_HOME` points at the (empty) `./.elan`, so `elan` falls back
    to the machine toolchain. Export `MATHLIB_CACHE_DIR` is project-local. For

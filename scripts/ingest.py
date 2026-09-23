@@ -28,6 +28,9 @@ Usage:
     python3 scripts/ingest.py manuscript/MSEilenberg.tex
     python3 scripts/ingest.py --dry-run manuscript/MSEilenberg.tex
     python3 scripts/ingest.py --aux manuscript/MSEilenberg.aux FILE
+    python3 scripts/ingest.py --project mslang --check
+        # source, aux, decisions, notation, and output locations resolved from
+        # the project registry
 """
 from __future__ import annotations
 
@@ -42,6 +45,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 import hash_blocks as hb  # noqa: E402  (normalization shared with the hasher)
+import projects as pj  # noqa: E402  (multi-project registry)
 
 # --- Environments -----------------------------------------------------------
 
@@ -987,7 +991,16 @@ def pilot_report(registry, edges, max_closure=12):
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
-    ap.add_argument("file", help="main TeX source (latin1)")
+    ap.add_argument("file", nargs="?", help="main TeX source (latin1)")
+    ap.add_argument(
+        "--project",
+        help="project id; source, aux, decisions, notation, and outputs are "
+        "resolved from the registry (default: positional FILE)",
+    )
+    ap.add_argument(
+        "--registry",
+        help="path to projects.yaml (default: the repository registry)",
+    )
     ap.add_argument("--aux", help="optional .aux file for prose-number resolution")
     ap.add_argument(
         "--decisions",
@@ -1005,10 +1018,43 @@ def main(argv):
     )
     args = ap.parse_args(argv)
 
-    path = Path(args.file)
-    root = path.resolve().parent.parent
-    decisions_path = args.decisions or str(root / "blocks" / "edge_decisions.json")
-    notation_path = args.notation or str(root / "blocks" / "notation.json")
+    if args.project:
+        try:
+            entry = (
+                pj.get(args.project, path=Path(args.registry))
+                if args.registry
+                else pj.get(args.project)
+            )
+        except (KeyError, pj.RegistryError) as exc:
+            print(f"ingest: unknown project {exc}", file=sys.stderr)
+            return 2
+        root = entry["root"]
+        blocks_dir = entry["blocks_dir"]
+        reports_dir = entry["reports_dir"]
+        explanations_dir = entry.get("explanations_dir") or (blocks_dir / "explanations")
+        source = args.file or entry.get("source")
+        if not source:
+            print(
+                f"ingest: project {args.project} has no ingested source",
+                file=sys.stderr,
+            )
+            return 2
+        path = Path(source)
+        aux = args.aux or entry.get("aux")
+        decisions_path = args.decisions or entry.get("edge_decisions")
+        notation_path = args.notation or entry.get("notation")
+    else:
+        if not args.file:
+            print(__doc__.strip(), file=sys.stderr)
+            return 2
+        path = Path(args.file)
+        root = path.resolve().parent.parent
+        blocks_dir = root / "blocks"
+        reports_dir = root / "reports"
+        explanations_dir = blocks_dir / "explanations"
+        aux = args.aux
+        decisions_path = args.decisions or str(blocks_dir / "edge_decisions.json")
+        notation_path = args.notation or str(blocks_dir / "notation.json")
 
     def rel(p):
         try:
@@ -1023,10 +1069,10 @@ def main(argv):
     preamble = clean.split("\\begin{document}", 1)[0]
     sections = [(m.start(), m.group(1).strip()) for m in SECTION_RE.finditer(clean)]
 
-    registry = collect_blocks(clean, sections, explanations_dir=root / "blocks" / "explanations")
+    registry = collect_blocks(clean, sections, explanations_dir=explanations_dir)
     symbols = collect_symbols(preamble)
     theorems = collect_theorems(preamble)
-    aux_numbers = parse_aux(args.aux)
+    aux_numbers = parse_aux(aux)
     decisions = load_decisions(decisions_path)
     resolutions = load_notation_resolutions(notation_path)
     try:
@@ -1088,7 +1134,7 @@ def main(argv):
         ],
     }
     gap_text = gap_report(
-        path, clean, registry, edges, label_to_block, undefined_refs, notation_state
+        src_rel, clean, registry, edges, label_to_block, undefined_refs, notation_state
     )
 
     if args.dry_run:
@@ -1106,16 +1152,16 @@ def main(argv):
     if args.check:
         drift = 0
         for target, doc in (
-            (root / "blocks" / "registry.json", registry_doc),
-            (root / "blocks" / "symbols.json", symbols_doc),
-            (root / "blocks" / "graph.json", graph_doc),
+            (blocks_dir / "registry.json", registry_doc),
+            (blocks_dir / "symbols.json", symbols_doc),
+            (blocks_dir / "graph.json", graph_doc),
         ):
             expected = json.dumps(doc, indent=2, sort_keys=True) + "\n"
             existing = target.read_text(encoding="utf-8") if target.exists() else None
             if existing != expected:
                 print(f"ingest --check: DRIFT in {target.relative_to(root)}", file=sys.stderr)
                 drift += 1
-        gap_target = root / "reports" / "gap_report.md"
+        gap_target = reports_dir / "gap_report.md"
         if (gap_target.read_text(encoding="utf-8") if gap_target.exists() else None) != gap_text:
             print(f"ingest --check: DRIFT in {gap_target.relative_to(root)}", file=sys.stderr)
             drift += 1
@@ -1127,23 +1173,23 @@ def main(argv):
         )
         return 0
 
-    (root / "blocks").mkdir(exist_ok=True)
-    (root / "reports").mkdir(exist_ok=True)
-    (root / "blocks" / "registry.json").write_text(
+    blocks_dir.mkdir(parents=True, exist_ok=True)
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    (blocks_dir / "registry.json").write_text(
         json.dumps(registry_doc, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    (root / "blocks" / "symbols.json").write_text(
+    (blocks_dir / "symbols.json").write_text(
         json.dumps(symbols_doc, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    (root / "blocks" / "graph.json").write_text(
+    (blocks_dir / "graph.json").write_text(
         json.dumps(graph_doc, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    (root / "reports" / "inventory.md").write_text(
-        inventory_report(path, clean, preamble, sections, registry, symbols, theorems),
+    (reports_dir / "inventory.md").write_text(
+        inventory_report(src_rel, clean, preamble, sections, registry, symbols, theorems),
         encoding="utf-8",
     )
-    (root / "reports" / "gap_report.md").write_text(gap_text, encoding="utf-8")
-    (root / "reports" / "pilot_candidates.md").write_text(
+    (reports_dir / "gap_report.md").write_text(gap_text, encoding="utf-8")
+    (reports_dir / "pilot_candidates.md").write_text(
         pilot_report(registry, edges), encoding="utf-8"
     )
 
