@@ -6497,7 +6497,8 @@ boxes). No Lean or block-content changes.
   `\colorbox{gray!15}{\parbox{\linewidth-2\fboxsep}{\ttfamily ...}}`; used
   `\ttfamily` (not `\texttt`) so the `ingest.py` symbol regex still matches the
   definition and the `lean` symbol entry survives.
-- `manuscript/hjm1.cls` retained but no longer referenced.
+- `manuscript/hjm1.cls` retained but no longer referenced (deleted in the
+  follow-up below).
 - Regenerated `blocks/symbols.json`, `reports/inventory.md`,
   `reports/bundle.md`; journal `EV-000154` (amsart) and `EV-000155` (boxes).
 
@@ -6512,12 +6513,42 @@ boxes). No Lean or block-content changes.
 - Fast gate **41/0**; slow gate **44/0** (run once, at close).
 
 **State after the session.** Manuscript is `amsart`, 44 pages. `hjm1.cls` is
-now dead weight; safe to delete if the author wants a single-class repo.
+now dead weight (deleted in the follow-up below).
 
 **Prioritized next steps.**
 
 1. (carried) Protocol B on the remaining `provisional` mapped blocks.
 2. (carried) Reconcile the BPS clause numbering between manuscript and Lean.
+
+## Session 125 (follow-up) -- 2026-09-23 -- manuscript folder cleanup
+
+**Goal.** Tidy `manuscript/`: resolve the dangling `Bibliothek.bib` symlink
+(an open item since Session 0), remove the now-unused `hjm1.cls`, and settle
+the name of the second manuscript.
+
+**What changed.** Commit `a42fae4` (local; not pushed).
+
+- `manuscript/Bibliothek.bib`: replaced the dangling symlink to
+  `../Bibliothek.bib` (git mode `120000`) with a **real ASCII BibTeX file**
+  (mode `100644`), generated from the union of the `\bibitem` entries of
+  `MSEilenberg.tex` and `MSCong.tex`, deduplicated by key: **59 entries** (28
+  from `MSEilenberg.tex`, 31 more from `MSCong.tex`, 12 shared). Accents use
+  LaTeX escapes so the file is encoding-independent, and the keys match the
+  manuscripts' existing `\cite` keys.
+- `manuscript/GS_Heterogeni.tex` -> `manuscript/MSCong.tex` (rename, byte
+  identical): the second paper, "Congruence based proofs of the recognizability
+  theorems for free many-sorted algebras", extracted earlier from the
+  `MSCong.gz` drop.
+- `manuscript/hjm1.cls` deleted.
+
+**Verification.** The generated `.bib` was checked with `bibtex` against a
+`\nocite{*}` test document: exit 0, 0 warnings/errors, all 59 entries emitted.
+The `*.gz` drop container is ignored (`.gitignore`), not tracked.
+
+**Open items resolved.** Session 0/1's "dangling `Bibliothek.bib`" and the
+fate of `hjm1.cls` are now closed. `MSEilenberg.tex` still uses an inline
+`\begin{thebibliography}`; switching it to `\bibliography{Bibliothek}` was
+**not** done (it would change the built PDF and is an author decision).
 
 ---
 
