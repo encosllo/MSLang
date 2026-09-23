@@ -6673,7 +6673,11 @@ derivors; and the recognizability theorems.
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 3. Decide whether the evidence/status/view tools get a project dimension (M6)
    or stay single-project.
-4. Archive `add-mscong-project` once the above is accepted.
+
+**Archived.** `add-mscong-project` is archived at
+`openspec/changes/archive/2026-09-23-add-mscong-project/`; the main spec
+`openspec/specs/orchestration/projects/spec.md` was created from its delta
+(`openspec validate --specs`: 9 passed, 0 failed).
 
 
 
