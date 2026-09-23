@@ -92,7 +92,7 @@
 %% existing leanblueprint tooling can parse this source unchanged.
 \newcommand{\blockid}[1]{}        % stable persistent block identity
 \newcommand{\blockscope}[1]{}     % full | statement-only | out-of-scope
-\providecommand{\lean}[1]{\par\noindent\parbox{\linewidth}{\raggedright\footnotesize\texttt{#1}}\par} % blueprint: Lean declaration name (inline pointer)
+\providecommand{\lean}[1]{\par\noindent\colorbox{gray!15}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\raggedright\footnotesize\ttfamily #1}}\par} % blueprint: Lean declaration name (inline pointer)
 \providecommand{\uses}[1]{}       % blueprint: dependency on other blocks
 \providecommand{\leanok}{}        % blueprint: formal proof complete
 \providecommand{\mathlibok}{}     % blueprint: uses Mathlib only

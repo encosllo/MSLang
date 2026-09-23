@@ -6481,6 +6481,44 @@ pass exposed. No Lean or manuscript work.
 2. Protocol B on the remaining `provisional` mapped blocks (carried over from
    Session 123).
 
+## Session 125 -- 2026-09-23 -- typeset the manuscript in amsart
+
+**Goal.** Move the manuscript off the Houston Journal wrapper onto plain
+`amsart`, and make the `\lean{...}` annotations visually distinct (shaded
+boxes). No Lean or block-content changes.
+
+**What changed.**
+
+- `manuscript/MSEilenberg.tex`: `\documentclass{hjm1}` ->
+  `\documentclass[10pt]{amsart}`; dropped the `hjm1`-only `\cmg`
+  ("communicated by") line, leaving a blank line so every block line number is
+  unchanged. Commit `a00584a`.
+- Redefined `\lean` as
+  `\colorbox{gray!15}{\parbox{\linewidth-2\fboxsep}{\ttfamily ...}}`; used
+  `\ttfamily` (not `\texttt`) so the `ingest.py` symbol regex still matches the
+  definition and the `lean` symbol entry survives.
+- `manuscript/hjm1.cls` retained but no longer referenced.
+- Regenerated `blocks/symbols.json`, `reports/inventory.md`,
+  `reports/bundle.md`; journal `EV-000154` (amsart) and `EV-000155` (boxes).
+
+**Verification.**
+
+- Manuscript build: **44 pages**, `latexmk` exit 0, 0 LaTeX warnings, 8
+  overfull hboxes (was 55 pages under `hjm1`).
+- All **124** `\lean{...}` annotations (412 distinct `Mslang.*` names)
+  cross-checked against `lean/declarations.json`, `blocks/formal.json`, and
+  `blocks/lean_audit.json`: 0 mismatches. Six blocks carry no pointer (five
+  remarks plus corollary `FladjG`), all intentionally absent from the map.
+- Fast gate **41/0**; slow gate **44/0** (run once, at close).
+
+**State after the session.** Manuscript is `amsart`, 44 pages. `hjm1.cls` is
+now dead weight; safe to delete if the author wants a single-class repo.
+
+**Prioritized next steps.**
+
+1. (carried) Protocol B on the remaining `provisional` mapped blocks.
+2. (carried) Reconcile the BPS clause numbering between manuscript and Lean.
+
 ---
 
 **Safe-restart checklist (run before touching anything).**
@@ -6496,8 +6534,9 @@ pass exposed. No Lean or manuscript work.
     the retired `~/Desktop/MathForm` (7.6 GiB) was deleted; it had fallen to
     128 MiB, at which point Lean work must stop until space is reclaimed.
 3. Verify the manuscript baseline still holds: `./scripts/build_manuscript.sh`
-   should exit 0 with a **55-page** PDF, 0 LaTeX warnings, 3 overfull hboxes
-   (was 49 pages before the Session 117 `\lean` pointers). Each mapped block
+   should exit 0 with a **44-page** `amsart` PDF, 0 LaTeX warnings, 8 overfull
+   hboxes (was 55 pages under the Houston `hjm1` class before Session 125; 49
+   pages before the Session 117 `\lean` pointers). Each mapped block
    carries a `\lean{...}` pointer on the line *before* its `\blockid{...}`;
    never move a pointer between `\blockid` and `\begin` (it would break the
    anchor) or inside the environment (it would change the body hash).

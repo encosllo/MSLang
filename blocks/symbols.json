@@ -730,7 +730,7 @@
     {
       "arity": "[1]",
       "defining_block": "<preamble>",
-      "definition": "\\par\\noindent\\parbox{\\linewidth}{\\raggedright\\footnotesize\\texttt{#1}}\\par",
+      "definition": "\\par\\noindent\\colorbox{gray!15}{\\parbox{\\dimexpr\\linewidth-2\\fboxsep\\relax}{\\raggedright\\footnotesize\\ttfamily #1}}\\par",
       "kind": "providecommand",
       "lean": null,
       "name": "lean"
