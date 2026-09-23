@@ -46,3 +46,6 @@ manuscript/*.pdf
 # Python bytecode (mechanical hygiene scripts)
 __pycache__/
 *.pyc
+
+# Compressed source drops: extract in place, do not track the container
+*.gz
