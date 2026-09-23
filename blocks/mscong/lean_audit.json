@@ -1,0 +1,29 @@
+{
+  "allowlist": {
+    "axioms": [],
+    "warnings": []
+  },
+  "axioms": {},
+  "build": {
+    "errors": [],
+    "ok": true,
+    "returncode": 0,
+    "unexpected_warnings": [],
+    "warnings": []
+  },
+  "declarations_audited": 0,
+  "declared_permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "missing_axiom_reports": [],
+  "note": "Mechanical Lean gate (Architecture.md Section 15.6). Derived by scripts/lean_audit.py; do not edit by hand.",
+  "ok": true,
+  "sorry": [],
+  "unpermitted_axioms": {}
+}

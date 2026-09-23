@@ -6679,7 +6679,70 @@ derivors; and the recognizability theorems.
 `openspec/specs/orchestration/projects/spec.md` was created from its delta
 (`openspec validate --specs`: 9 passed, 0 failed).
 
+---
 
+## Session 127 -- 2026-09-23 -- M1: finite-index recognizability calculus
+
+**Goal.** Implement the OpenSpec change `add-recognizability-calculus` (M1 of
+the MSCong roadmap): the *finite-index* recognizability calculus of `MSCong.tex`
+§2.3, formalized in the `Mscong` namespace as **unmapped infrastructure** that
+reuses `Mslang` and leaves the default project untouched (author-chosen scope).
+
+**What was established (closed).**
+
+- `lean/Mscong/Recognizable.lean` (the empty scaffold `namespace` replaced by
+  the calculus):
+  - **Reuse, no redefinition:** the finite-index congruence calculus is
+    `Mslang`'s (`IsFiniteIndex`, `congFi`, and `B-P031`'s `IsFiniteIndex_of_le`,
+    `IsFiniteIndex_inf`, `congFi_filter`); saturation `IsSat`/`sat`; the
+    cogenerated congruence `congCogenerated`; quotients `quotAlg`/`prAlg`; the
+    concentration `deltaSub`; `transPreimage`; `pullbackEqv`.
+  - **New:** `finite_quot_ker` + `isFiniteIndex_ker` (the kernel of a
+    homomorphism into a finite algebra has finite index); the paper's
+    existential `Recognizable` (finite `B`, hom `f`, `M` with `L = f⁻¹[M]`) and
+    its sort-indexed `RecognizableAt`; the characterizations
+    `recognizable_iff_isRegularLanguage` (`(1) ⟺ (3)`) and
+    `recognizable_iff_exists_finiteIndex_sat` (`(2)`); the `δ^{s,L}` bridge
+    `recognizableAt_iff`; Boolean closure `recognizable_union`/`_inter`/`_compl`;
+    `recognizable_transPreimage`; and `recognizable_inverseImage` with its
+    pullback helper `finite_quot_pullback`/`isFiniteIndex_pullback`.
+- **Unmapped discipline held:** `lean/declarations.mscong.json` still maps no
+  declarations, `evidence/mscong/` is empty, `mscong.ingested` is `false`, and
+  the `mslang` golden baseline is unchanged.
+
+**Verification.**
+
+- `lake build Mscong.Recognizable`: clean (8,715 jobs, **0 warnings**).
+- `python3 scripts/lean_audit.py --project mscong`: **0 declarations, 0
+  warnings, 0 `sorry`, ok=True**.
+- `scripts/check_all.sh --fast`: **47 passed, 0 failed, 4 deferred**;
+  `projects.py --check-baseline` current; `--collisions` clean.
+
+**Honest caveats / deferred.**
+
+- **Task 2.4 (`Rec_T` for `T ⊆ S`)** is not implemented: it needs the `A↾_T`
+  restriction encoding (design D2), a larger dependent-indexing step.
+- **The `∅^S, A ∈ Rec(A)` bounds (task 3.2)** are not formalized: the
+  existential definition is vacuous when no finite-index congruence exists
+  (e.g. infinite support), so the paper's unconditional bound likely needs a
+  finiteness hypothesis; flagged, not guessed.
+- The **locally-finite half** (`Cgr_lfi`, `Rec_lf`) is out of scope (design
+  Non-Goals), as is the finite-`S` subdirect-product result.
+- No block IDs, mapping, or evidence: that is a later change (M1 is
+  infrastructure, like `Mslang`'s `Term.lean` was before mapping).
+
+**Prioritized next steps.**
+
+1. Finish M1: the `T`-indexed `Rec_T` and the `∅`/`A` bounds (resolve the
+   finiteness hypothesis); then map the §2.3 items to `MSCong.tex` blocks and
+   produce evidence (a later change).
+2. **M2** (basic terms `PRecVar`/`PRecConst`/`PRecOp`) as its own change.
+3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+
+---
+
+**Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
    trusting this file (Section 10.5). More than one manuscript project lives
