@@ -6809,13 +6809,12 @@ from its delta (`openspec validate --specs`: 10 passed, 0 failed).
 
 ---
 
-## Session 129 -- 2026-09-24 -- M2 (partial): PRecVar and PRecConst
+## Session 129 -- 2026-09-24 -- M2: basic terms (PRecVar, PRecConst, PRecOp)
 
-**Goal.** Begin the OpenSpec change `add-basic-terms-recognizability` (M2): the
-`MSCong.tex` §3.1 basic-term propositions over the free algebra `T_Σ(X)`.
-Outcome: `PRecVar` and `PRecConst` are formalized and green; `PRecOp` is drafted
-but **not** finished (see the obstacle below). Unmapped `Mscong` infrastructure;
-no block IDs, no evidence, `mscong.ingested` stays `false`.
+**Goal.** Implement the OpenSpec change `add-basic-terms-recognizability` (M2):
+the `MSCong.tex` §3.1 basic-term propositions over the free algebra `T_Σ(X)`.
+All three are now formalized and green. Unmapped `Mscong` infrastructure; no
+block IDs, no evidence, `mscong.ingested` stays `false`.
 
 **What was established (closed).**
 
@@ -6828,40 +6827,46 @@ no block IDs, no evidence, `mscong.ingested` stays `false`.
     extension `termLift` of the characteristic map of `{x}`.
   - **`PRecConst`**: for `σ : Σ_{λ,s}`, `{σ} ⊆ T_Σ(X)_s` is recognizable, via the
     σ-discriminating variant `twoAlgConst`.
+  - **`PRecOp`**: for `(w,s)` with `w` nonempty, `σ : Σ_{w,s}`, and `(x_i)_{i∈w}`,
+    `{σ((x_i))} ⊆ T_Σ(X)_s` is recognizable, via the counting carrier
+    `K n = default | var (i : Fin n) | mark`, the map `gOp` (a variable in the
+    image of `(x_i)` goes to its position, others to `default`), the structural
+    operations `twoOpSig`/`twoAlgOp` (the distinguished `σ` sends the exact
+    variable-value tuple to `mark`), and the value lemmas `gOp_ne_mark`,
+    `gOp_eq_var`, `gOp_self`, `twoAlgOp_ne_var`, `termLift_eq_var`.
   - The inductions are `Term.rec` over the **inductive** free algebra, with the
     dependent target stated through `HEq` (this replaces the paper's `h ▸ P`
     casts, which do not elaborate cleanly in the derived recursor's `var` case).
-- `lake build Mscong.BasicTerms`: **0 errors, 0 warnings** (8,716 jobs).
 
-**Obstacle (PRecOp, task 2.3).** The counting construction is drafted
-(`K`, `gOp`, `twoOpSig`/`twoAlgOp`, and the value lemmas `gOp_ne_mark`,
-`gOp_eq_var`, `gOp_self`, `twoAlgOp_ne_var`, `termLift_eq_var`) but the final
-op-case step does not yet elaborate: knowing the operation value is the marker
-forces the argument tuple `(fun i => termLift (a i))` to equal
-`(fun i => gOp x (w.get i) (x i))`, and turning that into `a i = Term.var (x i)`
-requires transporting the arity-indexed term family `a` along `p = (w, s)`
-(and the `Fin.cast`/`Eq.mpr` of the variable family). `subst`/`change` on this
-dependent index either lose definitional transparency across the local
-hypotheses or block `split`. Working notes are in `/tmp` backups and the change's
-task 2.3; the fix is expected to be a small helper that isolates the transport
-(e.g. a `List.get`/`Fin.cast` lemma stated over a fixed `w` and applied before
-`subst`).
+**Finding (index transport, the hard part).** The op-case proof must turn "the
+value is `mark`" into `a i = Term.var (x i)` for the arity-indexed term family
+`a`, under `p = (w, s)`. Three things made it elaborate: (1) the target tuple is
+a *parameter* of `twoOpSig`, so no `Eq.mpr` sits on the variable family; (2) the
+index cast is the `▸`-based `finOfEq` with `finOfEq_self_eq` (`finOfEq h i = i`
+for `h : n = n`), which stays definitionally the identity; (3) the carrier is the
+named `kCarrier w` (and `twoAlgOp` is `@[reducible]`), so `(twoAlgOp …).1` and
+`g`'s type agree even after unfolding. The earlier failures were `change`/`subst`
+losing definitional transparency across the local hypotheses.
+
+- `lake build Mscong.BasicTerms`: **0 errors, 0 warnings** (8,716 jobs); no
+  `sorry`.
 
 **Verification.**
 
 - `lake build Mscong.BasicTerms` clean; the module is imported by `Mscong.Main`.
-- Fast gate and the Mscong Lean audit: see the results recorded below
-  (`check_all.sh --fast`, `lean_audit.py --project mscong`).
+- `lean_audit.py --project mscong`: **0 declarations, 0 warnings, 0 `sorry`,
+  ok=True** (the module is unmapped; the `sorry` scan is what matters).
+- `check_all.sh --fast`: **47 passed, 0 failed, 4 deferred**; the slow
+  `check_all.sh`: **50 passed, 0 failed**. The `mslang` baseline is unchanged.
 
 **Prioritized next steps.**
 
-1. Finish `PRecOp` (isolate the index transport as above), then mark task 2.3.
-2. Then the optional 2.4 (`δ^{s,{t}} ∈ Rec`) and the M2 close-out (STATE 5.x,
-   gate 4.3), and archive `add-basic-terms-recognizability`.
-3. **M3** (substitution/iteration/quotient: `PRecSubs`/`PRecIt`/`PRecQ`) as its
+1. Archive `add-basic-terms-recognizability` (all non-optional tasks complete);
+   optional 2.4 (`δ^{s,{t}} ∈ Rec`) is left for when the later milestones want it.
+2. **M3** (substitution/iteration/quotient: `PRecSubs`/`PRecIt`/`PRecQ`) as its
    own change; **M4** (tree homomorphisms) after it.
-
----
+3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
 
 **Safe-restart checklist (run before touching anything).**
 

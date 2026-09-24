@@ -26,16 +26,16 @@
 - [x] 2.2 Prove `PRecConst`: for a constant `σ : Σ_{λ,s}`, `{σ} ⊆ T_Σ(X)_s` is
   recognizable, via the σ-discriminating algebra; verified the induction.
   *(`PRecConst`.)*
-- [ ] 2.3 Prove `PRecOp`: for `(w,s)` with `w` nonempty, `σ : Σ_{w,s}`, and
+- [x] 2.3 Prove `PRecOp`: for `(w,s)` with `w` nonempty, `σ : Σ_{w,s}`, and
   `(x_i)_{i∈w}` in `X_w`, `{σ((x_i))} ⊆ T_Σ(X)_s` is recognizable, via the
-  counting algebra `K`; verify the induction. **In progress**: the carrier
-  `K`, `gOp`, the structural operations `twoOpSig`/`twoAlgOp`, and the value
-  lemmas (`gOp_ne_mark`/`gOp_eq_var`/`gOp_self`/`twoAlgOp_ne_var`/
-  `termLift_eq_var`) are drafted, but the final index-transport in the op-case
-  proof (cast of the arity-indexed term family `a` and the tuple condition
-  under `p = (w,s)`) still fails to elaborate. See `STATE.md` session 129.
-- [ ] 2.4 (Optional) Derive the full-language forms `δ^{s,{t}} ∈ Rec(T_Σ(X))`
-  from `recognizableAt_iff`, if the later milestones want them.
+  counting carrier `K`; verified the induction. *(`PRecOp`, via `twoAlgOp`
+  and the value lemmas. The index transport under `p = (w,s)` is handled with
+  the `▸`-based `finOfEq`/`finOfEq_self_eq` so it reduces definitionally; the
+  target tuple is a parameter of `twoOpSig`, avoiding an `Eq.mpr` on the
+  variable family.)*
+- 2.4 (Optional, not in M2 scope) Derive the full-language forms
+  `δ^{s,{t}} ∈ Rec(T_Σ(X))` from `recognizableAt_iff`, if the later milestones
+  want them.
 
 ## 3. Reuse discipline
 
