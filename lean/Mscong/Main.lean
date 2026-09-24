@@ -1,4 +1,5 @@
 import Mscong.Recognizable
+import Mscong.BasicTerms
 import Mscong.Substitution
 import Mscong.TreeHom
 

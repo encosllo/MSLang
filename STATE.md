@@ -6809,6 +6809,60 @@ from its delta (`openspec validate --specs`: 10 passed, 0 failed).
 
 ---
 
+## Session 129 -- 2026-09-24 -- M2 (partial): PRecVar and PRecConst
+
+**Goal.** Begin the OpenSpec change `add-basic-terms-recognizability` (M2): the
+`MSCong.tex` §3.1 basic-term propositions over the free algebra `T_Σ(X)`.
+Outcome: `PRecVar` and `PRecConst` are formalized and green; `PRecOp` is drafted
+but **not** finished (see the obstacle below). Unmapped `Mscong` infrastructure;
+no block IDs, no evidence, `mscong.ingested` stays `false`.
+
+**What was established (closed).**
+
+- `lean/Mscong/BasicTerms.lean` (new, imported by `Mscong/Main.lean`):
+  - the two-element carrier `Two : Type u` (with `DecidableEq`/`Fintype`/
+    `Nonempty`) and the finite `Σ`-algebra `twoAlg` (all operations constant);
+    `finiteAlg_twoAlg` under `[Finite S]`. (`Fin 2` cannot be used: it is
+    `Type 0`, while `SSet S = S → Type u` needs the carrier in `Type u`.)
+  - **`PRecVar`**: `{x} ⊆ T_Σ(X)_s` is recognizable, recognizing through the free
+    extension `termLift` of the characteristic map of `{x}`.
+  - **`PRecConst`**: for `σ : Σ_{λ,s}`, `{σ} ⊆ T_Σ(X)_s` is recognizable, via the
+    σ-discriminating variant `twoAlgConst`.
+  - The inductions are `Term.rec` over the **inductive** free algebra, with the
+    dependent target stated through `HEq` (this replaces the paper's `h ▸ P`
+    casts, which do not elaborate cleanly in the derived recursor's `var` case).
+- `lake build Mscong.BasicTerms`: **0 errors, 0 warnings** (8,716 jobs).
+
+**Obstacle (PRecOp, task 2.3).** The counting construction is drafted
+(`K`, `gOp`, `twoOpSig`/`twoAlgOp`, and the value lemmas `gOp_ne_mark`,
+`gOp_eq_var`, `gOp_self`, `twoAlgOp_ne_var`, `termLift_eq_var`) but the final
+op-case step does not yet elaborate: knowing the operation value is the marker
+forces the argument tuple `(fun i => termLift (a i))` to equal
+`(fun i => gOp x (w.get i) (x i))`, and turning that into `a i = Term.var (x i)`
+requires transporting the arity-indexed term family `a` along `p = (w, s)`
+(and the `Fin.cast`/`Eq.mpr` of the variable family). `subst`/`change` on this
+dependent index either lose definitional transparency across the local
+hypotheses or block `split`. Working notes are in `/tmp` backups and the change's
+task 2.3; the fix is expected to be a small helper that isolates the transport
+(e.g. a `List.get`/`Fin.cast` lemma stated over a fixed `w` and applied before
+`subst`).
+
+**Verification.**
+
+- `lake build Mscong.BasicTerms` clean; the module is imported by `Mscong.Main`.
+- Fast gate and the Mscong Lean audit: see the results recorded below
+  (`check_all.sh --fast`, `lean_audit.py --project mscong`).
+
+**Prioritized next steps.**
+
+1. Finish `PRecOp` (isolate the index transport as above), then mark task 2.3.
+2. Then the optional 2.4 (`δ^{s,{t}} ∈ Rec`) and the M2 close-out (STATE 5.x,
+   gate 4.3), and archive `add-basic-terms-recognizability`.
+3. **M3** (substitution/iteration/quotient: `PRecSubs`/`PRecIt`/`PRecQ`) as its
+   own change; **M4** (tree homomorphisms) after it.
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
