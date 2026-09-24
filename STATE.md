@@ -6742,6 +6742,73 @@ reuses `Mslang` and leaves the default project untouched (author-chosen scope).
 
 ---
 
+## Session 128 -- 2026-09-24 -- M1 completed: T-indexed Rec_T and the Boolean bounds
+
+**Goal.** Finish the two deferred tasks of the OpenSpec change
+`add-recognizability-calculus` (M1): task 2.4 (the `T`-indexed characterization
+of `Rec_T`) and task 3.2 (the `∅`/`A_s` Boolean bounds). Unmapped `Mscong`
+infrastructure; no block IDs, no evidence, `mscong.ingested` stays `false`.
+
+**Operational note (disk).** The Data volume was effectively full (314 MiB free,
+195 GiB used). Freed ~2.5 GiB with `uv cache clean` and `brew cleanup -s`
+(regenerable package caches only; no project or system data touched), then ran
+Lean with `ELAN_HOME` unset (machine v4.33.1 toolchain, as in prior sessions).
+
+**What was established (closed).**
+
+- `lean/Mscong/Recognizable.lean`:
+  - **Task 2.4.** `zeroExtension` (`[L, ∅^{S−T}]`), its projection lemmas
+    `zeroExtension_self`/`zeroExtension_of_notMem`, and the `T`-indexed
+    predicate `RecognizableOn` (`L_t = f_t⁻¹[M_t]`, `t ∈ T`). The restriction
+    bookkeeping is absorbed by the zero-extension: `recognizableOn_iff_zeroExtension`
+    proves `L ∈ Rec_T(A) ↔ [L, ∅^{S−T}] ∈ Rec(A)` (forward via `directImage`,
+    using that the zero-extension is `f`-saturated; backward by restricting `M`
+    to `T`). Then `recognizableOn_iff_finiteIndex_zeroExtension` (`(1) ⟺ (3)`)
+    and `recognizableOn_iff_exists_finiteIndex_sat` (`(1) ⟺ (2)`) follow from
+    the full-language characterizations.
+  - **Task 3.2.** `recognizable_empty`/`recognizable_univ` (for `Rec(A)`) and
+    `recognizableAt_empty`/`recognizableAt_univ` (for `Rec_s(A)`), all under the
+    hypothesis `(supp A).Finite`, by recognizing through the quotient `A/∇^A`
+    (`isFiniteIndex_nabla`).
+- `lake build Mscong.Recognizable`: **0 errors, 0 warnings** (8,715 jobs).
+
+**Finding (paper-level, for the author).** The manuscript's Proposition
+"`Rec is Bool`" (1) states `∅^S, A ∈ Rec(A)` with **no** hypothesis, but that is
+false for infinite `S`: a finite recognizing algebra `B` forces
+`supp(A) ⊆ supp(B)` (a homomorphism out of a nonempty sort needs a target
+element), so an algebra with infinite support has no finite quotient of its
+whole carrier. Example: `S` infinite with one constant `c_s : → s` per sort and
+`A_s = {c_s}` — any finite `B` with a hom must be inhabited at every sort, hence
+infinite. Finite support is **exactly** the precondition: necessity is the
+argument above, sufficiency is `isFiniteIndex_nabla`. The bounds are therefore
+formalized with `(supp A).Finite`. The paper already assumes `S` finite for the
+adjacent subdirect-product result, so this is a small correction, not a
+surprise.
+
+**Verification.**
+
+- `lake build Mscong.Recognizable` clean; no `sorry`, no warnings.
+- Fast gate green (`check_all.sh --fast`: 47 passed, 0 failed, 4 deferred);
+  `mslang` golden baseline unchanged; `evidence/mscong/` empty;
+  `lean/declarations.mscong.json` still empty.
+
+**Prioritized next steps.**
+
+1. Author: decide the fate of the `Rec is Bool`(1) statement in `MSCong.tex`
+   (add finite support / finite `S`, or correct it). Everything else in M1 is
+   mechanical.
+2. Open **M2** (basic terms `PRecVar`/`PRecConst`/`PRecOp`); M1 is archived.
+3. Optional: build `Recognizable`/`RecognizableAt` *as* `RecognizableOn`
+   specializations (design D2) now that `Rec_T` exists, so the definitions match
+   the paper's `Rec_S`/`Rec_{s}` exactly.
+
+**Archived.** `add-recognizability-calculus` is archived at
+`openspec/changes/archive/2026-09-24-add-recognizability-calculus/`; the main
+spec `openspec/specs/formalization/mcong-recognizability/spec.md` was created
+from its delta (`openspec validate --specs`: 10 passed, 0 failed).
+
+---
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

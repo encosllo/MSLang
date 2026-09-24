@@ -119,6 +119,35 @@ def RecognizableAt (Sig : Signature S) (A : Alg Sig) (s : S) (L : Set (A.1 s)) :
     ∃ f : SortedMap A.1 B.1, IsAlgHom Sig A.2 B.2 f ∧
       ∃ M : Set (B.1 s), L = f s ⁻¹' M
 
+/-! ### The `T`-indexed predicate `Rec_T` and its zero-extension -/
+
+/-- The zero-extension `[L, ∅^{S−T}]` of a `T`-indexed language to a language of
+`A`: `L` on the sorts in `T`, the empty language elsewhere. -/
+noncomputable def zeroExtension {S : Type u} {A : SSet S} (T : Set S)
+    (L : (t : T) → Set (A t.1)) : Sub A := by
+  classical
+  exact fun s => if hs : s ∈ T then L ⟨s, hs⟩ else ∅
+
+theorem zeroExtension_self {S : Type u} {A : SSet S} (T : Set S)
+    (L : (t : T) → Set (A t.1)) (t : T) : zeroExtension T L t.1 = L t := by
+  classical
+  simp only [zeroExtension, dif_pos t.2]
+
+theorem zeroExtension_of_notMem {S : Type u} {A : SSet S} {T : Set S}
+    (L : (t : T) → Set (A t.1)) {s : S} (hs : s ∉ T) :
+    zeroExtension T L s = ∅ := by
+  classical
+  simp only [zeroExtension, dif_neg hs]
+
+/-- `MSCong` §2.3: a `T`-indexed language `L ⊆ A↾_T` is `T`-*recognizable* when
+there is a finite `Σ`-algebra `B`, a homomorphism `f : A → B`, and a subset
+`M ⊆ B↾_T` with `L_t = f_t⁻¹[M_t]` for every `t ∈ T`. -/
+def RecognizableOn (Sig : Signature S) (A : Alg Sig) (T : Set S)
+    (L : (t : T) → Set (A.1 t.1)) : Prop :=
+  ∃ B : Alg Sig, FiniteAlg B ∧
+    ∃ f : SortedMap A.1 B.1, IsAlgHom Sig A.2 B.2 f ∧
+      ∃ M : (t : T) → Set (B.1 t.1), ∀ t, L t = f t.1 ⁻¹' M t
+
 /-! ### Characterization by a finite-index saturation -/
 
 /-- `(1) ⟹ (3)`: a recognizable language has `Ω^A(L)` of finite index. -/
@@ -181,6 +210,63 @@ theorem recognizable_iff_exists_finiteIndex_sat (Sig : Signature S) (A : Alg Sig
   · rintro ⟨Φ, hΦc, hΦf, hΦs⟩
     exact (recognizable_iff_isRegularLanguage Sig A L).mpr
       (IsFiniteIndex_of_le ((isSat_iff_le_congCogenerated Sig A L hΦc).mp hΦs) hΦf)
+
+/-! ### The `T`-indexed characterization (`MSCong` §2.3) -/
+
+/-- A `T`-indexed language is `T`-recognizable if and only if its zero-extension
+`[L, ∅^{S−T}]` is recognizable; the restriction bookkeeping is absorbed by the
+zero-extension. -/
+theorem recognizableOn_iff_zeroExtension (Sig : Signature S) (A : Alg Sig) (T : Set S)
+    (L : (t : T) → Set (A.1 t.1)) :
+    RecognizableOn Sig A T L ↔ Recognizable Sig A (zeroExtension T L) := by
+  constructor
+  · rintro ⟨B, hB, f, hf, M, hM⟩
+    refine ⟨B, hB, f, hf, directImage f (zeroExtension T L), ?_⟩
+    funext s
+    by_cases hs : s ∈ T
+    · simp only [zeroExtension, dif_pos hs, directImage, inverseImage]
+      -- `zeroExtension T L` is `f`-saturated on the sorts in `T`
+      ext a
+      constructor
+      · intro ha
+        exact ⟨a, ha, rfl⟩
+      · rintro ⟨x, hx, hxa⟩
+        have hxM : f s x ∈ M ⟨s, hs⟩ := by
+          have h := hM ⟨s, hs⟩
+          rw [h] at hx
+          exact hx
+        have hfa : f s a ∈ M ⟨s, hs⟩ := by rw [← hxa]; exact hxM
+        have h := hM ⟨s, hs⟩
+        rw [h]
+        exact hfa
+    · simp only [zeroExtension, dif_neg hs, directImage, inverseImage,
+        Set.image_empty, Set.preimage_empty]
+  · rintro ⟨B, hB, f, hf, M, hM⟩
+    refine ⟨B, hB, f, hf, fun t => M t.1, ?_⟩
+    intro t
+    have h := congrFun hM t.1
+    rw [zeroExtension_self T L t] at h
+    simpa [inverseImage] using h
+
+/-- The `T`-indexed characterization `(1) ⟺ (3)`: `L` is `T`-recognizable if and
+only if `Ω^A([L, ∅^{S−T}])` has finite index. -/
+theorem recognizableOn_iff_finiteIndex_zeroExtension (Sig : Signature S) (A : Alg Sig)
+    (T : Set S) (L : (t : T) → Set (A.1 t.1)) :
+    RecognizableOn Sig A T L ↔
+      IsFiniteIndex (congCogenerated Sig A (zeroExtension T L)) :=
+  (recognizableOn_iff_zeroExtension Sig A T L).trans
+    (recognizable_iff_isRegularLanguage Sig A (zeroExtension T L))
+
+/-- The `T`-indexed characterization `(1) ⟺ (2)`: `L` is `T`-recognizable if and
+only if it is saturated by a congruence of finite index (with the outside-`T`
+components empty). -/
+theorem recognizableOn_iff_exists_finiteIndex_sat (Sig : Signature S) (A : Alg Sig)
+    (T : Set S) (L : (t : T) → Set (A.1 t.1)) :
+    RecognizableOn Sig A T L ↔
+      ∃ Φ : SortedEqv A.1, IsCongruence Sig A.2 Φ ∧ IsFiniteIndex Φ ∧
+        IsSat Φ (zeroExtension T L) :=
+  (recognizableOn_iff_zeroExtension Sig A T L).trans
+    (recognizable_iff_exists_finiteIndex_sat Sig A (zeroExtension T L))
 
 /-! ### The sort-indexed bridge `L ∈ Rec_s(A) ⟺ δ^{s,L} ∈ Rec(A)` -/
 
@@ -254,6 +340,55 @@ theorem recognizable_compl (Sig : Signature S) (A : Alg Sig) {L : Sub A.1}
   unfold IsRegularLanguage at hL ⊢
   rw [← congCogenerated_compl Sig A L]
   exact hL
+
+/-! ### The Boolean bounds `∅^S, A ∈ Rec(A)` (`Rec is Bool`(1))
+
+The paper states these without a hypothesis, but a finite recognizing algebra
+`B` forces `supp(A) ⊆ supp(B)`, so finite support of `A` is exactly the
+precondition (an algebra with infinite support has no finite quotient of the
+whole carrier). We therefore carry the hypothesis `(supp A).Finite`. -/
+
+/-- `∅^S ∈ Rec(A)` when `A` has finite support. -/
+theorem recognizable_empty (Sig : Signature S) (A : Alg Sig)
+    (h : (supp A.1).Finite) :
+    Recognizable Sig A (fun s => (∅ : Set (A.1 s))) := by
+  have hc : IsCongruence Sig A.2 (nabla A.1) := nabla_isCongruence Sig A.2
+  refine ⟨quotAlg Sig A.2 (nabla A.1) hc, ?_,
+    prAlg Sig A.2 (nabla A.1) hc, isAlgHom_prAlg Sig A.2 (nabla A.1) hc,
+    (fun _ => (∅ : Set _)), ?_⟩
+  · simpa [FiniteAlg, quotAlg, IsFiniteIndex] using isFiniteIndex_nabla A.1 h
+  · funext s
+    simp [inverseImage]
+
+/-- `A ∈ Rec(A)` when `A` has finite support. -/
+theorem recognizable_univ (Sig : Signature S) (A : Alg Sig)
+    (h : (supp A.1).Finite) :
+    Recognizable Sig A (fun s => (Set.univ : Set (A.1 s))) := by
+  have hc : IsCongruence Sig A.2 (nabla A.1) := nabla_isCongruence Sig A.2
+  refine ⟨quotAlg Sig A.2 (nabla A.1) hc, ?_,
+    prAlg Sig A.2 (nabla A.1) hc, isAlgHom_prAlg Sig A.2 (nabla A.1) hc,
+    (fun _ => (Set.univ : Set _)), ?_⟩
+  · simpa [FiniteAlg, quotAlg, IsFiniteIndex] using isFiniteIndex_nabla A.1 h
+  · funext s
+    simp [inverseImage]
+
+/-- `∅ ⊆ A_s` is `s`-recognizable when `A` has finite support. -/
+theorem recognizableAt_empty (Sig : Signature S) (A : Alg Sig) (s : S)
+    (h : (supp A.1).Finite) :
+    RecognizableAt Sig A s (∅ : Set (A.1 s)) := by
+  rw [recognizableAt_iff, deltaSub_empty]
+  exact recognizable_empty Sig A h
+
+/-- `A_s` is `s`-recognizable when `A` has finite support. -/
+theorem recognizableAt_univ (Sig : Signature S) (A : Alg Sig) (s : S)
+    (h : (supp A.1).Finite) :
+    RecognizableAt Sig A s (Set.univ : Set (A.1 s)) := by
+  have hc : IsCongruence Sig A.2 (nabla A.1) := nabla_isCongruence Sig A.2
+  refine ⟨quotAlg Sig A.2 (nabla A.1) hc, ?_,
+    prAlg Sig A.2 (nabla A.1) hc, isAlgHom_prAlg Sig A.2 (nabla A.1) hc,
+    (Set.univ : Set ((quotAlg Sig A.2 (nabla A.1) hc).1 s)), ?_⟩
+  · simpa [FiniteAlg, quotAlg, IsFiniteIndex] using isFiniteIndex_nabla A.1 h
+  · simp
 
 /-- Recognizable languages are closed under translation preimages. -/
 theorem recognizable_transPreimage (Sig : Signature S) (A : Alg Sig) {t s : S}
