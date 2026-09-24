@@ -2,18 +2,18 @@
 
 ## 1. Substitution operators
 
-- [ ] 1.1 In `lean/Mscong/Substitution.lean`, define the subset algebra on
+- [x] 1.1 In `lean/Mscong/Substitution.lean`, define the subset algebra on
   `Sub (Term Sig X)` (the operation for `σ` maps `(A_i)` to the direct image
   `{σ(a_i) | a_i ∈ A_i}`; constants to singletons); verify it compiles.
-- [ ] 1.2 Define the single-variable substitution `(z\Q)(P)` by recursion on
+- [x] 1.2 Defined the single-variable substitution `(z\Q)(P)` by recursion on
   `P` (or as the subset-hom value with all other variables fixed to
   singletons); verify `(z\Q)(z) = Q` and `(z\Q)(σ(P_i)) = σ((z\Q)(P_i))`.
-- [ ] 1.3 Define the simultaneous substitution and the induced homomorphism
+- [x] 1.3 Defined the simultaneous substitution and the induced homomorphism
   `substHom L := termLift Sig X (subsetAlg).2 L`; verify its value at `P` is the
   set of simultaneously substituted terms (the paper's
   `Im((x,t)\·)(P)↾∏ L_x^{P_x})`, and that single-variable substitution is the
   specialization with the other variables fixed to `{z}`.
-- [ ] 1.4 Verify the substitution is compatible with the free-algebra structure
+- [x] 1.4 Verified the substitution is compatible with the free-algebra structure
   (a `Mslang` homomorphism), reusing `termLift_isAlgHom`.
 
 ## 2. Reusable finite-index / transversal API
