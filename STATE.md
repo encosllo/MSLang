@@ -6740,6 +6740,11 @@ reuses `Mslang` and leaves the default project untouched (author-chosen scope).
 3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
+**Archived.** `add-basic-terms-recognizability` is archived at
+`openspec/changes/archive/2026-09-24-add-basic-terms-recognizability/`; the main
+spec `openspec/specs/formalization/mcong-basic-terms/spec.md` was created from
+its delta (`openspec validate --specs`: 11 passed, 0 failed).
+
 ---
 
 ## Session 128 -- 2026-09-24 -- M1 completed: T-indexed Rec_T and the Boolean bounds
