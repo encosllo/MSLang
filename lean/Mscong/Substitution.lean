@@ -102,4 +102,50 @@ theorem subst1_op (Sig : Signature S) (X : SSet S) {t : S} (z : X t)
     subst1 Sig X z Q p.2 (Term.op p σ a)
       = Term.op p σ (fun i => subst1 Sig X z Q (p.1.get i) (a i)) := rfl
 
+/-! ### Reusable finite-index tooling -/
+
+set_option warn.classDefReducibility false
+set_option linter.style.haveILetI false
+
+/-- The pointwise intersection of a family of sorted equivalences. -/
+noncomputable def sortedEqvInter {ι : Type u} {A : SSet S} (Φ : ι → SortedEqv A) : SortedEqv A :=
+  fun s => { r := fun x y => ∀ i, (Φ i s).r x y,
+             iseqv := ⟨fun x => fun _ => (Φ _ s).refl x,
+                       fun h => fun i => (Φ i s).symm (h i),
+                       fun h1 h2 => fun i => (Φ i s).trans (h1 i) (h2 i)⟩ }
+
+theorem sortedEqvInter_le {ι : Type u} {A : SSet S} (Φ : ι → SortedEqv A) (i : ι) :
+    sortedEqvLe (sortedEqvInter Φ) (Φ i) := fun _ _ _ h => h i
+
+/-- The pointwise intersection of finitely many finite-index equivalences has
+finite index (the quotient injects into the product of the quotients). -/
+theorem IsFiniteIndex_inter {ι : Type u} [Fintype ι] [Nonempty ι]
+    {A : SSet S} {Φ : ι → SortedEqv A}
+    (h : ∀ i, IsFiniteIndex (Φ i)) : IsFiniteIndex (sortedEqvInter Φ) := by
+  haveI : ∀ i, Finite (Sigma (fun s => Quotient (Φ i s))) := fun i => h i
+  unfold IsFiniteIndex FiniteSSet at h ⊢
+  apply Finite.of_injective
+    (f := fun p : Sigma (fun s => Quotient ((sortedEqvInter Φ) s)) =>
+      fun i => (⟨p.1, quotLe (sortedEqvInter Φ) (Φ i) (sortedEqvInter_le Φ i) p.1 p.2⟩ :
+        Sigma (fun s => Quotient (Φ i s))))
+  rintro ⟨s, q1⟩ ⟨t, q2⟩ hp
+  obtain ⟨i0⟩ := (inferInstance : Nonempty ι)
+  have hst : s = t := (Sigma.mk.inj_iff.mp (congrFun hp i0)).1
+  subst hst
+  refine Sigma.mk.inj_iff.mpr ⟨rfl, heq_of_eq ?_⟩
+  induction q1 using Quotient.inductionOn with
+  | _ a =>
+    induction q2 using Quotient.inductionOn with
+    | _ b =>
+      apply Quotient.sound
+      intro i
+      have he : quotLe (sortedEqvInter Φ) (Φ i) (sortedEqvInter_le Φ i) s
+            (Quotient.mk _ a)
+          = quotLe (sortedEqvInter Φ) (Φ i) (sortedEqvInter_le Φ i) s
+            (Quotient.mk _ b) :=
+        eq_of_heq (Sigma.mk.inj_iff.mp (congrFun hp i)).2
+      rw [quotLe_mk, quotLe_mk] at he
+      exact Quotient.exact he
+
 end Mscong
+
