@@ -36,6 +36,8 @@ lean/.elan/
 *.vrb
 *.xdv
 manuscript/*.pdf
+!manuscript/MSEilenberg.pdf
+!manuscript/MSCong.pdf
 
 # OS / editor cruft
 .DS_Store
