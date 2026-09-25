@@ -22,19 +22,24 @@
   transversal of `T_Σ(X)/Φ` (a `Fintype`/`Finset` enumeration) and the index
   `k_r` per sort; verify the index of a refinement bounded by `k_r · 2^{k_r}` is
   finite.
-- [ ] 2.2 Provide the `Ψ`-refinement lemma: given `Φ` and a finite family of
-  languages, the relation refining `Φ` by agreement on class membership is a
-  congruence of finite index saturating the target. Verify it is the shared core
-  of the three proofs.
+- [x] 2.2 Provided the `Ψ`-refinement lemma (`substRefine` +
+  `isFiniteIndex_substRefine`): a sorted equivalence refining a congruence `Φ`
+  by agreement on `substClass` membership is a congruence of finite index. It is
+  the shared core of the `PRecSubs` proof. (The explicit transversal/index bound
+  of 2.1 is not needed and is left open.)
 
 ## 3. `PRecSubs`
 
-- [ ] 3.1 Form `Φ = ⋂ (⋃_{t,x} {Ω(δ^{t,L_x})} ∪ {Ω(δ^{s,K})})` and prove it has
-  finite index (filter property + `S`,`X` finite).
-- [ ] 3.2 Apply the `Ψ`-refinement lemma to show the substituted language is
-  saturated by a finite-index congruence; conclude `PRecSubs` via
-  `recognizable_iff_exists_finiteIndex_sat`. Verify the `S`,`X` finite
-  hypotheses and that it is axiom-clean.
+- [x] 3.1 Formed `Φ = ⋂ (⋃_{t,x} {Ω(δ^{t,L_x})} ∪ {Ω(δ^{s,K})})` as
+  `sortedEqvInter` over the finite index `(Σ t, X t) ⊕ Unit`, proved it is a
+  congruence (`IsCongruence_inter`) of finite index (`IsFiniteIndex_inter`) and
+  that it saturates every `δ^{t,L_x}` and `δ^{s,K}` (via `sat_antitone` +
+  `isSat_congCogenerated`).
+- [x] 3.2 Applied the `Ψ`-refinement lemma (`substRefine_isCongruence`,
+  `isFiniteIndex_substRefine`, `isSat_deltaSub_of_sat_hom`) to show the
+  substituted language is saturated by a finite-index congruence; concluded
+  `PRecSubs` via `recognizable_iff_exists_finiteIndex_sat`. Axiom-clean
+  (`propext`, `Classical.choice`, `Quot.sound`), no `sorry`.
 
 ## 4. `PRecIt`
 

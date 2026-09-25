@@ -6873,6 +6873,89 @@ losing definitional transparency across the local hypotheses.
 3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
+---
+
+## Session 130 -- 2026-09-24/25 -- M3: `PRecSubs` completed (Mscong)
+
+**Goal.** Continue the OpenSpec change `add-substitution-recognizability` (M3):
+the submission in the committed tree had the substitution operators (tasks
+1.x/`part 1`) and reusable finite-index intersection tooling (`part 2`) but
+`PRecSubs` itself (tasks 3.1/3.2) was still open. Complete the refinement core
+and prove `PRecSubs`. Unmapped `Mscong` infrastructure; `mscong.ingested` stays
+`false`.
+
+**Operational note (Lean builds).** The made-in-Session-130 olean cache was
+stale/broken: every targeted `lake build Mscong.Substitution` was silently
+recompiling the whole `Mslang` dependency graph (~2.5-4 min per module) and one
+run exceeded the tool's 10-min timeout. The cause was `.olean` files for
+`Mslang.*` with timestamps *newer* than their sources (a non-clean cache), so
+dependency hashing kept invalidating them; after the graph rebuilt once, the
+targeted build reverted to seconds. Do not diagnose this as a Lean/Mathlib
+problem -- check `.lake/build/lib/lean` timestamps first.
+
+**What was established (closed).**
+
+- `lean/Mscong/Substitution.lean`, the refinement core (all `sorry`-free):
+  - `substClass L Φ r q` -- the substitution image of a `Φ`-class `q`, and
+    `mem_substClass`;
+  - `substRefine L Φ` -- the relation refining `Φ` by agreement on membership in
+    every `substClass`, with `substRefine_le`, `substRefine_agree`;
+  - `substRefine_isCongruence` -- `Ψ` is a congruence whenever `Φ` saturates all
+    the assigned `δ^{t,L_x}`; the op-case is `substClass_op_imp`, which splits on
+    `term_shape` (variable / constant / operation);
+  - `isFiniteIndex_substRefine` -- `Ψ` has finite index when `Φ` does, by the
+    injection `T_Σ(X)/Ψ ↪ T_Σ(X)/Φ × (T_Σ(X)/Φ → Bool)` (the paper's
+    `k_r · 2^{k_r}` bound);
+  - `isSat_deltaSub_of_sat_hom` -- `δ^{s,substLang L s K}` is `Ψ`-saturated,
+    reusing `hΦsatK : IsSat Φ (δ^{s,K})`;
+  - supporting lemmas `isSat_of_forall_mem`, `isSat_mem`, `IsCongruence_inter`,
+    `substHom_var`, `mem_substHom_op`, `mem_substLang`.
+- **`PRecSubs`** (`MSCong` Prop. `PRecSubs`): for finite sorts `S`, a finite
+  `X`, `K ∈ Rec_s(T_Σ(X))` and an assignment `L` of recognizable languages, the
+  substituted language `substLang L s K` is `s`-recognizable. Proof: `Φ` is the
+  intersection (`sortedEqvInter`) of the finitely many `Ω(δ^{t,L_x})` and
+  `Ω(δ^{s,K})` over the index `(Σ t, X t) ⊕ Unit`, shown a finite-index
+  congruence by `IsCongruence_inter`/`IsFiniteIndex_inter` and saturating the
+  inputs by `sat_antitone` + `isSat_congCogenerated`; conclude via
+  `recognizable_iff_exists_finiteIndex_sat`.
+  `#print axioms Mscong.PRecSubs` = `[propext, Classical.choice, Quot.sound]`
+  (permitted set).
+
+**Finding (the hard step, for the record).** The op-case needs to turn
+`σ((P_i)) = z` (a term built from the *substituted* argument tuple `a`) into
+`a i = P i` for the arity-indexed family, then transport `Ψ`-agreement from
+`P i` to `Q i`. `MemSg`-style `subst`/`cases` on the resulting `Term.op`
+equality fails: the two `op` constructors live in different arities, so the
+dependent elimination cannot solve `p = (w, p.2)`. The working route is
+hoisting the top-symbol inversion (`injection` on the *homogeneous* `hbeq`,
+whose two sides are both at sort `p.2`) before any substitution, and using
+`eq_of_heq` for the operation and the argument tuple. `CRecSubs` (the
+single-variable corollary) is *not* formalized here: its `fixOthers` assignment
+("`z ↦ L`, every other variable to its own singleton") needs a cross-sort
+`HEq`-indexed override whose `Classical.choose`/`cast` does not reduce
+definitionally at `z`; recorded as deferred.
+
+**Verification.**
+
+- `lake build Mscong.Substitution`: **0 errors, 0 warnings** (8,717 jobs); no
+  `sorry`; axioms permitted (above).
+- `check_all.sh --fast`: **47 passed, 0 failed, 4 deferred**; the slow
+  `check_all.sh`: **50 passed, 0 failed**. `mslang` golden baseline unchanged;
+  `blocks/mscong/*` empty, `lean/declarations.mscong.json` still empty,
+  `evidence/mscong/` empty.
+
+**Prioritized next steps.**
+
+1. `PRecIt` (iteration) and `PRecQ` (quotient) complete M3; they reuse
+   `substRefine`/`substRefine_isCongruence`/`isFiniteIndex_substRefine` with
+   their own `Φ` (`Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` and `Ω(δ^{s,L})`). Task 4.1 needs the
+   `z`-iteration `L^{⋆z}` definition.
+2. Optional: `CRecSubs` (the `fixOthers` cross-sort override) once a clean
+   encoding of the singleton assignment is found.
+3. **M4** (tree homomorphisms `PRecH`/`PRecLH`/`PRecILH`) after M3.
+4. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
