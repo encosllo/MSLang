@@ -17,10 +17,15 @@
 
 ## 3. `PRecH`
 
-- [ ] 3.1 Define the induced structure `c(A)` on `A_φ` from a hom
-  `g : T_Ξ(Y) → A` (`IndAlgStrucImHom`) and prove `g_φ` is a homomorphism.
-- [ ] 3.2 Prove `PRecH`: `(f♯_{φ(s)})⁻¹[L] ∈ Rec_s(T_Σ(X))` for
-  `L ∈ Rec_{φ(s)}(T_Ξ(Y))`.
+- [x] 3.1 Defined `cStruct` (the induced structure `c(A)` on `A_φ`) via the
+  range subalgebra of `g` (`isSubalgebra_range`, `rangeHom`), proved
+  well-definedness (`cSubst_congr`, `cStruct_eval`) and `g_φ` is a hom
+  (`cAlg_to_cStruct`).
+- [x] 3.2 Proved `PRecH`: `(f♯_{φ(s)})⁻¹[L] ∈ Rec_s(T_Σ(X))` for
+  `L ∈ Rec_{φ(s)}(T_Ξ(Y))`. **Caveat:** carries `[Finite S]`: our `FiniteAlg` is
+  *finite total* (`FiniteSSet`), so the induced recognizing algebra
+  `s ↦ Br_{φ(s)}` is finite-total only when the sort set is; the paper omits
+  this because its finiteness notion is coarser.
 
 ## 4. `PRecLH`
 
