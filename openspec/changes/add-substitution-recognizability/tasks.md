@@ -44,18 +44,26 @@
 ## 4. `PRecIt`
 
 - [x] 4.1 Defined the `z`-iteration in `lean/Mscong/Iteration.lean`
-  (`iterImage`, `iterLevel`, `iterLang`); verified `L^{1,z} = L ∪ {z}`
-  (`iterLevel_one`, via `subst1_self`) and monotonicity
-  (`iterLevel_subset_succ`, `iterLevel_mono`).
+  (`iterAssign`, `iterImage`, `iterLevel`, `iterLang`); verified
+  `L^{1,z} = L ∪ {z}` (`iterLevel_one`) and monotonicity
+  (`iterLevel_subset_succ`, `iterLevel_mono`). `iterImage` uses the paper's
+  **independent** per-occurrence subset-hom
+  (`substLang (iterAssign z Q) L`), not a single substituted term. Supporting
+  lemmas: `substLang_singleton`, `substHom_mono`, `iterAssign_mono`.
 - [ ] 4.2 **Deferred** to a follow-up change. Form
   `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` (finite index, using M2's `PRecVar` for `{z}`)
   and the paper's refinement `Ψ` by agreement on the substituted images of the
   `Φ`-classes, concluding `PRecIt` via a minimality induction on the construction
-  of `L^{⋆z}`. The refinement is *not* `substRefine`: `Φ` does not saturate
+  of `L^{⋆z}`. The refinement is *not* plain `substRefine`: `Φ` does not saturate
   `L^{⋆z}` (e.g. `L = {f(z)}` with a constant `c` gives `f(f(z)) Φ f(f(c))` with
-  `f(f(z)) ∈ L^{⋆z}`, `f(f(c)) ∉ L^{⋆z}`), so the op/edge cases need the paper's
-  bespoke argument rather than the reusable `substRefine` core. See `STATE.md`
-  Session 131.
+  `f(f(z)) ∈ L^{⋆z}`, `f(f(c)) ∉ L^{⋆z}`), so the variable-at-`z` case needs the
+  paper's bespoke argument. Plan: (a) Lemma A (`op P ∈ L^{⋆z}` + `P i Ψ Q i` ⇒
+  `op Q ∈ L^{⋆z}`, by level induction); (b) the closure
+  `(z\L^{⋆z})^♯(L) ⊆ L^{⋆z}` (level-lifting identity, by induction on the term
+  and a max over its finitely many `z`-occurrences); (c) the congruence of `Ψ`
+  via the new `substClass_op_imp_of` (the `PRecSubs` op-case with a `hvar` hook;
+  `lean/Mscong/Substitution.lean` was refactored so `substClass_op_imp` is its
+  corollary). See `STATE.md` Session 131.
 
 ## 5. `PRecQ`
 

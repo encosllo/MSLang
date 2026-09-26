@@ -145,6 +145,50 @@ theorem subst1_self (Sig : Signature S) (X : SSet S) (s : S) (z : X s) :
       funext i
       exact ih i
 
+/-- Substitution into a singleton language. -/
+theorem substLang_singleton (Sig : Signature S) (X : SSet S)
+    (A : SortedMap X (pCarrier (Term Sig X))) (s : S) (P : Term Sig X s) :
+    substLang Sig X A s ({P} : Set (Term Sig X s)) = substHom Sig X A s P := by
+  ext W
+  rw [mem_substLang]
+  constructor
+  · rintro ⟨P', hP', hW⟩
+    rw [Set.mem_singleton_iff] at hP'
+    subst hP'
+    exact hW
+  · intro hW
+    exact ⟨P, rfl, hW⟩
+
+/-- The subset-hom `substHom` is monotone in the assigned family. -/
+theorem substHom_mono (Sig : Signature S) (X : SSet S)
+    {L L' : SortedMap X (pCarrier (Term Sig X))}
+    (h : ∀ r y, L r y ⊆ L' r y) :
+    ∀ (r : S) (P : Term Sig X r), substHom Sig X L r P ⊆ substHom Sig X L' r P := by
+  intro r P
+  induction P using Term.rec with
+  | var y =>
+      rename_i u
+      rw [substHom_var, substHom_var]
+      exact h u y
+  | op p σ a ih =>
+      intro W hW
+      rw [mem_substHom_op] at hW
+      obtain ⟨b, hb, rfl⟩ := hW
+      rw [mem_substHom_op]
+      exact ⟨b, fun i => ih i (hb i), rfl⟩
+
+/-- The iteration assignment is monotone in the assigned language. -/
+theorem iterAssign_mono (Sig : Signature S) (X : SSet S) (s : S) (z : X s)
+    {Q Q' : Set (Term Sig X s)} (h : Q ⊆ Q') :
+    ∀ r y, iterAssign Sig X s z Q r y ⊆ iterAssign Sig X s z Q' r y := by
+  intro r y W hW
+  unfold iterAssign at hW ⊢
+  split_ifs at hW ⊢ with h1 h2
+  · subst h1
+    simpa using h hW
+  · exact hW
+  · exact hW
+
 /-- `(z\{z})^♯_s(L) = L`: substituting the singleton `{z}` for `z` is the
 identity. -/
 theorem iterImage_self (Sig : Signature S) (X : SSet S) (s : S) (z : X s)

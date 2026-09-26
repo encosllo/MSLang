@@ -6990,12 +6990,26 @@ obstacle recorded below.
   - `quotLang_range_finite`: the "moreover" clause, via the factoring
     `K ↦ Quotient.mk '' K` into the finite powerset `Set (T_Σ(X)_t/Ω(δ^{s,L}))`.
 - `lean/Mscong/Iteration.lean` (new; imported by `Mscong.Main`):
-  - `iterImage` (`(z\Q)^♯(L)` as the direct image `{P[z:=U] | P ∈ L, U ∈ Q}`),
-    `iterLevel` (`L^{0,z} = {z}`, `L^{j+1,z} = L^{j,z} ∪ (z\L^{j,z})^♯(L)`), and
-    `iterLang` (`L^{⋆z} = ⋃_j L^{j,z}`);
-  - `subst1_self` (`P[z:=z] = P`), `iterImage_self` (`(z\{z})^♯(L) = L`),
-    `iterLevel_one` (`L^{1,z} = L ∪ {z}`), and the ascending-chain facts
-    `iterLevel_subset_succ`/`iterLevel_mono`/`iterLevel_subset_iterLang`.
+  - `iterAssign` (the assignment substituting the *language* `Q` for `z` and
+    fixing every other variable to its singleton), `iterImage`
+    (`(z\Q)^♯(L) = substLang (iterAssign z Q) L`, i.e. **independent** choices
+    per occurrence, the paper's subset-hom), `iterLevel`
+    (`L^{0,z} = {z}`, `L^{j+1,z} = L^{j,z} ∪ (z\L^{j,z})^♯(L)`), and `iterLang`
+    (`L^{⋆z} = ⋃_j L^{j,z}`);
+  - `subst1_self`, `iterImage_self` (`(z\{z})^♯(L) = L`, via
+    `substHom_iterAssign_singleton`), `iterLevel_one` (`L^{1,z} = L ∪ {z}`), the
+    ascending-chain facts
+    `iterLevel_subset_succ`/`iterLevel_mono`/`iterLevel_subset_iterLang`, and the
+    PRecIt-supporting lemmas `substLang_singleton`, `substHom_mono`,
+    `iterAssign_mono`.
+  - **Correction.** The first cut of `iterImage` used a *single* term `U ∈ Q`
+    for every occurrence (`{P[z:=U]}`); that under-approximates the paper's
+    `(z\Q)^♯` (each occurrence chooses its own `U ∈ Q`) and was fixed in the
+    follow-up commit before any dependent proof was written.
+- `lean/Mscong/Substitution.lean` was refactored (no statement changed for
+  `PRecSubs`): `substClass_op_imp` is now a corollary of the new
+  `substClass_op_imp_of`, whose variable case is a hypothesis `hvar`. This lets
+  `PRecIt` reuse the operation case with its own variable case.
 - `lean/Mscong/Main.lean` imports `Mscong.Iteration` and `Mscong.Quotient`.
 
 **Verification.**
@@ -7018,9 +7032,20 @@ saturate `L^{⋆z}`.** Concretely, with one sort, `L = {f(z)}`, a constant `c`, 
 `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})`, the term `f(f(z)) ∈ L^{⋆z}` is `Φ`-related to
 `f(f(c)) ∉ L^{⋆z}` (no translation into `L` or `{z}` distinguishes them), so the
 variable-at-`z` case genuinely needs the paper's bespoke argument. That argument
-is a separate, substantial formalization, split out per `design.md` ("Scope"
-risk: close M3 in stages). `openspec/changes/add-substitution-recognizability`
-stays **open** with task 4.2 unchecked.
+was worked out but not written this session; it has three parts:
+(a) **Lemma A**: `op P ∈ L^{⋆z}` and `P i Ψ Q i` imply `op Q ∈ L^{⋆z}`, by
+induction on the level `j`, using the `Ψ` class-agreement and the
+`Φ`-saturation of `L`; (b) the closure `(z\L^{⋆z})^♯(L) ⊆ L^{⋆z}` used by Lemma
+A's operation case, which needs the level-lifting identity
+`substHom (iterAssign z L^{⋆z}) W = ⋃_j substHom (iterAssign z L^{j,z}) W` (by
+induction on `W` and a max over its finitely many `z`-occurrences); and (c) the
+congruence of `Ψ = substRefine (iterAssign z L^{⋆z}) Φ` via the new
+`substClass_op_imp_of`, whose variable case is Lemma A. The PRecIt-supporting
+lemmas (`substLang_singleton`, `substHom_mono`, `iterAssign_mono`, and the
+`substClass_op_imp_of` refactor) are already in place. This is a separate,
+substantial formalization, split out per `design.md` ("Scope" risk: close M3 in
+stages). `openspec/changes/add-substitution-recognizability` stays **open** with
+task 4.2 unchecked.
 
 **Honest caveats.** `[Finite S]` on `PRecQ` is stronger than the proof needs
 (kept for fidelity to the paper). The paper's `Ψ`-refinement is not formalized;

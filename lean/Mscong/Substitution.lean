@@ -243,14 +243,19 @@ theorem mem_substLang {S : Type u} (Sig : Signature S) (X : SSet S) (L)
 
 /-! ### The refinement `Ψ` is a congruence of finite index (the core of `PRecSubs`) -/
 
-/-- The forward step of the congruence proof: if `(P_i, Q_i)` agree under `Ψ`,
-then membership of `σ((P_i))` in a `substClass` transfers to `σ((Q_i))`. -/
-theorem substClass_op_imp {S : Type u} (Sig : Signature S) (X : SSet S) (L)
+/-- The forward step of the congruence proof, with the variable case left as a
+side condition `hvar`: if `(P_i, Q_i)` agree under `Ψ`, then membership of
+`σ((P_i))` in a `substClass` transfers to `σ((Q_i))`. The operation case is
+generic; the variable case is where the `substRefine` core and the iteration
+proof differ (`hvar`). -/
+theorem substClass_op_imp_of {S : Type u} (Sig : Signature S) (X : SSet S) (L)
     {Φ : SortedEqv (Term Sig X)}
     (hΦc : IsCongruence Sig (termAlg Sig X).2 Φ)
-    (hΦsat : ∀ (t : S) (x : X t), IsSat Φ (deltaSub t (L t x)))
     {p : List S × S} (σ : Sig p) (P Q : wordProd (Term Sig X) p.1)
-    (hPQ : ∀ i, ((substRefine Sig X L Φ) (p.1.get i)).r (P i) (Q i)) :
+    (hPQ : ∀ i, ((substRefine Sig X L Φ) (p.1.get i)).r (P i) (Q i))
+    (hvar : ∀ (x : X p.2),
+      Term.op p σ P ∈ substHom Sig X L p.2 (Term.var x) →
+      Term.op p σ Q ∈ substHom Sig X L p.2 (Term.var x)) :
     ∀ q : Quotient (Φ p.2),
       Term.op p σ P ∈ substClass Sig X L Φ p.2 q →
       Term.op p σ Q ∈ substClass Sig X L Φ p.2 q := by
@@ -285,7 +290,23 @@ theorem substClass_op_imp {S : Type u} (Sig : Signature S) (X : SSet S) (L)
       exact ⟨Q, ha'mem, rfl⟩
   rcases term_shape Sig X p.2 T with ⟨x, hx⟩ | ⟨σ₀, hσ₀⟩ | ⟨w, _hw, σ', a, hTa⟩
   · subst hx
-    refine mem_substClass hTq ?_
+    exact mem_substClass hTq (hvar x hPT)
+  · exact opcase [] σ₀ (fun i => i.elim0) hσ₀ hPT
+  · exact opcase w σ' a hTa hPT
+
+/-- The forward step of the `substRefine` congruence proof: if `(P_i, Q_i)` agree
+under `Ψ`, then membership of `σ((P_i))` in a `substClass` transfers to
+`σ((Q_i))`. -/
+theorem substClass_op_imp {S : Type u} (Sig : Signature S) (X : SSet S) (L)
+    {Φ : SortedEqv (Term Sig X)}
+    (hΦc : IsCongruence Sig (termAlg Sig X).2 Φ)
+    (hΦsat : ∀ (t : S) (x : X t), IsSat Φ (deltaSub t (L t x)))
+    {p : List S × S} (σ : Sig p) (P Q : wordProd (Term Sig X) p.1)
+    (hPQ : ∀ i, ((substRefine Sig X L Φ) (p.1.get i)).r (P i) (Q i)) :
+    ∀ q : Quotient (Φ p.2),
+      Term.op p σ P ∈ substClass Sig X L Φ p.2 q →
+      Term.op p σ Q ∈ substClass Sig X L Φ p.2 q :=
+  substClass_op_imp_of Sig X L hΦc σ P Q hPQ (fun x hPT => by
     have hrel : (Φ p.2).r (Term.op p σ P) (Term.op p σ Q) :=
       hΦc p σ P Q (fun i => (hPQ i).1)
     have hx' : Term.op p σ P ∈ (deltaSub p.2 (L p.2 x)) p.2 := by
@@ -295,9 +316,7 @@ theorem substClass_op_imp {S : Type u} (Sig : Signature S) (X : SSet S) (L)
       isSat_mem (hΦsat p.2 x) hx' hrel
     rw [deltaSub_self] at hQ'
     rw [substHom_var Sig X L p.2 x]
-    exact hQ'
-  · exact opcase [] σ₀ (fun i => i.elim0) hσ₀ hPT
-  · exact opcase w σ' a hTa hPT
+    exact hQ')
 
 /-- `deltaSub s (substLang L s K)` is `Ψ`-saturated: every `W` in the substitution
 image of `K` has the same `Ψ`-class as the members of every input class it
