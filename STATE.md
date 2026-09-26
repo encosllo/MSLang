@@ -7121,16 +7121,18 @@ where **linearity** (each placeholder once) is what makes case (b) close. It is
 large enough to be its own follow-up change (the design's "close in stages"
 risk); the change stays **open** with 4.x unchecked.
 
-*Infrastructure already built (commits `e194c51`, `a7b6aaa`, `1df1b4f`):*
-`Subt` (componentwise subterms, `Subt_self`/`Subt_op_mem`/`Subt_finite`), the
-operator `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯(R)`), the congruences
-`treePhi` (`Φ`) and `treeTheta` (`Θ`), `treeClassImage` (`f♯[[W]]`), and the
-refinement **`treeRefine` (`Ψ`)** with `treeRefine_le_phi`. *Still open:*
-`Fintype (TreeTest_t)` (the test space
-`Σ pσ : Σ p, Sig p, {R // R ∈ Subt(c(σ))} × ((i) → Quotient (Θ_{p.1}_i))`; finite
-from `Finite (Sigma Sig)`, `Subt_finite`, `IsFiniteIndex Θ`), the sign-vector
-finite-index injection, the congruence case analysis, and the `Ψ`-saturation of
-`f♯_s[L]`.
+*Infrastructure already built (commits `e194c51`, `a7b6aaa`, `1df1b4f`,
+`c321bc8`):* `Subt` (componentwise subterms,
+`Subt_self`/`Subt_op_mem`/`Subt_finite`), the operator `substInto`/`cSubstLang`
+(`((v_i ↦ A_i))^♯(R)`), the congruences `treePhi` (`Φ`) and `treeTheta` (`Θ`),
+`treeClassImage` (`f♯[[W]]`), the refinement **`treeRefine` (`Ψ`)** with
+`treeRefine_le_phi`, the finite test space `TreeTest`/`treeTestSet` with
+`treeTest_fintype` (`Fintype (TreeTest_t)` from `Finite (Sigma Sig)`,
+`Subt_finite`, `IsFiniteIndex Θ`), and the sign-vector injection
+**`isFiniteIndex_treeRefine`** (`IsFiniteIndex Ψ` from `IsFiniteIndex Φ` and
+`IsFiniteIndex Θ`). *Still open:* `IsFiniteIndex (treePhi H)` (needs
+`{f_r(x)}` singleton recognizability under finite `T`, `Ξ`, `Y`), the `Ψ`
+congruence case analysis, and the `Ψ`-saturation of `f♯_s[L]`.
 
 **Prioritized next steps.**
 
