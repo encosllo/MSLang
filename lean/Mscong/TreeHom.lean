@@ -329,6 +329,23 @@ noncomputable def treeClassImage {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
     (l : Quotient (treeTheta Sig X s L r)) : Set (Term Xi Y (φ r)) :=
   treeHom H r '' {W | Quotient.mk (treeTheta Sig X s L r) W = l}
 
+/-- The finite test space indexing `Ψ`'s second condition: an operation `σ`, a
+subterm `R ∈ Subt(c(σ))` of sort `t`, and a family of `Θ`-classes (one per
+argument position of `σ`). -/
+abbrev TreeTest {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
+    (L : Set (Term Sig X s)) (t : T) : Type u :=
+  Σ pσ : Sigma Sig,
+    {R : Term Xi (Yplus φ Y pσ.1.1) t // R ∈ Subt (H.c pσ.1 pσ.2) t} ×
+      ((i : Fin pσ.1.1.length) → Quotient (treeTheta Sig X s L (pσ.1.1.get i)))
+
+/-- The set tested by a point of the test space: the substituted image
+`((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯(R)`. -/
+noncomputable def treeTestSet {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
+    (L : Set (Term Sig X s)) (t : T) (χ : TreeTest H s L t) :
+    Set (Term Xi Y t) :=
+  cSubstLang χ.1.1.1
+    (fun i => treeClassImage H s L (χ.1.1.1.get i) (χ.2.2 i)) χ.2.1.1
+
 /-- `Ψ` (`MSCong` §3.5, `PRecLH`): the refinement of `Φ` by agreement on the
 substituted images `((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯(R)` of every
 subterm `R` of every `c_{w,r}(σ)`. -/
@@ -337,26 +354,92 @@ noncomputable def treeRefine {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s 
   fun t =>
     { r := fun M N =>
         (treePhi H t).r M N ∧
-          ∀ (p : List S × S) (σ : Sig p) (R : Term Xi (Yplus φ Y p.1) t)
-            (_hR : R ∈ Subt (H.c p σ) t)
-            (A : (i : Fin p.1.length) →
-              Quotient (treeTheta Sig X s L (p.1.get i))),
-            (M ∈ cSubstLang p.1
-                (fun i => treeClassImage H s L (p.1.get i) (A i)) R ↔
-             N ∈ cSubstLang p.1
-                (fun i => treeClassImage H s L (p.1.get i) (A i)) R)
+          ∀ χ : TreeTest H s L t,
+            (M ∈ treeTestSet H s L t χ ↔ N ∈ treeTestSet H s L t χ)
       iseqv :=
-        ⟨fun M => ⟨(treePhi H t).refl M, fun _ _ _ _ _ => Iff.rfl⟩,
-         fun h => ⟨(treePhi H t).symm h.1,
-           fun p σ R hR A => (h.2 p σ R hR A).symm⟩,
+        ⟨fun M => ⟨(treePhi H t).refl M, fun _ => Iff.rfl⟩,
+         fun h => ⟨(treePhi H t).symm h.1, fun χ => (h.2 χ).symm⟩,
          fun h1 h2 => ⟨(treePhi H t).trans h1.1 h2.1,
-           fun p σ R hR A => (h1.2 p σ R hR A).trans (h2.2 p σ R hR A)⟩⟩ }
+           fun χ => (h1.2 χ).trans (h2.2 χ)⟩⟩ }
 
 /-- `Ψ` refines `Φ`. -/
 theorem treeRefine_le_phi {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
     (L : Set (Term Sig X s)) :
     sortedEqvLe (treeRefine H s L) (treePhi H) :=
   fun _ _ _ h => h.1
+
+/-- The test space is finite when `Σ` and the `Θ`-quotient are. -/
+noncomputable def treeTest_fintype {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
+    (L : Set (Term Sig X s)) (t : T) [Finite (Sigma Sig)]
+    (hΘ : IsFiniteIndex (treeTheta Sig X s L)) : Fintype (TreeTest H s L t) := by
+  haveI : Fintype (Sigma Sig) := Fintype.ofFinite _
+  haveI : Finite (Sigma (fun r => Quotient (treeTheta Sig X s L r))) := hΘ
+  haveI : ∀ r, Finite (Quotient (treeTheta Sig X s L r)) := fun r =>
+    Finite.of_injective
+      (fun q => (⟨r, q⟩ : Sigma (fun r => Quotient (treeTheta Sig X s L r))))
+      (fun a b h => by simpa using h)
+  haveI : ∀ r, Fintype (Quotient (treeTheta Sig X s L r)) := fun r => Fintype.ofFinite _
+  haveI : ∀ pσ : Sigma Sig, Fintype
+      ({R : Term Xi (Yplus φ Y pσ.1.1) t // R ∈ Subt (H.c pσ.1 pσ.2) t} ×
+        ((i : Fin pσ.1.1.length) → Quotient (treeTheta Sig X s L (pσ.1.1.get i)))) := by
+    intro pσ
+    haveI : Fintype {R : Term Xi (Yplus φ Y pσ.1.1) t // R ∈ Subt (H.c pσ.1 pσ.2) t} :=
+      (Subt_finite (H.c pσ.1 pσ.2) t).fintype
+    haveI : Fintype ((i : Fin pσ.1.1.length) →
+        Quotient (treeTheta Sig X s L (pσ.1.1.get i))) := inferInstance
+    exact inferInstance
+  haveI : Finite (TreeTest H s L t) := inferInstance
+  exact Fintype.ofFinite _
+
+/-- `Ψ` has finite index: its quotient injects into the quotient of `Φ` times
+the (finite) set of membership sign vectors over the test space. -/
+theorem isFiniteIndex_treeRefine {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
+    (L : Set (Term Sig X s)) [Finite (Sigma Sig)]
+    (hΦ : IsFiniteIndex (treePhi H)) (hΘ : IsFiniteIndex (treeTheta Sig X s L)) :
+    IsFiniteIndex (treeRefine H s L) := by
+  classical
+  set Ψ := treeRefine H s L with hΨdef
+  have hle : sortedEqvLe Ψ (treePhi H) := by
+    rw [hΨdef]; exact treeRefine_le_phi H s L
+  obtain ⟨hsuppΦ, hfibΦ⟩ := (finiteSSet_iff (quot (treePhi H))).mp hΦ
+  rw [IsFiniteIndex, finiteSSet_iff]
+  have hsub : supp (quot Ψ) ⊆ supp (quot (treePhi H)) := by
+    rintro t ⟨q⟩
+    exact ⟨quotLe Ψ (treePhi H) hle t q⟩
+  refine ⟨hsuppΦ.subset hsub, ?_⟩
+  intro t _ht
+  haveI : Finite (Quotient (treePhi H t)) := hfibΦ t (hsub _ht)
+  haveI : Finite (quot (treePhi H) t) := hfibΦ t (hsub _ht)
+  haveI : Fintype (Quotient (treePhi H t)) := Fintype.ofFinite _
+  haveI : Fintype (TreeTest H s L t) := treeTest_fintype H s L t hΘ
+  refine Finite.of_injective
+    (f := fun q : Quotient (Ψ t) =>
+      (quotLe Ψ (treePhi H) hle t q,
+       Quotient.lift (fun M : Term Xi Y t => fun (χ : TreeTest H s L t) =>
+          if M ∈ treeTestSet H s L t χ then true else false)
+        (fun M N hMN => funext fun χ => by
+          have hiff := hMN.2 χ
+          by_cases hM : M ∈ treeTestSet H s L t χ
+          · have hN : N ∈ treeTestSet H s L t χ := hiff.mp hM
+            simp [hM, hN]
+          · have hN : ¬ N ∈ treeTestSet H s L t χ := fun hN => hM (hiff.mpr hN)
+            simp [hM, hN]) q)) ?_
+  rintro q1 q2 h
+  induction q1 using Quotient.inductionOn with
+  | h M =>
+    induction q2 using Quotient.inductionOn with
+    | h N =>
+      simp only [Prod.mk.injEq] at h
+      obtain ⟨h1, h2⟩ := h
+      have hΦrel : (treePhi H t).r M N := by
+        have h1' := h1
+        simp only [quotLe_mk] at h1'
+        exact Quotient.exact h1'
+      refine Quotient.sound ⟨hΦrel, fun χ => ?_⟩
+      have hc := congrFun h2 χ
+      simp only [Quotient.lift_mk] at hc
+      by_cases hM : M ∈ treeTestSet H s L t χ <;>
+        by_cases hN : N ∈ treeTestSet H s L t χ <;> simp_all
 
 /-- `PRecH` (`MSCong` Prop. `PRecH`): the inverse image of a recognizable language
 under a tree homomorphism is recognizable. The proof passes to the range of the
