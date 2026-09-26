@@ -18,15 +18,15 @@
 
 ## 2. Reusable finite-index / transversal API
 
-- [ ] 2.1 Provide, for a finite-index sorted equivalence `Φ`, a finite
-  transversal of `T_Σ(X)/Φ` (a `Fintype`/`Finset` enumeration) and the index
-  `k_r` per sort; verify the index of a refinement bounded by `k_r · 2^{k_r}` is
-  finite.
+- [x] 2.1 **Resolved by 2.2 (scope decision, not built).** The explicit finite
+  transversal of `T_Σ(X)/Φ` and the `k_r · 2^{k_r}` index bound were found
+  unnecessary: `isFiniteIndex_substRefine` proves finiteness of the refinement
+  directly by an injection into `T_Σ(X)/Φ × (T_Σ(X)/Φ → Bool)`, the same
+  counting argument. The explicit `Finset` transversal/`k_r` are not built.
 - [x] 2.2 Provided the `Ψ`-refinement lemma (`substRefine` +
   `isFiniteIndex_substRefine`): a sorted equivalence refining a congruence `Φ`
   by agreement on `substClass` membership is a congruence of finite index. It is
-  the shared core of the `PRecSubs` proof. (The explicit transversal/index bound
-  of 2.1 is not needed and is left open.)
+  the shared core of the `PRecSubs` proof.
 
 ## 3. `PRecSubs`
 

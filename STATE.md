@@ -7057,12 +7057,17 @@ correspondence/evidence record is produced (M3 is unmapped infrastructure).
 
 **Prioritized next steps.**
 
-1. Archive `add-substitution-recognizability` (all tasks complete) and sync its
-   delta spec to `openspec/specs/formalization/mcong-substitution`.
+1. **M4** (tree homomorphisms `PRecH`/`PRecLH`/`PRecILH`) as its own change;
+   M3 is archived and the `mscong` scaffold is ready.
 2. Optional: `CRecSubs` (the `fixOthers` cross-sort override).
-3. **M4** (tree homomorphisms `PRecH`/`PRecLH`/`PRecILH`).
-4. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
+
+**Archived.** `add-substitution-recognizability` is archived at
+`openspec/changes/archive/2026-09-26-add-substitution-recognizability/`; the
+main spec `openspec/specs/formalization/mcong-substitution/spec.md` was created
+from its delta (`openspec validate --specs`: 12 passed, 0 failed; no active
+changes remain).
 
 **Safe-restart checklist (run before touching anything).**
 
