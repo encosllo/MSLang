@@ -33,9 +33,12 @@
   `IsFiniteIndex_inter` over the finite `X`) and `Θ = Ω(δ^{s,L})` (finite
   index); prove `Φ` saturates each `{f_r(x)}`.
 - [~] 4.2 (Infrastructure done; `Ψ` itself open.) Defined `Subt` (the
-  componentwise subterms of a term, `Subt_self`/`Subt_op_mem`), the operator
-  `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯ (R)`). Still to do: the occurrence
-  count `bb{R}_{v_i}` (partly available via `countPlaceholder`); define `Ψ`
+  componentwise subterms of a term, `Subt_self`/`Subt_op_mem`/`Subt_finite`),
+  the operator `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯ (R)`). Still to do:
+  the occurrence count `bb{R}_{v_i}` (partly available via `countPlaceholder`);
+  define `Ψ` (the test space is `Σ p, Σ (σ : Sig p), {R // R ∈ Subt(c(σ))} ×
+  ((i) → Quotient (Θ (p.1.get i)))`, finite from `Finite (Sigma Sig)`,
+  `Subt_finite`, and `IsFiniteIndex Θ`)
   on `T_Ξ(Y)` (`M Ψ_t N` iff `M Φ_t N` and, for every `(w,r)`, `σ`, subterm `R`
   of `c(σ)` at `t`, and classes `l_i`, membership in
   `((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯_t(R)` agrees); prove `Ψ` is a
