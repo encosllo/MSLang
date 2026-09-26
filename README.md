@@ -18,7 +18,7 @@ recognizability.
 | id | paper | Lean namespace | status |
 |---|---|---|---|
 | `mslang` (default) | *Eilenberg theorems for many-sorted formations* — J. Climent Vidal & E. Cosme Llópez, Houston J. Math. 45(2):321–369, 2019 | `Mslang` | formalized; provenance ingested |
-| `mscong` | *Congruence-based proofs of the recognizability theorems for free many-sorted algebras* | `Mscong` | in progress (through M3; M4 partial) |
+| `mscong` | *Congruence-based proofs of the recognizability theorems for free many-sorted algebras* — J. Climent Vidal & E. Cosme Llópez, Journal of Logic and Computation 30(2):561–633, 2020. doi:[10.1093/logcom/exz032](https://doi.org/10.1093/logcom/exz032) | `Mscong` | in progress (through M3; M4 partial) |
 
 `Mscong.*` shares this Lake project and Mathlib and imports `Mslang.*`, so the
 recognizability development reuses the `Mslang` preliminaries rather than
