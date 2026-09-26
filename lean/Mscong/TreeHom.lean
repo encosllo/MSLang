@@ -199,6 +199,26 @@ theorem Subt_op_mem {Z : SSet T} {p : List T × T} (σ : Xi p)
   simp only [Subt]
   exact Or.inr (Set.mem_iUnion.mpr ⟨i, hQ⟩)
 
+/-- A term has finitely many subterms at each sort. -/
+theorem Subt_finite {Z : SSet T} :
+    ∀ {u : T} (P : Term Xi Z u) (t : T), (Subt P t).Finite := by
+  intro u P
+  induction P using Term.rec with
+  | var v =>
+      rename_i u'
+      intro t
+      simp only [Subt]
+      split_ifs with h
+      · exact Set.finite_singleton _
+      · exact Set.finite_empty
+  | op p σ a ih =>
+      intro t
+      simp only [Subt]
+      split_ifs with h
+      · exact (Set.finite_singleton _).union
+          (Set.finite_iUnion (fun i => ih i t))
+      · exact Set.finite_empty.union (Set.finite_iUnion (fun i => ih i t))
+
 /-- Substituting a language family for the placeholders of `w` into any term:
 the paper's operator `((v_i ↦ A_i))^♯(R)`. -/
 noncomputable def substInto {φ : S → T} (w : List S)
