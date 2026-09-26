@@ -28,6 +28,7 @@ open Mslang
 attribute [local instance] Classical.propDecidable
 
 set_option linter.style.haveILetI false
+set_option warn.classDefReducibility false
 
 universe u
 
@@ -303,6 +304,59 @@ theorem cAlg_to_cStruct {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) {B : SSe
   change g (φ p.2) (cSubst H p σ a)
     = cStruct H FB g hg hsurj p σ (fun i => g (φ (p.1.get i)) (a i))
   rw [cStruct_eval H hg hsurj p σ a]
+
+/-! ### The refinement `Ψ` for `PRecLH` -/
+
+/-- `Φ` (`MSCong` §3.5, `PRecLH`): the intersection, over the generators
+`(x,r) ∈ ∐X`, of the syntactic congruences `Ω(δ^{φ(r),{f_r(x)}})` on
+`T_Ξ(Y)`. -/
+noncomputable def treePhi {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) :
+    SortedEqv (Term Xi Y) :=
+  sortedEqvInter (fun x : Sigma X =>
+    congCogenerated Xi (termAlg Xi Y)
+      (deltaSub (φ x.1) ({H.f x.1 x.2} : Set (Term Xi Y (φ x.1)))))
+
+/-- `Θ` (`MSCong` §3.5, `PRecLH`): the syntactic congruence `Ω(δ^{s,L})` on
+`T_Σ(X)`. -/
+noncomputable def treeTheta (Sig : Signature S) (X : SSet S) (s : S)
+    (L : Set (Term Sig X s)) : SortedEqv (Term Sig X) :=
+  congCogenerated Sig (termAlg Sig X) (deltaSub s L)
+
+/-- The direct image of the `l`-class of `Θ_r` under `f♯_r` (the paper's
+`f♯_r[[W_{r,l}]_{Θ_r}]`). -/
+noncomputable def treeClassImage {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (s : S) (L : Set (Term Sig X s)) (r : S)
+    (l : Quotient (treeTheta Sig X s L r)) : Set (Term Xi Y (φ r)) :=
+  treeHom H r '' {W | Quotient.mk (treeTheta Sig X s L r) W = l}
+
+/-- `Ψ` (`MSCong` §3.5, `PRecLH`): the refinement of `Φ` by agreement on the
+substituted images `((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯(R)` of every
+subterm `R` of every `c_{w,r}(σ)`. -/
+noncomputable def treeRefine {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
+    (L : Set (Term Sig X s)) : SortedEqv (Term Xi Y) :=
+  fun t =>
+    { r := fun M N =>
+        (treePhi H t).r M N ∧
+          ∀ (p : List S × S) (σ : Sig p) (R : Term Xi (Yplus φ Y p.1) t)
+            (_hR : R ∈ Subt (H.c p σ) t)
+            (A : (i : Fin p.1.length) →
+              Quotient (treeTheta Sig X s L (p.1.get i))),
+            (M ∈ cSubstLang p.1
+                (fun i => treeClassImage H s L (p.1.get i) (A i)) R ↔
+             N ∈ cSubstLang p.1
+                (fun i => treeClassImage H s L (p.1.get i) (A i)) R)
+      iseqv :=
+        ⟨fun M => ⟨(treePhi H t).refl M, fun _ _ _ _ _ => Iff.rfl⟩,
+         fun h => ⟨(treePhi H t).symm h.1,
+           fun p σ R hR A => (h.2 p σ R hR A).symm⟩,
+         fun h1 h2 => ⟨(treePhi H t).trans h1.1 h2.1,
+           fun p σ R hR A => (h1.2 p σ R hR A).trans (h2.2 p σ R hR A)⟩⟩ }
+
+/-- `Ψ` refines `Φ`. -/
+theorem treeRefine_le_phi {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (s : S)
+    (L : Set (Term Sig X s)) :
+    sortedEqvLe (treeRefine H s L) (treePhi H) :=
+  fun _ _ _ h => h.1
 
 /-- `PRecH` (`MSCong` Prop. `PRecH`): the inverse image of a recognizable language
 under a tree homomorphism is recognizable. The proof passes to the range of the
