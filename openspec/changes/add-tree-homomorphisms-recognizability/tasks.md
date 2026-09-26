@@ -27,14 +27,25 @@
   `s ↦ Br_{φ(s)}` is finite-total only when the sort set is; the paper omits
   this because its finiteness notion is coarser.
 
-## 4. `PRecLH`
+## 4. `PRecLH` (deferred; see the plan below)
 
-- [ ] 4.1 Form `Φ = ⋂_{(x,r)} Ω(δ^{φ(r),{f_r(x)}})` (finite index) and
-  `Θ = Ω(δ^{s,L})` (finite index); prove `Φ` saturates each `{f_r(x)}`.
-- [ ] 4.2 Define `Ψ` on `T_Ξ(Y)` (agreement on the direct images of the
-  `Θ_r`-classes) and prove it is a finite-index congruence, using linearity for
-  the operation case.
+- [ ] 4.1 Form `Φ = ⋂_{(x,r)} Ω(δ^{φ(r),{f_r(x)}})` (finite index, using
+  `IsFiniteIndex_inter` over the finite `X`) and `Θ = Ω(δ^{s,L})` (finite
+  index); prove `Φ` saturates each `{f_r(x)}`.
+- [ ] 4.2 Define `Subt(c(σ))` (the subterms of `c(σ)`, indexed by sort) and the
+  occurrence count `bb{R}_{v_i}` already needed by `countPlaceholder`; define `Ψ`
+  on `T_Ξ(Y)` (`M Ψ_t N` iff `M Φ_t N` and, for every `(w,r)`, `σ`, subterm `R`
+  of `c(σ)` at `t`, and classes `l_i`, membership in
+  `((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯_t(R)` agrees); prove `Ψ` is a
+  finite-index congruence, using **linearity** so that each placeholder occurs
+  once (the paper's cases (a)/(b.1.i)/(b.1.ii)/(b.2)).
 - [ ] 4.3 Prove `f♯_s[L]` is `Ψ_{φ(s)}`-saturated and conclude `PRecLH`.
+
+**Deferred.** This is the technical heart of M4 (like `PRecIt` in M3): it needs
+a `Subt` subterm collection, its interaction with substitution, and the paper's
+long case analysis; it is large enough to be its own follow-up change. The
+definitions + `PRecH` are complete and committed (parts 1–3); the change stays
+**open** with 4.x unchecked. See `STATE.md` Session 132.
 
 ## 5. Infrastructure discipline and gate
 

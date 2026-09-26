@@ -7069,6 +7069,66 @@ main spec `openspec/specs/formalization/mcong-substitution/spec.md` was created
 from its delta (`openspec validate --specs`: 12 passed, 0 failed; no active
 changes remain).
 
+---
+
+## Session 132 -- 2026-09-26 -- M4 (tree homomorphisms): definitions + `PRecH`; `PRecLH` deferred
+
+**Goal.** Start the OpenSpec change `add-tree-homomorphisms-recognizability`
+(M4, `MSCong.tex` §3.5): hyperderivors, the induced `Σ`-algebra
+`c(T_Ξ(Y))`, tree homomorphisms, and the recognizability results `PRecH` and
+`PRecLH`. Unmapped `Mscong` infrastructure; no block IDs, no evidence,
+`mscong.ingested` stays `false`.
+
+**What was established (closed).**
+
+- `lean/Mscong/TreeHom.lean` (scaffold replaced; imported by `Mscong.Main`):
+  - `Delta` (`A ∘ φ`), `Yplus` (the paper's `Y ∪ ↓φ*(w)` as the coproduct
+    `Y t ⊕ {i : Fin w.length // φ (w.get i) = t}`), `Hyperderivor` (`c`, `f`
+    along `φ`), `countPlaceholder` and `Hyperderivor.IsLinear`;
+  - `cSubstAssign`/`cSubst` (the paper's `S^w_{(a_i)}(c(σ))` via `termLift`),
+    `cAlg` (`c(T_Ξ(Y))`), `treeHom` (`:= termLift ... f`) with
+    `treeHom_isAlgHom`/`treeHom_eta`;
+  - `IsAlgHom_comp`, `sortedMap_cast`, `cSubst_congr` (well-definedness of `c(A)`
+    on representatives);
+  - the range subalgebra `isSubalgebra_range`/`rangeHom` (corestriction making a
+    recognizing hom surjective), and the induced structure `cStruct` with
+    `cStruct_eval`/`cAlg_to_cStruct`;
+  - **`PRecH`**: the inverse image of a recognizable language under a tree
+    homomorphism is recognizable. `#print axioms Mscong.PRecH` =
+    `[propext, Classical.choice, Quot.sound]`.
+- OpenSpec change `add-tree-homomorphisms-recognizability` proposed (proposal,
+  design, spec delta, tasks) and validated.
+
+**Verification.** Targeted `lake build Mscong.TreeHom` clean, 0 warnings; fast
+gate **47/0**; `mslang` baseline untouched. (`PRecH` axiom check above; no
+`sorry`.)
+
+**Finding (a needed hypothesis the paper omits).** `PRecH` carries
+`[Finite S]`. Our `FiniteAlg` is **finite total** (`FiniteSSet A = Finite (Sigma
+A)`), so the induced recognizing algebra `s ↦ Br_{φ(s)}` is finite-total only
+when the sort set is; with `S` infinite and a nonempty `Br` component repeated
+under `φ`, it is not. The paper states `PRecH` with no finiteness because its
+finiteness notion is coarser. This is the same kind of paper-level finding as
+M1's `Rec is Bool`(1).
+
+**Deferred (`PRecLH`, task 4.x).** The direct image of a recognizable language
+under a **linear** tree homomorphism is recognizable (finite `S,T,Σ,X`). This is
+the technical heart of M4: it needs a `Subt` subterm collection and its
+interaction with substitution, the refinement `Ψ` (agreement on the direct
+images of the `Θ_r`-classes over *all* subterms `R` of *all* `c(σ)`), a
+finite-index proof, and the paper's long case analysis (a/b.1.i/b.1.ii/b.2),
+where **linearity** (each placeholder once) is what makes case (b) close. It is
+large enough to be its own follow-up change (the design's "close in stages"
+risk); the change stays **open** with 4.x unchecked.
+
+**Prioritized next steps.**
+
+1. `PRecLH` as a follow-up (needs `Subt` + the `Ψ` refinement + the case
+   analysis); or continue the same change.
+2. **M5** (derivors / Hall algebras, decision-gated) after M4.
+3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
