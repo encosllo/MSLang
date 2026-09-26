@@ -25,6 +25,8 @@ namespace Mscong
 
 open Mslang
 
+attribute [local instance] Classical.propDecidable
+
 set_option linter.style.haveILetI false
 
 universe u
@@ -172,6 +174,48 @@ theorem cSubst_congr {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
         (φ p.2) (H.c p σ) :=
     congrFun (congrFun (hlift P') (φ p.2)) (H.c p σ)
   rw [cSubst, cSubst, eP, eP', hassign]
+
+/-! ### Subterms and substituting language families into them (`PRecLH` infrastructure) -/
+
+/-- The componentwise set of subterms of a term: `Subt P t` is the set of
+subterms of `P` of sort `t` (`MSCong` §3.5, `Subt(c_{w,r}(σ))_t`). -/
+def Subt {Z : SSet T} : {u : T} → Term Xi Z u → Sub (Term Xi Z)
+  | u, Term.var v => fun t => if h : u = t then {h ▸ Term.var v} else ∅
+  | _, Term.op p σ a => fun t =>
+      (if h : p.2 = t then {h ▸ Term.op p σ a} else ∅)
+        ∪ ⋃ i, Subt (a i) t
+
+/-- Every term is a subterm of itself. -/
+theorem Subt_self {Z : SSet T} {u : T} (P : Term Xi Z u) : P ∈ Subt P u := by
+  cases P with
+  | var v => simp [Subt]
+  | op p σ a => simp [Subt]
+
+/-- The arguments of an operation are subterms of it. -/
+theorem Subt_op_mem {Z : SSet T} {p : List T × T} (σ : Xi p)
+    (a : (i : Fin p.1.length) → Term Xi Z (p.1.get i)) (i : Fin p.1.length)
+    {t : T} {Q : Term Xi Z t} (hQ : Q ∈ Subt (a i) t) :
+    Q ∈ Subt (Term.op p σ a) t := by
+  simp only [Subt]
+  exact Or.inr (Set.mem_iUnion.mpr ⟨i, hQ⟩)
+
+/-- Substituting a language family for the placeholders of `w` into any term:
+the paper's operator `((v_i ↦ A_i))^♯(R)`. -/
+noncomputable def substInto {φ : S → T} (w : List S)
+    (A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i)))) :
+    SortedMap (Term Xi (Yplus φ Y w)) (pCarrier (Term Xi Y)) :=
+  termLift Xi (Yplus φ Y w) (pAlg Xi (Term Xi Y) (termAlg Xi Y).2).2
+    (fun _ v =>
+      match v with
+      | Sum.inl y => ({Term.var y} : Set (Term Xi Y _))
+      | Sum.inr q => q.2 ▸ A q.1)
+
+/-- `((v_i ↦ A_i))^♯_t(R)`: the set of terms obtained by substituting the
+languages `A_i` for the placeholders of `w` in `R`. -/
+noncomputable def cSubstLang {φ : S → T} (w : List S)
+    (A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i)))) {t : T}
+    (R : Term Xi (Yplus φ Y w) t) : Set (Term Xi Y t) :=
+  substInto w A t R
 
 /-- The range of a homomorphism is a subalgebra. -/
 theorem isSubalgebra_range {B : SSet T} {FB : AlgStruct Xi B}
