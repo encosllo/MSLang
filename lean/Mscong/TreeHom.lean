@@ -200,6 +200,40 @@ theorem Subt_op_mem {Z : SSet T} {p : List T × T} (σ : Xi p)
   simp only [Subt]
   exact Or.inr (Set.mem_iUnion.mpr ⟨i, hQ⟩)
 
+/-- Subterms are transitive: a subterm of a subterm is a subterm. -/
+theorem Subt_trans {Z : SSet T} :
+    ∀ {A : T} (P : Term Xi Z A) {B : T} {Q : Term Xi Z B} {C : T}
+      {R : Term Xi Z C},
+      Q ∈ Subt P B → R ∈ Subt Q C → R ∈ Subt P C := by
+  intro A P
+  induction P using Term.rec with
+  | var v =>
+      rename_i A'
+      intro B Q C R hQ hR
+      by_cases hAB : A' = B
+      · subst hAB
+        simp only [Subt, dif_pos trivial, Set.mem_singleton_iff] at hQ
+        subst hQ
+        exact hR
+      · simp only [Subt, dif_neg hAB] at hQ
+        exact absurd hQ (Set.notMem_empty _)
+  | op p σ a ih =>
+      intro B Q C R hQ hR
+      by_cases hB : p.2 = B
+      · subst hB
+        simp only [Subt, dif_pos trivial] at hQ
+        rcases hQ with hQ | hQ
+        · rw [Set.mem_singleton_iff] at hQ
+          subst hQ
+          exact hR
+        · rw [Set.mem_iUnion] at hQ
+          obtain ⟨i, hQi⟩ := hQ
+          exact Subt_op_mem σ a i (ih i hQi hR)
+      · simp only [Subt, dif_neg hB, Set.empty_union] at hQ
+        rw [Set.mem_iUnion] at hQ
+        obtain ⟨i, hQi⟩ := hQ
+        exact Subt_op_mem σ a i (ih i hQi hR)
+
 /-- A term has finitely many subterms at each sort. -/
 theorem Subt_finite {Z : SSet T} :
     ∀ {u : T} (P : Term Xi Z u) (t : T), (Subt P t).Finite := by
