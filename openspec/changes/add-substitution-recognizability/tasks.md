@@ -50,20 +50,18 @@
   **independent** per-occurrence subset-hom
   (`substLang (iterAssign z Q) L`), not a single substituted term. Supporting
   lemmas: `substLang_singleton`, `substHom_mono`, `iterAssign_mono`.
-- [ ] 4.2 **Deferred** to a follow-up change. Form
-  `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` (finite index, using M2's `PRecVar` for `{z}`)
-  and the paper's refinement `Ψ` by agreement on the substituted images of the
-  `Φ`-classes, concluding `PRecIt` via a minimality induction on the construction
-  of `L^{⋆z}`. The refinement is *not* plain `substRefine`: `Φ` does not saturate
-  `L^{⋆z}` (e.g. `L = {f(z)}` with a constant `c` gives `f(f(z)) Φ f(f(c))` with
-  `f(f(z)) ∈ L^{⋆z}`, `f(f(c)) ∉ L^{⋆z}`), so the variable-at-`z` case needs the
-  paper's bespoke argument. Plan: (a) Lemma A (`op P ∈ L^{⋆z}` + `P i Ψ Q i` ⇒
-  `op Q ∈ L^{⋆z}`, by level induction); (b) the closure
-  `(z\L^{⋆z})^♯(L) ⊆ L^{⋆z}` (level-lifting identity, by induction on the term
-  and a max over its finitely many `z`-occurrences); (c) the congruence of `Ψ`
-  via the new `substClass_op_imp_of` (the `PRecSubs` op-case with a `hvar` hook;
-  `lean/Mscong/Substitution.lean` was refactored so `substClass_op_imp` is its
-  corollary). See `STATE.md` Session 131.
+- [x] 4.2 Proved `PRecIt` (`lean/Mscong/Iteration.lean`). Formed
+  `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` (finite index via M2's `PRecVar` for `{z}`) and
+  the refinement `Ψ = iterStarRefine` by agreement on the substituted images of
+  the `Φ`-classes. The refinement is *not* plain `substRefine`: `Φ` does not
+  saturate `L^{⋆z}` (e.g. `L = {f(z)}` with a constant `c` gives
+  `f(f(z)) Φ f(f(c))` with `f(f(z)) ∈ L^{⋆z}`, `f(f(c)) ∉ L^{⋆z}`). Pieces:
+  (a) Lemma A `iterStar_op_mem` (`op P ∈ L^{⋆z}` + `P i Ψ Q i` ⇒ `op Q ∈ L^{⋆z}`,
+  by level induction); (b) closure `iterImage_iterLang_subset`
+  (`(z\L^{⋆z})^♯(L) ⊆ L^{⋆z}`, via the level-lifting identity
+  `substHom_iterAssign_iUnion`, a max over the finitely many arguments);
+  (c) `/Psi` is a congruence via `substClass_op_imp_of` with the variable case
+  from Lemma A. Axioms `[propext, Classical.choice, Quot.sound]`, no `sorry`.
 
 ## 5. `PRecQ`
 

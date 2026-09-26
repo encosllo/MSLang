@@ -6965,10 +6965,11 @@ the two remaining §3.3/§3.4 results `PRecIt` (iteration) and `PRecQ` (quotient
 after Session 130 completed `PRecSubs`. Unmapped `Mscong` infrastructure; no
 block IDs, no evidence, `mscong.ingested` stays `false`.
 
-**Outcome.** `PRecQ` is **proved** (recognizability *and* the paper's "finitely
-many quotients" clause); the iteration is **defined** with its elementary chain
-facts; `PRecIt` itself is **deferred** to a follow-up change, with the exact
-obstacle recorded below.
+**Outcome.** **M3 is complete.** `PRecQ` is **proved** (recognizability *and*
+the paper's "finitely many quotients" clause); the iteration is **defined** with
+its elementary chain facts and **`PRecIt` is proved**. All of `PRecSubs`,
+`PRecIt`, `PRecQ` are now `sorry`-free with permitted axioms; `Mscong.Iteration`
+also carries `PRecIt`.
 
 **What was established (closed).**
 
@@ -7023,40 +7024,41 @@ obstacle recorded below.
 - The Session 130 stale-olean cache is **resolved**: targeted module builds are
   ~100 s (whole-module elaboration), not a whole-`Mslang` rebuild.
 
-**Finding (why `PRecIt` is deferred -- a concrete, recorded obstacle).** The
-paper's iteration proof refines `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` by agreement on the
-substituted images `(z\L^{⋆z})^♯([W])` of the `Φ`-classes, then uses a
-*minimality induction* on the construction of `L^{⋆z}` for the cases where the
-class representative is `z`. This cannot reuse `substRefine`: **`Φ` does not
-saturate `L^{⋆z}`.** Concretely, with one sort, `L = {f(z)}`, a constant `c`, and
-`Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})`, the term `f(f(z)) ∈ L^{⋆z}` is `Φ`-related to
-`f(f(c)) ∉ L^{⋆z}` (no translation into `L` or `{z}` distinguishes them), so the
-variable-at-`z` case genuinely needs the paper's bespoke argument. That argument
-was worked out but not written this session; it has three parts:
-(a) **Lemma A**: `op P ∈ L^{⋆z}` and `P i Ψ Q i` imply `op Q ∈ L^{⋆z}`, by
-induction on the level `j`, using the `Ψ` class-agreement and the
-`Φ`-saturation of `L`; (b) the closure `(z\L^{⋆z})^♯(L) ⊆ L^{⋆z}` used by Lemma
-A's operation case, which needs the level-lifting identity
-`substHom (iterAssign z L^{⋆z}) W = ⋃_j substHom (iterAssign z L^{j,z}) W` (by
-induction on `W` and a max over its finitely many `z`-occurrences); and (c) the
-congruence of `Ψ = substRefine (iterAssign z L^{⋆z}) Φ` via the new
-`substClass_op_imp_of`, whose variable case is Lemma A. The PRecIt-supporting
-lemmas (`substLang_singleton`, `substHom_mono`, `iterAssign_mono`, and the
-`substClass_op_imp_of` refactor) are already in place. This is a separate,
-substantial formalization, split out per `design.md` ("Scope" risk: close M3 in
-stages). `openspec/changes/add-substitution-recognizability` stays **open** with
-task 4.2 unchecked.
+**`PRecIt` (completed).** The paper's iteration proof refines
+`Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` by agreement on the substituted images
+`(z\L^{⋆z})^♯([W])` of the `Φ`-classes. It cannot reuse plain `substRefine`:
+**`Φ` does not saturate `L^{⋆z}`.** Concretely, with one sort, `L = {f(z)}`, a
+constant `c`, and `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})`, the term `f(f(z)) ∈ L^{⋆z}` is
+`Φ`-related to `f(f(c)) ∉ L^{⋆z}` (no translation into `L` or `{z}` distinguishes
+them), so the variable-at-`z` case needed the paper's bespoke argument. It is now
+formalized as three lemmas in `Mscong.Iteration`:
+
+- **Lemma A** (`iterStar_op_mem`): `op P ∈ L^{⋆z}` and `P i Ψ Q i` imply
+  `op Q ∈ L^{⋆z}`, by induction on the level `j`, using the `Ψ` class-agreement
+  and the `Φ`-saturation of `L`.
+- **Closure** (`iterImage_iterLang_subset`): `(z\L^{⋆z})^♯(L) ⊆ L^{⋆z}`, from
+  the level-lifting identity `substHom_iterAssign_iUnion`
+  (`substHom (iterAssign z L^{⋆z}) W = ⋃_j substHom (iterAssign z L^{j,z}) W`,
+  by induction on `W` and `Finset.univ.sup` over its finitely many arguments).
+- **Congruence** of `Ψ = iterStarRefine` via `substClass_op_imp_of`, with the
+  variable case supplied by Lemma A (both directions; the reverse uses `Ψ`'s
+  symmetry).
+
+`#print axioms Mscong.PRecIt` = `[propext, Classical.choice, Quot.sound]`
+(permitted); no `sorry`. `PRecQ` is *not* the paper's `Ψ`-refinement but an
+equivalent finite-union decomposition (see above). No correspondence/evidence
+record is produced (M3 is unmapped infrastructure).
 
 **Honest caveats.** `[Finite S]` on `PRecQ` is stronger than the proof needs
-(kept for fidelity to the paper). The paper's `Ψ`-refinement is not formalized;
-`PRecQ` is proved by an equivalent finite-union decomposition instead. No
+(kept for fidelity to the paper). `PRecIt` *does* use the paper's `Ψ`-refinement;
+`PRecQ` instead uses an equivalent finite-union decomposition. No
 correspondence/evidence record is produced (M3 is unmapped infrastructure).
+`mscong.ingested` remains `false`.
 
 **Prioritized next steps.**
 
-1. Open the `PRecIt` follow-up change (the §3.3 minimality induction), or fold it
-   into M4 if preferred; the definitions and chain facts are already in
-   `Mscong.Iteration`.
+1. Archive `add-substitution-recognizability` (all tasks complete) and sync its
+   delta spec to `openspec/specs/formalization/mcong-substitution`.
 2. Optional: `CRecSubs` (the `fixOthers` cross-sort override).
 3. **M4** (tree homomorphisms `PRecH`/`PRecLH`/`PRecILH`).
 4. Reconcile the two pre-existing `MSCong.tex` label issues with the author
