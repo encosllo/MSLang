@@ -6956,6 +6956,87 @@ definitionally at `z`; recorded as deferred.
 4. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
+---
+
+## Session 131 -- 2026-09-26 -- M3: `PRecQ` proved; iteration defined, `PRecIt` deferred
+
+**Goal.** Continue the OpenSpec change `add-substitution-recognizability` (M3):
+the two remaining §3.3/§3.4 results `PRecIt` (iteration) and `PRecQ` (quotient),
+after Session 130 completed `PRecSubs`. Unmapped `Mscong` infrastructure; no
+block IDs, no evidence, `mscong.ingested` stays `false`.
+
+**Outcome.** `PRecQ` is **proved** (recognizability *and* the paper's "finitely
+many quotients" clause); the iteration is **defined** with its elementary chain
+facts; `PRecIt` itself is **deferred** to a follow-up change, with the exact
+obstacle recorded below.
+
+**What was established (closed).**
+
+- `lean/Mscong/Quotient.lean` (new; imported by `Mscong.Main`):
+  - the single-variable substitution as a `Σ`-endomorphism,
+    `subst1_isAlgHom`; its preservation of congruences, `subst1_congr`; and the
+    same-class convergence `subst1_mem_iff_of_rel` (`V Φ V'` and `L`
+    `Φ`-saturated give `(subst1 z V)⁻¹[L] = (subst1 z V')⁻¹[L]`);
+  - the `z`-quotient `quotLang` (`K^{-z}L = {U | ∃ V ∈ K, (z\V)(U) ∈ L}`) and
+    `mem_quotLang`;
+  - recognizability of the empty language and of finite unions
+    (`recognizable_empty_term`, `recognizable_finset_iUnion`);
+  - **`PRecQ`**. The proof is a **different, cleaner route** than the paper's:
+    decompose `K^{-z}L = ⋃_{V∈K} (subst1 z V)⁻¹[L]`, note each term depends only
+    on the `Ω(δ^{s,L})`-class of `V`, and take the finite union over the classes
+    met by `K` (finite by `IsFiniteIndex`). Each term is recognizable by
+    `recognizable_inverseImage` applied to a `Σ`-endomorphism. No `S`-finiteness
+    is actually used (the hypothesis `[Finite S]` is kept to match the paper).
+  - `quotLang_range_finite`: the "moreover" clause, via the factoring
+    `K ↦ Quotient.mk '' K` into the finite powerset `Set (T_Σ(X)_t/Ω(δ^{s,L}))`.
+- `lean/Mscong/Iteration.lean` (new; imported by `Mscong.Main`):
+  - `iterImage` (`(z\Q)^♯(L)` as the direct image `{P[z:=U] | P ∈ L, U ∈ Q}`),
+    `iterLevel` (`L^{0,z} = {z}`, `L^{j+1,z} = L^{j,z} ∪ (z\L^{j,z})^♯(L)`), and
+    `iterLang` (`L^{⋆z} = ⋃_j L^{j,z}`);
+  - `subst1_self` (`P[z:=z] = P`), `iterImage_self` (`(z\{z})^♯(L) = L`),
+    `iterLevel_one` (`L^{1,z} = L ∪ {z}`), and the ascending-chain facts
+    `iterLevel_subset_succ`/`iterLevel_mono`/`iterLevel_subset_iterLang`.
+- `lean/Mscong/Main.lean` imports `Mscong.Iteration` and `Mscong.Quotient`.
+
+**Verification.**
+
+- Targeted `lake build Mscong.Quotient` / `Mscong.Iteration`: **0 errors, 0
+  warnings**; no `sorry`.
+- `python3 scripts/lean_audit.py --project mscong`: **0 declarations, 0
+  warnings, 0 `sorry`, ok=True**. `lean/declarations.mscong.json` still empty,
+  `evidence/mscong/` still empty.
+- `check_all.sh --fast`: green; the `mslang` golden baseline is unchanged.
+- The Session 130 stale-olean cache is **resolved**: targeted module builds are
+  ~100 s (whole-module elaboration), not a whole-`Mslang` rebuild.
+
+**Finding (why `PRecIt` is deferred -- a concrete, recorded obstacle).** The
+paper's iteration proof refines `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` by agreement on the
+substituted images `(z\L^{⋆z})^♯([W])` of the `Φ`-classes, then uses a
+*minimality induction* on the construction of `L^{⋆z}` for the cases where the
+class representative is `z`. This cannot reuse `substRefine`: **`Φ` does not
+saturate `L^{⋆z}`.** Concretely, with one sort, `L = {f(z)}`, a constant `c`, and
+`Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})`, the term `f(f(z)) ∈ L^{⋆z}` is `Φ`-related to
+`f(f(c)) ∉ L^{⋆z}` (no translation into `L` or `{z}` distinguishes them), so the
+variable-at-`z` case genuinely needs the paper's bespoke argument. That argument
+is a separate, substantial formalization, split out per `design.md` ("Scope"
+risk: close M3 in stages). `openspec/changes/add-substitution-recognizability`
+stays **open** with task 4.2 unchecked.
+
+**Honest caveats.** `[Finite S]` on `PRecQ` is stronger than the proof needs
+(kept for fidelity to the paper). The paper's `Ψ`-refinement is not formalized;
+`PRecQ` is proved by an equivalent finite-union decomposition instead. No
+correspondence/evidence record is produced (M3 is unmapped infrastructure).
+
+**Prioritized next steps.**
+
+1. Open the `PRecIt` follow-up change (the §3.3 minimality induction), or fold it
+   into M4 if preferred; the definitions and chain facts are already in
+   `Mscong.Iteration`.
+2. Optional: `CRecSubs` (the `fixOthers` cross-sort override).
+3. **M4** (tree homomorphisms `PRecH`/`PRecLH`/`PRecILH`).
+4. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

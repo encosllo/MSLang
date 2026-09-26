@@ -1,6 +1,8 @@
 import Mscong.Recognizable
 import Mscong.BasicTerms
 import Mscong.Substitution
+import Mscong.Iteration
+import Mscong.Quotient
 import Mscong.TreeHom
 
 /-!

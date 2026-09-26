@@ -43,33 +43,48 @@
 
 ## 4. `PRecIt`
 
-- [ ] 4.1 Define the `z`-iteration `L^{⋆z}` (the union of the recursively defined
-  `L^{j,z}`, `L^{0,z} = {z}`); verify `L^{1,z} = L ∪ {z}` and monotonicity.
-- [ ] 4.2 Form `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` (finite index, using M2's
-  `PRecVar` for `{z}`) and apply the refinement lemma to conclude `PRecIt`.
+- [x] 4.1 Defined the `z`-iteration in `lean/Mscong/Iteration.lean`
+  (`iterImage`, `iterLevel`, `iterLang`); verified `L^{1,z} = L ∪ {z}`
+  (`iterLevel_one`, via `subst1_self`) and monotonicity
+  (`iterLevel_subset_succ`, `iterLevel_mono`).
+- [ ] 4.2 **Deferred** to a follow-up change. Form
+  `Φ = Ω(δ^{s,L}) ∩ Ω(δ^{s,z})` (finite index, using M2's `PRecVar` for `{z}`)
+  and the paper's refinement `Ψ` by agreement on the substituted images of the
+  `Φ`-classes, concluding `PRecIt` via a minimality induction on the construction
+  of `L^{⋆z}`. The refinement is *not* `substRefine`: `Φ` does not saturate
+  `L^{⋆z}` (e.g. `L = {f(z)}` with a constant `c` gives `f(f(z)) Φ f(f(c))` with
+  `f(f(z)) ∈ L^{⋆z}`, `f(f(c)) ∉ L^{⋆z}`), so the op/edge cases need the paper's
+  bespoke argument rather than the reusable `substRefine` core. See `STATE.md`
+  Session 131.
 
 ## 5. `PRecQ`
 
-- [ ] 5.1 Define the `z`-quotient `K^{-z}L = {U | (z\K)^♯_s(U) ∩ L ≠ ∅}`.
-- [ ] 5.2 Form `Φ = Ω(δ^{s,L})` and apply the refinement lemma to conclude
-  `PRecQ` (recognizability), and prove the set of `z`-quotients of a fixed
-  recognizable `L` is finite.
+- [x] 5.1 Defined the `z`-quotient in `lean/Mscong/Quotient.lean`
+  (`quotLang`, `mem_quotLang`).
+- [x] 5.2 Proved `PRecQ` (`lean/Mscong/Quotient.lean`) and the finiteness clause
+  (`quotLang_range_finite`). The proof differs from the paper's `Ψ`-refinement:
+  it decomposes `K^{-z}L = ⋃_{V∈K} (subst1 z V)⁻¹[L]`, observes that
+  `(subst1 z V)⁻¹[L]` depends only on the `Ω(δ^{s,L})`-class of `V`
+  (`subst1_mem_iff_of_rel`), and takes the finite union over the classes met by
+  `K`. Each term is recognizable by `recognizable_inverseImage` (the
+  substitution is a `Σ`-endomorphism, `subst1_isAlgHom`); finite unions are
+  closed (`recognizable_finset_iUnion`).
 
 ## 6. Infrastructure discipline and gate
 
-- [ ] 6.1 Confirm `lean/declarations.mscong.json` still maps no declarations and
-  no evidence is written under `evidence/mscong/`; verify `scripts/projects.py
+- [x] 6.1 Confirmed `lean/declarations.mscong.json` still maps no declarations
+  and no evidence is written under `evidence/mscong/`; `scripts/projects.py
   --check` and `--collisions` pass.
-- [ ] 6.2 Confirm the default project is untouched: `scripts/projects.py
+- [x] 6.2 Confirmed the default project is untouched: `scripts/projects.py
   --check-baseline` passes and `scripts/check_all.sh --fast` is green.
-- [ ] 6.3 Run `python3 scripts/lean_audit.py --project mscong` and confirm no
-  warnings, no `sorry`, and permitted axioms only; record the result.
+- [x] 6.3 Ran `python3 scripts/lean_audit.py --project mscong`: 0 declarations,
+  0 warnings, 0 `sorry`, `ok=True`.
 
 ## 7. Docs and state
 
-- [ ] 7.1 Record the M3 session in `STATE.md` (what was formalized, axioms, the
-  deferred mapping/evidence decision, next steps); verify it names `Mscong` and
-  the free-algebra scope.
-- [ ] 7.2 Note in `STATE.md` that tree homomorphisms (M4) and derivors (M5)
-  remain open, with the milestone they belong to. If M3 is split, record which
-  of substitution/iteration/quotient is deferred and to which follow-up change.
+- [x] 7.1 Recorded the M3 session in `STATE.md` (what was formalized, axioms, the
+  deferred mapping/evidence decision, next steps); it names `Mscong` and the
+  free-algebra scope.
+- [x] 7.2 Noted in `STATE.md` that tree homomorphisms (M4) and derivors (M5)
+  remain open, and that M3 is split: substitution (`PRecSubs`) and quotient
+  (`PRecQ`) are complete, `PRecIt` is deferred to a follow-up change.
