@@ -492,6 +492,278 @@ theorem mem_substInto_of_termLift {φ : S → T} (w : List S)
     exact ⟨fun i => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ (p.1.get i) (a i),
       ih, rfl⟩
 
+/-! ### Linearity, `Occurs`, and the extraction of substitution coordinates
+
+The converse of `mem_substInto_of_termLift` -- recovering the family `P` from a
+member of `((v_i ↦ A_i))^♯(R)` -- needs `R` linear. In the operation case of the
+induction the assignments of the arguments must be glued, and linearity
+(`∑_j count_i(a_j) ≤ 1`) makes their placeholder occurrences disjoint, so the
+choices for the same index agree. This is the step `PRecLH` relies on. -/
+
+/-- The placeholder of index `i` occurs in a term over `Yplus φ Y w`. -/
+def Occurs {φ : S → T} (w : List S) (i : Fin w.length) :
+    {u : T} → Term Xi (Yplus φ Y w) u → Prop
+  | _, Term.var v =>
+      match v with
+      | Sum.inl _ => False
+      | Sum.inr q => (q.1 : Fin w.length) = i
+  | _, Term.op _ _ a => ∃ j, Occurs w i (a j)
+
+/-- An occurring placeholder is counted. -/
+theorem countPlaceholder_pos_of_occurs {φ : S → T} {w : List S} {i : Fin w.length} :
+    ∀ {u : T} {R : Term Xi (Yplus φ Y w) u}, Occurs w i R →
+      0 < countPlaceholder φ w i R := by
+  intro u R
+  refine Term.rec (motive := fun u R => Occurs w i R → 0 < countPlaceholder φ w i R)
+    ?var ?op R
+  case var =>
+    intro u v
+    cases v with
+    | inl y => intro h; exact h.elim
+    | inr q =>
+        intro h
+        change (q.1 : Fin w.length) = i at h
+        rw [← h]
+        simp [countPlaceholder]
+  case op =>
+    intro p ξ a ih h
+    change (∃ j, Occurs w i (a j)) at h
+    obtain ⟨j, hj⟩ := h
+    change 0 < Finset.univ.sum (fun j => countPlaceholder φ w i (a j))
+    exact lt_of_lt_of_le (ih j hj)
+      (Finset.single_le_sum (f := fun j => countPlaceholder φ w i (a j))
+        (fun _ _ => Nat.zero_le _) (Finset.mem_univ j))
+
+/-- Membership under a transported set (element cast along `e`). -/
+theorem mem_cast_set {ι : Type u} {F : ι → Type u} {a b : ι} (e : a = b)
+    (S : Set (F a)) (x : F a) :
+    e ▸ x ∈ (e ▸ S : Set (F b)) ↔ x ∈ S := by cases e; rfl
+
+/-- Membership under a transported set (element on the codomain side). -/
+theorem mem_cast_set' {ι : Type u} {F : ι → Type u} {a b : ι} (e : a = b)
+    (S : Set (F a)) (x : F b) :
+    x ∈ (e ▸ S : Set (F b)) ↔ e.symm ▸ x ∈ S := by cases e; rfl
+
+/-- `e ▸ e.symm ▸ x = x`. -/
+theorem eqRec_symm_eqRec_self {ι : Type u} {F : ι → Type u} {a b : ι} (e : a = b)
+    (x : F b) : e ▸ (e.symm ▸ x) = x := by cases e; rfl
+
+/-- `e.symm ▸ e ▸ x = x`. -/
+theorem eqRec_eqRec_symm_self {ι : Type u} {F : ι → Type u} {a b : ι} (e : a = b)
+    (x : F a) : e.symm ▸ (e ▸ x) = x := by cases e; rfl
+
+/-- The placeholder assignment `inl y ↦ η(y)`, `inr q ↦ P q.1` as a sorted map on
+`Yplus φ Y w` (the second component of `cSubstAssign` is never used, so this
+avoids needing a sort of `S`). -/
+def substAssign {φ : S → T} (w : List S)
+    (P : (i : Fin w.length) → Term Xi Y (φ (w.get i))) :
+    SortedMap (Yplus φ Y w) (Term Xi Y) :=
+  fun _ v =>
+    match v with
+    | Sum.inl y => Term.var y
+    | Sum.inr q => q.2 ▸ P q.1
+
+/-- The forward membership direction for `substAssign`: a family `P` with
+`P i ∈ A i` realises `termLift (substAssign w P) R ∈ ((v_i ↦ A_i))^♯(R)`. -/
+theorem mem_substInto_substAssign {φ : S → T} (w : List S)
+    (A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i))))
+    (P : (i : Fin w.length) → Term Xi Y (φ (w.get i)))
+    (hP : ∀ i, P i ∈ A i) :
+    ∀ {t : T} (R : Term Xi (Yplus φ Y w) t),
+      termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 (substAssign w P) t R
+        ∈ substInto w A t R := by
+  intro t R
+  exact mem_substInto_of_termLift w A (substAssign w P) (fun _ _ => rfl)
+    (fun _ q => (mem_cast_set q.2 (A q.1) (P q.1)).mpr (hP q.1)) R
+
+/-- `termLift` over `Yplus φ Y w` depends only on the assignment's values on the
+occurring placeholders (both assignments are the identity on `Y`). -/
+theorem termLift_eq_of_agree {φ : S → T} {w : List S}
+    (τ τ' : SortedMap (Yplus φ Y w) (Term Xi Y))
+    (hinl : ∀ (u : T) (y : Y u), τ u (Sum.inl y) = τ' u (Sum.inl y)) :
+    ∀ {u : T} (R : Term Xi (Yplus φ Y w) u),
+      (∀ (v : T) (q : {i : Fin w.length // φ (w.get i) = v}),
+        Occurs w q.1 R → τ v (Sum.inr q) = τ' v (Sum.inr q)) →
+      termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ u R
+        = termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ' u R := by
+  intro u R
+  refine Term.rec (motive := fun u R =>
+      (∀ (v : T) (q : {i : Fin w.length // φ (w.get i) = v}),
+        Occurs w q.1 R → τ v (Sum.inr q) = τ' v (Sum.inr q)) →
+      termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ u R
+        = termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ' u R) ?var ?op R
+  case var =>
+    intro u v hag
+    cases v with
+    | inl y => exact hinl u y
+    | inr q =>
+        exact hag u q (by change (q.1 : Fin w.length) = q.1; rfl)
+  case op =>
+    intro p ξ a ih hag
+    change Term.op p ξ (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ
+        (p.1.get j) (a j))
+      = Term.op p ξ (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ'
+        (p.1.get j) (a j))
+    have hfun : (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ (p.1.get j) (a j))
+        = (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ' (p.1.get j) (a j)) := by
+      funext j
+      exact ih j (fun v q hq => hag v q (by
+        change (∃ j', Occurs w q.1 (a j')); exact ⟨j, hq⟩))
+    rw [hfun]
+
+/-- Extraction of substitution coordinates (the converse of
+`mem_substInto_substAssign`) for a **linear** term: a member of
+`((v_i ↦ A_i))^♯(R)` is `termLift (substAssign w P) R` for a family `P` with
+`P i ∈ A i`. -/
+theorem exists_eq_substAssign_of_mem_substInto {φ : S → T} (w : List S)
+    (A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i))))
+    (hA : ∀ i, (A i).Nonempty) :
+    ∀ {t : T} (R : Term Xi (Yplus φ Y w) t),
+      (∀ i, countPlaceholder φ w i R ≤ 1) →
+      ∀ {W : Term Xi Y t}, W ∈ substInto w A t R →
+        ∃ P : (i : Fin w.length) → Term Xi Y (φ (w.get i)),
+          (∀ i, P i ∈ A i) ∧
+          termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 (substAssign w P) t R = W := by
+  intro t R
+  refine Term.rec (motive := fun t R =>
+      (∀ i, countPlaceholder φ w i R ≤ 1) →
+      ∀ {W : Term Xi Y t}, W ∈ substInto w A t R →
+        ∃ P : (i : Fin w.length) → Term Xi Y (φ (w.get i)),
+          (∀ i, P i ∈ A i) ∧
+          termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 (substAssign w P) t R = W)
+    ?var ?op R
+  case var =>
+    intro u v hlin W hW
+    cases v with
+    | inl y =>
+        have hW' : W = Term.var y := by
+          have h := hW
+          change W ∈ ({Term.var y} : Set (Term Xi Y u)) at h
+          simpa using h
+        subst hW'
+        exact ⟨fun i => Classical.choose (hA i),
+          (fun i => Classical.choose_spec (hA i)), rfl⟩
+    | inr q0 =>
+        change W ∈ (q0.2 ▸ A q0.1 : Set (Term Xi Y u)) at hW
+        have hWmem : q0.2.symm ▸ W ∈ A q0.1 := (mem_cast_set' q0.2 (A q0.1) W).mp hW
+        refine ⟨fun i => if h : i = q0.1 then
+            ((congrArg (fun j => φ (w.get j)) h).symm ▸ (q0.2.symm ▸ W))
+          else Classical.choose (hA i), ?_, ?_⟩
+        · intro i
+          change (if h : i = q0.1 then
+              ((congrArg (fun j => φ (w.get j)) h).symm ▸ (q0.2.symm ▸ W))
+            else Classical.choose (hA i)) ∈ A i
+          split
+          · rename_i h
+            subst h
+            exact hWmem
+          · exact Classical.choose_spec (hA i)
+        · change q0.2 ▸ (if h : q0.1 = q0.1 then
+              ((congrArg (fun j => φ (w.get j)) h).symm ▸ (q0.2.symm ▸ W))
+            else Classical.choose (hA q0.1)) = W
+          rw [dif_pos rfl]
+          exact eqRec_symm_eqRec_self q0.2 W
+  case op =>
+    intro p ξ a ih hlin W hW
+    change (∃ b : (i : Fin p.1.length) → Term Xi Y (p.1.get i),
+      (∀ i, b i ∈ substInto w A (p.1.get i) (a i)) ∧ Term.op p ξ b = W) at hW
+    obtain ⟨b, hb, hbW⟩ := hW
+    have hlinj : ∀ j, ∀ i, countPlaceholder φ w i (a j) ≤ 1 := by
+      intro j i
+      have h := hlin i
+      rw [show countPlaceholder φ w i (Term.op p ξ a)
+          = Finset.univ.sum (fun j => countPlaceholder φ w i (a j)) from rfl] at h
+      exact le_trans (Finset.single_le_sum (f := fun j => countPlaceholder φ w i (a j))
+        (fun _ _ => Nat.zero_le _) (Finset.mem_univ j)) h
+    choose Pj hPj hPjlift using fun j => ih j (hlinj j) (hb j)
+    have huniq : ∀ (i : Fin w.length) (j1 j2 : Fin p.1.length),
+        Occurs w i (a j1) → Occurs w i (a j2) → j1 = j2 := by
+      intro i j1 j2 hj1 hj2
+      by_contra hne
+      have hsumle : Finset.univ.sum (fun j => countPlaceholder φ w i (a j)) ≤ 1 := by
+        have h := hlin i
+        rwa [show countPlaceholder φ w i (Term.op p ξ a)
+            = Finset.univ.sum (fun j => countPlaceholder φ w i (a j)) from rfl] at h
+      have hp1 := countPlaceholder_pos_of_occurs hj1
+      have hp2 := countPlaceholder_pos_of_occurs hj2
+      have hpair : countPlaceholder φ w i (a j1) + countPlaceholder φ w i (a j2)
+          ≤ Finset.univ.sum (fun j => countPlaceholder φ w i (a j)) := by
+        have hs : ({j1, j2} : Finset (Fin p.1.length)).sum
+              (fun x => countPlaceholder φ w i (a x))
+            ≤ (Finset.univ : Finset (Fin p.1.length)).sum
+              (fun x => countPlaceholder φ w i (a x)) :=
+          Finset.sum_le_sum_of_subset_of_nonneg
+            (by intro x _; exact Finset.mem_univ x)
+            (by intro x _ _; exact Nat.zero_le _)
+        rwa [Finset.sum_pair hne] at hs
+      omega
+    let P : (i : Fin w.length) → Term Xi Y (φ (w.get i)) := fun i =>
+      if h : ∃ j, Occurs w i (a j) then Pj h.choose i else Classical.choose (hA i)
+    have hPin : ∀ i, P i ∈ A i := by
+      intro i
+      change (if h : ∃ j, Occurs w i (a j) then Pj h.choose i
+        else Classical.choose (hA i)) ∈ A i
+      split
+      · rename_i h; exact hPj h.choose i
+      · exact Classical.choose_spec (hA i)
+    have hglue : ∀ j, termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 (substAssign w P)
+        (p.1.get j) (a j) = b j := by
+      intro j
+      rw [← hPjlift j]
+      refine termLift_eq_of_agree (substAssign w P)
+        (substAssign w (Pj j)) (fun u y => rfl) (a j) (fun v q hq => ?_)
+      have hPval : P q.1 = Pj j q.1 := by
+        have hex : ∃ j', Occurs w q.1 (a j') := ⟨j, hq⟩
+        change (if h : ∃ j', Occurs w q.1 (a j') then Pj h.choose q.1
+          else Classical.choose (hA q.1)) = Pj j q.1
+        rw [dif_pos hex]
+        exact congrArg (fun j' => Pj j' q.1)
+          (huniq q.1 hex.choose j (Classical.choose_spec hex) hq)
+      change q.2 ▸ P q.1 = q.2 ▸ Pj j q.1
+      rw [hPval]
+    refine ⟨P, hPin, ?_⟩
+    change Term.op p ξ (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+        (substAssign w P) (p.1.get j) (a j)) = W
+    rw [show (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+        (substAssign w P) (p.1.get j) (a j)) = b from funext hglue]
+    exact hbW
+
+/-- `cSubstAssign` is `substAssign` on its first component. -/
+theorem cSubstAssign_eq_substAssign {φ : S → T} (p : List S × S)
+    (P : (i : Fin p.1.length) → Term Xi Y (φ (p.1.get i))) :
+    cSubstAssign p P = substAssign p.1 P := by
+  funext u v
+  cases v <;> rfl
+
+/-- `cSubst` in terms of `substAssign`. -/
+theorem cSubst_eq {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (p : List S × S)
+    (σ : Sig p) (P : (i : Fin p.1.length) → Term Xi Y (φ (p.1.get i))) :
+    cSubst H p σ P
+      = termLift Xi (Yplus φ Y p.1) (termAlg Xi Y).2 (substAssign p.1 P) (φ p.2)
+          (H.c p σ) := by
+  rw [cSubst, cSubstAssign_eq_substAssign]
+
+/-- Membership in `((v_i ↦ A_i))^♯(c(σ))` is exactly being `cSubst(σ, P)` for a
+family `P` with `P i ∈ A i`, when `c(σ)` is linear. -/
+theorem mem_cSubstLang_iff {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (p : List S × S) (σ : Sig p)
+    (A : (i : Fin p.1.length) → Set (Term Xi Y (φ (p.1.get i))))
+    (hA : ∀ i, (A i).Nonempty)
+    (hlin : ∀ i, countPlaceholder φ p.1 i (H.c p σ) ≤ 1) {W : Term Xi Y (φ p.2)} :
+    W ∈ cSubstLang p.1 A (H.c p σ) ↔
+      ∃ P : (i : Fin p.1.length) → Term Xi Y (φ (p.1.get i)),
+        (∀ i, P i ∈ A i) ∧ cSubst H p σ P = W := by
+  constructor
+  · intro hW
+    obtain ⟨P, hP, hPw⟩ :=
+      exists_eq_substAssign_of_mem_substInto p.1 A hA (H.c p σ) hlin hW
+    refine ⟨P, hP, ?_⟩
+    rw [cSubst, cSubstAssign_eq_substAssign]
+    exact hPw
+  · rintro ⟨P, hP, rfl⟩
+    rw [cSubst, cSubstAssign_eq_substAssign]
+    exact mem_substInto_substAssign p.1 A P hP (H.c p σ)
+
 /-- The range of a homomorphism is a subalgebra. -/
 theorem isSubalgebra_range {B : SSet T} {FB : AlgStruct Xi B}
     {g : SortedMap (Term Xi Y) B} (hg : IsAlgHom Xi (termAlg Xi Y).2 FB g) :
@@ -751,6 +1023,87 @@ theorem isFiniteIndex_treeRefine {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
       simp only [Quotient.lift_mk] at hc
       by_cases hM : M ∈ treeTestSet H s L t χ <;>
         by_cases hN : N ∈ treeTestSet H s L t χ <;> simp_all
+
+/-- Task 4.3 of `PRecLH`: the direct image `f♯_s[L]` is `Ψ_{φ(s)}`-saturated.
+Case (a) uses `Φ`'s saturation of the singleton generators; case (b) uses the
+second condition of `Ψ` at the test `(σ, c(σ), ([P_i]_{Θ}))` together with the
+linearity of `c(σ)` (via `mem_cSubstLang_iff`). -/
+theorem isSat_treeRefine_image {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (hirr : Hyperderivor.IsLinear H) (s : S) (L : Set (Term Sig X s)) :
+    IsSat (treeRefine H s L) (deltaSub (φ s) (treeHom H s '' L)) := by
+  classical
+  refine isSat_of_forall_mem ?_
+  intro u x y hx hxy
+  by_cases hu : u = φ s
+  · subst hu
+    rw [deltaSub_self] at hx ⊢
+    obtain ⟨P, hPL, hPx⟩ := hx
+    subst hPx
+    have opcase : ∀ (w : List S) (σ₀ : Sig (w, s))
+        (Q : (i : Fin w.length) → Term Sig X (w.get i)),
+        Term.op (w, s) σ₀ Q ∈ L →
+        (treeRefine H s L (φ s)).r (treeHom H s (Term.op (w, s) σ₀ Q)) y →
+        y ∈ treeHom H s '' L := by
+      intro w σ₀ Q hPL hxy
+      let l : (i : Fin w.length) → Quotient (treeTheta Sig X s L (w.get i)) :=
+        fun i => Quotient.mk (treeTheta Sig X s L (w.get i)) (Q i)
+      let A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i))) :=
+        fun i => treeClassImage H s L (w.get i) (l i)
+      let χ : TreeTest H s L (φ s) :=
+        ⟨⟨(w, s), σ₀⟩, ⟨H.c (w, s) σ₀, Subt_self (H.c (w, s) σ₀)⟩, fun i => l i⟩
+      have hfam : ∀ i, treeHom H (w.get i) (Q i) ∈ A i := fun i => ⟨Q i, rfl, rfl⟩
+      have hχ : treeTestSet H s L (φ s) χ = cSubstLang w A (H.c (w, s) σ₀) := rfl
+      have hXmem : treeHom H s (Term.op (w, s) σ₀ Q) ∈ treeTestSet H s L (φ s) χ := by
+        rw [show treeHom H s (Term.op (w, s) σ₀ Q)
+              = cSubst H (w, s) σ₀ (fun i => treeHom H (w.get i) (Q i))
+            from treeHom_op H (w, s) σ₀ Q,
+            cSubst_eq, hχ]
+        exact mem_substInto_substAssign w A (fun i => treeHom H (w.get i) (Q i)) hfam
+          (H.c (w, s) σ₀)
+      have hymem : y ∈ treeTestSet H s L (φ s) χ := (hxy.2 χ).mp hXmem
+      rw [hχ] at hymem
+      obtain ⟨P', hP', hP'y⟩ :=
+        (mem_cSubstLang_iff H (w, s) σ₀ A
+          (fun i => ⟨treeHom H (w.get i) (Q i), hfam i⟩) (hirr (w, s) σ₀)).mp hymem
+      have hP'img : ∀ i, ∃ W : Term Sig X (w.get i),
+          Quotient.mk (treeTheta Sig X s L (w.get i)) W = l i ∧
+            treeHom H (w.get i) W = P' i := by
+        intro i
+        have h := hP' i
+        change P' i ∈ treeClassImage H s L (w.get i) (l i) at h
+        exact (Set.mem_image _ _ _).mp h
+      choose Q' hQ'cl hQ'eq using hP'img
+      have hrel : ∀ i, (treeTheta Sig X s L (w.get i)).r (Q' i) (Q i) := by
+        intro i
+        have h := hQ'cl i
+        rw [show l i = Quotient.mk (treeTheta Sig X s L (w.get i)) (Q i) from rfl] at h
+        exact Quotient.exact h
+      have hΘc := (congCogenerated_isCongruence Sig (termAlg Sig X) (deltaSub s L))
+        (w, s) σ₀ Q' Q hrel
+      have hLmem : Term.op (w, s) σ₀ Q' ∈ L := by
+        have hsat := isSat_congCogenerated Sig (termAlg Sig X) (deltaSub s L)
+        have hx0 : Term.op (w, s) σ₀ Q ∈ deltaSub s L s := by
+          rw [deltaSub_self]; exact hPL
+        have h := isSat_mem hsat hx0 ((treeTheta Sig X s L s).symm hΘc)
+        rw [deltaSub_self] at h
+        exact h
+      refine ⟨Term.op (w, s) σ₀ Q', hLmem, ?_⟩
+      rw [show treeHom H s (Term.op (w, s) σ₀ Q')
+            = cSubst H (w, s) σ₀ (fun i => treeHom H (w.get i) (Q' i))
+          from treeHom_op H (w, s) σ₀ Q']
+      rw [show (fun i => treeHom H (w.get i) (Q' i)) = P' from funext hQ'eq]
+      exact hP'y
+    rcases term_shape Sig X s P with ⟨x0, rfl⟩ | ⟨σ₀, rfl⟩ | ⟨w, _hw, σ₀, Q, rfl⟩
+    · have hrel : (treePhi H (φ s)).r (H.f s x0) y := hxy.1
+      have hx0 : H.f s x0 ∈ deltaSub (φ s) ({H.f s x0} : Set (Term Xi Y (φ s))) (φ s) := by
+        rw [deltaSub_self]; exact Set.mem_singleton _
+      have hy := isSat_mem (isSat_treePhi_singleton H s x0) hx0 hrel
+      rw [deltaSub_self] at hy
+      exact ⟨Term.var x0, hPL, by rw [Set.mem_singleton_iff.mp hy]; rfl⟩
+    · exact opcase [] σ₀ (fun i => i.elim0) hPL hxy
+    · exact opcase w σ₀ Q hPL hxy
+  · rw [deltaSub_of_ne hu] at hx
+    exact absurd hx (Set.notMem_empty x)
 
 /-- `PRecH` (`MSCong` Prop. `PRecH`): the inverse image of a recognizable language
 under a tree homomorphism is recognizable. The proof passes to the range of the
