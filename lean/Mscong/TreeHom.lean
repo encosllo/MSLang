@@ -254,6 +254,186 @@ theorem Subt_finite {Z : SSet T} :
           (Set.finite_iUnion (fun i => ih i t))
       · exact Set.finite_empty.union (Set.finite_iUnion (fun i => ih i t))
 
+/-! ### The subterm automaton: singleton term languages are recognizable
+
+The finite-index congruence `Φ` of `PRecLH` is the intersection of the syntactic
+congruences `Ω(δ^{φ(r),{f_r(x)}})` of the **singleton** languages `{f_r(x)}`; to
+show it is of finite index we need `{f_r(x)} ∈ Rec`. More generally, every
+singleton `{P} ⊆ T_Ξ(Z)` of a term is recognizable: it is recognized by the
+*subterm automaton* of `P`, whose states at each sort are the subterms of `P`
+together with a dead value. -/
+
+/-- The arguments of an operation that is a subterm are themselves subterms. -/
+theorem Subt_op_arg {Z : SSet T} {A : T} (P : Term Xi Z A) {p : List T × T}
+    (σ : Xi p) (a : (i : Fin p.1.length) → Term Xi Z (p.1.get i))
+    (h : Term.op p σ a ∈ Subt P p.2) (i : Fin p.1.length) :
+    a i ∈ Subt P (p.1.get i) :=
+  Subt_trans P h (Subt_op_mem σ a i (Subt_self (a i)))
+
+/-- Candidate carrier of the subterm automaton of `P`: a subterm of `P` at the
+given sort, or the dead value. -/
+abbrev SubtermState {Z : SSet T} {A : T} (P : Term Xi Z A) : SSet T :=
+  fun t => Option (Subt P t)
+
+/-- Insertion of the variables into the subterm automaton: a variable term goes to
+itself when it is a subterm of `P`, and to the dead value otherwise. -/
+noncomputable def subtermEta {Z : SSet T} {A : T} (P : Term Xi Z A) :
+    SortedMap Z (SubtermState P) :=
+  fun t y =>
+    if h : (Term.var y : Term Xi Z t) ∈ Subt P t then some ⟨Term.var y, h⟩
+    else none
+
+/-- The operation of the subterm automaton: apply `ξ` when every argument is a
+subterm of `P` and the result is again one, and return the dead value
+otherwise. -/
+noncomputable def subtermAlg {Z : SSet T} {A : T} (P : Term Xi Z A) :
+    AlgStruct Xi (SubtermState P) :=
+  fun p σ a =>
+    if h : ∀ i, (a i).isSome = true then
+      let Q : Term Xi Z p.2 := Term.op p σ (fun i => ((a i).get (h i)).1)
+      if hQ : Q ∈ Subt P p.2 then some ⟨Q, hQ⟩ else none
+    else none
+
+theorem subtermAlg_of_allSome {Z : SSet T} {A : T} (P : Term Xi Z A)
+    {p : List T × T} (σ : Xi p)
+    (a : (i : Fin p.1.length) → SubtermState P (p.1.get i))
+    (h : ∀ i, (a i).isSome = true)
+    (hQ : Term.op p σ (fun i => ((a i).get (h i)).1) ∈ Subt P p.2) :
+    subtermAlg P p σ a
+      = some ⟨Term.op p σ (fun i => ((a i).get (h i)).1), hQ⟩ := by
+  unfold subtermAlg
+  rw [dif_pos h, dif_pos hQ]
+
+theorem subtermAlg_of_not_allSome {Z : SSet T} {A : T} (P : Term Xi Z A)
+    {p : List T × T} (σ : Xi p)
+    (a : (i : Fin p.1.length) → SubtermState P (p.1.get i))
+    (h : ¬ ∀ i, (a i).isSome = true) : subtermAlg P p σ a = none := by
+  unfold subtermAlg
+  rw [dif_neg h]
+
+theorem subtermAlg_of_notMem {Z : SSet T} {A : T} (P : Term Xi Z A)
+    {p : List T × T} (σ : Xi p)
+    (a : (i : Fin p.1.length) → SubtermState P (p.1.get i))
+    (h : ∀ i, (a i).isSome = true)
+    (hQ : Term.op p σ (fun i => ((a i).get (h i)).1) ∉ Subt P p.2) :
+    subtermAlg P p σ a = none := by
+  unfold subtermAlg
+  rw [dif_pos h, dif_neg hQ]
+
+/-- The subterm automaton sends a term `Q` to `some q` only when `q` is `Q`
+itself. -/
+theorem termLift_subtermAlg_fst {Z : SSet T} {A : T} (P : Term Xi Z A) :
+    ∀ {t : T} (Q : Term Xi Z t) (q : Subt P t),
+      termLift Xi Z (subtermAlg P) (subtermEta P) t Q = some q → q.1 = Q := by
+  intro t Q
+  refine Term.rec (motive := fun t Q => ∀ (q : Subt P t),
+      termLift Xi Z (subtermAlg P) (subtermEta P) t Q = some q → q.1 = Q)
+    ?var ?op Q
+  case var =>
+    intro s y q h
+    change subtermEta P s y = some q at h
+    unfold subtermEta at h
+    split at h
+    · injection h with hq
+      subst hq
+      rfl
+    · exact absurd h (by simp)
+  case op =>
+    intro p σ a ih q h
+    change subtermAlg P p σ
+      (fun i => termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i))
+      = some q at h
+    by_cases hall : ∀ i, (termLift Xi Z (subtermAlg P) (subtermEta P)
+      (p.1.get i) (a i)).isSome = true
+    · by_cases hQ : (Term.op p σ (fun i =>
+          ((termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i)).get
+            (hall i)).1))
+          ∈ Subt P p.2
+      · rw [subtermAlg_of_allSome P σ
+          (fun i => termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i))
+          hall hQ] at h
+        have hq : (⟨Term.op p σ (fun i =>
+            ((termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i)).get
+              (hall i)).1), hQ⟩ : Subt P p.2) = q :=
+          (Option.some.injEq _ _).mp h
+        rw [← hq]
+        exact congrArg (Term.op p σ)
+          (funext (fun i => ih i _ (Option.some_get (hall i)).symm))
+      · rw [subtermAlg_of_notMem P σ
+          (fun i => termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i))
+          hall hQ] at h
+        exact absurd h (by simp)
+    · rw [subtermAlg_of_not_allSome P σ
+        (fun i => termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i))
+        hall] at h
+      exact absurd h (by simp)
+
+/-- The subterm automaton sends each subterm of `P` to itself. -/
+theorem termLift_subtermAlg_mem {Z : SSet T} {A : T} (P : Term Xi Z A) :
+    ∀ {t : T} (Q : Term Xi Z t), Q ∈ Subt P t →
+      ∃ h : Q ∈ Subt P t,
+        termLift Xi Z (subtermAlg P) (subtermEta P) t Q = some ⟨Q, h⟩ := by
+  intro t Q
+  refine Term.rec (motive := fun t Q => Q ∈ Subt P t →
+      ∃ h : Q ∈ Subt P t,
+        termLift Xi Z (subtermAlg P) (subtermEta P) t Q = some ⟨Q, h⟩)
+    ?var ?op Q
+  case var =>
+    intro s y h
+    exact ⟨h, by
+      change subtermEta P s y = some ⟨Term.var y, h⟩
+      unfold subtermEta
+      rw [dif_pos h]⟩
+  case op =>
+    intro p σ a ih h
+    have harg : ∀ i, a i ∈ Subt P (p.1.get i) := fun i => Subt_op_arg P σ a h i
+    choose hh hEq using fun i => ih i (harg i)
+    have hall : ∀ i, (termLift Xi Z (subtermAlg P) (subtermEta P)
+        (p.1.get i) (a i)).isSome = true := by
+      intro i; rw [hEq i]; rfl
+    have hget : ∀ i, ((termLift Xi Z (subtermAlg P) (subtermEta P)
+          (p.1.get i) (a i)).get (hall i))
+        = (⟨a i, hh i⟩ : Subt P (p.1.get i)) := by
+      intro i
+      simp only [hEq i, Option.get_some]
+    have hQeq : (fun i => ((termLift Xi Z (subtermAlg P) (subtermEta P)
+          (p.1.get i) (a i)).get (hall i)).1) = a := by
+      funext i; rw [hget i]
+    have hQmem : (Term.op p σ (fun i => ((termLift Xi Z (subtermAlg P) (subtermEta P)
+          (p.1.get i) (a i)).get (hall i)).1)) ∈ Subt P p.2 := by
+      rw [hQeq]; exact h
+    refine ⟨h, ?_⟩
+    change subtermAlg P p σ
+        (fun i => termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i))
+      = some ⟨Term.op p σ a, h⟩
+    rw [subtermAlg_of_allSome P σ
+      (fun i => termLift Xi Z (subtermAlg P) (subtermEta P) (p.1.get i) (a i))
+      hall hQmem]
+    exact congrArg some (Subtype.ext (congrArg (Term.op p σ) hQeq))
+
+/-- Every singleton language of a term is recognizable (`MSCong` §3.5): the
+subterm automaton of `P` recognizes `{P}` as the fibre of `P` itself. -/
+theorem recognizableAt_term {Z : SSet T} [Finite T] {A : T} (P : Term Xi Z A) :
+    RecognizableAt Xi (termAlg Xi Z) A ({P} : Set (Term Xi Z A)) := by
+  classical
+  refine ⟨⟨SubtermState P, subtermAlg P⟩, ?_,
+    termLift Xi Z (subtermAlg P) (subtermEta P),
+    termLift_isAlgHom Xi Z (subtermAlg P) (subtermEta P),
+    {some ⟨P, Subt_self P⟩}, ?_⟩
+  · show FiniteSSet (SubtermState P)
+    haveI : Fintype T := Fintype.ofFinite T
+    haveI : ∀ t, Fintype (Subt P t) := fun t => (Subt_finite P t).fintype
+    exact Finite.of_fintype _
+  · ext Q
+    simp only [Set.mem_singleton_iff, Set.mem_preimage]
+    constructor
+    · intro hQP
+      rw [hQP]
+      obtain ⟨h, hh⟩ := termLift_subtermAlg_mem P P (Subt_self P)
+      rw [hh]
+    · intro h
+      exact (termLift_subtermAlg_fst P Q ⟨P, Subt_self P⟩ h).symm
+
 /-- Substituting a language family for the placeholders of `w` into any term:
 the paper's operator `((v_i ↦ A_i))^♯(R)`. -/
 noncomputable def substInto {φ : S → T} (w : List S)
@@ -341,20 +521,67 @@ theorem cAlg_to_cStruct {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) {B : SSe
 
 /-! ### The refinement `Ψ` for `PRecLH` -/
 
+/-- The factors of `Φ`: the syntactic congruence `Ω(δ^{φ(r),{f_r(x)}})` of the
+generator `(r,x) ∈ ∐X`, together with a harmless top factor at the extra `Unit`
+index. The extra index makes the family nonempty (as in `PRecSubs`), so
+`IsFiniteIndex_inter` applies even when `X` is empty; `nabla` is the top relation
+and does not change the intersection. -/
+noncomputable def treePhiFac {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) :
+    (Sigma X ⊕ Unit) → SortedEqv (Term Xi Y) :=
+  fun i =>
+    match i with
+    | Sum.inl x => congCogenerated Xi (termAlg Xi Y)
+        (deltaSub (φ x.1) ({H.f x.1 x.2} : Set (Term Xi Y (φ x.1))))
+    | Sum.inr _ => nabla (Term Xi Y)
+
 /-- `Φ` (`MSCong` §3.5, `PRecLH`): the intersection, over the generators
 `(x,r) ∈ ∐X`, of the syntactic congruences `Ω(δ^{φ(r),{f_r(x)}})` on
-`T_Ξ(Y)`. -/
+`T_Ξ(Y)` (the extra `Unit` factor of `treePhiFac` is top and harmless). -/
 noncomputable def treePhi {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) :
     SortedEqv (Term Xi Y) :=
-  sortedEqvInter (fun x : Sigma X =>
-    congCogenerated Xi (termAlg Xi Y)
-      (deltaSub (φ x.1) ({H.f x.1 x.2} : Set (Term Xi Y (φ x.1)))))
+  sortedEqvInter (treePhiFac H)
+
+/-- `Φ` is of finite index when `X` and the sort set `T` are finite: it is the
+intersection of the finitely many syntactic congruences of the singleton
+generators (`recognizableAt_term`) and `nabla`. -/
+theorem isFiniteIndex_treePhi {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    [Fintype (Sigma X)] [Finite T] : IsFiniteIndex (treePhi H) := by
+  classical
+  haveI : Nonempty (Sigma X ⊕ Unit) := ⟨Sum.inr ()⟩
+  show IsFiniteIndex (sortedEqvInter (treePhiFac H))
+  refine IsFiniteIndex_inter (Φ := treePhiFac H) (fun i => ?_)
+  cases i with
+  | inl x =>
+      exact recognizable_isRegularLanguage Xi (termAlg Xi Y)
+        (deltaSub (φ x.1) ({H.f x.1 x.2} : Set (Term Xi Y (φ x.1))))
+        ((recognizableAt_iff Xi (termAlg Xi Y) (φ x.1)
+          ({H.f x.1 x.2} : Set (Term Xi Y (φ x.1)))).mp
+            (recognizableAt_term (H.f x.1 x.2)))
+  | inr _ =>
+      exact isFiniteIndex_nabla (Term Xi Y)
+        ((finite_supp_term_iff Xi).mpr ‹Finite T› Y)
+
+/-- Each singleton generator `{f_r(x)}` is `Φ`-saturated: it is saturated by its
+own syntactic factor, which refines `Φ`. -/
+theorem isSat_treePhi_singleton {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (r : S) (x : X r) :
+    IsSat (treePhi H) (deltaSub (φ r) ({H.f r x} : Set (Term Xi Y (φ r)))) :=
+  sat_antitone (sortedEqvInter_le (treePhiFac H) (Sum.inl ⟨r, x⟩))
+    (isSat_congCogenerated Xi (termAlg Xi Y) (deltaSub (φ r) {H.f r x}))
 
 /-- `Θ` (`MSCong` §3.5, `PRecLH`): the syntactic congruence `Ω(δ^{s,L})` on
 `T_Σ(X)`. -/
 noncomputable def treeTheta (Sig : Signature S) (X : SSet S) (s : S)
     (L : Set (Term Sig X s)) : SortedEqv (Term Sig X) :=
   congCogenerated Sig (termAlg Sig X) (deltaSub s L)
+
+/-- `Θ` is of finite index when `L` is `s`-recognizable. -/
+theorem isFiniteIndex_treeTheta (Sig : Signature S) (X : SSet S) (s : S)
+    (L : Set (Term Sig X s))
+    (hL : RecognizableAt Sig (termAlg Sig X) s L) :
+    IsFiniteIndex (treeTheta Sig X s L) :=
+  recognizable_isRegularLanguage Sig (termAlg Sig X) (deltaSub s L)
+    ((recognizableAt_iff Sig (termAlg Sig X) s L).mp hL)
 
 /-- The direct image of the `l`-class of `Θ_r` under `f♯_r` (the paper's
 `f♯_r[[W_{r,l}]_{Θ_r}]`). -/

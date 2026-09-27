@@ -27,11 +27,16 @@
   `s ↦ Br_{φ(s)}` is finite-total only when the sort set is; the paper omits
   this because its finiteness notion is coarser.
 
-## 4. `PRecLH` (deferred; see the plan below)
+## 4. `PRecLH` (in progress; see the plan below)
 
-- [ ] 4.1 Form `Φ = ⋂_{(x,r)} Ω(δ^{φ(r),{f_r(x)}})` (finite index, using
+- [x] 4.1 Form `Φ = ⋂_{(x,r)} Ω(δ^{φ(r),{f_r(x)}})` (finite index, using
   `IsFiniteIndex_inter` over the finite `X`) and `Θ = Ω(δ^{s,L})` (finite
-  index); prove `Φ` saturates each `{f_r(x)}`.
+  index); prove `Φ` saturates each `{f_r(x)}`. Done in `Mscong.TreeHom`:
+  every singleton term language is recognizable (`recognizableAt_term`, via the
+  **subterm automaton** `SubtermState`/`subtermAlg`), so each factor is of finite
+  index; `treePhi` carries a harmless top (`nabla`) `Unit` factor so the index is
+  non-empty even when `X` is (as in `PRecSubs`); `isFiniteIndex_treePhi`,
+  `isSat_treePhi_singleton`, and `isFiniteIndex_treeTheta` are proved.
 - [~] 4.2 (Infrastructure done; `Ψ` itself open.) Defined `Subt` (the
   componentwise subterms of a term, `Subt_self`/`Subt_op_mem`/`Subt_finite`),
   the operator `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯ (R)`). Still to do:

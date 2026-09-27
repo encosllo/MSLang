@@ -7142,6 +7142,78 @@ congruence case analysis, and the `Ψ`-saturation of `f♯_s[L]`.
 3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
+---
+
+## Session 133 -- 2026-09-27 -- M4 `PRecLH` task 4.1: `Φ`/`Θ` finite index, `Φ` saturates the generators
+
+**Goal.** Continue the OpenSpec change `add-tree-homomorphisms-recognizability`
+(M4): the first piece of the deferred `PRecLH` (task 4.1) -- the finite-index
+congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapped
+`Mscong` infrastructure; no block IDs, no evidence, `mscong.ingested` stays
+`false`.
+
+**What was established (closed).**
+
+- `lean/Mscong/TreeHom.lean` gained a **subterm automaton** proving that every
+  singleton term language is recognizable:
+  - `Subt_op_arg` (the arguments of a subterm operation are subterms);
+  - `SubtermState P := fun t => Option (Subt P t)` (subterms of `P` plus a dead
+    value), `subtermEta` (variables go to themselves when subterms of `P`), and
+    `subtermAlg` (apply `ξ` when every argument is a subterm of `P` and the
+    result is one, else dead), with the helper equations
+    `subtermAlg_of_allSome`/`_of_not_allSome`/`_of_notMem`;
+  - `termLift_subtermAlg_fst`/`_mem`. `termLift` of the automaton sends `Q` to
+    `some ⟨Q, _⟩` iff `Q ∈ Subt P`, so the fibre of `P` is exactly `{P}`;
+  - **`recognizableAt_term`**: `{P}` is `t`-recognizable (needs `[Finite T]`).
+- `treePhi` now intersects the factors indexed by `(Sigma X) ⊕ Unit`, the `Unit`
+  factor being `nabla (Term Xi Y)` (top, harmless). This makes the index
+  non-empty even when `X` is empty, mirroring `PRecSubs`' `⊕ Unit`; the new def
+  `treePhiFac` is the factor family.
+- **`isFiniteIndex_treePhi`** (needs `[Fintype (Sigma X)] [Finite T]`): a
+  `IsFiniteIndex_inter` over `(Sigma X) ⊕ Unit`; each inl factor is finite index
+  by `recognizableAt_term` + `recognizableAt_iff` + `recognizable_isRegularLanguage`,
+  the `Unit` factor by `isFiniteIndex_nabla` and `finite_supp_term_iff` (finite
+  `T`).
+- **`isSat_treePhi_singleton`**: `Φ` saturates each `{f_r(x)}`, via
+  `sat_antitone (sortedEqvInter_le _ (Sum.inl ⟨r,x⟩))` and
+  `isSat_congCogenerated`.
+- **`isFiniteIndex_treeTheta`**: `Θ` is finite index when `L` is
+  `s`-recognizable, directly from `recognizableAt_iff` and
+  `recognizable_isRegularLanguage`.
+
+**Verification.**
+
+- Targeted `lake build Mscong.TreeHom`: **0 errors, 0 warnings**, no `sorry`.
+- `python3 scripts/lean_audit.py --project mscong`: **0 declarations, 0 warnings,
+  0 `sorry`, ok=True**; `lean/declarations.mscong.json` still empty,
+  `evidence/mscong/` still empty.
+- `scripts/check_all.sh --fast`: **47 passed, 0 failed, 4 deferred**; the `mslang`
+  golden baseline is unchanged.
+
+**Findings / gotchas.**
+
+- `Option.get` in this Lean/Mathlib takes the proof `o.isSome = true` (not the
+  `Bool`), so the automaton's "all some" branch had to be phrased with the
+  hypothesis `h : ∀ i, (a i).isSome = true`; several `rw` steps then had to be
+  replaced by `simp only [..., Option.get_some]` because the rewrite motive
+  mentions the dependent proof.
+- `Term.rec` with an explicit `motive` and named holes (`?var`/`?op`) is what
+  avoids the index/sort mismatch that a bare `induction ... using Term.rec`
+  produced here.
+- `treePhi`'s definition changed (extra `nabla` factor). This is semantically
+  the same intersection, and the already-proved `treeRefine_le_phi` /
+  `isFiniteIndex_treeRefine` are generic in `treePhi`, so no proof changed.
+
+**Prioritized next steps.**
+
+1. `PRecLH` task 4.2: prove `Ψ = treeRefine` is a **congruence** (the paper's
+   case analysis (a)/(b.1.i)/(b.1.ii)/(b.2), using linearity).
+2. `PRecLH` task 4.3: prove `f♯_s[L]` is `Ψ_{φ(s)}`-saturated and conclude
+   `PRecLH` via `recognizable_iff_exists_finiteIndex_sat`; then close tasks 5-6
+   and archive.
+3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
