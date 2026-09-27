@@ -7197,6 +7197,11 @@ congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapp
   uniqueness of the argument containing placeholder `i` (`∑_j count_i(a_j) ≤ 1`)
   and the `termLift_eq_of_agree` reduction.
 - **`mem_cSubstLang_iff`**: the `cSubstLang`/`cSubst` specialization.
+- **Congruence prerequisites.** `countPlaceholder_cast`,
+  `countPlaceholder_le_of_mem_Subt` and `linear_of_mem_Subt` (linearity is
+  inherited by subterms), and `exists_glue_substAssign` (the per-argument
+  assignments on the codomain side glue into one, by the same placeholder
+  uniqueness). `Term_op_cast` is the transport coherence for `Term.op`.
 - **Task 4.3 saturation, done.** **`isSat_treeRefine_image`**:
   `f♯_s[L]` is `Ψ_{φ(s)}`-saturated. Case (a) (`P` a variable) via
   `isSat_treePhi_singleton`; case (b) (`P = σ(Q_i)`) via the second condition of
@@ -7206,15 +7211,19 @@ congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapp
   `cases` on `Term Sig X s` substitutes the index `s` and breaks the surrounding
   hypotheses.
 
-**Still open (the last piece).** The **second condition of `Ψ`'s congruence**:
-`IsCongruence (treeRefine H s L)` under `H.IsLinear`. Forward step: from
-`ξ(a) ∈ ((v_i ↦ A_i))^♯(R)`, extract `ξ(a) = termLift (substAssign w P) R`
-(`P i = f♯(W_i)`, `W_i ∈ [W_{l_i}]_Θ`), then case on `R` -- (a) no placeholders;
-(b.1) `R = v_{i₀}`, split on whether `W_{i₀}` is a variable (`Φ`-saturation of
-`{f(x)}`) or `ν(Q)` (test at `R_j ∈ Subt(c(ν))` + `Θ`-congruence); (b.2)
-`R = ξ(R_j)` (test at `R_j` + `Ψ` on the arguments). Then `PRecLH` follows from
-`isCongruence_treePhi` (first component), the new congruence, `isFiniteIndex_treeRefine`
-and `isSat_treeRefine_image` via `recognizable_iff_exists_finiteIndex_sat`.
+- **`Ψ`'s congruence, done (task 4.2).** `treeTestSet_op_imp` is the forward
+  implication of the second condition. Its case (b.1) heart is
+  **`treeClassImage_congr`**, a structural induction on the domain term `W`:
+  variable → `Φ`-saturation of the generator singleton; operation `ν(Q)` with
+  `c(ν) = Term.op ξ R_j` → test at `R_j ∈ Subt(c(ν))`, `Θ`-congruence and
+  `exists_glue_substAssign`; `c(ν) = var(inr q)` → recurse on `Q q.1` (the
+  `var(inr)` branch the paper leaves implicit). `isCongruence_treeRefine`
+  assembles it with `isCongruence_treePhi`.
+- **`PRecLH`, done (task 4.3).** `isSat_treeRefine_image` (already proved) plus
+  `isCongruence_treeRefine`, `isFiniteIndex_treeRefine`, `isFiniteIndex_treeTheta`
+  and `recognizable_iff_exists_finiteIndex_sat`. Carries `[Finite S] [Finite T]
+  [Finite (Sigma Sig)]` and `FiniteSSet X` (the paper's finiteness hypotheses).
+  **M4 is complete: `PRecH` and `PRecLH` are both `sorry`-free.**
 
 **Verification.**
 
@@ -7238,15 +7247,19 @@ and `isSat_treeRefine_image` via `recognizable_iff_exists_finiteIndex_sat`.
 - `treePhi`'s definition changed (extra `nabla` factor). This is semantically
   the same intersection, and the already-proved `treeRefine_le_phi` /
   `isFiniteIndex_treeRefine` are generic in `treePhi`, so no proof changed.
+- The paper's congruence proof omits the sub-case `c(ν) = var(inr q)`: under the
+  formal encoding `f♯(ν(Q)) = f♯(Q q.1)` may delete the operation symbol, so
+  case (b.1) needs **structural recursion on the domain term** `W` (formalized in
+  `treeClassImage_congr`, with `Term_op_cast`/`updateTerm` for the sort
+  transport), not merely a case analysis on the test subterm `R`.
 
 **Prioritized next steps.**
 
-1. `PRecLH` task 4.2: the **second condition** of `Ψ = treeRefine`'s congruence
-   (the paper's case analysis (a)/(b.1.i)/(b.1.ii)/(b.2), using linearity; the
-   first component `isCongruence_treePhi` is done). This is the only open proof.
-2. Conclude `PRecLH` from `isCongruence_treePhi` + the congruence +
-   `isFiniteIndex_treeRefine` + `isSat_treeRefine_image`; then close tasks 5-6
-   and archive the change.
+1. **M4 is complete.** The OpenSpec change
+   `add-tree-homomorphisms-recognizability` can be archived (`openspec archive`).
+2. **M5** (derivors / Hall algebras, `MSCong.tex` §4) is the next milestone;
+   decision-gated (per the M0 roadmap). **M6** (correspondence audit / block
+   mapping) still open. `PRecILH` remains out of scope (commented out).
 3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 

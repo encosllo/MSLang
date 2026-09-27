@@ -596,6 +596,25 @@ theorem eqRec_symm_eqRec_self {ι : Type u} {F : ι → Type u} {a b : ι} (e : 
 theorem eqRec_eqRec_symm_self {ι : Type u} {F : ι → Type u} {a b : ι} (e : a = b)
     (x : F a) : e.symm ▸ (e ▸ x) = x := by cases e; rfl
 
+/-- Coherence of `Term.op` under a transport of the result sort. -/
+theorem Term_op_cast {u : List T} {s₁ s₂ : T} (e : s₁ = s₂) (σ : Xi (u, s₁))
+    (R : (i : Fin u.length) → Term Xi Y (u.get i)) :
+    Term.op (u, s₂) (e ▸ σ) R = e ▸ Term.op (u, s₁) σ R := by cases e; rfl
+
+/-- A dependent family updated at one index. -/
+def updateTerm {n : Nat} {α : Fin n → Type u} (f : (i : Fin n) → α i) (i₀ : Fin n)
+    (y : α i₀) : (i : Fin n) → α i :=
+  fun i => if h : i = i₀ then h.symm ▸ y else f i
+
+theorem updateTerm_self {n : Nat} {α : Fin n → Type u} (f : (i : Fin n) → α i)
+    (i₀ : Fin n) (y : α i₀) : updateTerm f i₀ y i₀ = y := by
+  unfold updateTerm
+  exact dif_pos rfl
+
+theorem updateTerm_of_ne {n : Nat} {α : Fin n → Type u} (f : (i : Fin n) → α i)
+    {i₀ i : Fin n} (y : α i₀) (h : i ≠ i₀) : updateTerm f i₀ y i = f i := by
+  simp only [updateTerm, dif_neg h]
+
 /-- The placeholder assignment `inl y ↦ η(y)`, `inr q ↦ P q.1` as a sorted map on
 `Yplus φ Y w` (the second component of `cSubstAssign` is never used, so this
 avoids needing a sort of `S`). -/
@@ -1210,6 +1229,330 @@ theorem isSat_treeRefine_image {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
     · exact opcase w σ₀ Q hPL hxy
   · rw [deltaSub_of_ne hu] at hx
     exact absurd hx (Set.notMem_empty x)
+
+/-- `PRecLH` congruence, case (b.1): if `ξ(a) = f♯_r(W)` and `(a_j,b_j) ∈ Ψ` for
+all `j`, then `ξ(b)` is also an `f♯_r`-image of a term in the `Θ`-class of `W`.
+Structural induction on `W`: the variable case uses `Φ`'s saturation of the
+generator singleton; the operation case reduces `f♯_r(ν(Q))` to a substitution
+into `c(ν)` and either applies the second condition of `Ψ` at the subterms of
+`c(ν)` (when `c(ν)` is an operation) or recurses on `Q` (when `c(ν)` is a
+placeholder). -/
+theorem treeClassImage_congr {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (hirr : Hyperderivor.IsLinear H) (s : S) (L : Set (Term Sig X s))
+    (r : S) (W : Term Sig X r) :
+    ∀ (u : List T) (ξ : Xi (u, φ r))
+      (a b : (j : Fin u.length) → Term Xi Y (u.get j)),
+      (∀ j, (treeRefine H s L (u.get j)).r (a j) (b j)) →
+      Term.op (u, φ r) ξ a = treeHom H r W →
+      Term.op (u, φ r) ξ b ∈ treeClassImage H s L r
+        (Quotient.mk (treeTheta Sig X s L r) W) := by
+  induction W using Term.rec with
+  | var x =>
+      rename_i r'
+      intro u ξ a b hPsi hWa
+      have hWa' : Term.op (u, φ r') ξ a = H.f r' x := hWa
+      have hΦrel : (treePhi H (φ r')).r (H.f r' x) (Term.op (u, φ r') ξ b) := by
+        rw [← hWa']
+        exact isCongruence_treePhi H (u, φ r') ξ a b (fun j => (hPsi j).1)
+      have hx : H.f r' x ∈ deltaSub (φ r') ({H.f r' x} : Set (Term Xi Y (φ r'))) (φ r') := by
+        rw [deltaSub_self]; exact Set.mem_singleton _
+      have hb := isSat_mem (isSat_treePhi_singleton H r' x) hx hΦrel
+      rw [deltaSub_self] at hb
+      refine ⟨Term.var x, rfl, ?_⟩
+      rw [Set.mem_singleton_iff.mp hb]
+      rfl
+  | op p ν Q ih =>
+      intro u ξ a b hPsi hWa
+      let P0 : (i : Fin p.1.length) → Term Xi Y (φ (p.1.get i)) :=
+        fun i => treeHom H (p.1.get i) (Q i)
+      have hP0 : ∀ i, P0 i ∈ treeClassImage H s L (p.1.get i)
+          (Quotient.mk (treeTheta Sig X s L (p.1.get i)) (Q i)) :=
+        fun i => ⟨Q i, rfl, rfl⟩
+      have htree : treeHom H p.2 (Term.op p ν Q)
+          = termLift Xi (Yplus φ Y p.1) (termAlg Xi Y).2 (substAssign p.1 P0)
+              (φ p.2) (H.c p ν) := by
+        rw [show treeHom H p.2 (Term.op p ν Q) = cSubst H p ν P0 from treeHom_op H p ν Q,
+            cSubst_eq]
+      have hWa' : Term.op (u, φ p.2) ξ a
+          = termLift Xi (Yplus φ Y p.1) (termAlg Xi Y).2 (substAssign p.1 P0)
+              (φ p.2) (H.c p ν) := hWa.trans htree
+      -- the operation case of `c(ν)` (b.1.ii)
+      have hgoal : ∀ (w' : List T) (ξ' : Xi (w', φ p.2)),
+          ∀ (Rj : (j : Fin w'.length) → Term Xi (Yplus φ Y p.1) (w'.get j)),
+          H.c p ν = Term.op (w', φ p.2) ξ' Rj →
+          Term.op (u, φ p.2) ξ b ∈ treeClassImage H s L p.2
+            (Quotient.mk (treeTheta Sig X s L p.2) (Term.op p ν Q)) := by
+        intro w' ξ' Rj hR0
+        have hWa'' : Term.op (u, φ p.2) ξ a
+            = Term.op (w', φ p.2) ξ' (fun j => termLift Xi (Yplus φ Y p.1)
+                (termAlg Xi Y).2 (substAssign p.1 P0) (w'.get j) (Rj j)) := by
+          rw [hWa', hR0]
+          rfl
+        injection hWa'' with h1 h2 h3
+        have hu : u = w' := (Prod.mk.injEq u (φ p.2) w' (φ p.2)).mp h1 |>.1
+        subst hu
+        have hξ : ξ' = ξ := (eq_of_heq h2).symm
+        subst hξ
+        have hargs : a = (fun j => termLift Xi (Yplus φ Y p.1) (termAlg Xi Y).2
+            (substAssign p.1 P0) (u.get j) (Rj j)) := eq_of_heq h3
+        have hRjmem : ∀ j, Rj j ∈ Subt (H.c p ν) (u.get j) := by
+          intro j
+          have h := Subt_op_mem ξ' Rj j (Subt_self (Rj j))
+          rwa [← hR0] at h
+        let A' : (i : Fin p.1.length) → Set (Term Xi Y (φ (p.1.get i))) :=
+          fun i => treeClassImage H s L (p.1.get i)
+            (Quotient.mk (treeTheta Sig X s L (p.1.get i)) (Q i))
+        have hA' : ∀ i, (A' i).Nonempty := fun i => ⟨P0 i, hP0 i⟩
+        let χfun : (j : Fin u.length) → TreeTest H s L (u.get j) := fun j =>
+          ⟨⟨p, ν⟩, ⟨Rj j, hRjmem j⟩,
+            fun i => Quotient.mk (treeTheta Sig X s L (p.1.get i)) (Q i)⟩
+        have hχfun : ∀ j, treeTestSet H s L (u.get j) (χfun j)
+            = cSubstLang p.1 A' (Rj j) := fun j => rfl
+        have hbjmem : ∀ j, b j ∈ cSubstLang p.1 A' (Rj j) := by
+          intro j
+          have haj : a j ∈ treeTestSet H s L (u.get j) (χfun j) := by
+            rw [hχfun j, congrFun hargs j]
+            exact mem_substInto_substAssign p.1 A' P0 hP0 (Rj j)
+          have h := ((hPsi j).2 (χfun j)).mp haj
+          rwa [hχfun j] at h
+        have hbex : ∀ j, ∃ P : (i : Fin p.1.length) → Term Xi Y (φ (p.1.get i)),
+            (∀ i, P i ∈ A' i) ∧
+            termLift Xi (Yplus φ Y p.1) (termAlg Xi Y).2 (substAssign p.1 P)
+              (u.get j) (Rj j) = b j := by
+          intro j
+          exact exists_eq_substAssign_of_mem_substInto p.1 A' hA' (Rj j)
+            (fun i => linear_of_mem_Subt hirr p ν (hRjmem j) i) (hbjmem j)
+        obtain ⟨P, hPin, hPlift⟩ := exists_glue_substAssign p.1 A' hA'
+          ξ' Rj (fun i => by rw [← hR0]; exact hirr p ν i) b hbex
+        have hPex : ∀ i, ∃ Q₂ : Term Sig X (p.1.get i),
+            Quotient.mk (treeTheta Sig X s L (p.1.get i)) Q₂
+                = Quotient.mk (treeTheta Sig X s L (p.1.get i)) (Q i) ∧
+            treeHom H (p.1.get i) Q₂ = P i := by
+          intro i
+          have h := hPin i
+          change P i ∈ treeClassImage H s L (p.1.get i)
+            (Quotient.mk (treeTheta Sig X s L (p.1.get i)) (Q i)) at h
+          exact (Set.mem_image _ _ _).mp h
+        choose Q₂ hQ₂cl hQ₂eq using hPex
+        have hrel2 : ∀ i, (treeTheta Sig X s L (p.1.get i)).r (Q₂ i) (Q i) :=
+          fun i => Quotient.exact (hQ₂cl i)
+        refine ⟨Term.op p ν Q₂, ?_, ?_⟩
+        · apply Quotient.sound
+          refine (congCogenerated_isCongruence Sig (termAlg Sig X) (deltaSub s L))
+            p ν Q₂ Q hrel2
+        · rw [show treeHom H p.2 (Term.op p ν Q₂)
+              = cSubst H p ν (fun i => treeHom H (p.1.get i) (Q₂ i))
+            from treeHom_op H p ν Q₂,
+            cSubst_eq,
+            show (fun i => treeHom H (p.1.get i) (Q₂ i)) = P from funext hQ₂eq,
+            hR0]
+          change Term.op (u, φ p.2) ξ'
+              (fun j => termLift Xi (Yplus φ Y p.1) (termAlg Xi Y).2
+                (substAssign p.1 P) (u.get j) (Rj j))
+            = Term.op (u, φ p.2) ξ' b
+          rw [funext hPlift]
+      rcases term_shape Xi (Yplus φ Y p.1) (φ p.2) (H.c p ν) with
+        ⟨x0, hR0⟩ | ⟨σ0, hR0⟩ | ⟨w', _hw', ξ', Rj, hR0⟩
+      · cases x0 with
+        | inl y =>
+            rw [hR0] at hWa'
+            exact absurd hWa' (by intro hh; cases hh)
+        | inr q0 =>
+            have hstep : Term.op (u, φ p.2) ξ a = q0.2 ▸ P0 q0.1 := by
+              have hh := hWa'
+              rw [hR0] at hh
+              simpa only [termLift, substAssign] using hh
+            have hWa₂ : Term.op (u, φ (p.1.get q0.1)) (q0.2.symm ▸ ξ) a
+                = treeHom H (p.1.get q0.1) (Q q0.1) := by
+              rw [Term_op_cast q0.2.symm ξ a, hstep,
+                eqRec_eqRec_symm_self q0.2 (P0 q0.1)]
+            obtain ⟨W₂, hW₂class, hW₂⟩ := ih q0.1 u (q0.2.symm ▸ ξ) a b hPsi hWa₂
+            let Q' : (i : Fin p.1.length) → Term Sig X (p.1.get i) := updateTerm Q q0.1 W₂
+            have hQ'self : Q' q0.1 = W₂ := updateTerm_self Q q0.1 W₂
+            have hQ'ne : ∀ i, i ≠ q0.1 → Q' i = Q i := fun i hi =>
+              updateTerm_of_ne Q W₂ hi
+            refine ⟨Term.op p ν Q', ?_, ?_⟩
+            · apply Quotient.sound
+              refine (congCogenerated_isCongruence Sig (termAlg Sig X) (deltaSub s L))
+                p ν Q' Q ?_
+              intro i
+              by_cases hi : i = q0.1
+              · subst hi
+                rw [hQ'self]
+                exact Quotient.exact hW₂class
+              · rw [hQ'ne i hi]
+            · rw [show treeHom H p.2 (Term.op p ν Q')
+                  = cSubst H p ν (fun i => treeHom H (p.1.get i) (Q' i))
+                from treeHom_op H p ν Q',
+                cSubst_eq, hR0]
+              change q0.2 ▸ (treeHom H (p.1.get q0.1) (Q' q0.1))
+                = Term.op (u, φ p.2) ξ b
+              rw [hQ'self, hW₂, Term_op_cast q0.2.symm ξ b,
+                eqRec_symm_eqRec_self q0.2 (Term.op (u, φ p.2) ξ b)]
+      · exact hgoal [] σ0 (fun j => j.elim0) hR0
+      · exact hgoal w' ξ' Rj hR0
+
+/-- The forward implication of `Ψ`'s second condition: membership of `ξ(a)` in a
+test set transfers to `ξ(b)` when `(a_j,b_j) ∈ Ψ` for all `j`. -/
+theorem treeTestSet_op_imp {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (hirr : Hyperderivor.IsLinear H) (s : S) (L : Set (Term Sig X s))
+    {t : T} (χ : TreeTest H s L t) {u : List T} (ξ : Xi (u, t))
+    (a b : (j : Fin u.length) → Term Xi Y (u.get j))
+    (hPsi : ∀ j, (treeRefine H s L (u.get j)).r (a j) (b j)) :
+    Term.op (u, t) ξ a ∈ treeTestSet H s L t χ →
+    Term.op (u, t) ξ b ∈ treeTestSet H s L t χ := by
+  obtain ⟨⟨⟨w, r⟩, σ⟩, ⟨R, hR⟩, l⟩ := χ
+  intro h
+  let A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i))) :=
+    fun i => treeClassImage H s L (w.get i) (l i)
+  have hA : ∀ i, (A i).Nonempty := by
+    intro i
+    obtain ⟨W, hW⟩ := Quotient.exists_rep (l i)
+    exact ⟨treeHom H (w.get i) W, W, hW, rfl⟩
+  obtain ⟨P, hP, hPeq⟩ :=
+    exists_eq_substAssign_of_mem_substInto w A hA R
+      (linear_of_mem_Subt hirr (w, r) σ hR) h
+  have hPex : ∀ i, ∃ W : Term Sig X (w.get i),
+      Quotient.mk (treeTheta Sig X s L (w.get i)) W = l i ∧
+      treeHom H (w.get i) W = P i := by
+    intro i
+    have hh := hP i
+    change P i ∈ treeClassImage H s L (w.get i) (l i) at hh
+    exact (Set.mem_image _ _ _).mp hh
+  choose W hWcl hWeq using hPex
+  have hmain : Term.op (u, t) ξ b
+      ∈ cSubstLang w A R := by
+    have opimp : ∀ (w' : List T) (ξ' : Xi (w', t)),
+        ∀ (Rj : (j : Fin w'.length) → Term Xi (Yplus φ Y w) (w'.get j)),
+        R = Term.op (w', t) ξ' Rj →
+        Term.op (u, t) ξ b ∈ cSubstLang w A R := by
+      intro w' ξ' Rj hR0
+      have hPeq' : Term.op (w', t) ξ'
+            (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+              (substAssign w P) (w'.get j) (Rj j))
+          = Term.op (u, t) ξ a := by
+        rw [← hPeq, hR0]
+        rfl
+      injection hPeq' with h1 h2 h3
+      have hu : w' = u := (Prod.mk.injEq w' t u t).mp h1 |>.1
+      subst hu
+      have hξ : ξ = ξ' := (eq_of_heq h2).symm
+      subst hξ
+      have hargs : a = (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+          (substAssign w P) (w'.get j) (Rj j)) := (eq_of_heq h3).symm
+      have hRjmem : ∀ j, Rj j ∈ Subt (H.c (w, r) σ) (w'.get j) := by
+        intro j
+        exact Subt_trans (H.c (w, r) σ) hR
+          (hR0.symm ▸ Subt_op_mem ξ Rj j (Subt_self (Rj j)))
+      let χfun : (j : Fin w'.length) → TreeTest H s L (w'.get j) := fun j =>
+        ⟨⟨(w, r), σ⟩, ⟨Rj j, hRjmem j⟩, fun i => l i⟩
+      have hχfun : ∀ j, treeTestSet H s L (w'.get j) (χfun j)
+          = cSubstLang w A (Rj j) := fun j => rfl
+      have hbjmem : ∀ j, b j ∈ cSubstLang w A (Rj j) := by
+        intro j
+        have haj : a j ∈ treeTestSet H s L (w'.get j) (χfun j) := by
+          rw [hχfun j, congrFun hargs j]
+          exact mem_substInto_substAssign w A P hP (Rj j)
+        have hh := ((hPsi j).2 (χfun j)).mp haj
+        rwa [hχfun j] at hh
+      have hbex : ∀ j, ∃ P : (i : Fin w.length) → Term Xi Y (φ (w.get i)),
+          (∀ i, P i ∈ A i) ∧
+          termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 (substAssign w P)
+            (w'.get j) (Rj j) = b j := by
+        intro j
+        exact exists_eq_substAssign_of_mem_substInto w A hA (Rj j)
+          (fun i => linear_of_mem_Subt hirr (w, r) σ (hRjmem j) i) (hbjmem j)
+      obtain ⟨P', hP', hP'lift⟩ := exists_glue_substAssign w A hA
+        ξ Rj (fun i => by rw [← hR0]; exact linear_of_mem_Subt hirr (w, r) σ hR i) b hbex
+      have hP'eq : termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+            (substAssign w P') t (Term.op (w', t) ξ Rj)
+          = Term.op (w', t) ξ b := by
+        change Term.op (w', t) ξ
+            (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+              (substAssign w P') (w'.get j) (Rj j)) = Term.op (w', t) ξ b
+        rw [funext hP'lift]
+      rw [hR0, ← hP'eq]
+      exact mem_substInto_substAssign w A P' hP' (Term.op (w', t) ξ Rj)
+    rcases term_shape Xi (Yplus φ Y w) t R with
+      ⟨x0, hR0⟩ | ⟨σ0, hR0⟩ | ⟨w', _hw', ξ', Rj, hR0⟩
+    · rw [hR0] at hPeq
+      cases x0 with
+      | inl y =>
+          simp only [termLift, substAssign] at hPeq
+          exact absurd hPeq (by intro hh; cases hh)
+      | inr q0 =>
+          have hPeq' : q0.2 ▸ P q0.1 = Term.op (u, t) ξ a := by
+            simpa only [termLift, substAssign] using hPeq
+          have hWa : Term.op (u, φ (w.get q0.1)) (q0.2.symm ▸ ξ) a
+              = treeHom H (w.get q0.1) (W q0.1) := by
+            rw [Term_op_cast q0.2.symm ξ a, ← hPeq',
+              eqRec_eqRec_symm_self q0.2 (P q0.1)]
+            exact (hWeq q0.1).symm
+          obtain ⟨W₂, hW₂cl, hW₂⟩ := treeClassImage_congr H hirr s L
+            (w.get q0.1) (W q0.1) u (q0.2.symm ▸ ξ) a b hPsi hWa
+          have hcl : Quotient.mk (treeTheta Sig X s L (w.get q0.1)) W₂ = l q0.1 :=
+            hW₂cl.trans (hWcl q0.1)
+          let P' : (i : Fin w.length) → Term Xi Y (φ (w.get i)) :=
+            updateTerm (fun i => Classical.choose (hA i)) q0.1
+              (treeHom H (w.get q0.1) W₂)
+          have hP' : ∀ i, P' i ∈ A i := by
+            intro i
+            by_cases hi : i = q0.1
+            · subst hi
+              rw [show P' q0.1 = treeHom H (w.get q0.1) W₂ from
+                updateTerm_self _ q0.1 _]
+              exact ⟨W₂, hcl, rfl⟩
+            · rw [show P' i = Classical.choose (hA i) from updateTerm_of_ne _ _ hi]
+              exact Classical.choose_spec (hA i)
+          have hP'eq : termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+                (substAssign w P') t (Term.var (Sum.inr q0))
+              = Term.op (u, t) ξ b := by
+            change q0.2 ▸ P' q0.1 = Term.op (u, t) ξ b
+            rw [show P' q0.1 = treeHom H (w.get q0.1) W₂ from
+                updateTerm_self _ q0.1 _,
+              hW₂, Term_op_cast q0.2.symm ξ b,
+              eqRec_symm_eqRec_self q0.2 (Term.op (u, t) ξ b)]
+          rw [hR0, ← hP'eq]
+          exact mem_substInto_substAssign w A P' hP' (Term.var (Sum.inr q0))
+    · exact opimp [] σ0 (fun j => j.elim0) hR0
+    · exact opimp w' ξ' Rj hR0
+  rw [show treeTestSet H s L t ⟨⟨(w, r), σ⟩, ⟨R, hR⟩, l⟩ = cSubstLang w A R from rfl]
+  exact hmain
+
+/-- `Ψ = treeRefine` is a congruence when the hyperderivor is linear (task 4.2):
+the first component is `isCongruence_treePhi`, the second is
+`treeTestSet_op_imp` (and its symmetric counterpart). -/
+theorem isCongruence_treeRefine {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
+    (hirr : Hyperderivor.IsLinear H) (s : S) (L : Set (Term Sig X s)) :
+    IsCongruence Xi (termAlg Xi Y).2 (treeRefine H s L) := by
+  intro p ξ a b hPsi
+  refine ⟨isCongruence_treePhi H p ξ a b (fun j => (hPsi j).1), fun χ => ?_⟩
+  exact ⟨treeTestSet_op_imp H hirr s L χ ξ a b hPsi,
+    treeTestSet_op_imp H hirr s L χ ξ b a
+      (fun j => (treeRefine H s L (p.1.get j)).symm (hPsi j))⟩
+
+/-- **`PRecLH`** (`MSCong` Prop. `PRecLH`, task 4.3): for finite `S`, `T`, `Σ`, `X`
+and a **linear** hyperderivor `(c,f)`, the direct image of an `s`-recognizable
+language under the `s`-th coordinate of the tree homomorphism `f♯` is
+`φ(s)`-recognizable. The proof uses the finite-index congruence `Ψ = treeRefine`,
+which is `isCongruence_treeRefine`, is of finite index
+(`isFiniteIndex_treeRefine`) and saturates `f♯_s[L]`
+(`isSat_treeRefine_image`); `recognizable_iff_exists_finiteIndex_sat` concludes. -/
+theorem PRecLH {φ : S → T} [Finite S] [Finite T] [Finite (Sigma Sig)]
+    (H : Hyperderivor φ Sig Xi X Y) (hirr : Hyperderivor.IsLinear H)
+    (hX : FiniteSSet X) (s : S) (L : Set (Term Sig X s))
+    (hL : RecognizableAt Sig (termAlg Sig X) s L) :
+    RecognizableAt Xi (termAlg Xi Y) (φ s) (treeHom H s '' L) := by
+  classical
+  haveI : Finite (Sigma X) := hX
+  haveI : Fintype (Sigma X) := Fintype.ofFinite (Sigma X)
+  exact (recognizableAt_iff Xi (termAlg Xi Y) (φ s) (treeHom H s '' L)).mpr
+    ((recognizable_iff_exists_finiteIndex_sat Xi (termAlg Xi Y)
+      (deltaSub (φ s) (treeHom H s '' L))).mpr
+      ⟨treeRefine H s L, isCongruence_treeRefine H hirr s L,
+        isFiniteIndex_treeRefine H s L (isFiniteIndex_treePhi H)
+          (isFiniteIndex_treeTheta Sig X s L hL),
+        isSat_treeRefine_image H hirr s L⟩)
 
 /-- `PRecH` (`MSCong` Prop. `PRecH`): the inverse image of a recognizable language
 under a tree homomorphism is recognizable. The proof passes to the range of the
