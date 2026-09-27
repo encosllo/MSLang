@@ -7255,8 +7255,12 @@ congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapp
 
 **Prioritized next steps.**
 
-1. **M4 is complete.** The OpenSpec change
-   `add-tree-homomorphisms-recognizability` can be archived (`openspec archive`).
+1. **M4 is complete and archived.** The OpenSpec change
+   `add-tree-homomorphisms-recognizability` is archived at
+   `openspec/changes/archive/2026-09-27-add-tree-homomorphisms-recognizability/`;
+   the main spec `openspec/specs/formalization/mcong-tree-homomorphisms/spec.md`
+   was created from its delta (`openspec validate --specs`: 13 passed, 0 failed;
+   no active changes remain).
 2. **M5** (derivors / Hall algebras, `MSCong.tex` §4) is the next milestone;
    decision-gated (per the M0 roadmap). **M6** (correspondence audit / block
    mapping) still open. `PRecILH` remains out of scope (commented out).
