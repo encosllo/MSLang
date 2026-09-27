@@ -7180,6 +7180,21 @@ congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapp
 - **`isFiniteIndex_treeTheta`**: `Θ` is finite index when `L` is
   `s`-recognizable, directly from `recognizableAt_iff` and
   `recognizable_isRegularLanguage`.
+- **Building blocks for 4.2/4.3** (added in the same session, before parking the
+  rest): `treeHom_op` (`f♯(σ(P_i)) = cSubst(σ, (f♯(P_i)))`),
+  `isCongruence_treePhi` (the first component of `Ψ`'s congruence, via
+  `IsCongruence_inter` over `treePhiFac`), and **`mem_substInto_of_termLift`**
+  (the forward membership direction for `substInto`: any assignment-consistent
+  `τ` realises `termLift τ R ∈ ((v_i ↦ A_i))^♯(R)`; no linearity needed).
+
+**Parked (assessed, not started).** The rest of `PRecLH` (tasks 4.2 second
+condition and 4.3) both need the **converse** of `mem_substInto_of_termLift`: a
+*linear extraction* of the substitution coordinates from a member of
+`((v_i ↦ A_i))^♯(R)`. Its op-case combination of the per-argument assignments
+needs an occurrence count / linearity machinery (a syntactic `Occurs`, its
+relation to `countPlaceholder`, and disjointness of the placeholder occurrences
+of the arguments of a linear term). This is the technical heart noted in Session
+132 and is a dedicated effort, not a small add-on.
 
 **Verification.**
 

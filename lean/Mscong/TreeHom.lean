@@ -116,6 +116,13 @@ theorem treeHom_eta {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) :
     (fun s => treeHom H s ∘ termEta Sig X s) = H.f :=
   termLift_eta Sig X (cAlg H) H.f
 
+/-- The tree homomorphism on an operation: `f♯(σ((P_i))) = cSubst(σ, (f♯(P_i)))`. -/
+theorem treeHom_op {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) (p : List S × S)
+    (σ : Sig p) (P : (i : Fin p.1.length) → Term Sig X (p.1.get i)) :
+    treeHom H p.2 (Term.op p σ P)
+      = cSubst H p σ (fun i => treeHom H (p.1.get i) (P i)) :=
+  treeHom_isAlgHom H p σ P
+
 /-! ### Composition of homomorphisms and transport coherence -/
 
 /-- Composition of `Σ`-homomorphisms. -/
@@ -452,6 +459,39 @@ noncomputable def cSubstLang {φ : S → T} (w : List S)
     (R : Term Xi (Yplus φ Y w) t) : Set (Term Xi Y t) :=
   substInto w A t R
 
+/-- The forward membership direction for `substInto`: any assignment-consistent
+map `τ` (identity on `Y`, sending each placeholder into its language) realises
+`termLift τ R` as a member of `((v_i ↦ A_i))^♯(R)`. No linearity is needed for
+this direction. (The converse, which extracts `τ` from a member, is where the
+linearity of `c(σ)` enters `PRecLH`.) -/
+theorem mem_substInto_of_termLift {φ : S → T} (w : List S)
+    (A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i))))
+    (τ : SortedMap (Yplus φ Y w) (Term Xi Y))
+    (hinl : ∀ (u : T) (y : Y u), τ u (Sum.inl y) = Term.var y)
+    (hinr : ∀ (u : T) (q : {i : Fin w.length // φ (w.get i) = u}),
+      τ u (Sum.inr q) ∈ q.2 ▸ A q.1) :
+    ∀ {t : T} (R : Term Xi (Yplus φ Y w) t),
+      termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ t R ∈ substInto w A t R := by
+  intro t R
+  refine Term.rec (motive := fun t R =>
+      termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ t R ∈ substInto w A t R) ?var ?op R
+  case var =>
+    intro u v
+    cases v with
+    | inl y =>
+        rw [show termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ u (Term.var (Sum.inl y))
+              = Term.var y from hinl u y]
+        exact Set.mem_singleton _
+    | inr q => exact hinr u q
+  case op =>
+    intro p ξ a ih
+    change (∃ b : (i : Fin p.1.length) → Term Xi Y (p.1.get i),
+      (∀ i, b i ∈ substInto w A (p.1.get i) (a i)) ∧
+        Term.op p ξ b = Term.op p ξ (fun i => termLift Xi (Yplus φ Y w)
+          (termAlg Xi Y).2 τ (p.1.get i) (a i)))
+    exact ⟨fun i => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 τ (p.1.get i) (a i),
+      ih, rfl⟩
+
 /-- The range of a homomorphism is a subalgebra. -/
 theorem isSubalgebra_range {B : SSet T} {FB : AlgStruct Xi B}
     {g : SortedMap (Term Xi Y) B} (hg : IsAlgHom Xi (termAlg Xi Y).2 FB g) :
@@ -568,6 +608,16 @@ theorem isSat_treePhi_singleton {φ : S → T} (H : Hyperderivor φ Sig Xi X Y)
     IsSat (treePhi H) (deltaSub (φ r) ({H.f r x} : Set (Term Xi Y (φ r)))) :=
   sat_antitone (sortedEqvInter_le (treePhiFac H) (Sum.inl ⟨r, x⟩))
     (isSat_congCogenerated Xi (termAlg Xi Y) (deltaSub (φ r) {H.f r x}))
+
+/-- `Φ` is a congruence: the intersection of the cogenerated congruences of the
+singleton generators and the top relation. -/
+theorem isCongruence_treePhi {φ : S → T} (H : Hyperderivor φ Sig Xi X Y) :
+    IsCongruence Xi (termAlg Xi Y).2 (treePhi H) := by
+  show IsCongruence Xi (termAlg Xi Y).2 (sortedEqvInter (treePhiFac H))
+  refine IsCongruence_inter Xi (termAlg Xi Y).2 (treePhiFac H) (fun i => ?_)
+  cases i with
+  | inl x => exact congCogenerated_isCongruence Xi (termAlg Xi Y) _
+  | inr _ => exact nabla_isCongruence Xi (termAlg Xi Y).2
 
 /-- `Θ` (`MSCong` §3.5, `PRecLH`): the syntactic congruence `Ω(δ^{s,L})` on
 `T_Σ(X)`. -/

@@ -37,9 +37,12 @@
   index; `treePhi` carries a harmless top (`nabla`) `Unit` factor so the index is
   non-empty even when `X` is (as in `PRecSubs`); `isFiniteIndex_treePhi`,
   `isSat_treePhi_singleton`, and `isFiniteIndex_treeTheta` are proved.
-- [~] 4.2 (Infrastructure done; `Ψ` itself open.) Defined `Subt` (the
+- [~] 4.2 (Infrastructure done; only the congruence case analysis open.) Defined
+  `Subt` (the
   componentwise subterms of a term, `Subt_self`/`Subt_op_mem`/`Subt_finite`),
-  the operator `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯ (R)`). Still to do:
+  the operator `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯ (R)`). The first
+  component of the congruence is done (`isCongruence_treePhi`, `isCongruence_inter`
+  over `treePhiFac`). Still to do:
   the occurrence count `bb{R}_{v_i}` (partly available via `countPlaceholder`);
   define `Ψ` (the test space is `Σ p, Σ (σ : Sig p), {R // R ∈ Subt(c(σ))} ×
   ((i) → Quotient (Θ (p.1.get i)))`, finite from `Finite (Sigma Sig)`,
@@ -49,13 +52,19 @@
   `((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯_t(R)` agrees); prove `Ψ` is a
   finite-index congruence, using **linearity** so that each placeholder occurs
   once (the paper's cases (a)/(b.1.i)/(b.1.ii)/(b.2)).
-- [ ] 4.3 Prove `f♯_s[L]` is `Ψ_{φ(s)}`-saturated and conclude `PRecLH`.
+- [ ] 4.3 Prove `f♯_s[L]` is `Ψ_{φ(s)}`-saturated and conclude `PRecLH`. The
+  forward membership direction for `substInto` is done
+  (`mem_substInto_of_termLift`: any assignment-consistent `τ` realises
+  `termLift τ R ∈ ((v_i ↦ A_i))^♯(R)`, no linearity needed) and `treeHom_op`
+  (`f♯(σ(P_i)) = cSubst(σ, (f♯(P_i)))`) is available.
 
 **Deferred.** This is the technical heart of M4 (like `PRecIt` in M3): it needs
-a `Subt` subterm collection, its interaction with substitution, and the paper's
-long case analysis; it is large enough to be its own follow-up change. The
-definitions + `PRecH` are complete and committed (parts 1–3); the change stays
-**open** with 4.x unchecked. See `STATE.md` Session 132.
+a *linear extraction* of the substitution coordinates from a member of
+`((v_i ↦ A_i))^♯(R)` (the converse of `mem_substInto_of_termLift`), which in
+turn needs an occurrence count / linearity machinery, plus the paper's long case
+analysis; it is large enough to be its own follow-up change. The definitions +
+`PRecH` are complete and committed (parts 1–3), and 4.1 is done; the change stays
+**open** with 4.2/4.3 unchecked. See `STATE.md` Sessions 132–133.
 
 ## 5. Infrastructure discipline and gate
 
