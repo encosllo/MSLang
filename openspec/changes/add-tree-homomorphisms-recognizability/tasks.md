@@ -37,34 +37,32 @@
   index; `treePhi` carries a harmless top (`nabla`) `Unit` factor so the index is
   non-empty even when `X` is (as in `PRecSubs`); `isFiniteIndex_treePhi`,
   `isSat_treePhi_singleton`, and `isFiniteIndex_treeTheta` are proved.
-- [~] 4.2 (Infrastructure done; only the congruence case analysis open.) Defined
-  `Subt` (the
-  componentwise subterms of a term, `Subt_self`/`Subt_op_mem`/`Subt_finite`),
-  the operator `substInto`/`cSubstLang` (`((v_i ↦ A_i))^♯ (R)`). The first
-  component of the congruence is done (`isCongruence_treePhi`, `isCongruence_inter`
-  over `treePhiFac`). Still to do:
-  the occurrence count `bb{R}_{v_i}` (partly available via `countPlaceholder`);
-  define `Ψ` (the test space is `Σ p, Σ (σ : Sig p), {R // R ∈ Subt(c(σ))} ×
-  ((i) → Quotient (Θ (p.1.get i)))`, finite from `Finite (Sigma Sig)`,
-  `Subt_finite`, and `IsFiniteIndex Θ`)
-  on `T_Ξ(Y)` (`M Ψ_t N` iff `M Φ_t N` and, for every `(w,r)`, `σ`, subterm `R`
-  of `c(σ)` at `t`, and classes `l_i`, membership in
-  `((v_i ↦ f♯_{w_i}[[W_{w_i,l_i}]_{Θ_{w_i}}]))^♯_t(R)` agrees); prove `Ψ` is a
-  finite-index congruence, using **linearity** so that each placeholder occurs
-  once (the paper's cases (a)/(b.1.i)/(b.1.ii)/(b.2)).
-- [ ] 4.3 Prove `f♯_s[L]` is `Ψ_{φ(s)}`-saturated and conclude `PRecLH`. The
-  forward membership direction for `substInto` is done
-  (`mem_substInto_of_termLift`: any assignment-consistent `τ` realises
-  `termLift τ R ∈ ((v_i ↦ A_i))^♯(R)`, no linearity needed) and `treeHom_op`
-  (`f♯(σ(P_i)) = cSubst(σ, (f♯(P_i)))`) is available.
+- [~] 4.2 (Infrastructure done; only the second condition of the congruence
+  open.) Defined `Subt` (`Subt_self`/`Subt_op_mem`/`Subt_finite`/`Subt_trans`),
+  `substInto`/`cSubstLang`, `treePhi`/`treeTheta`/`treeClassImage`,
+  `TreeTest`/`treeTestSet`, `treeRefine` (`Ψ`), `treeRefine_le_phi`,
+  `treeTest_fintype`, `isFiniteIndex_treeRefine`. The **first** component of the
+  congruence is done (`isCongruence_treePhi`). The **linear extraction** needed
+  for the second condition is done: `Occurs`, `countPlaceholder_pos_of_occurs`,
+  `substAssign`, `mem_substInto_substAssign`, `termLift_eq_of_agree`,
+  `exists_eq_substAssign_of_mem_substInto`, `mem_cSubstLang_iff`. **Still to
+  do:** the second-condition case analysis (the paper's (a)/(b.1.i)/(b.1.ii)/(b.2),
+  using linearity so that each placeholder occurs once).
+- [~] 4.3 Saturation done; conclusion pending 4.2. `isSat_treeRefine_image` is
+  proved (the paper's final step: case (a) via `isSat_treePhi_singleton` on the
+  singleton generators, case (b) via the second condition of `Ψ` at the test
+  `(σ, c(σ), ([P_i]_{Θ}))` and `mem_cSubstLang_iff`). **Still to do:** assemble
+  `PRecLH` from `Ψ = treeRefine` once `IsCongruence (treeRefine H s L)` is
+  available.
 
-**Deferred.** This is the technical heart of M4 (like `PRecIt` in M3): it needs
-a *linear extraction* of the substitution coordinates from a member of
-`((v_i ↦ A_i))^♯(R)` (the converse of `mem_substInto_of_termLift`), which in
-turn needs an occurrence count / linearity machinery, plus the paper's long case
-analysis; it is large enough to be its own follow-up change. The definitions +
-`PRecH` are complete and committed (parts 1–3), and 4.1 is done; the change stays
-**open** with 4.2/4.3 unchecked. See `STATE.md` Sessions 132–133.
+**Remaining.** The single open item is the **second condition of `Ψ`'s
+congruence** (`IsCongruence (treeRefine H s L)` under `H.IsLinear`). Its forward
+step is: from `ξ(a) ∈ ((v_i ↦ A_i))^♯(R)` (a test set), extract
+`ξ(a) = termLift (substAssign w P) R` (`P i = f♯(W_i)`, `W_i ∈ [W_{l_i}]_Θ`), then
+case on `R`: (a) no placeholders; (b.1) `R = v_{i₀}` or (b.2) `R = ξ(R_j)`; the
+placeholder case (b.1) is further split on whether `W_{i₀}` is a variable
+(use `Φ`-saturation of `{f(x)}`) or an operation `ν(Q)` (use the test at
+`R_j ∈ Subt(c(ν))` and `Θ`-congruence). See `STATE.md` Sessions 132–133.
 
 ## 5. Infrastructure discipline and gate
 

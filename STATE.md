@@ -7187,14 +7187,34 @@ congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapp
   (the forward membership direction for `substInto`: any assignment-consistent
   `τ` realises `termLift τ R ∈ ((v_i ↦ A_i))^♯(R)`; no linearity needed).
 
-**Parked (assessed, not started).** The rest of `PRecLH` (tasks 4.2 second
-condition and 4.3) both need the **converse** of `mem_substInto_of_termLift`: a
-*linear extraction* of the substitution coordinates from a member of
-`((v_i ↦ A_i))^♯(R)`. Its op-case combination of the per-argument assignments
-needs an occurrence count / linearity machinery (a syntactic `Occurs`, its
-relation to `countPlaceholder`, and disjointness of the placeholder occurrences
-of the arguments of a linear term). This is the technical heart noted in Session
-132 and is a dedicated effort, not a small add-on.
+- **Linear extraction (the documented blocker), done.** `Occurs` and
+  `countPlaceholder_pos_of_occurs` (an occurring placeholder has positive count);
+  `substAssign` (a sort-free `cSubstAssign`) and `mem_substInto_substAssign`
+  (forward); `termLift_eq_of_agree`; and
+  **`exists_eq_substAssign_of_mem_substInto`** -- the converse for a **linear**
+  term: `W ∈ ((v_i ↦ A_i))^♯(R)` gives `W = termLift (substAssign w P) R` with
+  `P i ∈ A i`. The op-case gluing of the per-argument assignments uses the
+  uniqueness of the argument containing placeholder `i` (`∑_j count_i(a_j) ≤ 1`)
+  and the `termLift_eq_of_agree` reduction.
+- **`mem_cSubstLang_iff`**: the `cSubstLang`/`cSubst` specialization.
+- **Task 4.3 saturation, done.** **`isSat_treeRefine_image`**:
+  `f♯_s[L]` is `Ψ_{φ(s)}`-saturated. Case (a) (`P` a variable) via
+  `isSat_treePhi_singleton`; case (b) (`P = σ(Q_i)`) via the second condition of
+  `Ψ` at the test `(σ, c(σ), ([Q_i]_{Θ}))`, `mem_cSubstLang_iff`, and the
+  `Θ`-congruence/saturation of `L`.
+- Doc note: `term_shape` (not `cases P`) is used to split the term, because
+  `cases` on `Term Sig X s` substitutes the index `s` and breaks the surrounding
+  hypotheses.
+
+**Still open (the last piece).** The **second condition of `Ψ`'s congruence**:
+`IsCongruence (treeRefine H s L)` under `H.IsLinear`. Forward step: from
+`ξ(a) ∈ ((v_i ↦ A_i))^♯(R)`, extract `ξ(a) = termLift (substAssign w P) R`
+(`P i = f♯(W_i)`, `W_i ∈ [W_{l_i}]_Θ`), then case on `R` -- (a) no placeholders;
+(b.1) `R = v_{i₀}`, split on whether `W_{i₀}` is a variable (`Φ`-saturation of
+`{f(x)}`) or `ν(Q)` (test at `R_j ∈ Subt(c(ν))` + `Θ`-congruence); (b.2)
+`R = ξ(R_j)` (test at `R_j` + `Ψ` on the arguments). Then `PRecLH` follows from
+`isCongruence_treePhi` (first component), the new congruence, `isFiniteIndex_treeRefine`
+and `isSat_treeRefine_image` via `recognizable_iff_exists_finiteIndex_sat`.
 
 **Verification.**
 
@@ -7221,11 +7241,12 @@ of the arguments of a linear term). This is the technical heart noted in Session
 
 **Prioritized next steps.**
 
-1. `PRecLH` task 4.2: prove `Ψ = treeRefine` is a **congruence** (the paper's
-   case analysis (a)/(b.1.i)/(b.1.ii)/(b.2), using linearity).
-2. `PRecLH` task 4.3: prove `f♯_s[L]` is `Ψ_{φ(s)}`-saturated and conclude
-   `PRecLH` via `recognizable_iff_exists_finiteIndex_sat`; then close tasks 5-6
-   and archive.
+1. `PRecLH` task 4.2: the **second condition** of `Ψ = treeRefine`'s congruence
+   (the paper's case analysis (a)/(b.1.i)/(b.1.ii)/(b.2), using linearity; the
+   first component `isCongruence_treePhi` is done). This is the only open proof.
+2. Conclude `PRecLH` from `isCongruence_treePhi` + the congruence +
+   `isFiniteIndex_treeRefine` + `isSat_treeRefine_image`; then close tasks 5-6
+   and archive the change.
 3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
