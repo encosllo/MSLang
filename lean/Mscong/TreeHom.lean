@@ -534,6 +534,50 @@ theorem countPlaceholder_pos_of_occurs {φ : S → T} {w : List S} {i : Fin w.le
       (Finset.single_le_sum (f := fun j => countPlaceholder φ w i (a j))
         (fun _ _ => Nat.zero_le _) (Finset.mem_univ j))
 
+/-- `countPlaceholder` is invariant under a transport of the sort. -/
+theorem countPlaceholder_cast {φ : S → T} {w : List S} (i : Fin w.length) {u v : T}
+    (e : u = v) (R : Term Xi (Yplus φ Y w) u) :
+    countPlaceholder φ w i (e ▸ R) = countPlaceholder φ w i R := by cases e; rfl
+
+/-- A subterm is not counted more than the term: linearity of `P` implies linearity
+of every subterm of `P`. -/
+theorem countPlaceholder_le_of_mem_Subt {φ : S → T} (w : List S) (i : Fin w.length) :
+    ∀ {u : T} (P : Term Xi (Yplus φ Y w) u) {t : T} {Q : Term Xi (Yplus φ Y w) t},
+      Q ∈ Subt P t → countPlaceholder φ w i Q ≤ countPlaceholder φ w i P := by
+  intro u P
+  induction P using Term.rec with
+  | var v =>
+      intro t Q hQ
+      simp only [Subt] at hQ
+      split_ifs at hQ with h
+      · rw [Set.mem_singleton_iff] at hQ
+        subst hQ
+        rw [countPlaceholder_cast]
+      · exact absurd hQ (Set.notMem_empty Q)
+  | op p ξ a ih =>
+      intro t Q hQ
+      simp only [Subt] at hQ
+      rw [Set.mem_union, Set.mem_iUnion] at hQ
+      rcases hQ with hQ | ⟨j, hQj⟩
+      · split_ifs at hQ with h
+        · rw [Set.mem_singleton_iff] at hQ
+          subst hQ
+          rw [countPlaceholder_cast]
+        · exact absurd hQ (Set.notMem_empty Q)
+      · calc countPlaceholder φ w i Q
+            ≤ countPlaceholder φ w i (a j) := ih j hQj
+          _ ≤ countPlaceholder φ w i (Term.op p ξ a) := by
+              simp only [countPlaceholder]
+              exact Finset.single_le_sum (f := fun j => countPlaceholder φ w i (a j))
+                (fun _ _ => Nat.zero_le _) (Finset.mem_univ j)
+
+/-- A subterm of a term produced by a linear hyperderivor is linear. -/
+theorem linear_of_mem_Subt {φ : S → T} {H : Hyperderivor φ Sig Xi X Y}
+    (hirr : Hyperderivor.IsLinear H) (p : List S × S) (σ : Sig p) {t : T}
+    {R : Term Xi (Yplus φ Y p.1) t} (hR : R ∈ Subt (H.c p σ) t) (i : Fin p.1.length) :
+    countPlaceholder φ p.1 i R ≤ 1 :=
+  le_trans (countPlaceholder_le_of_mem_Subt p.1 i (H.c p σ) hR) (hirr p σ i)
+
 /-- Membership under a transported set (element cast along `e`). -/
 theorem mem_cast_set {ι : Type u} {F : ι → Type u} {a b : ι} (e : a = b)
     (S : Set (F a)) (x : F a) :
@@ -727,6 +771,68 @@ theorem exists_eq_substAssign_of_mem_substInto {φ : S → T} (w : List S)
     rw [show (fun j => termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
         (substAssign w P) (p.1.get j) (a j)) = b from funext hglue]
     exact hbW
+
+/-- Gluing per-argument assignments into a single one: linearity makes the
+placeholder occurrences of the arguments of an operation disjoint, so families
+realising the targets of each argument on the codomain side can be combined. -/
+theorem exists_glue_substAssign {φ : S → T} (w : List S)
+    (A : (i : Fin w.length) → Set (Term Xi Y (φ (w.get i))))
+    (hA : ∀ i, (A i).Nonempty)
+    {u : List T} {t : T} (ξ : Xi (u, t))
+    (Rj : (j : Fin u.length) → Term Xi (Yplus φ Y w) (u.get j))
+    (hlin : ∀ i, countPlaceholder φ w i (Term.op (u, t) ξ Rj) ≤ 1)
+    (b : (j : Fin u.length) → Term Xi Y (u.get j))
+    (h : ∀ j, ∃ P : (i : Fin w.length) → Term Xi Y (φ (w.get i)),
+        (∀ i, P i ∈ A i) ∧ termLift Xi (Yplus φ Y w) (termAlg Xi Y).2
+          (substAssign w P) (u.get j) (Rj j) = b j) :
+    ∃ P : (i : Fin w.length) → Term Xi Y (φ (w.get i)),
+      (∀ i, P i ∈ A i) ∧
+      ∀ j, termLift Xi (Yplus φ Y w) (termAlg Xi Y).2 (substAssign w P)
+        (u.get j) (Rj j) = b j := by
+  choose Pj hPj hPjlift using h
+  have huniq : ∀ (i : Fin w.length) (j1 j2 : Fin u.length),
+      Occurs w i (Rj j1) → Occurs w i (Rj j2) → j1 = j2 := by
+    intro i j1 j2 hj1 hj2
+    by_contra hne
+    have hsumle : Finset.univ.sum (fun j => countPlaceholder φ w i (Rj j)) ≤ 1 := by
+      have h := hlin i
+      rwa [show countPlaceholder φ w i (Term.op (u, t) ξ Rj)
+          = Finset.univ.sum (fun j => countPlaceholder φ w i (Rj j)) from rfl] at h
+    have hp1 := countPlaceholder_pos_of_occurs hj1
+    have hp2 := countPlaceholder_pos_of_occurs hj2
+    have hpair : countPlaceholder φ w i (Rj j1) + countPlaceholder φ w i (Rj j2)
+        ≤ Finset.univ.sum (fun j => countPlaceholder φ w i (Rj j)) := by
+      have hs : ({j1, j2} : Finset (Fin u.length)).sum
+            (fun x => countPlaceholder φ w i (Rj x))
+          ≤ (Finset.univ : Finset (Fin u.length)).sum
+            (fun x => countPlaceholder φ w i (Rj x)) :=
+        Finset.sum_le_sum_of_subset_of_nonneg
+          (by intro x _; exact Finset.mem_univ x)
+          (by intro x _ _; exact Nat.zero_le _)
+      rwa [Finset.sum_pair hne] at hs
+    omega
+  let P : (i : Fin w.length) → Term Xi Y (φ (w.get i)) := fun i =>
+    if h : ∃ j, Occurs w i (Rj j) then Pj h.choose i else Classical.choose (hA i)
+  have hPin : ∀ i, P i ∈ A i := by
+    intro i
+    change (if h : ∃ j, Occurs w i (Rj j) then Pj h.choose i
+      else Classical.choose (hA i)) ∈ A i
+    split
+    · rename_i h; exact hPj h.choose i
+    · exact Classical.choose_spec (hA i)
+  refine ⟨P, hPin, fun j => ?_⟩
+  rw [← hPjlift j]
+  refine termLift_eq_of_agree (substAssign w P) (substAssign w (Pj j))
+    (fun u y => rfl) (Rj j) (fun v q hq => ?_)
+  have hPval : P q.1 = Pj j q.1 := by
+    have hex : ∃ j', Occurs w q.1 (Rj j') := ⟨j, hq⟩
+    change (if h : ∃ j', Occurs w q.1 (Rj j') then Pj h.choose q.1
+      else Classical.choose (hA q.1)) = Pj j q.1
+    rw [dif_pos hex]
+    exact congrArg (fun j' => Pj j' q.1)
+      (huniq q.1 hex.choose j (Classical.choose_spec hex) hq)
+  change q.2 ▸ P q.1 = q.2 ▸ Pj j q.1
+  rw [hPval]
 
 /-- `cSubstAssign` is `substAssign` on its first component. -/
 theorem cSubstAssign_eq_substAssign {φ : S → T} (p : List S × S)
