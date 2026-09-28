@@ -1,14 +1,30 @@
 {
   "encoding": {
     "file": "representation/mscong-pilot-encoding.md",
-    "note": "M6 pilot cluster = the MSCong.tex basic-terms cluster mapped at the pilot. A block is covered by this representation when a review/correspondence record for it lists the representation hash.",
+    "note": "Blocks covered by the mscong encoding: the six M6 pilot blocks plus the M1-M5 blocks mapped in lean/declarations.mscong.json. A block is covered by this representation when a review/correspondence record for it lists the representation hash.",
     "blocks": [
       "B-D101",
       "B-D102",
+      "B-D118",
+      "B-D135",
+      "B-L102",
       "B-P101",
       "B-P102",
       "B-P103",
-      "B-P104"
+      "B-P104",
+      "B-P106",
+      "B-P107",
+      "B-P109",
+      "B-P110",
+      "B-C102",
+      "B-P132",
+      "B-P133",
+      "B-P135",
+      "B-P141",
+      "B-P143",
+      "B-P145",
+      "B-P146",
+      "B-P147"
     ],
     "bridge_obligations": [
       "recognizable_iff_exists_finiteIndex_sat",

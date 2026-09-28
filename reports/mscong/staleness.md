@@ -8,7 +8,7 @@ record is **superseded** when a current record names it through
 `supersedes`; otherwise it is **awaiting** re-audit. Only awaiting
 records represent outstanding work.
 
-8 of 8 record(s) are stale (0 superseded, 8 awaiting):
+18 of 18 record(s) are stale (0 superseded, 18 awaiting):
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
@@ -20,3 +20,13 @@ records represent outstanding work.
 | E-900006 | `B-P102` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900007 | `B-P103` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900008 | `B-P104` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900009 | `B-P132` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900010 | `B-P133` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900011 | `B-P135` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900012 | `B-D135` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900013 | `B-P141` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900014 | `B-P143` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900015 | `B-P145` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900016 | `B-P146` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900017 | `B-P147` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900018 | `B-L102` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |

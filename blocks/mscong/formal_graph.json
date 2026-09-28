@@ -173,6 +173,11 @@
     {
       "from": "B-P143",
       "kind": "formal_uses",
+      "to": "B-P132"
+    },
+    {
+      "from": "B-P143",
+      "kind": "formal_uses",
       "to": "B-P133"
     },
     {

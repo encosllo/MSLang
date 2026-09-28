@@ -76,7 +76,9 @@
         "Mscong.recognizable_inter",
         "Mscong.recognizable_compl",
         "Mscong.recognizable_empty",
-        "Mscong.recognizable_univ"
+        "Mscong.recognizable_univ",
+        "Mscong.recognizable_transPreimage",
+        "Mscong.recognizable_inverseImage"
       ],
       "file": "lean/Mscong/Recognizable.lean"
     },
@@ -96,7 +98,10 @@
       "file": "lean/Mscong/Substitution.lean"
     },
     "B-P143": {
-      "decl": "Mscong.PRecQ",
+      "decls": [
+        "Mscong.PRecQ",
+        "Mscong.quotLang_range_finite"
+      ],
       "file": "lean/Mscong/Quotient.lean"
     },
     "B-P145": {

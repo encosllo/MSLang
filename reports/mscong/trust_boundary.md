@@ -10,7 +10,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/mscong-pilot-encoding.md` | - | unaudited | no | - | 6 |
+| `encoding` | `representation/mscong-pilot-encoding.md` | - | unaudited | no | - | 22 |
 
 ## Residuals propagated to blocks
 

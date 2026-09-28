@@ -10,8 +10,8 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/mscong/formal.json` | `a620effa4f2a0ac070f9cf63e5603066f1af1e3882704be2d969a694bf5f535b` |
-| `blocks/mscong/formal_graph.json` | `029daf418b289429dd31e491a7fbb61ccbfe370c7d13571558b2c99a116a6c3f` |
+| `blocks/mscong/formal.json` | `eded4b7173ee4123bd0b5a915e777868f6314d7141aa4604a98bcdf7be77650f` |
+| `blocks/mscong/formal_graph.json` | `26d73224448b6e3f6580e51b4d514183d8607afdb6afa0f4b979f0765ad5a566` |
 | `blocks/mscong/graph.json` | `2a7604d02785b7757d1da885c2f6924bf33216d3be6f0a8af03ae9e7d32d34ef` |
 | `blocks/mscong/hashes.json` | `db4b0d1336309b64490c5c9354d1eff4c0ae31aa0f8bd6f4ed3d98f728295b47` |
 | `blocks/mscong/lean_audit.json` | `915c4a0a6ad1267f730860ab8d3c7ec36e1b8db446628d4b118167e45dd1c6a3` |
@@ -34,12 +34,22 @@ repository.
 | `evidence/mscong/E-900006.json` | `7105115b9a706abc919931146d436e88b73f5893f57e173354398d628dad7525` |
 | `evidence/mscong/E-900007.json` | `a1ab2d276c1987502c18ed28997566fcc200ea8b14a84ef04e24dadf3e9f698e` |
 | `evidence/mscong/E-900008.json` | `dfd548d8d2370cf710e55252c420c67fa79aa2ebd342040d0a7e1f5f1c7edf10` |
-| `journal/mscong.jsonl` | `d0b3c56a7c2f91f6aabe4d0dc31bef0d4b1d9f42d1bf90db6074fcac70cb8ef3` |
+| `evidence/mscong/E-900009.json` | `3ee1f4d1b8c1671204dad32852fdb62b3f040f4cac21187b57ab515e3a931a49` |
+| `evidence/mscong/E-900010.json` | `5791255d95d008a5e906832d0d0b76d3f1af27ed6e6379b7590bbebab0a9ebeb` |
+| `evidence/mscong/E-900011.json` | `20af4901d26c42622532a677322c6840ab5781cef57c9bef7f04afd7f5f5e890` |
+| `evidence/mscong/E-900012.json` | `f111952c4391d44ef743574cbb3332d843da32e18e58d1c63c78d74d17edc275` |
+| `evidence/mscong/E-900013.json` | `a27b905bd9e3b9b5a9617feb1910f93b6a8f8aa037f5fb7fc5af550d4cf25cf7` |
+| `evidence/mscong/E-900014.json` | `c90917c8bd8297ab5a9d1f4d45a5f392092c5443a5e241cd8d683742c7f0b7d7` |
+| `evidence/mscong/E-900015.json` | `b91abf786510c7d5eaeb7fb7df1d79cc6a78884a3cfc6ddc280d762171d07e19` |
+| `evidence/mscong/E-900016.json` | `16237cf94daf6a88d924e3585570d70dc5a31f63d65690640e1894d2dc7bb739` |
+| `evidence/mscong/E-900017.json` | `626c5ec37a4d35fba5d3900f23382ea1cdbbc5c8c9978ad48c00d4c75ae8ed3f` |
+| `evidence/mscong/E-900018.json` | `641cdb14891c04ff4d66a677c26861a2ce86120164fabdb47f65d85ad1a324ce` |
+| `journal/mscong.jsonl` | `7136a3de041eac4803ef929c9c68368396a186b144c968dca3419cae1b0614be` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
 | `manuscript/MSCong.tex` | `db1c1a72b37aa9796ff8d9e11b056df217532bffc81ae728badeb587fa263308` |
 | `reconciliation/proposals.json` | `cad78706a93883a409b94262b40fa06e3a1eec3d680abe1aab0645c038cccabd` |
-| `representation/mscong-coverage.json` | `6ebb181f4e27627c699b1c03bc300757566ea3486bc1c31792df029ad31d30dc` |
+| `representation/mscong-coverage.json` | `57d000fa67fdc01a93a1a0c246209da2f41813385953d9983d73e3059059d040` |
 | `schemas/evidence.schema.json` | `c6cca4d570f1ff68ed94ab9b38efad979074c6e2ce3bf5db1f663aa379550449` |
 
 ## Status (validity rule applied to current evidence)
@@ -47,10 +57,20 @@ repository.
 | block | layer | status | current | stale |
 |---|---|---|---|---|
 | `B-D101` | representation | stale | 0 | 1 |
+| `B-D135` | correspondence | stale | 0 | 1 |
+| `B-L102` | correspondence | stale | 0 | 1 |
 | `B-P101` | review | stale | 0 | 1 |
 | `B-P102` | correspondence | stale | 0 | 2 |
 | `B-P103` | correspondence | stale | 0 | 2 |
 | `B-P104` | correspondence | stale | 0 | 2 |
+| `B-P132` | correspondence | stale | 0 | 1 |
+| `B-P133` | correspondence | stale | 0 | 1 |
+| `B-P135` | correspondence | stale | 0 | 1 |
+| `B-P141` | correspondence | stale | 0 | 1 |
+| `B-P143` | correspondence | stale | 0 | 1 |
+| `B-P145` | correspondence | stale | 0 | 1 |
+| `B-P146` | correspondence | stale | 0 | 1 |
+| `B-P147` | correspondence | stale | 0 | 1 |
 
 ## Evidence records
 
@@ -535,6 +555,850 @@ repository.
 }
 ```
 
+### E-900009
+
+```json
+{
+  "block": "B-P132",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900009",
+  "findings": [
+    "formal_weaker: the seven Lean closure items match the manuscript's parts, but recognizable_empty/univ add a finite-support hypothesis that the manuscript's 'emptyset,A in Rec(A)' does not assume. Transcript: blocks/mscong/audits/B-P132-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D103/informal_statement",
+      "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+    },
+    {
+      "artifact": "B-D107/informal_statement",
+      "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+    },
+    {
+      "artifact": "B-D130/informal_statement",
+      "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+    },
+    {
+      "artifact": "B-D131/informal_statement",
+      "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+    },
+    {
+      "artifact": "B-P132/definition_closure",
+      "hash": "1e068a446068421a8d7e7216b0db688e8d009ecd9c1606dec90e5b77a9a6118a"
+    },
+    {
+      "artifact": "B-P132/formal_statement",
+      "hash": "6ca35781322059bcb61c1e781fcd13b8923ff3209d31c22efde9f335211752ee"
+    },
+    {
+      "artifact": "B-P132/informal_statement",
+      "hash": "9465fa9cb8e3ba9f169cfbf25df26532c49c28eb2d988b73d0499d05a1ed69bc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900010
+
+```json
+{
+  "block": "B-P133",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900010",
+  "findings": [
+    "equivalent: both state Rec_s(A,L) iff Rec(A,delta^{s,L}) over the same domain with no finiteness hypotheses; the trailing isomorphism sentence is a corollary. Transcript: blocks/mscong/audits/B-P133-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D107/informal_statement",
+      "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+    },
+    {
+      "artifact": "B-P133/definition_closure",
+      "hash": "aa61ce9510b8ea3be6ae4b1b9e0e9bacafdb391460645bc46ef6b5d06f20bb0e"
+    },
+    {
+      "artifact": "B-P133/formal_statement",
+      "hash": "b2b7f9385c658fbde6857d90202e59e61d0775d2d21fcebcb9473e5c707d044b"
+    },
+    {
+      "artifact": "B-P133/informal_statement",
+      "hash": "0d71173d23fab75ae8e8d623361edd2d4271802c6dda86193cfcf0a5f175dc30"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900011
+
+```json
+{
+  "block": "B-P135",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900011",
+  "findings": [
+    "formal_weaker: the mapped declarations cover only part (1) of the four-part proposition, and even there add finite support; parts (2)-(4) are absent from the map. Transcript: blocks/mscong/audits/B-P135-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D103/informal_statement",
+      "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+    },
+    {
+      "artifact": "B-D130/informal_statement",
+      "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+    },
+    {
+      "artifact": "B-D131/informal_statement",
+      "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+    },
+    {
+      "artifact": "B-P135/definition_closure",
+      "hash": "56ae32d5c765a10a0f705fc4244666b0064d29a19400bb341015d2a569b15a19"
+    },
+    {
+      "artifact": "B-P135/formal_statement",
+      "hash": "f8d1f975d15a534307d72d3e462122896c5216ae25270e14ea6cf2b7c1f1ac0b"
+    },
+    {
+      "artifact": "B-P135/informal_statement",
+      "hash": "5f3f667e32064451d9882253df2e4a44e61dfa154ddb048ebcec351bc6551ed7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900012
+
+```json
+{
+  "block": "B-D135",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900012",
+  "findings": [
+    "equivalent: both definitional with no asserted equations; substHom/subst1/substLang correspond term-for-term to GlobSubstOp and the single-variable operator. Transcript: blocks/mscong/audits/B-D135-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-D135/definition_closure",
+      "hash": "cba32c8cc893f2d3184b74ec96c8a82b795929144c06739340b5e3cb0bcadf71"
+    },
+    {
+      "artifact": "B-D135/formal_statement",
+      "hash": "85979519d000c2a4010e4e488d47b6697bf278b8fcfbef175934bc45e498dc31"
+    },
+    {
+      "artifact": "B-D135/informal_statement",
+      "hash": "41ed3356a785eab0d057778db4c9792b6e13ab992c584a9afa65f1e039ccdd27"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900013
+
+```json
+{
+  "block": "B-P141",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900013",
+  "findings": [
+    "equivalent: same hypotheses (K and each L_x recognizable) and conclusion (substitution recognizable) over the same domain; [Finite S]/FiniteSSet X are the subsection's standing assumptions. Transcript: blocks/mscong/audits/B-P141-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D101/informal_statement",
+      "hash": "4ee00bbc389b529c396ce67363f1686a0e7e346f07b8cffca5a01dab4bfcb175"
+    },
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D103/informal_statement",
+      "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+    },
+    {
+      "artifact": "B-D107/informal_statement",
+      "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+    },
+    {
+      "artifact": "B-D108/informal_statement",
+      "hash": "41b00471c045bb7c346b5728c7df8f0a33c151d9cf0c439de77368e82b3a4a66"
+    },
+    {
+      "artifact": "B-D110/informal_statement",
+      "hash": "8598dc11516e0abd29643307228fc90d7cedb0bc03cb7187ac0fc6a3e43b44bd"
+    },
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-D128/informal_statement",
+      "hash": "7f3a9b7272c13ba639a2a1057c3315783990cf071581e48d0d63b75fff816aa8"
+    },
+    {
+      "artifact": "B-D129/informal_statement",
+      "hash": "628e46edc820948a719a276072c4847f64c82e7477210776d24b88ad9532bca8"
+    },
+    {
+      "artifact": "B-D130/informal_statement",
+      "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+    },
+    {
+      "artifact": "B-D131/informal_statement",
+      "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+    },
+    {
+      "artifact": "B-D134/informal_statement",
+      "hash": "e77e6537248ca80f818a7a950b5c8f16d251aa50a6f87a0e2838dea83970460c"
+    },
+    {
+      "artifact": "B-P101/informal_statement",
+      "hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118"
+    },
+    {
+      "artifact": "B-P132/informal_statement",
+      "hash": "9465fa9cb8e3ba9f169cfbf25df26532c49c28eb2d988b73d0499d05a1ed69bc"
+    },
+    {
+      "artifact": "B-P141/definition_closure",
+      "hash": "3bc5cd3446ae665285be2a562a21d6bda4acd29268d735188f7a1b8e744e026e"
+    },
+    {
+      "artifact": "B-P141/formal_statement",
+      "hash": "68cc14727725b322a7050ab75fcac2149cdfe5d74cb30356f417626d51781fe9"
+    },
+    {
+      "artifact": "B-P141/informal_statement",
+      "hash": "7d8f263f178e1b20d00ef44d17bb35779c001d3e10a5ad6d7f749b11407bd1b9"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900014
+
+```json
+{
+  "block": "B-P143",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900014",
+  "findings": [
+    "equivalent: both parts match (quotient recognizable; finitely many quotients), same quantifier domain; [Finite S] is ambient. Transcript: blocks/mscong/audits/B-P143-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D101/informal_statement",
+      "hash": "4ee00bbc389b529c396ce67363f1686a0e7e346f07b8cffca5a01dab4bfcb175"
+    },
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D103/informal_statement",
+      "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+    },
+    {
+      "artifact": "B-D107/informal_statement",
+      "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+    },
+    {
+      "artifact": "B-D108/informal_statement",
+      "hash": "41b00471c045bb7c346b5728c7df8f0a33c151d9cf0c439de77368e82b3a4a66"
+    },
+    {
+      "artifact": "B-D110/informal_statement",
+      "hash": "8598dc11516e0abd29643307228fc90d7cedb0bc03cb7187ac0fc6a3e43b44bd"
+    },
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-D128/informal_statement",
+      "hash": "7f3a9b7272c13ba639a2a1057c3315783990cf071581e48d0d63b75fff816aa8"
+    },
+    {
+      "artifact": "B-D129/informal_statement",
+      "hash": "628e46edc820948a719a276072c4847f64c82e7477210776d24b88ad9532bca8"
+    },
+    {
+      "artifact": "B-D130/informal_statement",
+      "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+    },
+    {
+      "artifact": "B-D131/informal_statement",
+      "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+    },
+    {
+      "artifact": "B-D134/informal_statement",
+      "hash": "e77e6537248ca80f818a7a950b5c8f16d251aa50a6f87a0e2838dea83970460c"
+    },
+    {
+      "artifact": "B-P101/informal_statement",
+      "hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118"
+    },
+    {
+      "artifact": "B-P132/informal_statement",
+      "hash": "9465fa9cb8e3ba9f169cfbf25df26532c49c28eb2d988b73d0499d05a1ed69bc"
+    },
+    {
+      "artifact": "B-P141/informal_statement",
+      "hash": "7d8f263f178e1b20d00ef44d17bb35779c001d3e10a5ad6d7f749b11407bd1b9"
+    },
+    {
+      "artifact": "B-P143/definition_closure",
+      "hash": "a9c712b64ad8c3fc0080f24adb95acb24092db39e0b7db11d18ab50f5139daf9"
+    },
+    {
+      "artifact": "B-P143/formal_statement",
+      "hash": "f34e29909a044a20a46eb356d24d9ec991e01900bfb57f05305980e9e156f3a3"
+    },
+    {
+      "artifact": "B-P143/informal_statement",
+      "hash": "612593f140ab98273c2cf20d1c86b364536d8954d7ede1cf32f2161e5006d338"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900015
+
+```json
+{
+  "block": "B-P145",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900015",
+  "findings": [
+    "equivalent: cStruct/cAlg/treeHom_isAlgHom realize the induced Sigma-algebra and the homomorphism property, with the same surjectivity input. Transcript: blocks/mscong/audits/B-P145-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-L101/informal_statement",
+      "hash": "1805cf4a5180bf245f56787cf31e66172025300a7b5b1d27e35cf8c2e6571f97"
+    },
+    {
+      "artifact": "B-P145/definition_closure",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "artifact": "B-P145/formal_statement",
+      "hash": "462448e4d3dcd9d099490c7b2ffc68c590dfbf7ba7471d9c597fbaef5b187fba"
+    },
+    {
+      "artifact": "B-P145/informal_statement",
+      "hash": "70e288b3c1958bc93fc890f7d625eaf462bdf888a565d11596d1ede52750470f"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}
+```
+
+### E-900016
+
+```json
+{
+  "block": "B-P146",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900016",
+  "findings": [
+    "equivalent: same inverse-image recognizability claim, same direction and domain; [Finite S] is ambient and the manuscript's (f^sharp_{phi(s)})^{-1} is a sort-index typo for f^sharp_s. Transcript: blocks/mscong/audits/B-P146-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-L101/informal_statement",
+      "hash": "1805cf4a5180bf245f56787cf31e66172025300a7b5b1d27e35cf8c2e6571f97"
+    },
+    {
+      "artifact": "B-P145/informal_statement",
+      "hash": "70e288b3c1958bc93fc890f7d625eaf462bdf888a565d11596d1ede52750470f"
+    },
+    {
+      "artifact": "B-P146/definition_closure",
+      "hash": "db361ab81fe7efd4c77a8bd42c5d380643a546705cb47f921896e4734e334620"
+    },
+    {
+      "artifact": "B-P146/formal_statement",
+      "hash": "d22818d0c99503ac09830de09351ec5338f04d8a46fd88f888e837801ae54493"
+    },
+    {
+      "artifact": "B-P146/informal_statement",
+      "hash": "4857904e23b5b02b1d14095987cba35829f162ebe7bcf2e232a5ba0103f729f6"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:32Z"
+}
+```
+
+### E-900017
+
+```json
+{
+  "block": "B-P147",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900017",
+  "findings": [
+    "equivalent: same forward-image claim under a linear hyperderivor; the extra [Finite T] is harmless. Transcript: blocks/mscong/audits/B-P147-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D101/informal_statement",
+      "hash": "4ee00bbc389b529c396ce67363f1686a0e7e346f07b8cffca5a01dab4bfcb175"
+    },
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D107/informal_statement",
+      "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+    },
+    {
+      "artifact": "B-D108/informal_statement",
+      "hash": "41b00471c045bb7c346b5728c7df8f0a33c151d9cf0c439de77368e82b3a4a66"
+    },
+    {
+      "artifact": "B-D110/informal_statement",
+      "hash": "8598dc11516e0abd29643307228fc90d7cedb0bc03cb7187ac0fc6a3e43b44bd"
+    },
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-D127/informal_statement",
+      "hash": "9ce9f2a558459631cf63c3673a2196037d3f92adb53cdd0446ecc43577097e52"
+    },
+    {
+      "artifact": "B-D128/informal_statement",
+      "hash": "7f3a9b7272c13ba639a2a1057c3315783990cf071581e48d0d63b75fff816aa8"
+    },
+    {
+      "artifact": "B-D129/informal_statement",
+      "hash": "628e46edc820948a719a276072c4847f64c82e7477210776d24b88ad9532bca8"
+    },
+    {
+      "artifact": "B-D134/informal_statement",
+      "hash": "e77e6537248ca80f818a7a950b5c8f16d251aa50a6f87a0e2838dea83970460c"
+    },
+    {
+      "artifact": "B-P101/informal_statement",
+      "hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118"
+    },
+    {
+      "artifact": "B-P147/definition_closure",
+      "hash": "5564ce6f18a31d25c7fadc1531b220329b8a83626d734fbd0c5ff3f53aa00772"
+    },
+    {
+      "artifact": "B-P147/formal_statement",
+      "hash": "da1106ff4605041776e55a0444a878ab7964777f16fb3d1812c4a7d57a1d69ef"
+    },
+    {
+      "artifact": "B-P147/informal_statement",
+      "hash": "4ddff512d9de0e9705fa962d6f4a2acfa276fef126d82d7fc89a3eac79e57dfc"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:32Z"
+}
+```
+
+### E-900018
+
+```json
+{
+  "block": "B-L102",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900018",
+  "findings": [
+    "equivalent: same evaluation identity for the derived algebra, same quantifier domain and placeholder indexing. Transcript: blocks/mscong/audits/B-L102-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-L102/definition_closure",
+      "hash": "cba32c8cc893f2d3184b74ec96c8a82b795929144c06739340b5e3cb0bcadf71"
+    },
+    {
+      "artifact": "B-L102/formal_statement",
+      "hash": "bb8d96c2f19171ba64f87f8d4e0c9474a83a2431a81824b50652f82b0bcaab1e"
+    },
+    {
+      "artifact": "B-L102/informal_statement",
+      "hash": "9b990a39f3b1999fc69fdd14f4f94129d9db7e43e856b271cd429f0743959ed8"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:32Z"
+}
+```
+
 ## reports/mscong/coverage.md
 
 # Coverage report (Section 19)
@@ -545,8 +1409,8 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 ## Summary
 
 - Blocks in registry: 182
-- Blocks with any evidence: 5
-- Evidence records: 8
+- Blocks with any evidence: 15
+- Evidence records: 18
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the
@@ -560,12 +1424,22 @@ assertion).
 | block | kind | section | review | correspondence | verification | representation | trust |
 |---|---|---|---|---|---|---|---|
 | `B-D101` | definition | Preliminaries | none | none | none | stale | - |
+| `B-D135` | definition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-L102` | lemma | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
 | `B-P101` | proposition | Preliminaries | stale | none | none | none | - |
 | `B-P102` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
 | `B-P103` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
 | `B-P104` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P132` | proposition | Preliminaries | none | stale | none | none | - |
+| `B-P133` | proposition | Preliminaries | none | stale | none | none | - |
+| `B-P135` | proposition | Preliminaries | none | stale | none | none | - |
+| `B-P141` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P143` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P145` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P146` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P147` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
 
-177 block(s) have no evidence.
+167 block(s) have no evidence.
 
 ## reports/mscong/trust_boundary.md
 
@@ -581,7 +1455,7 @@ contributes its residuals.
 
 | name | file | record | outcome | current | residuals | covers |
 |---|---|---|---|---|---|---|
-| `encoding` | `representation/mscong-pilot-encoding.md` | - | unaudited | no | - | 6 |
+| `encoding` | `representation/mscong-pilot-encoding.md` | - | unaudited | no | - | 22 |
 
 ## Residuals propagated to blocks
 

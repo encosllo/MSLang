@@ -258,7 +258,9 @@
         "Mscong.recognizable_inter",
         "Mscong.recognizable_compl",
         "Mscong.recognizable_empty",
-        "Mscong.recognizable_univ"
+        "Mscong.recognizable_univ",
+        "Mscong.recognizable_transPreimage",
+        "Mscong.recognizable_inverseImage"
       ],
       "definition_closure": {
         "decls": [
@@ -273,10 +275,10 @@
       },
       "file": "lean/Mscong/Recognizable.lean",
       "formal_proof": {
-        "hash": "56701c8fe49d908784f0a8f25f30531d40c707ceb2476b19e3a3a15ca4a1722f"
+        "hash": "a07445bc224a3abffd736f89a435c41563b2c2cfbb31b5d5c1c8306e3b9a91b3"
       },
       "formal_statement": {
-        "hash": "984650c3b96d46b5d952899fbf0181077c639b63c177aa2e4aa5dc3a806d4d2b"
+        "hash": "6ca35781322059bcb61c1e781fcd13b8923ff3209d31c22efde9f335211752ee"
       }
     },
     "B-P133": {
@@ -350,25 +352,28 @@
     },
     "B-P143": {
       "decls": [
-        "Mscong.PRecQ"
+        "Mscong.PRecQ",
+        "Mscong.quotLang_range_finite"
       ],
       "definition_closure": {
         "decls": [
           "Mscong.Recognizable",
           "Mscong.RecognizableAt",
           "Mscong.recognizableAt_iff",
+          "Mscong.recognizable_inverseImage",
           "Mscong.subst1",
           "Mslang.IsFiniteIndex",
+          "Mslang.IsFiniteIndex_of_le",
           "Mslang.Signature"
         ],
-        "hash": "43d69a34513bdbe864901126967d8722bd3fe2f0bc966d0bcda060b1f904aa69"
+        "hash": "a9c712b64ad8c3fc0080f24adb95acb24092db39e0b7db11d18ab50f5139daf9"
       },
       "file": "lean/Mscong/Quotient.lean",
       "formal_proof": {
-        "hash": "ff52ffc849f4bb3e44477a74c28c66f25aeaf066004661a0d5baee74d05d779b"
+        "hash": "aac94525f44f47965a4e757c5ecf1e4db25fd3fcf15c8cafe763b487db4545c2"
       },
       "formal_statement": {
-        "hash": "ff74c1abb68c8d4f5eff8ea228309cbcaed1cf3c7461a99611b2b2c8704c87b3"
+        "hash": "f34e29909a044a20a46eb356d24d9ec991e01900bfb57f05305980e9e156f3a3"
       }
     },
     "B-P145": {

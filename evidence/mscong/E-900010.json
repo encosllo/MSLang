@@ -1,0 +1,61 @@
+{
+  "block": "B-P133",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900010",
+  "findings": [
+    "equivalent: both state Rec_s(A,L) iff Rec(A,delta^{s,L}) over the same domain with no finiteness hypotheses; the trailing isomorphism sentence is a corollary. Transcript: blocks/mscong/audits/B-P133-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D107/informal_statement",
+      "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+    },
+    {
+      "artifact": "B-P133/definition_closure",
+      "hash": "aa61ce9510b8ea3be6ae4b1b9e0e9bacafdb391460645bc46ef6b5d06f20bb0e"
+    },
+    {
+      "artifact": "B-P133/formal_statement",
+      "hash": "b2b7f9385c658fbde6857d90202e59e61d0775d2d21fcebcb9473e5c707d044b"
+    },
+    {
+      "artifact": "B-P133/informal_statement",
+      "hash": "0d71173d23fab75ae8e8d623361edd2d4271802c6dda86193cfcf0a5f175dc30"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T07:20:31Z"
+}

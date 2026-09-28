@@ -7572,6 +7572,66 @@ mapped blocks remain open; `Sig_d`/`Alg_d` and `PRecILH` remain out of scope.
 2. Reconcile the representation residuals (R-congruence, R-first).
 3. Optionally label the unlabelled propositions.
 
+## Session 138 -- 2026-09-28 -- M6 audits of the mapped `mscong` blocks
+
+**Goal.** Execute Session 137's step 1 for the substantive Mscong-namespace
+blocks: run the two-stage blind correspondence audit (Section 11.2) over the
+ten mapped M1–M5 results that had no evidence.
+
+**What was established (closed).**
+
+- **Declaration map tightened first** so each audited block's formal
+  counterpart is complete: `B-P132` gained
+  `Mscong.recognizable_transPreimage` and `recognizable_inverseImage`;
+  `B-P143` gained `Mscong.quotLang_range_finite`. `lean_facets.py --project
+  mscong`: 22 blocks, 40 formal edges.
+- **Ten correspondence audits** (stage 1 read-back of the Lean declarations;
+  stage 2 comparator against the manuscript statement), transcripts under
+  `blocks/mscong/audits/`, records `E-900009`–`E-900018`:
+  - **`equivalent` (8):** `B-P133` (`s-Rec iff Rec`), `B-D135`
+    (`GlobSubstOp`), `B-P141` (`PRecSubs`), `B-P143` (`PRecQ`), `B-P145`
+    (`IndAlgStrucImHom`), `B-P146` (`PRecH`), `B-P147` (`PRecLH`), `B-L102`
+    (`L:aux`).
+  - **`formal_weaker` (2), recorded as correspondence `fail`:** `B-P132`
+    (`Rec is Bool`) — the mapped empty/universe declarations carry a
+    finite-support hypothesis the manuscript's `∅, A ∈ Rec(A)` does not
+    assume; `B-P135` (`Rec s is Bool`) — only part (1) is mapped, parts
+    (2)–(4) are absent.
+- Coverage extended to all 22 mapped blocks. `status.py --project mscong`:
+  correspondence `provisional` ×11, `fail` ×2, review `fail` ×1,
+  representation `provisional` ×1; 167 blocks have no evidence. Views/bundle
+  regenerated; journal `EV-000162`. Fast gate **50 passed, 0 failed**;
+  `mslang` baseline current.
+
+**Findings.**
+
+- The `formal_weaker` verdicts are **high-value, honest findings**, not
+  failures of the Lean development: the Lean theorems are slightly more
+  specialized than the paper's statements (finite support for the empty/universe
+  bounds) or the declaration map covers only part of a multi-part proposition.
+  The corresponding remedy is either a map extension (parts 3–4 of
+  `B-P132`/`B-P135` use `recognizable_transPreimage`/`recognizable_inverseImage`,
+  already proved) or a formal strengthening.
+- A correspondence `formal_weaker` maps to status `fail` by design
+  (`status.NEGATIVE`), so it surfaces where the author will see it rather than
+  being averaged away.
+
+**Deferred (author-visible caveat).** Correspondence audits for the six
+preliminary blocks (`B-D118`, `B-P106`, `B-C102`, `B-P107`, `B-P109`, `B-P110`)
+— their Lean counterparts are the same `Mslang` declarations already audited in
+`mslang`, so a fresh audit under the mscong encoding is deferred to the author.
+Review audits (informal proofs) remain unaudited except `B-P101`. The
+representation residuals (R-congruence, R-first) still propagate.
+
+**Prioritized next steps.**
+
+1. Decide on the two `formal_weaker` findings: extend the map (parts 3–4 of
+   `B-P132`, parts 2–4 of `B-P135`) or record them as accepted discrepancies.
+2. Reconcile/confirm the representation residuals (R-congruence, R-first) with
+   the author.
+3. Optionally audit the preliminary blocks against their reused `Mslang`
+   declarations.
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
