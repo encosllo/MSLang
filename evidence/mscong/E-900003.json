@@ -1,0 +1,53 @@
+{
+  "block": "B-P104",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900003",
+  "findings": [
+    "Stage 2 returned equivalent: same singleton, same recognizability claim; nonempty-arity hypothesis matches the paper's w in S-star minus lambda; S finite both, Sigma/X unrestricted; empty X vacuous both, empty w excluded both. Transcript: blocks/mscong/audits/B-P104-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P104/definition_closure",
+      "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+    },
+    {
+      "artifact": "B-P104/formal_statement",
+      "hash": "44f2f6901530338999cd8ac8434de0d803ad253cb94d8db6f11329229b60a55f"
+    },
+    {
+      "artifact": "B-P104/informal_statement",
+      "hash": "47ba9cc74ce9633eede5fe8b19e22a93ee77bb9ef9882fc2b08a4d40de0c44ae"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T05:11:00Z"
+}

@@ -36,6 +36,8 @@ import os
 import sys
 from pathlib import Path
 
+HERE = Path(__file__).resolve().parent
+
 # Facets a layer examines for the block itself (Section 12.3 "Layer selects
 # facets"), before the transitive statement closure is added.
 LAYER_SELF_FACETS = {
@@ -247,12 +249,35 @@ def compute_closure(
     }
 
 
+def _resolve_project_paths(project, registry, graph):
+    """Resolve (registry, graph) paths for a project.
+
+    With no ``--project`` the historical literal defaults are kept, so the
+    default project's behaviour and every emitted byte are unchanged. With a
+    project id (or the ``MSLANG_PROJECT`` environment variable) the paths come
+    from the registry.
+    """
+    if project is None and registry is None and graph is None:
+        return Path("blocks/registry.json"), Path("blocks/graph.json")
+    if str(HERE) not in sys.path:
+        sys.path.insert(0, str(HERE))
+    import projects as pj
+
+    pid = project or os.environ.get("MSLANG_PROJECT") or "mslang"
+    entry = pj.get(pid)
+    return (
+        Path(registry) if registry else entry["registry"],
+        Path(graph) if graph else entry["graph"],
+    )
+
+
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     ap.add_argument("--block", required=True)
     ap.add_argument("--layer", required=True, choices=sorted(LAYER_SELF_FACETS))
-    ap.add_argument("--registry", default="blocks/registry.json")
-    ap.add_argument("--graph", default="blocks/graph.json")
+    ap.add_argument("--project", help="project id (default: the active project)")
+    ap.add_argument("--registry", default=None)
+    ap.add_argument("--graph", default=None)
     ap.add_argument(
         "--representation",
         help="file to hash as the representation artifact (Section 11.5)",
@@ -269,8 +294,11 @@ def main(argv):
     )
     args = ap.parse_args(argv)
 
-    registry = load_registry(Path(args.registry))
-    edges = load_edges(Path(args.graph), confirmed_only=not args.include_unconfirmed)
+    registry_path, graph_path = _resolve_project_paths(
+        args.project, args.registry, args.graph
+    )
+    registry = load_registry(registry_path)
+    edges = load_edges(graph_path, confirmed_only=not args.include_unconfirmed)
     rep = sha256_file(Path(args.representation)) if args.representation else None
     environment = None
     if args.layer == "verification":

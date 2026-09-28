@@ -1,0 +1,36 @@
+{
+  "block": "B-D101",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900004",
+  "findings": [
+    "Verdict: faithful-with-caveat with residuals R-universe, R-classical, R-finite, R-congruence, R-first, R-restriction. Auditor independently surfaced R-congruence (SortedEqv vs operation-compatible congruence) and R-restriction (RecognizableOn via zeroExtension), strengthening R-first. Transcript: blocks/mscong/audits/encoding-audit.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding-audit"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded. Inherits representation residuals R-classical, R-congruence, R-finite, R-first, R-restriction, R-universe.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-28T05:12:00Z"
+}

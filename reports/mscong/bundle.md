@@ -10,12 +10,12 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/mscong/formal.json` | `194fc6b1e256fea893b6e5fed1f7c95cf22e3971cb8f8ff2219508c9cd2cfe2c` |
-| `blocks/mscong/formal_graph.json` | `e3d15426da12dad1441fc00bf2ca44211e5b34a337f3ae6fd36cd36fe98542a1` |
-| `blocks/mscong/graph.json` | `30ef4fbf14e6f98a1098c215b1596e96761cc1f27b36f805a31be8a19bef8bfe` |
-| `blocks/mscong/hashes.json` | `ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356` |
-| `blocks/mscong/lean_audit.json` | `6896019307da6fcda2fb21c84d82bb19a5c4e03349a48016b1059f200ac4c4f0` |
-| `blocks/mscong/registry.json` | `fe1f89dc1c976bac41417bc8a2940e324ecd36ee4cc0c64bca2f75294bcbf2d5` |
+| `blocks/mscong/formal.json` | `2861316837f423beea94de5e885f2fe00b1512b3bfec3d36255315a9031f53ba` |
+| `blocks/mscong/formal_graph.json` | `01de1de940521ac076d475ee5a88c74047ccac8f26304401e2b0ece96b46afcc` |
+| `blocks/mscong/graph.json` | `90e6ba3c055674a0a96d26cafcac6dc05823fd8b1d81b445c22990088ff870e6` |
+| `blocks/mscong/hashes.json` | `4e29ed0268c090ef1bac83686a3b92d4ce4237ece6345a4b759b4c0397b4d5cd` |
+| `blocks/mscong/lean_audit.json` | `504d813bbad5f65cdfc38ee030865e215916038d8dab516c15e3f64d25232599` |
+| `blocks/mscong/registry.json` | `b5eec9c16df1c483fd442b5883983d4dcf67de7c68117d280d3946758c64ce59` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
 | `blocks/scope_decisions.json` | `8e83c9c6ee2625bda38c995eb582268eecb8adb3f0d3e2a07faea9e1d8313d49` |
@@ -26,16 +26,362 @@ repository.
 | `calibration/seeded.json` | `0c8e7280e4b4e4f8f15519538b14a495b1b24048bccb5be8d4594bf83ac1c3ef` |
 | `calibration/verdicts.json` | `d27d351fb3ca2a52ae0ec69a389117c0e4d487d1f8ab69b9d8e7dff753abb782` |
 | `decisions/standing.json` | `03b61b27a750f6e99c78be0ba46cf46a9ad3b2c139b81b93fa5624ec4177adb8` |
-| `journal/mscong.jsonl` | `a3d84f61742b1390d41b0ff2819dab01896ca01773265203fb0d5236621d9b53` |
+| `evidence/mscong/E-900001.json` | `c78c4d6aff05272864d6e7c31c177d605b1b8d46415bc8f1df1683bba1e6453c` |
+| `evidence/mscong/E-900002.json` | `4dca944d452cae4f64913430564124c5387a3ee9bca286a26be3cd0fbb9ba495` |
+| `evidence/mscong/E-900003.json` | `794c136c475e8c4b1532d9fbe92853da8733e16e0844bbc0a654e5ccde37d8e5` |
+| `evidence/mscong/E-900004.json` | `6e89e24952c13e740eb61c3753de1aadf3840bdea0d194e6bfc2bc879a718b4b` |
+| `evidence/mscong/E-900005.json` | `215d4ee087a7ddf6c34ee1666c72f562e3932268f50d8ac0dac619f672d31418` |
+| `journal/mscong.jsonl` | `2a6f7866775a03cdc297bf71b2530ae34cd432e130f8a9f8529c299af9e15f1d` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
-| `manuscript/MSCong.tex` | `1afdfcc25670142cef008196f53135e7a5e989f2647715ef5cb65b4ae71995f5` |
+| `manuscript/MSCong.tex` | `92a78f70b949661d8277b9183643d1faf37dcb0e886b71aaa570c1231497c12c` |
 | `reconciliation/proposals.json` | `cad78706a93883a409b94262b40fa06e3a1eec3d680abe1aab0645c038cccabd` |
+| `representation/mscong-coverage.json` | `6ebb181f4e27627c699b1c03bc300757566ea3486bc1c31792df029ad31d30dc` |
 | `schemas/evidence.schema.json` | `c6cca4d570f1ff68ed94ab9b38efad979074c6e2ce3bf5db1f663aa379550449` |
 
 ## Status (validity rule applied to current evidence)
 
 | block | layer | status | current | stale |
 |---|---|---|---|---|
+| `B-D101` | representation | stale | 0 | 1 |
+| `B-P101` | review | stale | 0 | 1 |
+| `B-P102` | correspondence | stale | 0 | 1 |
+| `B-P103` | correspondence | stale | 0 | 1 |
+| `B-P104` | correspondence | stale | 0 | 1 |
 
 ## Evidence records
+
+### E-900001
+
+```json
+{
+  "block": "B-P102",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900001",
+  "findings": [
+    "Stage 2 returned equivalent: same positive existence claim, identical inverse-image equality, same quantifier domain (finite S, arbitrary Sigma/X/s/x), S finite both, B finite both, empty X_s vacuous both. Transcript: blocks/mscong/audits/B-P102-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P102/definition_closure",
+      "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+    },
+    {
+      "artifact": "B-P102/formal_statement",
+      "hash": "e6d0d238f8eff6c5a42294ac67c5e030d726c6ed937487a6efdd36842945c949"
+    },
+    {
+      "artifact": "B-P102/informal_statement",
+      "hash": "4613d002f1dbc3b82fc5d2916cb2ad30d250f5ae643e4f2241e6dd20141f2068"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T05:10:00Z"
+}
+```
+
+### E-900002
+
+```json
+{
+  "block": "B-P103",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900002",
+  "findings": [
+    "Stage 2 returned equivalent: same recognizability claim under the identical Rec_s definition; same universal scope; S finite both, X unconstrained both, B finite; empty S vacuous both and empty X leaves the nullary singleton intact. Transcript: blocks/mscong/audits/B-P103-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P103/definition_closure",
+      "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+    },
+    {
+      "artifact": "B-P103/formal_statement",
+      "hash": "93eaeb836a4bdc40e02ff91e6a2e1ee351c401dba7f9041fb5d94ee59b0c7f16"
+    },
+    {
+      "artifact": "B-P103/informal_statement",
+      "hash": "d80e7cf98576b2ae6728ce8172bfba85d4c286d011a1db32b8527801c80efaa2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T05:10:30Z"
+}
+```
+
+### E-900003
+
+```json
+{
+  "block": "B-P104",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900003",
+  "findings": [
+    "Stage 2 returned equivalent: same singleton, same recognizability claim; nonempty-arity hypothesis matches the paper's w in S-star minus lambda; S finite both, Sigma/X unrestricted; empty X vacuous both, empty w excluded both. Transcript: blocks/mscong/audits/B-P104-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P104/definition_closure",
+      "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+    },
+    {
+      "artifact": "B-P104/formal_statement",
+      "hash": "44f2f6901530338999cd8ac8434de0d803ad253cb94d8db6f11329229b60a55f"
+    },
+    {
+      "artifact": "B-P104/informal_statement",
+      "hash": "47ba9cc74ce9633eede5fe8b19e22a93ee77bb9ef9882fc2b08a4d40de0c44ae"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "strength": "R3",
+  "timestamp": "2026-09-28T05:11:00Z"
+}
+```
+
+### E-900004
+
+```json
+{
+  "block": "B-D101",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900004",
+  "findings": [
+    "Verdict: faithful-with-caveat with residuals R-universe, R-classical, R-finite, R-congruence, R-first, R-restriction. Auditor independently surfaced R-congruence (SortedEqv vs operation-compatible congruence) and R-restriction (RecognizableOn via zeroExtension), strengthening R-first. Transcript: blocks/mscong/audits/encoding-audit.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "encoding-audit"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded. Inherits representation residuals R-classical, R-congruence, R-finite, R-first, R-restriction, R-universe.",
+  "inputs": [
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "representation",
+  "outcome": "faithful-with-caveat",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "encoding_auditor"
+  },
+  "timestamp": "2026-09-28T05:12:00Z"
+}
+```
+
+### E-900005
+
+```json
+{
+  "block": "B-P101",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900005",
+  "findings": [
+    "Partial match -> recorded as fail for the review layer: the mapped Lean facts (IsFiniteIndex_of_le, IsFiniteIndex_inf) discharge the upward-closure and finite-meet clauses but not the manuscript's overall 'Cgr_fi(A) is a filter' conclusion (top/nonemptiness under finite support). Carried as residual R-first. Transcript: blocks/mscong/audits/B-P101-review.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "reviewer"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P101/informal_proof",
+      "hash": "df6b6c52c21be92fcbc6155cfb73975310e28987f1ce094acf542e427e54f263"
+    },
+    {
+      "artifact": "B-P101/informal_statement",
+      "hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "review",
+  "outcome": "fail",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "reviewer"
+  },
+  "strength": "R2",
+  "timestamp": "2026-09-28T05:13:00Z"
+}
+```
+
+## reports/mscong/coverage.md
+
+# Coverage report (Section 19)
+
+Generated by `scripts/report.py` from `blocks/registry.json`,
+`evidence/`, and `representation/coverage.json`. Do not edit by hand.
+
+## Summary
+
+- Blocks in registry: 6
+- Blocks with any evidence: 5
+- Evidence records: 5
+- Representations declared: 1
+
+Derived block status (Section 8.2) is **not asserted** here: the
+workspace does not yet record contract acceptance (Draft vs
+Developing) or treatment tiers, so the per-layer status vector is
+shown instead (P8: completion is established by evidence, never by
+assertion).
+
+## Blocks with evidence
+
+| block | kind | section | review | correspondence | verification | representation | trust |
+|---|---|---|---|---|---|---|---|
+| `B-D101` | definition | Preliminaries | none | none | none | stale | - |
+| `B-P101` | proposition | Preliminaries | stale | none | none | none | - |
+| `B-P102` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P103` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+| `B-P104` | proposition | Recognizable subsets of a free many-sorted algebra | none | stale | none | none | - |
+
+1 block(s) have no evidence.
+
+## reports/mscong/trust_boundary.md
+
+# Trust boundary report (Sections 6, 7.5, 11.5)
+
+Generated by `scripts/report.py`. The trust boundary is everything
+verified results rest on without proof in the project: open
+reductions, statement-only blocks, cited external results, and
+non-standard axioms. A `faithful-with-caveat` representation also
+contributes its residuals.
+
+## Representations
+
+| name | file | record | outcome | current | residuals | covers |
+|---|---|---|---|---|---|---|
+| `encoding` | `representation/mscong-pilot-encoding.md` | - | unaudited | no | - | 6 |
+
+## Residuals propagated to blocks
+
+A `faithful-with-caveat` representation imposes its residuals on every
+block it covers, so the compromise is visible in the block's trust
+boundary (Section 11.5).
+
+| block | representation | outcome | residuals |
+|---|---|---|---|
+| - | - | - | - |
+
+## Unproved bridge obligations
+
+Bridge obligations turn an encoding judgment into formal evidence
+(Section 7.4); until proved they sit in the trust boundary. Obligations
+discharged in `blocks/bridges.json` are excluded here.
+
+- `encoding`: `recognizable_iff_exists_finiteIndex_sat`, `recognizableAt_iff`, `recognizable_union`, `recognizable_inter`, `recognizable_compl`, `recognizable_inverseImage`, `finiteAlg_twoAlg`
+
+## Statement-only / out-of-scope
+
+No block currently declares `formalization_scope` (all `scope: null`), so there are no statement-only entries yet.

@@ -43,8 +43,9 @@ def main():
     check("mslang namespace", mslang["lean_namespace"] == "Mslang")
 
     mscong = projects.get("mscong")
-    check("mscong is a scaffold (not ingested)", mscong["ingested"] is False)
-    check("mscong has no provenance source yet", mscong["source"] is None)
+    check("mscong is ingested", mscong["ingested"] is True)
+    check("mscong provenance source resolves",
+          mscong["source"] == (projects.ROOT / "manuscript" / "MSCong.tex").resolve())
     check("mscong manuscript resolves",
           mscong["manuscript"] == (projects.ROOT / "manuscript" / "MSCong.tex").resolve())
     check("mscong blocks are namespaced",
@@ -73,12 +74,12 @@ def main():
     collisions, per_project = projects.cross_project_id_collisions()
     check("no block/evidence/journal id collision across projects", not collisions,
           str(collisions))
-    # `mscong` stays a scaffold while milestones are unmapped infrastructure:
-    # no block IDs and no evidence, though milestone journal events may accrue
-    # (M5 records the first; see STATE.md Session 134).
-    check("mscong has no block or evidence identifiers yet",
-          not per_project["mscong"]["blocks"]
-          and not per_project["mscong"]["evidence"],
+    # `mscong` is ingested at the M6 pilot: its block IDs are the six-block
+    # basic-terms cluster and its evidence accrues from the correspondence
+    # audits, but its ID space stays disjoint from `mslang` (checked above).
+    check("mscong block IDs are drawn from the pilot cluster",
+          per_project["mscong"]["blocks"]
+          == {"B-D101", "B-P101", "B-D102", "B-P102", "B-P103", "B-P104"},
           str(per_project["mscong"]))
 
     # The default project's artifacts are byte-identical to the recorded baseline.
@@ -179,6 +180,19 @@ def main():
               proc.returncode != 0, proc.stderr)
         check("the failure names the stale anchor",
               "STALE" in proc.stderr, proc.stderr)
+
+    # Evidence IDs are allocated from disjoint project ranges (M6), so
+    # `--collisions` cannot fire once both projects hold records.
+    import evidence as ev
+
+    mslang_next = ev.next_evidence_id(projects.ROOT / "evidence")
+    mscong_next = ev.next_evidence_id(
+        projects.ROOT / "evidence" / "mscong", "mscong"
+    )
+    check("mslang evidence range is the top-level block",
+          mslang_next.startswith("E-000"), mslang_next)
+    check("mscong evidence range is disjoint from mslang",
+          mscong_next.startswith("E-9"), mscong_next)
 
     print()
     if FAILURES:

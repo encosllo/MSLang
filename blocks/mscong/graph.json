@@ -1,10 +1,122 @@
 {
-  "ambiguous_symbols": {},
-  "decisions_source": null,
-  "edges": [],
-  "labels": {},
+  "ambiguous_symbols": {
+    "Cgr": [],
+    "Hom": [],
+    "Im": [],
+    "Rec_S": [],
+    "Rec_lf": [],
+    "Sub_f": [],
+    "Sub_lf": [],
+    "T": [],
+    "card": [],
+    "ch": [],
+    "fi": [],
+    "lf": [],
+    "lfi": [],
+    "p": [],
+    "pr": [],
+    "supp_S": []
+  },
+  "decisions_source": "blocks/mscong/edge_decisions.json",
+  "edges": [
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-P101",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    }
+  ],
+  "labels": {
+    "Filter": "B-P101",
+    "PRecConst": "B-P103",
+    "PRecOp": "B-P104",
+    "PRecVar": "B-P102"
+  },
   "note": "candidate edges; confirmed=false means awaiting author confirmation",
-  "numbers": {},
-  "source": null,
-  "symbols_used": {}
+  "numbers": {
+    "2.15": null,
+    "2.16": null,
+    "2.17": null,
+    "2.20": null,
+    "2.21": null,
+    "2.25": null,
+    "2.29": null,
+    "2.30": null,
+    "2.32": null,
+    "2.35": null,
+    "2.37": null,
+    "2.45": null,
+    "2.46": null,
+    "2.48": null,
+    "2.50": null,
+    "2.53": null,
+    "2.54": null,
+    "2.55": null,
+    "2.56": null,
+    "2.57": null,
+    "2.58": null,
+    "2.61": "B-P101",
+    "2.67": null,
+    "2.68": null,
+    "2.69": null,
+    "2.70": null,
+    "2.72": null,
+    "3.1": "B-P102",
+    "3.13": null,
+    "3.14": null,
+    "3.15": null,
+    "3.2": "B-P103",
+    "3.20": null,
+    "3.26": null,
+    "3.27": null,
+    "3.28": null,
+    "3.3": "B-P104",
+    "3.37": null,
+    "3.38": null,
+    "3.4": null,
+    "3.7": null
+  },
+  "source": "manuscript/MSCong.tex",
+  "symbols_used": {
+    "B-D101": [
+      "Cgr_fi",
+      "Cgr_lfi",
+      "Sub_f",
+      "Sub_lf",
+      "card",
+      "fi",
+      "lfi",
+      "supp_S"
+    ],
+    "B-D102": [
+      "Rec",
+      "Rec_S",
+      "Rec_T",
+      "Rec_lf",
+      "Rec_s",
+      "lf"
+    ],
+    "B-P101": [
+      "Cgr",
+      "Cgr_fi",
+      "p",
+      "pr",
+      "supp_S"
+    ],
+    "B-P102": [
+      "T",
+      "ch"
+    ],
+    "B-P103": [
+      "T"
+    ],
+    "B-P104": [
+      "Hom",
+      "Im",
+      "T",
+      "card"
+    ]
+  }
 }

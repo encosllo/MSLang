@@ -75,18 +75,58 @@ def build_independence(args):
     )
 
 
-def next_evidence_id(evidence_dir):
-    mx = 0
+# Evidence ID ranges are disjoint across projects, so `projects.py
+# --collisions` stays quiet. The default project (`mslang`) keeps the original
+# top-level range [1, 99999]; a non-default project takes a dedicated block.
+PROJECT_EVIDENCE_BASE = {"mslang": 0, "mscong": 900000}
+PROJECT_EVIDENCE_SLOT = 100000
+
+
+def _evidence_bounds(project):
+    base = PROJECT_EVIDENCE_BASE.get(project or "mslang", 900000)
+    return base, base + PROJECT_EVIDENCE_SLOT
+
+
+def next_evidence_id(evidence_dir, project=None):
+    lo, hi = _evidence_bounds(project)
+    mx = lo
     for path in Path(evidence_dir).glob("E-*.json"):
         m = re.match(r"E-(\d{6})\.json$", path.name)
-        if m:
+        if m and lo <= int(m.group(1)) < hi:
             mx = max(mx, int(m.group(1)))
-    return f"E-{mx + 1:06d}"
+    nxt = mx + 1
+    if nxt >= hi and lo == 0:
+        # The default range is exhausted; fall through to the reserved project
+        # block rather than colliding.
+        nxt = 900001
+    return f"E-{nxt:06d}"
+
+
+def _project_paths(project):
+    """Resolve (registry, graph, evidence_dir) for a project.
+
+    With no ``--project`` the historical top-level paths are kept verbatim, so
+    the default project's behaviour is unchanged.
+    """
+    if project is None:
+        return (
+            ROOT / "blocks" / "registry.json",
+            ROOT / "blocks" / "graph.json",
+            ROOT / "evidence",
+        )
+    import projects as pj
+
+    pid = project or os.environ.get("MSLANG_PROJECT") or "mslang"
+    entry = pj.get(pid)
+    return entry["registry"], entry["graph"], entry["evidence_dir"]
 
 
 def new_record(args):
-    registry = closure.load_registry(ROOT / "blocks" / "registry.json")
-    edges = closure.load_edges(ROOT / "blocks" / "graph.json", confirmed_only=True)
+    registry_path, graph_path, default_evidence_dir = _project_paths(args.project)
+    if args.evidence_dir == str(ROOT / "evidence") and args.project is not None:
+        args.evidence_dir = str(default_evidence_dir)
+    registry = closure.load_registry(registry_path)
+    edges = closure.load_edges(graph_path, confirmed_only=True)
     rep = (
         status.hash_file(args.representation) if args.representation else None
     )
@@ -109,7 +149,8 @@ def new_record(args):
         print(f"evidence: closure blocked, no record: {result['reason']}", file=sys.stderr)
         return 1
     record = {
-        "evidence_id": args.evidence_id or next_evidence_id(args.evidence_dir),
+        "evidence_id": args.evidence_id
+        or next_evidence_id(args.evidence_dir, args.project),
         "layer": args.layer,
         "block": args.block,
         "inputs": result["inputs"],
@@ -148,14 +189,18 @@ def new_record(args):
         return 1
 
     payload = json.dumps(record, indent=2, sort_keys=True) + "\n"
+    evidence_dir = Path(args.evidence_dir)
     if args.write:
-        if Path(ROOT / "evidence" / f"{record['evidence_id']}.json").exists():
+        if (evidence_dir / f"{record['evidence_id']}.json").exists():
             print("evidence: refusing to overwrite an existing record", file=sys.stderr)
             return 2
-        (ROOT / "evidence" / f"{record['evidence_id']}.json").write_text(
+        (evidence_dir / f"{record['evidence_id']}.json").write_text(
             payload, encoding="utf-8"
         )
-        print(f"evidence: wrote evidence/{record['evidence_id']}.json", file=sys.stderr)
+        print(
+            f"evidence: wrote {evidence_dir}/{record['evidence_id']}.json",
+            file=sys.stderr,
+        )
     else:
         print(payload)
     return 0
@@ -171,6 +216,7 @@ def main(argv):
     p.add_argument("--representation-name", default="encoding")
     p.add_argument("--evidence-id")
     p.add_argument("--evidence-dir", default=str(ROOT / "evidence"))
+    p.add_argument("--project", help="project id (default: the active project)")
     p.add_argument("--producer-kind", default="agent")
     p.add_argument("--producer-role", required=True)
     p.add_argument("--model", default="deepseek-v4.1-flash")

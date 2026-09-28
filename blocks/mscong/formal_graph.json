@@ -1,4 +1,25 @@
 {
-  "edges": [],
+  "edges": [
+    {
+      "from": "B-P101",
+      "kind": "formal_uses",
+      "to": "B-D101"
+    },
+    {
+      "from": "B-P102",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P103",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P104",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    }
+  ],
   "note": "Declared (formal) dependencies among mapped blocks, extracted from source by whole-identifier occurrence (Architecture.md Section 12.1)."
 }

@@ -1,0 +1,45 @@
+{
+  "block": "B-P101",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900005",
+  "findings": [
+    "Partial match -> recorded as fail for the review layer: the mapped Lean facts (IsFiniteIndex_of_le, IsFiniteIndex_inf) discharge the upward-closure and finite-meet clauses but not the manuscript's overall 'Cgr_fi(A) is a filter' conclusion (top/nonemptiness under finite support). Carried as residual R-first. Transcript: blocks/mscong/audits/B-P101-review.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "reviewer"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-P101/informal_proof",
+      "hash": "df6b6c52c21be92fcbc6155cfb73975310e28987f1ce094acf542e427e54f263"
+    },
+    {
+      "artifact": "B-P101/informal_statement",
+      "hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "review",
+  "outcome": "fail",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "reviewer"
+  },
+  "strength": "R2",
+  "timestamp": "2026-09-28T05:13:00Z"
+}

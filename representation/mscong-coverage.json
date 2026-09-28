@@ -1,0 +1,23 @@
+{
+  "encoding": {
+    "file": "representation/mscong-pilot-encoding.md",
+    "note": "M6 pilot cluster = the MSCong.tex basic-terms cluster mapped at the pilot. A block is covered by this representation when a review/correspondence record for it lists the representation hash.",
+    "blocks": [
+      "B-D101",
+      "B-D102",
+      "B-P101",
+      "B-P102",
+      "B-P103",
+      "B-P104"
+    ],
+    "bridge_obligations": [
+      "recognizable_iff_exists_finiteIndex_sat",
+      "recognizableAt_iff",
+      "recognizable_union",
+      "recognizable_inter",
+      "recognizable_compl",
+      "recognizable_inverseImage",
+      "finiteAlg_twoAlg"
+    ]
+  }
+}

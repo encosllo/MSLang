@@ -1,4 +1,112 @@
 {
-  "blocks": {},
+  "blocks": {
+    "B-D101": {
+      "decls": [
+        "Mslang.IsFiniteIndex",
+        "Mslang.IsFiniteIndexCongruenceFormation"
+      ],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "bf5e175cd0b1a254c4093fd6dce38131ee670ed9afb1b567ec841896aefdd59d"
+      },
+      "formal_statement": {
+        "hash": "e71eace461f8fb49f022b0510f79ea5210e244faaf3d32ceb20211c6a5d6897e"
+      }
+    },
+    "B-D102": {
+      "decls": [
+        "Mscong.Recognizable",
+        "Mscong.RecognizableAt"
+      ],
+      "definition_closure": {
+        "decls": [],
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "file": "lean/Mscong/Recognizable.lean",
+      "formal_proof": {
+        "hash": "008e89ac35e7308e9ff671df696f6e3131e94a76a535d6541bd17927cb19fd8a"
+      },
+      "formal_statement": {
+        "hash": "cfadc656456ad845ad95d1945363cd6a5c364ffa2b901fbf5d513fc085f4315b"
+      }
+    },
+    "B-P101": {
+      "decls": [
+        "Mslang.IsFiniteIndex_of_le",
+        "Mslang.IsFiniteIndex_inf"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mslang.IsFiniteIndex"
+        ],
+        "hash": "b3f6aa1c80f10c0413bc02e69a6cd223d60a7b1a2274c0dd58c58ef76278b549"
+      },
+      "file": "lean/Mslang/Regular.lean",
+      "formal_proof": {
+        "hash": "57fdf6bbffacddb4a3b9ae360b61f22410550ebdb668d91ad09b2affb3e19edc"
+      },
+      "formal_statement": {
+        "hash": "fd62b2ce81d54e69bf04838af0884a9545e5558dd8e63e1823ea8b31c2f890d2"
+      }
+    },
+    "B-P102": {
+      "decls": [
+        "Mscong.PRecVar"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mscong.RecognizableAt"
+        ],
+        "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+      },
+      "file": "lean/Mscong/BasicTerms.lean",
+      "formal_proof": {
+        "hash": "47c92d0109464c331e6bf61258c027a93f1e6f7c7433e2b225e4262bff02c3ef"
+      },
+      "formal_statement": {
+        "hash": "e6d0d238f8eff6c5a42294ac67c5e030d726c6ed937487a6efdd36842945c949"
+      }
+    },
+    "B-P103": {
+      "decls": [
+        "Mscong.PRecConst"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mscong.RecognizableAt"
+        ],
+        "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+      },
+      "file": "lean/Mscong/BasicTerms.lean",
+      "formal_proof": {
+        "hash": "dbded11e9f310ec3ea372491ea2c2b96e57699e3aa1e4474e541ffbdb7f979eb"
+      },
+      "formal_statement": {
+        "hash": "93eaeb836a4bdc40e02ff91e6a2e1ee351c401dba7f9041fb5d94ee59b0c7f16"
+      }
+    },
+    "B-P104": {
+      "decls": [
+        "Mscong.PRecOp"
+      ],
+      "definition_closure": {
+        "decls": [
+          "Mscong.RecognizableAt"
+        ],
+        "hash": "1e71c84e63ec3074591b87d057de94ab59d7f148692021a2db8a9ca2381234c9"
+      },
+      "file": "lean/Mscong/BasicTerms.lean",
+      "formal_proof": {
+        "hash": "6e779ed446ffa18102bc217ff64a241e6986fd0bafe791fb739f86f410dd39eb"
+      },
+      "formal_statement": {
+        "hash": "44f2f6901530338999cd8ac8434de0d803ad253cb94d8db6f11329229b60a55f"
+      }
+    }
+  },
   "source": "lean/declarations.mscong.json"
 }

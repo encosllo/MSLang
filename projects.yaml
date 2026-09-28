@@ -44,8 +44,8 @@ projects:
   mscong:
     lean_namespace: Mscong
     manuscript: manuscript/MSCong.tex
-    source: null
-    aux: null
+    source: manuscript/MSCong.tex
+    aux: manuscript/MSCong.aux
     blocks_dir: blocks/mscong
     hashes: blocks/mscong/hashes.json
     registry: blocks/mscong/registry.json
@@ -57,10 +57,10 @@ projects:
     explanations_dir: blocks/mscong/explanations
     edge_decisions: blocks/mscong/edge_decisions.json
     notation: blocks/mscong/notation.json
-    representation: null
+    representation: representation/mscong-coverage.json
     lean_declarations: lean/declarations.mscong.json
     lean_formal: blocks/mscong/formal.json
     lean_formal_graph: blocks/mscong/formal_graph.json
     lean_audit: blocks/mscong/lean_audit.json
-    ingested: false
-    notes: "Congruence-based proofs of the recognizability theorems for free many-sorted algebras (J. Climent Vidal & E. Cosme Llopez, J. Logic and Computation 30(2):561-633, 2020; doi:10.1093/logcom/exz032). Scaffold; provenance begins at M1."
+    ingested: true
+    notes: "Congruence-based proofs of the recognizability theorems for free many-sorted algebras (J. Climent Vidal & E. Cosme Llopez, J. Logic and Computation 30(2):561-633, 2020; doi:10.1093/logcom/exz032). Provenance ingested at the M6 pilot (six-block basic-terms cluster); full mapping deferred."

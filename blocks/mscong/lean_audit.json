@@ -3,7 +3,39 @@
     "axioms": [],
     "warnings": []
   },
-  "axioms": {},
+  "axioms": {
+    "Mscong.PRecConst": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.PRecOp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.PRecVar": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.Recognizable": [],
+    "Mscong.RecognizableAt": [],
+    "Mslang.IsFiniteIndex": [],
+    "Mslang.IsFiniteIndexCongruenceFormation": [
+      "Classical.choice"
+    ],
+    "Mslang.IsFiniteIndex_inf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.IsFiniteIndex_of_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
   "build": {
     "errors": [],
     "ok": true,
@@ -11,7 +43,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 0,
+  "declarations_audited": 9,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

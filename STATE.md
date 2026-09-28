@@ -7354,15 +7354,116 @@ hyperderivor's induced algebra. `PRecILH` remains out of scope (commented out).
 2. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
+## Session 135 -- 2026-09-28 -- M6 pilot: `mscong` provenance, correspondence audits
+
+**Goal.** Open and implement the last roadmap milestone, **M6**
+(correspondence audit / block mapping for MSCong using the evidence model),
+scoped by the author as a **pilot**: a small dependency-closed cluster tied to
+already-proven Lean declarations, not a 247-environment contract freeze.
+OpenSpec change `add-mscong-correspondence` (active); `openspec validate` =
+valid.
+
+**Pilot cluster (six blocks, `MSCong.tex` §2.3–3.1).** `B-D101` finite-index
+congruence definition; `B-P101` `Filter`; `B-D102` recognizability definition;
+`B-P102`/`B-P103`/`B-P104` = `PRecVar`/`PRecConst`/`PRecOp`. IDs take a
+**disjoint number range** (`B-D1xx`/`B-P1xx`) so `projects.py --collisions`
+stays quiet; the grammar is the `mslang` `B-<letter><NNN>` one.
+
+**What was established (closed).**
+
+- **Manuscript.** Added `\providecommand{\blockid}` and the six `\blockid{}`s
+  (each on the line before its environment). Harmonized three pre-existing
+  defects: renamed the second multiply-defined `\label{TAntiHom}` (the subset
+  form) to `TAntiHomSub` — its `\ref` callers are in commented-out proofs, so
+  no live citation changed; removed the stale `\ref{PRecIt}` inside a
+  commented-out proof; and repaired **70 U+FFFD corruption bytes** (the file
+  had been written as UTF-8 by an editor, aborting the non-ASCII scan) back to
+  the intended latin1 `0xf3`. The `mscong` crossref audit now reports **0
+  undefined**; the PDF builds (**56 pages**, no `multiply defined`).
+- **Provenance ingested.** `projects.yaml` `mscong` now has
+  `source`/`aux`/`representation` set and `ingested: true`;
+  `hash_blocks.py --project mscong` (218 anchors), `ingest.py --project mscong`
+  (6 confirmed, 176 proposed), symbols/graph/gap reports written; all `--check`
+  green.
+- **Declaration map + formal facets.** `lean/declarations.mscong.json` maps the
+  six blocks; `lean_facets.py --project mscong` writes
+  `blocks/mscong/formal.json` (6 declarations, 4 formal edges); the edges point
+  into `Mslang` (`IsFiniteIndex*`) and `Mscong` (`Recognizable`,
+  `PRecVar/Const/Op`). `lean_audit.py --project mscong`: **9 declarations, 0
+  warnings, 0 unpermitted, 0 `sorry`, ok=True**.
+- **Project dimension for the evidence tools.** `closure.py`, `status.py`,
+  `evidence.py`, `report.py`, and `trust.py` gained `--project`, resolving
+  registry/graph/evidence/coverage/reports through `projects.py`; with no
+  `--project` the historical paths and every emitted byte are unchanged.
+  Evidence IDs are allocated from **disjoint project ranges** (`mslang`
+  `[1,99999]`, `mscong` `[900001,999999]`) so `--collisions` cannot fire.
+- **Correspondence audits.** Two-stage blind protocol (Section 11.2) for
+  `B-P102`/`B-P103`/`B-P104`: stage 2 returned **`equivalent`** for all three.
+  Transcripts in `blocks/mscong/audits/`. Encoding audit of
+  `representation/mscong-pilot-encoding.md`: **`faithful-with-caveat`** with
+  residuals **R-universe, R-classical, R-finite, R-congruence, R-first,
+  R-restriction** (the auditor independently surfaced R-congruence —
+  `SortedEqv` vs operation-compatible congruence — and R-restriction —
+  `RecognizableOn` via `zeroExtension` — and strengthened R-first). A review
+  record for `B-P101` is typed **fail**: the mapped Lean facts discharge the
+  closure/meet clauses but not the manuscript's full "filter" conclusion.
+- **Evidence.** `evidence/mscong/E-900001..E-900005` (three correspondence,
+  one representation, one review); all schema-valid. `status.py --project
+  mscong` derives correspondence `provisional` (same-model independence gate),
+  review `fail`, representation `provisional`. Views and bundle regenerated
+  under `reports/mscong/`; journal events `EV-000157` (block mint + reconcile),
+  `EV-000158` (evidence).
+- **Gate.** Fast **50 passed, 0 failed**; one slow `check_all.sh`: **53 passed,
+  0 failed**; `check_all.sh --project mscong` green; the `mslang` golden
+  baseline is current throughout. `projects_test.py` updated (mscong is
+  ingested; its IDs are the pilot cluster; disjoint evidence ranges).
+
+**Findings / gotchas.**
+
+- **Never edit a non-UTF-8 manuscript with the `edit` tool.** `MSCong.tex` is
+  latin1; an `edit` call re-decoded it as UTF-8 and re-introduced the 70 U+FFFD
+  bytes (caught immediately by the non-ASCII scan). Repair with Python
+  `open(..., encoding='latin1')` and verify the single-high-byte histogram, as
+  for `MSEilenberg.tex`.
+- **`hash_blocks.py` mutates nothing without `--out`**; without it the anchors
+  are printed. The gate uses `--project ... --check`, which reads the
+  registry's hashes path.
+- The importer treats some `\blockid`-free environments as **proposed** (176 of
+  them) — the `gap_report.md` backlog for a follow-on full mapping, not errors.
+- The same-model independence gate marks the correspondence records
+  `provisional`; this is the intended behaviour, identical to `mslang`'s first
+  records.
+
+**Deferred (author-visible caveat).** Mapping the remaining ~240 environments,
+the `Sig_d`/`Alg_d`/Grothendieck category layer, and `PRecILH` are **not**
+done; the pilot's six-block project is honest and small by design. The
+representation residuals (esp. R-congruence) propagate into the pilot's trust
+boundary.
+
+**Prioritized next steps.**
+
+1. Decide whether to extend the mapping to the full `MSCong.tex` (a follow-on
+   change using the same machinery) or leave the pilot as the M6 deliverable.
+2. Reconcile the representation residuals (R-congruence, R-first) with the
+   author, or carry them as declared caveats.
+3. Archive `add-mscong-correspondence` and sync
+   `formalization/mcong-correspondence`.
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
    trusting this file (Section 10.5). More than one manuscript project lives
    here now: `projects.yaml` is the registry (`mslang` default, `mscong`
-   scaffolded). Resolve any path with `python3 scripts/projects.py --field <id>
-   <key>` and never hardcode a manuscript filename; `scripts/check_all.sh` runs
-   the source-dependent checks once per project and names it (`[mslang]`,
-   `[mscong]`), deferring them for a project with `ingested: false`.
+   ingested at the M6 pilot). Resolve any path with `python3
+   scripts/projects.py --field <id> <key>` and never hardcode a manuscript
+   filename; `scripts/check_all.sh` runs the source-dependent checks once per
+   project and names it (`[mslang]`, `[mscong]`), deferring them only for a
+   project with `ingested: false`. Both manuscripts are **latin1**; edit them
+   with Python `open(..., encoding='latin1')`, never the `edit` tool (rule 7),
+   and verify the high-byte histogram. The evidence tools (`closure.py`,
+   `status.py`, `evidence.py`, `report.py`, `trust.py`) take `--project`;
+   evidence IDs come from disjoint ranges (`mslang` `E-0xxxxx`, `mscong`
+   `E-9xxxxx`).
 2. `. scripts/env.sh`; expect the "project-local toolchain not installed"
    warning: `ELAN_HOME` points at the (empty) `./.elan`, so `elan` falls back
    to the machine toolchain. Export `MATHLIB_CACHE_DIR` is project-local. For

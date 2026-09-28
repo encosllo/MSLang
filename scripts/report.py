@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -247,10 +248,14 @@ def render_staleness(registry, records, representation_hashes):
     return "\n".join(lines)
 
 
-def build(root: Path, representation_path=None, representation_name="encoding"):
-    registry = status.load_registry(root / "blocks" / "registry.json")
-    records = status.load_evidence(root / "evidence")
-    coverage = trust.load_coverage(root / "representation" / "coverage.json")
+def build(root: Path, representation_path=None, representation_name="encoding",
+          registry_path=None, evidence_dir=None, coverage_path=None,
+          reports_prefix="reports"):
+    registry = status.load_registry(registry_path or root / "blocks" / "registry.json")
+    records = status.load_evidence(evidence_dir or root / "evidence")
+    coverage = trust.load_coverage(
+        coverage_path or root / "representation" / "coverage.json"
+    )
     rep = {}
     if representation_path:
         rep[representation_name] = trust.hash_file(root / representation_path)
@@ -263,13 +268,13 @@ def build(root: Path, representation_path=None, representation_name="encoding"):
         )
     vector = block_status_vector(registry, records, rep, tiers=status.load_default_tiers())
     return {
-        "reports/coverage.md": render_coverage(
+        f"{reports_prefix}/coverage.md": render_coverage(
             registry, records, coverage, boundary, vector
         ),
-        "reports/trust_boundary.md": render_trust_boundary(
+        f"{reports_prefix}/trust_boundary.md": render_trust_boundary(
             registry, coverage, representations, boundary, records, proved_bridges
         ),
-        "reports/staleness.md": render_staleness(registry, records, rep),
+        f"{reports_prefix}/staleness.md": render_staleness(registry, records, rep),
     }
 
 
@@ -278,12 +283,31 @@ def main(argv):
     ap.add_argument("--root", default=None)
     ap.add_argument("--representation", default="representation/pilot-encoding.md")
     ap.add_argument("--representation-name", default="encoding")
+    ap.add_argument("--project", help="project id (default: the active project)")
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args(argv)
 
     root = Path(args.root).resolve() if args.root else HERE.parent
     representation_path = args.representation
-    rendered = build(root, representation_path, args.representation_name)
+    if args.project is None:
+        rendered = build(root, representation_path, args.representation_name)
+    else:
+        import projects as pj
+
+        pid = args.project or os.environ.get("MSLANG_PROJECT") or "mslang"
+        entry = pj.get(pid)
+        reports_dir = entry["reports_dir"]
+        root_abs = pj.ROOT
+        reports_prefix = os.path.relpath(reports_dir, root_abs)
+        rendered = build(
+            root_abs,
+            representation_path,
+            args.representation_name,
+            registry_path=entry["registry"],
+            evidence_dir=entry["evidence_dir"],
+            coverage_path=entry.get("representation") or None,
+            reports_prefix=reports_prefix,
+        )
 
     if args.check:
         drift = []

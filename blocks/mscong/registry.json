@@ -1,8 +1,3939 @@
 {
+  "blocks": [
+    {
+      "body_hash": "18bab427981c556bb6c7cbb898385bb0c880679209c988c88c90920a3a47b59c",
+      "body_length": 96,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "18bab427981c556bb6c7cbb898385bb0c880679209c988c88c90920a3a47b59c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 717,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f",
+      "body_length": 618,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 721,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "sorted set"
+    },
+    {
+      "body_hash": "c83b68fc2de6fc8af0fac64eb777e52e6c55bb3b220dcacd01f3487a6db18b39",
+      "body_length": 2643,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c83b68fc2de6fc8af0fac64eb777e52e6c55bb3b220dcacd01f3487a6db18b39"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 725,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "product"
+    },
+    {
+      "body_hash": "4ee1e098dff6d7d659d2084499bb85199458481edc92ebb8669beaf9218bfd01",
+      "body_length": 339,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4ee1e098dff6d7d659d2084499bb85199458481edc92ebb8669beaf9218bfd01"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 743,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "bad95b558d632d80cdbdf86962d92e67c9514fe7985272b4b24cf84c970edd14",
+      "body_length": 260,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "bad95b558d632d80cdbdf86962d92e67c9514fe7985272b4b24cf84c970edd14"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 748,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "subset"
+    },
+    {
+      "body_hash": "33bc6d8f9f17f81aeab34dc15cf72b71adb5fb3e2bc902c64b57a83e280cd898",
+      "body_length": 414,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "33bc6d8f9f17f81aeab34dc15cf72b71adb5fb3e2bc902c64b57a83e280cd898"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 752,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "subobjects"
+    },
+    {
+      "body_hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6",
+      "body_length": 721,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "dfb24fddf45b8006ca58e34a4b63b2fe93f9b5db1c374f0fa01c2173f80366c6"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 756,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "delta of Kronecker associated to"
+    },
+    {
+      "body_hash": "103365a8682ba7fe9c81ea3c3d13656267729869edf6258c96a9bbb8a8b02372",
+      "body_length": 2067,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "103365a8682ba7fe9c81ea3c3d13656267729869edf6258c96a9bbb8a8b02372"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 779,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "41b00471c045bb7c346b5728c7df8f0a33c151d9cf0c439de77368e82b3a4a66",
+      "body_length": 870,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "41b00471c045bb7c346b5728c7df8f0a33c151d9cf0c439de77368e82b3a4a66"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 797,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "direct image formation"
+    },
+    {
+      "body_hash": "f471a89515b65e7d63858d8095255457b04c8f8c61b7d90c5c9a3d03af91497a",
+      "body_length": 627,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@828",
+          "hash": "b589fda094345de62e04a3a6800135499e715dd928a0105eebd9b8c8982471c2"
+        },
+        "informal_statement": {
+          "hash": "f471a89515b65e7d63858d8095255457b04c8f8c61b7d90c5c9a3d03af91497a"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 824,
+      "proof_line": 828,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "6614e7f88048a3cb109cf581f3fec7c9cc52874ff5b18ae1fa08307c79bc20ac",
+      "body_length": 659,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6614e7f88048a3cb109cf581f3fec7c9cc52874ff5b18ae1fa08307c79bc20ac"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 832,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "3fc7fe5ad6c648c802d6d98b5e44b29d5e7165db7162510bddc15e4ed1ba8388",
+      "body_length": 671,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3fc7fe5ad6c648c802d6d98b5e44b29d5e7165db7162510bddc15e4ed1ba8388"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 836,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4c5683f7b8ca95af0d42027014192b1bcafc757b21da77c07ffd0197daaa0fa7",
+      "body_length": 685,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4c5683f7b8ca95af0d42027014192b1bcafc757b21da77c07ffd0197daaa0fa7"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 841,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "mapping"
+    },
+    {
+      "body_hash": "8598dc11516e0abd29643307228fc90d7cedb0bc03cb7187ac0fc6a3e43b44bd",
+      "body_length": 510,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8598dc11516e0abd29643307228fc90d7cedb0bc03cb7187ac0fc6a3e43b44bd"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 845,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "cardinal"
+    },
+    {
+      "body_hash": "c8afcb81d232eef3a227b00a88e77e55ce2ee9e774ae2380af9389458a48d610",
+      "body_length": 1009,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c8afcb81d232eef3a227b00a88e77e55ce2ee9e774ae2380af9389458a48d610"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 849,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "finite"
+    },
+    {
+      "body_hash": "cb8b1359872c87284dad91ffbe2781b08f4928455d66e0c23ceaad0ce01b855c",
+      "body_length": 151,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cb8b1359872c87284dad91ffbe2781b08f4928455d66e0c23ceaad0ce01b855c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 856,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "support of"
+    },
+    {
+      "body_hash": "7566b93f43c8502247a1ff714c869926e098ab701933ecfb45dbf13d017be037",
+      "body_length": 142,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7566b93f43c8502247a1ff714c869926e098ab701933ecfb45dbf13d017be037"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 861,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "9b1827a9b3692d921813431acb7152018835dd9b6a1bf80bc185bf91241bfb2d",
+      "body_length": 2221,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9b1827a9b3692d921813431acb7152018835dd9b6a1bf80bc185bf91241bfb2d"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 882,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "sorted equivalence relation on"
+    },
+    {
+      "body_hash": "011035af67c2767342b732de206d201f3f806ff0efce1f7437aa1a3804150947",
+      "body_length": 937,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "011035af67c2767342b732de206d201f3f806ff0efce1f7437aa1a3804150947"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 900,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "classified $S$-sorted sets"
+    },
+    {
+      "body_hash": "d544a60cdae453ca05b055a5afda9ab603b7159addd82226f238f5445ee1f694",
+      "body_length": 235,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d544a60cdae453ca05b055a5afda9ab603b7159addd82226f238f5445ee1f694"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 904,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "transversal of"
+    },
+    {
+      "body_hash": "c25acf699a793975efd841622185cd8c7887ca5bea5b17b462c03887e8a304bd",
+      "body_length": 641,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c25acf699a793975efd841622185cd8c7887ca5bea5b17b462c03887e8a304bd"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 908,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "cbf82f03a9be4b74eae590e5bb57ee9a834e9def2ff576aef586ab42b85d6c6e",
+      "body_length": 736,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cbf82f03a9be4b74eae590e5bb57ee9a834e9def2ff576aef586ab42b85d6c6e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 912,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "saturation of"
+    },
+    {
+      "body_hash": "1157cbfa63b2e48a9babcc74f361630725d1d23853fd902a8338a1fcd3769ca6",
+      "body_length": 411,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1157cbfa63b2e48a9babcc74f361630725d1d23853fd902a8338a1fcd3769ca6"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 921,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "f9fe1b733e54f69123d314660c2241a1477e881741fba7bdd896b9483b58b8b3",
+      "body_length": 390,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@937",
+          "hash": "767e8c5933f8dcde3f543f1fa338a800ca1e63bbc5ffd6ccb158a923491383e6"
+        },
+        "informal_statement": {
+          "hash": "f9fe1b733e54f69123d314660c2241a1477e881741fba7bdd896b9483b58b8b3"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "PropIncSat and PropsIncSat",
+      "line": 926,
+      "proof_line": 937,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "05fa5374f37bc77e08f9664fe9ac144012113094357e3d45b2a90e179c01c7e2",
+      "body_length": 322,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "05fa5374f37bc77e08f9664fe9ac144012113094357e3d45b2a90e179c01c7e2"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": "IncSat and sIncSat",
+      "line": 943,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4032481e3c46f046db9ce2a4ddde91e0b209e30078a071f8fe402a02ac934e7c",
+      "body_length": 433,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4032481e3c46f046db9ce2a4ddde91e0b209e30078a071f8fe402a02ac934e7c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 947,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "cb7929aada54912f3221332339227bb4d34418380dea0ea8627b8d50aa34ff2d",
+      "body_length": 201,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@955",
+          "hash": "08689feedd10e447c03e6f0770bc8e074870a633cd967bfdc7eb7a59ae3fb680"
+        },
+        "informal_statement": {
+          "hash": "cb7929aada54912f3221332339227bb4d34418380dea0ea8627b8d50aa34ff2d"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "NablaSat",
+      "line": 951,
+      "proof_line": 955,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "129355be26d730e4c439181f0e8fa14122b6a7f4515e8306d2a59738a4c886ba",
+      "body_length": 265,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "129355be26d730e4c439181f0e8fa14122b6a7f4515e8306d2a59738a4c886ba"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 961,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47",
+      "body_length": 143,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@970",
+          "hash": "29eea9211a335ca7c60f4b2658a7f8fb5eff4a2a4ec858279ae69b8f6a0e93c9"
+        },
+        "informal_statement": {
+          "hash": "19ec3141411ef761cf86e92f6e052f4f8f0ff37e7be1b23d82600d1736520c47"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 965,
+      "proof_line": 970,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "915b4cb6776f621f12993ae06165296a1203c0c62312b9a7f880438e2f8826e5",
+      "body_length": 192,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "915b4cb6776f621f12993ae06165296a1203c0c62312b9a7f880438e2f8826e5"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 974,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "caf5e0f06e10cb6f69304e22c70c703fd4279fa17d54dbbdf35908a7041484f1",
+      "body_length": 1115,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "caf5e0f06e10cb6f69304e22c70c703fd4279fa17d54dbbdf35908a7041484f1"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "SatOperator",
+      "line": 980,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "8e43c1683e4419fb1c6bdaf3a545a29b7721a02dd0f3fc9618bab278570fdfed",
+      "body_length": 213,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1002",
+          "hash": "c19043d9d50847ed2b16cbe96e6b522e1399a590f7847cf801fadeed8b706bd0"
+        },
+        "informal_statement": {
+          "hash": "8e43c1683e4419fb1c6bdaf3a545a29b7721a02dd0f3fc9618bab278570fdfed"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "CABA Saturades",
+      "line": 997,
+      "proof_line": 1002,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "fb744fd3ab596960d2d5093351a87fe2ac14b6e290582d337c6af52217cf0d20",
+      "body_length": 1404,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "fb744fd3ab596960d2d5093351a87fe2ac14b6e290582d337c6af52217cf0d20"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1010,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "free monoid on"
+    },
+    {
+      "body_hash": "f5e0b7d4354e747a0c135955d319dae1afe6b4d0eb26af624c329f8f4eacf6cf",
+      "body_length": 713,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f5e0b7d4354e747a0c135955d319dae1afe6b4d0eb26af624c329f8f4eacf6cf"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1026,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "8a843233a53b1b7b9d62f27405f3a84a73a63f807a1d35f1017d6c06554267fa",
+      "body_length": 1904,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8a843233a53b1b7b9d62f27405f3a84a73a63f807a1d35f1017d6c06554267fa"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1030,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "subword"
+    },
+    {
+      "body_hash": "26b616c415d573504ef2f09a045abecc914eafcf9564ad2523471f84f012b857",
+      "body_length": 872,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "26b616c415d573504ef2f09a045abecc914eafcf9564ad2523471f84f012b857"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1042,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7363e25b06421122c41848889ecc3b8fab52549ac27f9a1c7064277f1d003e8f",
+      "body_length": 1664,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7363e25b06421122c41848889ecc3b8fab52549ac27f9a1c7064277f1d003e8f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1063,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "substitution operator for $w$"
+    },
+    {
+      "body_hash": "fb86fc474486cd9de90163f38af103725bc7135a95c4ac6ddaed01a64cbd2d26",
+      "body_length": 284,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "fb86fc474486cd9de90163f38af103725bc7135a95c4ac6ddaed01a64cbd2d26"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1066,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "21c91c7f83e82049b8e113403bc67a149cd2ff6f538bda348ea171c03f104d94",
+      "body_length": 789,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "21c91c7f83e82049b8e113403bc67a149cd2ff6f538bda348ea171c03f104d94"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": "$S$-sorted signature",
+      "line": 1165,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "sorted signature"
+    },
+    {
+      "body_hash": "3c9f7fdbdb6ab814766e48c000813b94c8ef6a725bc537b0a734e9a6a51c327c",
+      "body_length": 97,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3c9f7fdbdb6ab814766e48c000813b94c8ef6a725bc537b0a734e9a6a51c327c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1174,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7aa9fe1520e56cfb1b1b883582e430bd0a654b576dac9d0846214b404acbadac",
+      "body_length": 80,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7aa9fe1520e56cfb1b1b883582e430bd0a654b576dac9d0846214b404acbadac"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 1178,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "cfbfd58acc4c20f14f07dba402659e66b538ced94584a8bc3ffa3c3d37be6d32",
+      "body_length": 2555,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cfbfd58acc4c20f14f07dba402659e66b538ced94584a8bc3ffa3c3d37be6d32"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1190,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "finitary operations on"
+    },
+    {
+      "body_hash": "f6da7ec03105d50fd4ab2ebe96472d792b8720007242fff8d6eee6e094fedfa3",
+      "body_length": 223,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f6da7ec03105d50fd4ab2ebe96472d792b8720007242fff8d6eee6e094fedfa3"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1202,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "support of"
+    },
+    {
+      "body_hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3",
+      "body_length": 110,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "52ad1d8c081b49193ed805ac12df9a6af598216b5ef70c283332e26161f9bbb3"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1206,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e2f6db095295d394139c5ad5b9f1ce5928c382f303c283f444fb34bb4eb4ff98",
+      "body_length": 152,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e2f6db095295d394139c5ad5b9f1ce5928c382f303c283f444fb34bb4eb4ff98"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1210,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "finite"
+    },
+    {
+      "body_hash": "5fef8197c33b8777f4e1151fa0ad705fc336a7657a5c436b7e799f4869d02823",
+      "body_length": 709,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5fef8197c33b8777f4e1151fa0ad705fc336a7657a5c436b7e799f4869d02823"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1214,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "finite"
+    },
+    {
+      "body_hash": "fe656104d44939bfc66d675c42b407fb80a469a5ef8cdcb31108ef4c356fb8b6",
+      "body_length": 1413,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1233",
+          "hash": "28be98320e5be680695411387f249688c4483d493d5b938f3b57527f43aabea3"
+        },
+        "informal_statement": {
+          "hash": "fe656104d44939bfc66d675c42b407fb80a469a5ef8cdcb31108ef4c356fb8b6"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "subsetalg",
+      "line": 1220,
+      "proof_line": 1233,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "subset algebra"
+    },
+    {
+      "body_hash": "f9e5323655ce540a76d2f05e7061f04f302da451afedd112b0e18f66573b4ebe",
+      "body_length": 891,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f9e5323655ce540a76d2f05e7061f04f302da451afedd112b0e18f66573b4ebe"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": "Subalg",
+      "line": 1252,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "closed under the operation"
+    },
+    {
+      "body_hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f",
+      "body_length": 655,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1256,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "subalgebra  generating operator for"
+    },
+    {
+      "body_hash": "900ea664fd85de7bdd38e430a144ea5a8cf232886486cc60879c32eed32daf1f",
+      "body_length": 318,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "900ea664fd85de7bdd38e430a144ea5a8cf232886486cc60879c32eed32daf1f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1260,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "1e35240402821bf8d3d1dd3f37f1fe7d29f7f7923c5832c7ba293fb172e9cf47",
+      "body_length": 264,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1e35240402821bf8d3d1dd3f37f1fe7d29f7f7923c5832c7ba293fb172e9cf47"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "PPAI",
+      "line": 1266,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "cc1fa2e2af638805530dab9a83e2ddc322e3f540edc08a8ef5ee2340fd35274f",
+      "body_length": 1407,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cc1fa2e2af638805530dab9a83e2ddc322e3f540edc08a8ef5ee2340fd35274f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1273,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "algebra of"
+    },
+    {
+      "body_hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8",
+      "body_length": 766,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1309,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "free"
+    },
+    {
+      "body_hash": "05c173e706c6f96794c7a44b9959e654db8796fbfb832904f80c8d2b75dd7388",
+      "body_length": 427,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "05c173e706c6f96794c7a44b9959e654db8796fbfb832904f80c8d2b75dd7388"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1328,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e5763329c2facc0fc6c7b56ce2807c8d312208e4965495c9a2a48df36892d7c9",
+      "body_length": 571,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e5763329c2facc0fc6c7b56ce2807c8d312208e4965495c9a2a48df36892d7c9"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "rut",
+      "line": 1334,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "87b1181f7fc333d6e010a6b593b93afcbd0941f1dda05defd8d76d3f0bd53536",
+      "body_length": 569,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1362",
+          "hash": "71a716d9c7ef20de81a7eaff4bbf03c0f63639a74d99f0540f1433aeb9482197"
+        },
+        "informal_statement": {
+          "hash": "87b1181f7fc333d6e010a6b593b93afcbd0941f1dda05defd8d76d3f0bd53536"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 1356,
+      "proof_line": 1362,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "insertion of (the $S$-sorted set of generators)"
+    },
+    {
+      "body_hash": "5dbf002c7374b75d03228355ab0199bdd81c39820574901ac800a18e926b1555",
+      "body_length": 447,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5dbf002c7374b75d03228355ab0199bdd81c39820574901ac800a18e926b1555"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": "FladjG",
+      "line": 1380,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "a6118d411d1ed2dba860f70215441b3c590da5788b024b24c6d7d83e6a1456e3",
+      "body_length": 523,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "a6118d411d1ed2dba860f70215441b3c590da5788b024b24c6d7d83e6a1456e3"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1403,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "b57a86dc3735f41e1adfda92a7ee1c9d9400f8632b746e69ada47bce210f4562",
+      "body_length": 404,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b57a86dc3735f41e1adfda92a7ee1c9d9400f8632b746e69ada47bce210f4562"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1408,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "f66787fdb1d9801e8f0208c1d59b81e58586a0c52bc5e4a681657dc23c756123",
+      "body_length": 170,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f66787fdb1d9801e8f0208c1d59b81e58586a0c52bc5e4a681657dc23c756123"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 1412,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "9ce9f2a558459631cf63c3673a2196037d3f92adb53cdd0446ecc43577097e52",
+      "body_length": 308,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9ce9f2a558459631cf63c3673a2196037d3f92adb53cdd0446ecc43577097e52"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1416,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "subterms"
+    },
+    {
+      "body_hash": "671d3400cade42bd3befccaf8ca9a4c326ebbb73a9943b95fe02b7f2e6c15992",
+      "body_length": 648,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "671d3400cade42bd3befccaf8ca9a4c326ebbb73a9943b95fe02b7f2e6c15992"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1424,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7f3a9b7272c13ba639a2a1057c3315783990cf071581e48d0d63b75fff816aa8",
+      "body_length": 1429,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7f3a9b7272c13ba639a2a1057c3315783990cf071581e48d0d63b75fff816aa8"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1430,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "variables"
+    },
+    {
+      "body_hash": "628e46edc820948a719a276072c4847f64c82e7477210776d24b88ad9532bca8",
+      "body_length": 2379,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "628e46edc820948a719a276072c4847f64c82e7477210776d24b88ad9532bca8"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1457,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "sorted congruence on"
+    },
+    {
+      "body_hash": "06536b65bf1f32d8c2f45dcda29219cfabc387928166f73a2c93542db93c1703",
+      "body_length": 1124,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "06536b65bf1f32d8c2f45dcda29219cfabc387928166f73a2c93542db93c1703"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1485,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "classified $\\Sigma$-algebras"
+    },
+    {
+      "body_hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64",
+      "body_length": 984,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1511,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "elementary translations of sort"
+    },
+    {
+      "body_hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955",
+      "body_length": 947,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1516,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "translations of sort"
+    },
+    {
+      "body_hash": "7a5144d0fd8b20df709800cb5503e3fa199caab0a982c60dba9d709ff3c98010",
+      "body_length": 430,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7a5144d0fd8b20df709800cb5503e3fa199caab0a982c60dba9d709ff3c98010"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1521,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "537c42467a9d18795b67010e1b29e2eaefdc22f81ea7404b1cee435d2c0d9c82",
+      "body_length": 693,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "537c42467a9d18795b67010e1b29e2eaefdc22f81ea7404b1cee435d2c0d9c82"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": "DAntiTrans",
+      "line": 1544,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "ad13505e25f9f41ef38d4d082efaab4e3df5e21b92e617f5c4d2c81b84463fbb",
+      "body_length": 527,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "ad13505e25f9f41ef38d4d082efaab4e3df5e21b92e617f5c4d2c81b84463fbb"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1554,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "96601cf98b6de5e2e26f32457994433a24ed4f6f195652d313b2e1eabf5e2efa",
+      "body_length": 702,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1570",
+          "hash": "ebbc9e9018b9dd7367b2df38216f2f3f2d0dd71e75368a9eb2a1d39f5d2b9bb4"
+        },
+        "informal_statement": {
+          "hash": "96601cf98b6de5e2e26f32457994433a24ed4f6f195652d313b2e1eabf5e2efa"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "CharacCong",
+      "line": 1560,
+      "proof_line": 1570,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e2ce8ab160c7bc209bf1dc52e719d518714992969400bae820e2ed8172e1c43c",
+      "body_length": 394,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e2ce8ab160c7bc209bf1dc52e719d518714992969400bae820e2ed8172e1c43c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1632,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "a93718dd5058840edc45fe0331aec98c0efa1ebff48452119ee5cb33b1c28ebb",
+      "body_length": 507,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1657",
+          "hash": "17ed01a5ed49a5c5c2896c5ac84195796184a0c14dfbfd949647a98e59415239"
+        },
+        "informal_statement": {
+          "hash": "a93718dd5058840edc45fe0331aec98c0efa1ebff48452119ee5cb33b1c28ebb"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "CharacCogenCong",
+      "line": 1645,
+      "proof_line": 1657,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e77e6537248ca80f818a7a950b5c8f16d251aa50a6f87a0e2838dea83970460c",
+      "body_length": 393,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e77e6537248ca80f818a7a950b5c8f16d251aa50a6f87a0e2838dea83970460c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 1662,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "cogenerated"
+    },
+    {
+      "body_hash": "6590dd668bb7b5823b20aeab4efd1f5296183b791148140f988897fbbb6265a2",
+      "body_length": 366,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6590dd668bb7b5823b20aeab4efd1f5296183b791148140f988897fbbb6265a2"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1667,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "congruence cogenerating operator for"
+    },
+    {
+      "body_hash": "0af7cb03e272f461f34a20d7af5591a92d1f40209d36192b7f24fc1d5c3c8d87",
+      "body_length": 508,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1685",
+          "hash": "721bebd7b00e6a038148c6e7be2444bd4710487cb7939feec311225e263fe7f1"
+        },
+        "informal_statement": {
+          "hash": "0af7cb03e272f461f34a20d7af5591a92d1f40209d36192b7f24fc1d5c3c8d87"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "CogenCong",
+      "line": 1681,
+      "proof_line": 1685,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "the congruence on"
+    },
+    {
+      "body_hash": "4e0f6cd7261ad67ff1eef9a379261041509069e1ae9b7b658537982a19e0b4e0",
+      "body_length": 443,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4e0f6cd7261ad67ff1eef9a379261041509069e1ae9b7b658537982a19e0b4e0"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1730,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": "congruence cogenerating operator"
+    },
+    {
+      "body_hash": "9f9ffc0209fc25570c42c01fc6568a78d2069118a9a40d635171fc738e70ca12",
+      "body_length": 625,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9f9ffc0209fc25570c42c01fc6568a78d2069118a9a40d635171fc738e70ca12"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1734,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "c0e91f2375479b45aa803e864b7d4c10bb9207a812fb2a24f247afac5852bad7",
+      "body_length": 645,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c0e91f2375479b45aa803e864b7d4c10bb9207a812fb2a24f247afac5852bad7"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1738,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4bccb78e60456b04ace1df34655c477f90e02236804ed6e6b92f19502843ff95",
+      "body_length": 650,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4bccb78e60456b04ace1df34655c477f90e02236804ed6e6b92f19502843ff95"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 1758,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "3fa225866fcd6c7d63337d6e9a884da94750cd7ef3a618043535317751d965d4",
+      "body_length": 509,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3fa225866fcd6c7d63337d6e9a884da94750cd7ef3a618043535317751d965d4"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 1762,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "b903cf1eff1d7cb9c0c84968cab664cb5f5df62204f9da51585e61e664e85688",
+      "body_length": 421,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b903cf1eff1d7cb9c0c84968cab664cb5f5df62204f9da51585e61e664e85688"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "TAntiHom",
+      "line": 1786,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "9971e49a9f0180c788fc8bc02b7fb4201ccda9e1468b493d3e165c48a90febaf",
+      "body_length": 2024,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9971e49a9f0180c788fc8bc02b7fb4201ccda9e1468b493d3e165c48a90febaf"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1791,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "378d5cc762bb93cece379d309fc626579d3ab18cb46065e1a6d3de79c2a75b5c",
+      "body_length": 435,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1820",
+          "hash": "fe9ebc53be19aba32181f19229d65829689885385c5e06fa216f7aa2ec900db3"
+        },
+        "informal_statement": {
+          "hash": "378d5cc762bb93cece379d309fc626579d3ab18cb46065e1a6d3de79c2a75b5c"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "CharacSatCCog and CharacsSatCCog",
+      "line": 1816,
+      "proof_line": 1820,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714",
+      "body_length": 164,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1b923543e2cc491a9114645a4a03504faac28e5001f93859fa26369cb92c8714"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "Compl",
+      "line": 1852,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "5bff7a46d3d6d886f4cd9e254b79923be4d7b9deade09feb81f6c7aa0aa2002a",
+      "body_length": 472,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@1860",
+          "hash": "b3a0828cd4e67ae7e4ef6919d7d0c9d1944222ca1a6ce7c370ff645e0c2f4c2f"
+        },
+        "informal_statement": {
+          "hash": "5bff7a46d3d6d886f4cd9e254b79923be4d7b9deade09feb81f6c7aa0aa2002a"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "InterCCog and CCogInter",
+      "line": 1856,
+      "proof_line": 1860,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "d477a914bc43458839ca00b4c9086fb810f982dac06fb334dd402bd1ed44146e",
+      "body_length": 665,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d477a914bc43458839ca00b4c9086fb810f982dac06fb334dd402bd1ed44146e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "TAntiTrans",
+      "line": 1872,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "75cbfaf8abbbf05657789a8000293f43867310d170279474e2e44ba0abbe232b",
+      "body_length": 311,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "75cbfaf8abbbf05657789a8000293f43867310d170279474e2e44ba0abbe232b"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "TAntiHomSub",
+      "line": 1879,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "ee27a453a2ba5dd1efd59b996e2bee0248258196f98fc1b837ac50de8ce85bcc",
+      "body_length": 889,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "ee27a453a2ba5dd1efd59b996e2bee0248258196f98fc1b837ac50de8ce85bcc"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 1916,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4ee00bbc389b529c396ce67363f1686a0e7e346f07b8cffca5a01dab4bfcb175",
+      "body_length": 846,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4ee00bbc389b529c396ce67363f1686a0e7e346f07b8cffca5a01dab4bfcb175"
+        }
+      },
+      "has_proof": false,
+      "id": "B-D101",
+      "kind": "definition",
+      "label": null,
+      "line": 2083,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "confirmed",
+      "term": "finite index"
+    },
+    {
+      "body_hash": "dfae696651a794e84800daf0fa9cd4e45ab363ce37e0e8dbf09dd698fe3638e8",
+      "body_length": 577,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2093",
+          "hash": "1f8a14dc373341528b232d08a8b650a6df3adda09e8bc04b230a4bb5785ef286"
+        },
+        "informal_statement": {
+          "hash": "dfae696651a794e84800daf0fa9cd4e45ab363ce37e0e8dbf09dd698fe3638e8"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2089,
+      "proof_line": 2093,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "b86c8dd5db8c4c7991ce7918c75ce7e43ce34450f39609933f0771ef5974c712",
+      "body_length": 872,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b86c8dd5db8c4c7991ce7918c75ce7e43ce34450f39609933f0771ef5974c712"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2097,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118",
+      "body_length": 746,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2114",
+          "hash": "df6b6c52c21be92fcbc6155cfb73975310e28987f1ce094acf542e427e54f263"
+        },
+        "informal_statement": {
+          "hash": "572e4ca68cdc8047ae9dfda1510eab57bcc05b6556217d8b27dd87662996b118"
+        }
+      },
+      "has_proof": true,
+      "id": "B-P101",
+      "kind": "proposition",
+      "label": "Filter",
+      "line": 2105,
+      "proof_line": 2114,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "confirmed",
+      "term": null
+    },
+    {
+      "body_hash": "5ea80e7abdda369b95907992b3f32d6d494e00dd9d7815d8f1d48ce7745d3b72",
+      "body_length": 141,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5ea80e7abdda369b95907992b3f32d6d494e00dd9d7815d8f1d48ce7745d3b72"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2132,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad",
+      "body_length": 1885,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+        }
+      },
+      "has_proof": false,
+      "id": "B-D102",
+      "kind": "definition",
+      "label": null,
+      "line": 2142,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "confirmed",
+      "term": "recognizable"
+    },
+    {
+      "body_hash": "71ad7c86f48313663046480a6fdaf77d4bab1608200227fb30bf69957fa283f7",
+      "body_length": 645,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "71ad7c86f48313663046480a6fdaf77d4bab1608200227fb30bf69957fa283f7"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2155,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e3e2e7dc12393283c1c8b5851460a0029c065d22197188f46809e523b123c83d",
+      "body_length": 311,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e3e2e7dc12393283c1c8b5851460a0029c065d22197188f46809e523b123c83d"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2159,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "15d6b4ccaab0245300fbae385c808c4fb4434c7406f3a6a43b5088dd1539effc",
+      "body_length": 871,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "15d6b4ccaab0245300fbae385c808c4fb4434c7406f3a6a43b5088dd1539effc"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2199,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7b078130da89712bc8b913ae652776f76a8d7aeb2cb906bd95246e833af2f082",
+      "body_length": 315,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2232",
+          "hash": "7af3b0405e93c5b57cec0f357cbb5b12c578eaf5390b79d8a8d37ac04e4fc006"
+        },
+        "informal_statement": {
+          "hash": "7b078130da89712bc8b913ae652776f76a8d7aeb2cb906bd95246e833af2f082"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2223,
+      "proof_line": 2232,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "f6c4810ef27398b8aa3908af8fcf78510e188447b52d91fb079f7b30ff1b9852",
+      "body_length": 349,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f6c4810ef27398b8aa3908af8fcf78510e188447b52d91fb079f7b30ff1b9852"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2254,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "9465fa9cb8e3ba9f169cfbf25df26532c49c28eb2d988b73d0499d05a1ed69bc",
+      "body_length": 559,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9465fa9cb8e3ba9f169cfbf25df26532c49c28eb2d988b73d0499d05a1ed69bc"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "Rec is Bool",
+      "line": 2263,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "0d71173d23fab75ae8e8d623361edd2d4271802c6dda86193cfcf0a5f175dc30",
+      "body_length": 288,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "0d71173d23fab75ae8e8d623361edd2d4271802c6dda86193cfcf0a5f175dc30"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "s-Rec iff Rec",
+      "line": 2285,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4d91e8bb33347039ecaf0fb1853e0aaca81e8b09008462b10c2c3fb1c16ba635",
+      "body_length": 86,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "4d91e8bb33347039ecaf0fb1853e0aaca81e8b09008462b10c2c3fb1c16ba635"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 2289,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "37d493b77a4716a4aaa2f00d2c1f57f3b229add5c081e5ab46bddc3c0589a4d8",
+      "body_length": 416,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2297",
+          "hash": "9dadcbb9d1de665bbaa9f45d8ea7cd3d4ace6b37c07638be4d022865637fdafa"
+        },
+        "informal_statement": {
+          "hash": "37d493b77a4716a4aaa2f00d2c1f57f3b229add5c081e5ab46bddc3c0589a4d8"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "Rec SubdirectProd sRec",
+      "line": 2293,
+      "proof_line": 2297,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "5f3f667e32064451d9882253df2e4a44e61dfa154ddb048ebcec351bc6551ed7",
+      "body_length": 582,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5f3f667e32064451d9882253df2e4a44e61dfa154ddb048ebcec351bc6551ed7"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "Rec s is Bool",
+      "line": 2323,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "fc416c60e64d9aafca1fad5ef7ae811d97ad950ef7b35c09838bfc036cc7c607",
+      "body_length": 561,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "fc416c60e64d9aafca1fad5ef7ae811d97ad950ef7b35c09838bfc036cc7c607"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2362,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e060e09f52769062147e17e24a960470601ed06a873fc9b7b5e0d7a4b7195cff",
+      "body_length": 451,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e060e09f52769062147e17e24a960470601ed06a873fc9b7b5e0d7a4b7195cff"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": "lf,s-Rec iff lf-Rec",
+      "line": 2371,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "c9f6048998c76e261ceb3f9ad34938c00e28e5ba477a67700d81f6ae6717f9d7",
+      "body_length": 369,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c9f6048998c76e261ceb3f9ad34938c00e28e5ba477a67700d81f6ae6717f9d7"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2375,
+      "proof_line": null,
+      "scope": null,
+      "section": "Preliminaries",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "b02bbfb6af59d14e12a2628289327e7ac387acd8cbf324d45e3a35fffe0f3aed",
+      "body_length": 53,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b02bbfb6af59d14e12a2628289327e7ac387acd8cbf324d45e3a35fffe0f3aed"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 2426,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4613d002f1dbc3b82fc5d2916cb2ad30d250f5ae643e4f2241e6dd20141f2068",
+      "body_length": 200,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2435",
+          "hash": "f8553bd0e9fb70c5a69474c57510a1e2f0815a5d9e0125e5b5255397a4001bd6"
+        },
+        "informal_statement": {
+          "hash": "4613d002f1dbc3b82fc5d2916cb2ad30d250f5ae643e4f2241e6dd20141f2068"
+        }
+      },
+      "has_proof": true,
+      "id": "B-P102",
+      "kind": "proposition",
+      "label": "PRecVar",
+      "line": 2431,
+      "proof_line": 2435,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "confirmed",
+      "term": null
+    },
+    {
+      "body_hash": "d80e7cf98576b2ae6728ce8172bfba85d4c286d011a1db32b8527801c80efaa2",
+      "body_length": 200,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2446",
+          "hash": "756b50d8fddc47ef8e5acbfbdb0cd457fe64c36839a0cf2dff4533e4bfc98153"
+        },
+        "informal_statement": {
+          "hash": "d80e7cf98576b2ae6728ce8172bfba85d4c286d011a1db32b8527801c80efaa2"
+        }
+      },
+      "has_proof": true,
+      "id": "B-P103",
+      "kind": "proposition",
+      "label": "PRecConst",
+      "line": 2442,
+      "proof_line": 2446,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "confirmed",
+      "term": null
+    },
+    {
+      "body_hash": "47ba9cc74ce9633eede5fe8b19e22a93ee77bb9ef9882fc2b08a4d40de0c44ae",
+      "body_length": 315,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2457",
+          "hash": "9dc34769ba00144c817e084e2c10fb63458c5e8e8789945d36bd972be69039f6"
+        },
+        "informal_statement": {
+          "hash": "47ba9cc74ce9633eede5fe8b19e22a93ee77bb9ef9882fc2b08a4d40de0c44ae"
+        }
+      },
+      "has_proof": true,
+      "id": "B-P104",
+      "kind": "proposition",
+      "label": "PRecOp",
+      "line": 2453,
+      "proof_line": 2457,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "confirmed",
+      "term": null
+    },
+    {
+      "body_hash": "41ed3356a785eab0d057778db4c9792b6e13ab992c584a9afa65f1e039ccdd27",
+      "body_length": 2058,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "41ed3356a785eab0d057778db4c9792b6e13ab992c584a9afa65f1e039ccdd27"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": "GlobSubstOp",
+      "line": 2497,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "global substitution operator for $P$"
+    },
+    {
+      "body_hash": "09d3dc7b3f1c629dd1da79fc13e79476462e81e40b2aa863f18ec74d7232c00e",
+      "body_length": 714,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "09d3dc7b3f1c629dd1da79fc13e79476462e81e40b2aa863f18ec74d7232c00e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2503,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "a4a056813620ca79719b4aeab2639f0d757bd6cbc5c4998b235d4bf655b2ea90",
+      "body_length": 2091,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "a4a056813620ca79719b4aeab2639f0d757bd6cbc5c4998b235d4bf655b2ea90"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2507,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "f36f8ee493388f191d152c431907f54e7138ba5bac0deccd1710a79ee4657a06",
+      "body_length": 659,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "Eq1",
+          "hash": "3967d08bbfc0b81727d92102e8b9b7d4b7606364361658ff7e331f3378122b67"
+        },
+        "informal_statement": {
+          "hash": "f36f8ee493388f191d152c431907f54e7138ba5bac0deccd1710a79ee4657a06"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2563,
+      "proof_line": 2567,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "007f0487fa5fda0406389b0a0c038b44bcc1725306fa27041570dd37046c298e",
+      "body_length": 533,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "007f0487fa5fda0406389b0a0c038b44bcc1725306fa27041570dd37046c298e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 2595,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "5a39465a4e1d280722a058e7c65d6b14470a8487338d391af494fd6efc0a56c6",
+      "body_length": 349,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5a39465a4e1d280722a058e7c65d6b14470a8487338d391af494fd6efc0a56c6"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2600,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "1805cf4a5180bf245f56787cf31e66172025300a7b5b1d27e35cf8c2e6571f97",
+      "body_length": 873,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2617",
+          "hash": "167175e517054485cc259f54fefb44475f66eb227430bf435e11c81afc4cb519"
+        },
+        "informal_statement": {
+          "hash": "1805cf4a5180bf245f56787cf31e66172025300a7b5b1d27e35cf8c2e6571f97"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "lemma",
+      "label": "LIGlobSubstOp",
+      "line": 2608,
+      "proof_line": 2617,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "21d15e419e7b59ebb6f13c85b90c50359b4ecb47483886af42a59a3f65cc11f6",
+      "body_length": 828,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "21d15e419e7b59ebb6f13c85b90c50359b4ecb47483886af42a59a3f65cc11f6"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 2664,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "2a3b09b7370653e4015971fef0b6468a73041855c3029cec19480b4d39457e55",
+      "body_length": 1891,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "2a3b09b7370653e4015971fef0b6468a73041855c3029cec19480b4d39457e55"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 2679,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "d4f83400c032b5289348bdb547d0df442dad01de7e4f823748f6fe8618d25b53",
+      "body_length": 602,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2715",
+          "hash": "6cdc1bd46cc08b826ad648ef7e487c561fcc6a4903f690268740b3c8b5e6160a"
+        },
+        "informal_statement": {
+          "hash": "d4f83400c032b5289348bdb547d0df442dad01de7e4f823748f6fe8618d25b53"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2708,
+      "proof_line": 2715,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "643ef22cc538ae59e20d6782513cbf339644dc0bde1a846a8006f85a7b716013",
+      "body_length": 1712,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "643ef22cc538ae59e20d6782513cbf339644dc0bde1a846a8006f85a7b716013"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2769,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "f1c87983bf4c26d243a238f38e6f32f5e1493968e8b7ffed7fafc1d102142586",
+      "body_length": 368,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "f1c87983bf4c26d243a238f38e6f32f5e1493968e8b7ffed7fafc1d102142586"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 2783,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7d66123b068bebde0135f025c6a35b945400c27ac42bf503a061019a1153d995",
+      "body_length": 1641,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7d66123b068bebde0135f025c6a35b945400c27ac42bf503a061019a1153d995"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 2791,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "9b4cb2595464b65c059f2d7e8cbfe86e45872409df4bd8fe745fee3ffc831c8c",
+      "body_length": 1126,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "9b4cb2595464b65c059f2d7e8cbfe86e45872409df4bd8fe745fee3ffc831c8c"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2803,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "ef9b00b8fee7d960184998dc4f26ebcd4aefeea06a40685c7734bf924cc0aee5",
+      "body_length": 78,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "ef9b00b8fee7d960184998dc4f26ebcd4aefeea06a40685c7734bf924cc0aee5"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 2816,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7d8f263f178e1b20d00ef44d17bb35779c001d3e10a5ad6d7f749b11407bd1b9",
+      "body_length": 475,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "EqSubsHtg",
+          "hash": "b05aa26649c99c34463d7643a106dbffb66e7027d4372b62a619febfcb36be6c"
+        },
+        "informal_statement": {
+          "hash": "7d8f263f178e1b20d00ef44d17bb35779c001d3e10a5ad6d7f749b11407bd1b9"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "PRecSubs",
+      "line": 2821,
+      "proof_line": 2828,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "ac42bc570b93abe026f299fecc24f4c967e04ebf7ff26f811be6a3edd3342bfc",
+      "body_length": 302,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "ac42bc570b93abe026f299fecc24f4c967e04ebf7ff26f811be6a3edd3342bfc"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": "CRecSubs",
+      "line": 2921,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "1f75e2b4e26113fb75ff16d9ccd2485771ba5a1dea27b5493852e8bbb004022a",
+      "body_length": 286,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@2932",
+          "hash": "0132eed258673167ece493c336f7ae818e1ee51dc246ecf172cfc3731eb0369b"
+        },
+        "informal_statement": {
+          "hash": "1f75e2b4e26113fb75ff16d9ccd2485771ba5a1dea27b5493852e8bbb004022a"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "corollary",
+      "label": "CRecOp",
+      "line": 2928,
+      "proof_line": 2932,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "02bd9e2b00efceca433c967954bbb0675ced4fb373bcd976a4f39217c27ec9e4",
+      "body_length": 352,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "02bd9e2b00efceca433c967954bbb0675ced4fb373bcd976a4f39217c27ec9e4"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 2936,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "6fda3ecf632bde666021b9b7ebfda868b5fc005502e7b591fc5ca38984ec13a1",
+      "body_length": 504,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "6fda3ecf632bde666021b9b7ebfda868b5fc005502e7b591fc5ca38984ec13a1"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 2950,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "$z$-iteration of $L$"
+    },
+    {
+      "body_hash": "3b31289c13a22b145c6e10b480146b0b214a8458f74a07db7f9e43ec2fb5b702",
+      "body_length": 448,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3b31289c13a22b145c6e10b480146b0b214a8458f74a07db7f9e43ec2fb5b702"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 2962,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7b1da0905e24dd4c394c8dda95cf6fccce385672d931b101f138220d197fcc7e",
+      "body_length": 69,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7b1da0905e24dd4c394c8dda95cf6fccce385672d931b101f138220d197fcc7e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 2968,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "d45c395980d64f5a503f17b64e0f207732a8ef0bdaf048bd6ce08a840f83e986",
+      "body_length": 157,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "EqItHtg",
+          "hash": "393d6ebf39d255df170f51d3e1b4825c12ed3268e2f226a28ca0b31b89dd9c16"
+        },
+        "informal_statement": {
+          "hash": "d45c395980d64f5a503f17b64e0f207732a8ef0bdaf048bd6ce08a840f83e986"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 2972,
+      "proof_line": 2976,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "056788d4b2d60470dd4650643e76997184cd08d53d40bbefb58396eb1ec6952f",
+      "body_length": 543,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "056788d4b2d60470dd4650643e76997184cd08d53d40bbefb58396eb1ec6952f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 3061,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7b1da0905e24dd4c394c8dda95cf6fccce385672d931b101f138220d197fcc7e",
+      "body_length": 69,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7b1da0905e24dd4c394c8dda95cf6fccce385672d931b101f138220d197fcc7e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 3072,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "612593f140ab98273c2cf20d1c86b364536d8954d7ede1cf32f2161e5006d338",
+      "body_length": 371,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@3080",
+          "hash": "3396f2676b7a87981105819a4a2ad0c5d88d6c3b81cb6290421b5e78f97d3316"
+        },
+        "informal_statement": {
+          "hash": "612593f140ab98273c2cf20d1c86b364536d8954d7ede1cf32f2161e5006d338"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "PRecQ",
+      "line": 3076,
+      "proof_line": 3080,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "5cbeda66a8123618a3048e8515fe261444969bfdd0e2612c533257a2d39b761e",
+      "body_length": 405,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "5cbeda66a8123618a3048e8515fe261444969bfdd0e2612c533257a2d39b761e"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 3111,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "cec119b5d9b58fd338cb99571350a5b667ca9cb5a00c22f8dd9b80df003083b0",
+      "body_length": 62,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cec119b5d9b58fd338cb99571350a5b667ca9cb5a00c22f8dd9b80df003083b0"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 3115,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "760cb267123f9c75c1f55e937dcf00e1bc9411224bcb76d87746392a157b850f",
+      "body_length": 1194,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "760cb267123f9c75c1f55e937dcf00e1bc9411224bcb76d87746392a157b850f"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 3262,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "d9633adb19796691fc098cfde2e38874a989ecb4f5342d2c4d4fc5fd9d63a811",
+      "body_length": 148,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d9633adb19796691fc098cfde2e38874a989ecb4f5342d2c4d4fc5fd9d63a811"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 3284,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "many-sorted signature"
+    },
+    {
+      "body_hash": "a9aa0437a34442eed45ffb10735698533df1c441087cacfe339961325d359439",
+      "body_length": 949,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "a9aa0437a34442eed45ffb10735698533df1c441087cacfe339961325d359439"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 3290,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "hyperderivor from"
+    },
+    {
+      "body_hash": "735e787986e36d806f6c7d8071ebc849bac2c533603a307910098d1ba94c8e9d",
+      "body_length": 165,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "735e787986e36d806f6c7d8071ebc849bac2c533603a307910098d1ba94c8e9d"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 3297,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "hyperderivor"
+    },
+    {
+      "body_hash": "673d72bfdd7b04f907f07569eca6c2802e991e2ab7f98489f45d545970755179",
+      "body_length": 470,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "673d72bfdd7b04f907f07569eca6c2802e991e2ab7f98489f45d545970755179"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 3303,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "ca214e3be6280bd8f5f66c806c235838fd2b46305f3d00b35447d9661b0b5626",
+      "body_length": 213,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@3318",
+          "hash": "38060124cebf576940dbb9f21b3b2de59fc5b6382da49fc9100261a96f3c38dc"
+        },
+        "informal_statement": {
+          "hash": "ca214e3be6280bd8f5f66c806c235838fd2b46305f3d00b35447d9661b0b5626"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 3314,
+      "proof_line": 3318,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "35780fd5b5b43d2cfc7f815e63ece7f0c5714202f12b5960c9c96ac4abb8455a",
+      "body_length": 413,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "35780fd5b5b43d2cfc7f815e63ece7f0c5714202f12b5960c9c96ac4abb8455a"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 3344,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "tree homomorphism"
+    },
+    {
+      "body_hash": "70e288b3c1958bc93fc890f7d625eaf462bdf888a565d11596d1ede52750470f",
+      "body_length": 474,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@3415",
+          "hash": "72f60729384935db1452b11840e47852186a1346ca0ba2f9ea81a8613c4abfe9"
+        },
+        "informal_statement": {
+          "hash": "70e288b3c1958bc93fc890f7d625eaf462bdf888a565d11596d1ede52750470f"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "IndAlgStrucImHom",
+      "line": 3411,
+      "proof_line": 3415,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4857904e23b5b02b1d14095987cba35829f162ebe7bcf2e232a5ba0103f729f6",
+      "body_length": 400,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@3489",
+          "hash": "40f9ffcf9974ce2fd8a22ccb7ab7c400b02942f8b345b0c998ee0fc3925db3b6"
+        },
+        "informal_statement": {
+          "hash": "4857904e23b5b02b1d14095987cba35829f162ebe7bcf2e232a5ba0103f729f6"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "PRecH",
+      "line": 3485,
+      "proof_line": 3489,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "cee1a99fbc943921b33996a17ca2de3ab6d2dc3745839f52e733ba71b5e36372",
+      "body_length": 93,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "cee1a99fbc943921b33996a17ca2de3ab6d2dc3745839f52e733ba71b5e36372"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 3495,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4ddff512d9de0e9705fa962d6f4a2acfa276fef126d82d7fc89a3eac79e57dfc",
+      "body_length": 432,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "EqtmHtg",
+          "hash": "9aaa38604b00c6e59d396044911e75862158c6c5e878736cf6ed460b8fefcd08"
+        },
+        "informal_statement": {
+          "hash": "4ddff512d9de0e9705fa962d6f4a2acfa276fef126d82d7fc89a3eac79e57dfc"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "PRecLH",
+      "line": 3499,
+      "proof_line": 3503,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7057c39c5d86cbeb043bdd360d3b7934db04d2a77db8634ca5ac2ae2d5bb1a04",
+      "body_length": 249,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7057c39c5d86cbeb043bdd360d3b7934db04d2a77db8634ca5ac2ae2d5bb1a04"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 3627,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7e794251539f8f7d140550b98b3979d5e290986c6cbdc272770aa75e6916593b",
+      "body_length": 3991,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7e794251539f8f7d140550b98b3979d5e290986c6cbdc272770aa75e6916593b"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 3633,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "12f1de6cf0db325c68e65ef8af0b1e4ccd37a78eb10365cbc285dd36db834920",
+      "body_length": 608,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "12f1de6cf0db325c68e65ef8af0b1e4ccd37a78eb10365cbc285dd36db834920"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "corollary",
+      "label": null,
+      "line": 3675,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "8184f47774750100e72c4a4d4dfb5f3e72320b17309188e7203c8c30916d06b4",
+      "body_length": 879,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "8184f47774750100e72c4a4d4dfb5f3e72320b17309188e7203c8c30916d06b4"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 3679,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "176cc3f55d88dd0ee5b68f8ce4874fc7f0fd4ef6ad0092cc16c41194e4561907",
+      "body_length": 3531,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "176cc3f55d88dd0ee5b68f8ce4874fc7f0fd4ef6ad0092cc16c41194e4561907"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 3905,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "Hall algebra for"
+    },
+    {
+      "body_hash": "c11980814eba7b24ed76aaa47323fc8b3b4c95a40503aa9de39e7dc82294fc61",
+      "body_length": 408,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c11980814eba7b24ed76aaa47323fc8b3b4c95a40503aa9de39e7dc82294fc61"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 3986,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "29c9a51599488cd38abd794b08f18376d198e1adbebdd1d033eeae7426067770",
+      "body_length": 1000,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "29c9a51599488cd38abd794b08f18376d198e1adbebdd1d033eeae7426067770"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 3998,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "Hall algebra for"
+    },
+    {
+      "body_hash": "691df04bb5478c56c87d76f67d709e07729c0d68833a494459ad8098f88322b8",
+      "body_length": 559,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "691df04bb5478c56c87d76f67d709e07729c0d68833a494459ad8098f88322b8"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4019,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "d00168c6080e3c5e67cf4ed17509d8332a9fbd450868946635899be7a5c0cdbb",
+      "body_length": 2152,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d00168c6080e3c5e67cf4ed17509d8332a9fbd450868946635899be7a5c0cdbb"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4025,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "Hall algebra for"
+    },
+    {
+      "body_hash": "d67f9d46476d2bfb140c23f4c6dcf637717d9631d9a0357b58cd343bf2841aba",
+      "body_length": 278,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d67f9d46476d2bfb140c23f4c6dcf637717d9631d9a0357b58cd343bf2841aba"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4064,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "b6322eb74b52a7efc40b5f0fb18ea28d65cb4677d66e601a0a16d932cfadd9a5",
+      "body_length": 110,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "b6322eb74b52a7efc40b5f0fb18ea28d65cb4677d66e601a0a16d932cfadd9a5"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4068,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "c268d0242da540ec286e13c77c52b5fc32d7d04b59693b9e07d88c7a354e1daf",
+      "body_length": 1090,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "c268d0242da540ec286e13c77c52b5fc32d7d04b59693b9e07d88c7a354e1daf"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 4084,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "derived"
+    },
+    {
+      "body_hash": "e923a05da2382ea86eb90149879c94d1539b9d79f4bdd7ed352be7a39ce9bb72",
+      "body_length": 385,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e923a05da2382ea86eb90149879c94d1539b9d79f4bdd7ed352be7a39ce9bb72"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4103,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "9b990a39f3b1999fc69fdd14f4f94129d9db7e43e856b271cd429f0743959ed8",
+      "body_length": 401,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@4117",
+          "hash": "74ca3a0eb43fd8d5398af76f09732167d02fc19e780a1dd67b87bb0d32c8ffc5"
+        },
+        "informal_statement": {
+          "hash": "9b990a39f3b1999fc69fdd14f4f94129d9db7e43e856b271cd429f0743959ed8"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "lemma",
+      "label": "L:aux",
+      "line": 4108,
+      "proof_line": 4117,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "b013ab5c40fa6f1bfaa456bbeb9ca76b2cc5108ee0fb8c854deb308b75827bb5",
+      "body_length": 220,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@4213",
+          "hash": "75aa4c81c6e99680b000747903f6501cdca8dbc348e7a7dfdc637e5c4d8c05cc"
+        },
+        "informal_statement": {
+          "hash": "b013ab5c40fa6f1bfaa456bbeb9ca76b2cc5108ee0fb8c854deb308b75827bb5"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": "iso:FrH-TerH",
+      "line": 4209,
+      "proof_line": 4213,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "980670aba4cda7cb359852d70a3b1e8c2da1db706ac350dcff5a618129deb883",
+      "body_length": 545,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "980670aba4cda7cb359852d70a3b1e8c2da1db706ac350dcff5a618129deb883"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 4311,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "derivor"
+    },
+    {
+      "body_hash": "0dd4ca7c6370e1e9e1cbd9d72736e1f0328acf7c51c25bf787729c523a738459",
+      "body_length": 429,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "0dd4ca7c6370e1e9e1cbd9d72736e1f0328acf7c51c25bf787729c523a738459"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4319,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "28056e9ff8b5c914246e2f11cddfa6939df99335eaaf06c1cb95bd6d18d7055a",
+      "body_length": 406,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "28056e9ff8b5c914246e2f11cddfa6939df99335eaaf06c1cb95bd6d18d7055a"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 4333,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "linear"
+    },
+    {
+      "body_hash": "995226c30e4ab3e731aa58fd0ab1feaf45b4937b66c8cca2733a725d65b9d757",
+      "body_length": 773,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "995226c30e4ab3e731aa58fd0ab1feaf45b4937b66c8cca2733a725d65b9d757"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4344,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "d6dd79a3056f42acd70afa69c5324483a06a6a99984147d13617334534f42cdc",
+      "body_length": 1194,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "d6dd79a3056f42acd70afa69c5324483a06a6a99984147d13617334534f42cdc"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 4364,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": "composition"
+    },
+    {
+      "body_hash": "1a1fa84c4f3908c1a494c4021b2de55018cab35b9582690e366de928a9eddd63",
+      "body_length": 118,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "1a1fa84c4f3908c1a494c4021b2de55018cab35b9582690e366de928a9eddd63"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4398,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "fe04047940206a66c773f362756811940d8441b8fe7bcd2be4b02b89403e5341",
+      "body_length": 2243,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "fe04047940206a66c773f362756811940d8441b8fe7bcd2be4b02b89403e5341"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4402,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "222cb0491e7f9f2322f2340b4e8d9a4def5c89bb19cef89cdb68bf4be1e34a02",
+      "body_length": 126,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "222cb0491e7f9f2322f2340b4e8d9a4def5c89bb19cef89cdb68bf4be1e34a02"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4415,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "f23f48fb5b785c82cf0f0725326dfb1aa26629a1df8fac205c6fbe3eaab83222",
+      "body_length": 1136,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@4481",
+          "hash": "9c5ae72c7c10f67e13d5847ac921ec4f7430b43e3db85d528f7f9c919b096bee"
+        },
+        "informal_statement": {
+          "hash": "f23f48fb5b785c82cf0f0725326dfb1aa26629a1df8fac205c6fbe3eaab83222"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4427,
+      "proof_line": 4481,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "416b1e397b492487e22ba0097bb50bb8c3aca2266a3c8f69acac3dd35bdd33b9",
+      "body_length": 364,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@4532",
+          "hash": "acd22ac33b3b9b13561face14e50a28f319863b262af3cc1515e90149eaeae3c"
+        },
+        "informal_statement": {
+          "hash": "416b1e397b492487e22ba0097bb50bb8c3aca2266a3c8f69acac3dd35bdd33b9"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4527,
+      "proof_line": 4532,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "7080d0a699d00e55bc2b8a1ae65351f5f4df9fcb79abe68d49d5d4bf31fae224",
+      "body_length": 248,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "7080d0a699d00e55bc2b8a1ae65351f5f4df9fcb79abe68d49d5d4bf31fae224"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "definition",
+      "label": null,
+      "line": 4569,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "240eba679ea3083cc4cbf757cafecf68803fc07e4bd1cd2a635132b1c2997eee",
+      "body_length": 351,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "240eba679ea3083cc4cbf757cafecf68803fc07e4bd1cd2a635132b1c2997eee"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "remark",
+      "label": null,
+      "line": 4575,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "3f942709196369259d49ab6c319b2eb578c5b80f37af1c8cb6f0229c4eb4ef97",
+      "body_length": 999,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "3f942709196369259d49ab6c319b2eb578c5b80f37af1c8cb6f0229c4eb4ef97"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4579,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "fa91a4aa8845339b4c7320d69bd4f0b47f662495c639901d8d555b4d5805ff8c",
+      "body_length": 525,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@4589",
+          "hash": "2f4023e427de844e907bae169981f56b0a385c36f5294ad43b9a18f88533e463"
+        },
+        "informal_statement": {
+          "hash": "fa91a4aa8845339b4c7320d69bd4f0b47f662495c639901d8d555b4d5805ff8c"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4585,
+      "proof_line": 4589,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "e785264a7c8fc7623ab7e6d3d5db491211e415b07b98498b4f2c31d59fbe16c8",
+      "body_length": 136,
+      "facets": {
+        "explanation": null,
+        "informal_proof": null,
+        "informal_statement": {
+          "hash": "e785264a7c8fc7623ab7e6d3d5db491211e415b07b98498b4f2c31d59fbe16c8"
+        }
+      },
+      "has_proof": false,
+      "id": null,
+      "kind": "assumption",
+      "label": null,
+      "line": 4594,
+      "proof_line": null,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    },
+    {
+      "body_hash": "4c7c607b55378cf60b4449575ac6a276bb47cf8ffc88c83ed20963312e2558c7",
+      "body_length": 549,
+      "facets": {
+        "explanation": null,
+        "informal_proof": {
+          "anchor": "proof@4602",
+          "hash": "c814d667dd0b879daa46d59185ca8eaf3a2dba4b2ff2d4df43170e797429edd6"
+        },
+        "informal_statement": {
+          "hash": "4c7c607b55378cf60b4449575ac6a276bb47cf8ffc88c83ed20963312e2558c7"
+        }
+      },
+      "has_proof": true,
+      "id": null,
+      "kind": "proposition",
+      "label": null,
+      "line": 4598,
+      "proof_line": 4602,
+      "scope": null,
+      "section": "Recognizable subsets of a free many-sorted algebra",
+      "status": "proposed",
+      "term": null
+    }
+  ],
   "counts": {
-    "confirmed": 0,
-    "proposed": 0
+    "confirmed": 6,
+    "proposed": 176
   },
-  "source": null,
-  "blocks": []
+  "source": "manuscript/MSCong.tex"
 }

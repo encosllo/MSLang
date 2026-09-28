@@ -1,4 +1,38 @@
 {
-  "note": "Block -> Lean declaration map for the MSCong project (manuscript/MSCong.tex). Empty at M0; entries are added per milestone (OpenSpec change add-mscong-project).",
-  "blocks": {}
+  "note": "Block -> Lean declaration map for the MSCong project (manuscript/MSCong.tex). Populated at the M6 pilot for the six-block basic-terms cluster (OpenSpec change add-mscong-correspondence); the full mapping is deferred.",
+  "blocks": {
+    "B-D101": {
+      "decls": [
+        "Mslang.IsFiniteIndex",
+        "Mslang.IsFiniteIndexCongruenceFormation"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-P101": {
+      "decls": [
+        "Mslang.IsFiniteIndex_of_le",
+        "Mslang.IsFiniteIndex_inf"
+      ],
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D102": {
+      "decls": [
+        "Mscong.Recognizable",
+        "Mscong.RecognizableAt"
+      ],
+      "file": "lean/Mscong/Recognizable.lean"
+    },
+    "B-P102": {
+      "decl": "Mscong.PRecVar",
+      "file": "lean/Mscong/BasicTerms.lean"
+    },
+    "B-P103": {
+      "decl": "Mscong.PRecConst",
+      "file": "lean/Mscong/BasicTerms.lean"
+    },
+    "B-P104": {
+      "decl": "Mscong.PRecOp",
+      "file": "lean/Mscong/BasicTerms.lean"
+    }
+  }
 }

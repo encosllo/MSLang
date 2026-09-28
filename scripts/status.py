@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -319,8 +320,9 @@ def hash_file(path):
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
-    ap.add_argument("--evidence-dir", default="evidence")
-    ap.add_argument("--registry", default="blocks/registry.json")
+    ap.add_argument("--evidence-dir", default=None)
+    ap.add_argument("--registry", default=None)
+    ap.add_argument("--project", help="project id (default: the active project)")
     ap.add_argument("--representation")
     ap.add_argument("--representation-name", default="encoding")
     ap.add_argument("--block")
@@ -329,6 +331,19 @@ def main(argv):
                     help="report pass, but also count what would be provisional")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args(argv)
+
+    if args.project is None and args.registry is None and args.evidence_dir is None:
+        registry_path, evidence_dir = Path("blocks/registry.json"), Path("evidence")
+    else:
+        import projects as pj
+
+        pid = args.project or os.environ.get("MSLANG_PROJECT") or "mslang"
+        entry = pj.get(pid)
+        registry_path = Path(args.registry) if args.registry else entry["registry"]
+        evidence_dir = (
+            Path(args.evidence_dir) if args.evidence_dir else entry["evidence_dir"]
+        )
+    args.registry, args.evidence_dir = registry_path, evidence_dir
 
     registry = load_registry(args.registry)
     rep = {}

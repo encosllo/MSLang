@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -151,16 +152,35 @@ def block_residuals(boundary_entry):
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
-    ap.add_argument("--registry", default="blocks/registry.json")
-    ap.add_argument("--evidence-dir", default="evidence")
-    ap.add_argument("--coverage", default="representation/coverage.json")
+    ap.add_argument("--registry", default=None)
+    ap.add_argument("--evidence-dir", default=None)
+    ap.add_argument("--coverage", default=None)
+    ap.add_argument("--project", help="project id (default: the active project)")
     ap.add_argument("--representation")
     ap.add_argument("--representation-name", default="encoding")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args(argv)
 
+    if args.project is None and args.registry is None and args.evidence_dir is None \
+            and args.coverage is None:
+        args.registry = "blocks/registry.json"
+        args.evidence_dir = "evidence"
+        args.coverage = "representation/coverage.json"
+    else:
+        import projects as pj
+
+        pid = args.project or os.environ.get("MSLANG_PROJECT") or "mslang"
+        entry = pj.get(pid)
+        if args.registry is None:
+            args.registry = str(entry["registry"])
+        if args.evidence_dir is None:
+            args.evidence_dir = str(entry["evidence_dir"])
+        if args.coverage is None:
+            cov = entry.get("representation")
+            args.coverage = str(cov) if cov else ""
+
     registry = status.load_registry(args.registry)
-    coverage = load_coverage(Path(args.coverage))
+    coverage = load_coverage(Path(args.coverage)) if args.coverage else {}
     records = status.load_evidence(args.evidence_dir)
     rep = {}
     if args.representation:

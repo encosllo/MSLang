@@ -1,5 +1,3065 @@
 {
-  "notations": [],
-  "source": null,
-  "symbols": []
+  "notations": [
+    {
+      "candidate_edges": 1,
+      "identity": "Cgr",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Cgr_fi",
+      "owners": [
+        "B-D101"
+      ],
+      "state": "block",
+      "target": "B-D101",
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Cgr_lfi",
+      "owners": [
+        "B-D101"
+      ],
+      "state": "block",
+      "target": "B-D101",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Hom",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Im",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Rec",
+      "owners": [
+        "B-D102"
+      ],
+      "state": "block",
+      "target": "B-D102",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Rec_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Rec_T",
+      "owners": [
+        "B-D102"
+      ],
+      "state": "block",
+      "target": "B-D102",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Rec_lf",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Rec_s",
+      "owners": [
+        "B-D102"
+      ],
+      "state": "block",
+      "target": "B-D102",
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Sub_f",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Sub_lf",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "T",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "card",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "ch",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "fi",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "lf",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "lfi",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "p",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "pr",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "supp_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    }
+  ],
+  "source": "manuscript/MSCong.tex",
+  "symbols": [
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": " +"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": " = "
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": " >"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "+>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "-.->"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "-o"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": ".-"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": ".->"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "< "
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "<= "
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "<==>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "<~~>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "==>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "=>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "=~>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "AClop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "AClop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "ACls",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "ACls"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ad",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ad"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Alg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Alg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Aut",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Aut"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "B",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "B"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "BTh",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "BTh"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathrm{B}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Ben"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrixcolsep={12ex}\n  \\xymatrixrowsep={10ex}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Bigmatrix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "C",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "C"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ccg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ccg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cgr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cgr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{\\mathbf{Cgr}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Cgrbf"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{Cgr}_{\\scriptstyle\\mathrm{fi}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Cgrfi"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cl",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "ClSp",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "ClSp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cln",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cln"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Clop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Clop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Clopg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Clopg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Clr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Clr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cls",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cls"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Clsg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Clsg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cn",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\parrow{Cns}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Cns"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\iarrow{Cns}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "CoCns"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\varinjlim",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "CoLim"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Coeq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Coeq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Con",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Con"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Cons",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Cons"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "DP",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "DP"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Dcl",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Dcl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Diag",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Diag"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "E",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "E"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "EM",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "EM"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ec",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ec"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Eg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Eg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "End",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "End"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Eq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Eq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Eq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Equ"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Eqv",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Eqv"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{Etl}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Etl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ex",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ex"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Exp",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Exp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "F",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "F"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\op{Cgr}^{\\op{fi}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "FIC"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\op{Cg}^{\\op{fi}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "FICg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "FMon",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "FMon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Fg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Fg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Fix",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Fix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Flt",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Flt"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Fnc",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Fnc"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Fp",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Fp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Fr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Fr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Fun",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Fun"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "G",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "G"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\int_{\\ast}  }",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Grt"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\int^{\\ast}\\!}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Grtc"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\int^{\\scriptscriptstyle#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Grtctv"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\int_{\\scriptscriptstyle#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Grtcv"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathrm{H}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Hall"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Hom",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Hom"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "I",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "I"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Id",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Id"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Idl",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Idl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ig",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ig"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Im",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Img"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "In",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "In"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ind",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ind"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Inop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Inop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Inr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Inr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ip",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ip"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ird",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ird"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "J",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "J"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ker",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ker"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Kl",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Kl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "LSq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "LSq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathsf{Law}(\\underline{\\Sigma},V)}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Law"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\Downarrow",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Lb"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "LcClop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "LcClop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Lcop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Lcop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\varprojlim",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Lim"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Lop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Lop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Max",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Max"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Md",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Md"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Mnd",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Mnd"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Mod",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Mod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Mon",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Mon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Mor",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Mor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\op{N}",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "N"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "ND",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "ND"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Nat",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Nat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrixcolsep={10ex}\n  \\xymatrixrowsep={8ex}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Normalmatrix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathrm{N}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Ntr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ob",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ob"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Op",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Op"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Opn",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Opn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ops",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ops"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "PSq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "PSq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Pb",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Pb"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Pd",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Pd"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Po",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Po"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Pol",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Pol"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Pow",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Pow"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Prim",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Prim"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Qeq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Qeq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\Rightarrow",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Rar"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{Rec}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Rec"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Rel",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Rel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Sat",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Sat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Sen",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Sen"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Set",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Set"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Sg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Sg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Shp",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Shp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Sig",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Sig"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrixcolsep={8ex}\n  \\xymatrixrowsep={6.6ex}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Smallmatrix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrixcolsep={7ex}\n  \\xymatrixrowsep={5.6ex}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Smmallmatrix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrixcolsep={6ex}\n  \\xymatrixrowsep={4.6ex}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Smmmallmatrix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrixcolsep={5ex}\n  \\xymatrixrowsep={3.6ex}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Smmmmallmatrix"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Spc",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Spc"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "St",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "St"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Struct",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Struct"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Sub",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Sub"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "T",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "T"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TCln",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TCln"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TClop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TClop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TClr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TClr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TCls",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TCls"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TInop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TInop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TInr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TInr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TOpn",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TOpn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "TOps",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "TOps"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ter",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ter"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Th",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Th"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Thr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Thr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{Tl}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "Tl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "UAClop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "UAClop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "UACls",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "UACls"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "UClop",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "UClop"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "UCls",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "UCls"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\Uparrow",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ub"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Ucl",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Ucl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Var",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "Var"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "W",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "W"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathbf{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ad"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\overset{\\operatorname{ad}}{\\comp}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "adcomp"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\dagger}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "adg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "adj",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "adj"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\protect\\underline{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "al"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "alg",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "alg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathsf{ar}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "arity"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "ar",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "arityd"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "Arr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "arityr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "bar",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "bard"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath\n {\\lvert #1 \\rvert}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "bb"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\boldsymbol{\\mathcal{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "bcal"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\curlywedge",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "bconcat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\amalg",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "bcoprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\wedge",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "binf"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\cap",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "binter"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "providecommand",
+      "lean": null,
+      "name": "blockid"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\times",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "bprod"
+    },
+    {
+      "arity": "[2]",
+      "defining_block": "<preamble>",
+      "definition": "\\begin{array}{@{}c@{}}\n    #1 \\\\\n    \\hline \\hline\n    #2\n\\end{array}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "brule"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\vee",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "bsup"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\cup",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "bunion"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "car",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "car"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "card",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "card"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathbin{\\downarrow}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ccat"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathfrak{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cd"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xycel}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "ch",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "ch"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\overline{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\curlywedge",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cncat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "cn",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "cng"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "condici\u00f3n necesaria y suficiente",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cnys"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathrm{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "co"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "cod",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "cod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "coeq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "coeq"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\flat}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "coext"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\leftrightarrow",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "coimp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\circ",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "comp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\wedge",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "con"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\text\n  {\\Large $\\curlywedge$}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "concat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\Vdash",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cons"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "cp",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "cp"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathcal{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "cs"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathbf{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ct"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\downarrow",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "da"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\bot",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dadj"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\diamond",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dcomp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\vdash",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ded"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "der",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "der"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\varkappa}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dext"
+    },
+    {
+      "arity": "[2]",
+      "defining_block": "<preamble>",
+      "definition": "\\renewcommand{\\larr}{#1}\\renewcommand{\\rarr}{#2}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dirarrows"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\vee",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dis"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "#1^{\\partial}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\boldsymbol{.}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dlob"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\diamond",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dmd"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xydmor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "dmor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "dom",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "dom"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathcal{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ec"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyemor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "emor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyepi}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "epi"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\protect\\underline{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "eq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "eq",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "equ"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\emptyset",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "eset"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "ev",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "ev"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\sharp}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ext"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\bot",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "false"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\cdot",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "farg"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\star\\star\\star}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "fffmon"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\star\\star}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ffmon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "f",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "fin"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "-\\mathrm{f}",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "finS"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathcal{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "fm"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{#1^{\\star}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "fmon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "fuj",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "fuj"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\overset{\\operatorname{fn}}{\\comp}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "funcomp"
+    },
+    {
+      "arity": "[4]",
+      "defining_block": "<preamble>",
+      "definition": "\\begin{array}{@{\\:}c@{\\:}c@{\\:}l}\n                   #1 &\\mor& #2 \\\\\n                   #3 &\\longmapsto& #4\n            \\end{array}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "function"
+    },
+    {
+      "arity": "[9]",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrix{\n    #4 \\save[]+<0ex,5ex>*+{#1}=\"1\"  \\restore\n      \\arity[d]_{#6}  \\arity@{}[rd]|{\\longmapsto}\n  & #5 \\save[]+<0ex,5ex>*+{#3}=\"3\"  \\restore\n      \\arity[d]^{#7}\n  \\\\\n   #8 & #9 \\arity \"1\";\"3\"^-{#2} }",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "functor"
+    },
+    {
+      "arity": "[9]",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrix{\n    #4 \\save[]+<0ex,5ex>*+{#1}=\"1\"  \\restore\n       \\arity@{}[rd]|{\\longmapsto}\n  & #5 \\save[]+<0ex,5ex>*+{#3}=\"3\"  \\restore\n      \\arity[d]^{#7}\n  \\\\\n   #8  \\arity[u]^{#6}  & #9 \\arity \"1\";\"3\"^-{#2} }",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "functordn"
+    },
+    {
+      "arity": "[9]",
+      "defining_block": "<preamble>",
+      "definition": "\\xymatrix{\n    #4 \\save[]+<0ex,5ex>*+{#1}=\"1\"  \\restore\n      \\arity[d]_{#6}  \\arity@{}[rd]|{\\longmapsto}\n  & #5 \\save[]+<0ex,5ex>*+{#3}=\"3\"  \\restore\n  \\\\\n   #8 & #9 \\arity[u]_{#7} \\arity \"1\";\"3\"^-{#2} }",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "functornd"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "gen",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "gen"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Gamma_{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "grph"
+    },
+    {
+      "arity": "[1][]",
+      "defining_block": "<preamble>",
+      "definition": "\\ifthenelse{\\boolean{mmode}}\n  {$\\mathrm{h}$}\n  {h\\nobreakdash#1\\hspace{0pt}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "h"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ast",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "hcomp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\oplus",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "hcoprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "homomorfismo",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "homo"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\otimes",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "hprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "heterog\u00f3nea",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "htg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{id}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "id"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\rightarrow",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "imp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "in",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "inc"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\subseteq",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "incl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\bigcap",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "inter"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "^{\\text{-}1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "inv"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\cong",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "iso"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "lad",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "lad"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\!\\dashv\\!",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ladj"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "->",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "larr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\bigwedge",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "lcon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\bigvee",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ldis"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "lf",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "lfin"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\longmapsto",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "lmapsto"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\operatorname*{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "lop"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Bar{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mab"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Bar{\\Bar{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mabb"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Hat{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mah"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Hat{\\Hat{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mahh"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\overline{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "maol"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Tilde{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mat"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\Tilde{\\Tilde{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "matt"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\widehat{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mawh"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\widetilde{#1}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mawt"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xymdf}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mdf"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\mathbf{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xymon}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xymor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mor"
+    },
+    {
+      "arity": "[2]",
+      "defining_block": "<preamble>",
+      "definition": "\\begin{array}{@{}c@{}}\n    #1 \\\\\n    \\hline\n    #2\n\\end{array}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "mrule"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\natural",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "nat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\nvdash",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "nded"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathbin{\\square}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "nec"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\not\\in",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "nin"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\nsubseteq",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "nincl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\nvDash",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "nmodels"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\overline",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ol"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyomor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "omor"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\operatorname{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "op"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "op",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "opp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "p",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "p"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\lozenge",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "pos"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathrm{pr}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "pr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\partial",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "prt"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "rad",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "rad"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\!\\vdash\\!",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "radj"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\rightarrow",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rar"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "->",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rarr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\dashv",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rded"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyrel}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathnormal{\\restriction}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rest"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\supseteq",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rincl"
+    },
+    {
+      "arity": "[2]",
+      "defining_block": "<preamble>",
+      "definition": "\\rotatebox[origin=c]{#1}{\\ensuremath{#2}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rotc"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\supset",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "rsincl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathbin{\\kern-1pt\\raisebox{6pt}{.}\\kern-5pt\n\\downarrow\\kern-5pt\\raisebox{6pt}{.}\\kern-1pt}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sccat"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptstyle{\\coprod}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "scoprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptstyle{+}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "serial"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\protect\\underline{#1}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sg"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\sqsupseteq",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sgeq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\sqsupset",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sgrt"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\subset",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sincl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\sqsubseteq",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sleq"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\sqsubset",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sles"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptstyle{\\prod}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptscriptstyle{\\coprod}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sscoprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptscriptstyle{\\prod}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ssprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptscriptstyle{\\sum}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sssum"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\scriptstyle{\\sum}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ssum"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "st",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "st"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "sub",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "sub"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "supp",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "supp"
+    },
+    {
+      "arity": "[2]",
+      "defining_block": "<preamble>",
+      "definition": "(#1\\mid#2)",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "sx"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "sm",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "sym"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathbin{\\Tilde{\\circ}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tcomp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\coprod}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tcoprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\mathbin{\\Tilde{\\ast}}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "thcomp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "th",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "thp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xytn}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "tn",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "tns"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\langle#1\\rangle",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tp"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\prod}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\triangleleft",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "trl"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "tr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "trn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\triangleright",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "trr"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\top",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "true"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\textstyle{\\sum}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "tsum"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\amalg",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ttcoprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\Pi",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ttprod"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\uparrow",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "ua"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\top",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "uadj"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\underline",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "ul"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\usebox{\\xyumor}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "umor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "unf",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "unif"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\bigcup",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "union"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\ensuremath{\\varnothing}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "vacio"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "var",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "var"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\circ",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "vcomp"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\mathbin{\\downarrow}#1",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "vs"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\widehat",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "wh"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "wr",
+      "kind": "DeclareMathOperator",
+      "lean": null,
+      "name": "wreath"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xycel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xydmor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyemor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyepi"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xymdf"
+    },
+    {
+      "arity": "[3][0ex,5ex]",
+      "defining_block": "<preamble>",
+      "definition": "\\save[]+<#1>*+{#2}=\"#3\" \\restore",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "xymn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xymon"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xymor"
+    },
+    {
+      "arity": "[1]",
+      "defining_block": "<preamble>",
+      "definition": "\\save=\"#1\"\\restore",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "xyn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "\\makebox[0ex]{}",
+      "kind": "newcommand",
+      "lean": null,
+      "name": "xynode"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyomor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyrel"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xytn"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "savedbox",
+      "lean": null,
+      "name": "xyumor"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "~>"
+    },
+    {
+      "arity": "",
+      "defining_block": "<preamble>",
+      "definition": "",
+      "kind": "newdir",
+      "lean": null,
+      "name": "~~>"
+    }
+  ]
 }
