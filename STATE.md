@@ -7718,6 +7718,15 @@ scratch was released. No manual deletion was needed.
 3. (Coordinator) Decide whether the slow gate should validate `mscong`'s Lean
    artifacts; if so, that is an Architecture Section 15.6 revision.
 
+**Deprovisioning (later, same day).** On request, `lean/.lake/` was deleted
+wholesale (the fetched Mathlib + Mathlib's dependency packages + the project
+build), reclaiming **~7.8 GiB** (free space 8.2 -> 16 GiB). It is entirely
+regenerable and untracked (0 tracked files); `lakefile.toml`,
+`lake-manifest.json`, and `lean-toolchain` are retained. To restore the Lean
+environment: `lake update && lake exe cache get && lake build` (Session 9;
+budget ~8 GiB and a ~4-min clean build). Until then `lean_audit.py` and the slow
+`check_all.sh` tier cannot run, though the fast gate is unaffected.
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
