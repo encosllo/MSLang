@@ -73,8 +73,12 @@ def main():
     collisions, per_project = projects.cross_project_id_collisions()
     check("no block/evidence/journal id collision across projects", not collisions,
           str(collisions))
-    check("mscong has no identifiers yet",
-          all(not s for s in per_project["mscong"].values()),
+    # `mscong` stays a scaffold while milestones are unmapped infrastructure:
+    # no block IDs and no evidence, though milestone journal events may accrue
+    # (M5 records the first; see STATE.md Session 134).
+    check("mscong has no block or evidence identifiers yet",
+          not per_project["mscong"]["blocks"]
+          and not per_project["mscong"]["evidence"],
           str(per_project["mscong"]))
 
     # The default project's artifacts are byte-identical to the recorded baseline.

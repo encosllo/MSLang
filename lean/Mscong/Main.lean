@@ -4,6 +4,8 @@ import Mscong.Substitution
 import Mscong.Iteration
 import Mscong.Quotient
 import Mscong.TreeHom
+import Mscong.Hall
+import Mscong.Derivor
 
 /-!
 # `Mscong.Main` -- recognizability theorems

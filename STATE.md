@@ -7267,6 +7267,93 @@ congruences `Φ` and `Θ` and the saturation of the singleton generators. Unmapp
 3. Reconcile the two pre-existing `MSCong.tex` label issues with the author
    (`PRecIt` undefined, `TAntiHom` multiply defined).
 
+## Session 134 -- 2026-09-27 -- M5 (derivors and Hall algebras): algebraic core formalized
+
+**Goal.** Open and implement the M5 roadmap milestone (`MSCong.tex` §6), which is
+decision-gated because its category-theoretic packaging may resist the encoding.
+Author decision this session: **algebraic core only** — formalize the
+recognizability-relevant algebra and defer the free-Hall-algebra isomorphism and
+the `Sig_d` / `Alg_d` / Grothendieck layer.
+
+**Planning (OpenSpec change `add-derivors-hall-algebras`, active).**
+
+- proposal / specs (`formalization/mcong-derivors`) / design / tasks written;
+  `openspec validate add-derivors-hall-algebras` = valid. Design decisions: a
+  bespoke `HallAlg` structure (not an `Mslang.Alg` instance); `derivPlace` as the
+  `ULift` of M4's `Yplus` `Sum.inr` summand; `Op_H`, `Ter_H`, `derivedAlg`; a
+  derivor-specific `countPlaceholderD` (parallel to M4's `countPlaceholder`);
+  module layout `Mscong/Hall.lean` + `Mscong/Derivor.lean` (a deviation from the
+  M0 design's `TreeHom.lean` plan, recorded).
+
+**What was established (closed).**
+
+- `lean/Mscong/Hall.lean` (new): `derivPlace`, `HallAlg` (`pi`/`xi` + `H1`/`H2`/
+  `H3`), `OpH` (operations), `termSubst` + its laws (`termSubst_var`,
+  `termSubst_op`, `termSubst_cast`, `termSubst_comp`, `term_var_cast`,
+  `termLift_id`/`termSubst_id`), `substMap`/`substMap_pi`, `TerH` (terms, all
+  three laws proved), `derivedAlg`/`pMap`/`pSharp`, and Lemma `L:aux`
+  (`derivedAlg_eval`).
+- `lean/Mscong/Derivor.lean` (new): `Derivor` (`φ`, `d`), `countPlaceholderD`,
+  `Derivor.IsLinear`, `placeIncl`, `Derivor.toHyperderivor`,
+  `countPlaceholder_toHyperderivor`, `Derivor.toHyperderivor_isLinear`, and the
+  two counterparts **`PRecDerivor`** (inverse image, from `PRecH`) and
+  **`PRecLinDerivor`** (direct image under a linear derivor, from `PRecLH`).
+- `lean/Mscong/Main.lean` imports `Mscong.Hall` and `Mscong.Derivor`.
+
+**Verification.**
+
+- Targeted builds `lake build Mscong.Hall` and `lake build Mscong.Derivor` and
+  `lake build Mscong.Main`: **0 errors, 0 warnings**, no `sorry`.
+- `lean/declarations.mscong.json` still empty; `mscong` still `ingested: false`.
+
+**Findings / gotchas.**
+
+- `derivPlace` must be an `abbrev` (reducible) and lift the placeholder subtype
+  to `Type u` via `ULift`, else `SSet T`/`Term` sort checks fail at reducibility.
+- The derivor→hyperderivor inclusion needs a *named* `placeIncl` so the left
+  summand `α` of `Sum.inr` is inferable in the `Term.rec` motive; an inline
+  lambda cannot infer it.
+- The `H3` proof for `Ter_H(Σ)` needed `termSubst_comp` (a `termLift`
+  composition lemma absent from `Mslang`) plus `termSubst_cast`; the reusable
+  composition lemma is now available.
+- As designed, `Ter_H`'s carrier `Term Σ (derivPlace id p.1)` is `SSet`-sorted
+  with `ULift` placeholders, so M4's `countPlaceholder` (over `Yplus`) does not
+  apply directly; a parallel `countPlaceholderD` was added and the bridge proves
+  the two counts agree.
+
+**Deferred (author-visible caveat).** The free-Hall-algebra isomorphism
+`iso:FrH-TerH`, the category `Sig_d`, the contravariant functor `Alg_d`, the
+Grothendieck category `Alg_d`, and the 2-categorical remark are **not**
+formalized; the counterparts realize `Alg_d(d)(T_Λ(Y))` directly as the bridge
+hyperderivor's induced algebra. `PRecILH` remains out of scope (commented out).
+
+**Closed / gate (tasks 7.x–8.x).**
+
+- `python3 scripts/lean_audit.py --project mscong`: **0 declarations, 0
+  warnings, 0 `sorry`, ok=True** (targeted `lake build Mscong.Hall`/`Derivor`/
+  `Main` all clean). `scripts/projects.py --check`, `--collisions`, and
+  `--check-baseline` pass; `scripts/check_all.sh --fast` green.
+- One slow `scripts/check_all.sh` at close: **50 passed, 0 failed**. The first
+  slow run surfaced one stale-premise failure in `scripts/projects_test.py`
+  ("mscong has no identifiers yet"), made false by the new journal event; the
+  check now requires no *block* or *evidence* identifiers (milestone journal
+  events may accrue), mirroring the Session 14 stale-premise fix.
+- M5 journal event **`EV-000156`** appended to `journal/mscong.jsonl` (the first
+  `mscong` event); `reports/mscong/bundle.md` regenerated for the new journal
+  hash.
+- Change archived at
+  `openspec/changes/archive/2026-09-28-add-derivors-hall-algebras/`; the main
+  spec `openspec/specs/formalization/mcong-derivors/spec.md` was created from the
+  delta (`openspec validate --specs`: **14 passed, 0 failed**; no active changes
+  remain).
+
+**Prioritized next steps.**
+
+1. **M6** (correspondence audit / block mapping for MSCong using the evidence
+   model) becomes the last open milestone.
+2. Reconcile the two pre-existing `MSCong.tex` label issues with the author
+   (`PRecIt` undefined, `TAntiHom` multiply defined).
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
