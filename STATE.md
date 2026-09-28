@@ -7516,6 +7516,62 @@ remaining representation residuals (R-congruence, R-first) still propagate.
 3. Optionally add `\label`s to the unlabelled propositions (prose edit,
    author-reserved) and audit the representation residuals.
 
+## Session 137 -- 2026-09-28 -- M6 edge confirmation for `mscong`
+
+**Goal.** Execute the top prioritized step from Session 136: review the 245
+`mscong` candidate edges and record the decisions, so closures stop being
+dependency-incomplete. Maintenance of the existing capability; no new OpenSpec
+change.
+
+**What was established (closed).**
+
+- **`blocks/mscong/edge_decisions.json` written** (245 decisions, all
+  `confirmed: true`): 27 **explicit** author citations (`\ref`) and 218
+  **symbol** edges. Every symbol edge's notation is introduced by its target
+  definition via a denote-by cue, per the tightened M6 extractor; the two
+  high-count targets were spot-checked (`\T` → the free algebra `B-D125`,
+  `\Omega` → the cogenerated congruence `B-D134`, `\delta` → `B-D107`, `\Rec`
+  → `B-D102`, `\Alg` → `B-D119`, which does introduce both `\mathbf{Alg}` and
+  `\mathrm{Alg}`). No self-loops; the 3 candidates for the genuinely ambiguous
+  tokens `Sub`/`p`/`supp_S` remain **unresolved** and were not decided.
+- **Re-ingested:** `graph.json` now has **245 confirmed edges**. Closures are
+  non-vacuous: e.g. `B-P141` (`PRecSubs`) review closure pulls 11 dependency
+  statements; `B-P146` (`PRecH`) pulls `B-L101`/`B-P145`; `B-L102` (`L:aux`)
+  pulls `B-D123`/`B-D125`.
+- **Pilot evidence superseded.** The old three pilot correspondence records
+  (`E-900001`–`E-900003`) went **stale** because the confirmed edges changed
+  their transitive `definition_closure`; they were reissued (`reissue_reason:
+  remap`) as **`E-900006`–`E-900008`** with the same `equivalent` verdicts and
+  are current again. `E-900004` (representation, `B-D101`) and `E-900005`
+  (review, `B-P101`) were unaffected. `status.py --project mscong`:
+  `B-P101` review `fail`, `B-P102`–`B-P104` correspondence `provisional`,
+  `B-D101` representation `provisional`.
+- Views/bundle regenerated; journal `EV-000161`. Fast gate **50 passed, 0
+  failed**; `mslang` baseline current.
+
+**Findings / gotchas.**
+
+- **Edge confirmation is a closure-affecting change.** Confirming an edge adds
+  it to dependent blocks' closures, which can stale their evidence — the
+  validity rule doing its job. The append-only remedy is supersession, not
+  editing (the pre-commit hook would reject an edit).
+- The symbol extractor's `_term_matches` rule (`len >= 4` prefix) is why `\Alg`
+  is *not* matched to "algebra" by term, but *is* resolved through a genuine
+  denote-by cue in `B-D119` — two independent mechanisms, both checked.
+
+**Deferred (author-visible caveat).** **Author spot-check** of the 245
+confirmations is still wanted (they were reviewed by the agent, as for
+`mslang`'s first pass). Per-block correspondence/review audits for the newly
+mapped blocks remain open; `Sig_d`/`Alg_d` and `PRecILH` remain out of scope.
+
+**Prioritized next steps.**
+
+1. Author spot-check of the edge decisions (and resolve `Sub`/`p`/`supp_S` via
+   a finer disambiguator or a notation decision), then run the audit pipeline
+   over the 22 mapped blocks.
+2. Reconcile the representation residuals (R-congruence, R-first).
+3. Optionally label the unlabelled propositions.
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

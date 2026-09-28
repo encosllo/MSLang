@@ -1,0 +1,1233 @@
+{
+  "counts": {
+    "confirmed": 245,
+    "rejected": 0
+  },
+  "decisions": {
+    "B-A109|B-P147|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecLH})",
+      "source": "explicit"
+    },
+    "B-C102|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C102|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C103|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C103|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C105|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C106|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C107|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Im is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C107|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C108|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C109|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C109|B-P104|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecOp})",
+      "source": "explicit"
+    },
+    "B-C109|B-P141|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecSubs})",
+      "source": "explicit"
+    },
+    "B-C110|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C111|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-C111|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D101|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sub_f is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D104|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D109|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D112|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D112|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D113|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D113|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D114|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D115|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D116|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D119|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D125|B-D123|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D127|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D128|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D128|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sub_f is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D128|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D129|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D130|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D131|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D131|B-D130|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Etl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D132|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D132|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D133|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D133|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D134|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D135|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D136|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D137|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D138|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D139|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D142|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D144|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D146|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D148|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-D149|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-L101|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-L102|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P101|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_fi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P101|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P102|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P103|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P104|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P104|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Im is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P104|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P104|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P106|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P106|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P107|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P108|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P109|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P109|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P110|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P110|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P110|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P111|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P113|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P114|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P116|B-D130|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Etl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P116|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P117|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P117|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P117|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P117|B-P116|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CharacCong})",
+      "source": "explicit"
+    },
+    "B-P118|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P118|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P119|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P119|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P120|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P120|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P121|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P122|B-C102|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{IncSat and sIncSat})",
+      "source": "explicit"
+    },
+    "B-P122|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P122|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P122|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P122|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P123|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P124|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P124|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P124|B-P117|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CharacCogenCong})",
+      "source": "explicit"
+    },
+    "B-P125|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P125|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P125|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P126|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P127|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_fi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P127|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P128|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_lfi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P129|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P130|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_fi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P130|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P130|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P130|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P130|B-P101|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Filter})",
+      "source": "explicit"
+    },
+    "B-P131|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P131|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P132|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P132|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P132|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P133|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P133|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P134|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P134|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P134|B-P132|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Rec is Bool})",
+      "source": "explicit"
+    },
+    "B-P134|B-P133|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{s-Rec iff Rec})",
+      "source": "explicit"
+    },
+    "B-P135|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P135|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P136|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P137|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P137|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P138|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_lfi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P138|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P139|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Im is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P139|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P139|B-P112|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PPAI})",
+      "source": "explicit"
+    },
+    "B-P140|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Im is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P140|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P140|B-P112|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PPAI})",
+      "source": "explicit"
+    },
+    "B-P141|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_fi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P141|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P141|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P141|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P141|B-D128|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Var is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P141|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P141|B-P101|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Filter})",
+      "source": "explicit"
+    },
+    "B-P141|B-P132|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Rec is Bool})",
+      "source": "explicit"
+    },
+    "B-P142|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_fi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P142|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P142|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P142|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P142|B-D128|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Var is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P142|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P142|B-P101|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Filter})",
+      "source": "explicit"
+    },
+    "B-P142|B-P102|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecVar})",
+      "source": "explicit"
+    },
+    "B-P142|B-P141|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecSubs})",
+      "source": "explicit"
+    },
+    "B-P143|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec_s is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P143|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P143|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P143|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P143|B-P132|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Rec is Bool})",
+      "source": "explicit"
+    },
+    "B-P143|B-P141|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecSubs})",
+      "source": "explicit"
+    },
+    "B-P144|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P144|B-D128|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Var is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P145|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P145|B-L101|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{LIGlobSubstOp})",
+      "source": "explicit"
+    },
+    "B-P146|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P146|B-P145|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{IndAlgStrucImHom})",
+      "source": "explicit"
+    },
+    "B-P147|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-D127|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Subt is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-D128|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Var is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P147|B-P101|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{Filter})",
+      "source": "explicit"
+    },
+    "B-P148|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P148|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P149|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P150|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P152|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P152|B-L102|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{L:aux})",
+      "source": "explicit"
+    },
+    "B-P155|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P156|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P156|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P157|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P158|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P158|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P158|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P158|B-P146|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecH})",
+      "source": "explicit"
+    },
+    "B-P159|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P159|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P159|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-P159|B-P147|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PRecLH})",
+      "source": "explicit"
+    },
+    "B-R102|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R102|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R106|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R107|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R108|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R108|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R109|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R109|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R110|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R110|B-D114|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sat is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R111|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R112|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\card is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R113|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R115|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R117|B-D123|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R118|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R118|B-P112|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{PPAI})",
+      "source": "explicit"
+    },
+    "B-R120|B-D110|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Sub_f is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R120|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R120|B-D127|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Subt is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R121|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\pr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R122|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R122|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R123|B-D107|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\delta is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R123|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R124|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R124|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R125|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R125|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R125|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R126|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Ker is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R126|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R126|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R126|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R127|B-D131|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Tl_t is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R127|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R127|B-P117|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CharacCogenCong})",
+      "source": "explicit"
+    },
+    "B-R127|B-P118|uses_statement": {
+      "confirmed": true,
+      "rationale": "author-written citation (\\ref{CogenCong})",
+      "source": "explicit"
+    },
+    "B-R128|B-D112|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Eqv is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R128|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R128|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R128|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R129|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R129|B-D129|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R129|B-D134|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Omega is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R130|B-D101|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Cgr_fi is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R131|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R132|B-D102|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Rec is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R133|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R133|B-D128|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Var is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R134|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R135|B-D103|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Hom is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R135|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R136|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R137|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R138|B-D125|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\T is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R140|B-D108|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Im is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    },
+    "B-R151|B-D119|uses_definition": {
+      "confirmed": true,
+      "rationale": "notation \\Alg is introduced by the target definition (denote-by cue)",
+      "source": "symbol"
+    }
+  }
+}

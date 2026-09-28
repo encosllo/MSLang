@@ -1,0 +1,63 @@
+{
+  "block": "B-P103",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900007",
+  "findings": [
+    "Reissued (remap) after the full-mapping edge confirmation changed the transitive definition closure; stage-2 verdict unchanged: equivalent. Transcript: blocks/mscong/audits/B-P103-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D123/informal_statement",
+      "hash": "e2ff65ce861d140de2611aeb643226d1a01bb225fe16ad57b529a98bc029b57f"
+    },
+    {
+      "artifact": "B-D125/informal_statement",
+      "hash": "3e21f3cff3e8922741aebe7c824d1a5186d8ff67b00e3a4bf05b1b638d7129f8"
+    },
+    {
+      "artifact": "B-P103/definition_closure",
+      "hash": "039efc6ddb689cfba201cc1cb978eb3d6f88a01132d7696b16a9d73b1ca2953c"
+    },
+    {
+      "artifact": "B-P103/formal_statement",
+      "hash": "93eaeb836a4bdc40e02ff91e6a2e1ee351c401dba7f9041fb5d94ee59b0c7f16"
+    },
+    {
+      "artifact": "B-P103/informal_statement",
+      "hash": "d80e7cf98576b2ae6728ce8172bfba85d4c286d011a1db32b8527801c80efaa2"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "equivalent",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "remap",
+  "strength": "R3",
+  "supersedes": "E-900002",
+  "timestamp": "2026-09-28T06:47:19Z"
+}
