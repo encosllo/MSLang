@@ -12,8 +12,8 @@ records represent outstanding work.
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
-| E-900001 | `B-P102` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
-| E-900002 | `B-P103` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
-| E-900003 | `B-P104` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900001 | `B-P102` | correspondence | awaiting | B-P102/definition_closure: recorded 1e71c84e63ec... now 039efc6ddb68...<br>representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900002 | `B-P103` | correspondence | awaiting | B-P103/definition_closure: recorded 1e71c84e63ec... now 039efc6ddb68...<br>representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900003 | `B-P104` | correspondence | awaiting | B-P104/definition_closure: recorded 1e71c84e63ec... now 039efc6ddb68...<br>representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900004 | `B-D101` | representation | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900005 | `B-P101` | review | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |

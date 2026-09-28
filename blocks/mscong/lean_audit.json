@@ -9,7 +9,27 @@
       "Quot.sound",
       "propext"
     ],
+    "Mscong.PRecH": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.PRecLH": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mscong.PRecOp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.PRecQ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.PRecSubs": [
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -21,6 +41,62 @@
     ],
     "Mscong.Recognizable": [],
     "Mscong.RecognizableAt": [],
+    "Mscong.cAlg": [],
+    "Mscong.cStruct": [
+      "Classical.choice"
+    ],
+    "Mscong.derivedAlg_eval": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_empty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_univ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizable_compl": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizable_empty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizable_inter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizable_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizable_univ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.subst1": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.substHom": [],
+    "Mscong.substLang": [],
+    "Mscong.treeHom_isAlgHom": [],
     "Mslang.IsFiniteIndex": [],
     "Mslang.IsFiniteIndexCongruenceFormation": [
       "Classical.choice"
@@ -34,6 +110,31 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "Mslang.Signature": [],
+    "Mslang.nabla_sat": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.prop_incSat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.satSets": [],
+    "Mslang.satSetsCABA": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.satSets_antitone": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Mslang.satSets_fix": [],
+    "Mslang.sat_antitone": [
+      "Quot.sound",
+      "propext"
     ]
   },
   "build": {
@@ -43,7 +144,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 9,
+  "declarations_audited": 36,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

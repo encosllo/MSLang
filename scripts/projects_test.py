@@ -74,12 +74,15 @@ def main():
     collisions, per_project = projects.cross_project_id_collisions()
     check("no block/evidence/journal id collision across projects", not collisions,
           str(collisions))
-    # `mscong` is ingested at the M6 pilot: its block IDs are the six-block
-    # basic-terms cluster and its evidence accrues from the correspondence
-    # audits, but its ID space stays disjoint from `mslang` (checked above).
-    check("mscong block IDs are drawn from the pilot cluster",
-          per_project["mscong"]["blocks"]
-          == {"B-D101", "B-P101", "B-D102", "B-P102", "B-P103", "B-P104"},
+    # `mscong` is fully ingested: every theorem-like environment carries a
+    # `B-<letter>1xx` ID (disjoint from mslang's `0xx` range, checked above),
+    # and the six M6 pilot IDs are preserved.
+    pilot = {"B-D101", "B-P101", "B-D102", "B-P102", "B-P103", "B-P104"}
+    check("mscong is fully mapped (>= 180 block IDs)",
+          len(per_project["mscong"]["blocks"]) >= 180,
+          str(len(per_project["mscong"]["blocks"])))
+    check("mscong preserves the pilot block IDs",
+          pilot <= per_project["mscong"]["blocks"],
           str(per_project["mscong"]))
 
     # The default project's artifacts are byte-identical to the recorded baseline.

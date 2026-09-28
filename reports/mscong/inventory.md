@@ -1,6 +1,6 @@
 # Source inventory
 
-Source: `manuscript/MSCong.tex` (305670 chars, 4810 lines, latin1)
+Source: `manuscript/MSCong.tex` (308662 chars, 4986 lines, latin1)
 
 ## Sections
 
@@ -19,7 +19,7 @@ Source: `manuscript/MSCong.tex` (305670 chars, 4810 lines, latin1)
 | proposition | 59 |
 | remark | 51 |
 
-Blocks with a `\blockid`: **6** confirmed, **176** proposed (no id).
+Blocks with a `\blockid`: **182** confirmed, **0** proposed (no id).
 
 ## Theorem declarations
 

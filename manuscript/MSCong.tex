@@ -714,14 +714,17 @@ in $\mathrm{Sub}(A)$. In the sequel, for a mapping $f$ from $A$ to $B$ and a sub
 
 In this section we collect the basic facts, mostly without proofs, about many-sorted sets, many-sorted algebras, and recognizability for arbitrary many-sorted algebras, that we will need.
 
+\blockid{B-A101}
 \begin{assumption}
 From now on $S$ stands for a set of sorts in $\boldsymbol{\mathcal{U}}$, fixed once and for all.
 \end{assumption}
 
+\blockid{B-D103}
 \begin{definition}
 An $S$-\emph{sorted set} is a mapping $A = (A_{s})_{s\in S}$ from $S$ to $\boldsymbol{\mathcal{U}}$. If $A$ and $B$ are $S$-sorted sets, an $S$-\emph{sorted mapping from} $A$ \emph{to} $B$ is an $S$-indexed family $f = (f_{s})_{s\in S}$, where, for every $s$ in $S$, $f_{s}$ is a mapping from $A_{s}$ to  $B_{s}$. Thus, an $S$-sorted mapping from $A$ to $B$ is an element of $\prod_{s\in S}\mathrm{Hom}(A_{s}, B_{s})$. We will denote by $\mathrm{Hom}(A,B)$ the set of all $S$-sorted mappings from $A$ to $B$. $S$-sorted sets and $S$-sorted mappings form a category which we will denote henceforth by $\mathbf{Set}^{S}$. %From now on, $\mathbf{Set}^{S}$ stands for the category of $S$-sorted sets and $S$-sorted mappings.
 \end{definition}
 
+\blockid{B-D104}
 \begin{definition}
 Let $I$ be a set in $\boldsymbol{\mathcal{U}}$ and $(A^{i})_{i\in I}$ an $I$-indexed family of $S$-sorted sets. Then the \emph{product} of $(A^{i})_{i\in I}$, denoted by $\prod_{i\in I}A^{i}$, is the $S$-sorted set defined, for every $s\in S$, as $\left(\prod\nolimits_{i\in I}A^{i}\right)_{s} = \prod\nolimits_{i\in I}A^{i}_{s}$, where
 $$
@@ -740,19 +743,23 @@ For every $i\in I$, the \emph{i-th canonical injection}, $\mathrm{in}^{i}$, is t
 The remaining set-theoretic operations on $S$-sorted sets: $\times$ (binary product), $\amalg$ (binary coproduct), $\bigcup$ (union), $\cup$ (binary union), $\bigcap$ (intersection), $\cap$ (binary intersection), $-$ (difference), and $\complement_{A}$ (complement of an $S$-sorted set in a fixed $S$-sorted $A$), are defined in a similar way, i.e., componentwise.
 \end{definition}
 
+\blockid{B-D105}
 \begin{definition}
 %An $S$-sorted set $A$ is \emph{subfinal} if $\mathrm{card}(A_{s})\leq 1$, for every $s\in S$.
 We will denote by $1^{S}$ the (standard) final $S$-sorted set of $\mathbf{Set}^{S}$, which is $1^{S} = (1)_{s\in S}$, and by $\varnothing^{S}$ the initial $S$-sorted set, which is $\varnothing^{S} = (\varnothing)_{s\in S}$. We shall abbreviate $1^{S}$ to $1$ and $\varnothing^{S}$ to $\varnothing$ when this is unlikely to cause confusion.
 \end{definition}
 
+\blockid{B-D106}
 \begin{definition}
 If $A$ and $X$ are $S$-sorted sets, then we will say that $X$ is a \emph{subset} of $A$, denoted by $X\subseteq A$, if, for every $s\in S$, $X_{s}\subseteq A_{s}$. We will denote by $\mathrm{Sub}(A)$ the set of all $S$-sorted sets $X$ such that $X\subseteq A$.
 \end{definition}
 
+\blockid{B-R101}
 \begin{remark}
 For every $S$-sorted set $A$, the ordered pairs $(B,f)$, where $B$ is an $S$-sorted set and $f$ a monomorphisms from $B$ to $A$, are classified by letting $(B,f) \equiv (C,g)$ if and only if there exists an isomorphism $h$ from $B$ to $C$ such that $f = g\circ h$, and the corresponding equivalence classes are called \emph{subobjects} of $A$. Then $\mathrm{Sub}(A)$ is isomorphic to the set of all subobjects $A$.
 \end{remark}
 
+\blockid{B-D107}
 \begin{definition}
 Let $\delta$ be the mapping from $S\times \boldsymbol{\mathcal{U}}$ to $\boldsymbol{\mathcal{U}}^{S}$ that sends $(t,X)$ in $S\times \boldsymbol{\mathcal{U}}$ to the $S$-sorted set $\delta^{t,X} = (\delta^{t,X}_{s})_{s\in S}$ defined, for every $s\in S$, as follows: $\delta^{t,X}_{s} = X$, if $s = t$; $\delta^{t,X}_{s} = \varnothing$, otherwise. We will call the value of $\delta$ at $(t,X)$ the \emph{delta of Kronecker associated to} $(t,X)$. If $X = \{x\}$, then, for simplicity of notation, we will write $\delta^{t,x}$ instead of $\delta^{t,\{x\}}$. Moreover, for a sort $t$ in $S$, $\delta^{t,1}$, the delta of Kronecker associated to $(t,1)$, will be denoted by $\delta^{t}$ and called \emph{delta of Kronecker}.
 
@@ -776,6 +783,7 @@ Let $\delta$ be the mapping from $S\times \boldsymbol{\mathcal{U}}$ to $\boldsym
 %Let us note that $\delta^{t}$ is $\delta^{t,1}$, i.e., the deltas of Kronecker, are particular cases of the $S$-sorted sets $\delta^{t,X}$ (however, see the remark immediately below). Therefore we will use indistinctly  $\delta^{t}$ or $\delta^{t,1}$.
 \end{definition}
 
+\blockid{B-R102}
 \begin{remark}
 For a sort $t\in S$ and a set $X$, the $S$-sorted set $\delta^{t,X}$ is isomorphic to the $S$-sorted set $\coprod_{x\in X}\delta^{t}$, i.e., to the coproduct of the family $(\delta^{t})_{x\in X}$.
 
@@ -794,6 +802,7 @@ Before proceeding any further, let us point out that it is no longer unusual to 
 
 We next define for an $S$-sorted mapping the associated mappings of direct and inverse image formation, its kernel, its image, as well as its restriction to a subset of its domain.
 
+\blockid{B-D108}
 \begin{definition}
 Let $f\colon A\mor B$ be an $S$-sorted mapping. Then the mapping $f[\cdot]\colon\mathrm{Sub}(A)\mor\mathrm{Sub}(B)$, of $f$-\emph{direct image formation}, sends $X \in \mathrm{Sub}(A)$ to $f[X] = (f_{s}[X_{s}])_{s\in S} \in \mathrm{Sub}(B)$, and the mapping $f^{-1}[\cdot]\colon\mathrm{Sub}(B)\mor\mathrm{Sub}(A)$, of $f$-\emph{inverse image formation}, sends $Y \in \mathrm{Sub}(B)$ to $f^{-1}[Y] = (f_{s}^{-1}[Y_{s}] )_{s\in S} \in \mathrm{Sub}(A)$. The \emph{kernel} of $f$, denoted by $\mathrm{Ker}(f)$, is $(\mathrm{Ker}(f_{s}))_{s\in S}$ and the \emph{image} of $f$, denoted by $\mathrm{Im}(f)$, is $f[A]$. Moreover, if $X\subseteq A$, then the \emph{restriction of} $f$ \emph{to} $X$, denoted by $f\!\!\upharpoonright_{X}$, is $f\circ \mathrm{in}_{X,A}$, where $\mathrm{in}_{X,A} = (\mathrm{in}_{X_{s},A_{s}})_{s\in S}$ is the canonical embedding of $X$ into $A$.
 %\begin{enumerate}
@@ -821,6 +830,7 @@ Before stating the following proposition, we recall that, for an $S$-sorted set 
 
 %We next prove that every $S$-sorted mapping $f$ from an $S$-sorted set $X$ to the $S$-sorted set $(\mathrm{Sub}(Y_{s}))_{s\in S}$ canonically associated to an $S$-sorted set $Y$ has a distinguished extension up to an $S$-sorted  mapping $f^{\mathfrak{p}}$ from $(\mathrm{Sub}(X_{s}))_{s\in S}$ to $(\mathrm{Sub}(Y_{s}))_{s\in S}$ and that the canonical embedding of the category $\mathbf{Set}^{S}_{\wp,\mathrm{ca}}$, with objects the $S$-sorted sets $(\mathrm{Sub}(X_{s}))_{s\in S}$, for $X\in\boldsymbol{\mathcal{U}}^{S}$, and morphisms from $(\mathrm{Sub}(X_{s}))_{s\in S}$ to $(\mathrm{Sub}(Y_{s}))_{s\in S}$ the completely additive mappings (see below), into the category $\mathbf{Set}^{S}$ has a left adjoint.
 
+\blockid{B-P105}
 \begin{proposition}
 Let $X$ and $Y$ be $S$-sorted sets and $f$ an $S$-sorted mapping from $X$ to $Y^{\wp}$. Then there exists a unique $S$-sorted mapping $f^{\mathfrak{p}}$ from $(\mathrm{Sub}(X_{s}))_{s\in S}$ to $Y^{\wp}$ such that $f^{\mathfrak{p}}$ is completely additive, i.e., for every $s\in S$ and every $\mathcal{L}\subseteq \mathrm{Sub}(X_{s})$, $f^{\mathfrak{p}}_{s}(\bigcup\mathcal{L}) = \bigcup_{L\in \mathcal{L}}f^{\mathfrak{p}}_{s}(L)$, and $f^{\mathfrak{p}}\circ \{\cdot\}_{X} = f$, where $\{\cdot\}_{X}$ is the $S$-sorted mapping from $X$ to $X^{\wp}$ that, for every $s\in S$, sends $x\in X_{s}$ to $\{x\}\in\mathrm{Sub}(X_{s})$.
 \end{proposition}
@@ -829,23 +839,28 @@ Let $X$ and $Y$ be $S$-sorted sets and $f$ an $S$-sorted mapping from $X$ to $Y^
 The $S$-sorted mapping $f^{\mathfrak{p}}$ from $X^{\wp}$ to $Y^{\wp}$ that, for every $s\in S$, assigns to $L\subseteq X_{s}$ the set $\bigcup_{x\in L}f_{s}(x)\subseteq Y_{s}$ is completely additive and $f^{\mathfrak{p}}\circ \{\cdot\}_{X} = f$. Moreover, $f^{\mathfrak{p}}$ is clearly the unique $S$-sorted mapping from $X^{\wp}$ to $Y^{\wp}$ satisfying the aforementioned  conditions.
 \end{proof}
 
+\blockid{B-C101}
 \begin{corollary}
 Let $\mathbf{Set}^{S}_{\wp,\mathrm{ca}}$ be the category whose objects are the $S$-sorted sets $X^{\wp}$, where $X\in\boldsymbol{\mathcal{U}}^{S}$, and in which the set of morphisms from $X^{\wp}$ to $Y^{\wp}$ is the set of the completely additive $S$-sorted mappings from $X^{\wp}$ to $Y^{\wp}$. Then from $\mathbf{Set}^{S}_{\wp,\mathrm{ca}}$ to $\mathbf{Set}^{S}$ we have a canonical inclusion, denoted by $\mathrm{In}_{\mathbf{Set}^{S}_{\wp,\mathrm{ca}},\mathbf{Set}^{S}}$, and, for every $S$-sorted set $X$, the ordered pair $(X^{\wp},\{\cdot\}_{X})$ is a universal morphism from $X$ to $\mathrm{In}_{\mathbf{Set}^{S}_{\wp,\mathrm{ca}},\mathbf{Set}^{S}}$.
 \end{corollary}
 
+\blockid{B-D109}
 \begin{definition}
 We will denote by $(\cdot)^{\wp}$ the functor from $\mathbf{Set}^{S}$ to $\mathbf{Set}^{S}_{\wp,\mathrm{ca}}$ that sends an $S$-sorted set $X$ to $X^{\wp}$ and an $S$-sorted  mapping $f$ from $X$ to $Y$ to the $S$-sorted mapping $f^{\wp} = (\{\cdot\}_{Y}\circ f)^{\mathfrak{p}}$ from $X^{\wp}$ to $Y^{\wp}$ (the $S$-sorted mappings $\{\cdot\}_{X}$, for $X$ in $\boldsymbol{\mathcal{U}}^{S}$, are the components of the unit of the adjunction: $\mathrm{Hom}_{\mathbf{Set}^{S}_{\wp,\mathrm{ca}}}(X^{\wp},Y^{\wp})\cong
 \mathrm{Hom}_{\mathbf{Set}^{S}}(X,Y^{\wp})$). Thus, $(\cdot)^{\wp}$ is a left adjoint of $\mathrm{In}_{\mathbf{Set}^{S}_{\wp,\mathrm{ca}},\mathbf{Set}^{S}}$.
 \end{definition}
 
+\blockid{B-R103}
 \begin{remark}
 For an $S$-sorted mapping $f$ from $X$ to $Y$ the $S$-sorted mapping $f^{\wp}$ from $X^{\wp}$ to $Y^{\wp}$ sends, for every $s\in S$, $L\subseteq X_{s}$ to $f_{s}[L]\subseteq Y_{s}$, i.e., $f^{\wp} = (f_{s}[\cdot])_{s\in S}$. One should be careful not to confuse $f[\cdot]$, which is a \emph{mapping} from the \emph{set} $\mathrm{Sub}(X)$ to the \emph{set} $\mathrm{Sub}(Y)$, and $f^{\wp}$, which is an $S$-\emph{sorted mapping} from the $S$-\emph{sorted set} $X^{\wp} = (\mathrm{Sub}(X_{s}))_{s\in S}$ to the $S$-\emph{sorted set} $Y^{\wp} = (\mathrm{Sub}(Y_{s}))_{s\in S}$. On the other hand, it is evident that $f[\cdot]$ and $\prod f^{\wp}$ are \emph{essentially} the same mapping.
 \end{remark}
 
+\blockid{B-D110}
 \begin{definition}
 Let $A$ be an $S$-sorted set. Then the \emph{cardinal} of $A$, denoted by $\mathrm{card}(A)$, is $\mathrm{card}(\coprod A)$, i.e., the cardinal of the set $\coprod A = \bigcup_{s\in S}(A_{s}\times \{s\})$. An $S$-sorted set $A$ is \emph{finite} if $\mathrm{card}(A)<\aleph_{0}$. We will say that an $S$-sorted set $X$ is a \emph{finite} subset of $A$ if $X$ is finite and $X\subseteq A$. We will denote by $\mathrm{Sub}_{\mathrm{f}}(A)$ the set of all $S$-sorted sets $X$ in $\mathrm{Sub}(A)$ which are finite.
 \end{definition}
 
+\blockid{B-R104}
 \begin{remark}
 For an object $A$ in the topos $\mathbf{Set}^{S}$ the following assertions are equivalent: (1) $A$ is finite, (2) $A$ is a finitary object of $\mathbf{Set}^{S}$, and (3) $A$ is a strongly finitary object of $\mathbf{Set}^{S}$ (for the notions of finitary and strongly finitary object of a category see~\cite{hs73}, Exercise 22E, on p.~155).
 %An $S$-sorted set $A$ is finite if and only if the covariant hom-functor $\mathrm{H}(A,\cdot)\colon \mathbf{Set}^{S}\mor \mathbf{Set}$ is finitary, i.e., if and only if for every $\boldsymbol{\mathcal{U}}$-small upward-directed preordered set $\mathbf{I}$ and every functor $D$ from $\mathbf{C}(\mathbf{\mathbf{I}})$, the category canonically associated to $\mathbf{I}$, to $\mathbf{Set}^{S}$, if $((f^{i})_{i\in \mathrm{Ob}(\mathbf{C}(\mathbf{\mathbf{I}}))},L)$ is an inductive limit of $D$, then $((\mathrm{H}(A,f^{i}))_{i\in \mathrm{Ob}(\mathbf{C}(\mathbf{\mathbf{I}}))},\mathrm{H}(A,L))$ is an epi-sink. Moreover, the $S$-sorted set $A$ is finite if and only if the functor $\mathrm{H}(A,\cdot)$ is strongly finitary, i.e., if and only if for every $\boldsymbol{\mathcal{U}}$-small upward-directed preordered set $\mathbf{I}$ and every functor $D$ from $\mathbf{C}(\mathbf{\mathbf{I}})$ to $\mathbf{Set}^{S}$, if $((f^{i})_{i\in \mathrm{Ob}(\mathbf{C}(\mathbf{\mathbf{I}}))},L)$ is an inductive limit of $D$, then $((\mathrm{H}(A,f^{i}))_{i\in \mathrm{Ob}(\mathbf{C}(\mathbf{\mathbf{I}}))},\mathrm{H}(A,L))$ is an inductive limit.
@@ -853,11 +868,13 @@ For an object $A$ in the topos $\mathbf{Set}^{S}$ the following assertions are e
 In $\mathbf{Set}^{S}$ there is another notion of finiteness: An $S$-sorted set $A$ is called $S$-\emph{finite} or \emph{locally finite}, abbreviated as $\mathrm{lf}$, if and only if, for every $s\in S$, $A_{s}$ is finite.  We will denote by $\mathrm{Sub}_{\mathrm{lf}}(A)$ the set of all $S$-sorted sets $X$ in $\mathrm{Sub}(A)$ which are locally finite. Although, unless $S$ is finite, this notion of finiteness is not categorial in nature, however, it plays a relevant role in the field of many-sorted algebra and in computer science (see below, after the definition of many-sorted algebra and when we deal with the congruences of locally finite index, respectively).
 \end{remark}
 
+\blockid{B-D111}
 \begin{definition}
 Let $A$ be an $S$-sorted set. Then the \emph{support of} $A$, denoted by $\mathrm{supp}_{S}(A)$, is the set $\{\,s\in S\mid A_{s}\neq \varnothing\,\}$.
 %(i.e., the subset of $S$ on which $A$ does something nontrivial).
 \end{definition}
 
+\blockid{B-R105}
 \begin{remark}
 An $S$-sorted set $A$ is finite if and only if $\mathrm{supp}_{S}(A)$ is finite and, for every $s\in \mathrm{supp}_{S}(A)$, $A_{s}$ is finite.
 \end{remark}
@@ -879,6 +896,7 @@ An $S$-sorted set $A$ is finite if and only if $\mathrm{supp}_{S}(A)$ is finite 
 
 We next recall, after fixing some notation with regard to an equivalence relation $\Phi$ on an $S$-sorted set $A$, the universal property of $(A/\Phi,\mathrm{pr}^{\Phi})$, where $A/\Phi$ is the quotient $S$-sorted set of $A$ by $\Phi$ and $\mathrm{pr}^{\Phi}$ the canonical projection from $A$ to $A/\Phi$; the notion of transversal of $A/\Phi$ in $A$; the notion of $\Phi$-saturation of a subset $X$ of $A$; and those properties of this last notion which will be used afterwards.
 
+\blockid{B-D112}
 \begin{definition}
 An $S$-\emph{sorted equivalence relation on} (or, to abbreviate, an $S$-\emph{sorted equivalence on}) an $S$-sorted set $A$ is an $S$-sorted relation $\Phi$ on $A$, i.e., a subset $\Phi = (\Phi_{s})_{s\in S}$ of the cartesian product $A\times A = (A_{s}\times A_{s})_{s\in S}$ such that, for every $s\in S$, $\Phi_{s}$ is an equivalence relation on $A_{s}$. We will denote by $\mathrm{Eqv}(A)$ the set of all $S$-sorted equivalences on $A$ (which is an algebraic closure system on $A\times A$), by $\mathbf{Eqv}(A)$ the algebraic lattice  $(\mathrm{Eqv}(A),\subseteq)$, by $\nabla_{A}$ the greatest element of $\mathbf{Eqv}(A)$, and by $\Delta_{A}$ the least element of $\mathbf{Eqv}(A)$.
 
@@ -897,18 +915,22 @@ The ordered pair $(A/\Phi,\mathrm{pr}_{\Phi})$ has the following universal prope
 %Let $A$ be an $S$-sorted set and $\Phi\in\mathrm{Eqv}(A)$. Then, by Proposition~\ref{propssupport}, $\mathrm{supp}_{S}(A) = \mathrm{supp}_{S}(A/\Phi)$.
 %\end{remark}
 
+\blockid{B-R106}
 \begin{remark}
 Let $\mathbf{ClfdSet}^{S}$ be the category whose objects are the \emph{classified $S$-sorted sets}, i.e, the ordered pairs $(A,\Phi)$ where $A$ is an $S$-sorted set and $\Phi$ an $S$-sorted equivalence relation on $A$, and in which the set of morphisms from $(A,\Phi)$ to $(B,\Psi)$ is the set of all $S$-sorted mappings $f$ from $A$ to $B$ such that, for every $s\in S$ and every $(x,y)\in A^{2}_{s}$, if $(x,y)\in \Phi_{s}$, then $(f_{s}(x),f_{s}(y))\in \Psi_{s}$. Let $G$ be the functor from $\mathbf{Set}^{S}$ to $\mathbf{ClfdSet}^{S}$ whose object mapping sends $A$ to $(A,\Delta_{A})$ and whose morphism mapping sends $f\colon A\mor B$ to $f\colon (A,\Delta_{A})\mor (B,\Delta_{B})$. Then, for every classified $S$-sorted set $(A,\Phi)$, there exists a universal mapping from $(A,\Phi)$ to $G$, which is precisely the ordered pair $(A/\Phi,\mathrm{pr}_{\Phi})$ with $\mathrm{pr}_{\Phi}\colon (A,\Phi)\mor (A/\Phi,\Delta_{A/\Phi})$.
 \end{remark}
 
+\blockid{B-D113}
 \begin{definition}
 Let $A$ be an $S$-sorted set and $\Phi\in \mathrm{Eqv}(A)$. Then a \emph{transversal of} $A/\Phi$ \emph{in} $A$ is a subset $X$ of $A$ such that, for every $s\in S$ and every $a\in A_{s}$, $\mathrm{card}(X_{s}\cap [a]_{\Phi_{s}}) = 1$.
 \end{definition}
 
+\blockid{B-R107}
 \begin{remark}
 For an $S$-sorted equivalence relation $\Phi$ on $A$, the set of all transversals of $A/\Phi$ in $A$ is isomorphic to the set of all cross-sections of $\mathrm{pr}_{\Phi}$, where an $S$-sorted mappings $f$ from $A/\Phi$ to $A$ is a cross-section of $\mathrm{pr}_{\Phi}$ if $\mathrm{pr}_{\Phi}\circ f = \mathrm{id}_{A/\Phi}$. Moreover, if $\Psi$ is another equivalence relation on $A$, $\Psi$ is a refinement of $\Phi$, i.e., $\Psi\subseteq \Phi$, and $X^{\Phi}$ is a transversal of $A/\Phi$ in $A$, then, for every $s\in S$ and every $a\in A_{s}$, there exists a unique $x\in X^{\Phi}_{s}$ such that $[a]_{\Psi_{s}}\subseteq [x]_{\Phi_{s}}$.
 \end{remark}
 
+\blockid{B-D114}
 \begin{definition}
 Let $A$ be an $S$-sorted set, $X$ a subset of $A$, and $\Phi\in\mathrm{Eqv}(A)$. Then the $\Phi$-\emph{saturation of} $X$ (or, the \emph{saturation of} $X$ \emph{with respect to} $\Phi$), denoted by $[X]^{\Phi}$, is the $S$-sorted set defined, for every $s\in S$, as follows:
 $$
@@ -918,11 +940,13 @@ $$
 Let $X$ be a subset of $A$ and $\Phi\in\mathrm{Eqv}(A)$. Then we will say that $X$ is $\Phi$-\emph{saturated} if and only if $X = [X]^{\Phi}$. We will denote by $\Phi\text{-}\mathrm{Sat}(A)$ the subset of $\mathrm{Sub}(A)$ defined as $\Phi\text{-}\mathrm{Sat}(A) = \{X\in \mathrm{Sub}(A)\mid X = [X]^{\Phi}\}$.
 \end{definition}
 
+\blockid{B-R108}
 \begin{remark}
 Let $A$ be an $S$-sorted set and $\Phi\in\mathrm{Eqv}(A)$. Then, for a subset $X$ of
 $A$, we have that the $\Phi$-saturation of $X$ is $(\mathrm{pr}_{\Phi})^{-1}[\mathrm{pr}_{\Phi}[X]]$. Therefore, $X$ is $\Phi$-saturated if and only if $X \supseteq [X]^{\Phi}$. Besides, $X$ is $\Phi$-saturated if and only if there exists a $\mathcal{Y}\subseteq A/\Phi$ such that $X = (\mathrm{pr}^{\Phi})^{-1}[\mathcal{Y}]$.
 \end{remark}
 
+\blockid{B-P106}
 \begin{proposition}\label{PropIncSat and PropsIncSat}
 Let $A$ be an $S$-sorted set and $\Phi$, $\Psi\in\mathrm{Eqv}(A)$. Then
 $$
@@ -940,14 +964,17 @@ We restrict ourselves to proving the first assertion. Let us assume that $\Phi\s
 To prove the converse, let us assume that $\Phi\not\subseteq \Psi$. Then there exists some sort $s\in S$ and elements $a$, $b$ in $A_{s}$ such that $(a,b)\in\Phi_{s}$ and $(a,b)\not\in \Psi_{s}$. Hence $b$ does not belong to $[\delta^{s,[a]_{\Psi_{s}}}]^{\Psi}_s$, whereas it does belong to $[[\delta^{s,[a]_{\Psi_{s}}}]^{\Psi}]^{\Phi}_{s}$. It follows that $[\delta^{s,[a]_{\Psi_{s}}}]^{\Psi}\neq [[\delta^{s,[a]_{\Psi_{s}}}]^{\Psi}]^{\Phi}$.
 \end{proof}
 
+\blockid{B-C102}
 \begin{corollary}\label{IncSat and sIncSat}
 Let $A$ be an $S$-sorted set and $\Phi$, $\Psi\in\mathrm{Eqv}(A)$. If $\Phi\subseteq \Psi$, then  $\Psi\text{-}\mathrm{Sat}(A)\subseteq\Phi\text{-}\mathrm{Sat}(A)$. Moreover, for $s\in S$ and $L\subseteq A_{s}$, if $\Phi_{s}\subseteq \Psi_{s}$ and $L = [L]^{\Psi_{s}}$, then  $L = [L]^{\Phi_{s}}$.
 \end{corollary}
 
+\blockid{B-R109}
 \begin{remark}
 If, for an $S$-sorted set $A$, we denote by $(\cdot)\text{-}\mathrm{Sat}(A)$ the mapping from $\mathrm{Eqv}(A)$ to $\mathrm{Sub}(\mathrm{Sub}(A))$ which sends $\Phi$ to $\Phi\text{-}\mathrm{Sat}(A)$, then the above corollary means that $(\cdot)\text{-}\mathrm{Sat}(A)$ is an antitone ($\equiv$ order-reversing) mapping from the ordered set $(\mathrm{Eqv}(A),\subseteq)$ to the ordered set $(\mathrm{Sub}(\mathrm{Sub}(A)),\subseteq)$.
 \end{remark}
 
+\blockid{B-P107}
 \begin{proposition}\label{NablaSat}
 Let $A$ be an $S$-sorted set and $X\subseteq A$. Then $X\in \nabla_{A}\text{-}\mathrm{Sat}(A)$ if and only if, for every $s\in S$, if $s\in \mathrm{supp}_{S}(X)$, then $X_{s} = A_{s}$.
 \end{proposition}
@@ -958,10 +985,12 @@ Let us suppose that there exists a $t\in S$ such that $X_{t}\neq \varnothing$ an
 The converse implication is straightforward.
 \end{proof}
 
+\blockid{B-R110}
 \begin{remark}
 Let $A$ be an $S$-sorted set. Then, from the above proposition, it follows that $\varnothing^{S}$, $A\in \nabla_{A}\text{-}\mathrm{Sat}(A)$. Moreover, for every subset $T$ of $S$, we have that $\bigcup_{t\in T}\delta^{t,A_{t}}\in \nabla_{A}\text{-}\mathrm{Sat}(A)$.
 \end{remark}
 
+\blockid{B-P108}
 \begin{proposition}
 Let $A$ be an $S$-sorted set, $X\subseteq A$, and $\Phi$, $\Psi\in\mathrm{Eqv}(A)$. Then
 $[X]^{\Phi\cap\Psi}\subseteq[X]^{\Phi}\cap[X]^{\Psi}$.
@@ -971,12 +1000,14 @@ $[X]^{\Phi\cap\Psi}\subseteq[X]^{\Phi}\cap[X]^{\Psi}$.
 Let $s$ be a sort in $S$ and $b\in[X]^{\Phi\cap \Psi}_{s}$. Then, by definition, there exists an $a\in X_{s}$ such that $(a,b)\in (\Phi\cap\Psi)_{s} = \Phi_{s}\cap\Psi_{s}$. Hence, $(a,b)\in \Phi_{s}$ and $(a,b)\in \Psi_{s}$. Therefore $b\in [X]^{\Phi}_{s}$ and $b\in[X]^{\Psi}_{s}$. Consequently, $b\in ([X]^{\Phi}\cap [X]^{\Psi})_{s}$. Thus $[X]^{\Phi\cap\Psi}\subseteq[X]^{\Phi}\cap[X]^{\Psi}$.
 \end{proof}
 
+\blockid{B-C103}
 \begin{corollary}
 Let $A$ be an $S$-sorted set and $\Phi$, $\Psi\in\mathrm{Eqv}(A)$. Then we have that  $\Phi\text{-}\mathrm{Sat}(A)\cap\Psi\text{-}\mathrm{Sat}(A)\subseteq(\Phi\cap\Psi)\text{-}\mathrm{Sat}(A)$.
 \end{corollary}
 
 We next state that the set $\Phi\text{-}\mathrm{Sat}(A)$ is the set of all fixed points of a suitable operator on $A$, i.e., of an endomapping of $\mathrm{Sub}(A)$.
 
+\blockid{B-P109}
 \begin{proposition}\label{SatOperator}
 Let $A$ be an $S$-sorted set and $\Phi\in\mathrm{Eqv}(A)$. Then the mapping $[\cdot]^{\Phi}$ from $\mathrm{Sub}(A)$ to $\mathrm{Sub}(A)$ that sends $X$ in $\mathrm{Sub}(A)$ to $[\cdot]^{\Phi}(X) = [X]^{\Phi}$ in $\mathrm{Sub}(A)$
 %defined as follows:
@@ -994,6 +1025,7 @@ is a completely additive closure operator on $A$. Moreover, for every nonempty s
 %Given a subset $X$ of $A$, if $X = [X]^{\Phi} = (\mathrm{pr}^{\Phi})^{-1}[\mathcal{Y}]$, for some $\mathcal{Y}\subseteq A/\Phi$, then $\complement_{A}X = (\mathrm{pr}^{\Phi})^{-1}[\complement_{A/\Phi}\mathcal{Y}]$. Hence $\complement_{A}X = [\complement_{A}X]^{\Phi}$.
 %\end{remark}
 
+\blockid{B-P110}
 \begin{proposition}\label{CABA Saturades} Let $A$ be an $S$-sorted set and $\Phi\in\mathrm{Eqv}(A)$. Then the ordered pair
 $\Phi\text{-}\mathbf{Sat}(A) = (\Phi\text{-}\mathrm{Sat}(A),\subseteq)$ is a complete atomic Boolean algebra.
 %(for brevity a CABA).
@@ -1007,6 +1039,7 @@ The proof is straightforward and we leave it to the reader. We only point out th
 
 We next define the concept of free monoid on a set and several notions associated to it that will be used afterwards to construct the free algebra on an $S$-sorted set and to define, in Section 3, diverse substitution operators.
 
+\blockid{B-D115}
 \begin{definition}
 Let $A$ be a set. The \emph{free monoid on} $A$, denoted by $\mathbf{A}^{\star}$, is $(A^{\star},\curlywedge,\lambda)$, where $A^{\star}$, the set of all \emph{words on} $A$, is $\bigcup_{n\in\mathbb{N}}\mathrm{Hom}(n,A)$, the set of all mappings $w\colon n\mor A$ from some $n\in \mathbb{N}$ to $A$, $\curlywedge$, the \emph{concatenation} of words on $A$, is the binary operation on $A^{\star}$ which sends a pair of words $(w,v)$ on $A$ to the mapping $w\curlywedge v$ from $\bb{w}+\bb{v}$ to $A$, where $\bb{w}$ and $\bb{v}$ are the lengths ($\equiv$ domains) of the mappings $w$ and $v$, respectively, defined as follows:
 $$
@@ -1023,10 +1056,12 @@ $$
 and $\lambda$, the \emph{empty word on} $A$, is the unique mapping from $\varnothing$ to $A$. A word $w\in A^{\star}$ is usually denoted as a sequence $(a_{i})_{i\in\bb{w}}$, where, for $i\in\bb{w}$, $a_{i}$ is the letter in $A$ satisfying $w(i)=a_{i}$. We will denote by $\eta_{A}$ the mapping from $A$ to $A^{\star}$ that sends $a\in A$ to $(a)\in A^{\star}$, i.e., to the mapping $(a)\colon 1\mor A$ that sends $0$ to $a$. The ordered pair $(\mathbf{A}^{\star},\eta_{A})$ is a universal morphism from $A$ to the forgetful functor from the category $\mathbf{Mon}$, of monoids, to $\mathbf{Set}$.
 \end{definition}
 
+\blockid{B-R111}
 \begin{remark}
 For a word $w\in A^{\star}$, $\bb{w}$ is the value at $w$ of the unique homomorphism $\bb{\cdot}$ from $\mathbf{A}^{\star}$ to $(\mathbb{N},+,0)$, the additive monoid of the natural numbers, such that $\bb{\cdot}\circ \eta_{A} = \kappa_{1}$, where $\kappa_{1}$ is the mapping from $A$ to $\mathbb{N}$ constantly $1$. Note that, for every $n\in \mathbb{N}$, $\bb{\cdot}$ sends $w\in \mathrm{Hom}(n,A)$ to $n$. Thus, for the family of mappings $(\kappa_{n})_{n\in \mathbb{N}}$, where, for every $n\in \mathbb{N}$, $\kappa_{n}$ is the mapping from $\mathrm{Hom}(n,A)$ to $\mathbb{N}$ constantly $n$, and by applying the universal property of the coproduct, we have that $\bb{\cdot} = [\kappa_{n}]_{n\in \mathbb{N}}$.
 \end{remark}
 
+\blockid{B-D116}
 \begin{definition}
 Let $w$ and $w'$ be words in $A^{\star}$. We will say that $w'$ is a \emph{subword} of $w$ if there are words $u$ and $v$ such that $w = u\bconcat w'\bconcat v$. A word $w$ may have several subwords equal to $w'$. In that case, the equation $w = u\bconcat w'\bconcat v$ has several solutions $(u,v)$.
 %The first subword of $w$ equal to $w'$ is called \emph{the first occurrence of }$w'$ \emph{in} $w$, the second subword of $w$ equal to $w'$ is \emph{the second occurrence of} $w'$ \emph{in} $w$ and so on.
@@ -1039,6 +1074,7 @@ i_{0} = \mathrm{min}\{i\in \bb{w}\mid w(i) = a\} \text{ and}, \\
 If the pairs $(u_{i_{\alpha}},v_{i_{\alpha}})$ $(\alpha\in \bb{w}_{a})$ are all solutions of $w = u\bconcat (a)\bconcat v$ and if $\bb{u_{i_{0}}}< \bb{u_{i_{1}}}<\cdots<\bb{u_{i_{\bb{w}_{a}-1}}}$, then $(u_{i_{\alpha}},v_{i_{\alpha}})$ determines the $i_{\alpha}$-th occurrence of $(a)$ in $w$ and we will say that \emph{$a$ occurs at the $i_{\alpha}$-th place of $w$}.
 \end{definition}
 
+\blockid{B-R112}
 \begin{remark}
 Let $a$ be an element of $A$. Then, for $w\in A^{\star}$, $\bb{w}_{a}$, the number of occurrences of $a$ in $w$, is the value at $w$ of the unique homomorphism $\bb{\cdot}_{a}$ from $\mathbf{A}^{\star}$ to $(\mathbb{N},+,0)$ such that $\bb{\cdot}_{a}\circ\eta_{A} = \delta_{a}$, where $\delta_{a}$ is the mapping from $A$ to $\mathbb{N}$ that sends $a\in A$ to $1\in\mathbb{N}$ and $b\in A-\{a\}$ to $0\in \mathbb{N}$. Therefore, since, for every $w\in A^{\star}$, the $A$-indexed family $(\bb{w}_{a})_{a\in A}$ in $\mathbb{N}$ is such that $\bb{w}_{a} = 0$ for all but a finite number of elements $a$ in $A$, i.e., is such that $\mathrm{card}(\{a\in A\mid \bb{w}_{a}\neq 0\})<\aleph_{0}$, we have that $\sum_{a\in A}\bb{w}_{a}\in \mathbb{N}$ and, obviously, for every $w\in A^{\star}$, $\bb{w} = \sum_{a\in A}\bb{w}_{a}$, i.e., $\bb{\cdot} = \sum_{a\in A}\bb{\cdot}_{a}$.
 \end{remark}
@@ -1060,9 +1096,11 @@ Let $a$ be an element of $A$. Then, for $w\in A^{\star}$, $\bb{w}_{a}$, the numb
 %%, denoted by $\left(\!\begin{smallmatrix}w'\\ w''\end{smallmatrix}\!\right)_{i}(w)$,
 %\end{definition}
 
+\blockid{B-D117}
 \begin{definition} Let $w$ be a word in $A^{\star}$. Then we will denote by $\left(\!\begin{smallmatrix}a\\ \cdot\end{smallmatrix}\!\right)_{a\in A}(w)$ the mapping from $\prod_{a\in A}(A^{\star})^{\bb{w}_{a}}$ to $A^{\star}$ that assigns to $((q^{a}_{\alpha})_{\alpha\in \bb{w}_{a}})_{a\in A}$ in $\prod_{a\in A}(A^{\star})^{\bb{w}_{a}}$ the word $\left(\!\begin{smallmatrix}a\\(q^{a}_{\alpha})_{\alpha\in \bb{w}_{a}}\end{smallmatrix}\!\right)_{a\in A}(w)$ in $A^{\star}$ obtained by substituting in $w$, for every $a\in A$ and every $\alpha\in \bb{w}_a$, $q^{a}_{\alpha}$ for the $i_{\alpha}$-th occurrence of $a$ in $w$. We call  $\left(\!\begin{smallmatrix}a\\(q^{a}_{\alpha})_{\alpha\in \bb{w}_{a}}\end{smallmatrix}\!\right)_{a\in A}(w)$ \emph{the substitution of $(q_{\alpha})_{\alpha\in\bb{w}_{a}}$ for $a$ in $w$ for every $a$ in $A$}, and $\left(\!\begin{smallmatrix}a\\ \cdot\end{smallmatrix}\!\right)_{a\in A}(w)$ the \emph{substitution operator for $w$}. Let $c$ be an element of $A$. Then we will denote by $\left(\!\begin{smallmatrix}c\\ \cdot\end{smallmatrix}\!\right)(w)$ the mapping from $(A^{\star})^{\bb{w}_{c}}$ to $A^{\star}$ that assigns to $(q^{c}_{\alpha})_{\alpha\in \bb{w}_{c}}\in (A^{\star})^{\bb{w}_{c}}$ the term $\left(\!\begin{smallmatrix}c\\(q^{c}_{\alpha})_{\alpha\in \bb{w}_{c}}\end{smallmatrix}\!\right)(w)$ in $A^{\star}$ obtained by substituting in $w$, for every $\alpha\in \bb{w}_{c}$, $q^{c}_{\alpha}$ for the $i_{\alpha}$-th occurrence of $c$ in $w$. We call $\left(\!\begin{smallmatrix}c\\(q^{c}_{\alpha})_{\alpha\in \bb{w}_{c}}\end{smallmatrix}\!\right)(w)$ \emph{the substitution of $(q^{c}_{\alpha})_{\alpha\in\bb{w}_{c}}$ for $c$ in $w$}.
 \end{definition}
 
+\blockid{B-R113}
 \begin{remark}
 Therefore, for every set $A$, we have obtained the family of substitution operators:
 $$
@@ -1162,6 +1200,7 @@ $$
 
 Our next aim is to provide those notions from the field of many-sorted universal algebra that will be used afterwards.
 
+\blockid{B-D118}
 \begin{definition}\label{$S$-sorted signature}
 An $S$-\emph{sorted signature} is a function $\Sigma$ from $S^{\star}\times S$ to $\boldsymbol{\mathcal{U}}$ which sends a pair $(w,s)\in S^{\star}\times S$ to the set $\Sigma_{w,s}$ of the \emph{formal operations} of \emph{arity} $w$, \emph{sort} (or \emph{coarity}) $s$, and \emph{rank} (or \emph{biarity}) $(w,s)$.
 %Sometimes we will write $\sigma\colon w\mor s$ to indicate that the formal operation $\sigma$ belongs to
@@ -1171,10 +1210,12 @@ If $\Sigma$ and $\Lambda$ are $S$-sorted signatures, then a \emph{morphism from}
 %From now on, $\mathbf{Sig}(S)$ stands for the category of $S$-sorted signatures and morphisms between $S$-sorted signatures.
 \end{definition}
 
+\blockid{B-R114}
 \begin{remark}
 For every set of sorts $S$, the category $\mathbf{Sig}(S)$ is $\mathbf{Set}^{S^{\star}\times S}$.
 \end{remark}
 
+\blockid{B-A102}
 \begin{assumption}
 From now on $\Sigma$ stands for an $S$-sorted signature, fixed once and for all.
 \end{assumption}
@@ -1187,6 +1228,7 @@ From now on $\Sigma$ stands for an $S$-sorted signature, fixed once and for all.
 
 We shall now give precise definitions of the concepts of many-sorted algebra and of homomorphism between many-sorted algebras.
 
+\blockid{B-D119}
 \begin{definition}
 The $S^{\star}\times S$-sorted set of the \emph{finitary operations on} an $S$-sorted set $A$ is $(\mathrm{Hom}(A_{w},A_{s}))_{(w,s)\in S^{\star}\times S}$, where, for every $w\in S^{\star}$, $A_{w} = \prod_{i\in \lvert w\rvert}A_{w_{i}}$, with $\lvert w\rvert$ denoting the length of the word $w$ (if $w = \lambda$, then $A_{\lambda}$ is a final set). A \emph{structure of} $\Sigma$-\emph{algebra on} an $S$-sorted set  $A$ is a family $(F_{w,s})_{(w,s)\in S^{\star}\times S}$, denoted by $F$, where, for $(w,s)\in S^{\star}\times S$, $F_{w,s}$ is a mapping from $\Sigma_{w,s}$ to $\mathrm{Hom}(A_{w},A_{s})$ (if $(w,s) = (\lambda,s)$ and $\sigma\in \Sigma_{\lambda,s}$, then $F_{w,s}(\sigma)$ picks out an element of $A_{s}$). For a pair $(w,s)\in S^{\star}\times S$ and a formal operation $\sigma\in \Sigma_{w,s}$, in order to simplify the notation, the operation $F_{w,s}(\sigma)$ from $A_{w}$ to $A_{s}$ will be written as $F_{\sigma}$. A $\Sigma$-\emph{algebra} is a pair $(A,F)$, abbreviated to $\mathbf{A}$, where $A$ is an $S$-sorted set and $F$ a structure of $\Sigma$-algebra on $A$. A $\Sigma$-\emph{homomorphism} from $\mathbf{A}$ to $\mathbf{B}$, where $\mathbf{B} = (B,G)$, is a triple $(\mathbf{A},f,\mathbf{B})$, abbreviated to $f\colon \mathbf{A}\mor \mathbf{B}$, where $f$ is an $S$-sorted mapping from $A$ to $B$ such that, for every $(w,s)\in S^{\star}\times S$, every  $\sigma\in \Sigma_{w,s}$, and every $(a_{i})_{i\in \lvert w\rvert}\in A_{w}$, we have that
 $
@@ -1199,24 +1241,29 @@ In some cases, to avoid mistakes, we will denote by $F^{\mathbf{A}}$ the structu
 We will denote by $\mathbf{1}^{S}$ or, to abbreviate, by $\mathbf{1}$, the (standard) final $\Sigma$-algebra.
 \end{definition}
 
+\blockid{B-D120}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then the \emph{support of} $\mathbf{A}$, denoted by $\mathrm{supp}_{S}(\mathbf{A})$, is $\mathrm{supp}_{S}(A)$, i.e., the support of the underlying $S$-sorted set $A$ of $\mathbf{A}$.
 \end{definition}
 
+\blockid{B-R115}
 \begin{remark}
 The set $\{\mathrm{supp}_{S}(\mathbf{A})\mid \mathbf{A}\in \mathrm{Alg}(\Sigma)\}$ is a closure system on $S$.
 \end{remark}
 
+\blockid{B-D121}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. We will say that $\mathbf{A}$ is \emph{finite} if $A$, the underlying $S$-sorted set of $\mathbf{A}$, is finite.
 \end{definition}
 
+\blockid{B-R116}
 \begin{remark}
 In $\mathbf{Alg}(\Sigma)$, as was the case with $\mathbf{Set}^{S}$, there is another notion of finiteness: A $\Sigma$-algebra $\mathbf{A}$ is called $S$-\emph{finite} or \emph{locally finite}, abbreviated as $\mathrm{lf}$, if and only if the underlying $S$-sorted set of $\mathbf{A}$ is $S$-finite. As was noted above this notion of finiteness plays a relevant role in the field of many-sorted algebra, e.g., to define $S$-finite, also called locally finite, terms and to distinguish, on the one hand, between many-sorted varieties and finitary many-sorted  varieties, and, on the other hand, between many-sorted quasivarieties and finitary many-sorted quasivarieties (see, e.g., \cite{gm85} and \cite{{m76}}).
 \end{remark}
 
 We next define the subset many-sorted algebra associated to a many-sorted algebra and prove, in particular, that this is the object mapping of an endofunctor of $\mathbf{Alg}(\Sigma)$. We note that, in Section~3, the subset many-sorted algebra associated to a free many-sorted algebra will appear as the codomain of a substitution operator which will be used to prove recognizability results.
 
+\blockid{B-P111}
 \begin{proposition}\label{subsetalg}
 Let $(\cdot)^{\wp}$ be the mapping that sends (1) a $\Sigma$-algebra $\mathbf{A}$ to the $\Sigma$-algebra $\mathbf{A}^{\wp} = (A^{\wp},F^{\wp})$ where $A^{\wp}$ is $(\mathrm{Sub}(A_{s}))_{s\in S}$ and where, for every $(w,s)\in S^{\star}\times S$ and every $\sigma\in \Sigma_{w,s}$, $F_{\sigma}^{\wp}$ is the mapping from $A^{\wp}_{w} = \prod_{i\in \bb{w}}\mathrm{Sub}(A_{w_{i}})$ to $\mathrm{Sub}(A_{s})$ that sends $(L_{i})_{i\in \bb{w}}$ in $A^{\wp}_{w}$ to  $\{F_{\sigma}((x_{i})_{i\in \bb{w}})\mid (x_{i})_{i\in \bb{w}}\in \prod_{i\in \bb{w}}L_{i}\}$ in $\mathrm{Sub}(A_{s})$, and (2) a homomorphism $f$ from $\mathbf{A}$ to $\mathbf{B}$ to the $S$-sorted mapping $f^{\wp} = (f_{s}[\cdot])_{s\in S}$ from $A^{\wp}$ to $B^{\wp}$. Then $(\cdot)^{\wp}$ is an endofunctor of $\mathbf{Alg}(\Sigma)$. The $\Sigma$-algebra $\mathbf{A}^{\wp}$ is called the \emph{subset algebra} associated to $\mathbf{A}$ (this notion, but for single-sorted algebras, is due to Mezei and Wright, cf.~\cite{MW67}, Definition 2.2). Moreover, there exists a pointwise monomorphic natural transformation $\{\cdot\}^{\Sigma}$ from $\mathrm{Id}_{\mathbf{Alg}(\Sigma)}$ to $(\cdot)^{\wp}$, displayed as:
 $$
@@ -1249,20 +1296,24 @@ Now let $\{\cdot\}^{\Sigma}$ be the mapping from $\mathrm{Alg}(\Sigma)$ to $\mat
 
 We shall now go on to define the notion of subalgebra of a $\Sigma$-algebra $\mathbf{A}$ and the subalgebra generating operator for $\mathbf{A}$.
 
+\blockid{B-D122}
 \begin{definition}\label{Subalg}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $X\subseteq A$. Given $(w,s)\in S^{\star}\times S$ and $\sigma\in\Sigma_{w,s}$, we will say that $X$ is \emph{closed under the operation} $F_{\sigma}\colon A_{w}\mor A_{s}$ if, for every $(a_{i})_{i\in\bb{w}}\in X_{w}$, $F_{\sigma}((a_{i})_{i\in\bb{w}})\in X_{s}$. We will say that $X$ is a \emph{subalgebra} of $\mathbf{A}$ if $X$ is closed under the operations of $\mathbf{A}$. We will denote by $\mathrm{Sub}(\mathbf{A})$ the set of all subalgebras of $\mathbf{A}$ (which is an algebraic closure system on $A$) and by  $\mathbf{Sub}(\mathbf{A})$ the algebraic lattice $(\mathrm{Sub}(\mathbf{A}),\subseteq)$. We also say, equivalently, that a $\Sigma$-algebra $\mathbf{B}$ is a \emph{subalgebra} of $\mathbf{A}$ if $B\subseteq A$ and the canonical embedding of $B$ into $A$ determines an embedding of $\mathbf{B}$ into $\mathbf{A}$.
 \end{definition}
 
+\blockid{B-D123}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then we will denote by $\mathrm{Sg}_{\mathbf{A}}$ the algebraic closure operator canonically associated to the algebraic closure system $\mathrm{Sub}(\mathbf{A})$ on $A$ and we call it the \emph{subalgebra  generating operator for} $\mathbf{A}$. Moreover, if $X\subseteq A$, then we call $\mathrm{Sg}_{\mathbf{A}}(X)$ the \emph{subalgebra of} $\mathbf{A}$ \emph{generated by} $X$, and if $X$ is such that $\mathrm{Sg}_{\mathbf{A}}(X) = A$, then we will say that $X$ is a \emph{generating subset of} $\mathbf{A}$. Besides, $\mathbf{Sg}_{\mathbf{A}}(X)$ denotes the algebra determined by $\mathrm{Sg}_{\mathbf{A}}(X)$.
 \end{definition}
 
+\blockid{B-R117}
 \begin{remark}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then the algebraic closure operator $\mathrm{Sg}_{\mathbf{A}}$ is uniform, i.e., for every  $X$, $Y\subseteq A$, if $\mathrm{supp}_{S}(X) = \mathrm{supp}_{S}(Y)$, then we have that $\mathrm{supp}_{S}(\mathrm{Sg}_{\mathbf{A}}(X)) = \mathrm{supp}_{S}(\mathrm{Sg}_{\mathbf{A}}(Y))$.
 \end{remark}
 
 We next recall the Principle of Proof by Algebraic Induction. This principle will be used in Section~3.
 
+\blockid{B-P112}
 \begin{proposition}[Principle of Proof by Algebraic Induction]\label{PPAI}
 Let $\mathbf{A}$ be a $\Sigma$-algebra generated by $X$. Then to prove that a subset $Y$ of $A$ is equal to $A$ it suffices to show: (1) $X\subseteq Y$ (algebraic induction basis) and (2) $Y$ is a subalgebra of $\mathbf{A}$ (algebraic induction step).
 \end{proposition}
@@ -1270,6 +1321,7 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra generated by $X$. Then to prove that a su
 We next state that the forgetful functor $\mathrm{G}_{\Sigma}$ from $\mathbf{Alg}(\Sigma)$ to
 $\mathbf{Set}^{S}$ has a left adjoint $\mathbf{T}_{\Sigma}$ which assigns to an $S$-sorted set $X$ the free $\Sigma$-algebra $\mathbf{T}_{\Sigma}(X)$ on $X$. Let us note that in what follows, to construct the algebra of $\Sigma$-rows in $X$, and  the free $\Sigma$-algebra on $X$, since neither the $S$-sorted signature $\Sigma$ nor the $S$-sorted set $X$ are subject to any constraint, coproducts must necessarily be used.
 
+\blockid{B-D124}
 \begin{definition}
 Let $X$ be an $S$-sorted set. The \emph{algebra of} $\Sigma$-\emph{rows in} $X$, denoted by $\mathbf{W}_{\Sigma}(X)$, is defined as follows:
 \begin{enumerate}
@@ -1306,6 +1358,7 @@ Let $X$ be an $S$-sorted set. The \emph{algebra of} $\Sigma$-\emph{rows in} $X$,
 \end{enumerate}
 \end{definition}
 
+\blockid{B-D125}
 \begin{definition}
 The \emph{free} $\Sigma$-\emph{algebra on} an $S$-sorted set $X$, denoted by $\mathbf{T}_{\Sigma}(X)$, is the $\Sigma$-algebra determined by $\mathrm{Sg}_{\mathbf{W}_{\Sigma}(X)}((\{(x)\mid x\in X_{s}\})_{s\in S})$, the subalgebra of $\mathbf{W}_{\Sigma}(X)$ generated by $(\{(x)\mid x\in X_{s}\})_{s\in S}$, where, for every $s\in S$ and every $x\in X_{s}$, $(x)$ stands for $(((x,s),1))$, which is the value at $x$ of the canonical mapping from $X_{s}$ to $(\coprod\Sigma \amalg \coprod X)^{\star}$.
 %mappings indicated in the following figure
@@ -1325,12 +1378,14 @@ The \emph{free} $\Sigma$-\emph{algebra on} an $S$-sorted set $X$, denoted by $\m
 We will denote by $\mathrm{T}_{\Sigma}(X)$ the underlying $S$\nobreakdash-sorted of $\mathbf{T}_{\Sigma}(X)$ and, for $s\in S$, we will call the elements of $\mathrm{T}_{\Sigma}(X)_{s}$ \emph{terms of type} $s$ \emph{with variables in} $X$ or  $(X,s)$-\emph{terms}.
 \end{definition}
 
+\blockid{B-R118}
 \begin{remark}
 Since $(\{(x)\mid x\in X_{s}\})_{s\in S}$ is a generating subset of $\mathbf{T}_{\Sigma}(X)$, to prove that a subset $\mathcal{T}$ of $\mathrm{T}_{\Sigma}(X)$ is equal to $\mathrm{T}_{\Sigma}(X)$ it suffices, by Proposition~\ref{PPAI}, to show: (1) $(\{(x)\mid x\in X_{s}\})_{s\in S}\subseteq \mathcal{T}$ (algebraic induction basis) and (2) $\mathcal{T}$ is a subalgebra of $\mathbf{T}_{\Sigma}(X)$ (algebraic induction step).
 \end{remark}
 
 In the many-sorted case we have, as in the single-sorted case, the following characterization of the elements of $\mathrm{T}_{\Sigma}(X)_{s}$, for $s\in S$.
 
+\blockid{B-P113}
 \begin{proposition}\label{rut}
 Let $X$ be an $S$-sorted set. Then, for every $s\in S$ and every $P\in
 \mathrm{W}_{\Sigma}(X)_{s}$, we have that $P$ is a term of type $s$ with variables in $X$ if and only if $P = (x)$, for a unique $x\in X_{s}$, or $P = (\sigma)$, for a unique $\sigma\in\Sigma_{\lambda,s}$, or $P = (\sigma)\curlywedge\concat(P_{i})_{i\in\lvert w \rvert}$, for a unique $w\in S^{\star}-\{\lambda\}$, a unique $\sigma\in\Sigma_{w,s}$, and a unique family $(P_{i})_{i\in\lvert w \rvert}\in\mathrm{T}_{\Sigma}(X)_{w}$.
@@ -1353,6 +1408,7 @@ From now on, for simplicity of notation, we will write $x$, $\sigma$, and $\sigm
 
 From the above proposition it follows, immediately, the universal property of the free $\Sigma$-algebra on an $S$-sorted set $X$, as stated in the subsequent proposition.
 
+\blockid{B-P114}
 \begin{proposition}
 For every $S$-sorted set $X$, the pair $(\eta_{X},\mathbf{T}_{\Sigma}(X))$, where $\eta_{X}$, the
 \emph{insertion of (the $S$-sorted set of generators)} $X$ \emph{into} $\mathrm{T}_{\Sigma}(X)$, is the co-restric\-tion to
@@ -1377,6 +1433,7 @@ The just stated proposition allows us to carry out definitions by algebraic recu
 
 %The just stated proposition provides a sound basis for the principle of definition by algebraic recursion.
 
+\blockid{B-C104}
 \begin{corollary} \label{FladjG}
 The functor $\mathbf{T}_{\Sigma}$, which sends an $S$-sorted set $X$ to $\mathbf{T}_{\Sigma}(X)$ and an $S$-sorted mapping $f$ from $X$ to $Y$ to $f^{@} (= (\eta_{Y}\circ f)^{\sharp})$, the unique homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{T}_{\Sigma}(Y)$ such that $f^{@}\circ\eta_{X} = \eta_{Y}\circ f$, is left adjoint for the forgetful functor $\mathrm{G}_{\Sigma}$ from $\mathbf{Alg}(\Sigma)$ to $\mathbf{Set}^{S}$.
 %$$
@@ -1400,19 +1457,23 @@ The functor $\mathbf{T}_{\Sigma}$, which sends an $S$-sorted set $X$ to $\mathbf
 
 For every $\Sigma$-algebra it is possible to define a preorder on the coproduct of its underlying $S$-sorted set. Moreover, for the case of free algebras, such a preorder is, in fact, an order and this allows us to define the notion of subterm of a given term.
 
+\blockid{B-D126}
 \begin{definition}
 Let $\mathbf{A}=(A,F)$ be a $\Sigma$-algebra. Then $<_{\mathbf{A}}$ denotes the binary relation on $\coprod A$ consisting of the ordered pairs $((a,s),(b,t))\in(\coprod A)^{2}$ for which there exists a $w\in S^{\star}-\{\lambda\}$, a
 $\sigma\in\Sigma_{w,t}$, and an $x\in A_{w}$ such that $F_{\sigma}(x) = b$ and, for some $i\in \bb{w}$, $w_{i}=s$ and  $x_{i}=a$. We will denote by $\leq_{\mathbf{A}}$ the reflexive and transitive closure of $<_{\mathbf{A}}$, i.e., the preorder on $\coprod A$  generated by $<_{\mathbf{A}}$.
 \end{definition}
 
+\blockid{B-R119}
 \begin{remark}
 The preorder $\leq_{\mathbf{A}}$ on $\coprod A$ is defined by letting $((a,s),(b,t))\in \leq_{\mathbf{A}}$ mean that $s = t$ and $a = b$ or there exists an $n\in \mathbb{N}-\{0\}$, a $u\in S^{\star}$, and a family $(c_{i})_{i\in \bb{u}}\in A_{u}$ such that $\bb{u} = n+1$, $u_{0} = s$, $u_{n} = t$, $c_{0} = a$, $c_{n} = b$, and, for every $i\in n$, $((c_{i},u_{i}),(c_{i+1},u_{i+1}))\in <_{\mathbf{A}}$.
 \end{remark}
 
+\blockid{B-P115}
 \begin{proposition}
 Let $X$ be an $S$-sorted set.  Then $\leq_{\mathbf{T}_{\Sigma}(X)}$ is antisymmetric and does not have strictly descending $\omega_{0}$-chains, i.e., is an Artinian order.
 \end{proposition}
 
+\blockid{B-D127}
 \begin{definition}
 Let $X$ be an $S$-sorted set, $t\in S$, and $P\in\mathrm{T}_{\Sigma}(X)_{t}$. Then the $S$-sorted set of all \emph{subterms} of $P$, denoted by $\mathrm{Subt}(P)$, is defined as follows:
 $$
@@ -1421,12 +1482,14 @@ $$
 $$
 \end{definition}
 
+\blockid{B-R120}
 \begin{remark}
 $\mathrm{Subt}(P)\in \mathrm{Sub}_{\mathrm{f}}(\mathrm{T}_{\Sigma}(X))$. Moreover, $\mathrm{Subt}(P)$ can also be characterized as the smallest subset $\mathcal{L}$ of $\mathrm{T}_{\Sigma}(X)$ which satisfies the following conditions: (1) $P\in \mathcal{L}_{t}$ and (2) for every $(w,s)\in S^{\star}\times S$, every $\xi\in \Sigma_{w,s}$, and every $(Q_{i})_{i\in\bb{w}}\in \mathrm{T}_{\Sigma}(X)_{w}$, if $\xi((Q_{i})_{i\in\bb{w}})\in \mathcal{L}_{s}$, then, for every $i\in\bb{w}$, $Q_{i}\in \mathcal{L}_{w_{i}}$. Note that the second condition is exactly the converse of the defining condition of the concept of subalgebra of a $\Sigma$-algebra.
 \end{remark}
 
 Following this we associate to every term for $\Sigma$ of type $(X,s)$ its $S$-sorted set of variables. This will be used, in Section 3, in the proof of diverse propositions.
 
+\blockid{B-D128}
 \begin{definition}
 Let $X$ be an $S$-sorted set.  Then $\mathbf{Fin}(X)$ is the $\Sigma$-algebra which has as underlying
 $S$-sorted set $(\mathrm{Sub}_{\mathrm{f}}(X))_{s\in S}$, i.e., the $S$-sorted set constantly $\mathrm{Sub}_{\mathrm{f}}(X)$, and, for every $(w,s)\in S^{\star}\times S$ and every $\sigma\in \Sigma_{w,s}$, as operation $F_{\sigma}\colon \mathrm{Sub}_{\mathrm{f}}(X)^{\bb{w}}\mor
@@ -1454,6 +1517,7 @@ For a sort $s\in S$ and a term $P\in \mathrm{T}_{\Sigma}(X)_{s}$ we will call $\
 
 Our next goal is to define the concepts of congruence on a $\Sigma$-algebra and of quotient of a $\Sigma$-algebra by a congruence on it. Moreover, we recall the notion of kernel of a homomorphism between $\Sigma$-algebras and the universal property of the quotient of a $\Sigma$-algebra by a congruence on it.
 
+\blockid{B-D129}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $\Phi$ an $S$-sorted equivalence on $A$. We will say that $\Phi$ is an
 $S$-\emph{sorted congruence on} (or, to abbreviate, a \emph{congruence on}) $\mathbf{A}$ if, for every $(w,s)\in (S^{\star}-\{\lambda\})\times S$, every $\sigma\in \Sigma_{w,s}$,
@@ -1482,6 +1546,7 @@ The ordered pair $(\mathbf{A}/\Phi,\mathrm{pr}_{\Phi})$ has the following univer
 %Let $\mathbf{A}$ be a $\Sigma$-algebra and $\Phi$ an $S$-sorted equivalence on $A$. Then $\Phi$ is a congruence on $\mathbf{A}$ if and only if $\Phi$ is a subalgebra of $\mathbf{A}\times \mathbf{A}$.
 %\end{remark}
 
+\blockid{B-R121}
 \begin{remark}
 Let $\mathbf{ClfdAlg}(\Sigma)$ be the category whose objects are the \emph{classified $\Sigma$-algebras}, i.e, the ordered pairs $(\mathbf{A},\Phi)$ where $\mathbf{A}$ is a $\Sigma$-algebra and $\Phi$ a congruence on $\mathbf{A}$, and in which the set of morphisms from $(\mathbf{A},\Phi)$ to $(\mathbf{B},\Psi)$ is the set of all homomorphisms $f$ from $\mathbf{A}$ to $\mathbf{B}$ such that, for every $s\in S$ and every $(x,y)\in A^{2}_{s}$, if $(x,y)\in \Phi_{s}$, then $(f_{s}(x),f_{s}(y))\in \Psi_{s}$. Let $G$ be the functor from $\mathbf{Alg}(\Sigma)$ to $\mathbf{ClfdAlg}(\Sigma)$ whose object mapping sends $\mathbf{A}$ to $(\mathbf{A},\Delta_{\mathbf{A}})$ and whose morphism mapping sends $f\colon \mathbf{A}\mor \mathbf{B}$ to $f\colon (\mathbf{A},\Delta_{\mathbf{A}})\mor (\mathbf{B},\Delta_{\mathbf{B}})$. Then, for every classified $\Sigma$-algebra $(\mathbf{A},\Phi)$, there exists a universal mapping from $(\mathbf{A},\Phi)$ to $G$, which is precisely the ordered pair $(\mathbf{A}/\Phi,\mathrm{pr}_{\Phi})$ with $\mathrm{pr}_{\Phi}\colon (\mathbf{A},\Phi)\mor (\mathbf{A}/\Phi,\Delta_{\mathbf{A}/\Phi})$.
 \end{remark}
@@ -1508,16 +1573,19 @@ Let $\mathbf{ClfdAlg}(\Sigma)$ be the category whose objects are the \emph{class
 
 We next define for a $\Sigma$-algebra the concepts of elementary translation and of translation with respect to it, and provide, by using the just mentioned concepts, two characterizations of the congruences on a $\Sigma$-algebra. To this we add that  the concept of translation will allow us to define the concept of congruence cogenerated by an $S$-sorted subset of the underlying $S$-sorted set of a $\Sigma$-algebra, which will be all-important in our congruence based proofs of the recognizability theorems for free many-sorted algebras, in Section 3.
 
+\blockid{B-D130}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $t\in S$. Then we will denote by $\mathrm{Etl}_{t}(\mathbf{A})$ the subset $(\mathrm{Etl}_{t}(\mathbf{A})_{s})_{s\in S}$ of $(\mathrm{Hom}(A_{t},A_{s}))_{s\in S}$ defined, for every $s\in S$, as follows: For every mapping $T\in \mathrm{Hom}(A_{t},A_{s})$, $T\in \mathrm{Etl}_{t}(\mathbf{A})_{s}$ if and only if there is a word $w\in  S^{\star}-\{\lambda\}$, an $i\in \lvert w \rvert$, a $\sigma\in \Sigma_{w,s}$, a family $(a_{j})_{j\in i}\in\prod_{j\in i}A_{w_{j}}$, and a family $(a_{k})_{k\in \lvert w \rvert-(i+1)} \in\prod_{k\in \lvert w \rvert-(i+1)}A_{w_{k}}$ (recall that $i+1 = \{0, 1,\ldots,i\}$ and that $\lvert w \rvert-(i+1) = \{i+1,\ldots,\lvert w \rvert-1\}$) such that $w_{i} = t$ and, for every $x\in A_{t}$, $T(x) =
 F_{\sigma}(a_{0},\ldots,a_{i-1},x,a_{i+1},\ldots,a_{\lvert w \rvert-1})$. We call the elements of $\mathrm{Etl}_{t}(\mathbf{A})_{s}$ the $t$-\emph{elementary translations of sort} $s$ \emph{for} $\mathbf{A}$.
 \end{definition}
 
+\blockid{B-D131}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $t\in S$. Then we will denote by $\mathrm{Tl}_{t}(\mathbf{A})$ the subset
 $(\mathrm{Tl}_{t}(\mathbf{A})_{s})_{s\in S}$ of $(\mathrm{Hom}(A_{t},A_{s}))_{s\in S}$ defined, for every $s\in S$, as follows: For every mapping $T\in \mathrm{Hom}(A_{t},A_{s})$, $T\in \mathrm{Tl}_{t}(\mathbf{A})_{s}$ if and only if there is an $n\in \mathbb{N}-1$, a word $(s_{j})_{j\in n+1}\in S^{n+1}$, and a family $(T_{j})_{j\in n}$ such that $s_{0} = t$, $s_{n} = s$, $T_{0}\in \mathrm{Etl}_{t}(\mathbf{A})_{s_{1}}$, $T_{1}\in \mathrm{Etl}_{s_{1}}(\mathbf{A})_{s_{2}}$, \ldots, $T_{n-1}\in \mathrm{Etl}_{s_{n-1}}(\mathbf{A})_{s}$ and $T = T_{n-1}\circ\cdots\circ T_{0}$. We call the elements of $\mathrm{Tl}_{t}(\mathbf{A})_{s}$ the $t$-\emph{translations of sort} $s$ \emph{for} $\mathbf{A}$. Besides, for every $t\in S$, the mapping  $\mathrm{id}_{A_{t}}$ will be viewed as an element of $\mathrm{Tl}_{t}(\mathbf{A})_{t}$.
 \end{definition}
 
+\blockid{B-R122}
 \begin{remark}
 The $S\times S$-sorted set $(\mathrm{Tl}_{t}(\mathbf{A})_{s})_{(t,s)\in S\times S}$ determines a category $\mathbf{Tl}(\mathbf{A})$ whose object set is $S$ and in which, for every $(t,s)\in S\times S$, $\mathrm{Hom}_{\mathbf{Tl}(\mathbf{A})}(t,s)$, the hom-set from $t$ to $s$, is $\mathrm{Tl}_{t}(\mathbf{A})_{s}$. Therefore, for every $t\in S$, $\mathrm{End}_{\mathbf{Tl}(\mathbf{A})}(t)$ is equipped with a structure of monoid.
 \end{remark}
@@ -1541,6 +1609,7 @@ The $S\times S$-sorted set $(\mathrm{Tl}_{t}(\mathbf{A})_{s})_{(t,s)\in S\times 
 
 Given a $\Sigma$-algebra $\mathbf{A}$ and a translation $T\in \mathrm{Tl}_{t}(\mathbf{A})_{s}$ we next define, as\-so\-ci\-at\-ed to the mappings $T[\cdot]\colon \mathrm{Sub}(A_{t})\mor \mathrm{Sub}(A_{s})$ and $T^{-1}[\cdot]\colon \mathrm{Sub}(A_{s})\mor \mathrm{Sub}(A_{t})$, operators: $T[\cdot]$ and $T^{-1}[\cdot]$ from $\mathrm{Sub}(A)$ to $\mathrm{Sub}(A)$, $T[\cdot]$ from $\mathrm{Sub}(A_{t})$ to $\mathrm{Sub}(A)$, and $T^{-1}[\cdot]$ from $\mathrm{Sub}(A_{s})$ to $\mathrm{Sub}(A)$. This will be used below in the characterization of the recognizable languages.
 
+\blockid{B-D132}
 \begin{definition}\label{DAntiTrans}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $L\subseteq A$, $s$, $t\in S$, $M\subseteq A_{t}$, $N\subseteq A_{s}$, and $T\in \mathrm{Tl}_{t}(\mathbf{A})_{s}$. Then
 \begin{enumerate}
@@ -1551,12 +1620,14 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra, $L\subseteq A$, $s$, $t\in S$, $M\subset
 \end{enumerate}
 \end{definition}
 
+\blockid{B-R123}
 \begin{remark}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $K$, $L\subseteq A$, $s$, $t\in S$, $M\subseteq A_{t}$, $N\subseteq A_{s}$, and $T\in \mathrm{Tl}_{t}(\mathbf{A})_{s}$. Then $T[M]\subseteq \delta^{s,N}$ if and only if $\delta^{t,M}\subseteq T^{-1}[N]$. Moreover, $T[K]\subseteq \delta^{s,L_{s}}$ if and only if $\delta^{t,K_{t}}\subseteq T^{-1}[L]$. Had the operators $T[\cdot]$ and $T^{-1}[\cdot]$ been defined (for $u\in S-\{s,t\}$) differently, then the suitably modified counterparts of the just stated connections would not be met.
 \end{remark}
 
 As announced above, we next provide, by using the notions of elementary trans\-la\-tion and of translation, two characterizations of the congruences on a $\Sigma$-algebra. This shows, in particular, the significance of the notions of elementary translation and of translation. We note that in~\cite{m76}, on p.~199, it was announced without proof a proposition similar to that set out below.
 
+\blockid{B-P116}
 \begin{proposition}\label{CharacCong}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $\Phi$ an $S$-sorted equivalence on $A$. Then the following conditions are equivalent:
 \begin{enumerate}
@@ -1629,6 +1700,7 @@ that saturates $L$, i.e., which is such that  $\Omega^{\mathbf{A}}(L)\subseteq \
 
 
 
+\blockid{B-D133}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L\subseteq A$. Then $\Omega^{\mathbf{A}}(L)$ is the binary relation on $A$ defined, for every $t\in S$, as follows:
 $$
@@ -1642,6 +1714,7 @@ $$
 $$
 \end{definition}
 
+\blockid{B-P117}
 \begin{proposition}\label{CharacCogenCong}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L\subseteq A$. Then
 \begin{enumerate}
@@ -1659,11 +1732,13 @@ To prove (1) it suffices to take into account Proposition~\ref{CharacCong}. To p
 Let $\Phi$ be a congruence on $\mathbf{A}$ such that $\Phi\subseteq \mathrm{Ker}(\mathrm{ch}_{L})$, i.e., such that, for every $s\in S$ and every $x$, $y\in A_{s}$, if $(x,y)\in \Phi_{s}$, then $x\in L_{s}$ if and only if $y\in L_{s}$. We want to show that, for every $t\in S$, $\Phi_{t}\subseteq \Omega^{\mathbf{A}}(L)_{t}$. Let $t$ be an element of $S$ and $(x,y)\in \Phi_{t}$. Then, since $\Phi$ is a congruence on $\mathbf{A}$, for every $s\in S$ and every $T\in \mathrm{Tl}_{t}(\mathbf{A})_{s}$, we have that $(T(x),T(y))\in \Phi_{s}$. Hence, by the hypothesis on $\Phi$, $T(x)\in L_{s}$ if and only if $T(y)\in L_{s}$. Therefore $\Phi\subseteq \Omega^{\mathbf{A}}(L)$.
 \end{proof}
 
+\blockid{B-D134}
 \begin{definition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L\subseteq A$. Then we call $\Omega^{\mathbf{A}}(L)$ the congruence on $\mathbf{A}$ \emph{cogenerated} by $L$, or the \emph{syntactic} congruence on $\mathbf{A}$ determined by $L$
 (which is shorthand for ``the congruence on $\mathbf{A}$ cogenerated by the equivalence $\mathrm{Ker}(\mathrm{ch}_{L})$ on $\mathbf{A}$ canonically associated to $L$'').
 \end{definition}
 
+\blockid{B-R124}
 \begin{remark}
 For every subset $L$ of the underlying $S$-sorted set of a $\Sigma$-algebra $\mathbf{A}$, $\Omega^{\mathbf{A}}(L)$ can be viewed as the value at $L$ of a mapping $\Omega^{\mathbf{A}}$ from $\mathrm{Sub}(A)$ to $\mathrm{Cgr}(\mathbf{A})$. We will call $\Omega^{\mathbf{A}}$ the \emph{congruence cogenerating operator for} $\mathbf{A}$ (with regard to subsets of $A$).
 \end{remark}
@@ -1678,6 +1753,7 @@ It may be worth reminding the reader that in the theory of formal languages, a c
 
 The theorem of Green and S{\l}omi\'{n}ski is also valid for the many-sorted case, as shown below.
 
+\blockid{B-P118}
 \begin{proposition}\label{CogenCong}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $\Phi$ an $S$-sorted equivalence on $A$. Then there exists a congruence $\widetilde{\Omega}^{\mathbf{A}}(\Phi)$ on $\mathbf{A}$ such that $\widetilde{\Omega}^{\mathbf{A}}(\Phi)\subseteq \Phi$ and, for every congruence $\Psi$ on $\mathbf{A}$, if $\Psi\subseteq \Phi$, then $\Psi\subseteq \widetilde{\Omega}^{\mathbf{A}}(\Phi)$. We will call $\widetilde{\Omega}^{\mathbf{A}}(\Phi)$ \emph{the congruence on} $\mathbf{A}$ \emph{cogenerated by} $\Phi$.
 \end{proposition}
@@ -1727,14 +1803,17 @@ $$
 %}
 %$$
 
+\blockid{B-R125}
 \begin{remark}
 For every $S$-sorted equivalence $\Phi$ on the underlying $S$-sorted set of a $\Sigma$-algebra $\mathbf{A}$, $\widetilde{\Omega}^{\mathbf{A}}(\Phi)$ can be viewed as the value at $\Phi$ of a mapping $\widetilde{\Omega}^{\mathbf{A}}$ from $\mathrm{Eqv}(A)$ to $\mathrm{Cgr}(\mathbf{A})$. We will call $\widetilde{\Omega}^{\mathbf{A}}$ the \emph{congruence cogenerating operator} for $\mathbf{A}$ (with regard to $S$-sorted equivalences on $A$).
 \end{remark}
 
+\blockid{B-R126}
 \begin{remark}
 For every subset $L$ of the underlying $S$-sorted set of a $\Sigma$-algebra $\mathbf{A}$, $\Omega^{\mathbf{A}}(L) = \widetilde{\Omega}^{\mathbf{A}}(\mathrm{Ker}(\mathrm{ch}_{L}))$. In other words, the mapping $\Omega^{\mathbf{A}}$ from $\mathrm{Sub}(A)$ to $\mathrm{Cgr}(\mathbf{A})$ is the composition of the mapping from $\mathrm{Sub}(A)$ to $\mathrm{Eqv}(A)$ that sends $L$ in $\mathrm{Sub}(A)$ to $\mathrm{Ker}(\mathrm{ch}_{L})$ in $\mathrm{Eqv}(A)$ (which in general is neither injecive, nor surjective, nor isotone) and the mapping $\widetilde{\Omega}^{\mathbf{A}}$ from $\mathrm{Eqv}(A)$ to $\mathrm{Cgr}(\mathbf{A})$.
 \end{remark}
 
+\blockid{B-R127}
 \begin{remark}
 It is possible to provide a proof of Proposition~\ref{CogenCong} along the lines of Proposition~\ref{CharacCogenCong}. Let $\Phi$ be an $S$-sorted equivalence on the underlying $S$-sorted set of a $\Sigma$-algebra $\mathbf{A}$. Then the $S$-sorted binary relation $\widetilde{\Omega}^{\mathbf{A}}(\Phi)$ on $A$ defined, for every $t\in S$, as follows:
 $$
@@ -1755,10 +1834,12 @@ is the greatest congruence on $\mathbf{A}$ contained in $\Phi$.
 
 We next provide, for a $\Sigma$-algebra $\mathbf{A}$, some basic properties of the congruence cogenerating operator $\widetilde{\Omega}^{\mathbf{A}}$.
 
+\blockid{B-P119}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then $\widetilde{\Omega}^{\mathbf{A}}$, considered as an endomapping of $\mathrm{Eqv}(A)$, is a kernel ($\equiv$ interior) operator, i.e., it is contractive ($\equiv$ deflationary), isotone, and idempotent. Moreover, $\widetilde{\Omega}^{\mathbf{A}}(\Delta_{\mathbf{A}}) = \Delta_{\mathbf{A}}$, $\widetilde{\Omega}^{\mathbf{A}}(\nabla_{\mathbf{A}}) = \nabla_{\mathbf{A}}$ and, for every nonempty set $I$ in $\boldsymbol{\mathcal{U}}$ and every $(\Phi^{i})_{i\in I}\in \mathrm{Eqv}(A)^{I}$, $\widetilde{\Omega}^{\mathbf{A}}(\bigcap_{i\in I}\Phi^{i}) = \bigcap_{i\in I}\widetilde{\Omega}^{\mathbf{A}}(\Phi^{i})$.
 \end{proposition}
 
+\blockid{B-P120}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $\Phi$ an $S$-sorted equivalence on $A$, $t$, $s\in S$, and $T\in\mathrm{Tl}_{t}(\mathbf{A})_{s}$. Then $\Omega^{\mathbf{A}}(\Phi)\subseteq \Omega^{\mathbf{A}}((T\times T)^{-1}[\Phi])$, where $(T\times T)^{-1}[\Phi]$ stands for the $S$-sorted equivalence on $A$ defined, for every $u\in S$, as follows:
 $$
@@ -1783,11 +1864,13 @@ $$
 %%$\delta^{(t|(T\times T)^{-1}[\Phi_{s}])}_{t}$ is $(T\times T)^{-1}[\Phi_{s}]$ and $\delta^{(t|(T\times T)^{-1}[\Phi_{s}])}_{u}$ is $\Phi_{u}$, if $u\neq t$.
 %\end{proposition}
 
+\blockid{B-P121}
 \begin{proposition}\label{TAntiHom}
 Let $f$ be a homomorphism from $\mathbf{A}$ to $\mathbf{B}$ and $\Upsilon$ an $S$-sorted equivalence on $B$. Then
 $(f\times f)^{-1}[\widetilde{\Omega}^{\mathbf{B}}(\Upsilon)]\subseteq \widetilde{\Omega}^{\mathbf{A}}((f\times f)^{-1}[\Upsilon])$. Moreover, if $f$ is an epimorphism, then $(f\times f)^{-1}[\widetilde{\Omega}^{\mathbf{B}}(M)] = \widetilde{\Omega}^{\mathbf{A}}((f\times f)^{-1}[\Upsilon])$.
 \end{proposition}
 
+\blockid{B-R128}
 \begin{remark}
 For every $\Sigma$-algebra $\mathbf{A}$, $\widetilde{\Omega}^{\mathbf{A}}$ can be regarded as the component at $\mathbf{A}$ of a natural transformation $\widetilde{\Omega}$ between two contravariant functors from a suitable category of $\Sigma$-algebras to the category $\mathbf{Set}$. In fact, let $\mathbf{Alg}(\Sigma)_{\mathrm{epi}}$ be the category whose objects are the $\Sigma$-algebras and whose morphisms are the epimorphisms between $\Sigma$-algebras. Then we have, on the one hand, the functor $\mathrm{Eqv}$ from $\mathbf{Alg}(\Sigma)^{\mathrm{op}}_{\mathrm{epi}}$, the dual of $\mathbf{Alg}(\Sigma)_{\mathrm{epi}}$, to $\mathbf{Set}$ which assigns to a $\Sigma$-algebra $\mathbf{A}$ the set $\mathrm{Eqv}(A)$, and to an epimorphism $f\colon \mathbf{A}\mor \mathbf{B}$ the mapping $(f\times f)^{-1}[\cdot]$ from $\mathrm{Eqv}(B)$ to  $\mathrm{Eqv}(A)$, and, on the other hand, the functor $\mathrm{Cgr}$ from $\mathbf{Alg}(\Sigma)^{\mathrm{op}}_{\mathrm{epi}}$ to $\mathbf{Set}$ which assigns to a $\Sigma$-algebra $\mathbf{A}$ the set $\mathrm{Cgr}(\mathbf{A})$, and to an epimorphism $f\colon \mathbf{A}\mor \mathbf{B}$ the mapping $(f\times f)^{-1}[\cdot]$ from $\mathrm{Cgr}(\mathbf{B})$ to $\mathrm{Cgr}(\mathbf{A})$. Then the mapping $\widetilde{\Omega}$ from $\mathrm{Alg}(\Sigma)$, the set of objects of $\mathbf{Alg}(\Sigma)$, to $\mathrm{Mor}(\mathbf{Set})$, the set of morphisms of $\mathbf{Set}$, which assigns to a $\Sigma$-algebra $\mathbf{A}$ the mapping $\widetilde{\Omega}^{\mathbf{A}}$ from $\mathrm{Eqv}(A)$ to $\mathrm{Cgr}(\mathbf{A})$ is a natural transformation from $\mathrm{Eqv}$ to $\mathrm{Cgr}$, because, for every epimorphism $f\colon \mathbf{A}\mor \mathbf{B}$, we have that $(f\times f)^{-1}[\cdot]\circ \widetilde{\Omega}^{\mathbf{B}} = \widetilde{\Omega}^{\mathbf{A}}\circ (f\times f)^{-1}[\cdot]$,
 %the following diagram
@@ -1813,6 +1896,7 @@ i.e., for every $S$-sorted equivalence $\Upsilon$ on $B$, $(f\times f)^{-1}[\wid
 
 We next gather together, for a $\Sigma$-algebra $\mathbf{A}$, some basic properties of the con\-gru\-ence cogenerating operator $\Omega^{\mathbf{A}}$.
 
+\blockid{B-P122}
 \begin{proposition}\label{CharacSatCCog and CharacsSatCCog}\label{PSat and sPSat}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $L$ a subset of $A$, and $\Phi\in\mathrm{Cgr}(\mathbf{A})$. Then $L\in \Phi\text{-}\mathrm{Sat}(A)$, i.e., $L = [L]^{\Phi}$, if and only if $\Phi\subseteq\Omega^{\mathbf{A}}(L)$. Moreover, for $s\in S$ and $L\subseteq A_{s}$, we have that $L = [L]^{\Phi_{s}}$ if and only if $\Phi_{s}\subseteq\Omega^{\mathbf{A}}(\delta^{s,L})_{s}$.
 \end{proposition}
@@ -1849,10 +1933,12 @@ Reciprocally, let us suppose that $\Phi\subseteq\Omega^{\mathbf{A}}(L)$ then, by
 %$$
 %\end{remark}
 
+\blockid{B-P123}
 \begin{proposition}\label{Compl}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L$ a subset of $A$. Then it happens that $\Omega^{\mathbf{A}}(L) = \Omega^{\mathbf{A}}(\complement_{A}L)$.
 \end{proposition}
 
+\blockid{B-P124}
 \begin{proposition}\label{InterCCog and CCogInter}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $I$ a nonempty set in $\boldsymbol{\mathcal{U}}$, and $(L^{i})_{i\in I}$ an $I$-indexed family of subsets of $A$. Then $\bigcap_{i\in I}\Omega^{\mathbf{A}}(L^{i})\subseteq \Omega^{\mathbf{A}}(\bigcap_{i\in I}L^{i})$, i.e., $\bigcap_{i\in I}\widetilde{\Omega}^{\mathbf{A}}(\mathrm{Ker}(\mathrm{ch}_{L^{i}}))\subseteq \widetilde{\Omega}^{\mathbf{A}}(\mathrm{Ker}(\mathrm{ch}_{\bigcap_{i\in I}L^{i}}))$.
 \end{proposition}
@@ -1869,6 +1955,7 @@ To prove that $\bigcap_{i\in I}\Omega^{\mathbf{A}}(L^{i}) \subseteq \Omega^{\mat
 
 With regard to the following proposition, it must be borne in mind that, for every set $C$, $\mathrm{Ker}(\mathrm{ch}_{\varnothing}) = \mathrm{Ker}(\mathrm{ch}_{C}) = \nabla_{C}$.
 
+\blockid{B-P125}
 \begin{proposition}\label{TAntiTrans}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $L$ a subset of $A$, $t$, $s\in S$, and $T\in\mathrm{Tl}_{t}(\mathbf{A})_{s}$. Then $\Omega^{\mathbf{A}}(L)\subseteq \Omega^{\mathbf{A}}(T^{-1}[L])$, i.e., $\widetilde{\Omega}^{\mathbf{A}}(\mathrm{Ker}(\mathrm{ch}_{L}))\subseteq \widetilde{\Omega}^{\mathbf{A}}(\mathrm{Ker}(\mathrm{ch}_{T^{-1}[L]}))$, where, for every $u\in S-\{t\}$,  $\mathrm{Ker}(\mathrm{ch}_{T^{-1}[L]})_{u} = \mathrm{Ker}(\mathrm{ch}_{\varnothing}) = \nabla_{A_{u}}$ and
 $$
@@ -1876,6 +1963,7 @@ $$
 $$
 \end{proposition}
 
+\blockid{B-P126}
 \begin{proposition}\label{TAntiHomSub}
 Let $f$ be a homomorphism from $\mathbf{A}$ to $\mathbf{B}$ and $M$ a subset of $B$. Then
 $(f\times f)^{-1}[\Omega^{\mathbf{B}}(M)]\subseteq \Omega^{\mathbf{A}}(f^{-1}[M])$. Moreover, if $f$ is an epimorphism, then
@@ -1913,6 +2001,7 @@ $(f\times f)^{-1}[\Omega^{\mathbf{B}}(M)] = \Omega^{\mathbf{A}}(f^{-1}[M])$.
 %We now turn to the case in which $f$ is an epimorphism. Let $t$ be an element of $S$ and $(x, y)\in A^{2}_{t}$. Let us suppose that the ordered pair $(x,y)$ belongs to  $\bigcap\{\Omega^{\mathbf{A}}(f^{-1}[U^{-1}[M]])_{t}\mid U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}\! \And\! s\in S\}$. Then, for every $s\in S$ and every $U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}$, $(x,y)\in \Omega^{\mathbf{A}}(f^{-1}[U^{-1}[M]])_{t}$. Thus, for every $s\in S$ and every $U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}$, $(f_{t}(x),f_{t}(y))\in \Omega^{\mathbf{B}}(U^{-1}[M])_{t}$. Hence,  for every $s, u\in S$, every $U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}$, and every $V\in \mathrm{Tl}_{t}(\mathbf{B})_{u}$, we have that $V(f_{t}(x))\in U^{-1}[M]_{u}$ if and only if $V(f_{t}(y))\in U^{-1}[M]_{u}$. Therefore, for every $s\in S$, every $U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}$, and every $V\in \mathrm{Tl}_{t}(\mathbf{B})_{t}$, we have that $V(f_{t}(x))\in U^{-1}[M_{s}]$ if and only if $V(f_{t}(y))\in U^{-1}[M_{s}]$. Whence, for every $s\in S$, every $U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}$, and every $V\in \mathrm{Tl}_{t}(\mathbf{B})_{t}$, we have that $U(V(f_{t}(x)))\in M_{s}$ if and only if $U(V(f_{t}(y)))\in M_{s}$. Accordingly, for every $s\in S$ and every $U\in \mathrm{Tl}_{t}(\mathbf{B})_{s}$, $U(f_{t}(x))\in M_{s}$ if and only if $U(f_{t}(y))\in M_{s}$. So, $(f_{t}(x),f_{t}(y))\in \Omega^{\mathbf{B}}(M)_{t}$. Consequently, $(x,y)\in (f_{t}\times f_{t})^{-1}[\Omega^{\mathbf{B}}(M)_{t}]$.
 %\end{proof}
 
+\blockid{B-R129}
 \begin{remark}
 Let $\mathrm{P}^{-}$ be the functor from $\mathbf{Alg}(\Sigma)^{\mathrm{op}}_{\mathrm{epi}}$ to $\mathbf{Set}$ which assigns to a $\Sigma$-algebra $\mathbf{A}$ the set $\mathrm{Sub}(A)$, and to an epimorphism $f\colon \mathbf{A}\mor \mathbf{B}$ the mapping $f^{-1}[\cdot]$ from $\mathrm{Sub}(B)$ to  $\mathrm{Sub}(A)$.  Then the mapping $\Omega$ from $\mathrm{Alg}(\Sigma)$  to $\mathrm{Mor}(\mathbf{Set})$ which assigns to a $\Sigma$-algebra $\mathbf{A}$ the mapping $\Omega^{\mathbf{A}}$ from $\mathrm{Sub}(A)$ to $\mathrm{Cgr}(\mathbf{A})$ is a natural transformation from $\mathrm{P}^{-}$ to $\mathrm{Cgr}$, since, for every epimorphism $f\colon \mathbf{A}\mor \mathbf{B}$, we have that $(f\times f)^{-1}[\cdot]\circ \Omega^{\mathbf{B}} = \Omega^{\mathbf{A}}\circ f^{-1}[\cdot]$,
 %the following diagram
@@ -2086,6 +2175,7 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra and $\Phi\in\Cgr(\mathbf{A})$. We will sa
 
 Let us note that in~\cite{Cou89}, on p.~99, and in~\cite{Cou96}, on p.~30, and for a set of sorts $S$, eventually infinite, and a many-sorted algebra $\mathbf{A}$ such that, for every $s\in S$, $A_{s}\neq\varnothing$, Courcelle says that a  congruence on $\mathbf{A}$ is \emph{locally finite} if it has finitely many classes of each sort. To this we add that he uses such a type of congruence to investigate, for a many-sorted algebra $\mathbf{A}$, subject to satisfy the above condition, and a sort $s\in S$, the recognizable subsets of $A_{s}$. So, if we disregard the condition imposed by Courcelle on the many-sorted algebras, our notion of congruence of locally finite index coincides with Courcelle's notion of locally finite congruence.
 
+\blockid{B-P127}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then $\mathrm{Cgr}_{\mathrm{fi}}(\mathbf{A})\neq\varnothing$ if and only if  $\mathrm{supp}_{S}(\mathbf{A})$ is finite. Moreover, $\mathrm{card}(S)<\aleph_{0}$ if and only if, for every $\Sigma$-algebra $\mathbf{A}$, $\mathrm{Cgr}_{\mathrm{fi}}(\mathbf{A})\neq\varnothing$. Therefore, the following conditions are equivalent: (1) for every $\Sigma$-algebra $\mathbf{A}$, $\mathrm{supp}_{S}(\mathbf{A})$ is finite, (2) for every $\Sigma$-algebra $\mathbf{A}$, $\mathrm{Cgr}_{\mathrm{fi}}(\mathbf{A})\neq\varnothing$, and (3) $S$ is  finite.
 \end{proposition}
@@ -2094,6 +2184,7 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra. Then $\mathrm{Cgr}_{\mathrm{fi}}(\mathbf
 Since the first assertion is straightforward, we restrict ourselves to verify the second one. If the set of sorts $S$ is finite, then, for every $\Sigma$-algebra $\mathbf{A}$, $\nabla_{\mathbf{A}}\in \mathrm{Cgr}_{\mathrm{fi}}(\mathbf{A})$. If $S$ is infinite, then the final $\Sigma$-algebra $\mathbf{1}$ is such that $\mathrm{Cgr}_{\mathrm{fi}}(\mathbf{1}) = \varnothing$.
 \end{proof}
 
+\blockid{B-R130}
 \begin{remark}
 If $S$ is finite, then, obviously, for every $X\in \boldsymbol{\mathcal{U}}^{S}$, $\mathrm{supp}_{S}(\mathbf{T}_{\Sigma}(X))$ is finite. If $S$ is infinite, then there exists an $X\in \boldsymbol{\mathcal{U}}^{S}$ such that $\mathrm{supp}_{S}(\mathbf{T}_{\Sigma}(X))$ is infinite, e.g., for $X = 1 = (1)_{s\in S}$, we have that $\mathrm{supp}_{S}(\mathbf{T}_{\Sigma}(1)) = S$, thus $\mathrm{supp}_{S}(\mathbf{T}_{\Sigma}(1))$ is infinite. Hence, if, for every $X\in \boldsymbol{\mathcal{U}}^{S}$, $\mathrm{supp}_{S}(\mathbf{T}_{\Sigma}(X))$ is finite, then $S$ is finite. Therefore, the following conditions are equivalent: (1) for every $X\in \boldsymbol{\mathcal{U}}^{S}$, $\mathrm{supp}_{S}(\mathbf{T}_{\Sigma}(X))$ is finite, (2) for every $X\in \boldsymbol{\mathcal{U}}^{S}$,  $\mathrm{Cgr}_{\mathrm{fi}}(\mathbf{T}_{\Sigma}(X))\neq\varnothing$, and (3) $S$ is  finite.
 \end{remark}
@@ -2129,6 +2220,7 @@ Now let $\Phi$ be a congruence on $\mathbf{A}$ of finite index and $\Psi$ a cong
 
 %For congruences of locally finite index there are results similar to those we have just stated for congruences of finite index. We leave the details to the reader.
 
+\blockid{B-P128}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra. Then $\mathrm{Cgr}_{\mathrm{lfi}}(\mathbf{A})$ is a filter of the lattice $\mathbf{Cgr}\mathbf{(A)}$.
 \end{proposition}
@@ -2152,10 +2244,12 @@ For $T = S$ we will denote by $\mathrm{Rec}(\mathbf{A})$ and $\mathrm{Rec}_{\mat
 For $s\in S$ we will denote by $\mathrm{Rec}_{s}(\mathbf{A})$ and $\mathrm{Rec}_{\mathrm{lf},s}(\mathbf{A})$ the sets $\mathrm{Rec}_{\{s\}}(\mathbf{A})$ and $\mathrm{Rec}_{\mathrm{lf},\{s\}}(\mathbf{A})$, respectively.  We will call the elements of $\mathrm{Rec}_{s}(\mathbf{A})$ and $\mathrm{Rec}_{\mathrm{lf},s}(\mathbf{A})$ $s$-\emph{recognizable} and $(\mathrm{lf},s)$-\emph{recognizable}, respectively.
 \end{definition}
 
+\blockid{B-R131}
 \begin{remark}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $T\subseteq S$, and $s\in S$. Then $\mathrm{Rec}_{T}(\mathbf{A})\subseteq \mathrm{Rec}_{\mathrm{lf},T}(\mathbf{A})$, $\mathrm{Rec}(\mathbf{A})\subseteq \mathrm{Rec}_{\mathrm{lf}}(\mathbf{A})$, and $\mathrm{Rec}_{s}(\mathbf{A})\subseteq \mathrm{Rec}_{\mathrm{lf},s}(\mathbf{A})$. If $S$ is infinite, then the converse inclusions are not valid. Let $T$ be an infinite subset of $S$ and $\mathbf{A}$ a $\Sigma$-algebra such that $T\subseteq\mathrm{supp}_{S}(\mathbf{A})$. Then $A\!\!\upharpoonright_{T}$ is a language in $\mathrm{Rec}_{l.\mathrm{f},T}(\mathbf{A})$, but not in $\mathrm{Rec}_{T}(\mathbf{A})$.
 \end{remark}
 
+\blockid{B-R132}
 \begin{remark}
 If $S$ is finite, $T\subseteq S$, $s\in S$, and $\mathbf{A}$ is a $\Sigma$-algebra, then $\mathrm{Rec}_{T}(\mathbf{A}) = \mathrm{Rec}_{\mathrm{lf},T}(\mathbf{A})$, $\mathrm{Rec}(\mathbf{A}) = \mathrm{Rec}_{\mathrm{lf}}(\mathbf{A})$, and $\mathrm{Rec}_{s}(\mathbf{A}) = \mathrm{Rec}_{\mathrm{lf},s}(\mathbf{A})$.
 \end{remark}
@@ -2196,6 +2290,7 @@ In what follows, among other things, we investigate, for a many-sorted algebra a
 %\end{enumerate}
 %\end{proposition}
 
+\blockid{B-P129}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $T\subseteq S$, and $L\subseteq A\!\!\upharpoonright_{T}$. Then the following assertions are equivalent:
 \begin{enumerate}
@@ -2220,6 +2315,7 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra, $T\subseteq S$, and $L\subseteq A\!\!\up
 %Reciprocally, let us suppose that there exists a finite $\Sigma$-algebra $\mathbf{B}$, a homomorphism $f\colon \mathbf{A}\mor \mathbf{B}$, and a subset $M$ of $B$ such that $L = f^{-1}[M]$. Then, since $\mathbf{Im}(f)$ is a subalgebra of a finite algebra, $\mathbf{Im}(f)$ is finite. Therefore $\mathbf{A}/\mathrm{Ker}(f)$ is finite, because it is canonically isomorphic to $\mathbf{Im}(f)$. Hence $\mathrm{Ker}(f)$ is a congruence on $\mathbf{A}$ of finite index. Moreover, $L = [L]^{\mathrm{Ker}(f)}$. The inclusion $L\subseteq [L]^{\mathrm{Ker}(f)}$ is always true. To show that $[L]^{\mathrm{Ker}(f)}\subseteq L$, let $s$ be a sort in $S$, $a\in A_{s}$, $x\in L_{s}$, and let us suppose that $(a,x)\in \mathrm{Ker}(f_{s})$, i.e., that $f_{s}(a) = f_{s}(x)$. Then, since $L = f^{-1}[M]$, we have that $L_{s} = f^{-1}_{s}[M_{s}]$, thus $f_{s}(x)\in M_{s}$, but $f_{s}(a) = f_{s}(x)$, therefore $f_{s}(a)\in M_{s}$, consequently $a\in L_{s}$. From this it follows that $[L]^{\mathrm{Ker}(f)}\subseteq L$.
 %\end{proof}
 
+\blockid{B-P130}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L\subseteq A$. Then the following assertions are equivalent:
 \begin{enumerate}
@@ -2251,6 +2347,7 @@ Let us suppose that $\Omega^{\mathbf{A}}(L)\in\mathrm{Cgr}_{\mathrm{fi}}(\mathbf
 %\end{enumerate}
 %\end{proposition}
 
+\blockid{B-P131}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $s\in S$, and $L\subseteq A_{s}$. Then the following assertions are equivalent:
 \begin{enumerate}
@@ -2260,6 +2357,7 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra, $s\in S$, and $L\subseteq A_{s}$. Then t
 \end{enumerate}
 \end{proposition}
 
+\blockid{B-P132}
 \begin{proposition}\label{Rec is Bool}
 Let $\mathbf{A}$ and $\mathbf{B}$ be $\Sigma$-algebras. Then
 \begin{enumerate}
@@ -2282,14 +2380,17 @@ Let $\mathbf{A}$ and $\mathbf{B}$ be $\Sigma$-algebras. Then
 %This follows immediately from the definitions.
 %\end{proof}
 
+\blockid{B-P133}
 \begin{proposition}\label{s-Rec iff Rec}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $s\in S$, and $L\subseteq A_{s}$. Then $L\in \mathrm{Rec}_{s}(\mathbf{A})$ if and only if $\delta^{s,L}\in \mathrm{Rec}(\mathbf{A})$. Thus $\mathrm{Rec}_{s}(\mathbf{A})$ is isomorphic to a subset of $\mathrm{Rec}(\mathbf{A})$.
 \end{proposition}
 
+\blockid{B-A103}
 \begin{assumption}
 To prove the following proposition we will assume that the set of sorts $S$ is finite.
 \end{assumption}
 
+\blockid{B-P134}
 \begin{proposition}\label{Rec SubdirectProd sRec}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L\subseteq A$. Then $L\in \mathrm{Rec}(\mathbf{A})$ if and only if, for every $s\in S$, $L_{s}\in \mathrm{Rec}_{s}(\mathbf{A})$. Thus there exists an embedding from $\mathrm{Rec}(\mathbf{A})$ into $\prod_{s\in S}\mathrm{Rec}_{s}(\mathbf{A})$ and $\mathrm{Rec}(\mathbf{A})$ is a subdirect product of $(\mathrm{Rec}_{s}(\mathbf{A}))_{s\in S}$.
 \end{proposition}
@@ -2320,6 +2421,7 @@ The mapping from $\mathrm{Rec}(\mathbf{A})$ to $\prod_{s\in S}\mathrm{Rec}_{s}(\
 
 From the just stated proposition (which, we recall, has been obtained under the assumption that $S$ is finite) and since, for a $\Sigma$-algebra $\mathbf{A}$ and an $L\subseteq A$, $L = \bigcup_{s\in S}\delta^{s,L_{s}}$, it follows that in order to investigate the languages in $\mathrm{Rec}(\mathbf{A})$ it suffices to investigate, for every $s\in S$, the languages in $\mathrm{Rec}_{s}(\mathbf{A})$.
 
+\blockid{B-P135}
 \begin{proposition}\label{Rec s is Bool}
 Let $\mathbf{A}$ and $\mathbf{B}$ be $\Sigma$-algebras and $s, t\in S$. Then
 \begin{enumerate}
@@ -2359,6 +2461,7 @@ For the notions of $\mathrm{lf}$-recognizability and congruence of locally finit
 
 %The details are left to the reader.
 
+\blockid{B-P136}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $T\subseteq S$, and $L\subseteq A\!\!\upharpoonright_{T}$. Then the following assertions are equivalent:
 \begin{enumerate}
@@ -2368,10 +2471,12 @@ Let $\mathbf{A}$ be a $\Sigma$-algebra, $T\subseteq S$, and $L\subseteq A\!\!\up
 \end{enumerate}
 \end{proposition}
 
+\blockid{B-P137}
 \begin{proposition}\label{lf,s-Rec iff lf-Rec}
 Let $\mathbf{A}$ be a $\Sigma$-algebra, $s\in S$, and $L\subseteq A_{s}$. Then $L$ is $(\mathrm{lf},s)$-recognizable if and only if  $\delta^{s,L}$ is $\mathrm{lf}$-recognizable, i.e., $L\in \mathrm{Rec}_{\mathrm{lf},s}(\mathbf{A})$ if and only if $\delta^{s,L}\in \mathrm{Rec}_{\mathrm{lf}}(\mathbf{A})$. Thus $\mathrm{Rec}_{\mathrm{lf},s}(\mathbf{A})$ is isomorphic to a subset of $\mathrm{Rec}_{\mathrm{lf}}(\mathbf{A})$.
 \end{proposition}
 
+\blockid{B-P138}
 \begin{proposition}
 Let $\mathbf{A}$ be a $\Sigma$-algebra and $L\subseteq A$. Then the following assertions are equivalent:
 \begin{enumerate}
@@ -2423,6 +2528,7 @@ From now on, following a strongly rooted tradition in the fields of formal langu
 \subsection{Basic terms}
 In this subsection we prove some basic recognizability results relative to a free algebra on an $S$-sorted set. Concretely, we prove that the final sets consisting, respectively, of a variable, a constant, and the action of an operator symbol on a family of variables, are recognizable.
 
+\blockid{B-A104}
 \begin{assumption}
 In this subsection we will assume that $S$ is finite.
 \end{assumption}
@@ -2494,16 +2600,19 @@ we have that, for every $P\in \mathrm{T}_{\Sigma}(X)_{s}$, $f^{\sharp}(P) = k_{s
 \subsection{Substitutions}
 In this subsection we introduce several substitution operators associated to a free algebra with the aim of proving that, if the languages under consideration are recognizable, then the language that results from the substitution operator applied to these languages is also recognizable.
 
+\blockid{B-D135}
 \begin{definition}\label{GlobSubstOp}
 Let $X$ be an $S$-sorted set, $s\in S$, and $P\in \mathrm{T}_{\Sigma}(X)_{s}$. Then we will denote by $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ the mapping from $\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$ to $\mathrm{T}_{\Sigma}(X)_{s}$ that assigns to $\left((Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\right)_{(x,t)\in \coprod X}$ in $\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$ the term $\left(\!\begin{smallmatrix}(x,t)\\(Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ in $\mathrm{T}_{\Sigma}(X)_{s}$ obtained by substituting in $P$, for every $t\in S$, every $x\in X_{t}$, and every $\alpha\in \bb{P}_x$, $Q^{x,t}_{\alpha}$ for the $i_{\alpha}$-th occurrence of $x$ in $P$. We will call $\left(\!\begin{smallmatrix}(x,t)\\(Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ \emph{the substitution of $(Q^{x,t}_{\alpha})_{\alpha\in\bb{P}_{x}}$ for $x$ in $P$ for every $t\in S$ and every $x$ in $X_{t}$}, and $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ the \emph{global substitution operator for $P$}.
 
 Let $u$ be a sort in $S$ and $z\in X_{u}$. Then we will denote by $\left(\!\begin{smallmatrix}z\\ \cdot\end{smallmatrix}\!\right)(P)$ the mapping from $\mathrm{T}_{\Sigma}(X)_{u}^{\bb{P}_{z}}$ to $\mathrm{T}_{\Sigma}(X)_{s}$ that assigns to $(Q^{z}_{\alpha})_{\alpha\in \bb{P}_{z}}$ in $\mathrm{T}_{\Sigma}(X)_{u}^{\bb{P}_{z}}$ the term $\left(\!\begin{smallmatrix}z\\(Q^{z}_{\alpha})_{\alpha\in \bb{P}_{z}}\end{smallmatrix}\!\right)(P)$ in $\mathrm{T}_{\Sigma}(X)_{s}$ obtained by substituting in $P$, for every $\alpha\in \bb{P}_{z}$, $Q^{z}_{\alpha}$ for the $i_{\alpha}$-th occurrence of $z$ in $P$. We will call $\left(\!\begin{smallmatrix}z\\(Q^{z}_{\alpha})_{\alpha\in \bb{P}_{z}}\end{smallmatrix}\!\right)(P)$ \emph{the substitution of $(Q^{z}_{\alpha})_{\alpha\in\bb{P}_{z}}$ for $z$ in $P$}.
 \end{definition}
 
+\blockid{B-R133}
 \begin{remark}
 For an $S$-sorted set $X$, a sort $s\in S$, and a term $P$ in $\mathrm{T}_{\Sigma}(X)_{s}$, the domain of $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ is the set of all choice functions for $(\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}})_{(x,t)\in \coprod X}$. Regarding the index set $\coprod X$, since $\mathrm{Var}^{X}(P)$, the $S$-sorted of the variables of $P$, is finite, we can, without loss of generality, replace it by $\bigcup_{t\in \mathrm{sort}(\mathrm{Var}^{X}(P))}(X_{t}\times\{t\})$, where $\mathrm{sort}(\mathrm{Var}^{X}(P))$ is the finite set of the sorts of the variables which appear in $P$. However, for uniformity, we will continue using $\coprod X$.
 \end{remark}
 
+\blockid{B-R134}
 \begin{remark}
 Let $X$ be an $S$-sorted set, $s$ a sort in $S$, and $P$ a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Then we will denote by $\left(\!\begin{smallmatrix}x\\ \cdot\end{smallmatrix}\!\right)_{x\in X_{s}}(P)$ the mapping from $\prod_{x\in X_{s}}\mathrm{T}_{\Sigma}(X)_{s}^{\bb{P}_{x}}$ to $\mathrm{T}_{\Sigma}(X)_{s}$ that assigns to $\left((Q^{x}_{\alpha})_{\alpha\in \bb{P}_{x}}\right)_{x\in X_{s}}$ in $\prod_{x\in X_{s}}\mathrm{T}_{\Sigma}(X)_{s}^{\bb{P}_{x}}$ the term $\left(\!\begin{smallmatrix}x\\(Q^{x}_{\alpha})_{\alpha\in \bb{P}_{x}}\end{smallmatrix}\!\right)_{x\in X_{s}}(P)$ in $\mathrm{T}_{\Sigma}(X)_{s}$ obtained by substituting in $P$, for every $x\in X_{s}$ and every $\alpha\in \bb{P}_x$, $Q^{x}_{\alpha}$ for the $i_{\alpha}$-th occurrence of $x$ in $P$. We will call $\left(\!\begin{smallmatrix}x\\(Q^{x}_{\alpha})_{\alpha\in \bb{P}_{x}}\end{smallmatrix}\!\right)_{x\in X_{s}}(P)$ the substitution of $(Q^{x}_{\alpha})_{\alpha\in\bb{P}_{x}}$ for $x$ in $P$ for every $x$ in $X_{s}$, and $\left(\!\begin{smallmatrix}x\\ \cdot\end{smallmatrix}\!\right)_{x\in X_{s}}(P)$ the substitution operator for $P$.
 
@@ -2560,6 +2669,7 @@ Since (1) for every $s\in S$, $X_{s}\cong X_{s}\times \{s\}$, (2) by the associa
 
 We next prove that, for every $s\in S$ and every $P\in \mathrm{T}_{\Sigma}(X)$, $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ is, actually, a mapping from $\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$ to $\mathrm{T}_{\Sigma}(X)_{s}$.
 
+\blockid{B-P139}
 \begin{proposition}
 Let $X$ be an $S$-sorted set, $s\in S$, and $P$ a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Then, for every $\left((Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\right)_{(x,t)\in \coprod X}$ in $\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$, we have that $\left(\!\begin{smallmatrix}(x,t)\\(Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ is a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Therefore $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ is a mapping from $\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$ to $\mathrm{T}_{\Sigma}(X)_{s}$.
 \end{proposition}
@@ -2592,11 +2702,13 @@ But we have that
 and, by induction hypothesis, for every $i\in\bb{w}$, $\left(\!\begin{smallmatrix}(x,t)\\(Q^{x,t}_{\alpha+\sum_{k\in i}\bb{P_{k}}_{x}})_{\alpha\in \bb{P_{i}}_{x}}\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P_{i})$ is a term in $\mathrm{T}_{\Sigma}(X)_{w_{i}}$. Therefore the left side of the above equation is a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Consequently $\mathcal{T}$ is a subalgebra of $\mathbf{T}_{\Sigma}(X)$. Thus $\mathcal{T} = \mathrm{T}_{\Sigma}(X)$. Hereby completing our proof.
 \end{proof}
 
+\blockid{B-C105}
 \begin{corollary}
 Let $X$ be an $S$-sorted set, $u\in S$, $z\in X_{u}$, and $P$ a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Then, for every
 $(Q^{z}_{\alpha})_{\alpha\in \bb{P}_{z}}$ in $\mathrm{T}_{\Sigma}(X)_{u}^{\bb{P}_{z}}$, we have that  $\left(\!\begin{smallmatrix}z\\(Q^{z}_{\alpha})_{\alpha\in \bb{P}_{z}}\end{smallmatrix}\!\right)(P)$ is a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Therefore $\left(\!\begin{smallmatrix}z\\ \cdot\end{smallmatrix}\!\right)(P)$ is a mapping from $\mathrm{T}_{\Sigma}(X)^{\bb{P}_{z}}_{u}$ to $\mathrm{T}_{\Sigma}(X)_{s}$.
 \end{corollary}
 
+\blockid{B-R135}
 \begin{remark}
 For every $S$-sorted set $X$ the family $\left(\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)\right)_{s\in S}$ of global substitution operators is in
 $\prod_{(P,s)\in  \coprod\mathrm{T}_{\Sigma}(X)}\mathrm{Hom}(\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}},\mathrm{T}_{\Sigma}(X)_{s})$.
@@ -2605,6 +2717,7 @@ $\prod_{(P,s)\in  \coprod\mathrm{T}_{\Sigma}(X)}\mathrm{Hom}(\prod_{(x,t)\in \co
 
 We next prove that every homomorphism from $\mathbf{T}_{\Sigma}(X)$ is compatible with the substitution operator.
 
+\blockid{B-L101}
 \begin{lemma}\label{LIGlobSubstOp}
 Let $X$ be an $S$-sorted set, $s\in S$, $W\in\mathrm{T}_{\Sigma}(X)_{s}$, $\mathbf{A}$ a $\Sigma$-algebra, and $g$ a homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{A}$. Then, for every $\left((P^{x,t}_{\alpha})_{\alpha\in \bb{W}_{x}}\right)_{(x,t)\in \coprod X}$, $\left((Q^{x,t}_{\alpha})_{\alpha\in \bb{W}_{x}}\right)_{(x,t)\in \coprod X}\in\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{W}_{x}}$, if, for every $(x,t)\in\coprod X$ and every  $\alpha\in\bb{W}_{x}$, we have that $g_{t}(P^{x,t}_{\alpha})=g_{t}(Q^{x,t}_{\alpha})$, then
 $$
@@ -2661,6 +2774,7 @@ where, to shorten notation, we let $(\dagger_{1})$, $(\dagger_{2})$, and $(\dagg
 
 As a consequence of the last lemma we have the following corollary, that states that every congruence on $\mathbf{T}_{\Sigma}(X)$ is compatible with the substitution operator.
 
+\blockid{B-C106}
 \begin{corollary} Let $X$ be an $S$-sorted set, $s\in S$, $W\in\mathrm{T}_{\Sigma}(X)_{s}$, and $\Phi$ be a congruence on $\mathbf{T}_{\Sigma}(X)$. Then, for every $\left((P^{x,t}_{\alpha})_{\alpha\in \bb{W}_{x}}\right)_{(x,t)\in \coprod X}$, $\left((Q^{x,t}_{\alpha})_{\alpha\in \bb{W}_{x}}\right)_{(x,t)\in \coprod X}\in\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{W}_{x}}$, if, for every $(x,t)\in\coprod X$ and every  $\alpha\in\bb{W}_{x}$, we have that $[P^{x,t}_{\alpha}]_{\Phi_{t}}=[Q^{x,t}_{\alpha}]_{\Phi_{t}}$, then
 $$
 \left[\left(\!\begin{smallmatrix}(x,t)\\(P^{x,t}_{\alpha})_{\alpha\in \bb{W}_{x}}\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(W)\right]_{\Phi_{s}}
@@ -2676,6 +2790,7 @@ $$
 $$
 in $\mathrm{T}_{\Sigma}(X)^{\wp}_{s}$. We remind the reader that in accordance with what is established in  Proposition~\ref{rut}, we have let, for abbreviation, for every $(w,s)\in S^{\star}\times S$ and every $\sigma\in\Sigma_{w,s}$, $\sigma$ stand for $F_{\sigma}^{\mathbf{T}_{\Sigma}(X)}$, the structural operation of $\mathbf{T}_{\Sigma}(X)$ associated to $\sigma$.
 
+\blockid{B-D136}
 \begin{definition}
 For every $t\in S$, let $(L_{x})_{x\in X_{t}}$ be a mapping from $X_{t}$ to $\mathrm{T}_{\Sigma}(X)^{\wp}_{t} = \mathrm{Sub}(\mathrm{T}_{\Sigma}(X)_{t})$, also written, in this context, as $\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}$. Then, for the $S$-sorted mapping $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ from $X$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$, we will denote by  $\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp}$ the unique homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{T}_{\Sigma}(X)^{\wp}$ such that
 $$
@@ -2705,6 +2820,7 @@ Finally, in case (3), and under the hypothesis that, for every $i\in \bb{w}$, th
 We next prove that, for every $S$-sorted mapping $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ from $X$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$, every $s\in S$, and every $P\in \mathrm{T}_{\Sigma}(X)_{s}$, $\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp}_{s}(P)$ is given by collecting together the terms $\left(\!\begin{smallmatrix}(x,t)\\(Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ with $\left((Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\right)_{(x,t)\in \coprod X}$ varying in $\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}$.
 Let us note that, since, for every $x\in X_{t}$, $L_{x}^{\bb{P}_{x}}$ is embedded into $\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$, $\prod_{x\in X_{t}}L_{x}^{\bb{P}_{x}}$ is also embedded into $\prod_{x\in X_{t}}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$. Therefore $\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}$ is embedded into $\prod_{(x,t)\in \coprod X}\mathrm{T}_{\Sigma}(X)_{t}^{\bb{P}_{x}}$ and, consequently, the restriction of $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ to $\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}$ is available.
 
+\blockid{B-P140}
 \begin{proposition}
 Let $X$ be an $S$-sorted set, $s\in S$, and $P$ a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Then, for every $S$-sorted mapping $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ from $X$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$, we have that
 $$
@@ -2766,6 +2882,7 @@ Consequently $\mathcal{T}$ is a subalgebra of $\mathbf{T}_{\Sigma}(X)$. Thus $\m
 %On the other hand, under the hypothesis that, for every $i\in n$, $P_{i}$ satisfies the given requirement, bearing in mind that, for every $x\in X$, $\bb{\sigma((P_{i})_{i\in n})}_{x} = \sum_{i\in n}\bb{P_{i}}_{x}$, and taking into account Equation~\ref{EqSubs3}, we have that the set on the right coincides with $\sigma^{\wp}\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X}^{\sharp}(P_{i})\right)_{i\in n}\right)$. Hereby completing our proof.
 %\end{proof}
 
+\blockid{B-R136}
 \begin{remark}
 Given an $S$-sorted mapping $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ from $X$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$, and $P$ a term in $\mathrm{T}_{\Sigma}(X)_{s}$, for some $s\in S$, we have that
 $
@@ -2780,6 +2897,7 @@ $$
 In other words, the value of $\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp}_{s}$ at $P$ is the union of the image of the mapping $\{\cdot\}_{\mathrm{T}_{\Sigma}(X)_{s}}\circ \left(\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)\!\upharpoonright_{\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}}\right)$ from $\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}$ to $\mathrm{Sub}(\mathrm{T}_{\Sigma}(X))$, where $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)\!\upharpoonright_{\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}}$ is the restriction of the  substitution mapping $\left(\!\begin{smallmatrix}(x,t)\\ \cdot\end{smallmatrix}\!\right)_{(x,t)\in \coprod X}(P)$ to $\prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}$, and $\{\cdot\}_{\mathrm{T}_{\Sigma}(X)_{s}}$ the canonical embedding of $\mathrm{T}_{\Sigma}(X)_{s}$ into $\mathrm{T}_{\Sigma}(X)_{s}^{\wp}$.
 \end{remark}
 
+\blockid{B-C107}
 \begin{corollary}
 Let $s$ and $u$  be sorts in $S$, $z\in X_{u}$, $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{u}$, and $P$ a term in $\mathrm{T}_{\Sigma}(X)_{s}$. Then
 $$
@@ -2788,6 +2906,7 @@ $$
 $$
 \end{corollary}
 
+\blockid{B-D137}
 \begin{definition}
 Let $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ be an $S$-sorted mapping from $X$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$. Then we will denote by  $\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp\mathfrak{p}}$ the $S$-sorted mapping from $\mathrm{T}_{\Sigma}(X)^{\wp}$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$ that, for every $s\in S$, sends $K$ in $\mathrm{T}_{\Sigma}(X)^{\wp}_{s}$ to
 $$
@@ -2800,6 +2919,7 @@ in $\mathrm{T}_{\Sigma}(X)^{\wp}_{s}$. Therefore $\left(\left(\left(\!\begin{sma
 Let $u$ be a sort in $S$, $z\in X_{u}$, and $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{u}$. Then we will denote by $\left(\!\begin{smallmatrix}z\\L\end{smallmatrix}\!\right)^{\sharp\mathfrak{p}}$ the canonical extension of the underlying mapping of the homomorphism $\left(\!\begin{smallmatrix}z\\L\end{smallmatrix}\!\right)^{\sharp}$ from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{T}_{\Sigma}(X)^{\wp}$.
 \end{definition}
 
+\blockid{B-R137}
 \begin{remark}
 Let $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ be an $S$-sorted mapping from $X$ to $\mathrm{T}_{\Sigma}(X)^{\wp}$, $s\in S$, $K\subseteq \mathrm{T}_{\Sigma}(X)_{s}$, and $W\in\mathrm{T}_{\Sigma}(X)_{s}$. Then $W\in \left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp\mathfrak{p}}_{s}(K)$ if and only if there are $P\in K$ and $\left((Q^{x,t}_{\alpha})_{\alpha\in \bb{P}_{x}}\right)_{(x,t)\in \coprod X}\in \prod_{(x,t)\in \coprod X}L_{x}^{\bb{P}_{x}}$ such that
 $$
@@ -2813,11 +2933,13 @@ In particular, for $z\in X_{s}$ and $L\in \mathrm{Sub}(\mathrm{T}_{\Sigma}(X)_{s
 We next prove the many-sorted version of Theorem~4.6, on p.~74, in \cite{GS84}. The proposition states that, for every sort $s\in S$, every $s$-recognizable language $K$, and every operator  $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ such that, for every $t\in S$ and every $x\in X_{t}$, $L_{x}\in \mathrm{Rec}_{t}(\mathbf{T}_{\Sigma}(X))$,
 $\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp\mathfrak{p}}_{s}(K)$ is $s$-recognizable.
 
+\blockid{B-A105}
 \begin{assumption}
 To prove the following proposition we will assume that $S$ and $X$ are finite.
 \end{assumption}
 
 %pp.~66--67
+\blockid{B-P141}
 \begin{proposition}\label{PRecSubs}
 Let $s$ be a sort in $S$, $K\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$, and $\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}$ an $S$-sorted mapping from $X$ to $(\mathrm{Rec}_{t}(\mathbf{T}_{\Sigma}(X)))_{t\in S}$. Then
 $$
@@ -2918,6 +3040,7 @@ $$
 Hence, $\left(\left(\left(\!\begin{smallmatrix}x\\L_{x}\end{smallmatrix}\!\right)_{x\in X_{t}}\right)_{t\in S}\right)^{\sharp\mathfrak{p}}_{s}(K)$ is $\Psi_{s}$-saturated because it is a finite union of $\Psi_{s}$-saturated languages. The statement follows from Proposition~\ref{Rec is Bool}.
 \end{proof}
 
+\blockid{B-C108}
 \begin{corollary}\label{CRecSubs}
 Let $u$ and $s$ be sorts in $S$, $z\in X_{u}$, $L\in \mathrm{Rec}_{u}(\mathbf{T}_{\Sigma}(X))$, and $K\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$. Then $\left(\!\begin{smallmatrix}z\\L\end{smallmatrix}\!\right)^{\sharp\mathfrak{p}}_{s}(K)\in \mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$.
 \end{corollary}
@@ -2925,6 +3048,7 @@ Let $u$ and $s$ be sorts in $S$, $z\in X_{u}$, $L\in \mathrm{Rec}_{u}(\mathbf{T}
 
 We next state the many-sorted version of Corollary 4.12, on p.~78, in \cite{GS84}.
 
+\blockid{B-C109}
 \begin{corollary}\label{CRecOp}
 Let $(w,s)$ be an element of $S^{\star}\times S$, $\sigma\in\Sigma_{w,s}$, and $(L_{i})_{i\in \bb{w}}\in \prod_{i\in \bb{w}}\mathrm{Rec}_{w_{i}}(\mathbf{T}_{\Sigma}(X))$. Then the language $\sigma^{\wp}((L_{i})_{i\in \bb{w}})\in \mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$.
 \end{corollary}
@@ -2933,6 +3057,7 @@ Let $(w,s)$ be an element of $S^{\star}\times S$, $\sigma\in\Sigma_{w,s}$, and $
 It follows from Proposition~\ref{PRecOp} and Proposition~\ref{PRecSubs}.
 \end{proof}
 
+\blockid{B-C110}
 \begin{corollary}
 The $S$-sorted set $(\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X)))_{s\in S}$ is a subalgebra of $\mathbf{T}_{\Sigma}(X)^{\wp}$. We will denote by $\mathbf{Rec}_{\boldsymbol{\cdot}}(\mathbf{T}_{\Sigma}(X))$ the $\Sigma$-algebra canonically associated to the subalgebra $(\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X)))_{s\in S}$ of $\mathbf{T}_{\Sigma}(X)^{\wp}$.
 \end{corollary}
@@ -2947,6 +3072,7 @@ In this subsection we introduce the notion of iteration of a language with respe
 %, p.\,76
 We begin by stating the many-sorted counterpart of the single-sorted notion of $z$-iteration as defined by G\'{e}cseg and Steinby in \cite{GS84}, Definition~4.7, on p.~76.
 
+\blockid{B-D138}
 \begin{definition}
 Let $s$ be a sort in $S$, $z\in X_{s}$, and $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{s}$. Then the \emph{$z$-iteration of $L$} is the language
 $$
@@ -2959,16 +3085,19 @@ L^{0,z}=\{z\},\, \text{and, for } j\in \mathbb{N},\, L^{j+1,z} = L^{j,z}\cup \le
 $$
 \end{definition}
 
+\blockid{B-R138}
 \begin{remark}
 The language $L^{\star\, z}$ is obtained as follows. First include $z$. New members of $L^{\star\, z}$ are obtained by substituting in some term of $L$, for every occurrence of $z$, some term already known to be in $L^{\star\, z}$. Let us note that $L^{1,z} = L\cup \{z\}$ and that $(L^{j,z})_{j\in \mathbb{N}}$ is an ascending chain of subsets of  $\mathrm{T}_{\Sigma}(X)_{s}$, i.e., that, for every $j\in \mathbb{N}$, $L^{j,z}\subseteq L^{j+1,z}$.
 \end{remark}
 
 We next prove the many-sorted version of Theorem~4.8., on p.~76, in \cite{GS84}. The proposition states that, for every sort $s\in S$ and $z\in X_{s}$, if the input language $L\subseteq \mathrm{T}_{\Sigma}(X)_{s}$ is recognizable, then its $z$-iteration is also recognizable.
 
+\blockid{B-A106}
 \begin{assumption}
 To prove the following proposition we will assume that $S$ is finite.
 \end{assumption}
 %p.~68
+\blockid{B-P142}
 \begin{proposition}
 Let $s$ be a sort in $S$ and $z\in X_{s}$. If $L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$, then $L^{\star\,z}\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$.
 \end{proposition}
@@ -3058,6 +3187,7 @@ We next define the notion of quotient of a language by another with respect to a
 
 We begin by stating the many-sorted counterpart of the single-sorted notion of $z$-quotient as defined by G\'{e}cseg and Steinby in \cite{GS84}, Definition~4.9., on p.~77.
 
+\blockid{B-D139}
 \begin{definition}
 Let $s$ be a sort in $S$ and $L\in\mathrm{T}_{\Sigma}(X)^{\wp}_{s}$.
 Let $t$ be a sort in $S$, $z$ an element of $X_{t}$, and $K\in \mathrm{T}_{\Sigma}(X)^{\wp}_{t}$.  Then the $z$-quotient of $L$ by $K$ is the language
@@ -3069,10 +3199,12 @@ This operation may be seen as a converse of the $z$-substitution. If $K = \{x\}$
 
 We prove now the many-sorted version of Theorem~4.10., on p.~77, in \cite{GS84}. The proposition states that, for a sort $s$ in $S$, if  $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{s}$ is recognizable, then, for every $t\in S$, $z\in X_{t}$ and every $K\in \mathrm{T}_{\Sigma}(X)^{\wp}_{t}$, the $z$-quotient of $L$ by $K$ is also recognizable.
 
+\blockid{B-A107}
 \begin{assumption}
 To prove the following proposition we will assume that $S$ is finite.
 \end{assumption}
 
+\blockid{B-P143}
 \begin{proposition}\label{PRecQ}
 Let $s$ be a sort in $S$. If $L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$, then, for every $t\in S$, every $z\in X_{t}$, and every $K\in \mathrm{T}_{\Sigma}(X)^{\wp}_{t}$, $K^{-z}L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$. Moreover, the number of different $z$-quotients $K^{-z}L$ for any fixed $L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$ is finite.
 \end{proposition}
@@ -3108,10 +3240,12 @@ Hence, $K^{-z}L$ is $\Psi_{s}$-saturated because it is a finite union of $\Psi_{
 
 Tree automata and tree homomorphisms were defined for the first time by Thatcher in~\cite{Tha69}. In the just cited paper  Thatcher proved, among other things, that linear tree homomorphisms preserve recognizability. We shall now consider a class of many-sorted \emph{homomorphisms}, the tree homomorphisms---which are the generalization to the many-sorted field of the  tree homomorphism defined by G\'{e}cseg and Steinby in~\cite{GS84}, Definition~4.13., on p.~78--- which go from a \emph{free} many-sorted algebra (of a certain many-sorted signature $(S,\Sigma)$) to another many-sorted algebra (of the same many-sorted signature), itself derived from a \emph{free} many-sorted algebras (of another many-sorted signature $(T,\Xi)$). These tree homomorphisms, as we will prove, have the property of reflecting suitable recognizable languages. Moreover, we will define a proper subset of the set of the tree homomorphisms, the linear tree homomorphisms, and we will prove that they have the remarkable property of preserving recognizable languages.
 
+\blockid{B-D140}
 \begin{definition}
 Let $\varphi\colon S\mor T$ be a mapping. Then we will denote by $\Delta_{\varphi}$ the functor from $\mathbf{Set}^{T}$ to $\mathbf{Set}^{S}$ that sends a $T$-sorted set $A$ the $S$-sorted set $A_{\varphi} = (A_{\varphi(s)})_{s\in S}$, i.e., $A\circ \varphi$, and a $T$-sorted mapping $f\colon A\mor B$ to the $S$-sorted mapping $f_{\varphi} = (f_{\varphi(s)})_{s\in  S}\colon A_{\varphi}\mor B_{\varphi}$.
 \end{definition}
 
+\blockid{B-R139}
 \begin{remark}
 The functor $\Delta_{\varphi}$ has a left and a right adjoint.
 \end{remark}
@@ -3259,6 +3393,7 @@ V^{T}_{(\downarrow\varphi^{\star}(w))_{t}} = \{v^{t}_{i}\mid i\in (\downarrow\!\
 $$
 Since $V^{T}_{\downarrow\varphi^{\star}(w)}$ is isomorphic to $\downarrow\!\varphi^{\star}(w)$, we abbreviate $V^{T}_{\downarrow\varphi^{\star}(w)}$ to $\downarrow\!\varphi^{\star}(w)$. Let us note that $\mathrm{card}(V^{T}_{\downarrow\varphi^{\star}(w)})$, the total number of variables, is $\bb{w} = \bb{\varphi^{\star}(w)}$. Moreover, for every $i\in \bb{w}$, the number of variables of type $\varphi(w_{i})$ is $\bb{\varphi^{\star}(w)}_{\varphi(w_{i})}$ (while, for $t\in T-\mathrm{Im}(\varphi^{\star}(w))$, $V^{T}_{(\downarrow\varphi^{\star}(w))_{t}} = \varnothing$).
 
+\blockid{B-R140}
 \begin{remark}
 For $V^{T}_{\downarrow\varphi^{\star}(w)}$, if we disregard the classification into types, then we have the following variables:
 $$
@@ -3281,12 +3416,14 @@ $$
 
 %we will denote by $(\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}})_{t\in T}$ the $T$-sorted set, where, for every $t\in T$, $\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}}$ is the set of the first $\bb{\varphi^{\star}(w)}_{t}$ variables in $V^{T}_{t}$ (the infinite countable set of the variables of type $t$). Therefore, $\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}} = \varnothing$, if $t\notin \mathrm{Im}(\varphi^{\star}(w))$; while $\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}} = \{v^{t}_{j}\mid j\in \bb{\varphi^{\star}(w)}_{t}\}$, if  $t\in \mathrm{Im}(\varphi^{\star}(w))$. Since $(\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}})_{t\in T}$ is isomorphic to $\downarrow\!\varphi^{\star}(w)$, we abbreviate $(\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}})_{t\in T}$ to $\downarrow\!\varphi^{\star}(w)$. Let us note that $\mathrm{card}((\downarrow\! v^{t}_{\bb{\varphi^{\star}(w)}_{t}})_{t\in T})$, the total number of variables, is $\bb{w} = \bb{\varphi^{\star}(w)}$. Moreover, for every $i\in \bb{w}$, the number of variables of type $\varphi(w_{i})$ is $\bb{\varphi^{\star}(w)}_{\varphi(w_{i})}$.
 
+\blockid{B-D141}
 \begin{definition}
 A \emph{many-sorted signature} is an ordered pair $\mathbf{\Sigma} = (S,\Sigma)$ where $S$ is a set (of sorts) and $\Sigma$ an $S$-sorted signature.
 \end{definition}
 
 We next define the notion of hyperderivor from a pair $(\mathbf{\Sigma},X)$, where $\mathbf{\Sigma}$ is a many-sorted signature and $X$ an $S$-sorted set, to another pair $(\mathbf{\Xi},Y)$, where $\mathbf{\Xi} = (T,\Xi)$ is a many-sorted signature and $Y$ a $T$-sorted set.
 
+\blockid{B-D142}
 \begin{definition}%[\protect{\cite[Definition~2.4.13.]{GS84}}]
 Let $\mathbf{\Sigma}$ and $\mathbf{\Xi}$ be many-sorted signatures, $X$ an $S$-sorted set, and $Y$ a $T$-sorted set. A \emph{hyperderivor from} $(\mathbf{\Sigma},X)$ \emph{to} $(\mathbf{\Xi},Y)$ is an ordered pair $((\varphi,c),f)$, denoted by $(\mathbf{c},f)$, where $\varphi$ is a mapping from $S$ to $T$,
 $c = (c_{w,s})_{(w,s)\in S^{\star}\times S}$ an $S^{\star}\times S$-sorted mapping from $\Sigma$ to $(\mathrm{T}_{\Xi}(Y\cup \downarrow\!\varphi^{\star}(w))_{\varphi(s)})_{(w,s)\in S^{\star}\times S}$, and $f$ an $S$-sorted mapping from $X$ to $\mathrm{T}_{\Xi}(Y)_{\varphi}$. We will say that a hyperderivor $(\mathbf{c},f)$ from $(\mathbf{\Sigma},X)$ \emph{to} $(\mathbf{\Xi},Y)$ is \emph{linear} if, for every $(w,s)\in S^{\star}\times S$, every $\sigma\in\Sigma_{w,s}$, and every $i\in \bb{w}$, no variable $v^{\varphi(w_{i})}_{i}$ appears more than once in $c_{w,s}(\sigma)$, i.e., $\bb{c_{w,s}(\sigma)}_{v^{\varphi(w_{i})}_{i}}\leq 1$.
@@ -3294,12 +3431,14 @@ $c = (c_{w,s})_{(w,s)\in S^{\star}\times S}$ an $S^{\star}\times S$-sorted mappi
 %%for every $(w,s)\in S^{\star}\times S$, every $\sigma\in \Sigma_{w,s}$, every $t\in T$, and every $i\in \varphi^{\star}(w)^{-1}[\{t\}]$, we have that $\mathrm{card}(\bb{d_{w,s}(\sigma)}_{v_{i}^{t}})\leq 1$.
 \end{definition}
 
+\blockid{B-R141}
 \begin{remark}
 The reason for the terminology \emph{hyperderivor} lies in the analogy with the notion of derivor defined by Goguen, Thatcher, and Wagner in~\cite{gtw85}, on p.~137.
 \end{remark}
 
 We show now that, for every hyperderivor $(\mathbf{c},f)$ from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Xi},Y)$, the $S$-sorted set $\mathrm{T}_{\Xi}(Y)_{\varphi}$ is equipped, in a natural way, with a structure of $\Sigma$-algebra. But for this we need to show that, given a mapping $\varphi$ from a set of sorts $S$ to another $T$ and a $T$-sorted set $Y$, it happens that, for every $w\in S^{\star}$ and every $(P_{i})_{i\in\bb{w}}\in \mathrm{T}_{\Xi}(Y)_{\varphi^{\star}(w)}$, there exists a canonical homomorphism $\mathrm{S}^{w}_{(P_{i})_{i\in\bb{w}}}$ from $\mathbf{T}_{\Xi}(Y\cup \downarrow\!\varphi^{\star}(w))$ to $\mathbf{T}_{\Xi}(Y)$. In what follows we will assume that, for every $w\in S^{\star}$, $Y\cap\downarrow\!\varphi^{\star}(w) = \varnothing^{T}$.
 
+\blockid{B-R142}
 \begin{remark}
 Let us note that the just stated assumption is not, in anyway, a loss in generality. Actually, given a $T$-sorted set $A$ and an $I$-indexed family $(B^{i})_{i\in I}$ of $T$-sorted sets there exists a $T$-sorted set $C$ such that $A\cong C$ and, for every $i\in I$, $C\cap B^{i} = \varnothing^{T}$. In fact, it suffices, by the Axiom of Regularity, to take as $C$ the $T$-sorted set defined, for every $t\in T$, as $C_{t} = A_{t}\times \{\{(i,B^{i}_{t})\mid i\in I\}\}$.
 \end{remark}
@@ -3311,6 +3450,7 @@ $$
 On the other hand, since $\mathbf{T}_{\Xi}$ has a right adjoint, the $\Xi$-algebras $\mathbf{T}_{\Xi}(Y\cup\downarrow\!\varphi^{\star}(w))$ and $\mathbf{T}_{\Xi}(Y)\coprod\mathbf{T}_{\Xi}(\downarrow\!\varphi^{\star}(w))$ are naturally isomorphic. Then, finally, we let $\mathrm{S}^{w}_{(P_{i})_{i\in\bb{w}}}$ stand for $\left[\mathrm{id}_{\mathbf{T}_{\Xi}(Y)},\left(\left(\!\begin{smallmatrix}v^{\varphi(w_{i})}_{i}\\ P_{i}\end{smallmatrix}\!\right)_{i\in \bb{w}}\right)^{\sharp}\right]$, the unique homomorphism from $\mathbf{T}_{\Xi}(Y\cup
 \downarrow\!\varphi^{\star}(w))$ to $\mathbf{T}_{\Xi}(Y)$ obtained, from $\mathrm{id}_{\mathbf{T}_{\Xi}(Y)}$ and $\left(\left(\!\begin{smallmatrix}v^{\varphi(w_{i})}_{i}\\ P_{i}\end{smallmatrix}\!\right)_{i\in \bb{w}}\right)^{\sharp}$, by the universal property of the coproduct.
 
+\blockid{B-P144}
 \begin{proposition}
 Let $(\mathbf{c},f)$ be a hyperderivor from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Xi},Y)$. Then the $S$-sorted set $\mathrm{T}_{\Xi}(Y)_{\varphi}$ is equipped, in a natural way, with a structure of $\Sigma$-algebra.
 \end{proposition}
@@ -3341,6 +3481,7 @@ Let us note that since $(\bigcup_{i\in\bb{w}}\mathrm{Var}(P_{i}))\cap V^{T} = \v
 %Hence $tm^{(\mathbf{d},f)}\circ \eta_{X} = f$. Therefore, by the uniqueness of the canonical extensión, $tm^{(\mathbf{d},f)} = f^{\sharp}$.
 \end{proof}
 
+\blockid{B-D143}
 \begin{definition}
 Let $(\mathbf{c},f)$ be a hyperderivor from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Xi},Y)$. Then the unique homomorphism $f^{\sharp}$ from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{c}(\mathbf{T}_{\Xi}(Y))$ such that $f^{\sharp}\circ\eta_{X} = f$ will be called the \emph{tree homomorphism} determined by the hyperderivor $(\mathbf{c},f)$. Moreover, $f^{\sharp}$ will be called \emph{linear} if $(\mathbf{c},f)$ is linear.
 \end{definition}
@@ -3408,6 +3549,7 @@ G\'{e}cseg and Steinby in~\cite{GS84}, on p.~70, wrote: ``Tree homomorphisms are
 
 In~\cite{GS84}, Theorem~4.18., on p.~82, Gócseg and Steinby proved, in the single-sorted case, that the inverse image of a recognizable language under a tree homomorphism is a recognizable language. We next extend Gócseg and Steinby's result to the many-sorted case.
 
+\blockid{B-P145}
 \begin{proposition}\label{IndAlgStrucImHom}
 Let $(\mathbf{c},f)$ be a hyperderivor from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Xi},Y)$, $\mathbf{A}$ a $\Xi$-algebra, and $g$ a surjective homomorphism from $\mathbf{T}_{\Xi}(Y)$ to $\mathbf{A}$. Then there exists a structure of $\Sigma$-algebra  $F^{\mathbf{c}(\mathbf{A})}$ on $A_{\varphi}$ such that $g_{\varphi}$ is a homomorphism from $\mathbf{c}(\mathbf{T}_{\Lambda}(Y))$ to $\mathbf{c}(\mathbf{A}) = (A_{\varphi},F^{\mathbf{c}(\mathbf{A})})$.
 \end{proposition}
@@ -3482,6 +3624,7 @@ P^{\varphi(w_{i})}_{i}
 $$
 \end{proof}
 
+\blockid{B-P146}
 \begin{proposition}\label{PRecH}
 Let $(\mathbf{c},f)$ be a hyperderivor from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Xi},Y)$, $f^{\sharp}$ the tree homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{c}(\mathbf{T}_{\Xi}(Y))$ determined by $(\mathbf{c},f)$, $s\in S$, and $L\in\mathrm{Rec}_{\varphi(s)}(\mathbf{T}_{\Xi}(Y))$. Then $\left(f^{\sharp}_{\varphi(s)}\right)^{-1}[L]\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$.
 \end{proposition}
@@ -3492,10 +3635,12 @@ It follows from the definition of recognizability relative to a sort and from Pr
 
 Our immediate goal is to prove the many-sorted version of Theorem~4.16., on p.~80, in \cite{GS84}. The proposition states that, for a sort $s\in S$, if the language $L$ is $s$-recognizable, then its direct image by the $s$-th coordinate of a linear tree homomorphism $f^{\sharp}$ is $\varphi(s)$-recognizable.
 
+\blockid{B-A108}
 \begin{assumption}
 To prove the following proposition we will assume that $S$, $T$, $\Sigma$ and $X$ are finite.
 \end{assumption}
 
+\blockid{B-P147}
 \begin{proposition}\label{PRecLH}
 Let $(\mathbf{c},f)$ be a linear hyperderivor from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Xi},Y)$, $f^{\sharp}$ the linear tree homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{c}(\mathbf{T}_{\Xi}(Y))$ determined by $(\mathbf{c},f)$, $s\in S$, and $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{s}$. If $L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$, then $f^{\sharp}_{s}[L]\in\mathrm{Rec}_{\varphi(s)}(\mathbf{T}_{\Xi}(Y))$.
 \end{proposition}
@@ -3624,12 +3769,14 @@ c_{w,s}
 $$
 we have that $(f\circ\eta_{X})^{\sharp}\colon \mathbf{T}_{\Sigma}(X)\mor \mathbf{T}_{\Sigma}(Y)$, the tree homomorphism determined by the pair $((\mathrm{id}_{S},c),f\circ\eta_{X})$, is $f$.
 
+\blockid{B-C111}
 \begin{corollary}
 Let $f$ be a homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{T}_{\Sigma}(Y)$, $s\in S$ and $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{s}$. If $L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$, then $f_{s}[L]\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(Y))$.
 \end{corollary}
 
 We next provide, among other things, a categorial rendering of the just indicated result, but for a suitable class of homomorphisms.
 
+\blockid{B-P148}
 \begin{proposition}
 Let $\mathrm{Rec}_{\Sigma}$ be the mapping that sends an $S$-sorted set $X$ to the $\Sigma$-algebra $\mathbf{Rec}_{\boldsymbol{\cdot}}(\mathbf{T}_{\Sigma}(X))$ and an $S$-sorted mapping $f$ from $X$ to $Y$ to the $S$-sorted mapping $(f^{@})^{\wp} = (f^{@}_{s}[\cdot])_{s\in S}$ from $(\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X)))_{s\in S}$ to $(\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(Y)))_{s\in S}$, where, we recall, $f^{@}$ is the unique homomorphism from $\mathbf{T}_{\Sigma}(X)$ to $\mathbf{T}_{\Sigma}(Y)$ such that $f^{@}\circ\eta_{X} = \eta_{Y}\circ f$---let us note that  $(f^{@})^{\wp}$ is an $S$-sorted mapping from $\mathrm{T}_{\Sigma}(X)^{\wp}$ to $\mathrm{T}_{\Sigma}(Y)^{\wp}$, and that to simplify notation we have used the same symbol for its restriction to $(\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X)))_{s\in S}$ and $(\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(Y)))_{s\in S}$. Then, for every $(w,s)\in S^{\star}\times S$ and every $\sigma\in \Sigma_{w,s}$, $f^{@}_{s}[\cdot]\circ \sigma^{\wp} = \sigma^{\wp}\circ f^{@}_{w}[\cdot]$, i.e., for every $(L_{i})_{i\in \bb{w}}\in \prod_{i\in \bb{w}}\mathrm{Rec}_{w_{i}}(\mathbf{T}_{\Sigma}(X))$, the sets
 \begin{gather*}
@@ -3672,10 +3819,12 @@ Finally, let $f\colon X\mor Y$ an $S$-sorted mapping. Then the homomorphism $(f^
 
 From the just stated proposition and Proposition~\ref{Rec SubdirectProd sRec} we obtain the following corollary.
 
+\blockid{B-C112}
 \begin{corollary}
 Let $X$ be an $S$-sorted set. Then the Boolean algebra $\mathbf{Rec}(\mathbf{T}_{\Sigma}(X))$ is a subdirect product of the family of Boolean algebras $(\mathbf{Rec}_{s}(\mathbf{T}_{\Sigma}(X)))_{s\in S}$. Moreover, if $f\colon X\mor Y$ is an $S$-sorted mapping, then $f^{@}[\cdot]$ and $\prod(f^{@})^{\wp} = \prod_{s\in S}f^{@}_{s}[\cdot]$ are compatible with the subdirect embeddings of $\mathbf{Rec}(\mathbf{T}_{\Sigma}(X))$ and $\mathbf{Rec}(\mathbf{T}_{\Sigma}(Y))$ into $\prod_{s\in S}\mathbf{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$ and $\prod_{s\in S}\mathbf{Rec}_{s}(\mathbf{T}_{\Sigma}(Y))$, respectively.
 \end{corollary}
 
+\blockid{B-R143}
 \begin{remark}
 From the results stated above it seems natural to consider categories of the type $\mathbf{BoolOp}^{S}$, where $\mathbf{BoolOp}$ is a category of Boolean algebras with operators, and to investigate a duality theory for them. Toward this end it is perhaps worth pointing out that, for a finite set of sorts $S$, since the discrete category determined by $S$ is loopless (it has no non-identity endomorphisms), $\mathbf{Pro}(\mathbf{Set}_{\mathrm{f}}^{S})$ is equivalent to $(\mathbf{Pro}(\mathbf{Set}_{\mathrm{f}}))^{S}$. But $(\mathbf{Pro}(\mathbf{Set}_{\mathrm{f}}))^{S}$ and $\mathbf{Stone}^{S}$ are equivalent, because  $\mathbf{Pro}(\mathbf{Set}_{\mathrm{f}})$ and $\mathbf{Stone}$ are equivalent. Thus $\mathbf{Pro}(\mathbf{Set}_{\mathrm{f}}^{S})$ and $\mathbf{Stone}^{S}$ are equivalent. Therefore $(\mathbf{Bool}^{S})^{\mathrm{op}}$ and $\mathbf{Stone}^{S}$ are equivalent.
 \end{remark}
@@ -3902,6 +4051,7 @@ Following Thatcher's first dictum, in this subsection, after defining the variet
 Before defining the notion of Hall algebra, we recall that (1) a finitary specification is an ordered triple $(S,\Sigma,\mathcal{E})$, where $S$ is a set of sorts, $\Sigma$ an $S$-sorted signature, and $\mathcal{E}\subseteq\mathrm{Eq}_{V^{S}}(\Sigma)=
 (\mathrm{T}_{\Sigma}(X)_{s}^{2})_{(X,s)\in \mathrm{Sub}_{\mathrm{f}}(V^{S})\times S}$, i.e., a set of finitary  $\Sigma$-equations, where $V^{S}$, the $S$-sorted set of the variables, is a fixed $S$-countably infinite $S$-sorted set; and that (2) a $\Sigma$-algebra $\mathbf{A}$ is a $(S,\Sigma,\mathcal{E})$-algebra if $\mathbf{A}\models^{\Sigma} \mathcal{E}$, i.e., if, for every $(X,s)\in \mathrm{Sub}_{\mathrm{f}}(V^{S})\times S$ and every $(P,Q)\in \mathcal{E}_{X,s}$, $\mathbf{A}$ is a model of $(P,Q)$, in symbols $\mathbf{A}\models^{\Sigma}_{X,s} (P,Q)$, which in turn means that, for every $a\in \mathrm{Hom}(X,A)$, $a^{\sharp}_{s}(P) = a^{\sharp}_{s}(Q)$.
 
+\blockid{B-D144}
 \begin{definition}
 Let $S$ be a set of sorts and $V^{\mathrm{H}_{S}}$ the $S^{\star}\times S$-sorted set of variables $(V_{w,s})_{(w,s)\in
 S^{\star}\times S}$ where $V_{w,s} = \{\,v^{w,s}_{n}\mid n\in \mathbb{N}\,\}$, for every $(w,s)\in S^{\star}\times S$.  A
@@ -3983,6 +4133,7 @@ which assigns to an $S^{\star}\times S$-sorted set $\Sigma$ the corresponding fr
 $\mathbf{T}_{\mathrm{H}_{S}}(\Sigma)$.
 \end{definition}
 
+\blockid{B-R144}
 \begin{remark}
 From $\mathrm{H}_{3}$, for $w=\lambda$, the empty word on $S$, we get the invariance of constant functions axiom in~\cite{gm85}: For every $u$, $v\in S^{\star}$ and $s\in S$, we have the equation
 $$
@@ -3995,6 +4146,7 @@ of type $(((\lambda,s),(u,v_{0}),\ldots,(u,v_{\bb{v}-1})),(u,s))$.
 
 For every $S$-sorted set $A$, $\mathrm{Op}_{\mathrm{H}_{S}}(A) = (\mathrm{Hom}(A_{w},A_{s}))_{(w,s)\in S^{\star}\times S}$, the $S^{\star}\times S$-sorted set of operation for $A$, is naturally equipped with a structure of Hall algebra, as stated in the following proposition, if we realize the projections as the true projections and the substitution operators as the generalized composition of mappings.
 
+\blockid{B-P149}
 \begin{proposition}
 Let $A$ be an $S$-sorted set and $\mathbf{Op}_{\mathrm{H}_{S}}(A)$ the $\Sigma^{\mathrm{H}_{S}}$-algebra with underlying many-sorted set $\mathrm{Op}_{\mathrm{H}_{S}}(A)$ and algebraic structure defined as follows:
 \begin{enumerate}
@@ -4016,12 +4168,14 @@ Let $A$ be an $S$-sorted set and $\mathbf{Op}_{\mathrm{H}_{S}}(A)$ the $\Sigma^{
 Then $\mathbf{Op}_{\mathrm{H}_{S}}(A)$ is a Hall algebra, the \emph{Hall algebra for} $(S,A)$.
 \end{proposition}
 
+\blockid{B-R145}
 \begin{remark}
 The closed sets of the Hall algebra $\mathbf{Op}_{\mathrm{H}_{S}}(A)$ for $(S,A)$ are precisely the clones of (many-sorted) operations on the $S$-sorted set $A$. On the other hand, every $\Sigma$-algebra $\mathbf{A}$ has associated a Hall algebra. In fact, it suffices to consider $\mathbf{Op}_{\mathrm{H}_{S}}(A)$, denoted by $\mathbf{Op}_{\mathrm{H}_{S}}(\mathbf{A})$. Moreover, the finitary term operations on $\mathbf{A}$ and the finitary algebraic operations on $\mathbf{A}$ are subalgebras of the Hall algebra $\mathbf{Op}_{\mathrm{H}_{S}}(\mathbf{A})$.
 \end{remark}
 
 For every $S$-sorted signature $\Sigma$, $\mathrm{Ter}_{\mathrm{H}_{S}}(\Sigma) = (\mathrm{T}_{\Sigma}(\vs{w})_{s})_{(w,s)\in S^{\star}\times S}$ is also e\-quipped with a structure of Hall algebra that formalizes the concept of substitution as stated in the following proposition.
 
+\blockid{B-P150}
 \begin{proposition}
 Let $\Sigma$ be an $S$-sorted signature and $\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)$ the $\Sigma^{\mathrm{H}_{S}}$-algebra
 with underlying many-sorted set $\mathrm{Ter}_{\mathrm{H}_{S}}(\Sigma)$ and algebraic structure defined as follows:
@@ -4061,10 +4215,12 @@ with underlying many-sorted set $\mathrm{Ter}_{\mathrm{H}_{S}}(\Sigma)$ and alge
 Then $\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)$ is a Hall algebra, the \emph{Hall algebra for} $(S,\Sigma)$.
 \end{proposition}
 
+\blockid{B-R146}
 \begin{remark}
 For every $\Sigma$-algebra $\mathbf{A}$ there exists a homomorphism from the Hall algebra $\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)$ to the Hall algebra $\mathbf{Op}_{\mathrm{H}_{S}}(\mathbf{A})$ and its image is the Hall subalgebra of the finitary term operations on $\mathbf{A}$.
 \end{remark}
 
+\blockid{B-P151}
 \begin{proposition}
 Let $\Sigma$ be an $S$-sorted signature. Then $\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)^{\wp}$ is a Hall algebra.
 \end{proposition}
@@ -4081,6 +4237,7 @@ $S^{\star}\times S$-mapping $f\colon\Sigma\mor A$, and a word $u\in S^{\star}$, 
 $\mathbf{A}$ for $(f,u)$, since it will be used afterwards in the proof of the isomorphism between
 $\mathbf{T}_{\mathrm{H}_{S}}(\Sigma)$ and $\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)$.
 
+\blockid{B-D145}
 \begin{definition}
 Let $\mathbf{A}$ be a Hall algebra and $\Sigma$ an $S$-sorted signature. Then, for every $f\colon\Sigma\mor A$ and $u\in
 S^{\star}$, $\mathbf{A}^{f,u}$, the \emph{derived} $\Sigma$-\emph{algebra} \emph{of} $\mathbf{A}$ \emph{for} $(f,u)$,
@@ -4100,11 +4257,13 @@ Furthermore, we will denote by $p^{u}$ the $S$-sorted mapping from $\vs{u}$ to $
 $\mathbf{T}_{\Sigma}(\vs{u})$ to $\mathbf{A}^{f,u}$ such that $(p^{u})^{\sharp}\circ \eta_{\vs{u}} = p^{u}$.
 \end{definition}
 
+\blockid{B-R147}
 \begin{remark}
 For a $\Sigma$-algebra $\mathbf{B}=(B,G)$, we have that $G\colon\Sigma\mor\mathrm{Op}_{\mathrm{H}_{S}}(B)$ and
 $\mathbf{B}\iso\mathbf{Op}_{\mathrm{H}_{S}}(B)^{G,\lambda}$, where $\lambda$ is the empty word on $S$.  Besides, for every $u\in S^{\star}$, we have that $\mathbf{B}^{B_{u}}$, the direct $B_{u}$-power of $\mathbf{B}$, is isomorphic to $\mathbf{Op}_{\mathrm{H}_{S}}(B)^{G,u}$.
 \end{remark}
 
+\blockid{B-L102}
 \begin{lemma}\label{L:aux}
 Let $\Sigma$ be an $S$-sorted signature, $\mathbf{A}$ a Hall algebra, $f\colon\Sigma\mor A$ and $u\in S^{\star}$.  Then, for
 every $(w,s)\in S^{\star}\times S$, $P\in \mathrm{T}_{\Sigma}(\vs{w})_{s}$ and $a\in \prod_{i\in \bb{w}}A_{u,w_{i}}$, we have that
@@ -4206,6 +4365,7 @@ Let us assume that $P = \sigma(Q_{0},\ldots,Q_{\bb{x}-1})$, with $\sigma\colon x
 
 Next we prove that, for every $S^{\star}\times S$-sorted set $\Sigma$, the Hall algebra for $(S,\Sigma)$ is isomorphic to the free Hall algebra on $\Sigma$.
 
+\blockid{B-P152}
 \begin{proposition}\label{iso:FrH-TerH}
 Let $\Sigma$ be an $S$-sorted signature, i.e., an $S^{\star}\times S$-sorted set.  Then the Hall algebra $\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)$ is isomorphic to $\mathbf{T}_{\mathrm{H}_{S}}(\Sigma)$.
 \end{proposition}
@@ -4308,6 +4468,7 @@ The derived operation symbols of an signature can be considered as the operation
 %As Engelfriet, in \cite{je15}, p.~26, wrote: ``\ldots a tree homomorphism [for Engelfriet ``tree homomorphism'' $\equiv$ ``derivor'', we add] has the abilities of \emph{deleting}, \ldots, \emph{copying} \ldots and \emph{permuting} \ldots subtrees [``subtrees'' $\equiv$ ``subterms'', we add].''
 %For a many-sorted signature $(S,\Sigma)$, in the sequel, $\Ter_{\mathrm{H}_{S}}(\Sigma)$ will stand for  $\Ter_{\mathrm{H}}(S,\Sigma)$.
 
+\blockid{B-D146}
 \begin{definition}
 Let $\mathbf{\Sigma} = (S,\Sigma)$ and $\mathbf{\Lambda} = (T,\Lambda)$ be many-sorted signatures. A \emph{derivor} from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$ is an ordered pair $\mathbf{d} = (\varphi,d)$, where $\varphi\colon S\mor T$ and  $d\colon\Sigma\mor\mathrm{Ter}_{\mathrm{H}_{T}}(\Lambda)_{\varphi^{\star}\times\varphi}$. Thus, for every $(w,s)\in S^{\star}\times S$, %
 $$
@@ -4316,6 +4477,7 @@ d_{w,s}\colon \Sigma_{w,s}\mor\mathrm{Ter}_{\mathrm{H}_{T}}(\Lambda)_{\varphi^{\
 $$
 \end{definition}
 
+\blockid{B-R148}
 \begin{remark}
 While derivors are not the most general type of morphism that might be considered between many-sorted signatures---for instance, one could consider, in addition to hyperderivors, polyderivors, see~\cite{CVST10}---, they are an important class of such morphisms. One reason for its relevance is its formal properties (see below), another that there are many mathematical examples of them which are of interest (see~\cite{CVST10}).
 \end{remark}
@@ -4330,6 +4492,7 @@ While derivors are not the most general type of morphism that might be considere
 
 We next introduce the linear derivors, which, as we will see later on, are a re\-mark\-able subclass of the class of the derivors, especially in regards to recognizability, the same as linear hyperderivors are with respect to hyperderivors.
 
+\blockid{B-D147}
 \begin{definition}
 Let $\mathbf{d}\colon\mathbf{\Sigma}\mor\mathbf{\Lambda}$ be a derivor from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$. We will say that $\mathbf{d}$ is \emph{linear} if, for every $(w,s)\in S^{\star}\times S$, every $\sigma\in\Sigma_{w,s}$, and every $i\in \bb{w}$, no variable $v^{\varphi(w_{i})}_{i}$ appears more than once in $d_{w,s}(\sigma)$, i.e., $\bb{d_{w,s}(\sigma)}_{v^{\varphi(w_{i})}_{i}}\leq 1$.
 
@@ -4341,6 +4504,7 @@ Proposition~\ref{iso:FrH-TerH}, $\mathbf{Ter}_{\mathrm{H}_{T}}(\Lambda)$ is isom
 
 On the other hand, every mapping $\varphi\colon S\mor T$ determines a functor from the category  $\mathbf{Alg}(\mathrm{H}_{T})$ to the category $\mathbf{Alg}(\mathrm{H}_{S})$, so $\mathrm{Ter}_{\mathrm{H}_{T}}(\Lambda)_{\varphi^{\star}\times\varphi}$ is in its turn e\-quipped with a structure of Hall algebra for $S$, which will allow us, in particular, to define the composition of derivors. We next show the existence of such a functor by defining a morphism of algebraic presentations from  $(\Sigma^{\mathrm{H}_{S}},\mathcal{E}^{\mathrm{H}_{S}})$ to $(\Sigma^{\mathrm{H}_{T}},\mathcal{E}^{\mathrm{H}_{T}})$.
 
+\blockid{B-P153}
 \begin{proposition}
 Let $\varphi\colon S\mor T$ be a mapping between sets of sorts and $h^{\varphi}$ the $S^{\star}\times S$-sorted mapping from $\Sigma^{\mathrm{H}_{S}}$ to $\Sigma^{\mathrm{H}_{T}}_{\varphi^{\star}\times \varphi}$ defined as follows: %
 %
@@ -4361,6 +4525,7 @@ If $\mathbf{d}\colon\mathbf{\Sigma}\mor\mathbf{\Lambda}$ is a derivor, then
 $d\colon \Sigma\mor \mathrm{Ter}_{\mathrm{H}_{T}}(\Lambda)_{\varphi^{\star}\times\varphi}$ determines a homomorphism of Hall algebras $d^{\sharp}\colon\mathbf{Ter}_{\mathrm{H}_{S}}(\Sigma)\mor
 \mathbf{Ter}_{\mathrm{H}_{T}}(\Lambda)_{\varphi^{\star}\times\varphi}$. Thus, for every $(w,s)\in S^{\star}\times S$, $d^{\sharp}_{w,s}$ sends terms in $\mathrm{T}_{\Sigma}(\vs{w})_{s}$ to terms in $\mathrm{T}_{\Lambda}(\vs{\varphi^{\star}(w)})_{\varphi(s)}$.
 
+\blockid{B-D148}
 \begin{definition}
 Let $\mathbf{d}\colon\mathbf{\Sigma}\mor\mathbf{\Lambda}$ and $\mathbf{d}\colon\mathbf{\Lambda}\mor\mathbf{\Omega}$ be  derivors. Then $\mathbf{e}\circ \mathbf{d} = (\psi,e)\circ(\varphi,d)$, the \emph{composition} of $\mathbf{d}$ and  $\mathbf{e}$, is the derivor $(\psi\circ\varphi,e^{\sharp}_{\varphi^{\star}\times
 \varphi}\circ d)$, where $e^{\sharp}_{\varphi^{\star}\times\varphi}\circ d$ is obtained from
@@ -4395,10 +4560,12 @@ is $(\id_{S},\eta_{\Sigma})$.
 
 The just stated definition allows us to form a category of many-sorted signatures whose morphisms are the derivors.
 
+\blockid{B-P154}
 \begin{proposition}
 The many-sorted signatures together with the derivors constitute a category, denoted by $\mathbf{Sig}_{\mathfrak{d}}$.
 \end{proposition}
 
+\blockid{B-R149}
 \begin{remark}
 Let $\mathbf{Sig}$ be the category whose objects are the many-sorted signatures and whose morphisms from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$ are the ordered pairs $(\varphi,d)$, where $\varphi$ is a mapping from $S$ to $T$ and $d$ an $S^{\star}\times S$-sorted mapping from $\Sigma$ to $\Lambda_{\varphi^{\star}\times \varphi}$ (thus a mapping in $\mathbf{Sig}(S)$). Note that $\mathbf{Sig}$ is the category obtained by means of the Grothendieck construction for an  appropriate contravariant functor from $\mathbf{Set}$ to $\mathbf{Cat}$.
 We next show that the category $\mathbf{Sig}_{\mathfrak{d}}$ can be obtained as the Kleisli category for a suitable monad. In fact, for every  set of sorts $S$, we have the adjoint situation $\mathbf{T}_{\mathrm{H}_{S}}\dashv\mathrm{G}_{\mathrm{H}_{S}}$
@@ -4412,6 +4579,7 @@ and, thus, a monad on $\mathbf{Sig}(S)$ which we will denote by $\mathbb{T}_{\ma
 
 \end{remark}
 
+\blockid{B-R150}
 \begin{remark}
 Since $\mathbf{Sig}$ has coproducts, $\mathbf{Kl}(\boldsymbol{\mathfrak{d}})\cong \mathbf{Sig}_{\mathfrak{d}}$ has coproducts.
 \end{remark}
@@ -4424,6 +4592,7 @@ Since $\mathbf{Sig}$ has coproducts, $\mathbf{Kl}(\boldsymbol{\mathfrak{d}})\con
 
 We next associate to every derivor $\mathbf{d}\colon\mathbf{\Sigma}\mor\mathbf{\Lambda}$ a functor from  $\mathbf{Alg}(\mathbf{\Lambda}) (= \mathbf{Alg}(\Lambda))$ to $\mathbf{Alg}(\mathbf{\Sigma}) (= \mathbf{Alg}(\Sigma))$.
 
+\blockid{B-P155}
 \begin{proposition}
 Let $\mathbf{d}\colon\mathbf{\Sigma}\mor\mathbf{\Lambda}$ be a morphism in
 $\mathbf{Sig}_{\mathfrak{d}}$. Then $\mathrm{Alg}_{\mathfrak{d}}(\mathbf{d})$ is the functor from  $\mathbf{Alg}(\mathbf{\Lambda})$ to $\mathbf{Alg}(\mathbf{\Sigma})$ that sends $(B,G)$ to $(B_{\varphi},G^{\mathbf{d}})$ and a homomorphism $f$ from $(B,G)$ to $(B',G')$ to the homomorphism $f_{\varphi}$ from $(B_{\varphi},G^{\mathbf{d}})$ to  $(B'_{\varphi},{G'}^{\mathbf{d}})$,
@@ -4524,6 +4693,7 @@ commutes.
 
 The previous construction can be extended up to a contravariant functor from the category $\mathbf{Sig}_{\mathfrak{d}}$ to the category $\mathbf{Cat}$.
 
+\blockid{B-P156}
 \begin{proposition}
 From $\mathbf{Sig}_{\mathfrak{d}}$ to $\mathbf{Cat}$ there exists a contravariant functor,
 denoted by $\mathrm{Alg}_{\mathfrak{d}}$, that sends $(S,\Sigma)$ to $\mathbf{Alg}(S,\Sigma)$ and a morphism  $(\varphi,d)$ from $(S,\Sigma)$ to $(T,\Lambda)$ to the functor $\mathrm{Alg}_{\mathfrak{d}}(\varphi,d)$ from  $\mathbf{Alg}(T,\Lambda)$ to $\mathbf{Alg}(S,\Sigma)$.
@@ -4566,22 +4736,26 @@ F^{(\psi,e)\circ(\varphi,d)}
 thus $({A_{\psi}}_{\varphi},{F^{(\psi,e)}}^{(\varphi,d)})= (A_{\psi\circ\varphi},F^{(\psi,e)\circ (\varphi,d)})$.  Finally, if $f$ is a homomorphism of $(U,\Omega)$-algebras, then ${f_{\psi}}_{\varphi} = f_{\psi\circ\varphi}$.
 \end{proof}
 
+\blockid{B-D149}
 \begin{definition}
 The category $\mathbf{Alg}_{\mathfrak{d}}$ is $\int^{\mathbf{Sig}_{\mathfrak{d}}}\mathrm{Alg}_{\mathfrak{d}}$, i.e., the category obtained by means of the Grothendieck construction applied to the contravariant functor $\mathrm{Alg}_{\mathfrak{d}}$.
 \end{definition}
 
 The category $\mathbf{Alg}_{\mathfrak{d}}$ has as objects the ordered pairs $(\mathbf{\Sigma},\mathbf{A})$, with $\mathbf{\Sigma}$ a many-sorted signature and $\mathbf{A}$ a $\Sigma$-algebra, and as morphisms from $(\mathbf{\Sigma},\mathbf{A})$ to $(\mathbf{\Lambda},\mathbf{B})$ the ordered pairs $(\mathbf{d},f)$, with $\mathbf{d}$ a derivor from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$ and $f$ a homomorphism of $\Sigma$-algebras from $(A,F)$ to $(B_{\varphi},G^{(\varphi,d)})$.
 
+\blockid{B-R151}
 \begin{remark}
 There exists a pseudo-functor $\mathrm{Alg}_{\boldsymbol{\mathfrak{d}}}$ from the 2-category $\mathbf{Sig}_{\boldsymbol{\mathfrak{d}}}$ to the 2-category $\mathbf{Cat}$, contravariant in the 1-cells, i.e., the derivors, and covariant in the 2-cells, i.e., the transformations between derivors (this was already done in~\cite{CVST10} for polyderivors).
 \end{remark}
 
+\blockid{B-P157}
 \begin{proposition}
 Let $\mathbf{d} = (\varphi,d)$ be a derivor (resp., a linear derivor) from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$, $X$ an $S$-sorted set, $Y$ a $T$-sorted set, and $f$ an $S$-sorted mapping from $X$ to $\mathrm{T}_{\Lambda}(Y)_{\varphi}$. Then $(\mathbf{d}^{Y},f) = ((\varphi,d^{Y}),f)$, where $d^{Y}$ is, for every $(w,s)\in S^{\star}\times S$, the composition of $d_{w,s}$, which is a mapping from $\Sigma_{w,s}$ to $\mathrm{T}_{\Lambda}(\downarrow\!\varphi^{\star}(w))_{\varphi(s)}$, and $(\mathrm{in}^{@}_{\downarrow\varphi^{\star}(w), Y\cup\downarrow\varphi^{\star}(w)})_{\varphi(s)}$, the underlying mapping of the component at $\varphi(s)$ of the canonical $\Lambda$-homomorphism $\mathrm{in}^{@}_{\downarrow\varphi^{\star}(w), Y\cup\downarrow\varphi^{\star}(w)}$ from $\mathbf{T}_{\Lambda}(\downarrow\!\varphi^{\star}(w))$ to $\mathbf{T}_{\Lambda}(Y\cup \downarrow\!\varphi^{\star}(w))$, is a hyperderivor (resp., a linear hyperderivor) from $(\mathbf{\Sigma},X)$ to $(\mathbf{\Lambda},Y)$.
 \end{proposition}
 
 In other words, some hyperderivors, but not all of them, are factorizable through a derivor.
 
+\blockid{B-P158}
 \begin{proposition}
 Let $\mathbf{d}$ be a derivor from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$, $X$ an $S$-sorted set, $Y$ a $T$-sorted set, $f$ an $S$-sorted mapping from $X$ to $\mathrm{T}_{\Lambda}(Y)_{\varphi}$, $f^{\sharp}$ the canonical homomorphism of $\Sigma$-algebras from $\mathbf{T}_{\Sigma}(X)$ to $\mathrm{Alg}_{\mathfrak{d}}(\mathbf{d})(\mathbf{T}_{\Lambda}(Y))$, $s\in S$, and $L\in\mathrm{Rec}_{\varphi(s)}(\mathbf{T}_{\Lambda}(Y))$. Then $\left(f^{\sharp}_{\varphi(s)}\right)^{-1}[L]\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$.
 \end{proposition}
@@ -4591,10 +4765,12 @@ It follows from Proposition~\ref{PRecH}.
 \end{proof}
 
 
+\blockid{B-A109}
 \begin{assumption}
 For the following proposition, as was the case with Proposition~\ref{PRecLH}, we will assume that $S$, $T$, $\Sigma$ and $X$ are finite.
 \end{assumption}
 
+\blockid{B-P159}
 \begin{proposition}
 Let $\mathbf{d}$ be a linear derivor from $\mathbf{\Sigma}$ to $\mathbf{\Lambda}$, $X$ an $S$-sorted set, $Y$ a $T$-sorted set, $f$ an $S$-sorted mapping from $X$ to $\mathrm{T}_{\Lambda}(Y)_{\varphi}$, $f^{\sharp}$ the canonical homomorphism of $\Sigma$-algebras from $\mathbf{T}_{\Sigma}(X)$ to $\mathrm{Alg}_{\mathfrak{d}}(\mathbf{d})(\mathbf{T}_{\Lambda}(Y))$, $s\in S$, and $L\in \mathrm{T}_{\Sigma}(X)^{\wp}_{s}$. If $L\in\mathrm{Rec}_{s}(\mathbf{T}_{\Sigma}(X))$, then $f^{\sharp}_{s}[L]\in\mathrm{Rec}_{\varphi(s)}(\mathbf{T}_{\Lambda}(Y))$.
 \end{proposition}

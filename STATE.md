@@ -7447,14 +7447,82 @@ boundary.
 2. Reconcile the representation residuals (R-congruence, R-first) with the
    author, or carry them as declared caveats.
 3. Archive `add-mscong-correspondence` and sync
-   `formalization/mcong-correspondence`.
+   `formalization/mcong-correspondence`. **Done:** archived at
+   `openspec/changes/archive/2026-09-28-add-mscong-correspondence/`, spec
+   synced (`openspec validate --specs`: 15 passed).
+
+## Session 136 -- 2026-09-28 -- M6 full mapping: the whole `MSCong.tex`
+
+**Goal.** Execute the follow-on decision from Session 135: extend the M6 pilot
+to the **complete** `MSCong.tex`. OpenSpec change `add-mscong-full-mapping`
+(active); `openspec validate` = valid.
+
+**What was established (closed).**
+
+- **Minted 176 block IDs**, one for every remaining importer-visible
+  theorem-like environment, extending the pilot to **182 confirmed, 0
+  proposed**. IDs continue the per-kind **`1xx`** range after the pilot:
+  `A101`–`A109`, `C101`–`C112`, `D103`–`D149`, `L101`–`L102`,
+  `P105`–`P159`, `R101`–`R151`; the pilot's `D101`/`D102` and `P101`–`P104`
+  are unchanged. Minting is additive (`\blockid` above each `\begin`), latin1-
+  safe, and leaves the pilot **body hashes identical**.
+- **Full re-ingest.** `blocks/mscong/hashes.json` 218 anchors (182 block IDs +
+  proofs + `Eq1`); `registry.json` 182 confirmed; symbols 360; graph **245
+  candidate edges** (no edge auto-confirmed; `edge_decisions.json` still empty).
+  All `--check` green; `check_crossrefs` still 0 undefined.
+- **Declaration map extended 6 → 22** in `lean/declarations.mscong.json`: the
+  documented M1–M5 counterparts. Preliminary mscong blocks reuse their `Mslang`
+  declarations (`prop_incSat`, `sat_antitone`, `nabla_sat`, `satSets*`,
+  `Signature`); the mscong results map to `PRecSubs`, `PRecQ`, `PRecH`,
+  `PRecLH`, `cStruct`/`cAlg`/`treeHom_isAlgHom`, `derivedAlg_eval`, the
+  recognizability Boolean closure, and the substitution operators.
+  `lean_facets.py --project mscong`: 22 blocks, 39 formal edges;
+  `lean_audit.py --project mscong`: **36 declarations, 0 warnings, 0 `sorry`,
+  ok=True**.
+- **Views/journal.** `reports/mscong/` (coverage, staleness, trust boundary)
+  and `bundle.md` regenerated for the full registry; journal events
+  `EV-000159` (full mint) and `EV-000160` (declaration map). The pilot evidence
+  records remain **current** (their facet hashes and IDs are unchanged).
+- **Gate.** Fast **50 passed, 0 failed**; `projects.py --check`,
+  `--collisions` (182 `mscong` IDs ≥ 100 vs `mslang`'s `0xx`), and
+  `--check-baseline` pass. `projects_test.py` updated for the full mapping.
+
+**Findings / gotchas.**
+
+- **The `B-0xx` range is `mslang`'s.** The pilot design's note that `0xx` was
+  "free for a later document-order assignment" was wrong: `mslang` owns
+  `B-A001`, `B-C001…`, `B-D001…`, `B-D039`, `B-P001…`, `B-R027`, `B-L001`,
+  `B-X001…`. The first mint attempt collided (caught immediately by
+  `projects.py --collisions`); the fix is the `1xx`-continuing scheme in D1 of
+  the change design. This is exactly what the pilot's `1xx` choice protected.
+- The importer sees **182** environments (not the 247 a raw `\begin` count
+  suggests): it strips comments, so commented-out environments are excluded and
+  a handful of `\newtheorem`-declared names are out of `THEOREM_ENVS`.
+- `hash_blocks.py --out` must be passed explicitly; without it the anchors are
+  only printed.
+
+**Deferred (author-visible caveat).** Per-block correspondence/review audits
+for the 176 newly mapped blocks; the `Sig_d`/`Alg_d`/Grothendieck layer; and
+`PRecILH`. Unlabelled propositions (e.g. the iteration/derivor results) are
+mapped as blocks but have no `\label` and no declaration map entry; the
+remaining representation residuals (R-congruence, R-first) still propagate.
+
+**Prioritized next steps.**
+
+1. Author review of the candidate edges (245) so `edge_decisions.json` can
+   confirm them and closures become complete.
+2. Archive `add-mscong-full-mapping` and sync
+   `formalization/mcong-full-mapping`.
+3. Optionally add `\label`s to the unlabelled propositions (prose edit,
+   author-reserved) and audit the representation residuals.
 
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
    trusting this file (Section 10.5). More than one manuscript project lives
    here now: `projects.yaml` is the registry (`mslang` default, `mscong`
-   ingested at the M6 pilot). Resolve any path with `python3
+   fully mapped at M6: 182 block IDs, `B-<letter>1xx`, disjoint from `mslang`'s
+   `0xx`). Resolve any path with `python3
    scripts/projects.py --field <id> <key>` and never hardcode a manuscript
    filename; `scripts/check_all.sh` runs the source-dependent checks once per
    project and names it (`[mslang]`, `[mscong]`), deferring them only for a

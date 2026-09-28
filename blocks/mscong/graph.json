@@ -1,24 +1,995 @@
 {
   "ambiguous_symbols": {
-    "Cgr": [],
-    "Hom": [],
-    "Im": [],
+    "End": [],
+    "Eq": [],
+    "Etl": [],
+    "Fin": [],
+    "Fix": [],
+    "Fnc": [],
+    "G": [],
+    "G_H_S": [],
+    "H": [],
+    "HS": [],
+    "H_S": [],
+    "H_T": [],
+    "Id": [],
+    "In": [],
+    "Lambda": [],
+    "Lemma": [],
+    "Mor": [],
+    "Op_H_S": [],
+    "Op_H_T": [],
+    "Op_w": [],
+    "P": [],
     "Rec_S": [],
     "Rec_lf": [],
-    "Sub_f": [],
+    "Rec_t": [],
+    "Rec_u": [],
+    "S": [],
+    "Sub": [
+      "B-D106",
+      "B-D122"
+    ],
     "Sub_lf": [],
-    "T": [],
-    "card": [],
+    "T_H_S": [],
+    "T_H_T": [],
+    "Ter_H_S": [],
+    "Ter_H_T": [],
+    "Ter_H_U": [],
+    "Theta": [],
+    "W": [],
+    "ca": [],
     "ch": [],
+    "ch_L": [],
+    "epi": [],
+    "f": [],
     "fi": [],
+    "id": [],
+    "in": [],
     "lf": [],
     "lfi": [],
-    "p": [],
-    "pr": [],
-    "supp_S": []
+    "min": [],
+    "op": [],
+    "p": [
+      "B-D112",
+      "B-D129"
+    ],
+    "sort": [],
+    "supp_S": [
+      "B-D111",
+      "B-D120"
+    ]
   },
   "decisions_source": "blocks/mscong/edge_decisions.json",
   "edges": [
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-D104",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-R102",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-R102",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-D109",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-D112",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-D112",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-R106",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-D113",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-D113",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-R107",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-D114",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-R108",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-R108",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-P106",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P106",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-C102",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-C102",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-R109",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-R109",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-P107",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-R110",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-R110",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-P108",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-C103",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-C103",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-P109",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-P109",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-P110",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-P110",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P110",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-D115",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-R111",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-D116",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-R112",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-R113",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-D119",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-R115",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-P111",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sg",
+      "from": "B-R117",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D123"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sg",
+      "from": "B-D125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D123"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PPAI}",
+      "from": "B-R118",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R118",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P113",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P114",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D127",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sub_f",
+      "from": "B-R120",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Subt",
+      "from": "B-R120",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D127"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R120",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sub_f",
+      "from": "B-D128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-D128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-D129",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-R121",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-D130",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Etl_t",
+      "from": "B-D131",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D130"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-D131",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-R122",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-R122",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-D132",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-D132",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-R123",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-R123",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Etl_t",
+      "from": "B-P116",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D130"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-P116",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-D133",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-D133",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{CharacCong}",
+      "from": "B-P117",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P116"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-P117",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P117",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-P117",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-D134",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-R124",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-R124",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-P118",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P118",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-R125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-R125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-R125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-R126",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-R126",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-R126",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-R126",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{CogenCong}",
+      "from": "B-R127",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P118"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{CharacCogenCong}",
+      "from": "B-R127",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P117"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-R127",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-R127",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-P119",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P119",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P120",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-P120",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P121",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-R128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-R128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Eqv",
+      "from": "B-R128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-R128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{IncSat and sIncSat}",
+      "from": "B-P122",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-C102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-P122",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P122",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sat",
+      "from": "B-P122",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D114"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P122",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P123",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{CharacCogenCong}",
+      "from": "B-P124",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P117"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-P124",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P124",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-P125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-P125",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P126",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-R129",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-R129",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-R129",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Sub_f",
+      "from": "B-D101",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-P127",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-P127",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-R130",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr",
+      "from": "B-P101",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
     {
       "confirmed": false,
       "detail": "\\Cgr_fi",
@@ -26,60 +997,1171 @@
       "kind": "uses_definition",
       "source": "symbol",
       "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_lfi",
+      "from": "B-P128",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-R131",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-R132",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P129",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Filter}",
+      "from": "B-P130",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-P130",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Ker",
+      "from": "B-P130",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P130",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-P130",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P131",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P131",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P132",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-P132",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P132",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P133",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P133",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{s-Rec iff Rec}",
+      "from": "B-P134",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P133"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Rec is Bool}",
+      "from": "B-P134",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P132"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P134",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P134",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-P135",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Tl_t",
+      "from": "B-P135",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D131"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P136",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P137",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P137",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_lfi",
+      "from": "B-P138",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P138",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P102",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P103",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-P104",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Im",
+      "from": "B-P104",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P104",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-P104",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D135",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R133",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Var",
+      "from": "B-R133",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D128"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R134",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PPAI}",
+      "from": "B-P139",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Im",
+      "from": "B-P139",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P139",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-C105",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Hom",
+      "from": "B-R135",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D103"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R135",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-L101",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-C106",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D136",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PPAI}",
+      "from": "B-P140",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P112"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Im",
+      "from": "B-P140",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P140",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R136",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Im",
+      "from": "B-C107",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-C107",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D137",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R137",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Filter}",
+      "from": "B-P141",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Rec is Bool}",
+      "from": "B-P141",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P132"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-P141",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P141",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-P141",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P141",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Var",
+      "from": "B-P141",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D128"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P141",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-C108",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecOp}",
+      "from": "B-C109",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P104"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecSubs}",
+      "from": "B-C109",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P141"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-C109",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-C110",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D138",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-R138",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Filter}",
+      "from": "B-P142",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecVar}",
+      "from": "B-P142",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecSubs}",
+      "from": "B-P142",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P141"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Cgr_fi",
+      "from": "B-P142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-P142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Var",
+      "from": "B-P142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D128"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D139",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecSubs}",
+      "from": "B-P143",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P141"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Rec is Bool}",
+      "from": "B-P143",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P132"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P143",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-P143",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P143",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P143",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Im",
+      "from": "B-R140",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D108"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D142",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P144",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Var",
+      "from": "B-P144",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D128"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{LIGlobSubstOp}",
+      "from": "B-P145",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-L101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P145",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{IndAlgStrucImHom}",
+      "from": "B-P146",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P145"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P146",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{Filter}",
+      "from": "B-P147",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P101"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Subt",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D127"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Var",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D128"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\card",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D110"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\delta",
+      "from": "B-P147",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D107"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec_s",
+      "from": "B-C111",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-C111",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P148",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P148",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D144",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\pr",
+      "from": "B-P149",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D129"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P150",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-L102",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{L:aux}",
+      "from": "B-P152",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-L102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P152",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-D146",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-D148",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-P155",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-P156",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Omega",
+      "from": "B-P156",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D134"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-D149",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-R151",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P157",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecH}",
+      "from": "B-P158",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P146"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-P158",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P158",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P158",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecLH}",
+      "from": "B-A109",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P147"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\ref{PRecLH}",
+      "from": "B-P159",
+      "kind": "uses_statement",
+      "source": "explicit",
+      "to": "B-P147"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Alg",
+      "from": "B-P159",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D119"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\Rec",
+      "from": "B-P159",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D102"
+    },
+    {
+      "confirmed": false,
+      "detail": "\\T",
+      "from": "B-P159",
+      "kind": "uses_definition",
+      "source": "symbol",
+      "to": "B-D125"
     }
   ],
   "labels": {
+    "$S$-sorted signature": "B-D118",
+    "CABA Saturades": "B-P110",
+    "CRecOp": "B-C109",
+    "CRecSubs": "B-C108",
+    "CharacCogenCong": "B-P117",
+    "CharacCong": "B-P116",
+    "CharacSatCCog and CharacsSatCCog": "B-P122",
+    "CogenCong": "B-P118",
+    "Compl": "B-P123",
+    "DAntiTrans": "B-D132",
     "Filter": "B-P101",
+    "FladjG": "B-C104",
+    "GlobSubstOp": "B-D135",
+    "IncSat and sIncSat": "B-C102",
+    "IndAlgStrucImHom": "B-P145",
+    "InterCCog and CCogInter": "B-P124",
+    "L:aux": "B-L102",
+    "LIGlobSubstOp": "B-L101",
+    "NablaSat": "B-P107",
+    "PPAI": "B-P112",
     "PRecConst": "B-P103",
+    "PRecH": "B-P146",
+    "PRecLH": "B-P147",
     "PRecOp": "B-P104",
-    "PRecVar": "B-P102"
+    "PRecQ": "B-P143",
+    "PRecSubs": "B-P141",
+    "PRecVar": "B-P102",
+    "PropIncSat and PropsIncSat": "B-P106",
+    "Rec SubdirectProd sRec": "B-P134",
+    "Rec is Bool": "B-P132",
+    "Rec s is Bool": "B-P135",
+    "SatOperator": "B-P109",
+    "Subalg": "B-D122",
+    "TAntiHom": "B-P121",
+    "TAntiHomSub": "B-P126",
+    "TAntiTrans": "B-P125",
+    "iso:FrH-TerH": "B-P152",
+    "lf,s-Rec iff lf-Rec": "B-P137",
+    "rut": "B-P113",
+    "s-Rec iff Rec": "B-P133",
+    "subsetalg": "B-P111"
   },
   "note": "candidate edges; confirmed=false means awaiting author confirmation",
   "numbers": {
-    "2.15": null,
-    "2.16": null,
-    "2.17": null,
-    "2.20": null,
-    "2.21": null,
-    "2.25": null,
-    "2.29": null,
-    "2.30": null,
-    "2.32": null,
-    "2.35": null,
-    "2.37": null,
-    "2.45": null,
-    "2.46": null,
-    "2.48": null,
-    "2.50": null,
-    "2.53": null,
-    "2.54": null,
-    "2.55": null,
-    "2.56": null,
-    "2.57": null,
-    "2.58": null,
+    "2.15": "B-P106",
+    "2.16": "B-C102",
+    "2.17": "B-P107",
+    "2.20": "B-P109",
+    "2.21": "B-P110",
+    "2.25": "B-D118",
+    "2.29": "B-P111",
+    "2.30": "B-D122",
+    "2.32": "B-P112",
+    "2.35": "B-P113",
+    "2.37": "B-C104",
+    "2.45": "B-D132",
+    "2.46": "B-P116",
+    "2.48": "B-P117",
+    "2.50": "B-P118",
+    "2.53": "B-P121",
+    "2.54": "B-P122",
+    "2.55": "B-P123",
+    "2.56": "B-P124",
+    "2.57": "B-P125",
+    "2.58": "B-P126",
     "2.61": "B-P101",
-    "2.67": null,
-    "2.68": null,
-    "2.69": null,
-    "2.70": null,
-    "2.72": null,
+    "2.67": "B-P132",
+    "2.68": "B-P133",
+    "2.69": "B-P134",
+    "2.70": "B-P135",
+    "2.72": "B-P137",
     "3.1": "B-P102",
-    "3.13": null,
-    "3.14": null,
-    "3.15": null,
+    "3.13": "B-P141",
+    "3.14": "B-C108",
+    "3.15": "B-C109",
     "3.2": "B-P103",
-    "3.20": null,
-    "3.26": null,
-    "3.27": null,
-    "3.28": null,
+    "3.20": "B-P143",
+    "3.26": "B-P145",
+    "3.27": "B-P146",
+    "3.28": "B-P147",
     "3.3": "B-P104",
-    "3.37": null,
-    "3.38": null,
-    "3.4": null,
-    "3.7": null
+    "3.37": "B-L102",
+    "3.38": "B-P152",
+    "3.4": "B-D135",
+    "3.7": "B-L101"
   },
   "source": "manuscript/MSCong.tex",
   "symbols_used": {
+    "B-A101": [],
+    "B-A102": [],
+    "B-A103": [],
+    "B-A104": [],
+    "B-A105": [],
+    "B-A106": [],
+    "B-A107": [],
+    "B-A108": [],
+    "B-A109": [],
+    "B-C101": [
+      "In",
+      "ca"
+    ],
+    "B-C102": [
+      "Eqv",
+      "Sat"
+    ],
+    "B-C103": [
+      "Eqv",
+      "Sat"
+    ],
+    "B-C104": [
+      "G"
+    ],
+    "B-C105": [
+      "T"
+    ],
+    "B-C106": [
+      "T"
+    ],
+    "B-C107": [
+      "Im",
+      "T"
+    ],
+    "B-C108": [
+      "Rec_s",
+      "Rec_u"
+    ],
+    "B-C109": [
+      "Rec",
+      "Rec_s"
+    ],
+    "B-C110": [
+      "Rec_s"
+    ],
+    "B-C111": [
+      "Rec_s",
+      "T"
+    ],
+    "B-C112": [],
     "B-D101": [
       "Cgr_fi",
       "Cgr_lfi",
@@ -97,6 +2179,187 @@
       "Rec_lf",
       "Rec_s",
       "lf"
+    ],
+    "B-D103": [
+      "Hom"
+    ],
+    "B-D104": [
+      "Fnc",
+      "in",
+      "pr"
+    ],
+    "B-D105": [],
+    "B-D106": [
+      "Sub"
+    ],
+    "B-D107": [
+      "delta"
+    ],
+    "B-D108": [
+      "Im",
+      "Ker",
+      "Sub",
+      "in"
+    ],
+    "B-D109": [
+      "Hom",
+      "In",
+      "ca"
+    ],
+    "B-D110": [
+      "Sub",
+      "Sub_f",
+      "card"
+    ],
+    "B-D111": [
+      "supp_S"
+    ],
+    "B-D112": [
+      "Eqv",
+      "Ker",
+      "p",
+      "pr"
+    ],
+    "B-D113": [
+      "Eqv",
+      "card"
+    ],
+    "B-D114": [
+      "Eqv",
+      "Sat",
+      "Sub"
+    ],
+    "B-D115": [
+      "Hom"
+    ],
+    "B-D116": [
+      "card",
+      "min"
+    ],
+    "B-D117": [],
+    "B-D118": [
+      "Lambda"
+    ],
+    "B-D119": [
+      "Alg",
+      "Hom"
+    ],
+    "B-D120": [
+      "supp_S"
+    ],
+    "B-D121": [],
+    "B-D122": [
+      "Sub"
+    ],
+    "B-D123": [
+      "Sg",
+      "Sub"
+    ],
+    "B-D124": [
+      "W"
+    ],
+    "B-D125": [
+      "Sg",
+      "T"
+    ],
+    "B-D126": [],
+    "B-D127": [
+      "Subt",
+      "T"
+    ],
+    "B-D128": [
+      "Fin",
+      "Sub_f",
+      "T",
+      "Var",
+      "delta"
+    ],
+    "B-D129": [
+      "Cgr",
+      "Ker",
+      "p",
+      "pr"
+    ],
+    "B-D130": [
+      "Etl_t",
+      "Hom"
+    ],
+    "B-D131": [
+      "Etl",
+      "Etl_t",
+      "Hom",
+      "Tl_t",
+      "id"
+    ],
+    "B-D132": [
+      "Tl_t",
+      "delta"
+    ],
+    "B-D133": [
+      "Omega",
+      "Tl_t"
+    ],
+    "B-D134": [
+      "Ker",
+      "Omega",
+      "ch_L"
+    ],
+    "B-D135": [
+      "T"
+    ],
+    "B-D136": [
+      "Sub",
+      "T"
+    ],
+    "B-D137": [
+      "T"
+    ],
+    "B-D138": [
+      "T"
+    ],
+    "B-D139": [
+      "T"
+    ],
+    "B-D140": [],
+    "B-D141": [],
+    "B-D142": [
+      "T"
+    ],
+    "B-D143": [],
+    "B-D144": [
+      "Eq",
+      "G_H_S",
+      "H",
+      "HS",
+      "H_S",
+      "T"
+    ],
+    "B-D145": [
+      "Op_w"
+    ],
+    "B-D146": [
+      "Lambda",
+      "T",
+      "Ter_H_T"
+    ],
+    "B-D147": [
+      "Lambda"
+    ],
+    "B-D148": [
+      "Lambda",
+      "Omega",
+      "Ter_H_T",
+      "Ter_H_U"
+    ],
+    "B-D149": [
+      "Alg"
+    ],
+    "B-L101": [
+      "T"
+    ],
+    "B-L102": [
+      "H",
+      "T"
     ],
     "B-P101": [
       "Cgr",
@@ -117,6 +2380,471 @@
       "Im",
       "T",
       "card"
+    ],
+    "B-P105": [
+      "Sub"
+    ],
+    "B-P106": [
+      "Eqv",
+      "delta"
+    ],
+    "B-P107": [
+      "Sat",
+      "supp_S"
+    ],
+    "B-P108": [
+      "Eqv"
+    ],
+    "B-P109": [
+      "Eqv",
+      "Fix",
+      "Sat",
+      "Sub",
+      "supp_S"
+    ],
+    "B-P110": [
+      "Eqv",
+      "Sat",
+      "delta"
+    ],
+    "B-P111": [
+      "Alg",
+      "Id",
+      "Mor",
+      "Sub"
+    ],
+    "B-P112": [],
+    "B-P113": [
+      "T",
+      "W"
+    ],
+    "B-P114": [
+      "T",
+      "W"
+    ],
+    "B-P115": [],
+    "B-P116": [
+      "Etl",
+      "Etl_t",
+      "Tl_t"
+    ],
+    "B-P117": [
+      "Ker",
+      "Omega",
+      "Tl_t",
+      "ch_L",
+      "id"
+    ],
+    "B-P118": [
+      "Cgr",
+      "Omega"
+    ],
+    "B-P119": [
+      "Eqv",
+      "Omega"
+    ],
+    "B-P120": [
+      "Omega",
+      "Tl_t"
+    ],
+    "B-P121": [
+      "Omega"
+    ],
+    "B-P122": [
+      "Cgr",
+      "Omega",
+      "Sat",
+      "delta"
+    ],
+    "B-P123": [
+      "Omega"
+    ],
+    "B-P124": [
+      "Ker",
+      "Omega",
+      "ch"
+    ],
+    "B-P125": [
+      "Ker",
+      "Omega",
+      "Tl_t",
+      "ch",
+      "ch_L"
+    ],
+    "B-P126": [
+      "Omega"
+    ],
+    "B-P127": [
+      "Cgr_fi",
+      "card",
+      "supp_S"
+    ],
+    "B-P128": [
+      "Cgr_lfi"
+    ],
+    "B-P129": [
+      "Omega"
+    ],
+    "B-P130": [
+      "Cgr_fi",
+      "Ker",
+      "Omega",
+      "pr"
+    ],
+    "B-P131": [
+      "Omega",
+      "delta"
+    ],
+    "B-P132": [
+      "Rec",
+      "Tl_t",
+      "delta"
+    ],
+    "B-P133": [
+      "Rec",
+      "Rec_s",
+      "delta"
+    ],
+    "B-P134": [
+      "Rec",
+      "Rec_s",
+      "delta"
+    ],
+    "B-P135": [
+      "Rec_s",
+      "Rec_t",
+      "Tl_t"
+    ],
+    "B-P136": [
+      "Omega",
+      "lf"
+    ],
+    "B-P137": [
+      "Rec",
+      "Rec_lf",
+      "delta",
+      "lf"
+    ],
+    "B-P138": [
+      "Cgr_lfi",
+      "Omega",
+      "Rec_lf"
+    ],
+    "B-P139": [
+      "Im",
+      "T"
+    ],
+    "B-P140": [
+      "Im",
+      "T"
+    ],
+    "B-P141": [
+      "Cgr_fi",
+      "Omega",
+      "Rec_s",
+      "Rec_t",
+      "T",
+      "Var",
+      "delta"
+    ],
+    "B-P142": [
+      "Cgr_fi",
+      "Omega",
+      "Rec_s",
+      "T",
+      "Var",
+      "delta"
+    ],
+    "B-P143": [
+      "Omega",
+      "Rec_s",
+      "T",
+      "delta"
+    ],
+    "B-P144": [
+      "S",
+      "T",
+      "Var"
+    ],
+    "B-P145": [
+      "Lambda",
+      "T"
+    ],
+    "B-P146": [
+      "Rec",
+      "Rec_s"
+    ],
+    "B-P147": [
+      "Omega",
+      "Rec",
+      "Rec_s",
+      "Subt",
+      "T",
+      "Theta",
+      "Var",
+      "card",
+      "delta"
+    ],
+    "B-P148": [
+      "Rec",
+      "Rec_s",
+      "T"
+    ],
+    "B-P149": [
+      "H_S",
+      "Op_H_S",
+      "pr"
+    ],
+    "B-P150": [
+      "H_S",
+      "T",
+      "Ter_H_S"
+    ],
+    "B-P151": [
+      "H_S"
+    ],
+    "B-P152": [
+      "H",
+      "H_S",
+      "Lemma",
+      "T",
+      "Ter_H_S"
+    ],
+    "B-P153": [
+      "H_S",
+      "H_T"
+    ],
+    "B-P154": [],
+    "B-P155": [
+      "Alg",
+      "H_T",
+      "Lambda",
+      "Op_H_S",
+      "Op_H_T",
+      "Ter_H_T"
+    ],
+    "B-P156": [
+      "Alg",
+      "Lambda",
+      "Omega"
+    ],
+    "B-P157": [
+      "Lambda",
+      "T",
+      "in"
+    ],
+    "B-P158": [
+      "Alg",
+      "Lambda",
+      "Rec",
+      "Rec_s",
+      "T"
+    ],
+    "B-P159": [
+      "Alg",
+      "Lambda",
+      "Rec",
+      "Rec_s",
+      "T"
+    ],
+    "B-R101": [
+      "Sub"
+    ],
+    "B-R102": [
+      "card",
+      "delta",
+      "id"
+    ],
+    "B-R103": [
+      "Sub"
+    ],
+    "B-R104": [
+      "Sub",
+      "Sub_lf",
+      "lf"
+    ],
+    "B-R105": [
+      "supp_S"
+    ],
+    "B-R106": [
+      "pr"
+    ],
+    "B-R107": [
+      "id",
+      "pr"
+    ],
+    "B-R108": [
+      "Eqv",
+      "pr"
+    ],
+    "B-R109": [
+      "Eqv",
+      "Sat",
+      "Sub"
+    ],
+    "B-R110": [
+      "Sat",
+      "delta"
+    ],
+    "B-R111": [
+      "Hom"
+    ],
+    "B-R112": [
+      "card"
+    ],
+    "B-R113": [
+      "Hom"
+    ],
+    "B-R114": [],
+    "B-R115": [
+      "Alg",
+      "supp_S"
+    ],
+    "B-R116": [
+      "lf"
+    ],
+    "B-R117": [
+      "Sg",
+      "supp_S"
+    ],
+    "B-R118": [
+      "T"
+    ],
+    "B-R119": [],
+    "B-R120": [
+      "Sub_f",
+      "Subt",
+      "T"
+    ],
+    "B-R121": [
+      "pr"
+    ],
+    "B-R122": [
+      "End",
+      "Hom",
+      "Tl_t"
+    ],
+    "B-R123": [
+      "Tl_t",
+      "delta"
+    ],
+    "B-R124": [
+      "Cgr",
+      "Omega",
+      "Sub"
+    ],
+    "B-R125": [
+      "Cgr",
+      "Eqv",
+      "Omega"
+    ],
+    "B-R126": [
+      "Cgr",
+      "Eqv",
+      "Ker",
+      "Omega",
+      "Sub",
+      "ch_L"
+    ],
+    "B-R127": [
+      "Omega",
+      "Tl_t"
+    ],
+    "B-R128": [
+      "Alg",
+      "Cgr",
+      "Eqv",
+      "Mor",
+      "Omega",
+      "epi",
+      "op"
+    ],
+    "B-R129": [
+      "Alg",
+      "Cgr",
+      "Mor",
+      "Omega",
+      "P",
+      "Sub",
+      "epi",
+      "op"
+    ],
+    "B-R130": [
+      "Cgr_fi",
+      "supp_S"
+    ],
+    "B-R131": [
+      "Rec",
+      "Rec_T",
+      "Rec_lf",
+      "Rec_s",
+      "supp_S"
+    ],
+    "B-R132": [
+      "Rec",
+      "Rec_T",
+      "Rec_lf",
+      "Rec_s"
+    ],
+    "B-R133": [
+      "T",
+      "Var",
+      "sort"
+    ],
+    "B-R134": [
+      "T"
+    ],
+    "B-R135": [
+      "Hom",
+      "T"
+    ],
+    "B-R136": [
+      "Sub",
+      "T"
+    ],
+    "B-R137": [
+      "Sub",
+      "T"
+    ],
+    "B-R138": [
+      "T"
+    ],
+    "B-R139": [],
+    "B-R140": [
+      "Im"
+    ],
+    "B-R141": [],
+    "B-R142": [],
+    "B-R143": [
+      "f",
+      "op"
+    ],
+    "B-R144": [
+      "H"
+    ],
+    "B-R145": [
+      "H_S"
+    ],
+    "B-R146": [
+      "H_S"
+    ],
+    "B-R147": [
+      "H_S",
+      "Op_H_S"
+    ],
+    "B-R148": [],
+    "B-R149": [
+      "G_H_S",
+      "H_S",
+      "Id",
+      "Lambda",
+      "T_H_S",
+      "T_H_T",
+      "id"
+    ],
+    "B-R150": [],
+    "B-R151": [
+      "Alg"
     ]
   }
 }

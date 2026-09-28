@@ -18,7 +18,7 @@ recognizability.
 | id | paper | Lean namespace | status |
 |---|---|---|---|
 | `mslang` (default) | *Eilenberg theorems for many-sorted formations* — J. Climent Vidal & E. Cosme Llópez, Houston J. Math. 45(2):321–369, 2019 | `Mslang` | formalized; provenance ingested |
-| `mscong` | *Congruence-based proofs of the recognizability theorems for free many-sorted algebras* — J. Climent Vidal & E. Cosme Llópez, Journal of Logic and Computation 30(2):561–633, 2020. doi:[10.1093/logcom/exz032](https://doi.org/10.1093/logcom/exz032) | `Mscong` | M1–M5 complete (`PRecVar/Const/Op`, `PRecSubs`, `PRecIt`, `PRecQ`, `PRecH`, `PRecLH`, `PRecDerivor`/`PRecLinDerivor`); M6 pilot done (six-block basic-terms cluster ingested, correspondence/encoding audits recorded); full mapping deferred |
+| `mscong` | *Congruence-based proofs of the recognizability theorems for free many-sorted algebras* — J. Climent Vidal & E. Cosme Llópez, Journal of Logic and Computation 30(2):561–633, 2020. doi:[10.1093/logcom/exz032](https://doi.org/10.1093/logcom/exz032) | `Mscong` | M1–M6 complete (`PRecVar/Const/Op`, `PRecSubs`, `PRecIt`, `PRecQ`, `PRecH`, `PRecLH`, `PRecDerivor`/`PRecLinDerivor`); M6 mapped the full manuscript (182 blocks) and recorded the pilot correspondence/encoding audits |
 
 `Mscong.*` shares this Lake project and Mathlib and imports `Mslang.*`, so the
 recognizability development reuses the `Mslang` preliminaries rather than

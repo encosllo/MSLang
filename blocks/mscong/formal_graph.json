@@ -1,6 +1,26 @@
 {
   "edges": [
     {
+      "from": "B-D101",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-D102",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-D135",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-L102",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
       "from": "B-P101",
       "kind": "formal_uses",
       "to": "B-D101"
@@ -11,14 +31,169 @@
       "to": "B-D102"
     },
     {
+      "from": "B-P102",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
       "from": "B-P103",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P103",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P104",
       "kind": "formal_uses",
       "to": "B-D102"
     },
     {
       "from": "B-P104",
       "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P109",
+      "kind": "formal_uses",
+      "to": "B-C102"
+    },
+    {
+      "from": "B-P132",
+      "kind": "formal_uses",
+      "to": "B-C102"
+    },
+    {
+      "from": "B-P132",
+      "kind": "formal_uses",
+      "to": "B-D101"
+    },
+    {
+      "from": "B-P132",
+      "kind": "formal_uses",
       "to": "B-D102"
+    },
+    {
+      "from": "B-P132",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P132",
+      "kind": "formal_uses",
+      "to": "B-P101"
+    },
+    {
+      "from": "B-P133",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P133",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P135",
+      "kind": "formal_uses",
+      "to": "B-D101"
+    },
+    {
+      "from": "B-P135",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P135",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P135",
+      "kind": "formal_uses",
+      "to": "B-P132"
+    },
+    {
+      "from": "B-P135",
+      "kind": "formal_uses",
+      "to": "B-P133"
+    },
+    {
+      "from": "B-P141",
+      "kind": "formal_uses",
+      "to": "B-C102"
+    },
+    {
+      "from": "B-P141",
+      "kind": "formal_uses",
+      "to": "B-D101"
+    },
+    {
+      "from": "B-P141",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P141",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P141",
+      "kind": "formal_uses",
+      "to": "B-D135"
+    },
+    {
+      "from": "B-P141",
+      "kind": "formal_uses",
+      "to": "B-P133"
+    },
+    {
+      "from": "B-P143",
+      "kind": "formal_uses",
+      "to": "B-D101"
+    },
+    {
+      "from": "B-P143",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P143",
+      "kind": "formal_uses",
+      "to": "B-D118"
+    },
+    {
+      "from": "B-P143",
+      "kind": "formal_uses",
+      "to": "B-D135"
+    },
+    {
+      "from": "B-P143",
+      "kind": "formal_uses",
+      "to": "B-P133"
+    },
+    {
+      "from": "B-P146",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P146",
+      "kind": "formal_uses",
+      "to": "B-P145"
+    },
+    {
+      "from": "B-P147",
+      "kind": "formal_uses",
+      "to": "B-D102"
+    },
+    {
+      "from": "B-P147",
+      "kind": "formal_uses",
+      "to": "B-P133"
     }
   ],
   "note": "Declared (formal) dependencies among mapped blocks, extracted from source by whole-identifier occurrence (Architecture.md Section 12.1)."

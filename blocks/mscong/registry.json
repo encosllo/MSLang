@@ -11,14 +11,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A101",
       "kind": "assumption",
       "label": null,
-      "line": 717,
+      "line": 718,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -32,14 +32,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D103",
       "kind": "definition",
       "label": null,
-      "line": 721,
+      "line": 723,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "sorted set"
     },
     {
@@ -53,14 +53,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D104",
       "kind": "definition",
       "label": null,
-      "line": 725,
+      "line": 728,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "product"
     },
     {
@@ -74,14 +74,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D105",
       "kind": "definition",
       "label": null,
-      "line": 743,
+      "line": 747,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -95,14 +95,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D106",
       "kind": "definition",
       "label": null,
-      "line": 748,
+      "line": 753,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "subset"
     },
     {
@@ -116,14 +116,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R101",
       "kind": "remark",
       "label": null,
-      "line": 752,
+      "line": 758,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "subobjects"
     },
     {
@@ -137,14 +137,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D107",
       "kind": "definition",
       "label": null,
-      "line": 756,
+      "line": 763,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "delta of Kronecker associated to"
     },
     {
@@ -158,14 +158,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R102",
       "kind": "remark",
       "label": null,
-      "line": 779,
+      "line": 787,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -179,14 +179,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D108",
       "kind": "definition",
       "label": null,
-      "line": 797,
+      "line": 806,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "direct image formation"
     },
     {
@@ -195,7 +195,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@828",
+          "anchor": "proof@838",
           "hash": "b589fda094345de62e04a3a6800135499e715dd928a0105eebd9b8c8982471c2"
         },
         "informal_statement": {
@@ -203,14 +203,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P105",
       "kind": "proposition",
       "label": null,
-      "line": 824,
-      "proof_line": 828,
+      "line": 834,
+      "proof_line": 838,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -224,14 +224,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C101",
       "kind": "corollary",
       "label": null,
-      "line": 832,
+      "line": 843,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -245,14 +245,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D109",
       "kind": "definition",
       "label": null,
-      "line": 836,
+      "line": 848,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -266,14 +266,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R103",
       "kind": "remark",
       "label": null,
-      "line": 841,
+      "line": 854,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "mapping"
     },
     {
@@ -287,14 +287,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D110",
       "kind": "definition",
       "label": null,
-      "line": 845,
+      "line": 859,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "cardinal"
     },
     {
@@ -308,14 +308,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R104",
       "kind": "remark",
       "label": null,
-      "line": 849,
+      "line": 864,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "finite"
     },
     {
@@ -329,14 +329,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D111",
       "kind": "definition",
       "label": null,
-      "line": 856,
+      "line": 872,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "support of"
     },
     {
@@ -350,14 +350,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R105",
       "kind": "remark",
       "label": null,
-      "line": 861,
+      "line": 878,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -371,14 +371,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D112",
       "kind": "definition",
       "label": null,
-      "line": 882,
+      "line": 900,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "sorted equivalence relation on"
     },
     {
@@ -392,14 +392,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R106",
       "kind": "remark",
       "label": null,
-      "line": 900,
+      "line": 919,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "classified $S$-sorted sets"
     },
     {
@@ -413,14 +413,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D113",
       "kind": "definition",
       "label": null,
-      "line": 904,
+      "line": 924,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "transversal of"
     },
     {
@@ -434,14 +434,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R107",
       "kind": "remark",
       "label": null,
-      "line": 908,
+      "line": 929,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -455,14 +455,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D114",
       "kind": "definition",
       "label": null,
-      "line": 912,
+      "line": 934,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "saturation of"
     },
     {
@@ -476,14 +476,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R108",
       "kind": "remark",
       "label": null,
-      "line": 921,
+      "line": 944,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -492,7 +492,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@937",
+          "anchor": "proof@961",
           "hash": "767e8c5933f8dcde3f543f1fa338a800ca1e63bbc5ffd6ccb158a923491383e6"
         },
         "informal_statement": {
@@ -500,14 +500,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P106",
       "kind": "proposition",
       "label": "PropIncSat and PropsIncSat",
-      "line": 926,
-      "proof_line": 937,
+      "line": 950,
+      "proof_line": 961,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -521,14 +521,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C102",
       "kind": "corollary",
       "label": "IncSat and sIncSat",
-      "line": 943,
+      "line": 968,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -542,14 +542,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R109",
       "kind": "remark",
       "label": null,
-      "line": 947,
+      "line": 973,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -558,7 +558,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@955",
+          "anchor": "proof@982",
           "hash": "08689feedd10e447c03e6f0770bc8e074870a633cd967bfdc7eb7a59ae3fb680"
         },
         "informal_statement": {
@@ -566,14 +566,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P107",
       "kind": "proposition",
       "label": "NablaSat",
-      "line": 951,
-      "proof_line": 955,
+      "line": 978,
+      "proof_line": 982,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -587,14 +587,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R110",
       "kind": "remark",
       "label": null,
-      "line": 961,
+      "line": 989,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -603,7 +603,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@970",
+          "anchor": "proof@999",
           "hash": "29eea9211a335ca7c60f4b2658a7f8fb5eff4a2a4ec858279ae69b8f6a0e93c9"
         },
         "informal_statement": {
@@ -611,14 +611,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P108",
       "kind": "proposition",
       "label": null,
-      "line": 965,
-      "proof_line": 970,
+      "line": 994,
+      "proof_line": 999,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -632,14 +632,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C103",
       "kind": "corollary",
       "label": null,
-      "line": 974,
+      "line": 1004,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -653,14 +653,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P109",
       "kind": "proposition",
       "label": "SatOperator",
-      "line": 980,
+      "line": 1011,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -669,7 +669,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1002",
+          "anchor": "proof@1034",
           "hash": "c19043d9d50847ed2b16cbe96e6b522e1399a590f7847cf801fadeed8b706bd0"
         },
         "informal_statement": {
@@ -677,14 +677,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P110",
       "kind": "proposition",
       "label": "CABA Saturades",
-      "line": 997,
-      "proof_line": 1002,
+      "line": 1029,
+      "proof_line": 1034,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -698,14 +698,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D115",
       "kind": "definition",
       "label": null,
-      "line": 1010,
+      "line": 1043,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "free monoid on"
     },
     {
@@ -719,14 +719,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R111",
       "kind": "remark",
       "label": null,
-      "line": 1026,
+      "line": 1060,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -740,14 +740,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D116",
       "kind": "definition",
       "label": null,
-      "line": 1030,
+      "line": 1065,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "subword"
     },
     {
@@ -761,14 +761,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R112",
       "kind": "remark",
       "label": null,
-      "line": 1042,
+      "line": 1078,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -782,14 +782,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D117",
       "kind": "definition",
       "label": null,
-      "line": 1063,
+      "line": 1100,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "substitution operator for $w$"
     },
     {
@@ -803,14 +803,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R113",
       "kind": "remark",
       "label": null,
-      "line": 1066,
+      "line": 1104,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -824,14 +824,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D118",
       "kind": "definition",
       "label": "$S$-sorted signature",
-      "line": 1165,
+      "line": 1204,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "sorted signature"
     },
     {
@@ -845,14 +845,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R114",
       "kind": "remark",
       "label": null,
-      "line": 1174,
+      "line": 1214,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -866,14 +866,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A102",
       "kind": "assumption",
       "label": null,
-      "line": 1178,
+      "line": 1219,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -887,14 +887,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D119",
       "kind": "definition",
       "label": null,
-      "line": 1190,
+      "line": 1232,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "finitary operations on"
     },
     {
@@ -908,14 +908,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D120",
       "kind": "definition",
       "label": null,
-      "line": 1202,
+      "line": 1245,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "support of"
     },
     {
@@ -929,14 +929,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R115",
       "kind": "remark",
       "label": null,
-      "line": 1206,
+      "line": 1250,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -950,14 +950,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D121",
       "kind": "definition",
       "label": null,
-      "line": 1210,
+      "line": 1255,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "finite"
     },
     {
@@ -971,14 +971,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R116",
       "kind": "remark",
       "label": null,
-      "line": 1214,
+      "line": 1260,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "finite"
     },
     {
@@ -987,7 +987,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1233",
+          "anchor": "proof@1280",
           "hash": "28be98320e5be680695411387f249688c4483d493d5b938f3b57527f43aabea3"
         },
         "informal_statement": {
@@ -995,14 +995,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P111",
       "kind": "proposition",
       "label": "subsetalg",
-      "line": 1220,
-      "proof_line": 1233,
+      "line": 1267,
+      "proof_line": 1280,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "subset algebra"
     },
     {
@@ -1016,14 +1016,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D122",
       "kind": "definition",
       "label": "Subalg",
-      "line": 1252,
+      "line": 1300,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "closed under the operation"
     },
     {
@@ -1037,14 +1037,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D123",
       "kind": "definition",
       "label": null,
-      "line": 1256,
+      "line": 1305,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "subalgebra  generating operator for"
     },
     {
@@ -1058,14 +1058,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R117",
       "kind": "remark",
       "label": null,
-      "line": 1260,
+      "line": 1310,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1079,14 +1079,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P112",
       "kind": "proposition",
       "label": "PPAI",
-      "line": 1266,
+      "line": 1317,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1100,14 +1100,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D124",
       "kind": "definition",
       "label": null,
-      "line": 1273,
+      "line": 1325,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "algebra of"
     },
     {
@@ -1121,14 +1121,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D125",
       "kind": "definition",
       "label": null,
-      "line": 1309,
+      "line": 1362,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "free"
     },
     {
@@ -1142,14 +1142,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R118",
       "kind": "remark",
       "label": null,
-      "line": 1328,
+      "line": 1382,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1163,14 +1163,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P113",
       "kind": "proposition",
       "label": "rut",
-      "line": 1334,
+      "line": 1389,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1179,7 +1179,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1362",
+          "anchor": "proof@1418",
           "hash": "71a716d9c7ef20de81a7eaff4bbf03c0f63639a74d99f0540f1433aeb9482197"
         },
         "informal_statement": {
@@ -1187,14 +1187,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P114",
       "kind": "proposition",
       "label": null,
-      "line": 1356,
-      "proof_line": 1362,
+      "line": 1412,
+      "proof_line": 1418,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "insertion of (the $S$-sorted set of generators)"
     },
     {
@@ -1208,14 +1208,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C104",
       "kind": "corollary",
       "label": "FladjG",
-      "line": 1380,
+      "line": 1437,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1229,14 +1229,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D126",
       "kind": "definition",
       "label": null,
-      "line": 1403,
+      "line": 1461,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1250,14 +1250,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R119",
       "kind": "remark",
       "label": null,
-      "line": 1408,
+      "line": 1467,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1271,14 +1271,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P115",
       "kind": "proposition",
       "label": null,
-      "line": 1412,
+      "line": 1472,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1292,14 +1292,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D127",
       "kind": "definition",
       "label": null,
-      "line": 1416,
+      "line": 1477,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "subterms"
     },
     {
@@ -1313,14 +1313,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R120",
       "kind": "remark",
       "label": null,
-      "line": 1424,
+      "line": 1486,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1334,14 +1334,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D128",
       "kind": "definition",
       "label": null,
-      "line": 1430,
+      "line": 1493,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "variables"
     },
     {
@@ -1355,14 +1355,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D129",
       "kind": "definition",
       "label": null,
-      "line": 1457,
+      "line": 1521,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "sorted congruence on"
     },
     {
@@ -1376,14 +1376,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R121",
       "kind": "remark",
       "label": null,
-      "line": 1485,
+      "line": 1550,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "classified $\\Sigma$-algebras"
     },
     {
@@ -1397,14 +1397,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D130",
       "kind": "definition",
       "label": null,
-      "line": 1511,
+      "line": 1577,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "elementary translations of sort"
     },
     {
@@ -1418,14 +1418,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D131",
       "kind": "definition",
       "label": null,
-      "line": 1516,
+      "line": 1583,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "translations of sort"
     },
     {
@@ -1439,14 +1439,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R122",
       "kind": "remark",
       "label": null,
-      "line": 1521,
+      "line": 1589,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1460,14 +1460,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D132",
       "kind": "definition",
       "label": "DAntiTrans",
-      "line": 1544,
+      "line": 1613,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1481,14 +1481,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R123",
       "kind": "remark",
       "label": null,
-      "line": 1554,
+      "line": 1624,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1497,7 +1497,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1570",
+          "anchor": "proof@1641",
           "hash": "ebbc9e9018b9dd7367b2df38216f2f3f2d0dd71e75368a9eb2a1d39f5d2b9bb4"
         },
         "informal_statement": {
@@ -1505,14 +1505,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P116",
       "kind": "proposition",
       "label": "CharacCong",
-      "line": 1560,
-      "proof_line": 1570,
+      "line": 1631,
+      "proof_line": 1641,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1526,14 +1526,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D133",
       "kind": "definition",
       "label": null,
-      "line": 1632,
+      "line": 1704,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1542,7 +1542,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1657",
+          "anchor": "proof@1730",
           "hash": "17ed01a5ed49a5c5c2896c5ac84195796184a0c14dfbfd949647a98e59415239"
         },
         "informal_statement": {
@@ -1550,14 +1550,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P117",
       "kind": "proposition",
       "label": "CharacCogenCong",
-      "line": 1645,
-      "proof_line": 1657,
+      "line": 1718,
+      "proof_line": 1730,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1571,14 +1571,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D134",
       "kind": "definition",
       "label": null,
-      "line": 1662,
+      "line": 1736,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "cogenerated"
     },
     {
@@ -1592,14 +1592,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R124",
       "kind": "remark",
       "label": null,
-      "line": 1667,
+      "line": 1742,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "congruence cogenerating operator for"
     },
     {
@@ -1608,7 +1608,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1685",
+          "anchor": "proof@1761",
           "hash": "721bebd7b00e6a038148c6e7be2444bd4710487cb7939feec311225e263fe7f1"
         },
         "informal_statement": {
@@ -1616,14 +1616,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P118",
       "kind": "proposition",
       "label": "CogenCong",
-      "line": 1681,
-      "proof_line": 1685,
+      "line": 1757,
+      "proof_line": 1761,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "the congruence on"
     },
     {
@@ -1637,14 +1637,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R125",
       "kind": "remark",
       "label": null,
-      "line": 1730,
+      "line": 1807,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "congruence cogenerating operator"
     },
     {
@@ -1658,14 +1658,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R126",
       "kind": "remark",
       "label": null,
-      "line": 1734,
+      "line": 1812,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1679,14 +1679,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R127",
       "kind": "remark",
       "label": null,
-      "line": 1738,
+      "line": 1817,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1700,14 +1700,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P119",
       "kind": "proposition",
       "label": null,
-      "line": 1758,
+      "line": 1838,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1721,14 +1721,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P120",
       "kind": "proposition",
       "label": null,
-      "line": 1762,
+      "line": 1843,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1742,14 +1742,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P121",
       "kind": "proposition",
       "label": "TAntiHom",
-      "line": 1786,
+      "line": 1868,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1763,14 +1763,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R128",
       "kind": "remark",
       "label": null,
-      "line": 1791,
+      "line": 1874,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1779,7 +1779,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1820",
+          "anchor": "proof@1904",
           "hash": "fe9ebc53be19aba32181f19229d65829689885385c5e06fa216f7aa2ec900db3"
         },
         "informal_statement": {
@@ -1787,14 +1787,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P122",
       "kind": "proposition",
       "label": "CharacSatCCog and CharacsSatCCog",
-      "line": 1816,
-      "proof_line": 1820,
+      "line": 1900,
+      "proof_line": 1904,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1808,14 +1808,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P123",
       "kind": "proposition",
       "label": "Compl",
-      "line": 1852,
+      "line": 1937,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1824,7 +1824,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@1860",
+          "anchor": "proof@1946",
           "hash": "b3a0828cd4e67ae7e4ef6919d7d0c9d1944222ca1a6ce7c370ff645e0c2f4c2f"
         },
         "informal_statement": {
@@ -1832,14 +1832,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P124",
       "kind": "proposition",
       "label": "InterCCog and CCogInter",
-      "line": 1856,
-      "proof_line": 1860,
+      "line": 1942,
+      "proof_line": 1946,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1853,14 +1853,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P125",
       "kind": "proposition",
       "label": "TAntiTrans",
-      "line": 1872,
+      "line": 1959,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1874,14 +1874,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P126",
       "kind": "proposition",
       "label": "TAntiHomSub",
-      "line": 1879,
+      "line": 1967,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1895,14 +1895,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R129",
       "kind": "remark",
       "label": null,
-      "line": 1916,
+      "line": 2005,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1919,7 +1919,7 @@
       "id": "B-D101",
       "kind": "definition",
       "label": null,
-      "line": 2083,
+      "line": 2172,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
@@ -1932,7 +1932,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2093",
+          "anchor": "proof@2183",
           "hash": "1f8a14dc373341528b232d08a8b650a6df3adda09e8bc04b230a4bb5785ef286"
         },
         "informal_statement": {
@@ -1940,14 +1940,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P127",
       "kind": "proposition",
       "label": null,
-      "line": 2089,
-      "proof_line": 2093,
+      "line": 2179,
+      "proof_line": 2183,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1961,14 +1961,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R130",
       "kind": "remark",
       "label": null,
-      "line": 2097,
+      "line": 2188,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -1977,7 +1977,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2114",
+          "anchor": "proof@2205",
           "hash": "df6b6c52c21be92fcbc6155cfb73975310e28987f1ce094acf542e427e54f263"
         },
         "informal_statement": {
@@ -1988,8 +1988,8 @@
       "id": "B-P101",
       "kind": "proposition",
       "label": "Filter",
-      "line": 2105,
-      "proof_line": 2114,
+      "line": 2196,
+      "proof_line": 2205,
       "scope": null,
       "section": "Preliminaries",
       "status": "confirmed",
@@ -2006,14 +2006,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P128",
       "kind": "proposition",
       "label": null,
-      "line": 2132,
+      "line": 2224,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2030,7 +2030,7 @@
       "id": "B-D102",
       "kind": "definition",
       "label": null,
-      "line": 2142,
+      "line": 2234,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
@@ -2048,14 +2048,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R131",
       "kind": "remark",
       "label": null,
-      "line": 2155,
+      "line": 2248,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2069,14 +2069,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R132",
       "kind": "remark",
       "label": null,
-      "line": 2159,
+      "line": 2253,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2090,14 +2090,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P129",
       "kind": "proposition",
       "label": null,
-      "line": 2199,
+      "line": 2294,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2106,7 +2106,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2232",
+          "anchor": "proof@2328",
           "hash": "7af3b0405e93c5b57cec0f357cbb5b12c578eaf5390b79d8a8d37ac04e4fc006"
         },
         "informal_statement": {
@@ -2114,14 +2114,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P130",
       "kind": "proposition",
       "label": null,
-      "line": 2223,
-      "proof_line": 2232,
+      "line": 2319,
+      "proof_line": 2328,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2135,14 +2135,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P131",
       "kind": "proposition",
       "label": null,
-      "line": 2254,
+      "line": 2351,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2156,14 +2156,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P132",
       "kind": "proposition",
       "label": "Rec is Bool",
-      "line": 2263,
+      "line": 2361,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2177,14 +2177,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P133",
       "kind": "proposition",
       "label": "s-Rec iff Rec",
-      "line": 2285,
+      "line": 2384,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2198,14 +2198,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A103",
       "kind": "assumption",
       "label": null,
-      "line": 2289,
+      "line": 2389,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2214,7 +2214,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2297",
+          "anchor": "proof@2398",
           "hash": "9dadcbb9d1de665bbaa9f45d8ea7cd3d4ace6b37c07638be4d022865637fdafa"
         },
         "informal_statement": {
@@ -2222,14 +2222,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P134",
       "kind": "proposition",
       "label": "Rec SubdirectProd sRec",
-      "line": 2293,
-      "proof_line": 2297,
+      "line": 2394,
+      "proof_line": 2398,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2243,14 +2243,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P135",
       "kind": "proposition",
       "label": "Rec s is Bool",
-      "line": 2323,
+      "line": 2425,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2264,14 +2264,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P136",
       "kind": "proposition",
       "label": null,
-      "line": 2362,
+      "line": 2465,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2285,14 +2285,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P137",
       "kind": "proposition",
       "label": "lf,s-Rec iff lf-Rec",
-      "line": 2371,
+      "line": 2475,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2306,14 +2306,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P138",
       "kind": "proposition",
       "label": null,
-      "line": 2375,
+      "line": 2480,
       "proof_line": null,
       "scope": null,
       "section": "Preliminaries",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2327,14 +2327,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A104",
       "kind": "assumption",
       "label": null,
-      "line": 2426,
+      "line": 2532,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2343,7 +2343,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2435",
+          "anchor": "proof@2541",
           "hash": "f8553bd0e9fb70c5a69474c57510a1e2f0815a5d9e0125e5b5255397a4001bd6"
         },
         "informal_statement": {
@@ -2354,8 +2354,8 @@
       "id": "B-P102",
       "kind": "proposition",
       "label": "PRecVar",
-      "line": 2431,
-      "proof_line": 2435,
+      "line": 2537,
+      "proof_line": 2541,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
       "status": "confirmed",
@@ -2367,7 +2367,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2446",
+          "anchor": "proof@2552",
           "hash": "756b50d8fddc47ef8e5acbfbdb0cd457fe64c36839a0cf2dff4533e4bfc98153"
         },
         "informal_statement": {
@@ -2378,8 +2378,8 @@
       "id": "B-P103",
       "kind": "proposition",
       "label": "PRecConst",
-      "line": 2442,
-      "proof_line": 2446,
+      "line": 2548,
+      "proof_line": 2552,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
       "status": "confirmed",
@@ -2391,7 +2391,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2457",
+          "anchor": "proof@2563",
           "hash": "9dc34769ba00144c817e084e2c10fb63458c5e8e8789945d36bd972be69039f6"
         },
         "informal_statement": {
@@ -2402,8 +2402,8 @@
       "id": "B-P104",
       "kind": "proposition",
       "label": "PRecOp",
-      "line": 2453,
-      "proof_line": 2457,
+      "line": 2559,
+      "proof_line": 2563,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
       "status": "confirmed",
@@ -2420,14 +2420,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D135",
       "kind": "definition",
       "label": "GlobSubstOp",
-      "line": 2497,
+      "line": 2604,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "global substitution operator for $P$"
     },
     {
@@ -2441,14 +2441,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R133",
       "kind": "remark",
       "label": null,
-      "line": 2503,
+      "line": 2611,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2462,14 +2462,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R134",
       "kind": "remark",
       "label": null,
-      "line": 2507,
+      "line": 2616,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2486,14 +2486,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P139",
       "kind": "proposition",
       "label": null,
-      "line": 2563,
-      "proof_line": 2567,
+      "line": 2673,
+      "proof_line": 2677,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2507,14 +2507,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C105",
       "kind": "corollary",
       "label": null,
-      "line": 2595,
+      "line": 2706,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2528,14 +2528,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R135",
       "kind": "remark",
       "label": null,
-      "line": 2600,
+      "line": 2712,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2544,7 +2544,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2617",
+          "anchor": "proof@2730",
           "hash": "167175e517054485cc259f54fefb44475f66eb227430bf435e11c81afc4cb519"
         },
         "informal_statement": {
@@ -2552,14 +2552,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-L101",
       "kind": "lemma",
       "label": "LIGlobSubstOp",
-      "line": 2608,
-      "proof_line": 2617,
+      "line": 2721,
+      "proof_line": 2730,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2573,14 +2573,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C106",
       "kind": "corollary",
       "label": null,
-      "line": 2664,
+      "line": 2778,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2594,14 +2594,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D136",
       "kind": "definition",
       "label": null,
-      "line": 2679,
+      "line": 2794,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2610,7 +2610,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2715",
+          "anchor": "proof@2831",
           "hash": "6cdc1bd46cc08b826ad648ef7e487c561fcc6a4903f690268740b3c8b5e6160a"
         },
         "informal_statement": {
@@ -2618,14 +2618,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P140",
       "kind": "proposition",
       "label": null,
-      "line": 2708,
-      "proof_line": 2715,
+      "line": 2824,
+      "proof_line": 2831,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2639,14 +2639,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R136",
       "kind": "remark",
       "label": null,
-      "line": 2769,
+      "line": 2886,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2660,14 +2660,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C107",
       "kind": "corollary",
       "label": null,
-      "line": 2783,
+      "line": 2901,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2681,14 +2681,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D137",
       "kind": "definition",
       "label": null,
-      "line": 2791,
+      "line": 2910,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2702,14 +2702,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R137",
       "kind": "remark",
       "label": null,
-      "line": 2803,
+      "line": 2923,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2723,14 +2723,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A105",
       "kind": "assumption",
       "label": null,
-      "line": 2816,
+      "line": 2937,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2747,14 +2747,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P141",
       "kind": "proposition",
       "label": "PRecSubs",
-      "line": 2821,
-      "proof_line": 2828,
+      "line": 2943,
+      "proof_line": 2950,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2768,14 +2768,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C108",
       "kind": "corollary",
       "label": "CRecSubs",
-      "line": 2921,
+      "line": 3044,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2784,7 +2784,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@2932",
+          "anchor": "proof@3056",
           "hash": "0132eed258673167ece493c336f7ae818e1ee51dc246ecf172cfc3731eb0369b"
         },
         "informal_statement": {
@@ -2792,14 +2792,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-C109",
       "kind": "corollary",
       "label": "CRecOp",
-      "line": 2928,
-      "proof_line": 2932,
+      "line": 3052,
+      "proof_line": 3056,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2813,14 +2813,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C110",
       "kind": "corollary",
       "label": null,
-      "line": 2936,
+      "line": 3061,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2834,14 +2834,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D138",
       "kind": "definition",
       "label": null,
-      "line": 2950,
+      "line": 3076,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "$z$-iteration of $L$"
     },
     {
@@ -2855,14 +2855,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R138",
       "kind": "remark",
       "label": null,
-      "line": 2962,
+      "line": 3089,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2876,14 +2876,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A106",
       "kind": "assumption",
       "label": null,
-      "line": 2968,
+      "line": 3096,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2900,14 +2900,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P142",
       "kind": "proposition",
       "label": null,
-      "line": 2972,
-      "proof_line": 2976,
+      "line": 3101,
+      "proof_line": 3105,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2921,14 +2921,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D139",
       "kind": "definition",
       "label": null,
-      "line": 3061,
+      "line": 3191,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2942,14 +2942,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A107",
       "kind": "assumption",
       "label": null,
-      "line": 3072,
+      "line": 3203,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2958,7 +2958,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@3080",
+          "anchor": "proof@3212",
           "hash": "3396f2676b7a87981105819a4a2ad0c5d88d6c3b81cb6290421b5e78f97d3316"
         },
         "informal_statement": {
@@ -2966,14 +2966,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P143",
       "kind": "proposition",
       "label": "PRecQ",
-      "line": 3076,
-      "proof_line": 3080,
+      "line": 3208,
+      "proof_line": 3212,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -2987,14 +2987,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D140",
       "kind": "definition",
       "label": null,
-      "line": 3111,
+      "line": 3244,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3008,14 +3008,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R139",
       "kind": "remark",
       "label": null,
-      "line": 3115,
+      "line": 3249,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3029,14 +3029,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R140",
       "kind": "remark",
       "label": null,
-      "line": 3262,
+      "line": 3397,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3050,14 +3050,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D141",
       "kind": "definition",
       "label": null,
-      "line": 3284,
+      "line": 3420,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "many-sorted signature"
     },
     {
@@ -3071,14 +3071,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D142",
       "kind": "definition",
       "label": null,
-      "line": 3290,
+      "line": 3427,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "hyperderivor from"
     },
     {
@@ -3092,14 +3092,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R141",
       "kind": "remark",
       "label": null,
-      "line": 3297,
+      "line": 3435,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "hyperderivor"
     },
     {
@@ -3113,14 +3113,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R142",
       "kind": "remark",
       "label": null,
-      "line": 3303,
+      "line": 3442,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3129,7 +3129,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@3318",
+          "anchor": "proof@3458",
           "hash": "38060124cebf576940dbb9f21b3b2de59fc5b6382da49fc9100261a96f3c38dc"
         },
         "informal_statement": {
@@ -3137,14 +3137,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P144",
       "kind": "proposition",
       "label": null,
-      "line": 3314,
-      "proof_line": 3318,
+      "line": 3454,
+      "proof_line": 3458,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3158,14 +3158,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D143",
       "kind": "definition",
       "label": null,
-      "line": 3344,
+      "line": 3485,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "tree homomorphism"
     },
     {
@@ -3174,7 +3174,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@3415",
+          "anchor": "proof@3557",
           "hash": "72f60729384935db1452b11840e47852186a1346ca0ba2f9ea81a8613c4abfe9"
         },
         "informal_statement": {
@@ -3182,14 +3182,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P145",
       "kind": "proposition",
       "label": "IndAlgStrucImHom",
-      "line": 3411,
-      "proof_line": 3415,
+      "line": 3553,
+      "proof_line": 3557,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3198,7 +3198,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@3489",
+          "anchor": "proof@3632",
           "hash": "40f9ffcf9974ce2fd8a22ccb7ab7c400b02942f8b345b0c998ee0fc3925db3b6"
         },
         "informal_statement": {
@@ -3206,14 +3206,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P146",
       "kind": "proposition",
       "label": "PRecH",
-      "line": 3485,
-      "proof_line": 3489,
+      "line": 3628,
+      "proof_line": 3632,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3227,14 +3227,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A108",
       "kind": "assumption",
       "label": null,
-      "line": 3495,
+      "line": 3639,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3251,14 +3251,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P147",
       "kind": "proposition",
       "label": "PRecLH",
-      "line": 3499,
-      "proof_line": 3503,
+      "line": 3644,
+      "proof_line": 3648,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3272,14 +3272,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C111",
       "kind": "corollary",
       "label": null,
-      "line": 3627,
+      "line": 3773,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3293,14 +3293,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P148",
       "kind": "proposition",
       "label": null,
-      "line": 3633,
+      "line": 3780,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3314,14 +3314,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-C112",
       "kind": "corollary",
       "label": null,
-      "line": 3675,
+      "line": 3823,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3335,14 +3335,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R143",
       "kind": "remark",
       "label": null,
-      "line": 3679,
+      "line": 3828,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3356,14 +3356,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D144",
       "kind": "definition",
       "label": null,
-      "line": 3905,
+      "line": 4055,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "Hall algebra for"
     },
     {
@@ -3377,14 +3377,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R144",
       "kind": "remark",
       "label": null,
-      "line": 3986,
+      "line": 4137,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3398,14 +3398,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P149",
       "kind": "proposition",
       "label": null,
-      "line": 3998,
+      "line": 4150,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "Hall algebra for"
     },
     {
@@ -3419,14 +3419,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R145",
       "kind": "remark",
       "label": null,
-      "line": 4019,
+      "line": 4172,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3440,14 +3440,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P150",
       "kind": "proposition",
       "label": null,
-      "line": 4025,
+      "line": 4179,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "Hall algebra for"
     },
     {
@@ -3461,14 +3461,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R146",
       "kind": "remark",
       "label": null,
-      "line": 4064,
+      "line": 4219,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3482,14 +3482,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P151",
       "kind": "proposition",
       "label": null,
-      "line": 4068,
+      "line": 4224,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3503,14 +3503,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D145",
       "kind": "definition",
       "label": null,
-      "line": 4084,
+      "line": 4241,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "derived"
     },
     {
@@ -3524,14 +3524,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R147",
       "kind": "remark",
       "label": null,
-      "line": 4103,
+      "line": 4261,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3540,7 +3540,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@4117",
+          "anchor": "proof@4276",
           "hash": "74ca3a0eb43fd8d5398af76f09732167d02fc19e780a1dd67b87bb0d32c8ffc5"
         },
         "informal_statement": {
@@ -3548,14 +3548,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-L102",
       "kind": "lemma",
       "label": "L:aux",
-      "line": 4108,
-      "proof_line": 4117,
+      "line": 4267,
+      "proof_line": 4276,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3564,7 +3564,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@4213",
+          "anchor": "proof@4373",
           "hash": "75aa4c81c6e99680b000747903f6501cdca8dbc348e7a7dfdc637e5c4d8c05cc"
         },
         "informal_statement": {
@@ -3572,14 +3572,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P152",
       "kind": "proposition",
       "label": "iso:FrH-TerH",
-      "line": 4209,
-      "proof_line": 4213,
+      "line": 4369,
+      "proof_line": 4373,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3593,14 +3593,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D146",
       "kind": "definition",
       "label": null,
-      "line": 4311,
+      "line": 4472,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "derivor"
     },
     {
@@ -3614,14 +3614,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R148",
       "kind": "remark",
       "label": null,
-      "line": 4319,
+      "line": 4481,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3635,14 +3635,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D147",
       "kind": "definition",
       "label": null,
-      "line": 4333,
+      "line": 4496,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "linear"
     },
     {
@@ -3656,14 +3656,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P153",
       "kind": "proposition",
       "label": null,
-      "line": 4344,
+      "line": 4508,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3677,14 +3677,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D148",
       "kind": "definition",
       "label": null,
-      "line": 4364,
+      "line": 4529,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": "composition"
     },
     {
@@ -3698,14 +3698,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P154",
       "kind": "proposition",
       "label": null,
-      "line": 4398,
+      "line": 4564,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3719,14 +3719,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R149",
       "kind": "remark",
       "label": null,
-      "line": 4402,
+      "line": 4569,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3740,14 +3740,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R150",
       "kind": "remark",
       "label": null,
-      "line": 4415,
+      "line": 4583,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3756,7 +3756,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@4481",
+          "anchor": "proof@4650",
           "hash": "9c5ae72c7c10f67e13d5847ac921ec4f7430b43e3db85d528f7f9c919b096bee"
         },
         "informal_statement": {
@@ -3764,14 +3764,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P155",
       "kind": "proposition",
       "label": null,
-      "line": 4427,
-      "proof_line": 4481,
+      "line": 4596,
+      "proof_line": 4650,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3780,7 +3780,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@4532",
+          "anchor": "proof@4702",
           "hash": "acd22ac33b3b9b13561face14e50a28f319863b262af3cc1515e90149eaeae3c"
         },
         "informal_statement": {
@@ -3788,14 +3788,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P156",
       "kind": "proposition",
       "label": null,
-      "line": 4527,
-      "proof_line": 4532,
+      "line": 4697,
+      "proof_line": 4702,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3809,14 +3809,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-D149",
       "kind": "definition",
       "label": null,
-      "line": 4569,
+      "line": 4740,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3830,14 +3830,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-R151",
       "kind": "remark",
       "label": null,
-      "line": 4575,
+      "line": 4747,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3851,14 +3851,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-P157",
       "kind": "proposition",
       "label": null,
-      "line": 4579,
+      "line": 4752,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3867,7 +3867,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@4589",
+          "anchor": "proof@4763",
           "hash": "2f4023e427de844e907bae169981f56b0a385c36f5294ad43b9a18f88533e463"
         },
         "informal_statement": {
@@ -3875,14 +3875,14 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P158",
       "kind": "proposition",
       "label": null,
-      "line": 4585,
-      "proof_line": 4589,
+      "line": 4759,
+      "proof_line": 4763,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3896,14 +3896,14 @@
         }
       },
       "has_proof": false,
-      "id": null,
+      "id": "B-A109",
       "kind": "assumption",
       "label": null,
-      "line": 4594,
+      "line": 4769,
       "proof_line": null,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     },
     {
@@ -3912,7 +3912,7 @@
       "facets": {
         "explanation": null,
         "informal_proof": {
-          "anchor": "proof@4602",
+          "anchor": "proof@4778",
           "hash": "c814d667dd0b879daa46d59185ca8eaf3a2dba4b2ff2d4df43170e797429edd6"
         },
         "informal_statement": {
@@ -3920,20 +3920,20 @@
         }
       },
       "has_proof": true,
-      "id": null,
+      "id": "B-P159",
       "kind": "proposition",
       "label": null,
-      "line": 4598,
-      "proof_line": 4602,
+      "line": 4774,
+      "proof_line": 4778,
       "scope": null,
       "section": "Recognizable subsets of a free many-sorted algebra",
-      "status": "proposed",
+      "status": "confirmed",
       "term": null
     }
   ],
   "counts": {
-    "confirmed": 6,
-    "proposed": 176
+    "confirmed": 182,
+    "proposed": 0
   },
   "source": "manuscript/MSCong.tex"
 }

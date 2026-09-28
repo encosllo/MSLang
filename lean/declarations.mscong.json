@@ -1,5 +1,5 @@
 {
-  "note": "Block -> Lean declaration map for the MSCong project (manuscript/MSCong.tex). Populated at the M6 pilot for the six-block basic-terms cluster (OpenSpec change add-mscong-correspondence); the full mapping is deferred.",
+  "note": "Block -> Lean declaration map for the MSCong project (manuscript/MSCong.tex). Started at the six-block M6 pilot (OpenSpec change add-mscong-correspondence) and extended to the documented M1-M5 counterparts by add-mscong-full-mapping. Blocks with no Lean formalization are intentionally absent.",
   "blocks": {
     "B-D101": {
       "decls": [
@@ -33,6 +33,91 @@
     "B-P104": {
       "decl": "Mscong.PRecOp",
       "file": "lean/Mscong/BasicTerms.lean"
+    },
+    "B-D118": {
+      "decl": "Mslang.Signature",
+      "file": "lean/Mslang/Algebra.lean"
+    },
+    "B-P106": {
+      "decl": "Mslang.prop_incSat",
+      "file": "lean/Mslang/Prelim.lean"
+    },
+    "B-C102": {
+      "decl": "Mslang.sat_antitone",
+      "file": "lean/Mslang/Prelim.lean"
+    },
+    "B-P107": {
+      "decl": "Mslang.nabla_sat",
+      "file": "lean/Mslang/Prelim.lean"
+    },
+    "B-P109": {
+      "decls": [
+        "Mslang.satSets",
+        "Mslang.satSets_antitone",
+        "Mslang.satSets_fix"
+      ],
+      "file": "lean/Mslang/Prelim.lean"
+    },
+    "B-P110": {
+      "decl": "Mslang.satSetsCABA",
+      "file": "lean/Mslang/Regular.lean"
+    },
+    "B-D135": {
+      "decls": [
+        "Mscong.substHom",
+        "Mscong.subst1",
+        "Mscong.substLang"
+      ],
+      "file": "lean/Mscong/Substitution.lean"
+    },
+    "B-P132": {
+      "decls": [
+        "Mscong.recognizable_union",
+        "Mscong.recognizable_inter",
+        "Mscong.recognizable_compl",
+        "Mscong.recognizable_empty",
+        "Mscong.recognizable_univ"
+      ],
+      "file": "lean/Mscong/Recognizable.lean"
+    },
+    "B-P133": {
+      "decl": "Mscong.recognizableAt_iff",
+      "file": "lean/Mscong/Recognizable.lean"
+    },
+    "B-P135": {
+      "decls": [
+        "Mscong.recognizableAt_empty",
+        "Mscong.recognizableAt_univ"
+      ],
+      "file": "lean/Mscong/Recognizable.lean"
+    },
+    "B-P141": {
+      "decl": "Mscong.PRecSubs",
+      "file": "lean/Mscong/Substitution.lean"
+    },
+    "B-P143": {
+      "decl": "Mscong.PRecQ",
+      "file": "lean/Mscong/Quotient.lean"
+    },
+    "B-P145": {
+      "decls": [
+        "Mscong.cStruct",
+        "Mscong.cAlg",
+        "Mscong.treeHom_isAlgHom"
+      ],
+      "file": "lean/Mscong/TreeHom.lean"
+    },
+    "B-P146": {
+      "decl": "Mscong.PRecH",
+      "file": "lean/Mscong/TreeHom.lean"
+    },
+    "B-P147": {
+      "decl": "Mscong.PRecLH",
+      "file": "lean/Mscong/TreeHom.lean"
+    },
+    "B-L102": {
+      "decl": "Mscong.derivedAlg_eval",
+      "file": "lean/Mscong/Hall.lean"
     }
   }
 }

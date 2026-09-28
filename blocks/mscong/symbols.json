@@ -1,12 +1,24 @@
 {
   "notations": [
     {
-      "candidate_edges": 1,
+      "candidate_edges": 0,
+      "identity": "Alg",
+      "owners": [
+        "B-D119"
+      ],
+      "state": "block",
+      "target": "B-D119",
+      "uses": 11
+    },
+    {
+      "candidate_edges": 0,
       "identity": "Cgr",
-      "owners": [],
-      "state": "unresolved",
-      "target": null,
-      "uses": 1
+      "owners": [
+        "B-D129"
+      ],
+      "state": "block",
+      "target": "B-D129",
+      "uses": 9
     },
     {
       "candidate_edges": 0,
@@ -16,7 +28,7 @@
       ],
       "state": "block",
       "target": "B-D101",
-      "uses": 2
+      "uses": 7
     },
     {
       "candidate_edges": 0,
@@ -26,11 +38,11 @@
       ],
       "state": "block",
       "target": "B-D101",
-      "uses": 1
+      "uses": 3
     },
     {
       "candidate_edges": 1,
-      "identity": "Hom",
+      "identity": "End",
       "owners": [],
       "state": "unresolved",
       "target": null,
@@ -38,7 +50,219 @@
     },
     {
       "candidate_edges": 1,
+      "identity": "Eq",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Eqv",
+      "owners": [
+        "B-D112"
+      ],
+      "state": "block",
+      "target": "B-D112",
+      "uses": 15
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Etl",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Etl_t",
+      "owners": [
+        "B-D130"
+      ],
+      "state": "block",
+      "target": "B-D130",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Fin",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Fix",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Fnc",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "G",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "G_H_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 4,
+      "identity": "H",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 4
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "HS",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 10,
+      "identity": "H_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 10
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "H_T",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Hom",
+      "owners": [
+        "B-D103"
+      ],
+      "state": "block",
+      "target": "B-D103",
+      "uses": 11
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Id",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
       "identity": "Im",
+      "owners": [
+        "B-D108"
+      ],
+      "state": "block",
+      "target": "B-D108",
+      "uses": 6
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "In",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Ker",
+      "owners": [
+        "B-D108"
+      ],
+      "state": "block",
+      "target": "B-D108",
+      "uses": 9
+    },
+    {
+      "candidate_edges": 11,
+      "identity": "Lambda",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 11
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Lemma",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "Mor",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Omega",
+      "owners": [
+        "B-D134"
+      ],
+      "state": "block",
+      "target": "B-D134",
+      "uses": 29
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "Op_H_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Op_H_T",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Op_w",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "P",
       "owners": [],
       "state": "unresolved",
       "target": null,
@@ -52,7 +276,7 @@
       ],
       "state": "block",
       "target": "B-D102",
-      "uses": 1
+      "uses": 13
     },
     {
       "candidate_edges": 1,
@@ -70,15 +294,15 @@
       ],
       "state": "block",
       "target": "B-D102",
-      "uses": 1
+      "uses": 3
     },
     {
-      "candidate_edges": 1,
+      "candidate_edges": 5,
       "identity": "Rec_lf",
       "owners": [],
       "state": "unresolved",
       "target": null,
-      "uses": 1
+      "uses": 5
     },
     {
       "candidate_edges": 0,
@@ -88,35 +312,11 @@
       ],
       "state": "block",
       "target": "B-D102",
-      "uses": 1
-    },
-    {
-      "candidate_edges": 1,
-      "identity": "Sub_f",
-      "owners": [],
-      "state": "unresolved",
-      "target": null,
-      "uses": 1
-    },
-    {
-      "candidate_edges": 1,
-      "identity": "Sub_lf",
-      "owners": [],
-      "state": "unresolved",
-      "target": null,
-      "uses": 1
-    },
-    {
-      "candidate_edges": 3,
-      "identity": "T",
-      "owners": [],
-      "state": "unresolved",
-      "target": null,
-      "uses": 3
+      "uses": 18
     },
     {
       "candidate_edges": 2,
-      "identity": "card",
+      "identity": "Rec_t",
       "owners": [],
       "state": "unresolved",
       "target": null,
@@ -124,7 +324,220 @@
     },
     {
       "candidate_edges": 1,
+      "identity": "Rec_u",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sat",
+      "owners": [
+        "B-D114"
+      ],
+      "state": "block",
+      "target": "B-D114",
+      "uses": 9
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sg",
+      "owners": [
+        "B-D123"
+      ],
+      "state": "block",
+      "target": "B-D123",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 19,
+      "identity": "Sub",
+      "owners": [
+        "B-D106",
+        "B-D122"
+      ],
+      "state": "unresolved",
+      "target": null,
+      "uses": 19
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Sub_f",
+      "owners": [
+        "B-D110"
+      ],
+      "state": "block",
+      "target": "B-D110",
+      "uses": 4
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Sub_lf",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Subt",
+      "owners": [
+        "B-D127"
+      ],
+      "state": "block",
+      "target": "B-D127",
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "T",
+      "owners": [
+        "B-D125"
+      ],
+      "state": "block",
+      "target": "B-D125",
+      "uses": 44
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "T_H_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "T_H_T",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "Ter_H_S",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "Ter_H_T",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Ter_H_U",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "Theta",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 1
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Tl_t",
+      "owners": [
+        "B-D131"
+      ],
+      "state": "block",
+      "target": "B-D131",
+      "uses": 12
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "Var",
+      "owners": [
+        "B-D128"
+      ],
+      "state": "block",
+      "target": "B-D128",
+      "uses": 6
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "W",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "ca",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "card",
+      "owners": [
+        "B-D110"
+      ],
+      "state": "block",
+      "target": "B-D110",
+      "uses": 9
+    },
+    {
+      "candidate_edges": 3,
       "identity": "ch",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 4,
+      "identity": "ch_L",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 4
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "delta",
+      "owners": [
+        "B-D107"
+      ],
+      "state": "block",
+      "target": "B-D107",
+      "uses": 18
+    },
+    {
+      "candidate_edges": 2,
+      "identity": "epi",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 2
+    },
+    {
+      "candidate_edges": 1,
+      "identity": "f",
       "owners": [],
       "state": "unresolved",
       "target": null,
@@ -139,12 +552,28 @@
       "uses": 1
     },
     {
-      "candidate_edges": 1,
+      "candidate_edges": 5,
+      "identity": "id",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 5
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "in",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 5,
       "identity": "lf",
       "owners": [],
       "state": "unresolved",
       "target": null,
-      "uses": 1
+      "uses": 5
     },
     {
       "candidate_edges": 1,
@@ -156,27 +585,59 @@
     },
     {
       "candidate_edges": 1,
-      "identity": "p",
+      "identity": "min",
       "owners": [],
       "state": "unresolved",
       "target": null,
       "uses": 1
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "op",
+      "owners": [],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 3,
+      "identity": "p",
+      "owners": [
+        "B-D112",
+        "B-D129"
+      ],
+      "state": "unresolved",
+      "target": null,
+      "uses": 3
+    },
+    {
+      "candidate_edges": 0,
+      "identity": "pr",
+      "owners": [
+        "B-D129"
+      ],
+      "state": "block",
+      "target": "B-D129",
+      "uses": 10
     },
     {
       "candidate_edges": 1,
-      "identity": "pr",
+      "identity": "sort",
       "owners": [],
       "state": "unresolved",
       "target": null,
       "uses": 1
     },
     {
-      "candidate_edges": 2,
+      "candidate_edges": 12,
       "identity": "supp_S",
-      "owners": [],
+      "owners": [
+        "B-D111",
+        "B-D120"
+      ],
       "state": "unresolved",
       "target": null,
-      "uses": 2
+      "uses": 12
     }
   ],
   "source": "manuscript/MSCong.tex",
