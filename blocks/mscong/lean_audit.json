@@ -64,6 +64,31 @@
       "Quot.sound",
       "propext"
     ],
+    "Mscong.recognizableAt_inter": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_inverseImage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_sdiff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_transPreimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mscong.recognizableAt_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "Mscong.recognizableAt_univ": [
       "Classical.choice",
       "Quot.sound",
@@ -159,7 +184,7 @@
     "unexpected_warnings": [],
     "warnings": []
   },
-  "declarations_audited": 39,
+  "declarations_audited": 44,
   "declared_permitted_axioms": [
     "propext",
     "Classical.choice",

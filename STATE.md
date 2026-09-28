@@ -7671,6 +7671,53 @@ declarations — re-run `lean_audit.py --project mscong` on restart.
 3. Reconcile the representation residuals (R-congruence, R-first); audit the
    six preliminary blocks.
 
+## Session 140 -- 2026-09-28 -- `mscong` Lean gate refresh (close Session 139)
+
+**Goal.** Complete Session 139's deferred shutdown: regenerate the stale
+`blocks/mscong/lean_audit.json` and run one slow `scripts/check_all.sh`.
+
+**What was established (closed).**
+
+- **Full `lake build`** (one process, `ELAN_HOME` unset): *Build completed
+  successfully (8728 jobs)*; the `Mscong` module elaborated in **183 s**. The
+  first `lean_audit.py` attempt exceeded a 15-min shell timeout mid-build; no
+  Mathlib recompilation occurred (0 new Mathlib oleans), so the run resumed and
+  finished from the project oleans.
+- **`python3 scripts/lean_audit.py --project mscong`:** **44 declarations**
+  audited, **0 warnings, 0 unpermitted axioms, 0 `sorry`, ok=True**.
+  `blocks/mscong/lean_audit.json` refreshed (**39 -> 44** declarations; adds the
+  six `Mscong.recognizableAt_*` lemmas from Session 139). Re-confirmed with
+  `lean_audit.py --project mscong --check` (`rc=0`).
+- **Slow `scripts/check_all.sh`:** **53 passed, 0 failed** (mslang). The mscong
+  source-dependent checks (non-ASCII, anchors, importer, cross-refs, schema) all
+  PASS. Tree: only `blocks/mscong/lean_audit.json` changed.
+
+**Finding (gate coverage gap; documented, not changed).**
+
+- The slow tier's Lean check (`check_all.sh:149`) runs `lean_audit.py --check`
+  **without `--project`**, so it validates only the default `mslang` audit; the
+  `mscong` Lean artifacts (`blocks/mscong/lean_audit.json`, and the mscong formal
+  facets via `lean_facets.py --check` at `check_all.sh:115`) are **outside
+  `check_all`**. They are currently correct (verified manually this session), but
+  nothing in the gate would catch `mscong` Lean-artifact drift. Closing it means
+  running the (expensive) audit/facet checks once per project, which changes the
+  Architecture Section 15.6 cost model; flagged for the coordinator rather than
+  changed unilaterally.
+
+**Disk note.** Free space read 1.3 GiB at the start (Mathlib oleans 5.9 GiB in
+`lean/.lake`); APFS purgeable space reclaimed to **12 GiB** once the build's
+scratch was released. No manual deletion was needed.
+
+**Prioritized next steps.**
+
+1. Author decision on the two `formal_weaker` findings (`B-P132`, `B-P135`):
+   extend the declaration map (parts 3-4 / 2-4) or accept the finite-support
+   discrepancy (Sessions 138-139).
+2. Reconcile the representation residuals (R-congruence, R-first); optionally
+   audit the six preliminary blocks against their reused `Mslang` declarations.
+3. (Coordinator) Decide whether the slow gate should validate `mscong`'s Lean
+   artifacts; if so, that is an Architecture Section 15.6 revision.
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before
