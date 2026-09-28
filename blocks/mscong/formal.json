@@ -304,7 +304,12 @@
     "B-P135": {
       "decls": [
         "Mscong.recognizableAt_empty",
-        "Mscong.recognizableAt_univ"
+        "Mscong.recognizableAt_univ",
+        "Mscong.recognizableAt_union",
+        "Mscong.recognizableAt_inter",
+        "Mscong.recognizableAt_sdiff",
+        "Mscong.recognizableAt_transPreimage",
+        "Mscong.recognizableAt_inverseImage"
       ],
       "definition_closure": {
         "decls": [
@@ -312,17 +317,24 @@
           "Mscong.RecognizableAt",
           "Mscong.recognizableAt_iff",
           "Mscong.recognizable_empty",
+          "Mscong.recognizable_inter",
+          "Mscong.recognizable_inverseImage",
+          "Mscong.recognizable_transPreimage",
+          "Mscong.recognizable_union",
           "Mslang.IsFiniteIndex",
-          "Mslang.Signature"
+          "Mslang.IsFiniteIndex_inf",
+          "Mslang.IsFiniteIndex_of_le",
+          "Mslang.Signature",
+          "Mslang.sat_antitone"
         ],
-        "hash": "56ae32d5c765a10a0f705fc4244666b0064d29a19400bb341015d2a569b15a19"
+        "hash": "d840cd0b5ff2589385156150bae2f17d606ab0fe1098c60a080b64d2590eef3c"
       },
       "file": "lean/Mscong/Recognizable.lean",
       "formal_proof": {
-        "hash": "1a672f03759f99b854c981cb5749abd7342d2a38249f54840106b86fe6c437a2"
+        "hash": "2afba3231edfd2f0358d4b703fa66d38c7d52b775c29ed71d74034a1d1a9b28a"
       },
       "formal_statement": {
-        "hash": "f8d1f975d15a534307d72d3e462122896c5216ae25270e14ea6cf2b7c1f1ac0b"
+        "hash": "041cc771cf74e0d5d263b57eefbd1660f2653ce82f44b2beab4359ee5f96c16e"
       }
     },
     "B-P141": {

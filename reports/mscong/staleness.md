@@ -8,7 +8,7 @@ record is **superseded** when a current record names it through
 `supersedes`; otherwise it is **awaiting** re-audit. Only awaiting
 records represent outstanding work.
 
-18 of 18 record(s) are stale (0 superseded, 18 awaiting):
+19 of 19 record(s) are stale (0 superseded, 19 awaiting):
 
 | record | block | layer | class | stale inputs |
 |---|---|---|---|---|
@@ -22,7 +22,7 @@ records represent outstanding work.
 | E-900008 | `B-P104` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900009 | `B-P132` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900010 | `B-P133` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
-| E-900011 | `B-P135` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900011 | `B-P135` | correspondence | awaiting | B-P135/definition_closure: recorded 56ae32d5c765... now d840cd0b5ff2...<br>B-P135/formal_statement: recorded f8d1f975d15a... now 041cc771cf74...<br>representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900012 | `B-D135` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900013 | `B-P141` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900014 | `B-P143` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
@@ -30,3 +30,4 @@ records represent outstanding work.
 | E-900016 | `B-P146` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900017 | `B-P147` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
 | E-900018 | `B-L102` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |
+| E-900019 | `B-P135` | correspondence | awaiting | representation/encoding: recorded 5fc525d09e3b... now 96171838ac26... |

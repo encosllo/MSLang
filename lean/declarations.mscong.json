@@ -89,7 +89,12 @@
     "B-P135": {
       "decls": [
         "Mscong.recognizableAt_empty",
-        "Mscong.recognizableAt_univ"
+        "Mscong.recognizableAt_univ",
+        "Mscong.recognizableAt_union",
+        "Mscong.recognizableAt_inter",
+        "Mscong.recognizableAt_sdiff",
+        "Mscong.recognizableAt_transPreimage",
+        "Mscong.recognizableAt_inverseImage"
       ],
       "file": "lean/Mscong/Recognizable.lean"
     },

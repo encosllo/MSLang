@@ -7632,6 +7632,45 @@ representation residuals (R-congruence, R-first) still propagate.
 3. Optionally audit the preliminary blocks against their reused `Mslang`
    declarations.
 
+## Session 139 -- 2026-09-28 -- sort-level closure lemmas (close the `B-P135` gap)
+
+**Goal.** Item 1a of Session 138: add the missing sort-level Boolean-closure
+parts so the `B-P135` (`Rec s is Bool`) correspondence is complete.
+
+**What was established (closed).**
+
+- **`lean/Mscong/Recognizable.lean`** gained the sort-level closure lemmas
+  `recognizableAt_union`, `_inter`, `_compl`, `_sdiff`, `_transPreimage`,
+  `_inverseImage`, derived from the full-level closure via the `deltaSub`
+  identities (`deltaSub_union/inter/sdiff`) and `recognizableAt_iff`. Targeted
+  `lake build Mscong.Recognizable`: **clean, 0 errors, 0 warnings**.
+- **`B-P135` mapping** extended to all seven clauses; `lean_facets.py --project
+  mscong`: 22 blocks, 40 formal edges.
+- **Re-audit `B-P135`:** verdict **`formal_weaker`**, now *narrow* — the seven
+  clauses cover all four manuscript parts, and the sole remaining gap is the
+  support-finite hypothesis on empty/universe/difference (clauses 1, 2, 5).
+  Record **`E-900019` supersedes `E-900011`**. The formalizer's note argues the
+  hypothesis is **necessary** (a finite recognizing algebra forces
+  `supp(A) ⊆ supp(B)`), so the manuscript's unconditional part (1) holds only
+  for finite `S`; this matches the `B-P132` finding.
+- Journal `EV-000163`; views/bundle regenerated; fast gate **50 passed, 0
+  failed**.
+
+**Deferred / not finished at shutdown.** The **full `python3
+scripts/lean_audit.py --project mscong`** and the **slow `scripts/check_all.sh`**
+were not completed (the audit run exceeded the shell timeout); the fast gate is
+green, but `blocks/mscong/lean_audit.json` is **stale** w.r.t. the six new
+declarations — re-run `lean_audit.py --project mscong` on restart.
+
+**Prioritized next steps.**
+
+1. Re-run `python3 scripts/lean_audit.py --project mscong` and one slow
+   `scripts/check_all.sh`.
+2. Author decision on the two remaining `formal_weaker` findings (`B-P132`,
+   `B-P135`): the finite-support correction to `Rec is Bool`/`Rec s is Bool`.
+3. Reconcile the representation residuals (R-congruence, R-first); audit the
+   six preliminary blocks.
+
 **Safe-restart checklist (run before touching anything).**
 
 1. `git status` and `git log --oneline -10`; reconcile any dirty tree before

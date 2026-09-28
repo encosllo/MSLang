@@ -10,11 +10,11 @@ repository.
 | artifact | sha256 |
 |---|---|
 | `blocks/discrepancy_decisions.json` | `0f4892d9eee5bb9ae61f8cffa1601d43f543748e13579687857e4048ed46155f` |
-| `blocks/mscong/formal.json` | `eded4b7173ee4123bd0b5a915e777868f6314d7141aa4604a98bcdf7be77650f` |
+| `blocks/mscong/formal.json` | `6d82c1e9ae3c84539fe986e034fa0dbcea15f9d0ab4ba28e6fe7fc9f1cfa2021` |
 | `blocks/mscong/formal_graph.json` | `26d73224448b6e3f6580e51b4d514183d8607afdb6afa0f4b979f0765ad5a566` |
 | `blocks/mscong/graph.json` | `2a7604d02785b7757d1da885c2f6924bf33216d3be6f0a8af03ae9e7d32d34ef` |
 | `blocks/mscong/hashes.json` | `db4b0d1336309b64490c5c9354d1eff4c0ae31aa0f8bd6f4ed3d98f728295b47` |
-| `blocks/mscong/lean_audit.json` | `915c4a0a6ad1267f730860ab8d3c7ec36e1b8db446628d4b118167e45dd1c6a3` |
+| `blocks/mscong/lean_audit.json` | `275795a7282a6b709b19a52b38e9a2d316bd54a7a6fb9d8d2895062f43f02258` |
 | `blocks/mscong/registry.json` | `743b75918fe7d38d059461f1377d262a1f681ffb96831ae2c04bb3f6800f0f27` |
 | `blocks/notation.json` | `98942d23d2a6880f6e6cdf151874e56542a6378ece1364f192df60969dfe9891` |
 | `blocks/ranking.json` | `7461d0ee3726098fc826ffc2f18c157d9da65c49a57fda74eaaee378780cf826` |
@@ -44,6 +44,7 @@ repository.
 | `evidence/mscong/E-900016.json` | `16237cf94daf6a88d924e3585570d70dc5a31f63d65690640e1894d2dc7bb739` |
 | `evidence/mscong/E-900017.json` | `626c5ec37a4d35fba5d3900f23382ea1cdbbc5c8c9978ad48c00d4c75ae8ed3f` |
 | `evidence/mscong/E-900018.json` | `641cdb14891c04ff4d66a677c26861a2ce86120164fabdb47f65d85ad1a324ce` |
+| `evidence/mscong/E-900019.json` | `7313aee58e1f3501b82f2f1953edf9cb1e7731d0d1744a1e8b96f9af992e7681` |
 | `journal/mscong.jsonl` | `7136a3de041eac4803ef929c9c68368396a186b144c968dca3419cae1b0614be` |
 | `lean/lake-manifest.json` | `a5fa2c6403ef772b4cc00f174c0e53dc996a20084c47d1970f383cdd7df1948a` |
 | `lean/lean-toolchain` | `3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71` |
@@ -65,7 +66,7 @@ repository.
 | `B-P104` | correspondence | stale | 0 | 2 |
 | `B-P132` | correspondence | stale | 0 | 1 |
 | `B-P133` | correspondence | stale | 0 | 1 |
-| `B-P135` | correspondence | stale | 0 | 1 |
+| `B-P135` | correspondence | stale | 0 | 2 |
 | `B-P141` | correspondence | stale | 0 | 1 |
 | `B-P143` | correspondence | stale | 0 | 1 |
 | `B-P145` | correspondence | stale | 0 | 1 |
@@ -1399,6 +1400,82 @@ repository.
 }
 ```
 
+### E-900019
+
+```json
+{
+  "block": "B-P135",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900019",
+  "findings": [
+    "formal_weaker, narrow: after adding recognizableAt_union/inter/sdiff/transPreimage/inverseImage the seven clauses cover all four manuscript parts (1)-(4); the only remaining gap is that clauses (1),(2),(5) add a support-finite hypothesis the manuscript omits. The formalizer's note records that this hypothesis is necessary (a finite recognizing algebra forces supp(A) finite), so the manuscript's unconditional part (1) needs finite S. Transcript: blocks/mscong/audits/B-P135-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D103/informal_statement",
+      "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+    },
+    {
+      "artifact": "B-D130/informal_statement",
+      "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+    },
+    {
+      "artifact": "B-D131/informal_statement",
+      "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+    },
+    {
+      "artifact": "B-P135/definition_closure",
+      "hash": "d840cd0b5ff2589385156150bae2f17d606ab0fe1098c60a080b64d2590eef3c"
+    },
+    {
+      "artifact": "B-P135/formal_statement",
+      "hash": "041cc771cf74e0d5d263b57eefbd1660f2653ce82f44b2beab4359ee5f96c16e"
+    },
+    {
+      "artifact": "B-P135/informal_statement",
+      "hash": "5f3f667e32064451d9882253df2e4a44e61dfa154ddb048ebcec351bc6551ed7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "remap",
+  "strength": "R3",
+  "supersedes": "E-900011",
+  "timestamp": "2026-09-28T08:05:36Z"
+}
+```
+
 ## reports/mscong/coverage.md
 
 # Coverage report (Section 19)
@@ -1410,7 +1487,7 @@ Generated by `scripts/report.py` from `blocks/registry.json`,
 
 - Blocks in registry: 182
 - Blocks with any evidence: 15
-- Evidence records: 18
+- Evidence records: 19
 - Representations declared: 1
 
 Derived block status (Section 8.2) is **not asserted** here: the

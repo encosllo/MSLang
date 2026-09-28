@@ -405,4 +405,74 @@ theorem recognizable_inverseImage (Sig : Signature S) (A B : Alg Sig)
   exact IsFiniteIndex_of_le (pullbackEqv_congCogenerated_le Sig hf M)
     (isFiniteIndex_pullback f (congCogenerated Sig B M) hM)
 
+/-! ### Sort-level Boolean closure (`Rec s is Bool`)
+
+The sort-level counterparts of the Boolean closure above, obtained from the
+full-level results through the Kronecker bridge `recognizableAt_iff` and the
+`deltaSub` identities (`MSCong` Prop. `Rec s is Bool`). Parts (2)--(4) are
+those the paper states for `Rec_s(A)`. -/
+
+/-- `Rec_s(A)` is closed under binary union (`Rec s is Bool`(2)). -/
+theorem recognizableAt_union (Sig : Signature S) (A : Alg Sig) (s : S)
+    {K L : Set (A.1 s)} (hK : RecognizableAt Sig A s K) (hL : RecognizableAt Sig A s L) :
+    RecognizableAt Sig A s (K ∪ L) := by
+  rw [recognizableAt_iff] at hK hL ⊢
+  rw [deltaSub_union]
+  exact recognizable_union Sig A hK hL
+
+/-- `Rec_s(A)` is closed under binary intersection (`Rec s is Bool`(2)). -/
+theorem recognizableAt_inter (Sig : Signature S) (A : Alg Sig) (s : S)
+    {K L : Set (A.1 s)} (hK : RecognizableAt Sig A s K) (hL : RecognizableAt Sig A s L) :
+    RecognizableAt Sig A s (K ∩ L) := by
+  rw [recognizableAt_iff] at hK hL ⊢
+  rw [deltaSub_inter]
+  exact recognizable_inter Sig A hK hL
+
+/-- `Rec_s(A)` is closed under relative complement, for an algebra of finite
+support (`Rec s is Bool`(2); cf. `recognizable_empty`). -/
+theorem recognizableAt_compl (Sig : Signature S) (A : Alg Sig) (s : S) {L : Set (A.1 s)}
+    (hL : RecognizableAt Sig A s L) (hfin : (supp A.1).Finite) :
+    RecognizableAt Sig A s (Lᶜ) := by
+  rw [recognizableAt_iff] at hL ⊢
+  have huniv : Recognizable Sig A (deltaSub s (Set.univ : Set (A.1 s))) :=
+    (recognizableAt_iff Sig A s Set.univ).mp (recognizableAt_univ Sig A s hfin)
+  have h := recognizable_inter Sig A huniv (recognizable_compl Sig A hL)
+  convert h using 1
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu; simp [Sub_inter, complA, deltaSub]
+  · simp [Sub_inter, complA, deltaSub, Function.update_of_ne hu]
+
+/-- `Rec_s(A)` is closed under relative difference, for an algebra of finite
+support (`Rec s is Bool`(2)). -/
+theorem recognizableAt_sdiff (Sig : Signature S) (A : Alg Sig) (s : S) {K L : Set (A.1 s)}
+    (hK : RecognizableAt Sig A s K) (hL : RecognizableAt Sig A s L)
+    (hfin : (supp A.1).Finite) : RecognizableAt Sig A s (K \ L) := by
+  have h := recognizableAt_inter Sig A s hK (recognizableAt_compl Sig A s hL hfin)
+  convert h using 1
+  ext x
+  simp
+
+/-- `Rec_s(A)` is closed under translation preimages (`Rec s is Bool`(3)). -/
+theorem recognizableAt_transPreimage (Sig : Signature S) (A : Alg Sig) {t s : S}
+    {T : A.1 t → A.1 s} (hT : TlGen Sig A t s T) {L : Set (A.1 s)}
+    (hL : RecognizableAt Sig A s L) : RecognizableAt Sig A t (T ⁻¹' L) := by
+  rw [recognizableAt_iff] at hL ⊢
+  simpa [transPreimage, deltaSub_self] using recognizable_transPreimage Sig A hT hL
+
+/-- `Rec_s(A)` is closed under inverse images along homomorphisms
+(`Rec s is Bool`(4)). -/
+theorem recognizableAt_inverseImage (Sig : Signature S) (A B : Alg Sig)
+    {f : SortedMap A.1 B.1} (hf : IsAlgHom Sig A.2 B.2 f) (s : S) {M : Set (B.1 s)}
+    (hM : RecognizableAt Sig B s M) : RecognizableAt Sig A s (f s ⁻¹' M) := by
+  rw [recognizableAt_iff] at hM ⊢
+  have h := recognizable_inverseImage Sig A B hf hM
+  convert h using 1
+  classical
+  funext u
+  by_cases hu : u = s
+  · subst hu; simp [inverseImage, deltaSub]
+  · simp [inverseImage, deltaSub, Function.update_of_ne hu]
+
 end Mscong

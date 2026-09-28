@@ -1,0 +1,71 @@
+{
+  "block": "B-P135",
+  "environment": {
+    "lean": "leanprover/lean4:v4.33.1",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence_id": "E-900019",
+  "findings": [
+    "formal_weaker, narrow: after adding recognizableAt_union/inter/sdiff/transPreimage/inverseImage the seven clauses cover all four manuscript parts (1)-(4); the only remaining gap is that clauses (1),(2),(5) add a support-finite hypothesis the manuscript omits. The formalizer's note records that this hypothesis is necessary (a finite recognizing algebra forces supp(A) finite), so the manuscript's unconditional part (1) needs finite S. Transcript: blocks/mscong/audits/B-P135-correspondence.md."
+  ],
+  "independence": {
+    "class": "same_model",
+    "stages": [
+      {
+        "model": "claude-sonnet-5",
+        "role": "read-back"
+      },
+      {
+        "model": "claude-sonnet-5",
+        "role": "comparison"
+      }
+    ]
+  },
+  "independence_caveat": "Two-stage blind protocol (Section 11.2): stage 1 (read-back) saw only the Lean declarations and definitions; stage 2 (comparison) saw only the read-back and the contract. All stages share the model family claude, so common blind spots are not excluded.",
+  "inputs": [
+    {
+      "artifact": "B-D102/informal_statement",
+      "hash": "1d7492bceb0007b1b56808e2b6d61881018042667639227014617d8b8c53d1ad"
+    },
+    {
+      "artifact": "B-D103/informal_statement",
+      "hash": "27f10221d44efa756e40d6a717fe2522b5032805475d82145dc21852b898c53f"
+    },
+    {
+      "artifact": "B-D130/informal_statement",
+      "hash": "de5c497c45a3e23328578a44d20eb78eb2b78d777a249b4bc05b981761289f64"
+    },
+    {
+      "artifact": "B-D131/informal_statement",
+      "hash": "03358b009a95fc72aba3e519b0c5f5d993f44653f12cdd5c70fc1a1d33cf1955"
+    },
+    {
+      "artifact": "B-P135/definition_closure",
+      "hash": "d840cd0b5ff2589385156150bae2f17d606ab0fe1098c60a080b64d2590eef3c"
+    },
+    {
+      "artifact": "B-P135/formal_statement",
+      "hash": "041cc771cf74e0d5d263b57eefbd1660f2653ce82f44b2beab4359ee5f96c16e"
+    },
+    {
+      "artifact": "B-P135/informal_statement",
+      "hash": "5f3f667e32064451d9882253df2e4a44e61dfa154ddb048ebcec351bc6551ed7"
+    },
+    {
+      "artifact": "representation/encoding",
+      "hash": "5fc525d09e3b685e6fcbd41b45cdbf601db54d6d141eef23d65967e742889d60"
+    }
+  ],
+  "layer": "correspondence",
+  "outcome": "formal_weaker",
+  "producer": {
+    "kind": "agent",
+    "model": "claude-sonnet-5",
+    "prompt_rev": "",
+    "role": "comparator"
+  },
+  "reissue_reason": "remap",
+  "strength": "R3",
+  "supersedes": "E-900011",
+  "timestamp": "2026-09-28T08:05:36Z"
+}
